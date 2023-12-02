@@ -1,127 +1,101 @@
 package com.baidu.tieba;
 
+import android.text.SpannableString;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Map;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class a57 implements nb7<a57> {
+public final class a57 extends z47 implements PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k87 a;
-    public final uz4 b;
+    public final b57 g;
+    public final String h;
+    public final SpannableString i;
+    public final k67 j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947566246, "Lcom/baidu/tieba/a57;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947566246, "Lcom/baidu/tieba/a57;");
-        }
-    }
-
-    @Override // com.baidu.tieba.nb7
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "card_vote" : (String) invokeV.objValue;
-    }
-
-    public a57 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (a57) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof a57) {
-                a57 a57Var = (a57) obj;
-                return Intrinsics.areEqual(this.a, a57Var.a) && Intrinsics.areEqual(this.b, a57Var.b);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            uz4 uz4Var = this.b;
-            return hashCode + (uz4Var == null ? 0 : uz4Var.hashCode());
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "CardVoteUiState(voteData=" + this.a + ", voteSchemeData=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public a57(k87 voteData, uz4 uz4Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a57(b57 cardVideoUiState, String topRightText, SpannableString bottomText, k67 downloadData) {
+        super(null, null, null, null, 15, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {voteData, uz4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r3;
+            Object[] objArr = {cardVideoUiState, topRightText, bottomText, downloadData};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Map) objArr2[0], (Map) objArr2[1], (Function2) objArr2[2], (Function1) objArr2[3], ((Integer) objArr2[4]).intValue(), (DefaultConstructorMarker) objArr2[5]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(voteData, "voteData");
-        this.a = voteData;
-        this.b = uz4Var;
+        Intrinsics.checkNotNullParameter(cardVideoUiState, "cardVideoUiState");
+        Intrinsics.checkNotNullParameter(topRightText, "topRightText");
+        Intrinsics.checkNotNullParameter(bottomText, "bottomText");
+        Intrinsics.checkNotNullParameter(downloadData, "downloadData");
+        this.g = cardVideoUiState;
+        this.h = topRightText;
+        this.i = bottomText;
+        this.j = downloadData;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.nb7
-    public /* bridge */ /* synthetic */ a57 b() {
-        c();
-        return this;
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g.getImages();
+        }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final k87 d() {
+    public final SpannableString l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return (SpannableString) invokeV.objValue;
+    }
+
+    public final b57 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return (b57) invokeV.objValue;
+    }
+
+    public final k67 n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+            return this.j;
         }
-        return (k87) invokeV.objValue;
+        return (k67) invokeV.objValue;
     }
 
-    public final uz4 e() {
+    public final String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+            return this.h;
         }
-        return (uz4) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

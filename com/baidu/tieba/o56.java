@@ -1,107 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-@Service
 /* loaded from: classes7.dex */
-public final class o56 extends ka {
+public class o56 extends fg1<tg0> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947983289, "Lcom/baidu/tieba/o56;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947983289, "Lcom/baidu/tieba/o56;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    @Override // com.baidu.tieba.ka
-    public void changeSettingByType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Possible override for method com.baidu.tieba.ka.getCrashKeys()[Ljava/lang/String; */
-    public Void getCrashKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (Void) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ka
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ka
-    public int getMaxCrashTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 10;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ka
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "12.48_open_screen_show_timeout_switch" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ka
-    public int getOffType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     /* loaded from: classes7.dex */
-    public static final class a {
+    public class a implements tg0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        @Override // com.baidu.tieba.tg0
+        public boolean a(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
-        public a() {
+        @Override // com.baidu.tieba.tg0
+        public ViewGroup b(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+                return null;
+            }
+            return (ViewGroup) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.tg0
+        public void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.tg0
+        public void e(Activity activity, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048580, this, activity, j) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.tg0
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.drawable.tb_launcher_icon : invokeV.intValue;
+        }
+
+        public a(o56 o56Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o56Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -112,14 +77,33 @@ public final class o56 extends ka {
             }
         }
 
-        @JvmStatic
-        public final int a() {
+        @Override // com.baidu.tieba.tg0
+        public xh0 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return SwitchManager.getInstance().findType("12.48_open_screen_show_timeout_switch");
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                xh0 xh0Var = new xh0();
+                xh0Var.a = R.layout.obfuscated_res_0x7f0d0072;
+                xh0Var.b = R.id.obfuscated_res_0x7f09010b;
+                xh0Var.c = R.id.obfuscated_res_0x7f090109;
+                xh0Var.d = R.id.obfuscated_res_0x7f09010c;
+                xh0Var.e = R.id.obfuscated_res_0x7f09010a;
+                return xh0Var;
             }
-            return invokeV.intValue;
+            return (xh0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.tg0
+        public boolean isMainActivity(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
+                if (activity == null || TextUtils.isEmpty(activity.getClass().getSimpleName()) || !"MainTabActivity".equals(activity.getClass().getSimpleName())) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -127,19 +111,25 @@ public final class o56 extends ka {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ka
-    /* renamed from: getCrashKeys */
-    public /* bridge */ /* synthetic */ String[] mo131getCrashKeys() {
-        return (String[]) getCrashKeys();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fg1
+    /* renamed from: a */
+    public tg0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (tg0) invokeV.objValue;
     }
 }

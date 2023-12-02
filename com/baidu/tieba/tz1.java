@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class tz1 extends oz1 {
+public class tz1 extends rz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect a;
-    public Paint b;
-    public PorterDuffXfermode c;
+    public RectF a;
+    public float b;
+    public float c;
+    public boolean d;
 
     public tz1() {
         Interceptable interceptable = $ic;
@@ -29,36 +28,49 @@ public class tz1 extends oz1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new Paint();
-        this.c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
     }
 
-    @Override // com.baidu.tieba.oz1
-    public void a(pz1 pz1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.rz1
+    public void a(sz1 sz1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, pz1Var, canvas) == null) && this.a != null) {
-            this.b.setXfermode(this.c);
-            canvas.drawRect(this.a, this.b);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, sz1Var, canvas) == null) && this.a != null) {
+            if (!this.d && Math.abs(this.c) >= 360.0f) {
+                Path path = sz1Var.f;
+                RectF rectF = this.a;
+                float f = rectF.bottom;
+                float f2 = rectF.top;
+                path.addCircle((rectF.right + rectF.left) / 2.0f, (f + f2) / 2.0f, (f - f2) / 2.0f, Path.Direction.CW);
+                sz1Var.f.arcTo(this.a, 0.0f, this.b);
+                return;
+            }
+            float f3 = this.c % 360.0f;
+            if (f3 < 0.0f && !this.d) {
+                f3 += 360.0f;
+            } else if (f3 > 0.0f && this.d) {
+                f3 -= 360.0f;
+            }
+            sz1Var.f.arcTo(this.a, this.b, f3);
         }
     }
 
-    @Override // com.baidu.tieba.oz1
+    @Override // com.baidu.tieba.rz1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = yj3.g((float) jSONArray.optDouble(0));
-                    int g2 = yj3.g((float) jSONArray.optDouble(1));
-                    this.a = new Rect(g, g2, yj3.g((float) jSONArray.optDouble(2)) + g, yj3.g((float) jSONArray.optDouble(3)) + g2);
-                }
-            } catch (Exception e) {
-                if (sm1.a) {
-                    e.printStackTrace();
-                }
+            if (jSONArray.length() > 4) {
+                int g = bk3.g((float) jSONArray.optDouble(0));
+                int g2 = bk3.g((float) jSONArray.optDouble(1));
+                int g3 = bk3.g((float) jSONArray.optDouble(2));
+                float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
+                float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
+                this.a = new RectF(g - g3, g2 - g3, g + g3, g2 + g3);
+                this.b = degrees;
+                this.c = degrees2 - degrees;
+            }
+            if (jSONArray.length() > 5) {
+                this.d = jSONArray.optBoolean(5);
             }
         }
     }

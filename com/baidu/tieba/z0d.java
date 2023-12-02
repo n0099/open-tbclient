@@ -4,50 +4,35 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.MatchCardInfo;
 import tbclient.FrsPage.MatchPlayerInfo;
-import tbclient.ThreadInfo;
+import tbclient.Post;
 /* loaded from: classes9.dex */
-public class z0d extends ltc {
+public class z0d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull MatchCardInfo matchCardInfo) {
+    public static JSONObject b(@NonNull MatchPlayerInfo matchPlayerInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, matchCardInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, matchPlayerInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "name", matchCardInfo.name);
-            ltc.a(jSONObject, "status", matchCardInfo.status);
-            ltc.a(jSONObject, "card_title", matchCardInfo.card_title);
-            ltc.a(jSONObject, "topic_id", matchCardInfo.topic_id);
-            ltc.a(jSONObject, "team_name_a", matchCardInfo.team_name_a);
-            ltc.a(jSONObject, "team_name_b", matchCardInfo.team_name_b);
-            ltc.a(jSONObject, "team_icon_a", matchCardInfo.team_icon_a);
-            ltc.a(jSONObject, "team_icon_b", matchCardInfo.team_icon_b);
-            ltc.a(jSONObject, "start_desc", matchCardInfo.start_desc);
-            ltc.a(jSONObject, "team_score_a", matchCardInfo.team_score_a);
-            ltc.a(jSONObject, "team_score_b", matchCardInfo.team_score_b);
-            if (matchCardInfo.thread_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ThreadInfo threadInfo : matchCardInfo.thread_list) {
-                    jSONArray.put(y9d.b(threadInfo));
-                }
-                ltc.a(jSONObject, "thread_list", jSONArray);
+            ktc.a(jSONObject, "name", matchPlayerInfo.name);
+            ktc.a(jSONObject, "avatar", matchPlayerInfo.avatar);
+            ktc.a(jSONObject, "score", matchPlayerInfo.score);
+            ktc.a(jSONObject, "score_cnt", matchPlayerInfo.score_cnt);
+            Post post = matchPlayerInfo.hot_post;
+            if (post != null) {
+                ktc.a(jSONObject, "hot_post", s6d.b(post));
             }
-            ltc.a(jSONObject, "icon_text", matchCardInfo.icon_text);
-            if (matchCardInfo.team_player_list != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (MatchPlayerInfo matchPlayerInfo : matchCardInfo.team_player_list) {
-                    jSONArray2.put(a1d.b(matchPlayerInfo));
-                }
-                ltc.a(jSONObject, "team_player_list", jSONArray2);
-            }
-            ltc.a(jSONObject, "match_link", matchCardInfo.match_link);
-            ltc.a(jSONObject, "schedule_link", matchCardInfo.schedule_link);
+            ktc.a(jSONObject, "sub_avatar", matchPlayerInfo.sub_avatar);
+            ktc.a(jSONObject, "sub_text", matchPlayerInfo.sub_text);
+            ktc.a(jSONObject, "score_self", matchPlayerInfo.score_self);
+            ktc.a(jSONObject, "score_link", matchPlayerInfo.score_link);
+            ktc.a(jSONObject, "match_id", matchPlayerInfo.match_id);
+            ktc.a(jSONObject, "match_index", matchPlayerInfo.match_index);
+            ktc.a(jSONObject, "player_id", matchPlayerInfo.player_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

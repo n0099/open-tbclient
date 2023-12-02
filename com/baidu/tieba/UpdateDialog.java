@@ -36,8 +36,8 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.r16;
 import com.baidu.tieba.service.TiebaUpdateService;
+import com.baidu.tieba.v16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     public VersionData g;
     public CombineDownload h;
     public String i;
-    public r16 j;
+    public v16 j;
     public f k;
     public PermissionJudgePolicy l;
 
@@ -235,7 +235,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements r16.f {
+    public class e implements v16.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdateDialog a;
@@ -262,7 +262,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             this(updateDialog);
         }
 
-        @Override // com.baidu.tieba.r16.f
+        @Override // com.baidu.tieba.v16.f
         public void a(boolean z) {
             boolean z2;
             Interceptable interceptable = $ic;
@@ -270,7 +270,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 TiebaStatic.log(new StatisticItem("c14382").addParam("obj_locate", 1));
                 this.a.a = true;
                 UpdateDialog updateDialog = this.a;
-                if (z && u16.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
+                if (z && y16.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
                     z2 = true;
                 } else {
                     z2 = false;
@@ -287,7 +287,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.r16.f
+        @Override // com.baidu.tieba.v16.f
         public void b(boolean z) {
             boolean z2;
             Interceptable interceptable = $ic;
@@ -298,7 +298,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     return;
                 }
                 UpdateDialog updateDialog = this.a;
-                if (z && u16.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
+                if (z && y16.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
                     z2 = true;
                 } else {
                     z2 = false;
@@ -311,7 +311,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.r16.f
+        @Override // com.baidu.tieba.v16.f
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -319,7 +319,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.r16.f
+        @Override // com.baidu.tieba.v16.f
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -328,7 +328,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.r16.f
+        @Override // com.baidu.tieba.v16.f
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -450,9 +450,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
             YunDialogManager.unMarkShowingDialogName("updateDialog");
-            r16 r16Var = this.j;
-            if (r16Var != null) {
-                r16Var.dismiss();
+            v16 v16Var = this.j;
+            if (v16Var != null) {
+                v16Var.dismiss();
             }
             f fVar = this.k;
             if (fVar != null) {
@@ -466,9 +466,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            r16 r16Var = this.j;
-            if (r16Var != null) {
-                r16Var.m(getPageContext(), i);
+            v16 v16Var = this.j;
+            if (v16Var != null) {
+                v16Var.m(getPageContext(), i);
             }
         }
     }
@@ -496,32 +496,32 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     public final boolean a1() {
         InterceptResult invokeV;
         boolean z;
-        File GetFile;
+        File externalPrivateFile;
         PackageInfo packageArchiveInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             VersionData versionData = this.g;
             if (versionData != null && !StringUtils.isNull(versionData.getUrl()) && URLUtil.isNetworkUrl(this.g.getUrl())) {
                 String str = getPageContext().getString(R.string.obfuscated_res_0x7f0f029e) + TbadkCoreApplication.getInst().getVersionName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
-                String fileDireciory = FileHelper.getFileDireciory(str);
-                if (fileDireciory != null && (packageArchiveInfo = getPageContext().getPageActivity().getPackageManager().getPackageArchiveInfo(fileDireciory, 1)) != null) {
+                String externalPrivateDir = FileHelper.getExternalPrivateDir(str);
+                if (externalPrivateDir != null && (packageArchiveInfo = getPageContext().getPageActivity().getPackageManager().getPackageArchiveInfo(externalPrivateDir, 1)) != null) {
                     String str2 = packageArchiveInfo.versionName;
                     if (!TextUtils.isEmpty(str2) && str2.compareTo(TbConfig.getVersion()) >= 0) {
                         z = true;
-                        GetFile = FileHelper.GetFile(str);
-                        if (GetFile == null && GetFile.exists() && z) {
+                        externalPrivateFile = FileHelper.getExternalPrivateFile(str);
+                        if (externalPrivateFile == null && externalPrivateFile.exists() && z) {
                             UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), str);
                             return true;
-                        } else if (GetFile != null) {
-                            GetFile.delete();
+                        } else if (externalPrivateFile != null) {
+                            externalPrivateFile.delete();
                         }
                     }
                 }
                 z = false;
-                GetFile = FileHelper.GetFile(str);
-                if (GetFile == null) {
+                externalPrivateFile = FileHelper.getExternalPrivateFile(str);
+                if (externalPrivateFile == null) {
                 }
-                if (GetFile != null) {
+                if (externalPrivateFile != null) {
                 }
             }
             return false;
@@ -572,9 +572,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (versionData3 != null) {
                 this.f = versionData3.forceUpdate();
             }
-            r16 r16Var = new r16(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003c6);
-            this.j = r16Var;
-            r16Var.setCancelable(false);
+            v16 v16Var = new v16(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003c6);
+            this.j = v16Var;
+            v16Var.setCancelable(false);
             this.j.q(this.g, this.h, new e(this, null));
             this.j.setOnCancelListener(new a(this));
             this.j.setOnDismissListener(new b(this));

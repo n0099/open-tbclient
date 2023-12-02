@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,26 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public class noc {
+public final class noc {
     public static /* synthetic */ Interceptable $ic;
-    public static final noc a;
+    public static final AtomicReference<noc> b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public hoc b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (hoc) invokeV.objValue;
-    }
-
-    public roc c(roc rocVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rocVar)) == null) ? rocVar : (roc) invokeL.objValue;
-    }
+    public final goc a;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +29,33 @@ public class noc {
                 return;
             }
         }
-        a = new noc();
+        b = new AtomicReference<>();
+    }
+
+    public static noc a() {
+        noc nocVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            do {
+                noc nocVar2 = b.get();
+                if (nocVar2 != null) {
+                    return nocVar2;
+                }
+                nocVar = new noc();
+            } while (!b.compareAndSet(null, nocVar));
+            return nocVar;
+        }
+        return (noc) invokeV.objValue;
+    }
+
+    public static goc b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a().a;
+        }
+        return (goc) invokeV.objValue;
     }
 
     public noc() {
@@ -55,16 +68,14 @@ public class noc {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public static noc a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        goc b2 = loc.a().b().b();
+        if (b2 != null) {
+            this.a = b2;
+        } else {
+            this.a = new ooc(Looper.getMainLooper());
         }
-        return (noc) invokeV.objValue;
     }
 }

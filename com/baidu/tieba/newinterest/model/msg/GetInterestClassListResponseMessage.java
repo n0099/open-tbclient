@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.model.msg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.os9;
+import com.baidu.tieba.ss9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<os9> interestSelectionInfoList;
+    public List<ss9> interestSelectionInfoList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetInterestClassListResponseMessage(int i) {
@@ -49,19 +49,19 @@ public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessag
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null && (jSONArray = jSONObject.getJSONArray("class_list")) != null && jSONArray.length() > 0) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    os9 os9Var = new os9();
-                    os9Var.i(jSONArray.getJSONObject(i2).optInt("class_id"));
-                    os9Var.g(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
-                    os9Var.k(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
-                    os9Var.f(jSONArray.getJSONObject(i2).optString("class_icon"));
-                    os9Var.h(jSONArray.getJSONObject(i2).optString("class_pic"));
-                    this.interestSelectionInfoList.add(os9Var);
+                    ss9 ss9Var = new ss9();
+                    ss9Var.i(jSONArray.getJSONObject(i2).optInt("class_id"));
+                    ss9Var.g(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                    ss9Var.k(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                    ss9Var.f(jSONArray.getJSONObject(i2).optString("class_icon"));
+                    ss9Var.h(jSONArray.getJSONObject(i2).optString("class_pic"));
+                    this.interestSelectionInfoList.add(ss9Var);
                 }
             }
         }
     }
 
-    public List<os9> getInterestSelectionInfoList() {
+    public List<ss9> getInterestSelectionInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

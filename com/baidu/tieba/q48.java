@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
 /* loaded from: classes7.dex */
-public final class q48 implements b25 {
+public class q48 implements e25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.b25
+    @Override // com.baidu.tieba.e25
     public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_NEWUSER_STRATEGY" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_MANAGE_STRATEGY" : (String) invokeV.objValue;
     }
 
     public q48() {
@@ -34,13 +34,13 @@ public final class q48 implements b25 {
         }
     }
 
-    @Override // com.baidu.tieba.b25
-    public z15 a() {
+    @Override // com.baidu.tieba.e25
+    public c25 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new p48();
         }
-        return (z15) invokeV.objValue;
+        return (c25) invokeV.objValue;
     }
 }

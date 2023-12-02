@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.pic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +31,7 @@ public class QuestionTagListData {
         public static final BdUniqueId TYPE_TAG;
         public transient /* synthetic */ FieldHolder $fh;
         public String id;
-        @SerializedName(pic.f)
+        @SerializedName("pic")
         public String tagIcon;
         @SerializedName("name")
         public String tagName;

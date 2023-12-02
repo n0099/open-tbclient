@@ -123,10 +123,10 @@ public final class c extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.OF = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091448);
-        this.OG = (TextView) findViewById(R.id.obfuscated_res_0x7f091445);
-        this.OH = (TextView) findViewById(R.id.obfuscated_res_0x7f091446);
-        this.OI = (TextView) findViewById(R.id.obfuscated_res_0x7f091444);
-        this.OJ = (TextView) findViewById(R.id.obfuscated_res_0x7f091447);
+        this.OF = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091449);
+        this.OG = (TextView) findViewById(R.id.obfuscated_res_0x7f091446);
+        this.OH = (TextView) findViewById(R.id.obfuscated_res_0x7f091447);
+        this.OI = (TextView) findViewById(R.id.obfuscated_res_0x7f091445);
+        this.OJ = (TextView) findViewById(R.id.obfuscated_res_0x7f091448);
     }
 }

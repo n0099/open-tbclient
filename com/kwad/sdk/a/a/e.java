@@ -67,8 +67,8 @@ public final class e implements View.OnClickListener {
 
     private void c(FrameLayout frameLayout) {
         FrameLayout.LayoutParams layoutParams;
-        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ca);
-        int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704cb);
+        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704cb);
+        int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704cc);
         this.alm = dimensionPixelSize + dimensionPixelSize2;
         ViewGroup.LayoutParams layoutParams2 = this.mRootView.getLayoutParams();
         if (layoutParams2 instanceof FrameLayout.LayoutParams) {
@@ -88,9 +88,9 @@ public final class e implements View.OnClickListener {
     private void d(FrameLayout frameLayout) {
         FrameLayout.LayoutParams layoutParams;
         int screenWidth = bi.getScreenWidth(this.mContext);
-        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c8);
-        int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c7);
-        int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704c6);
+        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c9);
+        int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c8);
+        int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704c7);
         this.aln = screenWidth - dimensionPixelSize;
         ViewGroup.LayoutParams layoutParams2 = this.mRootView.getLayoutParams();
         if (layoutParams2 instanceof FrameLayout.LayoutParams) {
@@ -140,11 +140,11 @@ public final class e implements View.OnClickListener {
         } else {
             this.mRootView = l.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d04db, null);
         }
-        ViewCompat.setElevation(this.mRootView, this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704c9));
-        this.ali = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09137a);
-        this.alj = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09137c);
-        this.alk = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09137b);
-        this.all = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09137d);
+        ViewCompat.setElevation(this.mRootView, this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704ca));
+        this.ali = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09137b);
+        this.alj = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09137d);
+        this.alk = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09137c);
+        this.all = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09137e);
         return this.mRootView;
     }
 
@@ -196,7 +196,7 @@ public final class e implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
         dismiss();
-        if (view2.getId() == R.id.obfuscated_res_0x7f09137d) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f09137e) {
             if (this.alg) {
                 if (this.alo) {
                     j jVar = new j();
@@ -224,7 +224,7 @@ public final class e implements View.OnClickListener {
                 com.kwad.sdk.core.report.a.bK(this.mAdTemplate);
             }
             com.kwad.sdk.core.report.a.q(this.mAdTemplate, 47);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f09137a) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f09137b) {
             if (this.alg) {
                 if (this.alo) {
                     j jVar2 = new j();

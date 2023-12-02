@@ -33,8 +33,8 @@ import com.baidu.tieba.ec;
 import com.baidu.tieba.gc;
 import com.baidu.tieba.hc;
 import com.baidu.tieba.k7;
+import com.baidu.tieba.n3b;
 import com.baidu.tieba.nc;
-import com.baidu.tieba.o3b;
 import com.baidu.tieba.qc;
 import com.baidu.tieba.vd;
 import com.baidu.tieba.xd;
@@ -427,7 +427,7 @@ public class BdStatisticsManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
             mHandler.removeMessages(1);
-            if (o3b.a(BdBaseApplication.getInst(), "CHANGE_DOT_REFINED1")) {
+            if (n3b.a(BdBaseApplication.getInst(), "CHANGE_DOT_REFINED1")) {
                 Handler handler = mHandler;
                 handler.sendMessageDelayed(handler.obtainMessage(1), 30000L);
                 return;
@@ -871,7 +871,7 @@ public class BdStatisticsManager {
             this.mCommonData = bcVar;
             k7.g().h(str2);
             nc.o().r(z, str, this.mContext, this.mLogSwitchInitCallback);
-            if (o3b.a(BdBaseApplication.getInst(), "CHANGE_DOT_REFINED1")) {
+            if (n3b.a(BdBaseApplication.getInst(), "CHANGE_DOT_REFINED1")) {
                 str4 = "http://10.138.47.51:8763/c/s/newlog";
             }
             qc.m().n(bcVar, str4, str5);

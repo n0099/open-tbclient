@@ -1,132 +1,47 @@
 package com.baidu.tieba;
 
-import android.os.HandlerThread;
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import com.baidu.tieba.xi5;
+import com.baidu.tieba.zi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public class ri5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 4;
+public abstract class ri5<R extends xi5, W extends zi5> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<HandlerThread> a;
-    public final AtomicInteger b;
+    public final R a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public final Rect g;
+    public final Rect h;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public abstract Bitmap a(Canvas canvas, Paint paint, int i, Bitmap bitmap, W w);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948122603, "Lcom/baidu/tieba/ri5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948122603, "Lcom/baidu/tieba/ri5;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ri5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-459938579, "Lcom/baidu/tieba/ri5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-459938579, "Lcom/baidu/tieba/ri5$b;");
-                    return;
-                }
-            }
-            a = new ri5(null);
-        }
-    }
-
-    public ri5() {
+    public ri5(R r) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new AtomicInteger(0);
-    }
-
-    public static ri5 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (ri5) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b.getAndIncrement();
-        }
-        return invokeV.intValue;
-    }
-
-    public /* synthetic */ ri5(a aVar) {
-        this();
-    }
-
-    public Looper c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int i2 = i % c;
-            if (i2 >= this.a.size()) {
-                HandlerThread handlerThread = new HandlerThread("FrameDecoderExecutor-" + i2);
-                handlerThread.start();
-                this.a.add(handlerThread);
-                Looper looper = handlerThread.getLooper();
-                if (looper == null) {
-                    return Looper.getMainLooper();
-                }
-                return looper;
-            } else if (this.a.get(i2) != null) {
-                Looper looper2 = this.a.get(i2).getLooper();
-                if (looper2 == null) {
-                    return Looper.getMainLooper();
-                }
-                return looper2;
-            } else {
-                return Looper.getMainLooper();
-            }
-        }
-        return (Looper) invokeI.objValue;
+        this.g = new Rect();
+        this.h = new Rect();
+        this.a = r;
     }
 }

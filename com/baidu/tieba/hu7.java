@@ -1,56 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
-import com.baidu.tieba.frs.accelerator.TornadoNodeInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hu7 {
+public final class hu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject
+    public sf1<tt7> a;
 
-    public static Map<Integer, PkgNameAndNodeInfoData> a(List<TornadoNodeInfo> list) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                HashMap hashMap = new HashMap();
-                int i = 0;
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    for (int i3 = 0; i3 < list.get(i2).getNodeInfoList().size(); i3++) {
-                        hashMap.put(Integer.valueOf(i), new PkgNameAndNodeInfoData(list.get(i2).getPackageName(), list.get(i2).getNodeInfoList().get(i3), list.get(i2).getGameId()));
-                        i++;
-                    }
-                }
-                return hashMap;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            qf1 b = qf1.b();
+            this.a = b;
+            b.a(new ut7());
         }
-        return (Map) invokeL.objValue;
     }
 
-    public static String[] b(List<TornadoNodeInfo> list, int i) {
-        InterceptResult invokeLI;
+    public hu7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            if (!ListUtils.isEmpty(list) && i > 0) {
-                String[] strArr = new String[i];
-                int i2 = 0;
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    for (int i4 = 0; i4 < list.get(i3).getNodeInfoList().size(); i4++) {
-                        strArr[i2] = list.get(i3).getNodeInfoList().get(i4).getNodeName();
-                        i2++;
-                    }
-                }
-                return strArr;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String[]) invokeLI.objValue;
+        b();
+    }
+
+    public final sf1<tt7> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (sf1) invokeV.objValue;
     }
 }

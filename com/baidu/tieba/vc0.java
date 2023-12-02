@@ -35,10 +35,10 @@ public class vc0 extends re0 {
     }
 
     /* loaded from: classes8.dex */
-    public class a extends bp0<Map<String, String>> {
+    public class a extends dp0<Map<String, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i71 a;
+        public final /* synthetic */ k71 a;
         public final /* synthetic */ String b;
         public final /* synthetic */ Context c;
         public final /* synthetic */ String d;
@@ -48,12 +48,12 @@ public class vc0 extends re0 {
         public final /* synthetic */ String h;
         public final /* synthetic */ vc0 i;
 
-        public a(vc0 vc0Var, i71 i71Var, String str, Context context, String str2, ze0 ze0Var, ve0 ve0Var, HashMap hashMap, String str3) {
+        public a(vc0 vc0Var, k71 k71Var, String str, Context context, String str2, ze0 ze0Var, ve0 ve0Var, HashMap hashMap, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vc0Var, i71Var, str, context, str2, ze0Var, ve0Var, hashMap, str3};
+                Object[] objArr = {vc0Var, k71Var, str, context, str2, ze0Var, ve0Var, hashMap, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -64,7 +64,7 @@ public class vc0 extends re0 {
                 }
             }
             this.i = vc0Var;
-            this.a = i71Var;
+            this.a = k71Var;
             this.b = str;
             this.c = context;
             this.d = str2;
@@ -74,7 +74,7 @@ public class vc0 extends re0 {
             this.h = str3;
         }
 
-        @Override // com.baidu.tieba.zo0
+        @Override // com.baidu.tieba.bp0
         public void a(Exception exc, int i) {
             int i2;
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class vc0 extends re0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ap0
+        @Override // com.baidu.tieba.cp0
         @Nullable
         /* renamed from: f */
         public Map<String, String> d(Headers headers, String str, int i) {
@@ -108,7 +108,7 @@ public class vc0 extends re0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ap0
+        @Override // com.baidu.tieba.cp0
         /* renamed from: e */
         public void b(Headers headers, @Nullable Map<String, String> map, int i) {
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class vc0 extends re0 {
                     vc0Var.c(ze0Var, ve0Var, i2, l);
                     return;
                 }
-                String str = (String) ny0.b(map, "virtualPhone");
+                String str = (String) py0.b(map, "virtualPhone");
                 if (TextUtils.isEmpty(str)) {
                     this.i.n("5", this.b);
                     boolean l2 = this.i.l(this.c, this.d, this.b);
@@ -140,7 +140,7 @@ public class vc0 extends re0 {
                     vc0Var2.c(ze0Var2, ve0Var2, i2, l2);
                     return;
                 }
-                String str2 = (String) ny0.b(map, "solutionId");
+                String str2 = (String) py0.b(map, "solutionId");
                 if (TextUtils.isEmpty(str2)) {
                     this.i.n("6", this.b);
                     boolean l3 = this.i.l(this.c, this.d, this.b);
@@ -153,7 +153,7 @@ public class vc0 extends re0 {
                     vc0Var3.c(ze0Var3, ve0Var3, i2, l3);
                     return;
                 }
-                String str3 = (String) ny0.b(this.g, "log_url");
+                String str3 = (String) py0.b(this.g, "log_url");
                 if (str3 == null) {
                     str3 = "";
                 }
@@ -162,11 +162,11 @@ public class vc0 extends re0 {
                 } else {
                     this.i.n("7", this.b);
                     String replaceAll = str3.replaceAll("\\__TIMESTAMP__", this.h).replaceAll("\\__VIRTUALPHONE__", str).replaceAll("\\__SOLUTIONID__", str2);
-                    ip0 ip0Var = new ip0();
-                    ip0Var.l(replaceAll);
-                    ip0Var.g(3000);
-                    ip0Var.c();
-                    po0.b().a().a(ip0Var, null);
+                    kp0 kp0Var = new kp0();
+                    kp0Var.l(replaceAll);
+                    kp0Var.g(3000);
+                    kp0Var.c();
+                    ro0.b().a().a(kp0Var, null);
                 }
                 boolean l4 = this.i.l(this.c, str, this.b);
                 vc0 vc0Var4 = this.i;
@@ -204,7 +204,7 @@ public class vc0 extends re0 {
                 return null;
             }
             HashMap hashMap = new HashMap();
-            JSONArray optJSONArray = my0.c(str).optJSONArray("data");
+            JSONArray optJSONArray = oy0.c(str).optJSONArray("data");
             if (optJSONArray == null || optJSONArray.length() <= 0 || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
                 return null;
             }
@@ -224,8 +224,8 @@ public class vc0 extends re0 {
             super.b(context, ve0Var, map, ze0Var);
             HashMap<String, String> d = ve0Var.d();
             String valueOf = String.valueOf(System.currentTimeMillis());
-            String str2 = (String) ny0.b(d, MigrateStatisticUtils.EXT_INFO);
-            String str3 = (String) ny0.b(d, "phone");
+            String str2 = (String) py0.b(d, MigrateStatisticUtils.EXT_INFO);
+            String str3 = (String) py0.b(d, "phone");
             int i = 0;
             if (TextUtils.isEmpty(str3)) {
                 n("1", str2);
@@ -233,12 +233,12 @@ public class vc0 extends re0 {
                 return true;
             }
             if (d.containsKey("type")) {
-                str = (String) ny0.b(d, "type");
+                str = (String) py0.b(d, "type");
             } else {
                 str = "0";
             }
             if (TextUtils.equals(str, "1")) {
-                String str4 = (String) ny0.b(d, "number_url");
+                String str4 = (String) py0.b(d, "number_url");
                 if (str4 == null) {
                     str4 = "";
                 }
@@ -252,18 +252,18 @@ public class vc0 extends re0 {
                     c(ze0Var, ve0Var, i, l);
                     return true;
                 }
-                i71 i71Var = new i71(context);
-                i71Var.e(context.getString(R.string.nad_ocpc_phone_call_toast_text));
-                i71Var.c(false);
-                i71Var.d(false);
-                m11.b(i71Var);
-                a aVar = new a(this, i71Var, str2, context, str3, ze0Var, ve0Var, d, valueOf);
+                k71 k71Var = new k71(context);
+                k71Var.e(context.getString(R.string.nad_ocpc_phone_call_toast_text));
+                k71Var.c(false);
+                k71Var.d(false);
+                o11.b(k71Var);
+                a aVar = new a(this, k71Var, str2, context, str3, ze0Var, ve0Var, d, valueOf);
                 String replaceAll = str5.replaceAll("\\__TIMESTAMP__", valueOf);
-                ip0 ip0Var = new ip0();
-                ip0Var.l(replaceAll);
-                ip0Var.g(3000);
-                ip0Var.c();
-                po0.b().a().a(ip0Var, aVar);
+                kp0 kp0Var = new kp0();
+                kp0Var.l(replaceAll);
+                kp0Var.g(3000);
+                kp0Var.c();
+                ro0.b().a().a(kp0Var, aVar);
             } else {
                 boolean l2 = l(context, str3, str2);
                 if (!l2) {
@@ -283,9 +283,8 @@ public class vc0 extends re0 {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (m11.d(context, new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)))) {
+            if (o11.d(context, new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)))) {
                 n("11", str2);
-                new b91().p(context, str2, "makePhoneCall");
                 return true;
             }
             n("9", str2);
@@ -299,6 +298,6 @@ public class vc0 extends re0 {
         if ((interceptable != null && interceptable.invokeLL(1048579, this, str, str2) != null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        bz0.e(new ClogBuilder().u(ClogBuilder.Page.AD_CALL).i(ClogBuilder.Area.AD_CALL).y(ClogBuilder.LogType.AD_CALL).k(str).p(str2));
+        dz0.e(new ClogBuilder().u(ClogBuilder.Page.AD_CALL).i(ClogBuilder.Area.AD_CALL).y(ClogBuilder.LogType.AD_CALL).k(str).p(str2));
     }
 }

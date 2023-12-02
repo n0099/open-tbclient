@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.optimization.quotasaver.QuotaSaver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,47 +8,71 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
 /* loaded from: classes6.dex */
-public final class fs2 implements es2 {
+public class fs2 implements bs2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final fs2 b;
+    public static final dl3<i52> a;
+    public static final dl3<i52> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ es2 a;
 
-    @Override // com.baidu.tieba.es2
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : invokeV.intValue;
+    /* loaded from: classes6.dex */
+    public static class a implements dl3<i52> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.dl3
+        /* renamed from: b */
+        public void a(i52 i52Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i52Var) == null) {
+                i52Var.suspendTimer();
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.es2
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.b() : invokeV.booleanValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class b implements dl3<i52> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.es2
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.c() : invokeV.booleanValue;
-    }
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    @Override // com.baidu.tieba.es2
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.d() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.es2
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.e() : invokeV.booleanValue;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.dl3
+        /* renamed from: b */
+        public void a(i52 i52Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i52Var) == null) {
+                i52Var.continueTimer();
+            }
+        }
     }
 
     static {
@@ -65,11 +88,11 @@ public final class fs2 implements es2 {
                 return;
             }
         }
-        b = new fs2();
+        a = new a();
+        b = new b();
     }
 
     public fs2() {
-        es2 ds2Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,16 +102,32 @@ public final class fs2 implements es2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        if (QuotaSaver.l.c()) {
-            ds2Var = QuotaSaver.l.e();
-        } else {
-            ds2Var = new ds2();
+    }
+
+    @Override // com.baidu.tieba.bs2
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a(a);
         }
-        h32.i("OptSwitcher", "by " + ds2Var);
-        Unit unit = Unit.INSTANCE;
-        this.a = ds2Var;
+    }
+
+    @Override // com.baidu.tieba.bs2
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a(b);
+        }
+    }
+
+    public void a(dl3<i52> dl3Var) {
+        g82 X;
+        i52 e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, dl3Var) == null) && (X = ed2.V().X()) != null && (e = X.e()) != null && e.isWebView()) {
+            dl3Var.a(e);
+        }
     }
 }

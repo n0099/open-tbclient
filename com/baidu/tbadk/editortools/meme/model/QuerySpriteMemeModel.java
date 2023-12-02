@@ -17,7 +17,7 @@ import com.baidu.tbadk.editortools.meme.model.QuerySpriteMemeModel;
 import com.baidu.tbadk.editortools.meme.model.QuerySpriteMemeModel$spriteMemeQueryListener$2;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.eg5;
+import com.baidu.tieba.hg5;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -46,7 +46,7 @@ public final class QuerySpriteMemeModel {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(eg5 eg5Var, String str);
+        void a(hg5 hg5Var, String str);
 
         void onError();
     }
@@ -161,7 +161,7 @@ public final class QuerySpriteMemeModel {
                                 }
                                 return;
                             }
-                            eg5 spriteMemeQueryData = spriteMemeQueryRespondedMessage.getSpriteMemeQueryData();
+                            hg5 spriteMemeQueryData = spriteMemeQueryRespondedMessage.getSpriteMemeQueryData();
                             if (spriteMemeQueryData != null) {
                                 QuerySpriteMemeModel querySpriteMemeModel = this.a;
                                 DefaultLog.getInstance().i("sprite_meme_query_tag", "请求结束，有返回数据");

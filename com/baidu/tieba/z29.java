@@ -1,35 +1,91 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.impl.ResponsesPanelControllerImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class z29 extends bn8 {
+public final class z29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ChatRoomInfo a;
-    public boolean b;
+    public final ResponsesPanelControllerImpl a;
+    public List<Reaction> b;
 
-    @Override // com.baidu.tieba.bn8
-    public int getViewType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 2;
+    /* loaded from: classes9.dex */
+    public static final class a implements hl5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z29 a;
+        public final /* synthetic */ int b;
+
+        public a(z29 z29Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z29Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z29Var;
+            this.b = i;
         }
-        return invokeV.intValue;
+
+        @Override // com.baidu.tieba.hl5
+        public void a(List<String> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (ListUtils.isEmpty(list)) {
+                    if (!ListUtils.isEmpty(this.a.a())) {
+                        List<Reaction> a = this.a.a();
+                        Intrinsics.checkNotNull(a);
+                        int size = a.size();
+                        if (size > this.b) {
+                            List<Reaction> a2 = this.a.a();
+                            Intrinsics.checkNotNull(a2);
+                            arrayList.addAll(a2.subList(0, this.b));
+                        } else {
+                            List<Reaction> a3 = this.a.a();
+                            Intrinsics.checkNotNull(a3);
+                            arrayList.addAll(a3.subList(0, size));
+                        }
+                        this.a.b().f(arrayList);
+                    }
+                } else {
+                    Intrinsics.checkNotNull(list);
+                    for (String str : list) {
+                        arrayList.add(new Reaction("", str));
+                    }
+                }
+                this.a.b().f(arrayList);
+            }
+        }
     }
 
-    public z29(ChatRoomInfo chatRoomInfo, boolean z) {
+    public z29(ResponsesPanelControllerImpl controller) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {chatRoomInfo, Boolean.valueOf(z)};
+            Object[] objArr = {controller};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,32 +95,51 @@ public class z29 extends bn8 {
                 return;
             }
         }
-        this.a = chatRoomInfo;
-        this.b = z;
+        Intrinsics.checkNotNullParameter(controller, "controller");
+        this.a = controller;
     }
 
-    public ChatRoomInfo a() {
+    public final List<Reaction> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return (ChatRoomInfo) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public boolean b() {
+    public final ResponsesPanelControllerImpl b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (ResponsesPanelControllerImpl) invokeV.objValue;
     }
 
-    public void c(ChatRoomInfo chatRoomInfo) {
+    public final void c(kq8 process, Reaction reaction, BaseItem<? extends TbBaseMsg> msg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatRoomInfo) == null) {
-            this.a = chatRoomInfo;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, process, reaction, msg) == null) {
+            Intrinsics.checkNotNullParameter(process, "process");
+            Intrinsics.checkNotNullParameter(reaction, "reaction");
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            iz8.g(process, reaction, msg, 1);
+        }
+    }
+
+    public final void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            int abs = Math.abs(1 - iz8.a());
+            rk5.b().e(context, true, -abs, new a(this, abs));
+        }
+    }
+
+    public final void e(List<Reaction> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.b = list;
         }
     }
 }

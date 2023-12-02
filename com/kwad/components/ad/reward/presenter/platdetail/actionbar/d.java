@@ -66,10 +66,10 @@ public final class d extends com.kwad.components.ad.reward.presenter.b implement
             z4 = (z2 || z3) ? true : true;
             layoutParams3.gravity = 85;
             if (z4) {
-                i = R.dimen.obfuscated_res_0x7f07050a;
+                i = R.dimen.obfuscated_res_0x7f07050b;
             }
             layoutParams3.bottomMargin = context.getResources().getDimensionPixelOffset(i);
-            layoutParams3.rightMargin = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07050a);
+            layoutParams3.rightMargin = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07050b);
             ksLogoView.setLayoutParams(layoutParams3);
         }
         return layoutParams;
@@ -81,12 +81,12 @@ public final class d extends com.kwad.components.ad.reward.presenter.b implement
         i iVar = new i(this.qn, this.gS, this.sq);
         this.uT = iVar;
         iVar.b(r.R(this.qn.mAdTemplate));
-        a(getContext(), com.kwad.sdk.core.response.b.e.dP(this.qn.mAdTemplate), this.sq, R.dimen.obfuscated_res_0x7f070526, false);
+        a(getContext(), com.kwad.sdk.core.response.b.e.dP(this.qn.mAdTemplate), this.sq, R.dimen.obfuscated_res_0x7f070527, false);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.sq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912f5);
+        this.sq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912f6);
     }
 }

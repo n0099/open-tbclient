@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.nadcore.model.MonitorUrl;
 import com.baidu.nadcore.stats.request.ClogBuilder;
@@ -16,18 +15,78 @@ public final class ll0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void A(String str, String ext1, String ext2) {
+    public static final void A(in0 model) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, ext1, ext2) == null) {
+        if (interceptable == null || interceptable.invokeL(65536, null, model) == null) {
+            Intrinsics.checkNotNullParameter(model, "model");
+            ClogBuilder.Page page = ClogBuilder.Page.WELFAREIMAGELP;
+            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
+            String str = ClogBuilder.Area.SWIPE_UP.type;
+            Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.SWIPE_UP.type");
+            b(page, logType, model.f.d, str, null, null, null, null, 240, null);
+        }
+    }
+
+    public static final void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
+            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
+            String str2 = ClogBuilder.Area.DOWN_ARROW.type;
+            Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.DOWN_ARROW.type");
+            b(null, logType, str, str2, null, null, null, null, MatroskaExtractor.ID_CUE_CLUSTER_POSITION, null);
+        }
+    }
+
+    public static final void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
+            b(ClogBuilder.Page.WELFAREROTATION, ClogBuilder.LogType.FREE_SHOW, str, null, null, null, null, null, GDiffPatcher.DATA_INT, null);
+        }
+    }
+
+    public static final void o(in0 model) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, model) == null) {
+            Intrinsics.checkNotNullParameter(model, "model");
+            ClogBuilder.Page page = ClogBuilder.Page.WELFAREMAXLP;
+            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
+            String str = ClogBuilder.Area.REWARD_FORM.type;
+            Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.REWARD_FORM.type");
+            b(page, logType, model.f.d, str, null, null, null, null, 240, null);
+        }
+    }
+
+    public static final void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65558, null, str) == null) {
+            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
+            String str2 = ClogBuilder.Area.AD_BLANK.type;
+            Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.AD_BLANK.type");
+            b(null, logType, str, str2, null, null, null, null, MatroskaExtractor.ID_CUE_CLUSTER_POSITION, null);
+        }
+    }
+
+    public static final void y(in0 model) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65563, null, model) == null) {
+            Intrinsics.checkNotNullParameter(model, "model");
+            b(null, ClogBuilder.LogType.CLICK, model.f.d, "sv_button", null, null, null, null, MatroskaExtractor.ID_CUE_CLUSTER_POSITION, null);
+            ce0.b(model.e);
+        }
+    }
+
+    public static final void B(String str, String ext1, String ext2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, str, ext1, ext2) == null) {
             Intrinsics.checkNotNullParameter(ext1, "ext1");
             Intrinsics.checkNotNullParameter(ext2, "ext2");
             b(ClogBuilder.Page.WELFARETAIL, ClogBuilder.LogType.FREE_SHOW, str, null, ext1, ext2, null, null, 200, null);
         }
     }
 
-    public static final void B(String str, String type, String coin) {
+    public static final void C(String str, String type, String coin) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, str, type, coin) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, type, coin) == null) {
             Intrinsics.checkNotNullParameter(type, "type");
             Intrinsics.checkNotNullParameter(coin, "coin");
             b(null, ClogBuilder.LogType.REWARD_SHOW_TASK, str, null, type, coin, null, null, 201, null);
@@ -36,7 +95,7 @@ public final class ll0 {
 
     public static final void c(String str, String type, String coin) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, type, coin) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, type, coin) == null) {
             Intrinsics.checkNotNullParameter(type, "type");
             Intrinsics.checkNotNullParameter(coin, "coin");
             b(null, ClogBuilder.LogType.REWARD_ACTIVATE_TASK, str, null, type, coin, null, null, 201, null);
@@ -45,7 +104,7 @@ public final class ll0 {
 
     public static final void e(String str, String ext1, String ext2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, str, ext1, ext2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, ext1, ext2) == null) {
             Intrinsics.checkNotNullParameter(ext1, "ext1");
             Intrinsics.checkNotNullParameter(ext2, "ext2");
             b(null, ClogBuilder.LogType.CHECK, str, null, ext1, ext2, null, null, 201, null);
@@ -54,7 +113,7 @@ public final class ll0 {
 
     public static final void l(String str, String ext1, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65549, null, str, ext1, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65550, null, str, ext1, str2) == null) {
             Intrinsics.checkNotNullParameter(ext1, "ext1");
             ClogBuilder.LogType logType = ClogBuilder.LogType.REWARD_COMPLETE_TASK;
             if (str2 == null) {
@@ -66,7 +125,7 @@ public final class ll0 {
 
     public static final void p(String str, String ext1, String ext2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65553, null, str, ext1, ext2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65554, null, str, ext1, ext2) == null) {
             Intrinsics.checkNotNullParameter(ext1, "ext1");
             Intrinsics.checkNotNullParameter(ext2, "ext2");
             b(null, ClogBuilder.LogType.REWARD_COIN_FAIL, str, null, ext1, ext2, null, null, 201, null);
@@ -76,7 +135,7 @@ public final class ll0 {
     public static final void a(ClogBuilder.Page page, ClogBuilder.LogType logType, String str, String str2, String str3, String str4, String str5, String str6) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{page, logType, str, str2, str3, str4, str5, str6}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{page, logType, str, str2, str3, str4, str5, str6}) == null) {
             if (str != null && str.length() != 0) {
                 z = false;
             } else {
@@ -94,7 +153,7 @@ public final class ll0 {
             clogBuilder.l(str4);
             clogBuilder.m(str5);
             clogBuilder.n(str6);
-            bz0.e(clogBuilder);
+            dz0.e(clogBuilder);
         }
     }
 
@@ -140,7 +199,7 @@ public final class ll0 {
 
     public static final void d(String str, String coin, String sessionInfo, String upperLimit, String videoDownloadCoin) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65541, null, str, coin, sessionInfo, upperLimit, videoDownloadCoin) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65542, null, str, coin, sessionInfo, upperLimit, videoDownloadCoin) == null) {
             Intrinsics.checkNotNullParameter(coin, "coin");
             Intrinsics.checkNotNullParameter(sessionInfo, "sessionInfo");
             Intrinsics.checkNotNullParameter(upperLimit, "upperLimit");
@@ -149,12 +208,27 @@ public final class ll0 {
         }
     }
 
-    public static final void f(hn0 model) {
+    public static final void v(in0 model, String area, ClogBuilder.LogType logType, String ext1, String ext2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65560, null, model, area, logType, ext1, ext2) == null) {
+            Intrinsics.checkNotNullParameter(model, "model");
+            Intrinsics.checkNotNullParameter(area, "area");
+            Intrinsics.checkNotNullParameter(logType, "logType");
+            Intrinsics.checkNotNullParameter(ext1, "ext1");
+            Intrinsics.checkNotNullParameter(ext2, "ext2");
+            b(null, logType, model.f.d, area, ext1, ext2, null, null, 193, null);
+            if (logType == ClogBuilder.LogType.CLICK) {
+                ce0.b(model.e);
+            }
+        }
+    }
+
+    public static final void f(in0 model) {
         ClogBuilder.Page page;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, model) == null) {
+        if (interceptable == null || interceptable.invokeL(65544, null, model) == null) {
             Intrinsics.checkNotNullParameter(model, "model");
-            if (model.q()) {
+            if (model.r()) {
                 page = ClogBuilder.Page.WELFAREIMAGELP;
             } else {
                 page = ClogBuilder.Page.WELFAREMAXLP;
@@ -164,58 +238,58 @@ public final class ll0 {
         }
     }
 
-    public static final void m(hn0 hn0Var) {
+    public static final void m(in0 in0Var) {
         String str;
-        bn0 bn0Var;
+        cn0 cn0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, hn0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(65551, null, in0Var) == null) {
             ClogBuilder.Page page = ClogBuilder.Page.WELFAREROTATION;
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
             String str2 = ClogBuilder.Area.HOTAREA.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.HOTAREA.type");
             List<MonitorUrl> list = null;
-            if (hn0Var != null && (bn0Var = hn0Var.f) != null) {
-                str = bn0Var.d;
+            if (in0Var != null && (cn0Var = in0Var.f) != null) {
+                str = cn0Var.d;
             } else {
                 str = null;
             }
             b(page, logType, str, str2, null, null, null, null, 240, null);
-            if (hn0Var != null) {
-                list = hn0Var.e;
+            if (in0Var != null) {
+                list = in0Var.e;
             }
             ce0.b(list);
         }
     }
 
-    public static final void w(hn0 hn0Var) {
+    public static final void x(in0 in0Var) {
         String str;
-        bn0 bn0Var;
+        cn0 cn0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65560, null, hn0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(65562, null, in0Var) == null) {
             ClogBuilder.Page page = ClogBuilder.Page.WELFAREROTATION;
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
             String str2 = ClogBuilder.Area.SHAKE.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.SHAKE.type");
             List<MonitorUrl> list = null;
-            if (hn0Var != null && (bn0Var = hn0Var.f) != null) {
-                str = bn0Var.d;
+            if (in0Var != null && (cn0Var = in0Var.f) != null) {
+                str = cn0Var.d;
             } else {
                 str = null;
             }
             b(page, logType, str, str2, null, null, null, null, 240, null);
-            if (hn0Var != null) {
-                list = hn0Var.e;
+            if (in0Var != null) {
+                list = in0Var.e;
             }
             ce0.b(list);
         }
     }
 
-    public static final void y(hn0 model) {
+    public static final void z(in0 model) {
         ClogBuilder.Page page;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, null, model) == null) {
+        if (interceptable == null || interceptable.invokeL(65564, null, model) == null) {
             Intrinsics.checkNotNullParameter(model, "model");
-            if (model.q()) {
+            if (model.r()) {
                 page = ClogBuilder.Page.WELFAREIMAGELP;
             } else {
                 page = ClogBuilder.Page.WELFAREMAXLP;
@@ -230,7 +304,7 @@ public final class ll0 {
 
     public static final void g(String str, String type, String coin, String sessionInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65544, null, str, type, coin, sessionInfo) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65545, null, str, type, coin, sessionInfo) == null) {
             Intrinsics.checkNotNullParameter(type, "type");
             Intrinsics.checkNotNullParameter(coin, "coin");
             Intrinsics.checkNotNullParameter(sessionInfo, "sessionInfo");
@@ -242,7 +316,7 @@ public final class ll0 {
         String str4;
         String str5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65546, null, str, type, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65547, null, str, type, str2, str3) == null) {
             Intrinsics.checkNotNullParameter(type, "type");
             ClogBuilder.Page page = ClogBuilder.Page.WELFAREPANEL;
             ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_SHOW;
@@ -267,69 +341,9 @@ public final class ll0 {
         g(str, str2, str3, str4);
     }
 
-    public static final void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            String str2 = ClogBuilder.Area.DOWN_ARROW.type;
-            Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.DOWN_ARROW.type");
-            b(null, logType, str, str2, null, null, null, null, MatroskaExtractor.ID_CUE_CLUSTER_POSITION, null);
-        }
-    }
-
-    public static final void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
-            b(ClogBuilder.Page.WELFAREROTATION, ClogBuilder.LogType.FREE_SHOW, str, null, null, null, null, null, GDiffPatcher.DATA_INT, null);
-        }
-    }
-
-    public static final void o(hn0 model) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, model) == null) {
-            Intrinsics.checkNotNullParameter(model, "model");
-            ClogBuilder.Page page = ClogBuilder.Page.WELFAREMAXLP;
-            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            String str = ClogBuilder.Area.REWARD_FORM.type;
-            Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.REWARD_FORM.type");
-            b(page, logType, model.f.d, str, null, null, null, null, 240, null);
-        }
-    }
-
-    public static final void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
-            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            String str2 = ClogBuilder.Area.AD_BLANK.type;
-            Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.AD_BLANK.type");
-            b(null, logType, str, str2, null, null, null, null, MatroskaExtractor.ID_CUE_CLUSTER_POSITION, null);
-        }
-    }
-
-    public static final void x(hn0 model) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, null, model) == null) {
-            Intrinsics.checkNotNullParameter(model, "model");
-            b(null, ClogBuilder.LogType.CLICK, model.f.d, "sv_button", null, null, null, null, MatroskaExtractor.ID_CUE_CLUSTER_POSITION, null);
-            ce0.b(model.e);
-        }
-    }
-
-    public static final void z(hn0 model) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65563, null, model) == null) {
-            Intrinsics.checkNotNullParameter(model, "model");
-            ClogBuilder.Page page = ClogBuilder.Page.WELFAREIMAGELP;
-            ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            String str = ClogBuilder.Area.SWIPE_UP.type;
-            Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.SWIPE_UP.type");
-            b(page, logType, model.f.d, str, null, null, null, null, 240, null);
-        }
-    }
-
     public static final void k(String str, String ext1) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, ext1) == null) {
+        if (interceptable == null || interceptable.invokeLL(65549, null, str, ext1) == null) {
             Intrinsics.checkNotNullParameter(ext1, "ext1");
             b(null, ClogBuilder.LogType.REWARD_COIN_FAIL, str, null, ext1, null, null, null, 233, null);
         }
@@ -337,7 +351,7 @@ public final class ll0 {
 
     public static final void r(String str, String type) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, null, str, type) == null) {
+        if (interceptable == null || interceptable.invokeLL(65556, null, str, type) == null) {
             Intrinsics.checkNotNullParameter(type, "type");
             b(null, ClogBuilder.LogType.REWARD_TOKEN_FAIL, str, null, type, null, null, null, 233, null);
         }
@@ -346,7 +360,7 @@ public final class ll0 {
     public static final void s(String str, boolean z) {
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65556, null, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65557, null, str, z) == null) {
             ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
             if (z) {
                 str2 = "1";
@@ -366,7 +380,7 @@ public final class ll0 {
 
     public static final void u(String daArea, ClogBuilder.LogType logType, String str, String ext, String ext1, String ext2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{daArea, logType, str, ext, ext1, ext2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{daArea, logType, str, ext, ext1, ext2}) == null) {
             Intrinsics.checkNotNullParameter(daArea, "daArea");
             Intrinsics.checkNotNullParameter(logType, "logType");
             Intrinsics.checkNotNullParameter(ext, "ext");
@@ -374,23 +388,23 @@ public final class ll0 {
             Intrinsics.checkNotNullParameter(ext2, "ext2");
             b(null, logType, ext, daArea, ext1, ext2, null, null, 193, null);
             if (logType == ClogBuilder.LogType.CLICK && !TextUtils.isEmpty(str)) {
-                cz0.b(str);
+                ez0.b(str);
             }
         }
     }
 
-    public static final void v(hn0 model, String sessionInfo) {
+    public static final void w(in0 model, String sessionInfo) {
         ClogBuilder.Page page;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65559, null, model, sessionInfo) == null) {
+        if (interceptable == null || interceptable.invokeLL(65561, null, model, sessionInfo) == null) {
             Intrinsics.checkNotNullParameter(model, "model");
             Intrinsics.checkNotNullParameter(sessionInfo, "sessionInfo");
-            if (model.q()) {
+            if (model.r()) {
                 page = ClogBuilder.Page.WELFAREIMAGELP;
             } else {
                 page = ClogBuilder.Page.WELFAREMAXLP;
             }
-            b(page, ClogBuilder.LogType.SHOW, model.f.d, null, null, String.valueOf(model.g().s()), sessionInfo, null, Cea708Decoder.COMMAND_DF0, null);
+            b(page, ClogBuilder.LogType.SHOW, model.f.d, null, null, String.valueOf(model.h().s()), sessionInfo, null, Cea708Decoder.COMMAND_DF0, null);
             ce0.c(model.e);
         }
     }

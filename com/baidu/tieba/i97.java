@@ -1,29 +1,92 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedRoomComponent;
+import org.json.JSONObject;
+import tbclient.FeedKV;
 /* loaded from: classes6.dex */
 public final class i97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedRoomComponent feedRoomComponent, List<nb7<?>> dataList, n67 feedExtraData) {
+    public static final String a(List<FeedKV> list, String key) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedRoomComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedRoomComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            en6 en6Var = new en6();
-            en6Var.p(feedRoomComponent.status);
-            en6Var.q(feedRoomComponent.top_label);
-            en6Var.l(feedRoomComponent.cover_url);
-            en6Var.s(feedRoomComponent.scheme);
-            en6Var.x(feedRoomComponent.voice);
-            en6Var.t(feedRoomComponent.bottom_labels);
-            dataList.add(new ob7(new p47(en6Var, o67.e(feedExtraData, "card_pei_wan_click", null, 2, null), o67.e(feedExtraData, "voice_pei_wan_click", null, 2, null), o67.e(feedExtraData, "card_pei_wan_show", null, 2, null), feedExtraData.a().a(), feedExtraData.c().a()), "pei_wan"));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, key)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            for (FeedKV feedKV : list) {
+                if (Intrinsics.areEqual(feedKV.key, key)) {
+                    return feedKV.value;
+                }
+            }
+            return null;
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public static final Map<String, String> b(List<FeedKV> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            for (FeedKV feedKV : list) {
+                String str = feedKV.key;
+                Intrinsics.checkNotNullExpressionValue(str, "kv.key");
+                String str2 = feedKV.value;
+                Intrinsics.checkNotNullExpressionValue(str2, "kv.value");
+                linkedHashMap.put(str, str2);
+            }
+            return linkedHashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static final List<e87> c(List<FeedKV> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            ArrayList arrayList = new ArrayList();
+            for (FeedKV feedKV : list) {
+                String str = feedKV.key;
+                Intrinsics.checkNotNullExpressionValue(str, "kv.key");
+                e87 e87Var = new e87(str, null, null, null, null, 30, null);
+                Map<String, String> d = e87Var.d();
+                try {
+                    JSONObject jSONObject = new JSONObject(feedKV.value);
+                    if (d instanceof HashMap) {
+                        Iterator<String> keys = jSONObject.keys();
+                        Intrinsics.checkNotNullExpressionValue(keys, "jsonObject.keys()");
+                        while (keys.hasNext()) {
+                            String key = keys.next();
+                            if (!Intrinsics.areEqual(key, "position_name")) {
+                                Intrinsics.checkNotNullExpressionValue(key, "key");
+                                String optString = jSONObject.optString(key);
+                                Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(key)");
+                                d.put(key, optString);
+                            }
+                        }
+                    }
+                    String optString2 = jSONObject.optString("position_name");
+                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObject.optString(\"position_name\")");
+                    e87Var.g(optString2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                arrayList.add(e87Var);
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

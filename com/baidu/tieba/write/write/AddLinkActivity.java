@@ -27,11 +27,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ju5;
 import com.baidu.tieba.nu5;
-import com.baidu.tieba.ot5;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.uua;
+import com.baidu.tieba.ru5;
+import com.baidu.tieba.st5;
+import com.baidu.tieba.tua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ public class AddLinkActivity extends BaseActivity {
         public final /* synthetic */ AddLinkActivity a;
 
         /* loaded from: classes8.dex */
-        public class a extends ju5<String> {
+        public class a extends nu5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -85,7 +85,7 @@ public class AddLinkActivity extends BaseActivity {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ju5
+            @Override // com.baidu.tieba.nu5
             public String doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -98,12 +98,12 @@ public class AddLinkActivity extends BaseActivity {
 
         /* renamed from: com.baidu.tieba.write.write.AddLinkActivity$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0523b implements ot5<String> {
+        public class C0521b implements st5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0523b(b bVar) {
+            public C0521b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +122,7 @@ public class AddLinkActivity extends BaseActivity {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ot5
+            @Override // com.baidu.tieba.st5
             /* renamed from: a */
             public void onReturnDataInUI(String str) {
                 Interceptable interceptable = $ic;
@@ -160,7 +160,7 @@ public class AddLinkActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 if (TbadkCoreApplication.getInst().isMIUIRom()) {
-                    nu5.b(new a(this), new C0523b(this));
+                    ru5.b(new a(this), new C0521b(this));
                     return;
                 }
                 this.a.Z0(UtilHelper.getClipBoardContent());
@@ -175,7 +175,7 @@ public class AddLinkActivity extends BaseActivity {
         public final /* synthetic */ AddLinkActivity a;
 
         /* loaded from: classes8.dex */
-        public class a extends ju5<String> {
+        public class a extends nu5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -196,7 +196,7 @@ public class AddLinkActivity extends BaseActivity {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ju5
+            @Override // com.baidu.tieba.nu5
             public String doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -208,7 +208,7 @@ public class AddLinkActivity extends BaseActivity {
         }
 
         /* loaded from: classes8.dex */
-        public class b implements ot5<String> {
+        public class b implements st5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h a;
@@ -232,7 +232,7 @@ public class AddLinkActivity extends BaseActivity {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ot5
+            @Override // com.baidu.tieba.st5
             /* renamed from: a */
             public void onReturnDataInUI(String str) {
                 Interceptable interceptable = $ic;
@@ -267,7 +267,7 @@ public class AddLinkActivity extends BaseActivity {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (rd.isEmpty(this.a.l)) {
                     if (TbadkCoreApplication.getInst().isMIUIRom()) {
-                        nu5.b(new a(this), new b(this));
+                        ru5.b(new a(this), new b(this));
                         return;
                     }
                     this.a.Z0(UtilHelper.getClipBoardContent());
@@ -638,7 +638,7 @@ public class AddLinkActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int color = SkinManager.getColor(R.color.CAM_X0302);
-            this.e.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{uua.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), uua.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            this.e.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{tua.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), tua.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 
@@ -650,12 +650,12 @@ public class AddLinkActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09014a);
             this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09014b);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0927dd);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092891);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0927ea);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0927e0);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092894);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0927ed);
             this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09014c);
-            this.g = (EditText) findViewById(R.id.obfuscated_res_0x7f090abf);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091290);
+            this.g = (EditText) findViewById(R.id.obfuscated_res_0x7f090ac0);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091291);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09014d);
             this.a.setOnClickListener(new c(this));
             this.b.setClickable(true);

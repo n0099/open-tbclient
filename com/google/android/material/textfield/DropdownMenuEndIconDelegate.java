@@ -350,9 +350,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     @Override // com.google.android.material.textfield.EndIconDelegate
     public void initialize() {
         int i;
-        float dimensionPixelOffset = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070635);
-        float dimensionPixelOffset2 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070609);
-        int dimensionPixelOffset3 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07060b);
+        float dimensionPixelOffset = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070638);
+        float dimensionPixelOffset2 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07060c);
+        int dimensionPixelOffset3 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07060e);
         MaterialShapeDrawable popUpMaterialShapeDrawable = getPopUpMaterialShapeDrawable(dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset3);
         MaterialShapeDrawable popUpMaterialShapeDrawable2 = getPopUpMaterialShapeDrawable(0.0f, dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset3);
         this.outlinedPopupBackground = popUpMaterialShapeDrawable;

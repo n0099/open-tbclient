@@ -1,152 +1,212 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.FragmentManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
+import com.baidu.tieba.newinterest.fragment.BaseInterestedForumFragment;
+import com.baidu.tieba.newinterest.fragment.InterestSelectionStyleAFragment;
+import com.baidu.tieba.newinterest.fragment.InterestedForumStyleAFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class dt9 {
+public class dt9 implements View.OnClickListener, BaseInterestSelectionFragment.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public NavigationBar c;
-    public View d;
-    public TextView e;
-    public ImageView f;
+    public BaseFragmentActivity a;
+    public int b;
+    public String[] c;
+    public boolean d;
+    public View e;
+    public View f;
     public TextView g;
-    public ImageView h;
-    public ImageView i;
-    public ImageView j;
-    public ImageView k;
-    public ImageView l;
-    public TextView m;
-    public TextView n;
+    public NavigationBar h;
+    public BaseInterestedForumFragment i;
+    public BaseInterestSelectionFragment j;
 
-    public abstract void c(et9 et9Var);
-
-    public dt9(TbPageContext tbPageContext, View view2) {
+    public dt9(BaseFragmentActivity baseFragmentActivity, int i, String[] strArr, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {baseFragmentActivity, Integer.valueOf(i), strArr, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = view2;
-        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.navigation_bar);
-        this.c = navigationBar;
-        View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d = addSystemImageButton;
-        addSystemImageButton.setId(R.id.obfuscated_res_0x7f0904f4);
-        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getString(R.string.obfuscated_res_0x7f0f145b));
-        this.e = addTextButton;
-        addTextButton.setId(R.id.btn_skip);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092733);
-        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092730);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091164);
-        this.f = imageView;
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
-        layoutParams.topMargin = BdUtilHelper.getEquipmentHeight(tbPageContext.getPageActivity()) / 4;
-        this.f.setLayoutParams(layoutParams);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091732);
-        this.g = textView;
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams2.topMargin = (BdUtilHelper.getEquipmentHeight(tbPageContext.getPageActivity()) / 2) + BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds239);
-        this.g.setLayoutParams(layoutParams2);
-        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ed2);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092b0b);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092b0e);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092b89);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091871);
+        this.a = baseFragmentActivity;
+        this.b = i;
+        this.c = strArr;
+        this.d = z;
+        f();
+        g();
     }
 
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c.onChangeSkinType(this.a, i);
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201, i);
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201, i);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
-            EMManager.from(this.m).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X03).setTextStyle(R.string.F_X02);
-            EMManager.from(this.n).setTextColor(R.color.CAM_X0107).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01);
-            if (i == 0) {
-                WebPManager.setMaskDrawable(this.f, R.drawable.obfuscated_res_0x7f080a36, null);
-            } else {
-                WebPManager.setMaskDrawable(this.f, R.drawable.obfuscated_res_0x7f080a37, null);
-            }
-            EMManager.from(this.g).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X01).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0302);
-            WebPManager.setMaskDrawable(this.h, R.drawable.icon_share_qq, null);
-            WebPManager.setMaskDrawable(this.i, R.drawable.icon_share_wechat, null);
-            WebPManager.setMaskDrawable(this.j, R.drawable.icon_share_weibo, null);
-            WebPManager.setMaskDrawable(this.k, R.drawable.icon_share_yy, null);
-            WebPManager.setMaskDrawable(this.l, R.drawable.icon_share_more, null);
-        }
-    }
-
-    public void b(boolean z) {
+    @Override // com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment.a
+    public void a(List<ss9> list) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            View view2 = this.d;
-            if (z) {
-                i = 0;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            InterestedForumStyleAFragment L2 = InterestedForumStyleAFragment.L2(this.b, this.c);
+            this.i = L2;
+            L2.J2(list);
+            b().beginTransaction().add(R.id.content_container, this.i).addToBackStack(null).commitAllowingStateLoss();
+            if (b().getFragments().size() == 1) {
+                i = 1;
             } else {
-                i = 4;
+                i = 2;
             }
-            view2.setVisibility(i);
+            zs9.a(i, 1, this.b, c(list), "");
         }
     }
 
-    public void e(boolean z) {
-        int i;
+    public String c(List<ss9> list) {
+        InterceptResult invokeL;
+        String a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            TextView textView = this.m;
-            int i2 = 0;
-            if (z) {
-                i = 0;
-            } else {
-                i = 4;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return "";
             }
-            textView.setVisibility(i);
-            TextView textView2 = this.n;
-            if (!z) {
-                i2 = 4;
+            StringBuilder sb = new StringBuilder();
+            for (ss9 ss9Var : list) {
+                if (ss9Var != null) {
+                    if (sb.length() > 0) {
+                        sb.append("|");
+                    }
+                    if (TextUtils.isEmpty(ss9Var.a())) {
+                        a = ss9Var.d();
+                    } else {
+                        a = ss9Var.a();
+                    }
+                    sb.append(a);
+                }
             }
-            textView2.setVisibility(i2);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            int i = 1;
+            if (view2 == this.f && this.a != null) {
+                BaseInterestedForumFragment baseInterestedForumFragment = this.i;
+                if (baseInterestedForumFragment != null && baseInterestedForumFragment.isVisible()) {
+                    b().popBackStack();
+                    zs9.c(1, this.b);
+                    return;
+                }
+                e();
+            } else if (view2 == this.g) {
+                e();
+                if (b().getFragments().size() != 1) {
+                    i = 2;
+                }
+                zs9.a(i, 2, this.b, "", "");
+            }
         }
     }
 
-    public void d(View.OnClickListener onClickListener) {
+    public final FragmentManager b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.e.setOnClickListener(onClickListener);
-            this.g.setOnClickListener(onClickListener);
-            this.h.setOnClickListener(onClickListener);
-            this.i.setOnClickListener(onClickListener);
-            this.j.setOnClickListener(onClickListener);
-            this.k.setOnClickListener(onClickListener);
-            this.l.setOnClickListener(onClickListener);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getSupportFragmentManager();
+        }
+        return (FragmentManager) invokeV.objValue;
+    }
+
+    public View d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.g.setOnClickListener(this);
+            this.f.setOnClickListener(this);
+            BaseInterestSelectionFragment baseInterestSelectionFragment = this.j;
+            if (baseInterestSelectionFragment != null) {
+                baseInterestSelectionFragment.J2(this);
+            }
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && b().getFragments().size() == 1) {
+            zs9.c(1, this.b);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13682");
+            statisticItem.param("obj_type", 1);
+            TiebaStatic.log(statisticItem);
+            if (this.d) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.a).createNormalCfg(0)));
+            } else {
+                this.a.finish();
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0044, (ViewGroup) null);
+            this.e = inflate;
+            NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
+            this.h = navigationBar;
+            TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f145c));
+            this.g = addTextButton;
+            addTextButton.setId(R.id.btn_skip);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0108);
+            this.f = this.h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            InterestSelectionStyleAFragment K2 = InterestSelectionStyleAFragment.K2(this.b, this.c);
+            this.j = K2;
+            b().beginTransaction().add(R.id.content_container, K2).commitAllowingStateLoss();
+            TiebaStatic.log(new StatisticItem("c13681"));
         }
     }
 }

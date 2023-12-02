@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
-import com.baidu.tieba.wt9;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,31 +12,66 @@ public class sx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static vx9 a(TbPageContext tbPageContext, IBaseDialogData iBaseDialogData) {
-        InterceptResult invokeLL;
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, iBaseDialogData)) == null) {
-            if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null || iBaseDialogData.getType() != 1) {
-                return null;
+        if ((interceptable == null || interceptable.invokeI(65536, null, i) == null) && TbadkCoreApplication.getInst().getFontSize() != i) {
+            TbadkCoreApplication.getInst().setFontSize(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
+        }
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            if (fontSize == 0) {
+                return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_xlarge);
             }
-            StatisticItem statisticItem = new StatisticItem(wt9.a.a);
-            int i = 0;
-            int from = iBaseDialogData.getFrom();
-            if (from != 0) {
-                if (from != 1) {
-                    if (from == 2) {
-                        i = 4;
-                    }
-                } else {
-                    i = 3;
-                }
-            } else {
+            if (fontSize == 1) {
+                return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_big);
+            }
+            if (fontSize == 2) {
+                return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_mid);
+            }
+            return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_small);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            int i = 3;
+            if (fontSize == 0) {
+                i = 1;
+            } else if (fontSize == 1) {
                 i = 2;
             }
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
-            return new tx9(tbPageContext, (CustomDialogData) iBaseDialogData);
+            if (fontSize != i) {
+                TbadkCoreApplication.getInst().setFontSize(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
+            }
+            BdToast.makeText(TbadkCoreApplication.getInst(), b()).setIcon(R.drawable.icon_word_t_size).setDuration(0).show();
         }
-        return (vx9) invokeLL.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            int i = 2;
+            if (fontSize == 0 || fontSize == 1) {
+                i = 0;
+            } else if (fontSize == 2) {
+                i = 1;
+            }
+            if (fontSize != i) {
+                TbadkCoreApplication.getInst().setFontSize(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
+            }
+            BdToast.makeText(TbadkCoreApplication.getInst(), b()).setIcon(R.drawable.icon_word_t_size).setDuration(0).show();
+        }
     }
 }

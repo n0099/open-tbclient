@@ -1,161 +1,130 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
-import android.view.View;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ta7;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.HashMap;
 import java.util.List;
-import kotlin.Unit;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import kotlin.text.StringsKt__StringsKt;
 import tbclient.FeedContentResource;
+import tbclient.FeedItem;
+import tbclient.FeedOriginComponent;
+import tbclient.FeedOriginPic;
+import tbclient.PicInfo;
+import tbclient.VideoField;
 /* loaded from: classes7.dex */
 public final class l97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static final class a extends x97 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f57 b;
-        public final /* synthetic */ x77 c;
-        public final /* synthetic */ n67 d;
-
-        public a(f57 f57Var, x77 x77Var, n67 n67Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f57Var, x77Var, n67Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = f57Var;
-            this.c = x77Var;
-            this.d = n67Var;
-        }
-
-        @Override // com.baidu.tieba.x97, android.text.style.ClickableSpan
-        public void onClick(View widget) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
-                Intrinsics.checkNotNullParameter(widget, "widget");
-                Function2<Context, String, Unit> f = this.b.f();
-                Context context = widget.getContext();
-                Intrinsics.checkNotNullExpressionValue(context, "widget.context");
-                String b = ua7.b(this.c.e(), this.d.d());
-                Intrinsics.checkNotNullExpressionValue(b, "appendParams(richTextDat…xtraData.schemaLocalInfo)");
-                f.invoke(context, b);
-                a87 f2 = this.c.f();
-                if (f2 != null) {
-                    this.b.g().invoke(f2);
-                }
-                wb7.a.c(new pb7("rich_text_click", this.c.d(), MapsKt__MapsKt.emptyMap(), this.c.a().a()));
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:22:0x008e A[Catch: Exception -> 0x00f4, TryCatch #0 {Exception -> 0x00f4, blocks: (B:11:0x0031, B:13:0x0059, B:14:0x0064, B:16:0x0082, B:22:0x008e, B:24:0x009f, B:30:0x00d6, B:25:0x00b3, B:27:0x00bd, B:29:0x00c5, B:31:0x00dd), top: B:41:0x0031 }] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00fa A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0025 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x011c  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x011e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void a(List<FeedContentResource> list, SpannableStringBuilder stringBuilder, n67 feedExtraData, final f57 uiState) {
-        w97 w97Var;
-        x77 c;
-        String c2;
+    public static final void a(FeedOriginComponent feedOriginComponent, List<rb7<?>> dataList, r67 feedExtraData) {
+        u47 u47Var;
+        b57 b57Var;
+        q47 q47Var;
+        m47 m47Var;
+        String str;
+        String str2;
+        String str3;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, list, stringBuilder, feedExtraData, uiState) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(stringBuilder, "stringBuilder");
+        if (interceptable == null || interceptable.invokeLLL(65536, null, feedOriginComponent, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedOriginComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            Intrinsics.checkNotNullParameter(uiState, "uiState");
-            if (ListUtils.isEmpty(list)) {
-                return;
-            }
-            SpannableString spannableString = null;
-            for (FeedContentResource feedContentResource : list) {
-                try {
-                    HashMap<String, Class> a2 = z97.a();
-                    ta7.a aVar = ta7.a;
-                    Integer num = feedContentResource.type;
-                    Intrinsics.checkNotNullExpressionValue(num, "content.type");
-                    Class cls = a2.get(aVar.a(num.intValue()));
-                    Intrinsics.checkNotNull(cls);
-                    w97Var = (w97) cls.newInstance();
-                    if (w97Var instanceof da7) {
-                        ((da7) w97Var).a(new ha7() { // from class: com.baidu.tieba.z87
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            @Override // com.baidu.tieba.ha7
-                            public final void onUpdate() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    l97.b(f57.this);
-                                }
-                            }
-                        });
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            List<FeedContentResource> _abstract = feedOriginComponent._abstract;
+            Intrinsics.checkNotNullExpressionValue(_abstract, "_abstract");
+            l47 a = e97.a(spannableStringBuilder, _abstract, new r67());
+            if (a.k()) {
+                FeedOriginPic feedOriginPic = feedOriginComponent.pic_info;
+                if (feedOriginPic != null && feedOriginPic.pics != null) {
+                    String str4 = feedOriginPic.schema;
+                    if (str4 == null) {
+                        str4 = "";
+                    } else {
+                        Intrinsics.checkNotNullExpressionValue(str4, "pic_info.schema ?: \"\"");
                     }
-                    c = ta7.a.c(feedContentResource, feedExtraData.a(), feedExtraData.c(), feedExtraData.e());
-                    c2 = c.g().c();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    List<PicInfo> list = feedOriginComponent.pic_info.pics;
+                    Intrinsics.checkNotNullExpressionValue(list, "pic_info.pics");
+                    u47Var = n97.b(list, str4, new r67());
+                } else {
+                    u47Var = null;
                 }
-                if (c2 != null && c2.length() != 0) {
-                    z = false;
-                    if (!z) {
-                        String c3 = c.g().c();
-                        if (StringsKt__StringsJVMKt.endsWith$default(c3, "\n", false, 2, null)) {
-                            c3 = StringsKt__StringsKt.replaceRange((CharSequence) c3, c3.length() - 1, c3.length(), (CharSequence) " \n").toString();
-                        } else if (Intrinsics.areEqual(feedContentResource, CollectionsKt___CollectionsKt.last((List<? extends Object>) list)) && !StringsKt__StringsJVMKt.endsWith$default(c3, " ", false, 2, null)) {
-                            c3 = c3 + WebvttCueParser.CHAR_SPACE;
+                if (feedOriginComponent.video != null) {
+                    m87 m87Var = new m87();
+                    String schema = feedOriginComponent.schema;
+                    Intrinsics.checkNotNullExpressionValue(schema, "schema");
+                    m87Var.j(schema);
+                    VideoField video = feedOriginComponent.video;
+                    Intrinsics.checkNotNullExpressionValue(video, "video");
+                    b57Var = s97.b(video, m87Var, new r67());
+                } else {
+                    b57Var = null;
+                }
+                FeedItem feedItem = feedOriginComponent.item;
+                if (feedItem != null) {
+                    HashMap<String, String> a2 = va7.a.a(feedItem.business_info);
+                    String str5 = a2.get("apk_detail");
+                    String str6 = feedExtraData.a().a().get("origin_thread_id");
+                    if (str6 == null) {
+                        str3 = "";
+                    } else {
+                        str3 = str6;
+                    }
+                    long j = JavaTypesHelper.toLong(a2.get("item_id"), 0L);
+                    if (str5 == null) {
+                        String str7 = feedOriginComponent.item.name;
+                        if (str7 != null && str7.length() != 0) {
+                            z = false;
+                        } else {
+                            z = true;
                         }
-                        c.g().d(c3);
+                        if (!z) {
+                            FeedItem item = feedOriginComponent.item;
+                            Intrinsics.checkNotNullExpressionValue(item, "item");
+                            q47 b = h97.b(item, j, str3, "", "");
+                            b.a().j = R.color.CAM_X0205;
+                            b.d(false);
+                            q47Var = b;
+                            m47Var = null;
+                            e87 e = s67.e(feedExtraData, "origin_card_click", null, 2, null);
+                            str = feedOriginComponent.schema;
+                            if (str == null) {
+                                str2 = "";
+                            } else {
+                                str2 = str;
+                            }
+                            dataList.add(new sb7(new s47(a, u47Var, b57Var, q47Var, m47Var, str2, e, feedExtraData.a().a(), feedExtraData.c().a(), null, 512, null), "origin_card"));
+                        }
+                    } else {
+                        FeedItem item2 = feedOriginComponent.item;
+                        Intrinsics.checkNotNullExpressionValue(item2, "item");
+                        m47 a3 = h97.a(item2, str5, j, str3, "", "");
+                        a3.a().j = R.color.CAM_X0205;
+                        a3.d(false);
+                        m47Var = a3;
+                        q47Var = null;
+                        e87 e2 = s67.e(feedExtraData, "origin_card_click", null, 2, null);
+                        str = feedOriginComponent.schema;
+                        if (str == null) {
+                        }
+                        dataList.add(new sb7(new s47(a, u47Var, b57Var, q47Var, m47Var, str2, e2, feedExtraData.a().a(), feedExtraData.c().a(), null, 512, null), "origin_card"));
                     }
-                    spannableString = w97Var.b(r27.a, c, new a(uiState, c, feedExtraData));
-                    uiState.h().add(c.a());
-                    if (spannableString == null) {
-                        stringBuilder.append((CharSequence) spannableString);
-                    }
                 }
-                z = true;
-                if (!z) {
+                q47Var = null;
+                m47Var = null;
+                e87 e22 = s67.e(feedExtraData, "origin_card_click", null, 2, null);
+                str = feedOriginComponent.schema;
+                if (str == null) {
                 }
-                spannableString = w97Var.b(r27.a, c, new a(uiState, c, feedExtraData));
-                uiState.h().add(c.a());
-                if (spannableString == null) {
-                }
+                dataList.add(new sb7(new s47(a, u47Var, b57Var, q47Var, m47Var, str2, e22, feedExtraData.a().a(), feedExtraData.c().a(), null, 512, null), "origin_card"));
             }
-        }
-    }
-
-    public static final void b(f57 uiState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, uiState) == null) {
-            Intrinsics.checkNotNullParameter(uiState, "$uiState");
-            uiState.b();
         }
     }
 }

@@ -114,10 +114,10 @@ public class RewardPreviewTopBarView extends KSFrameLayout implements View.OnCli
     public final void init(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super.init(context, attributeSet);
         FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04a8, this);
-        this.Bi = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091405);
-        this.sz = (TextView) findViewById(R.id.obfuscated_res_0x7f091408);
-        this.Bj = (TextView) findViewById(R.id.obfuscated_res_0x7f091406);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091404);
+        this.Bi = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091406);
+        this.sz = (TextView) findViewById(R.id.obfuscated_res_0x7f091409);
+        this.Bj = (TextView) findViewById(R.id.obfuscated_res_0x7f091407);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091405);
         this.Bk = imageView;
         imageView.setVisibility(8);
         this.Bk.setOnClickListener(this);

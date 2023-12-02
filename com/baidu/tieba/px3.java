@@ -1,10 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.IntentFilter;
-import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,63 +8,42 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class px3 extends ny3 {
+public class px3 extends qy3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AppDownloadNetworkStateReceiver c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948077374, "Lcom/baidu/tieba/px3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948077374, "Lcom/baidu/tieba/px3;");
-                return;
-            }
-        }
-        boolean z = sm1.a;
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public px3() {
-        super("resumeAllDownloadWhileWifi");
+        super("getAvailableSpace");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ny3
-    public iy1 a(JSONObject jSONObject, lj2 lj2Var) {
+    @Override // com.baidu.tieba.qy3
+    public ly1 a(@NonNull JSONObject jSONObject, @NonNull oj2 oj2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lj2Var)) == null) {
-            if (jSONObject == null) {
-                lj2Var.onFail(202, "params may be error");
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, oj2Var)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("data", yj3.c());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            if (this.c == null) {
-                this.c = new AppDownloadNetworkStateReceiver();
-            }
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
-            op2.c().registerReceiver(this.c, intentFilter);
-            lj2Var.onSuccess(null);
+            oj2Var.onSuccess(jSONObject2);
             return null;
         }
-        return (iy1) invokeLL.objValue;
+        return (ly1) invokeLL.objValue;
     }
 }

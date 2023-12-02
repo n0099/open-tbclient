@@ -1,5 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
+
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public interface qpb {
-    boolean isAgreePrivacy();
+    void setUBCConfigStatisticData(JSONObject jSONObject);
 }

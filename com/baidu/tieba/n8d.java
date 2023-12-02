@@ -5,28 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.SmartApp;
+import tbclient.SortButton;
 /* loaded from: classes7.dex */
-public class n8d extends ltc {
+public class n8d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SmartApp smartApp) {
+    public static JSONObject b(@NonNull SortButton sortButton) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, smartApp)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sortButton)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "avatar", smartApp.avatar);
-            ltc.a(jSONObject, "name", smartApp.name);
-            ltc.a(jSONObject, "abstract", smartApp._abstract);
-            ltc.a(jSONObject, pic.f, smartApp.pic);
-            ltc.a(jSONObject, "h5_url", smartApp.h5_url);
-            ltc.a(jSONObject, "id", smartApp.id);
-            ltc.a(jSONObject, "link", smartApp.link);
-            ltc.a(jSONObject, "naws_app_id", smartApp.naws_app_id);
-            ltc.a(jSONObject, "is_recom", smartApp.is_recom);
-            ltc.a(jSONObject, "is_game", smartApp.is_game);
+            ktc.a(jSONObject, "text", sortButton.text);
+            ktc.a(jSONObject, "source_id", sortButton.source_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

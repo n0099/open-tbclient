@@ -1,28 +1,28 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.dpc;
-import com.baidu.tieba.drc;
-import com.baidu.tieba.dsc;
+import com.baidu.tieba.cpc;
+import com.baidu.tieba.crc;
+import com.baidu.tieba.csc;
+import com.baidu.tieba.eoc;
 import com.baidu.tieba.foc;
-import com.baidu.tieba.goc;
-import com.baidu.tieba.koc;
-import com.baidu.tieba.ksc;
-import com.baidu.tieba.qoc;
+import com.baidu.tieba.joc;
+import com.baidu.tieba.jsc;
+import com.baidu.tieba.poc;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
-public final class QueuedProducer<T> extends AtomicLong implements goc, foc<T> {
+public final class QueuedProducer<T> extends AtomicLong implements foc, eoc<T> {
     public static final Object NULL_SENTINEL = new Object();
     public static final long serialVersionUID = 7277121710709137047L;
-    public final koc<? super T> child;
+    public final joc<? super T> child;
     public volatile boolean done;
     public Throwable error;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
-    @Override // com.baidu.tieba.foc
+    @Override // com.baidu.tieba.eoc
     public void onCompleted() {
         this.done = true;
         drain();
@@ -32,13 +32,13 @@ public final class QueuedProducer<T> extends AtomicLong implements goc, foc<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public QueuedProducer(koc<? super T> kocVar) {
-        this(kocVar, r0);
-        Queue drcVar;
-        if (ksc.b()) {
-            drcVar = new dsc();
+    public QueuedProducer(joc<? super T> jocVar) {
+        this(jocVar, r0);
+        Queue crcVar;
+        if (jsc.b()) {
+            crcVar = new csc();
         } else {
-            drcVar = new drc();
+            crcVar = new crc();
         }
     }
 
@@ -54,26 +54,26 @@ public final class QueuedProducer<T> extends AtomicLong implements goc, foc<T> {
         return true;
     }
 
-    @Override // com.baidu.tieba.foc
+    @Override // com.baidu.tieba.eoc
     public void onError(Throwable th) {
         this.error = th;
         this.done = true;
         drain();
     }
 
-    @Override // com.baidu.tieba.foc
+    @Override // com.baidu.tieba.eoc
     public void onNext(T t) {
         if (!offer(t)) {
             onError(new MissingBackpressureException());
         }
     }
 
-    @Override // com.baidu.tieba.goc
+    @Override // com.baidu.tieba.foc
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                dpc.b(this, j);
+                cpc.b(this, j);
                 drain();
                 return;
             }
@@ -82,8 +82,8 @@ public final class QueuedProducer<T> extends AtomicLong implements goc, foc<T> {
         throw new IllegalArgumentException("n >= 0 required");
     }
 
-    public QueuedProducer(koc<? super T> kocVar, Queue<Object> queue) {
-        this.child = kocVar;
+    public QueuedProducer(joc<? super T> jocVar, Queue<Object> queue) {
+        this.child = jocVar;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }
@@ -111,7 +111,7 @@ public final class QueuedProducer<T> extends AtomicLong implements goc, foc<T> {
     private void drain() {
         boolean z;
         if (this.wip.getAndIncrement() == 0) {
-            koc<? super T> kocVar = this.child;
+            joc<? super T> jocVar = this.child;
             Queue<Object> queue = this.queue;
             while (!checkTerminated(this.done, queue.isEmpty())) {
                 this.wip.lazySet(1);
@@ -133,9 +133,9 @@ public final class QueuedProducer<T> extends AtomicLong implements goc, foc<T> {
                     }
                     try {
                         if (poll == NULL_SENTINEL) {
-                            kocVar.onNext(null);
+                            jocVar.onNext(null);
                         } else {
-                            kocVar.onNext(poll);
+                            jocVar.onNext(poll);
                         }
                         j--;
                         j2++;
@@ -143,7 +143,7 @@ public final class QueuedProducer<T> extends AtomicLong implements goc, foc<T> {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        qoc.g(th, kocVar, poll);
+                        poc.g(th, jocVar, poll);
                         return;
                     }
                 }

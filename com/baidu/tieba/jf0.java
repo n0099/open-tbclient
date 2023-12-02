@@ -153,15 +153,15 @@ public class jf0 {
             try {
                 if (Build.VERSION.SDK_INT < 19) {
                     a2 = a();
-                } else if (b21.e() && System.currentTimeMillis() - b.longValue() < a.longValue()) {
-                    return a() + " " + hf0.a().B().toLowerCase() + "/" + hf0.a().x() + " (Baidu; P1 " + hf0.a().b() + ") nadcorevendor/5.12.0.110";
+                } else if (e21.e() && System.currentTimeMillis() - b.longValue() < a.longValue()) {
+                    return a() + " " + hf0.a().B().toLowerCase() + "/" + hf0.a().x() + " (Baidu; P1 " + hf0.a().b() + ") nadcorevendor/6.1.0.1";
                 } else {
                     a2 = WebSettings.getDefaultUserAgent(hf0.b());
                 }
             } catch (Throwable unused) {
                 a2 = a();
             }
-            String str = a2 + " " + hf0.a().B().toLowerCase() + "/" + hf0.a().x() + " (Baidu; P1 " + hf0.a().b() + ") nadcorevendor/5.12.0.110";
+            String str = a2 + " " + hf0.a().B().toLowerCase() + "/" + hf0.a().x() + " (Baidu; P1 " + hf0.a().b() + ") nadcorevendor/6.1.0.1";
             e(str);
             return str;
         }

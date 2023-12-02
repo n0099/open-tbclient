@@ -1,31 +1,21 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.tieba.s63;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Callback;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-@SuppressLint({"StaticFieldLeak"})
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class o44 extends HttpManager {
+public final class o44 implements zn1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile o44 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<Integer> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o44() {
-        super(op2.c());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,88 +23,82 @@ public class o44 extends HttpManager {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    public static o44 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zn1
+    public void a(sy1 sy1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (o44.class) {
-                    if (a == null) {
-                        a = new o44();
-                    }
-                }
-            }
-            return a;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, sy1Var) == null) && sy1Var != null) {
+            d(sy1Var.C("action"), sy1Var.C("menuItemName"));
         }
-        return (o44) invokeV.objValue;
     }
 
-    public static o44 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zn1
+    public void b(rc4 rc4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            o44 o44Var = new o44();
-            o44Var.setHttpDnsEnable(c().getHttpDnsEnable());
-            return o44Var;
-        }
-        return (o44) invokeV.objValue;
-    }
-
-    public void a(Request request, List<Interceptor> list, Callback callback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, request, list, callback) != null) || request == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rc4Var) != null) || this.a.isEmpty()) {
             return;
         }
-        OkHttpClient.Builder newBuilder = getOkHttpClient().newBuilder();
-        if (list != null && !list.isEmpty()) {
-            for (Interceptor interceptor : list) {
-                if (interceptor != null) {
-                    newBuilder.addInterceptor(interceptor);
+        Iterator<Integer> it = this.a.iterator();
+        while (it.hasNext()) {
+            Integer id = it.next();
+            if (rc4Var != null) {
+                Intrinsics.checkNotNullExpressionValue(id, "id");
+                rc4Var.l(id.intValue());
+            }
+        }
+    }
+
+    public final boolean c(rc4 rc4Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, rc4Var, str)) == null) {
+            Integer a = p44.a(str);
+            if (a != null) {
+                if (!this.a.contains(a)) {
+                    this.a.add(a);
                 }
+                if (rc4Var != null) {
+                    rc4Var.l(a.intValue());
+                }
+                return true;
             }
+            return false;
         }
-        newBuilder.build().newCall(request).enqueue(callback);
+        return invokeLL.booleanValue;
     }
 
-    public void b(Request request, Callback callback) {
+    public final boolean d(String str, String str2) {
+        InterceptResult invokeLL;
+        h24 h24Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, callback) == null) && request != null) {
-            getOkHttpClient().newCall(request).enqueue(callback);
-        }
-    }
-
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    public OkHttpClient initClient() {
-        InterceptResult invokeV;
-        s63.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (h63.M() == null) {
-                return super.initClient();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (str != null && str.hashCode() == 3202370 && str.equals("hide")) {
+                xr2 V = xr2.V();
+                Intrinsics.checkNotNullExpressionValue(V, "SwanAppController.getInstance()");
+                t52 W = V.W();
+                rc4 rc4Var = null;
+                if (W != null) {
+                    h24Var = (h24) W.n(h24.class);
+                } else {
+                    h24Var = null;
+                }
+                if (h24Var != null) {
+                    rc4Var = h24Var.E3();
+                }
+                if (rc4Var != null && h24Var != null) {
+                    h24Var.Q3(true);
+                }
+                return c(rc4Var, str2);
             }
-            b64 b64Var = (b64) h63.M().U();
-            OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
-            int i = 60000;
-            if (b64Var != null && (aVar = b64Var.a) != null) {
-                i = aVar.a;
-                newBuilder.connectTimeout(aVar.b, TimeUnit.MILLISECONDS);
-                newBuilder.addNetworkInterceptor(new ay2());
-            }
-            long j = i;
-            newBuilder.readTimeout(j, TimeUnit.MILLISECONDS);
-            newBuilder.writeTimeout(j, TimeUnit.MILLISECONDS);
-            OkHttpClient build = newBuilder.build();
-            build.dispatcher().setMaxRequests(10);
-            return build;
+            return false;
         }
-        return (OkHttpClient) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

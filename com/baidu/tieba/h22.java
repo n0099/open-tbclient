@@ -1,182 +1,170 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.MotionEvent;
-import android.view.View;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.canvas.view.CanvasView;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class h22 extends x12<CanvasView, f12> {
+public class h22 extends j73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.j73
     @NonNull
-    public CanvasView i;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CanvasView.c a;
-
-        public a(h22 h22Var, CanvasView.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h22Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            CanvasView.c cVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.a) != null) {
-                cVar.a();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends nl3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean j;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(h22 h22Var, String str, String str2, String str3, boolean z) {
-            super(str, str2, str3);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h22Var, str, str2, str3, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.j = z;
-        }
-
-        @Override // com.baidu.tieba.nl3, android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (this.j && super.onTouch(view2, motionEvent)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/button" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h22(@NonNull Context context, @NonNull f12 f12Var) {
-        super(context, f12Var);
+    public h22(h73 h73Var) {
+        super(h73Var, "/swanAPI/button");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, f12Var};
+            Object[] objArr = {h73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (y12) objArr2[1]);
+                super((h73) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        CanvasView canvasView = new CanvasView(context);
-        this.i = canvasView;
-        canvasView.setInterceptTouchEvent(f12Var.j);
-        this.i.setHide(f12Var.f);
-        this.i.setGesture(f12Var.g);
-        if (f12Var.g) {
-            this.i.setInterceptTouchEvent(false);
-        }
     }
 
-    public boolean H(f12 f12Var, CanvasView.c cVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f12Var, cVar)) == null) {
-            if (f12Var != null && (f12Var instanceof g12)) {
-                f12 n = n();
-                if (!TextUtils.equals(n.b, f12Var.b) || !TextUtils.equals(n.c, f12Var.c)) {
-                    a32.a("Component-Canvas", "drawCanvas with illegal ids!");
-                }
-                g12 g12Var = (g12) f12Var;
-                this.i.c(g12Var.h(), g12Var.i());
-                this.i.postInvalidate();
-                this.i.post(new a(this, cVar));
-                return true;
-            }
-            h32.c("Component-Canvas", "some params is invalid");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.x12
-    public void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.A();
-            this.i.f();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.x12
-    @SuppressLint({"ClickableViewAccessibility"})
-    /* renamed from: I */
-    public void r(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull f12 f12Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, swanAppComponentContainerView, f12Var) == null) {
-            swanAppComponentContainerView.setOnTouchListener(new b(this, f12Var.c, f12Var.b, f12Var.a, f12Var.g));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.x12
-    @NonNull
-    /* renamed from: J */
-    public CanvasView v(@NonNull Context context) {
+    @Nullable
+    public final i22 q(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity == null) {
+                return null;
+            }
+            JSONObject k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                k32.c("Component-Action-Button", "params is null");
+                return null;
+            }
+            i22 i22Var = new i22();
+            try {
+                i22Var.a(k);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                k32.d("Component-Action-Button", "model parse exception:", e);
+            }
+            return i22Var;
         }
-        return (CanvasView) invokeL.objValue;
+        return (i22) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.j73
+    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, k63 k63Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, k63Var)) == null) {
+            if (h83.b) {
+                Log.d("Component-Action-Button", "insert");
+            }
+            i22 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                k32.c("Component-Action-Button", "model is null");
+                return false;
+            }
+            c22 w = new g22(context, q).w();
+            boolean a = w.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.b);
+            }
+            return a;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.j73
+    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, k63 k63Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, k63Var)) == null) {
+            if (h83.b) {
+                Log.d("Component-Action-Button", "remove");
+            }
+            i22 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                k32.c("Component-Action-Button", "model is null");
+                return false;
+            }
+            g22 g22Var = (g22) x22.a(q);
+            if (g22Var == null) {
+                String str2 = "can't find button component:#" + q.b;
+                k32.c("Component-Action-Button", str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
+                return false;
+            }
+            c22 C = g22Var.C();
+            boolean a = C.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, C.b);
+            }
+            return a;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.j73
+    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, k63 k63Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, k63Var)) == null) {
+            if (h83.b) {
+                Log.d("Component-Action-Button", StickerDataChangeType.UPDATE);
+            }
+            i22 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                k32.c("Component-Action-Button", "model is null");
+                return false;
+            }
+            g22 g22Var = (g22) x22.a(q);
+            if (g22Var == null) {
+                String str2 = "can't find button component:#" + q.b;
+                k32.c("Component-Action-Button", str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
+                return false;
+            }
+            c22 G = g22Var.G(q);
+            boolean a = G.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.b);
+            }
+            return a;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

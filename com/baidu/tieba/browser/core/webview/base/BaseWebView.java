@@ -27,27 +27,27 @@ import com.baidu.tieba.browser.core.cache.prefetch.FetchDynamicResourceManager;
 import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
 import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
-import com.baidu.tieba.cl6;
-import com.baidu.tieba.dl6;
-import com.baidu.tieba.eh6;
-import com.baidu.tieba.fh6;
-import com.baidu.tieba.fk6;
-import com.baidu.tieba.fl6;
-import com.baidu.tieba.ji6;
-import com.baidu.tieba.jj6;
-import com.baidu.tieba.lh6;
+import com.baidu.tieba.gl6;
+import com.baidu.tieba.hl6;
+import com.baidu.tieba.ih6;
+import com.baidu.tieba.jh6;
+import com.baidu.tieba.jk6;
+import com.baidu.tieba.jl6;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.ni6;
 import com.baidu.tieba.nj6;
-import com.baidu.tieba.nk6;
-import com.baidu.tieba.oj6;
 import com.baidu.tieba.ph6;
-import com.baidu.tieba.qh6;
-import com.baidu.tieba.rh6;
+import com.baidu.tieba.ri6;
+import com.baidu.tieba.rj6;
 import com.baidu.tieba.rk6;
-import com.baidu.tieba.tj6;
-import com.baidu.tieba.uk6;
+import com.baidu.tieba.sj6;
+import com.baidu.tieba.th6;
+import com.baidu.tieba.uh6;
+import com.baidu.tieba.vh6;
 import com.baidu.tieba.vk6;
+import com.baidu.tieba.xj6;
+import com.baidu.tieba.yk6;
+import com.baidu.tieba.zk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,19 +59,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class BaseWebView extends MonitorWebView implements jj6, cl6 {
+public class BaseWebView extends MonitorWebView implements nj6, gl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean G;
     public final b H;
-    public final uk6 I;
+    public final yk6 I;
     public final AtomicBoolean J;
-    public final ni6 K;
-    public final eh6 L;
+    public final ri6 K;
+    public final ih6 L;
     public final List<Pair<String, String>> M;
-    public tj6 N;
+    public xj6 N;
     public boolean O;
-    public dl6 P;
+    public hl6 P;
     public final Runnable Q;
 
     /* loaded from: classes5.dex */
@@ -105,7 +105,7 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
                 this.a.w = true;
                 TbLog hybridLog = HybridLog.getInstance();
                 hybridLog.e(com.baidu.tbadk.coreExtra.view.BaseWebView.TAG, "onPageStart not called after loadUrl 1800ms, url=" + this.a.getOriginalUrl());
-                lh6 a = lh6.a(HybridStatisticKey.KEY_RD_USE);
+                ph6 a = ph6.a(HybridStatisticKey.KEY_RD_USE);
                 a.c("obj_type", "hybrid-check");
                 a.c("obj_source", this.a.getOriginalUrl());
                 a.d();
@@ -117,11 +117,11 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends vk6 {
+    public class b extends zk6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
-        public rk6 b;
+        public vk6 b;
         public final /* synthetic */ BaseWebView c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -150,7 +150,7 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-                if (!fk6.b(map)) {
+                if (!jk6.b(map)) {
                     return TextUtils.equals(map.get("tieba-response-via"), PrefetchEvent.MODULE);
                 }
                 return false;
@@ -158,20 +158,20 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
             return invokeL.booleanValue;
         }
 
-        public void d(@Nullable rk6 rk6Var) {
+        public void d(@Nullable vk6 vk6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rk6Var) == null) {
-                this.b = rk6Var;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vk6Var) == null) {
+                this.b = vk6Var;
             }
         }
 
-        @Override // com.baidu.tieba.vk6, android.webkit.WebViewClient
+        @Override // com.baidu.tieba.zk6, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
-            tj6 tj6Var;
+            xj6 xj6Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) && webView != null && webView.getContext() != null) {
-                if (str.startsWith("file:///android_asset/blank.html") && (tj6Var = this.c.N) != null) {
-                    tj6Var.onPageFinished(webView, str);
+                if (str.startsWith("file:///android_asset/blank.html") && (xj6Var = this.c.N) != null) {
+                    xj6Var.onPageFinished(webView, str);
                 }
                 if (!TextUtils.equals("about:blank", str) && this.c.J.get()) {
                     this.c.J.set(false);
@@ -181,7 +181,7 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
             }
         }
 
-        @Override // com.baidu.tieba.vk6, android.webkit.WebViewClient
+        @Override // com.baidu.tieba.zk6, android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeLLL(1048579, this, webView, str, bitmap) != null) {
@@ -193,18 +193,18 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
             super.onPageStarted(webView, str, bitmap);
         }
 
-        @Override // com.baidu.tieba.vk6, android.webkit.WebViewClient
+        @Override // com.baidu.tieba.zk6, android.webkit.WebViewClient
         public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
             InterceptResult invokeLL;
             WebResourceResponse a;
             WebResourceResponse a2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, webResourceRequest)) == null) {
-                rk6 rk6Var = this.b;
-                if (rk6Var != null && (a2 = rk6Var.a(webView, webResourceRequest)) != null) {
+                vk6 vk6Var = this.b;
+                if (vk6Var != null && (a2 = vk6Var.a(webView, webResourceRequest)) != null) {
                     return a2;
                 }
-                if (webView != null && (a = ji6.b().a(webView.getOriginalUrl(), webResourceRequest)) != null) {
+                if (webView != null && (a = ni6.b().a(webView.getOriginalUrl(), webResourceRequest)) != null) {
                     try {
                         Map<String, String> responseHeaders = a.getResponseHeaders();
                         if (this.c.s != null && c(responseHeaders)) {
@@ -241,10 +241,10 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
         }
         this.G = true;
         this.H = new b(this);
-        this.I = new rh6();
+        this.I = new vh6();
         this.J = new AtomicBoolean(true);
-        this.K = new ni6();
-        this.L = fh6.g(this);
+        this.K = new ri6();
+        this.L = jh6.g(this);
         this.M = new ArrayList();
         this.N = null;
         this.Q = new a(this);
@@ -272,10 +272,10 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
         }
         this.G = true;
         this.H = new b(this);
-        this.I = new rh6();
+        this.I = new vh6();
         this.J = new AtomicBoolean(true);
-        this.K = new ni6();
-        this.L = fh6.g(this);
+        this.K = new ri6();
+        this.L = jh6.g(this);
         this.M = new ArrayList();
         this.N = null;
         this.Q = new a(this);
@@ -303,10 +303,10 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
         }
         this.G = true;
         this.H = new b(this);
-        this.I = new rh6();
+        this.I = new vh6();
         this.J = new AtomicBoolean(true);
-        this.K = new ni6();
-        this.L = fh6.g(this);
+        this.K = new ri6();
+        this.L = jh6.g(this);
         this.M = new ArrayList();
         this.N = null;
         this.Q = new a(this);
@@ -325,11 +325,11 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
         return (Context) invokeL.objValue;
     }
 
-    public void L(tj6 tj6Var) {
+    public void L(xj6 xj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tj6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, xj6Var) == null) {
             super.loadUrl("file:///android_asset/blank.html");
-            this.N = tj6Var;
+            this.N = xj6Var;
         }
     }
 
@@ -364,19 +364,19 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
         }
     }
 
-    @Override // com.baidu.tieba.cl6
-    public void setJSPromptRedirector(dl6 dl6Var) {
+    @Override // com.baidu.tieba.gl6
+    public void setJSPromptRedirector(hl6 hl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, dl6Var) == null) {
-            this.P = dl6Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, hl6Var) == null) {
+            this.P = hl6Var;
         }
     }
 
     @Override // com.baidu.tieba.browser.webview.monitor.MonitorWebView
-    public void setTargetInterceptor(@Nullable rk6 rk6Var) {
+    public void setTargetInterceptor(@Nullable vk6 vk6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, rk6Var) == null) {
-            this.H.d(rk6Var);
+        if (interceptable == null || interceptable.invokeL(1048590, this, vk6Var) == null) {
+            this.H.d(vk6Var);
         }
     }
 
@@ -396,7 +396,7 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
         }
     }
 
-    @Override // com.baidu.tieba.jj6
+    @Override // com.baidu.tieba.nj6
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
@@ -409,7 +409,7 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.B();
-            oj6.b().c(this);
+            sj6.b().c(this);
             this.L.b();
         }
     }
@@ -431,7 +431,7 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
         }
     }
 
-    @Override // com.baidu.tieba.el6
+    @Override // com.baidu.tieba.il6
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -461,25 +461,25 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
         }
     }
 
-    @Override // com.baidu.tieba.cl6
+    @Override // com.baidu.tieba.gl6
     @Nullable
-    public dl6 getJSPromptRedirector() {
+    public hl6 getJSPromptRedirector() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.P;
         }
-        return (dl6) invokeV.objValue;
+        return (hl6) invokeV.objValue;
     }
 
     public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setBackgroundColor(0);
-            nk6.e(this);
+            rk6.e(this);
             BrowserHelper.initCookie(getContext());
-            qh6.b(this);
-            ph6.a(this);
+            uh6.b(this);
+            th6.a(this);
             removeJavascriptInterface("searchBoxJavaBridge_");
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");
@@ -533,12 +533,12 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
                 TbLog hybridLog = HybridLog.getInstance();
                 hybridLog.i(com.baidu.tbadk.coreExtra.view.BaseWebView.TAG, this + " 开始加载 原始url:" + str + " 离线包转换后的url:" + str2 + " Headers:" + map);
                 List<Pair<String, Long>> c = FetchDynamicResourceManager.c(str2);
-                if (this.s != null && !fk6.a(c)) {
+                if (this.s != null && !jk6.a(c)) {
                     this.s.p(c);
                 }
-                fl6 fl6Var = this.s;
-                if (fl6Var != null) {
-                    fl6Var.o(str);
+                jl6 jl6Var = this.s;
+                if (jl6Var != null) {
+                    jl6Var.o(str);
                 }
             } else {
                 str2 = str;
@@ -562,8 +562,8 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
             setTargetInterceptor(null);
             this.K.c();
             super.loadUrl("about:blank");
-            oj6.b().d(this);
-            nj6.a().a(this.M);
+            sj6.b().d(this);
+            rj6.a().a(this.M);
             this.L.a();
             this.M.clear();
             stopLoading();
@@ -578,7 +578,7 @@ public class BaseWebView extends MonitorWebView implements jj6, cl6 {
             setTag(null);
             removeAllViews();
             clearView();
-            nk6.d(this);
+            rk6.d(this);
             this.P = null;
             super.z();
         }

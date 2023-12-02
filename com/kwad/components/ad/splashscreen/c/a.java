@@ -10,7 +10,7 @@ public final class a extends e implements com.kwad.sdk.widget.c {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.CU = findViewById(R.id.obfuscated_res_0x7f0914ae);
+        this.CU = findViewById(R.id.obfuscated_res_0x7f0914af);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

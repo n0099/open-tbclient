@@ -10,12 +10,12 @@ public class qa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public qf1<ka> a;
+    public tf1<ka> a;
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            of1 b = of1.b();
+            rf1 b = rf1.b();
             this.a = b;
             b.a(new la());
         }

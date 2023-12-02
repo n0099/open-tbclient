@@ -3,19 +3,19 @@ package com.baidu.nadcore.webpanel.proxy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.webview.container.NadBrowserContainer;
-import com.baidu.tieba.k51;
-import com.baidu.tieba.s41;
-import com.baidu.tieba.u61;
-import com.baidu.tieba.x51;
-import com.baidu.tieba.y51;
+import com.baidu.tieba.a61;
+import com.baidu.tieba.m51;
+import com.baidu.tieba.u41;
+import com.baidu.tieba.w61;
+import com.baidu.tieba.z51;
 /* loaded from: classes3.dex */
-public class WebPanelBrowserContainer extends NadBrowserContainer implements s41 {
-    public WebPanelBrowserContainer(@NonNull x51 x51Var, @NonNull y51 y51Var, @Nullable u61 u61Var) {
-        super(x51Var, y51Var, u61Var);
+public class WebPanelBrowserContainer extends NadBrowserContainer implements u41 {
+    public WebPanelBrowserContainer(@NonNull z51 z51Var, @NonNull a61 a61Var, @Nullable w61 w61Var) {
+        super(z51Var, a61Var, w61Var);
     }
 
-    @Override // com.baidu.nadcore.webview.container.NadBrowserContainer, com.baidu.tieba.s41
-    public void n(@NonNull k51 k51Var) {
-        super.n(k51Var);
+    @Override // com.baidu.nadcore.webview.container.NadBrowserContainer, com.baidu.tieba.u41
+    public void n(@NonNull m51 m51Var) {
+        super.n(m51Var);
     }
 }

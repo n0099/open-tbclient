@@ -16,7 +16,7 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.ds4;
+import com.baidu.tieba.gs4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -148,7 +148,7 @@ public class HkMWebView extends BaseWebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                ds4.a("HkMWebView", webView);
+                gs4.a("HkMWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;

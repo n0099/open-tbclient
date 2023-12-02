@@ -19,7 +19,7 @@ public final class b extends e {
     public void i(ViewGroup viewGroup) {
         if (!com.kwad.components.ad.splashscreen.f.c.z(com.kwad.sdk.core.response.b.e.dP(this.Df.mAdTemplate))) {
             if (com.kwad.components.ad.splashscreen.f.c.a(getContext(), this.Df.mRootContainer.getWidth(), this.Df.mRootContainer.getHeight())) {
-                com.kwad.components.ad.splashscreen.f.c.a(findViewById(R.id.obfuscated_res_0x7f0914c4), -1, 16, 16, -1);
+                com.kwad.components.ad.splashscreen.f.c.a(findViewById(R.id.obfuscated_res_0x7f0914c5), -1, 16, 16, -1);
                 return;
             }
             return;
@@ -42,7 +42,7 @@ public final class b extends e {
     public final void aj() {
         AdInfo.AdSplashInfo adSplashInfo;
         super.aj();
-        KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0914c4);
+        KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0914c5);
         this.mLogoView = ksLogoView;
         ksLogoView.post(new Runnable() { // from class: com.kwad.components.ad.splashscreen.c.b.1
             @Override // java.lang.Runnable

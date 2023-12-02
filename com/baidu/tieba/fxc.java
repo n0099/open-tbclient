@@ -5,28 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FeedContentColor;
-import tbclient.FeedContentText;
+import tbclient.FeedEntrybarComponent;
 /* loaded from: classes6.dex */
-public class fxc extends ltc {
+public class fxc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedContentText feedContentText) {
+    public static JSONObject b(@NonNull FeedEntrybarComponent feedEntrybarComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedContentText)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedEntrybarComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "text", feedContentText.text);
-            FeedContentColor feedContentColor = feedContentText.color;
-            if (feedContentColor != null) {
-                ltc.a(jSONObject, "color", axc.b(feedContentColor));
-            }
-            FeedContentColor feedContentColor2 = feedContentText.bg_color;
-            if (feedContentColor2 != null) {
-                ltc.a(jSONObject, "bg_color", axc.b(feedContentColor2));
-            }
+            ktc.a(jSONObject, "text", feedEntrybarComponent.text);
+            ktc.a(jSONObject, "schema", feedEntrybarComponent.schema);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

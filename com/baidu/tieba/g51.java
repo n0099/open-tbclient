@@ -1,38 +1,117 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.text.TextUtils;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.t51;
+import com.baidu.tieba.k61;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class g51 extends f51 {
+public class g51 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public Handler b;
-    public final j51 c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947744806, "Lcom/baidu/tieba/g51;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947744806, "Lcom/baidu/tieba/g51;");
+        }
+    }
 
     /* loaded from: classes6.dex */
-    public static final class a implements Runnable {
+    public class a implements k61.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g51 a;
-        public final /* synthetic */ t51.b b;
+        public final /* synthetic */ k61.b a;
 
-        public a(g51 g51Var, t51.b bVar) {
+        /* renamed from: com.baidu.tieba.g51$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0293a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0293a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                k61.b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
+                    bVar.a();
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                k61.b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
+                    bVar.b();
+                }
+            }
+        }
+
+        public a(k61.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g51Var, bVar};
+                Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,141 +121,193 @@ public final class g51 extends f51 {
                     return;
                 }
             }
-            this.a = g51Var;
-            this.b = bVar;
+            this.a = bVar;
         }
 
-        @Override // java.lang.Runnable
-        public final void run() {
+        @Override // com.baidu.tieba.k61.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.q(this.b.a());
-        }
-    }
-
-    public g51(j51 container) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {container};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                p61.a("WebViewInit", "内核在宿主内成功初始化");
+                int unused = g51.a = 3;
+                wf0.c(new RunnableC0293a(this));
             }
         }
-        Intrinsics.checkNotNullParameter(container, "container");
-        this.c = container;
-    }
 
-    public final void o(t51.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) && !this.a && bVar != null && bVar.d()) {
-            if (this.b == null) {
-                this.b = new Handler();
-            }
-            Handler handler = this.b;
-            if (handler != null) {
-                handler.postDelayed(new a(this, bVar), (long) (bVar.b() * 1000));
+        @Override // com.baidu.tieba.k61.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                wf0.c(new b(this));
             }
         }
     }
 
-    @Override // com.baidu.tieba.f51
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.b();
-        }
-        return invokeV.booleanValue;
-    }
+    /* loaded from: classes6.dex */
+    public class b implements k61.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k61.b a;
 
-    @Override // com.baidu.tieba.f51
-    public void c() {
-        t51.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            t51.d l = this.c.l();
-            if (l != null) {
-                bVar = l.d();
-            } else {
-                bVar = null;
-            }
-            o(bVar);
-            super.c();
-        }
-    }
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
 
-    @Override // com.baidu.tieba.f51
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Handler handler = this.b;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-            }
-            this.b = null;
-            this.a = false;
-            super.d();
-        }
-    }
-
-    @Override // com.baidu.tieba.f51
-    public void e(Intent intent) {
-        t51.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            t51.d l = this.c.l();
-            if (l != null) {
-                bVar = l.d();
-            } else {
-                bVar = null;
-            }
-            o(bVar);
-            super.e(intent);
-        }
-    }
-
-    public final void p(t51.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) && !this.a && bVar != null && bVar.e()) {
-            q(bVar.a());
-        }
-    }
-
-    public final void q(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || this.a || TextUtils.isEmpty(str)) {
-            return;
-        }
-        cz0.b(str);
-        this.a = true;
-    }
-
-    @Override // com.baidu.tieba.f51
-    public void g(AbsNadBrowserView webView, String str) {
-        t51.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            AbsNadBrowserView m = this.c.m();
-            if (m != null && !m.w() && !this.a) {
-                t51.d l = this.c.l();
-                if (l != null) {
-                    bVar = l.d();
-                } else {
-                    bVar = null;
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
                 }
-                p(bVar);
+                this.a = bVar;
             }
-            super.g(webView, str);
+
+            @Override // java.lang.Runnable
+            public void run() {
+                k61.b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
+                    bVar.a();
+                }
+            }
         }
+
+        /* renamed from: com.baidu.tieba.g51$b$b  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0294b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public RunnableC0294b(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                k61.b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
+                    bVar.b();
+                }
+            }
+        }
+
+        public b(k61.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        @Override // com.baidu.tieba.k61.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                p61.a("WebViewInit", "内核在SDK内成功初始化");
+                int unused = g51.a = 3;
+                wf0.c(new a(this));
+            }
+        }
+
+        @Override // com.baidu.tieba.k61.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                p61.a("WebViewInit", "内核在SDK内初始化失败");
+                int unused = g51.a = 4;
+                wf0.c(new RunnableC0294b(this));
+            }
+        }
+    }
+
+    public static int b(Context context, k61.b bVar) {
+        InterceptResult invokeLL;
+        String str;
+        int c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, bVar)) == null) {
+            if (3 != a && 4 != a) {
+                int a2 = h61.h().a(context, new a(bVar));
+                if (3 != a2 && 1 != a2 && 2 != a2 && 5 != a2) {
+                    if (a2 == 0 || 4 == a2) {
+                        a = 2;
+                        try {
+                            boolean g = h61.g();
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("内核在sdk初始化，类型为 ");
+                            String str2 = "t7";
+                            if (g) {
+                                str = "t7";
+                            } else {
+                                str = "native";
+                            }
+                            sb.append(str);
+                            p61.c(context, sb.toString());
+                            StringBuilder sb2 = new StringBuilder();
+                            sb2.append("内核在SDK内完成初始化，类型为 ");
+                            if (!g) {
+                                str2 = "native";
+                            }
+                            sb2.append(str2);
+                            p61.a("WebViewInit", sb2.toString());
+                            if (g) {
+                                c = c51.b();
+                            } else {
+                                c = c51.c();
+                            }
+                            c51.a().d(context, g, c, new b(bVar));
+                        } catch (Throwable unused) {
+                            p61.a("WebViewInit", "SDK初始化内核时发生异常，初始化失败");
+                            if (bVar != null) {
+                                bVar.b();
+                            }
+                            a = 4;
+                        }
+                    }
+                    return a;
+                }
+                a = a2;
+                return a;
+            }
+            return a;
+        }
+        return invokeLL.intValue;
     }
 }

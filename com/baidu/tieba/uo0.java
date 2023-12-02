@@ -1,49 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.Nullable;
 /* loaded from: classes8.dex */
 public interface uo0 {
-    public static final uo0 a;
+    @Nullable
+    String a();
 
-    dp0 a(boolean z);
+    @Nullable
+    String b();
 
-    /* loaded from: classes8.dex */
-    public class a implements uo0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    long c();
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.uo0
-        public dp0 a(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                return dp0.c;
-            }
-            return (dp0) invokeZ.objValue;
-        }
-    }
-
-    static {
-        new ServiceReference("nad.core", "http");
-        a = new a();
-    }
+    boolean isSuccess();
 }

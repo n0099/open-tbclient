@@ -24,8 +24,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.CreateNewEmotionFragment;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment;
-import com.baidu.tieba.sr9;
-import com.baidu.tieba.ur9;
+import com.baidu.tieba.wr9;
+import com.baidu.tieba.yr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements ur9<Boolean> {
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements yr9<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FragmentPagerAdapter a;
@@ -189,7 +189,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ur9
+    @Override // com.baidu.tieba.yr9
     /* renamed from: t1 */
     public void onUpdate(Boolean bool) {
         Interceptable interceptable = $ic;
@@ -234,8 +234,8 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             super.onClick(view2);
             if (view2 == this.i) {
-                boolean z = !sr9.b().a();
-                sr9.b().d(z);
+                boolean z = !wr9.b().a();
+                wr9.b().d(z);
                 if (z) {
                     this.i.setText(R.string.obfuscated_res_0x7f0f0666);
                 } else {
@@ -261,7 +261,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.j = getIntent().getIntExtra("is_bazhu", 0);
-            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a34);
+            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a35);
             this.d.add("我的表情");
             MyEmotionManagerFragment myEmotionManagerFragment = new MyEmotionManagerFragment();
             this.l = myEmotionManagerFragment;
@@ -276,21 +276,21 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             TextView textView = new TextView(getPageContext().getPageActivity());
             this.i = textView;
-            textView.setPadding(0, BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701d5), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0703b9), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701d5));
+            textView.setPadding(0, BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701d5), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0703ba), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701d5));
             this.i.setClickable(true);
             this.i.setLayoutParams(layoutParams);
             this.i.setText(R.string.obfuscated_res_0x7f0f0665);
             this.i.setOnClickListener(this);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0919ee);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0919f0);
             this.e = navigationBar;
             navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.i, (View.OnClickListener) null);
             this.g = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d02b8, (View.OnClickListener) null);
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) this.e.findViewById(R.id.obfuscated_res_0x7f090a28);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) this.e.findViewById(R.id.obfuscated_res_0x7f090a29);
             this.f = commonPagerSlidingTabStrip;
-            commonPagerSlidingTabStrip.k(BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f070207), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f07041c), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f070261), R.color.CAM_X0107, R.color.CAM_X0105);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090a2b);
+            commonPagerSlidingTabStrip.k(BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f070207), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f0701e8), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f07041d), BdUtilHelper.getDimens(this, R.dimen.obfuscated_res_0x7f070261), R.color.CAM_X0107, R.color.CAM_X0105);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090a2c);
             this.h = bdBaseViewPager;
             bdBaseViewPager.setmDisallowSlip(true);
             this.h.setOffscreenPageLimit(1);
@@ -303,7 +303,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             Bundle bundle = new Bundle();
             bundle.putInt("is_bazhu", this.j);
             this.c.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f090a27, this.c).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f090a28, this.c).commit();
         }
     }
 }

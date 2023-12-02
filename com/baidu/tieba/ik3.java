@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,75 +8,89 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.CookieManager;
-import com.baidu.webkit.sdk.CookieSyncManager;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class ik3 {
+public class ik3 implements nj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ik3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-715813478, "Lcom/baidu/tieba/ik3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-715813478, "Lcom/baidu/tieba/ik3$b;");
+                    return;
                 }
             }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                CookieManager.getInstance().setCookie(".baidu.com", zj3.k(".baidu.com", "SP_FW_VER", mf3.h(0), 2937600L));
-                CookieManager.getInstance().setCookie(".baidu.com", zj3.k(".baidu.com", "SG_FW_VER", mf3.h(1), 2937600L));
-                ik3.b();
-            }
+            a = new ik3(null);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947856344, "Lcom/baidu/tieba/ik3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947856344, "Lcom/baidu/tieba/ik3;");
-                return;
-            }
-        }
-        op2.g0().getSwitch("swan_env_init_thread_pool_optimize", true);
-    }
-
-    public static void a() {
+    public ik3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            g63.M().post(new a());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b() {
+    public static ik3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            if (oi3.f()) {
-                CookieManager.getInstance().flush();
-                return;
-            }
-            CookieSyncManager.createInstance(AppRuntime.getAppContext());
-            CookieSyncManager.getInstance().sync();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
+        return (ik3) invokeV.objValue;
+    }
+
+    public /* synthetic */ ik3(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.nj4
+    public boolean a(@NonNull String str, @NonNull int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    return false;
+                }
+                File file = new File(sp2.g().b(), str);
+                if (!file.exists() || !file.isDirectory()) {
+                    return false;
+                }
+                return true;
+            }
+            File file2 = new File(gp2.g(), str);
+            if (!file2.exists() || !file2.isDirectory()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
     }
 }

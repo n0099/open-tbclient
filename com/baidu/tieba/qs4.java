@@ -1,508 +1,58 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.HttpClient;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.framework.task.MessageTask;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.AndroidUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.android.imsdk.chatmessage.messages.AdvisoryMsgBusinessExtra;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.launch.ScheduleStrategy;
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.browser.SearchJsBridge;
-import com.baidu.tbadk.browser.proxy.OfflineBridgeData;
-import com.baidu.tbadk.browser.proxy.OfflineWebViewHttpResMsg;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.browser.UegTbJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.view.spanGroup.RequestUrlParserNetMessage;
-import com.baidu.tbadk.core.view.spanGroup.UrlParserHttpResponseMessage;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.tbadkCore.util.MercatorModel;
+import com.baidu.tbadk.core.growthFunnel.GrowthFunnelHelper;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.RefreshRateManager;
+import com.baidu.tbadk.core.util.SensorAccelerometerManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.util.NetMessageHelper;
+import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.util.Base64Encoder;
-import com.google.gson.JsonSyntaxException;
-import java.lang.ref.WeakReference;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.UrlParser.UrlParserResIdl;
-/* loaded from: classes8.dex */
-public class qs4 implements mj6 {
+import tbclient.BlockPopInfo;
+/* loaded from: classes7.dex */
+public class qs4 implements qj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bu4 a;
 
-    @Override // com.baidu.tieba.mj6
+    @Override // com.baidu.tieba.qj6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        lj6.a(this, webView, str, jSONObject);
+        pj6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.mj6
+    @Override // com.baidu.tieba.qj6
     public /* synthetic */ void onDestroy() {
-        lj6.b(this);
-    }
-
-    /* loaded from: classes8.dex */
-    public class g extends HttpClient.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WebView e;
-        public final /* synthetic */ String f;
-
-        /* loaded from: classes8.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ HashMap a;
-            public final /* synthetic */ g b;
-
-            public a(g gVar, HashMap hashMap) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {gVar, hashMap};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = gVar;
-                this.a = hashMap;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    nj6.a().d(this.b.e, "parseLink", this.a);
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(qs4 qs4Var, HttpMessage httpMessage, HttpMessageTask httpMessageTask, WebView webView, String str) {
-            super(httpMessage, httpMessageTask);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qs4Var, httpMessage, httpMessageTask, webView, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((HttpMessage) objArr2[0], (HttpMessageTask) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = webView;
-            this.f = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: e */
-        public void publishProgress(ResponsedMessage<?>... responsedMessageArr) {
-            UrlParserResIdl responseData;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessageArr) == null) {
-                synchronized (z30.class) {
-                    if (responsedMessageArr != null) {
-                        if (responsedMessageArr.length > 0) {
-                            LinkedHashMap linkedHashMap = new LinkedHashMap();
-                            JSONObject jSONObject = new JSONObject();
-                            ResponsedMessage<?> responsedMessage = responsedMessageArr[0];
-                            if (responsedMessage != null) {
-                                try {
-                                    if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestUrlParserNetMessage)) {
-                                        RequestUrlParserNetMessage requestUrlParserNetMessage = (RequestUrlParserNetMessage) responsedMessage.getOrginalMessage().getExtra();
-                                        jSONObject.put("originUrl", requestUrlParserNetMessage.getUrl());
-                                        jSONObject.put("linkNum", requestUrlParserNetMessage.getLinkNum());
-                                    }
-                                } catch (Exception e) {
-                                    if (TbadkApplication.getInst().isDebugMode()) {
-                                        throw new JsonSyntaxException("parseLink端能力执行失败：" + e.getMessage());
-                                    }
-                                }
-                            }
-                            if ((responsedMessage instanceof UrlParserHttpResponseMessage) && (responseData = ((UrlParserHttpResponseMessage) responsedMessage).getResponseData()) != null && responseData.data != null) {
-                                jSONObject.put("url_type", responseData.data.url_type);
-                                jSONObject.put("status", responseData.data.status);
-                                jSONObject.put("image", responseData.data.image);
-                                jSONObject.put("link_from", responseData.data.link_from);
-                                jSONObject.put("title", responseData.data.title);
-                                jSONObject.put("price_txt", responseData.data.price_txt);
-                                jSONObject.put("is_recognize", responseData.data.is_recognize);
-                                jSONObject.put("description", responseData.data.description);
-                                if (responseData.data.card_link_info != null) {
-                                    JSONObject jSONObject2 = new JSONObject();
-                                    jSONObject2.put("type", responseData.data.card_link_info.type);
-                                    jSONObject2.put(EditHeadActivityConfig.IMAGE_URL, responseData.data.card_link_info.image_url);
-                                    jSONObject2.put("tag_text", responseData.data.card_link_info.tag_text);
-                                    jSONObject2.put("tag_color", responseData.data.card_link_info.tag_color);
-                                    jSONObject2.put("title", responseData.data.card_link_info.title);
-                                    jSONObject2.put(GameGuideConfigInfo.KEY_CONTENT1, responseData.data.card_link_info.content1);
-                                    jSONObject2.put(GameGuideConfigInfo.KEY_CONTENT2, responseData.data.card_link_info.content2);
-                                    jSONObject2.put("btn_style", responseData.data.card_link_info.btn_style);
-                                    jSONObject2.put("btn_text", responseData.data.card_link_info.btn_text);
-                                    jSONObject2.put("text_btn_status", responseData.data.card_link_info.text_btn_status);
-                                    jSONObject2.put("url", responseData.data.card_link_info.url);
-                                    jSONObject.put("card_link_info", jSONObject2);
-                                }
-                            }
-                            if (this.e != null) {
-                                linkedHashMap.put("result", jSONObject.toString());
-                                linkedHashMap.put("NotificationKey", this.f);
-                                SafeHandler.getInst().post(new a(this, linkedHashMap));
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends ju5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(qs4 qs4Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qs4Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ju5
-        public String doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                pxa.h(this.a);
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements ot5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(qs4 qs4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qs4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ot5
-        /* renamed from: a */
-        public void onReturnDataInUI(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921557, str));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c extends ju5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(qs4 qs4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qs4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ju5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                pxa.b();
-                return null;
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements ot5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(qs4 qs4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qs4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ot5
-        public void onReturnDataInUI(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921558));
-                lu4.c().a();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e extends ju5<List<String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e(qs4 qs4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qs4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ju5
-        public List<String> doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return pxa.k();
-            }
-            return (List) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class f implements ot5<List<String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WebView a;
-
-        public f(qs4 qs4Var, WebView webView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qs4Var, webView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = webView;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ot5
-        /* renamed from: a */
-        public void onReturnDataInUI(List<String> list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && !ListUtils.isEmpty(list)) {
-                int count = ListUtils.getCount(list);
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < count; i++) {
-                    jSONArray.put(list.get(i));
-                }
-                linkedHashMap.put("result", jSONArray.toString());
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-                if (this.a != null) {
-                    nj6.a().d(this.a, SearchJsBridge.METHOD_GET_SEARCH_HISTORY, linkedHashMap);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class h extends BdAsyncTask<Object, Integer, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final String b;
-        public final HashMap<String, String> c;
-        public final WeakReference<WebView> d;
-        public final int e;
-        public final int f;
-        public final long g;
-
-        public h(String str, String str2, int i, int i2, long j, HashMap<String, String> hashMap, WebView webView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), hashMap, webView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-            this.e = i;
-            this.f = i2;
-            this.g = j;
-            this.c = hashMap;
-            this.d = new WeakReference<>(webView);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public String doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                if (BdNetTypeUtil.isNetWorkAvailable() && !TextUtils.isEmpty(this.a)) {
-                    try {
-                        NetWork netWork = new NetWork(this.a);
-                        boolean z2 = false;
-                        if (this.e == 1) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        netWork.setNeedBdussForPost(z);
-                        netWork.setNeedShowSeverToast(false);
-                        if (this.f == 1) {
-                            z2 = true;
-                        }
-                        netWork.setNeedTbs(z2);
-                        if (this.c != null && !this.c.isEmpty()) {
-                            for (Map.Entry<String, String> entry : this.c.entrySet()) {
-                                netWork.addPostData(entry.getKey(), entry.getValue());
-                            }
-                        }
-                        if (CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE.equals(this.b)) {
-                            return netWork.getNetString();
-                        }
-                        return netWork.postNetData();
-                    } catch (Exception e) {
-                        TbLog hybridLog = HybridLog.getInstance();
-                        hybridLog.e("nativeNetworkProxy", "request Exception:" + e);
-                        BdLog.e(e.getMessage());
-                        return "";
-                    }
-                }
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                super.onPostExecute((h) str);
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("result", str);
-                linkedHashMap.put("NotificationKey", this.a + this.g);
-                if (this.d.get() != null) {
-                    nj6.a().d(this.d.get(), "nativeNetworkProxyResult", linkedHashMap);
-                }
-            }
-        }
+        pj6.b(this);
     }
 
     public qs4() {
@@ -515,350 +65,916 @@ public class qs4 implements mj6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new bu4();
     }
 
-    @Override // com.baidu.tieba.mj6
+    public static /* synthetic */ void l(WebView webView) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put(CommonTbJsBridge.DEVICE_DISPLAY_REFRESH, Float.valueOf(RefreshRateManager.getInstance().getRefreshRate()));
+        rj6.a().d(webView, "deviceRefreshRate", hashMap);
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            try {
+                AndroidUtils.copyToClipboard(new JSONObject(str).optString("content"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.qj6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!"CommonJSBridge".equals(str)) {
-                return false;
-            }
-            if (SearchJsBridge.METHOD_GET_SEARCH_HISTORY.equals(str2)) {
-                jsPromptResult.confirm(g(webView).a());
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
+            if (CommonTbJsBridge.GET_ZID.equals(str2)) {
+                jsPromptResult.confirm(k(webView).a());
                 return true;
-            } else if (SearchJsBridge.METHOD_DELETE_SEARCH_HISTORY.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(e(webView, new JSONObject(str3).optString("query")).a());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
+            } else if ("getSupplementInfo".equals(str2)) {
+                jsPromptResult.confirm(j(webView).a());
                 return true;
-            } else if (SearchJsBridge.METHOD_DELETE_ALL_SEARCH_HISTORY.equals(str2)) {
-                jsPromptResult.confirm(d(webView).a());
+            } else if (CommonTbJsBridge.GET_DEVICE_INFO.equals(str2)) {
+                jsPromptResult.confirm(h(webView).a());
                 return true;
-            } else if (SearchJsBridge.METHOD_OPEN_SEACH_PAGE.equals(str2)) {
+            } else if (UegTbJsBridge.METHOD_SET_BLOCK_POP_INFO.equals(str2)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str3);
-                    jsPromptResult.confirm(n(webView, jSONObject.optString("query"), jSONObject.optInt("sub_type")).a());
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
+                    m(webView, jSONObject.optInt("can_post"), jSONObject.optString("block_info"), jSONObject.optString("ahead_info"), jSONObject.optString("ahead_url"), jSONObject.optString("ok_info"), jSONObject.optInt("ahead_type"));
+                    jsPromptResult.confirm("1");
+                } catch (JSONException e) {
+                    BdLog.e(e);
                 }
                 return true;
-            } else if (SearchJsBridge.GET_SEARCH_AD_COOKIE.equals(str2)) {
-                jsPromptResult.confirm(f(webView).a());
+            } else if (UegTbJsBridge.METHOD_COPY_TO_CLIPBOARD.equals(str2)) {
+                c(str3);
+                jsPromptResult.confirm("1");
                 return true;
             } else {
-                if (TextUtils.equals("requestByNative", str2)) {
-                    try {
-                        OfflineBridgeData offlineBridgeData = (OfflineBridgeData) OrmObject.objectWithJsonStr(str3, OfflineBridgeData.class);
-                        offlineBridgeData.begin = System.currentTimeMillis();
-                        this.a.j(webView, offlineBridgeData, offlineBridgeData.callBack);
-                        jsPromptResult.confirm();
-                        return true;
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
-                    }
-                }
                 return false;
             }
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final void c(JSONObject jSONObject, String str, String str2) throws JSONException {
+    public fxa d(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, str2) == null) {
-            jSONObject.put(str, str2);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
+            int i = (int) (JavaTypesHelper.toFloat(str, 0.0f) * 1000000.0f);
+            if (TextUtils.equals(str2, "1")) {
+                SensorAccelerometerManager.getSensor().start(i);
+            } else {
+                SensorAccelerometerManager.getSensor().stop();
+            }
+            fxa fxaVar = new fxa();
+            fxaVar.j = true;
+            return fxaVar;
         }
+        return (fxa) invokeLLL.objValue;
     }
 
-    public gxa d(WebView webView) {
+    public fxa e(WebView webView, HashMap<String, Object> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
+            if (hashMap == null) {
+                return null;
+            }
+            fxa fxaVar = new fxa();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("x", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_Y));
+                jSONObject.put("y", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_X));
+                jSONObject.put("z", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_Z));
+                fxaVar.o(jSONObject.toString());
+                fxaVar.j = true;
+                return fxaVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return fxaVar;
+            }
+        }
+        return (fxa) invokeLL.objValue;
+    }
+
+    public fxa f(WebView webView, HashMap<String, Object> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, hashMap)) == null) {
+            if (hashMap == null) {
+                return null;
+            }
+            fxa fxaVar = new fxa();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("refreshRate", hashMap.get(CommonTbJsBridge.DEVICE_DISPLAY_REFRESH));
+                fxaVar.o(jSONObject.toString());
+                return fxaVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return fxaVar;
+            }
+        }
+        return (fxa) invokeLL.objValue;
+    }
+
+    public fxa g(final WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
+            if (TextUtils.equals(str, "1")) {
+                RefreshRateManager.getInstance().start();
+                ij6.a().c(new Runnable() { // from class: com.baidu.tieba.js4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            qs4.l(webView);
+                        }
+                    }
+                });
+            } else {
+                RefreshRateManager.getInstance().stop();
+            }
+            return new fxa();
+        }
+        return (fxa) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(14:3|(1:5)(1:133)|6|(1:8)(1:132)|9|10|11|12|(16:13|14|15|16|17|18|19|20|21|22|23|24|25|26|(1:28)(1:111)|(24:29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52))|(4:(8:53|54|55|56|57|58|59|60)|65|66|67)|61|62|63|64) */
+    /* JADX WARN: Code restructure failed: missing block: B:98:0x0512, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:99:0x0513, code lost:
+        r1 = r9;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public fxa h(WebView webView) {
         InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        StringBuilder sb;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        String str11;
+        String str12;
+        fxa fxaVar;
+        String l;
+        String valueOf;
+        String str13;
+        Object obj;
+        String cuid;
+        String model;
+        String valueOf2;
+        int personalizedRecSwitch;
+        String valueOf3;
+        String sampleId;
+        String valueOf4;
+        String valueOf5;
+        String valueOf6;
+        String cuidGalaxy2;
+        String sdk_ver;
+        String a;
+        String subappType;
+        String tbs;
+        String globalUserAgent;
+        String zid;
+        String valueOf7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
-            gxa gxaVar = new gxa();
-            nu5.b(new c(this), new d(this));
-            return gxaVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, webView)) == null) {
+            String str14 = "model";
+            fxa fxaVar2 = new fxa();
+            StringBuilder sb2 = new StringBuilder(1024);
+            String imei = TbadkCoreApplication.getInst().getImei();
+            sb2.append("imei=");
+            sb2.append(imei);
+            String androidId = TbadkCoreApplication.getInst().getAndroidId();
+            sb2.append("androidId=");
+            sb2.append(androidId);
+            String iMsi = TbadkCoreApplication.getInst().getIMsi();
+            if (iMsi == null) {
+                str = "";
+            } else {
+                str = iMsi;
+            }
+            sb2.append("imsi=");
+            sb2.append(str);
+            String model2 = DeviceInfoHelper.getModel();
+            sb2.append("model=");
+            sb2.append(DeviceInfoHelper.getModel());
+            String str15 = Build.BRAND;
+            sb2.append("brand=");
+            sb2.append(str15);
+            sb2.append("platform=");
+            sb2.append("Android");
+            String packageName = TbadkCoreApplication.getInst().getPackageName();
+            sb2.append("pkgName=");
+            sb2.append(packageName);
+            String str16 = "" + BdNetTypeUtil.netType();
+            sb2.append("network=");
+            sb2.append(str16);
+            String str17 = "" + BdNetTypeUtil.curOperatorType();
+            sb2.append("carrier=");
+            sb2.append(str17);
+            String devicesManufacturer = DeviceInfoUtil.getDevicesManufacturer();
+            sb2.append("manufacturer=");
+            sb2.append(devicesManufacturer);
+            String str18 = Build.HARDWARE;
+            sb2.append("hardware=");
+            sb2.append(str18);
+            String str19 = Build.BOARD;
+            sb2.append("board=");
+            sb2.append(str19);
+            if (DeviceInfoUtil.isSupportGyroScope(TbadkCoreApplication.getInst())) {
+                str2 = str19;
+                str3 = "1";
+            } else {
+                str2 = str19;
+                str3 = "0";
+            }
+            sb2.append("imu=");
+            sb2.append(str3);
+            String str20 = str3;
+            String cuid2 = TbadkCoreApplication.getInst().getCuid();
+            sb2.append("cuid=");
+            sb2.append(cuid2);
+            String cuidGalaxy22 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            sb2.append("shoubaiCuid=");
+            sb2.append(cuidGalaxy22);
+            sb2.append("clientType=");
+            sb2.append("2");
+            String version = TbConfig.getVersion();
+            sb2.append("clientVersion=");
+            sb2.append(version);
+            String zid2 = TbadkCoreApplication.getInst().getZid();
+            sb2.append("zId=");
+            sb2.append(zid2);
+            String hdid = TbadkCoreApplication.getInst().getHdid();
+            sb2.append("hdid=");
+            sb2.append(hdid);
+            String localMacAddress = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+            sb2.append("mac=");
+            sb2.append(localMacAddress);
+            String clientIP = UtilHelper.getClientIP();
+            sb2.append("ip=");
+            sb2.append(clientIP);
+            String str21 = str;
+            long currentTimeMillis = System.currentTimeMillis();
+            sb2.append("ts=");
+            sb2.append(currentTimeMillis);
+            String baiduIdForAnti = TbSingleton.getInstance().getBaiduIdForAnti();
+            sb2.append("baiduId=");
+            sb2.append(baiduIdForAnti);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                String clientId = TbadkCoreApplication.getClientId();
+                str8 = baiduIdForAnti;
+                try {
+                    String version2 = TbConfig.getVersion();
+                    str5 = clientIP;
+                    try {
+                        String osVersion = DeviceInfoHelper.getOsVersion();
+                        str7 = androidId;
+                        try {
+                            l = Long.toString(System.currentTimeMillis());
+                            str6 = imei;
+                            try {
+                                valueOf = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+                                sb = sb2;
+                            } catch (JSONException e) {
+                                e = e;
+                                str4 = "clientType";
+                                sb = sb2;
+                            }
+                        } catch (JSONException e2) {
+                            e = e2;
+                            str4 = "clientType";
+                            sb = sb2;
+                            str6 = imei;
+                        }
+                        try {
+                            String str22 = Build.BRAND;
+                            if (PermissionUtil.isAgreePrivacyPolicy()) {
+                                str13 = "zId";
+                                obj = "1";
+                            } else {
+                                str13 = "zId";
+                                obj = "2";
+                            }
+                            try {
+                                try {
+                                    cuid = TbadkCoreApplication.getInst().getCuid();
+                                } catch (JSONException e3) {
+                                    e = e3;
+                                    str4 = "clientType";
+                                    str12 = "cuid";
+                                    str11 = str13;
+                                }
+                                try {
+                                    String valueOf8 = String.valueOf(ScheduleStrategy.getDeviceScore());
+                                    try {
+                                        String data = TbSingleton.getInstance().getData();
+                                        String framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
+                                        String naws_game_ver = TbadkCoreApplication.getInst().getNaws_game_ver();
+                                        int i = GrowthFunnelHelper.realStartType;
+                                        String realStartScheme = GrowthFunnelHelper.getRealStartScheme();
+                                        String from = TbadkCoreApplication.getFrom();
+                                        String legoLibVersion = TbConfig.getLegoLibVersion();
+                                        String localMacAddress2 = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+                                        model = DeviceInfoHelper.getModel();
+                                        valueOf2 = String.valueOf(BdNetTypeUtil.netType());
+                                        personalizedRecSwitch = TbSingleton.getInstance().getPersonalizedRecSwitch();
+                                        valueOf3 = String.valueOf(qv4.c().e());
+                                        sampleId = TbSingleton.getInstance().getSampleId();
+                                        valueOf4 = String.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp()));
+                                        valueOf5 = String.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp()));
+                                        try {
+                                            valueOf6 = String.valueOf(Double.valueOf(BdUtilHelper.getEquipmentDensity(webView.getContext())));
+                                            cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                                            sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
+                                            a = tv4.a(TbadkCoreApplication.getCurrentAccountInfo());
+                                            subappType = TbConfig.getSubappType();
+                                            tbs = TbadkCoreApplication.getInst().getTbs();
+                                            globalUserAgent = WebviewHelper.getGlobalUserAgent();
+                                            zid = TbadkCoreApplication.getInst().getZid();
+                                            valueOf7 = String.valueOf(UtilHelper.getStatusBarHeight());
+                                            jSONObject.put("clientType", "2");
+                                            str4 = "clientType";
+                                            try {
+                                                jSONObject.put("clientId", clientId);
+                                                jSONObject.put("clientVersion", version2);
+                                                jSONObject.put("osVersion", osVersion);
+                                                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, l);
+                                                jSONObject.put("activeTimestamp", valueOf);
+                                                jSONObject.put("brand", str22);
+                                                jSONObject.put("cmode", obj);
+                                                str12 = "cuid";
+                                                try {
+                                                    jSONObject.put(str12, cuid);
+                                                    jSONObject.put("deviceScore", valueOf8);
+                                                    jSONObject.put("everyDay", data);
+                                                    jSONObject.put("frameworkVer", framework_ver);
+                                                    jSONObject.put("nawsGameVer", naws_game_ver);
+                                                    jSONObject.put(Config.START_TYPE, i);
+                                                    jSONObject.put("startScheme", realStartScheme);
+                                                    jSONObject.put("from", from);
+                                                    jSONObject.put("legoLibVersion", legoLibVersion);
+                                                    str9 = "mac";
+                                                    try {
+                                                        jSONObject.put(str9, localMacAddress2);
+                                                        str14 = "model";
+                                                    } catch (JSONException e4) {
+                                                        e = e4;
+                                                        str11 = str13;
+                                                        str14 = "model";
+                                                    }
+                                                } catch (JSONException e5) {
+                                                    e = e5;
+                                                    str11 = str13;
+                                                    str14 = "model";
+                                                    str10 = "shoubaiCuid";
+                                                    str9 = "mac";
+                                                    e.printStackTrace();
+                                                    StringBuilder sb3 = sb;
+                                                    sb3.append("tiebaclient!!!");
+                                                    String c = xd.c(sb3.toString());
+                                                    JSONObject jSONObject2 = new JSONObject();
+                                                    jSONObject2.put("imei", str6);
+                                                    jSONObject2.put("androidId", str7);
+                                                    jSONObject2.put(BaseStatisContent.IMSI, str21);
+                                                    jSONObject2.put(str14, model2);
+                                                    jSONObject2.put("brand", str15);
+                                                    jSONObject2.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "Android");
+                                                    jSONObject2.put("pkgName", packageName);
+                                                    jSONObject2.put("network", str16);
+                                                    jSONObject2.put("carrier", str17);
+                                                    jSONObject2.put(HttpConstants.HTTP_MANUFACTURER, devicesManufacturer);
+                                                    jSONObject2.put(HttpConstants.HTTP_HARDWARE, str18);
+                                                    jSONObject2.put(HttpConstants.HTTP_BOARD, str2);
+                                                    jSONObject2.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str20);
+                                                    jSONObject2.put(str12, cuid2);
+                                                    jSONObject2.put(str10, cuidGalaxy22);
+                                                    jSONObject2.put(str4, "2");
+                                                    jSONObject2.put("clientVersion", version);
+                                                    jSONObject2.put(str11, zid2);
+                                                    jSONObject2.put("hdid", hdid);
+                                                    jSONObject2.put(str9, localMacAddress);
+                                                    jSONObject2.put("ip", str5);
+                                                    jSONObject2.put("ts", currentTimeMillis);
+                                                    jSONObject2.put("baiduId", str8);
+                                                    jSONObject2.put("publicParams", jSONObject);
+                                                    jSONObject2.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
+                                                    jSONObject2.put("sign", c);
+                                                    fxaVar = fxaVar2;
+                                                    fxaVar.o(jSONObject2.toString());
+                                                    return fxaVar;
+                                                }
+                                            } catch (JSONException e6) {
+                                                e = e6;
+                                                str11 = str13;
+                                                str14 = "model";
+                                                str10 = "shoubaiCuid";
+                                                str9 = "mac";
+                                                str12 = "cuid";
+                                                e.printStackTrace();
+                                                StringBuilder sb32 = sb;
+                                                sb32.append("tiebaclient!!!");
+                                                String c2 = xd.c(sb32.toString());
+                                                JSONObject jSONObject22 = new JSONObject();
+                                                jSONObject22.put("imei", str6);
+                                                jSONObject22.put("androidId", str7);
+                                                jSONObject22.put(BaseStatisContent.IMSI, str21);
+                                                jSONObject22.put(str14, model2);
+                                                jSONObject22.put("brand", str15);
+                                                jSONObject22.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "Android");
+                                                jSONObject22.put("pkgName", packageName);
+                                                jSONObject22.put("network", str16);
+                                                jSONObject22.put("carrier", str17);
+                                                jSONObject22.put(HttpConstants.HTTP_MANUFACTURER, devicesManufacturer);
+                                                jSONObject22.put(HttpConstants.HTTP_HARDWARE, str18);
+                                                jSONObject22.put(HttpConstants.HTTP_BOARD, str2);
+                                                jSONObject22.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str20);
+                                                jSONObject22.put(str12, cuid2);
+                                                jSONObject22.put(str10, cuidGalaxy22);
+                                                jSONObject22.put(str4, "2");
+                                                jSONObject22.put("clientVersion", version);
+                                                jSONObject22.put(str11, zid2);
+                                                jSONObject22.put("hdid", hdid);
+                                                jSONObject22.put(str9, localMacAddress);
+                                                jSONObject22.put("ip", str5);
+                                                jSONObject22.put("ts", currentTimeMillis);
+                                                jSONObject22.put("baiduId", str8);
+                                                jSONObject22.put("publicParams", jSONObject);
+                                                jSONObject22.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
+                                                jSONObject22.put("sign", c2);
+                                                fxaVar = fxaVar2;
+                                                fxaVar.o(jSONObject22.toString());
+                                                return fxaVar;
+                                            }
+                                        } catch (JSONException e7) {
+                                            e = e7;
+                                            str4 = "clientType";
+                                        }
+                                    } catch (JSONException e8) {
+                                        e = e8;
+                                        str4 = "clientType";
+                                        str12 = "cuid";
+                                    }
+                                } catch (JSONException e9) {
+                                    e = e9;
+                                    str4 = "clientType";
+                                    str12 = "cuid";
+                                    str11 = str13;
+                                    str14 = "model";
+                                    str9 = "mac";
+                                    str10 = "shoubaiCuid";
+                                    e.printStackTrace();
+                                    StringBuilder sb322 = sb;
+                                    sb322.append("tiebaclient!!!");
+                                    String c22 = xd.c(sb322.toString());
+                                    JSONObject jSONObject222 = new JSONObject();
+                                    jSONObject222.put("imei", str6);
+                                    jSONObject222.put("androidId", str7);
+                                    jSONObject222.put(BaseStatisContent.IMSI, str21);
+                                    jSONObject222.put(str14, model2);
+                                    jSONObject222.put("brand", str15);
+                                    jSONObject222.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "Android");
+                                    jSONObject222.put("pkgName", packageName);
+                                    jSONObject222.put("network", str16);
+                                    jSONObject222.put("carrier", str17);
+                                    jSONObject222.put(HttpConstants.HTTP_MANUFACTURER, devicesManufacturer);
+                                    jSONObject222.put(HttpConstants.HTTP_HARDWARE, str18);
+                                    jSONObject222.put(HttpConstants.HTTP_BOARD, str2);
+                                    jSONObject222.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str20);
+                                    jSONObject222.put(str12, cuid2);
+                                    jSONObject222.put(str10, cuidGalaxy22);
+                                    jSONObject222.put(str4, "2");
+                                    jSONObject222.put("clientVersion", version);
+                                    jSONObject222.put(str11, zid2);
+                                    jSONObject222.put("hdid", hdid);
+                                    jSONObject222.put(str9, localMacAddress);
+                                    jSONObject222.put("ip", str5);
+                                    jSONObject222.put("ts", currentTimeMillis);
+                                    jSONObject222.put("baiduId", str8);
+                                    jSONObject222.put("publicParams", jSONObject);
+                                    jSONObject222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
+                                    jSONObject222.put("sign", c22);
+                                    fxaVar = fxaVar2;
+                                    fxaVar.o(jSONObject222.toString());
+                                    return fxaVar;
+                                }
+                            } catch (JSONException e10) {
+                                e = e10;
+                                str4 = "clientType";
+                                str12 = "cuid";
+                                str9 = "mac";
+                                str10 = "shoubaiCuid";
+                            }
+                        } catch (JSONException e11) {
+                            e = e11;
+                            str4 = "clientType";
+                            str9 = "mac";
+                            str10 = "shoubaiCuid";
+                            str11 = "zId";
+                            str12 = "cuid";
+                            e.printStackTrace();
+                            StringBuilder sb3222 = sb;
+                            sb3222.append("tiebaclient!!!");
+                            String c222 = xd.c(sb3222.toString());
+                            JSONObject jSONObject2222 = new JSONObject();
+                            jSONObject2222.put("imei", str6);
+                            jSONObject2222.put("androidId", str7);
+                            jSONObject2222.put(BaseStatisContent.IMSI, str21);
+                            jSONObject2222.put(str14, model2);
+                            jSONObject2222.put("brand", str15);
+                            jSONObject2222.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "Android");
+                            jSONObject2222.put("pkgName", packageName);
+                            jSONObject2222.put("network", str16);
+                            jSONObject2222.put("carrier", str17);
+                            jSONObject2222.put(HttpConstants.HTTP_MANUFACTURER, devicesManufacturer);
+                            jSONObject2222.put(HttpConstants.HTTP_HARDWARE, str18);
+                            jSONObject2222.put(HttpConstants.HTTP_BOARD, str2);
+                            jSONObject2222.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str20);
+                            jSONObject2222.put(str12, cuid2);
+                            jSONObject2222.put(str10, cuidGalaxy22);
+                            jSONObject2222.put(str4, "2");
+                            jSONObject2222.put("clientVersion", version);
+                            jSONObject2222.put(str11, zid2);
+                            jSONObject2222.put("hdid", hdid);
+                            jSONObject2222.put(str9, localMacAddress);
+                            jSONObject2222.put("ip", str5);
+                            jSONObject2222.put("ts", currentTimeMillis);
+                            jSONObject2222.put("baiduId", str8);
+                            jSONObject2222.put("publicParams", jSONObject);
+                            jSONObject2222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
+                            jSONObject2222.put("sign", c222);
+                            fxaVar = fxaVar2;
+                            fxaVar.o(jSONObject2222.toString());
+                            return fxaVar;
+                        }
+                    } catch (JSONException e12) {
+                        e = e12;
+                        str4 = "clientType";
+                        sb = sb2;
+                        str6 = imei;
+                        str7 = androidId;
+                        str9 = "mac";
+                        str10 = "shoubaiCuid";
+                        str11 = "zId";
+                        str12 = "cuid";
+                        e.printStackTrace();
+                        StringBuilder sb32222 = sb;
+                        sb32222.append("tiebaclient!!!");
+                        String c2222 = xd.c(sb32222.toString());
+                        JSONObject jSONObject22222 = new JSONObject();
+                        jSONObject22222.put("imei", str6);
+                        jSONObject22222.put("androidId", str7);
+                        jSONObject22222.put(BaseStatisContent.IMSI, str21);
+                        jSONObject22222.put(str14, model2);
+                        jSONObject22222.put("brand", str15);
+                        jSONObject22222.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "Android");
+                        jSONObject22222.put("pkgName", packageName);
+                        jSONObject22222.put("network", str16);
+                        jSONObject22222.put("carrier", str17);
+                        jSONObject22222.put(HttpConstants.HTTP_MANUFACTURER, devicesManufacturer);
+                        jSONObject22222.put(HttpConstants.HTTP_HARDWARE, str18);
+                        jSONObject22222.put(HttpConstants.HTTP_BOARD, str2);
+                        jSONObject22222.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str20);
+                        jSONObject22222.put(str12, cuid2);
+                        jSONObject22222.put(str10, cuidGalaxy22);
+                        jSONObject22222.put(str4, "2");
+                        jSONObject22222.put("clientVersion", version);
+                        jSONObject22222.put(str11, zid2);
+                        jSONObject22222.put("hdid", hdid);
+                        jSONObject22222.put(str9, localMacAddress);
+                        jSONObject22222.put("ip", str5);
+                        jSONObject22222.put("ts", currentTimeMillis);
+                        jSONObject22222.put("baiduId", str8);
+                        jSONObject22222.put("publicParams", jSONObject);
+                        jSONObject22222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
+                        jSONObject22222.put("sign", c2222);
+                        fxaVar = fxaVar2;
+                        fxaVar.o(jSONObject22222.toString());
+                        return fxaVar;
+                    }
+                } catch (JSONException e13) {
+                    e = e13;
+                    str4 = "clientType";
+                    str5 = clientIP;
+                }
+            } catch (JSONException e14) {
+                e = e14;
+                str4 = "clientType";
+                str5 = clientIP;
+                sb = sb2;
+                str6 = imei;
+                str7 = androidId;
+                str8 = baiduIdForAnti;
+            }
+            try {
+                try {
+                    jSONObject.put(str14, model);
+                    jSONObject.put("netType", valueOf2);
+                    jSONObject.put("personalizedRecSwitch", personalizedRecSwitch);
+                    jSONObject.put("qType", valueOf3);
+                    jSONObject.put("sampleId", sampleId);
+                    jSONObject.put("scrW", valueOf4);
+                    jSONObject.put("scrH", valueOf5);
+                    jSONObject.put("scrDip", valueOf6);
+                    str10 = "shoubaiCuid";
+                    try {
+                        jSONObject.put(str10, cuidGalaxy2);
+                        jSONObject.put("sdkVer", sdk_ver);
+                        jSONObject.put("stoken", a);
+                        jSONObject.put("subappType", subappType);
+                        jSONObject.put("tbs", tbs);
+                        jSONObject.put("userAgent", globalUserAgent);
+                        str11 = str13;
+                        try {
+                            jSONObject.put(str11, zid);
+                            jSONObject.put("statusBarHeight", valueOf7);
+                        } catch (JSONException e15) {
+                            e = e15;
+                            e.printStackTrace();
+                            StringBuilder sb322222 = sb;
+                            sb322222.append("tiebaclient!!!");
+                            String c22222 = xd.c(sb322222.toString());
+                            JSONObject jSONObject222222 = new JSONObject();
+                            jSONObject222222.put("imei", str6);
+                            jSONObject222222.put("androidId", str7);
+                            jSONObject222222.put(BaseStatisContent.IMSI, str21);
+                            jSONObject222222.put(str14, model2);
+                            jSONObject222222.put("brand", str15);
+                            jSONObject222222.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "Android");
+                            jSONObject222222.put("pkgName", packageName);
+                            jSONObject222222.put("network", str16);
+                            jSONObject222222.put("carrier", str17);
+                            jSONObject222222.put(HttpConstants.HTTP_MANUFACTURER, devicesManufacturer);
+                            jSONObject222222.put(HttpConstants.HTTP_HARDWARE, str18);
+                            jSONObject222222.put(HttpConstants.HTTP_BOARD, str2);
+                            jSONObject222222.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str20);
+                            jSONObject222222.put(str12, cuid2);
+                            jSONObject222222.put(str10, cuidGalaxy22);
+                            jSONObject222222.put(str4, "2");
+                            jSONObject222222.put("clientVersion", version);
+                            jSONObject222222.put(str11, zid2);
+                            jSONObject222222.put("hdid", hdid);
+                            jSONObject222222.put(str9, localMacAddress);
+                            jSONObject222222.put("ip", str5);
+                            jSONObject222222.put("ts", currentTimeMillis);
+                            jSONObject222222.put("baiduId", str8);
+                            jSONObject222222.put("publicParams", jSONObject);
+                            jSONObject222222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
+                            jSONObject222222.put("sign", c22222);
+                            fxaVar = fxaVar2;
+                            fxaVar.o(jSONObject222222.toString());
+                            return fxaVar;
+                        }
+                    } catch (JSONException e16) {
+                        e = e16;
+                        str11 = str13;
+                        e.printStackTrace();
+                        StringBuilder sb3222222 = sb;
+                        sb3222222.append("tiebaclient!!!");
+                        String c222222 = xd.c(sb3222222.toString());
+                        JSONObject jSONObject2222222 = new JSONObject();
+                        jSONObject2222222.put("imei", str6);
+                        jSONObject2222222.put("androidId", str7);
+                        jSONObject2222222.put(BaseStatisContent.IMSI, str21);
+                        jSONObject2222222.put(str14, model2);
+                        jSONObject2222222.put("brand", str15);
+                        jSONObject2222222.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "Android");
+                        jSONObject2222222.put("pkgName", packageName);
+                        jSONObject2222222.put("network", str16);
+                        jSONObject2222222.put("carrier", str17);
+                        jSONObject2222222.put(HttpConstants.HTTP_MANUFACTURER, devicesManufacturer);
+                        jSONObject2222222.put(HttpConstants.HTTP_HARDWARE, str18);
+                        jSONObject2222222.put(HttpConstants.HTTP_BOARD, str2);
+                        jSONObject2222222.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str20);
+                        jSONObject2222222.put(str12, cuid2);
+                        jSONObject2222222.put(str10, cuidGalaxy22);
+                        jSONObject2222222.put(str4, "2");
+                        jSONObject2222222.put("clientVersion", version);
+                        jSONObject2222222.put(str11, zid2);
+                        jSONObject2222222.put("hdid", hdid);
+                        jSONObject2222222.put(str9, localMacAddress);
+                        jSONObject2222222.put("ip", str5);
+                        jSONObject2222222.put("ts", currentTimeMillis);
+                        jSONObject2222222.put("baiduId", str8);
+                        jSONObject2222222.put("publicParams", jSONObject);
+                        jSONObject2222222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
+                        jSONObject2222222.put("sign", c222222);
+                        fxaVar = fxaVar2;
+                        fxaVar.o(jSONObject2222222.toString());
+                        return fxaVar;
+                    }
+                } catch (JSONException e17) {
+                    e = e17;
+                    str11 = str13;
+                    str10 = "shoubaiCuid";
+                    e.printStackTrace();
+                    StringBuilder sb32222222 = sb;
+                    sb32222222.append("tiebaclient!!!");
+                    String c2222222 = xd.c(sb32222222.toString());
+                    JSONObject jSONObject22222222 = new JSONObject();
+                    jSONObject22222222.put("imei", str6);
+                    jSONObject22222222.put("androidId", str7);
+                    jSONObject22222222.put(BaseStatisContent.IMSI, str21);
+                    jSONObject22222222.put(str14, model2);
+                    jSONObject22222222.put("brand", str15);
+                    jSONObject22222222.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "Android");
+                    jSONObject22222222.put("pkgName", packageName);
+                    jSONObject22222222.put("network", str16);
+                    jSONObject22222222.put("carrier", str17);
+                    jSONObject22222222.put(HttpConstants.HTTP_MANUFACTURER, devicesManufacturer);
+                    jSONObject22222222.put(HttpConstants.HTTP_HARDWARE, str18);
+                    jSONObject22222222.put(HttpConstants.HTTP_BOARD, str2);
+                    jSONObject22222222.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str20);
+                    jSONObject22222222.put(str12, cuid2);
+                    jSONObject22222222.put(str10, cuidGalaxy22);
+                    jSONObject22222222.put(str4, "2");
+                    jSONObject22222222.put("clientVersion", version);
+                    jSONObject22222222.put(str11, zid2);
+                    jSONObject22222222.put("hdid", hdid);
+                    jSONObject22222222.put(str9, localMacAddress);
+                    jSONObject22222222.put("ip", str5);
+                    jSONObject22222222.put("ts", currentTimeMillis);
+                    jSONObject22222222.put("baiduId", str8);
+                    jSONObject22222222.put("publicParams", jSONObject);
+                    jSONObject22222222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
+                    jSONObject22222222.put("sign", c2222222);
+                    fxaVar = fxaVar2;
+                    fxaVar.o(jSONObject22222222.toString());
+                    return fxaVar;
+                }
+                fxaVar.o(jSONObject22222222.toString());
+                return fxaVar;
+            } catch (JSONException e18) {
+                e = e18;
+                BdLog.e(e);
+                fxaVar.o("");
+                return fxaVar;
+            }
+            StringBuilder sb322222222 = sb;
+            sb322222222.append("tiebaclient!!!");
+            String c22222222 = xd.c(sb322222222.toString());
+            JSONObject jSONObject222222222 = new JSONObject();
+            jSONObject222222222.put("imei", str6);
+            jSONObject222222222.put("androidId", str7);
+            jSONObject222222222.put(BaseStatisContent.IMSI, str21);
+            jSONObject222222222.put(str14, model2);
+            jSONObject222222222.put("brand", str15);
+            jSONObject222222222.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "Android");
+            jSONObject222222222.put("pkgName", packageName);
+            jSONObject222222222.put("network", str16);
+            jSONObject222222222.put("carrier", str17);
+            jSONObject222222222.put(HttpConstants.HTTP_MANUFACTURER, devicesManufacturer);
+            jSONObject222222222.put(HttpConstants.HTTP_HARDWARE, str18);
+            jSONObject222222222.put(HttpConstants.HTTP_BOARD, str2);
+            jSONObject222222222.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str20);
+            jSONObject222222222.put(str12, cuid2);
+            jSONObject222222222.put(str10, cuidGalaxy22);
+            jSONObject222222222.put(str4, "2");
+            jSONObject222222222.put("clientVersion", version);
+            jSONObject222222222.put(str11, zid2);
+            jSONObject222222222.put("hdid", hdid);
+            jSONObject222222222.put(str9, localMacAddress);
+            jSONObject222222222.put("ip", str5);
+            jSONObject222222222.put("ts", currentTimeMillis);
+            jSONObject222222222.put("baiduId", str8);
+            jSONObject222222222.put("publicParams", jSONObject);
+            jSONObject222222222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
+            jSONObject222222222.put("sign", c22222222);
+            fxaVar = fxaVar2;
+        } else {
+            return (fxa) invokeL.objValue;
         }
-        return (gxa) invokeL.objValue;
     }
 
-    public gxa f(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, webView)) == null) {
-            gxa gxaVar = new gxa();
-            gxaVar.o(j());
-            return gxaVar;
-        }
-        return (gxa) invokeL.objValue;
-    }
-
-    public gxa i(WebView webView) {
+    public fxa i(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView)) == null) {
-            gxa gxaVar = new gxa();
-            nu5.b(new e(this), new f(this, webView));
-            return gxaVar;
-        }
-        return (gxa) invokeL.objValue;
-    }
-
-    public gxa e(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            gxa gxaVar = new gxa();
-            nu5.b(new a(this, str), new b(this));
-            return gxaVar;
-        }
-        return (gxa) invokeLL.objValue;
-    }
-
-    public gxa h(WebView webView, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, hashMap)) == null) {
-            gxa gxaVar = new gxa();
-            if (hashMap != null && hashMap.get("result") != null) {
-                gxaVar.o(hashMap.get("result"));
-            }
-            return gxaVar;
-        }
-        return (gxa) invokeLL.objValue;
-    }
-
-    public /* synthetic */ void k(WebView webView, OfflineBridgeData offlineBridgeData) {
-        this.a.k(webView, offlineBridgeData, offlineBridgeData.callBack, true);
-    }
-
-    public gxa g(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webView)) == null) {
-            gxa gxaVar = new gxa();
-            List<String> b2 = lu4.c().b();
-            int count = ListUtils.getCount(b2);
-            if (count == 0) {
-                gxaVar.o("");
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (int i = 0; i < count; i++) {
-                jSONArray.put(b2.get(i));
-            }
-            gxaVar.o(jSONArray.toString());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return gxaVar;
-        }
-        return (gxa) invokeL.objValue;
-    }
-
-    public final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                MercatorModel.MercatorData e2 = MercatorModel.d().e();
-                if (e2 != null) {
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_LAT, e2.R());
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_LON, e2.S());
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_CITY, String.valueOf(e2.O()));
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_RADIUS, e2.U());
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_TIME, String.valueOf(e2.V()));
-                }
-                c(jSONObject, SearchJsBridge.COOKIE_MOD, DeviceInfoHelper.getModel());
-                c(jSONObject, "ov", DeviceInfoHelper.getOsVersion());
-                c(jSONObject, "os_type", String.valueOf(2));
-                c(jSONObject, "net_type", String.valueOf(BdNetTypeUtil.netType()));
-                c(jSONObject, "imei", TbadkCoreApplication.getInst().getImei());
-                c(jSONObject, "from", TbConfig.getFrom());
-                c(jSONObject, "cfrom", TbConfig.getCurrentFrom());
-                c(jSONObject, "_client_version", TbConfig.getVersion());
-                c(jSONObject, "CUID", TbadkCoreApplication.getInst().getCuid());
-                String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-                c(jSONObject, "shoubai_cuid", cuidGalaxy2);
-                c(jSONObject, "cuid_galaxy2", cuidGalaxy2);
-                if (!TextUtils.isEmpty(cuidGalaxy2)) {
-                    c(jSONObject, "baiduid", new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes())));
-                }
-            } catch (JSONException e3) {
-                BdLog.e(e3);
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public gxa l(WebView webView, String str, String str2, String str3, JSONObject jSONObject, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{webView, str, str2, str3, jSONObject, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            gxa gxaVar = new gxa();
-            HashMap hashMap = new HashMap();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    hashMap.put(next, jSONObject.optString(next));
-                }
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            new h(str2 + str, str3, i, i2, currentTimeMillis, hashMap, webView).execute(new Object[0]);
-            gxaVar.x(str2 + str + currentTimeMillis);
-            return gxaVar;
-        }
-        return (gxa) invokeCommon.objValue;
-    }
-
-    public gxa m(WebView webView, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, webView, hashMap)) == null) {
-            gxa gxaVar = new gxa();
-            if (hashMap != null && hashMap.get("result") != null) {
-                gxaVar.o(OfflineWebViewHttpResMsg.quote(hashMap.get("result")));
-                gxaVar.x(hashMap.get("NotificationKey"));
-            }
-            gxaVar.A(true);
-            return gxaVar;
-        }
-        return (gxa) invokeLL.objValue;
-    }
-
-    public gxa p(WebView webView, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, webView, hashMap)) == null) {
-            gxa gxaVar = new gxa();
-            if (hashMap != null && hashMap.get("result") != null) {
-                gxaVar.o(hashMap.get("result"));
-                gxaVar.x(hashMap.get("NotificationKey"));
-            }
-            return gxaVar;
-        }
-        return (gxa) invokeLL.objValue;
-    }
-
-    public gxa r(WebView webView, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, webView, hashMap)) == null) {
-            gxa gxaVar = new gxa();
-            if (hashMap != null && hashMap.get("result") != null) {
-                gxaVar.o(hashMap.get("result"));
-                gxaVar.x(hashMap.get("NotificationKey"));
-            }
-            gxaVar.A(true);
-            return gxaVar;
-        }
-        return (gxa) invokeLL.objValue;
-    }
-
-    public gxa s(WebView webView, HashMap hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, webView, hashMap)) == null) {
-            gxa gxaVar = new gxa();
-            try {
-                gxaVar.o(new JSONArray(hashMap.get("data").toString()).toString());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            return gxaVar;
-        }
-        return (gxa) invokeLL.objValue;
-    }
-
-    public gxa n(WebView webView, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048589, this, webView, str, i)) == null) {
-            gxa gxaVar = new gxa();
+            fxa fxaVar = new fxa();
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("query", str);
-                jSONObject.put(AdvisoryMsgBusinessExtra.SUBTYPE_KEY, i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921559, jSONObject.toString()));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+                jSONObject.put("resultCode", 1);
+                jSONObject.put("hdid", TbadkCoreApplication.getInst().getHdid());
+                fxaVar.o(jSONObject.toString());
+                return fxaVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return fxaVar;
             }
-            return gxaVar;
         }
-        return (gxa) invokeLLI.objValue;
+        return (fxa) invokeL.objValue;
     }
 
-    public gxa t(WebView webView, boolean z, JSONObject jSONObject) {
+    public fxa k(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, webView)) == null) {
+            fxa fxaVar = new fxa();
+            String zid = TbadkCoreApplication.getInst().getZid();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", 1);
+                jSONObject.put("zid", zid);
+                fxaVar.o(jSONObject.toString());
+                return fxaVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return fxaVar;
+            }
+        }
+        return (fxa) invokeL.objValue;
+    }
+
+    public fxa j(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, webView)) == null) {
+            fxa fxaVar = new fxa();
+            StringBuilder sb = new StringBuilder(1024);
+            String imei = TbadkCoreApplication.getInst().getImei();
+            sb.append("imei=");
+            sb.append(imei);
+            String cuid = TbadkCoreApplication.getInst().getCuid();
+            sb.append("cuid=");
+            sb.append(cuid);
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            sb.append("shoubai_cuid=");
+            sb.append(cuidGalaxy2);
+            String str = Build.BRAND;
+            sb.append("brand=");
+            sb.append(str);
+            sb.append("client_type=");
+            sb.append("2");
+            String version = TbConfig.getVersion();
+            sb.append("client_version=");
+            sb.append(version);
+            String zid = TbadkCoreApplication.getInst().getZid();
+            sb.append("zid=");
+            sb.append(zid);
+            sb.append("tiebaclient!!!");
+            String c = xd.c(sb.toString());
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("imei", imei);
+                jSONObject.put("cuid", cuid);
+                jSONObject.put("shoubai_cuid", cuidGalaxy2);
+                jSONObject.put("brand", str);
+                jSONObject.put("client_type", "2");
+                jSONObject.put("client_version", version);
+                jSONObject.put("zid", zid);
+                jSONObject.put("sign", c);
+                fxaVar.o(jSONObject.toString());
+                return fxaVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                fxaVar.o("");
+                return fxaVar;
+            }
+        }
+        return (fxa) invokeL.objValue;
+    }
+
+    public fxa m(WebView webView, int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{webView, Boolean.valueOf(z), jSONObject})) == null) {
-            gl6.k(webView, z, DataExt.toMapSafe(jSONObject.toString()));
-            return new gxa();
-        }
-        return (gxa) invokeCommon.objValue;
-    }
-
-    public gxa o(WebView webView, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, webView, str, str2, str3)) == null) {
-            gxa gxaVar = new gxa();
-            String str4 = str2 + "_" + str3 + "_" + System.currentTimeMillis();
-            gxaVar.x(str4);
-            RequestUrlParserNetMessage requestUrlParserNetMessage = new RequestUrlParserNetMessage();
-            requestUrlParserNetMessage.setParams(JavaTypesHelper.toLong(str, 0L), JavaTypesHelper.toInt(str3, 0), str2, 0);
-            MessageTask findTask = MessageManager.getInstance().findTask(requestUrlParserNetMessage.getHttpMessage().getCmd());
-            if (!(findTask instanceof HttpMessageTask)) {
-                return gxaVar;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{webView, Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
+            fxa fxaVar = new fxa();
+            try {
+                BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
+                builder.can_post = Integer.valueOf(i);
+                builder.block_info = str;
+                builder.ahead_info = str2;
+                builder.ahead_url = str3;
+                builder.ok_info = str4;
+                builder.ahead_type = Integer.valueOf(i2);
+                BlockPopInfo build = builder.build(false);
+                t4b.h(build);
+                t4b.g(build);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            new g(this, requestUrlParserNetMessage.getHttpMessage(), (HttpMessageTask) findTask, webView, str4).execute(new HttpMessage[0]);
-            return gxaVar;
+            return fxaVar;
         }
-        return (gxa) invokeLLLL.objValue;
-    }
-
-    public gxa q(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048593, this, webView, str, str2, str3, jSONObject)) == null) {
-            gxa gxaVar = new gxa();
-            final OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
-            offlineBridgeData.url = str;
-            offlineBridgeData.type = str2;
-            offlineBridgeData.module = str3;
-            if (jSONObject != null) {
-                HashMap hashMap = new HashMap();
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    hashMap.put(next, jSONObject.optString(next));
-                }
-                offlineBridgeData.data = hashMap;
-            }
-            offlineBridgeData.begin = System.currentTimeMillis();
-            SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.hs4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        qs4.this.k(webView, offlineBridgeData);
-                    }
-                }
-            });
-            gxaVar.x(str);
-            return gxaVar;
-        }
-        return (gxa) invokeLLLLL.objValue;
+        return (fxa) invokeCommon.objValue;
     }
 }

@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
 import android.util.Log;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +13,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f04 {
+public class f04 extends qt2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public EventTargetImpl d;
+    public c04 e;
+
+    @Override // com.baidu.tieba.qt2
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,61 +45,69 @@ public class f04 {
                 return;
             }
         }
-        a = sm1.a;
+        f = vm1.a;
     }
 
-    public f04(JsObject jsObject) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f04(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
+        super(null, jSONObject);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject};
+            Object[] objArr = {eventTargetImpl, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        py1 G = py1.G(jsObject);
-        if (G == null) {
-            return;
-        }
-        h63 M = h63.M();
-        if (M == null) {
-            a(G, false, b("internal error"));
-            return;
-        }
-        try {
-            boolean n = G.n("mixWithOther", false);
-            M.V().h("key_audio_is_mix_with_other", Boolean.valueOf(n));
-            if (a) {
-                Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + n);
+        this.d = eventTargetImpl;
+    }
+
+    @Override // com.baidu.tieba.qt2
+    public void b(String str, JSONObject jSONObject) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            String optString = this.b.optString(str);
+            c04 c04Var = this.e;
+            if (c04Var != null) {
+                c04Var.p(optString, jSONObject);
             }
-            a(G, true, "setInnerAudioOption:ok");
-        } catch (Exception unused) {
-            h32.c("InnerAudioOptionApi", "set swanApp global var error");
-            a(G, false, b("internal error"));
+            if (!this.d.hasEventListener(optString)) {
+                return;
+            }
+            JSEvent jSEvent = new JSEvent(optString);
+            if (jSONObject != null) {
+                jSEvent.data = jSONObject;
+            }
+            if (f && !"onTimeUpdate".equals(str)) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("type = ");
+                sb.append(str);
+                sb.append("  result = ");
+                if (jSONObject != null) {
+                    str2 = jSONObject.toString();
+                } else {
+                    str2 = StringUtil.NULL_STRING;
+                }
+                sb.append(str2);
+                Log.d("AudioCallbackForV8", sb.toString());
+            }
+            this.d.dispatchEvent(jSEvent);
         }
     }
 
-    public final void a(py1 py1Var, boolean z, String str) {
+    public void e(c04 c04Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{py1Var, Boolean.valueOf(z), str}) == null) {
-            q04 q04Var = new q04();
-            q04Var.errMsg = str;
-            t84.a(py1Var, z, q04Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c04Var) == null) {
+            this.e = c04Var;
         }
-    }
-
-    public final String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return String.format("setInnerAudioOption:fail %s", str);
-        }
-        return (String) invokeL.objValue;
     }
 }

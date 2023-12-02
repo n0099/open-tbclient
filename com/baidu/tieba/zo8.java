@@ -1,210 +1,30 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.view.View;
-import android.widget.TextView;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.im.base.core.inputtool.robotfloor.botpanel.BotItemViewHolderFactory;
-import com.baidu.tieba.im.base.core.inputtool.robotfloor.data.RelativeMemeDetail;
-import com.baidu.tieba.im.base.core.tag.core.TagAdapter;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder;
+import com.baidu.tieba.im.base.core.inputtool.robotfloor.adapter.RobotItemViewHolder;
+import com.baidu.tieba.im.base.core.inputtool.robotfloor.adapter.RobotSkillItemViewHolder;
+import com.baidu.tieba.im.base.core.inputtool.robotfloor.adapter.RobotSkillRecentlyItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zo8 {
+public class zo8 implements hn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public final HeadImageView b;
-    public final TextView c;
-    public final RecyclerView d;
-    public final xo8 e;
-    public long f;
-    public long g;
-    public Boolean h;
-    public final CustomMessageListener i;
+    public xo8 a;
 
-    /* loaded from: classes9.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zo8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(zo8 zo8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zo8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
-                this.a.k();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements ap8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ap8 a;
-        public final /* synthetic */ zo8 b;
-
-        public b(zo8 zo8Var, ap8 ap8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo8Var, ap8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = zo8Var;
-            this.a = ap8Var;
-        }
-
-        @Override // com.baidu.tieba.ap8
-        public void a(AbilityItem abilityItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, abilityItem) == null) {
-                if (!"pic_gen_commit".equals(abilityItem.getType())) {
-                    this.b.j();
-                    bs8.b(2, this.b.f, this.b.g);
-                } else {
-                    bs8.b(3, this.b.f, this.b.g);
-                }
-                if (this.a != null && this.b.h.booleanValue()) {
-                    this.a.a(abilityItem);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ RelativeMemeDetail a;
-        public final /* synthetic */ zo8 b;
-
-        public c(zo8 zo8Var, RelativeMemeDetail relativeMemeDetail) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo8Var, relativeMemeDetail};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = zo8Var;
-            this.a = relativeMemeDetail;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.b.a.setVisibility(0);
-                this.b.c.setText(this.a.getTitle());
-                this.b.b.startLoad(this.a.getPortrait(), 12, false);
-                this.b.k();
-                this.b.e.h(this.a.getAbilityItems());
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class d extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zo8 a;
-
-        public d(zo8 zo8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zo8Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationCancel(animator);
-                this.a.a.setVisibility(8);
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                this.a.a.setVisibility(8);
-            }
-        }
-    }
-
-    public zo8(View view2, ap8 ap8Var) {
+    public zo8(xo8 xo8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, ap8Var};
+            Object[] objArr = {xo8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -214,93 +34,26 @@ public class zo8 {
                 return;
             }
         }
-        this.h = Boolean.TRUE;
-        this.i = new a(this, 2001304);
-        this.a = view2;
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09046b);
-        this.b = headImageView;
-        headImageView.setIsRound(true);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09047c);
-        RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09046d);
-        this.d = recyclerView;
-        recyclerView.addItemDecoration(new BotItemViewHolderFactory.BotThinkItemDecoration());
-        this.d.setLayoutManager(new LinearLayoutManager(view2.getContext(), 0, false));
-        this.e = new xo8();
-        this.d.setAdapter(new TagAdapter(new BotItemViewHolderFactory(new b(this, ap8Var)), this.e, view2.getContext()));
-        MessageManager.getInstance().registerListener(this.i);
+        this.a = xo8Var;
     }
 
-    public void n(Boolean bool) {
+    @Override // com.baidu.tieba.hn8
+    @Nullable
+    public BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i, String str) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bool) == null) {
-            this.h = bool;
-        }
-    }
-
-    public void o(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.g = j;
-        }
-    }
-
-    public void p(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.f = j;
-        }
-    }
-
-    public void q(RelativeMemeDetail relativeMemeDetail) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, relativeMemeDetail) == null) && relativeMemeDetail != null) {
-            m(relativeMemeDetail);
-            bs8.b(1, this.f, this.g);
-        }
-    }
-
-    @NonNull
-    public xo8 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (xo8) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ep8.b(this.a, new d(this), 60L);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            EMManager.from(this.a).setCorner(R.string.J_X13).setBackGroundColor(R.color.CAM_X0207);
-            EMManager.from(this.c).setTextColor(R.color.CAM_X0107);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.i);
-        }
-    }
-
-    public final void m(RelativeMemeDetail relativeMemeDetail) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, relativeMemeDetail) == null) {
-            if (this.a.getVisibility() != 0) {
-                ep8.c(this.a, new c(this, relativeMemeDetail));
-                return;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, viewGroup, i, str)) == null) {
+            if (i == 5) {
+                return new RobotSkillItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0403, viewGroup, false), this.a);
             }
-            this.c.setText(relativeMemeDetail.getTitle());
-            this.b.startLoad(relativeMemeDetail.getPortrait(), 12, false);
-            this.e.h(relativeMemeDetail.getAbilityItems());
+            if (i == 4) {
+                return new RobotItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0401, viewGroup, false));
+            }
+            if (i == 6) {
+                return new RobotSkillRecentlyItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0404, viewGroup, false), this.a);
+            }
+            return null;
         }
+        return (BaseItemViewHolder) invokeLIL.objValue;
     }
 }

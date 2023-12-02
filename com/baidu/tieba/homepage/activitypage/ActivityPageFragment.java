@@ -8,20 +8,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tbadk.template.base.BaseTemplateFragment;
+import com.baidu.tieba.av4;
 import com.baidu.tieba.bj8;
-import com.baidu.tieba.cj8;
-import com.baidu.tieba.cw4;
-import com.baidu.tieba.ds5;
-import com.baidu.tieba.dx4;
-import com.baidu.tieba.it7;
-import com.baidu.tieba.mj8;
-import com.baidu.tieba.nq5;
-import com.baidu.tieba.oa8;
-import com.baidu.tieba.pa8;
+import com.baidu.tieba.bz4;
+import com.baidu.tieba.fj8;
+import com.baidu.tieba.fw4;
+import com.baidu.tieba.gj8;
+import com.baidu.tieba.gx4;
+import com.baidu.tieba.hs5;
+import com.baidu.tieba.mt7;
 import com.baidu.tieba.qj8;
-import com.baidu.tieba.xi8;
-import com.baidu.tieba.xu4;
-import com.baidu.tieba.yy4;
+import com.baidu.tieba.rq5;
+import com.baidu.tieba.sa8;
+import com.baidu.tieba.ta8;
+import com.baidu.tieba.uj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,22 +29,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class ActivityPageFragment extends BaseTemplateFragment implements it7 {
+public class ActivityPageFragment extends BaseTemplateFragment implements mt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int d;
     public String e;
     public String f;
-    public xu4<cw4> g;
+    public av4<fw4> g;
 
-    @Override // com.baidu.tieba.it7
+    @Override // com.baidu.tieba.mt7
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.it7
+    @Override // com.baidu.tieba.mt7
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -52,7 +52,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements it7 {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements xu4<cw4> {
+    public class a implements av4<fw4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageFragment a;
@@ -76,24 +76,24 @@ public class ActivityPageFragment extends BaseTemplateFragment implements it7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xu4
+        @Override // com.baidu.tieba.av4
         /* renamed from: a */
-        public void d(View view2, cw4 cw4Var, int i, long j) {
+        public void d(View view2, fw4 fw4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cw4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                xi8.r(cw4Var, this.a.e);
-                ds5.b("----曝光统计----position = " + i);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, fw4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                bj8.r(fw4Var, this.a.e);
+                hs5.b("----曝光统计----position = " + i);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xu4
+        @Override // com.baidu.tieba.av4
         /* renamed from: c */
-        public void b(View view2, cw4 cw4Var, int i, long j) {
+        public void b(View view2, fw4 fw4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, cw4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                xi8.k(view2, cw4Var, this.a.e);
-                ds5.b("----点击统计----position = " + i);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, fw4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                bj8.k(view2, fw4Var, this.a.e);
+                hs5.b("----点击统计----position = " + i);
             }
         }
     }
@@ -118,30 +118,30 @@ public class ActivityPageFragment extends BaseTemplateFragment implements it7 {
     }
 
     @Override // com.baidu.tbadk.template.base.BaseTemplateFragment
-    public nq5 H2(ViewGroup viewGroup) {
+    public rq5 H2(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new cj8(getPageContext(), yy4.e));
-            arrayList.add(new bj8(getPageContext(), dx4.b));
-            arrayList.add(new mj8(getPageContext()));
+            arrayList.add(new gj8(getPageContext(), bz4.e));
+            arrayList.add(new fj8(getPageContext(), gx4.b));
             arrayList.add(new qj8(getPageContext()));
-            nq5.c cVar = new nq5.c();
+            arrayList.add(new uj8(getPageContext()));
+            rq5.c cVar = new rq5.c();
             cVar.m(309655);
             cVar.i(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST);
             cVar.j(TbConfig.URL_TAB_ACTIVITY_TAB);
-            cVar.k(new oa8(this.e, this.f));
-            cVar.l(new pa8());
+            cVar.k(new sa8(this.e, this.f));
+            cVar.l(new ta8());
             cVar.d(this.g);
             cVar.c(new ActivityPageHeaderView(getActivity(), this.e, this.f));
             cVar.b(arrayList);
             return cVar.e(viewGroup);
         }
-        return (nq5) invokeL.objValue;
+        return (rq5) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.it7
+    @Override // com.baidu.tieba.mt7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -149,7 +149,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements it7 {
         }
     }
 
-    @Override // com.baidu.tieba.it7
+    @Override // com.baidu.tieba.mt7
     public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {

@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,9 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cb4 extends ta4<vs2> {
+public class cb4 extends wa4<ws2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public class cb4 extends ta4<vs2> {
                 return;
             }
         }
-        boolean z = sm1.a;
+        boolean z = vm1.a;
     }
 
     public cb4() {
@@ -46,7 +46,7 @@ public class cb4 extends ta4<vs2> {
         }
     }
 
-    public static cb4 e() {
+    public static cb4 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -55,48 +55,39 @@ public class cb4 extends ta4<vs2> {
         return (cb4) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ta4
-    /* renamed from: d */
-    public boolean b(Context context, vs2 vs2Var, qs2 qs2Var, h63 h63Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.wa4
+    public boolean b(Context context, ws2 ws2Var, ts2 ts2Var, k63 k63Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vs2Var, qs2Var, h63Var, jSONObject)) == null) {
-            return g(context, vs2Var, qs2Var, h63Var);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, ws2Var, ts2Var, k63Var, jSONObject)) == null) {
+            return e(context, ws2Var, ts2Var, k63Var, jSONObject);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final Bundle f(vs2 vs2Var) {
-        InterceptResult invokeL;
+    public final boolean e(Context context, ws2 ws2Var, ts2 ts2Var, k63 k63Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vs2Var)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("slaveId", vs2Var.c);
-            bundle.putDouble("latitude", vs2Var.j.a);
-            bundle.putDouble("longitude", vs2Var.j.b);
-            bundle.putDouble("scale", vs2Var.k);
-            bundle.putString("name", vs2Var.z);
-            bundle.putString("address", vs2Var.A);
-            bundle.putStringArrayList("ignoredApps", vs2Var.B);
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public final boolean g(Context context, vs2 vs2Var, qs2 qs2Var, h63 h63Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, vs2Var, qs2Var, h63Var)) == null) {
-            h32.i("map", "OpenLocationAction start");
-            if (!vs2Var.isValid()) {
-                h32.c("map", "model is invalid");
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ws2Var, ts2Var, k63Var, jSONObject)) == null) {
+            k32.i("map", "GetScaleAction start");
+            ts1 B = xr2.V().B(ws2Var.c);
+            if (!(B instanceof rs1)) {
+                k32.c("map", "WebViewManager is null");
                 return false;
             }
-            ob4.y3(f(vs2Var)).C3();
-            h32.i("map", "OpenLocationAction end");
+            ub4 d = ta4.b().c((rs1) B).d(ws2Var.b);
+            if (d == null) {
+                k32.c("map", "can not find map by id " + ws2Var.b);
+                return false;
+            }
+            try {
+                jSONObject.put("scale", d.l.getMap().getMapStatus().zoom);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            k32.i("map", "GetScaleAction end");
             return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 }

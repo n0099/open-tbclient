@@ -1,122 +1,138 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.er2;
+import androidx.media2.session.SessionCommand;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 /* loaded from: classes5.dex */
 public class e74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public static void a(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && g63.K().k() == 1 && !d()) {
-            mz2.p("startup").F(new UbcFlowEvent(str));
+        if ((interceptable != null && interceptable.invokeLL(65536, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
+        }
+        l74 l74Var = new l74();
+        l74Var.a = str;
+        b74.c().a(new a74(50000, l74Var));
+    }
+
+    public static void b(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
+        }
+        l74 l74Var = new l74();
+        l74Var.a = str;
+        b74.c().a(new a74(90000, l74Var));
+    }
+
+    public static void e(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
+        }
+        l74 l74Var = new l74();
+        l74Var.a = str;
+        b74.c().a(new a74(60000, l74Var));
+    }
+
+    public static void g(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65542, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
+        }
+        l74 l74Var = new l74();
+        l74Var.a = str;
+        b74.c().a(new a74(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, l74Var));
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
+            j74 j74Var = new j74();
+            j74Var.b = str;
+            j74Var.a = str2;
+            b74.c().a(new a74(30000, j74Var));
         }
     }
 
-    public static void b(JSONArray jSONArray) {
+    public static void c(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, jSONArray) == null) && jSONArray != null && jSONArray.length() != 0) {
-            HybridUbcFlow p = mz2.p("startup");
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("id");
-                    long optLong = optJSONObject.optLong("timestamp");
-                    if (!TextUtils.isEmpty(optString) && optJSONObject.has("timestamp")) {
-                        UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
-                        ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE_RECENT);
-                        ubcFlowEvent.h(optLong);
-                        p.F(ubcFlowEvent);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            i74 i74Var = new i74();
+            i74Var.b = str;
+            i74Var.c = i;
+            i74Var.d = z ? 1 : 0;
+            i74Var.a = str2;
+            b74.c().a(new a74(DefaultOggSeeker.MATCH_BYTE_RANGE, i74Var));
         }
     }
 
-    public static long c() {
-        InterceptResult invokeV;
-        SwanAppActivity w;
+    public static void h(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            h63 M = h63.M();
-            if (M == null || (w = M.w()) == null) {
-                return 0L;
-            }
-            gj2 R = w.R();
-            if (!(R instanceof i24)) {
-                return 0L;
-            }
-            return ((i24) R).g1();
-        }
-        return invokeV.longValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        SwanAppActivity w;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            h63 M = h63.M();
-            if (M == null || (w = M.w()) == null) {
-                return false;
-            }
-            gj2 R = w.R();
-            if (!(R instanceof i24)) {
-                return false;
-            }
-            return ((i24) R).k1();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void e(String str, er2.a aVar) {
-        Bundle Q;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, aVar) == null) && aVar != null && !d() && (Q = aVar.Q()) != null && Q.getLong("page_display_flag_for_statistic") > 0) {
-            long k = aVar.k("launch_time", 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            kd3 kd3Var = new kd3();
-            kd3Var.a = ad3.n(aVar.H());
-            kd3Var.f = aVar.I();
-            kd3Var.c = aVar.U();
-            kd3Var.b = "launch";
-            kd3Var.e = "realcancel";
-            kd3Var.q = String.valueOf(currentTimeMillis - k);
-            kd3Var.a("reason", str);
-            kd3Var.a("errorList", y64.c().d());
-            kd3Var.d(Q.getString("ubc"));
-            ad3.onEvent(kd3Var);
-            Q.remove("page_display_flag_for_statistic");
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            i74 i74Var = new i74();
+            i74Var.b = str;
+            i74Var.c = i;
+            i74Var.d = z ? 1 : 0;
+            i74Var.a = str2;
+            b74.c().a(new a74(70000, i74Var));
         }
     }
 
-    public static void f(er2.a aVar) {
-        Bundle Q;
+    public static void k(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, aVar) == null) && aVar != null && d() && (Q = aVar.Q()) != null && Q.getLong("page_display_flag_for_statistic") > 0) {
-            long k = aVar.k("launch_time", 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            kd3 kd3Var = new kd3();
-            kd3Var.a = ad3.n(aVar.H());
-            kd3Var.f = aVar.I();
-            kd3Var.c = aVar.U();
-            kd3Var.b = "launch";
-            kd3Var.e = "realsuccess";
-            kd3Var.r = String.valueOf(currentTimeMillis - k);
-            kd3Var.d(Q.getString("ubc"));
-            ad3.onEvent(kd3Var);
-            Q.remove("page_display_flag_for_statistic");
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            i74 i74Var = new i74();
+            i74Var.b = str;
+            i74Var.c = i;
+            i74Var.d = z ? 1 : 0;
+            i74Var.a = str2;
+            b74.c().a(new a74(110000, i74Var));
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            l74 l74Var = new l74();
+            l74Var.a = str;
+            b74.c().a(new a74(20000, l74Var));
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            l74 l74Var = new l74();
+            l74Var.a = str;
+            b74.c().a(new a74(10000, l74Var));
+        }
+    }
+
+    public static void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+            l74 l74Var = new l74();
+            l74Var.a = str;
+            b74.c().a(new a74(120000, l74Var));
+        }
+    }
+
+    public static void j(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
+            k74 k74Var = new k74();
+            k74Var.b = str;
+            k74Var.c = i;
+            k74Var.a = str2;
+            b74.c().a(new a74(80000, k74Var));
         }
     }
 }

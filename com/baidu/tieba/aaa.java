@@ -1,76 +1,56 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.personExtra.PersonBarByUidLocalMessage;
+import com.baidu.tieba.personExtra.ResponsePersonBarByUidLocalMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class aaa {
+public class aaa implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2, cw4 cw4Var, int i) {
+    public aaa() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65536, null, view2, cw4Var, i) == null) && view2 != null && cw4Var != null && cw4Var.getThreadData() != null && !StringUtils.isNull(cw4Var.getThreadData().getTid())) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
-            statisticItem.param("obj_source", 3);
-            ThreadData threadData = cw4Var.getThreadData();
-            if (threadData.isBJHArticleThreadType()) {
-                statisticItem.param("obj_type", 1);
-            } else if (threadData.isBJHVideoThreadType()) {
-                statisticItem.param("obj_type", 2);
-            } else if (threadData.isBJHNormalThreadType()) {
-                statisticItem.param("obj_type", 3);
-            } else if (threadData.isBJHVideoDynamicThreadType()) {
-                statisticItem.param("obj_type", 4);
-            } else if (threadData.threadType == 0) {
-                statisticItem.param("obj_type", 5);
-            } else if (threadData.isVideoThreadType()) {
-                statisticItem.param("obj_type", 6);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (cw4Var.getThreadData().getAuthor() != null) {
-                statisticItem.param("uid", cw4Var.getThreadData().getAuthor().getUserId());
-            }
-            if (threadData.getBaijiahaoData() != null) {
-                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
-            } else {
-                statisticItem.param("obj_id", threadData.getTid());
-            }
-            statisticItem.param("obj_locate", i);
-            TiebaStatic.log(statisticItem);
         }
     }
 
-    public static void b(cw4 cw4Var) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, cw4Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_SHOW);
-            ThreadData threadData = cw4Var.getThreadData();
-            if (threadData.isBJHArticleThreadType()) {
-                statisticItem.param("obj_type", 1);
-            } else if (threadData.isBJHVideoThreadType()) {
-                statisticItem.param("obj_type", 2);
-            } else if (threadData.isBJHNormalThreadType()) {
-                statisticItem.param("obj_type", 3);
-            } else if (threadData.isBJHVideoDynamicThreadType()) {
-                statisticItem.param("obj_type", 4);
-            } else if (threadData.threadType == 0) {
-                statisticItem.param("obj_type", 5);
-            } else if (threadData.isVideoThreadType()) {
-                statisticItem.param("obj_type", 6);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof PersonBarByUidLocalMessage)) {
+                e05.k();
+                String str = e05.l("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
+                ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
+                if (str != null) {
+                    try {
+                        responsePersonBarByUidLocalMessage.decodeInBackGround(2001183, str);
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
+                    }
+                }
+                return responsePersonBarByUidLocalMessage;
             }
-            if (threadData.getBaijiahaoData() != null) {
-                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
-            } else {
-                statisticItem.param("obj_id", threadData.getTid());
-            }
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
+            return null;
         }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

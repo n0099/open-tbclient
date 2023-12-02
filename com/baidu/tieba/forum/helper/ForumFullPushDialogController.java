@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.core.widget.SpriteBottomTipView;
 import com.baidu.tieba.forum.helper.ForumFullPushDialogController;
-import com.baidu.tieba.fr6;
-import com.baidu.tieba.ik5;
+import com.baidu.tieba.jr6;
+import com.baidu.tieba.lk5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.oq6;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
+import com.baidu.tieba.sq6;
 import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +50,7 @@ public final class ForumFullPushDialogController {
     public final int c;
     public final SpriteAnimationTipManager d;
     public SpriteBottomTipView e;
-    public oq6.e f;
+    public sq6.e f;
     public boolean g;
     public String h;
 
@@ -139,19 +139,19 @@ public final class ForumFullPushDialogController {
         } else {
             str = "funny_sprite_appear_dark";
         }
-        fr6 a2 = ik5.a(FunnySpriteResDownloadUtil.i(str, "rush_res", true), false, 2);
+        jr6 a2 = lk5.a(FunnySpriteResDownloadUtil.i(str, "rush_res", true), false, 2);
         if (z) {
             str2 = "funny_sprite_show_day";
         } else {
             str2 = "funny_sprite_show_dark";
         }
-        fr6 a3 = ik5.a(FunnySpriteResDownloadUtil.i(str2, "rush_res", true), true, 2);
+        jr6 a3 = lk5.a(FunnySpriteResDownloadUtil.i(str2, "rush_res", true), true, 2);
         if (z) {
             str3 = "funny_sprite_exit_day";
         } else {
             str3 = "funny_sprite_exit_dark";
         }
-        this.d.v(a2, a3, ik5.a(FunnySpriteResDownloadUtil.i(str3, "rush_res", true), false, 2));
+        this.d.v(a2, a3, lk5.a(FunnySpriteResDownloadUtil.i(str3, "rush_res", true), false, 2));
         this.d.x(0, UtilHelper.getDimenPixelSize(R.dimen.tbds16), 0, UtilHelper.getDimenPixelSize(R.dimen.tbds16));
         this.d.t(UtilHelper.getDimenPixelSize(R.dimen.tbds146), UtilHelper.getDimenPixelSize(R.dimen.tbds187));
         this.d.u(e());
@@ -195,14 +195,14 @@ public final class ForumFullPushDialogController {
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     DefaultLog.getInstance().i(this.this$0.b, "精灵动画提示控件：隐藏全员推送动画结束");
                     this.this$0.p(false);
-                    oq6.e h = this.this$0.h();
+                    sq6.e h = this.this$0.h();
                     if (h != null) {
                         h.onDismiss();
                     }
                 }
             }
         });
-        this.d.w(new View.OnClickListener() { // from class: com.baidu.tieba.yj7
+        this.d.w(new View.OnClickListener() { // from class: com.baidu.tieba.ck7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -220,7 +220,7 @@ public final class ForumFullPushDialogController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            UrlManager.getInstance().dealOneLink(ik5.c("", 0, this$0.h));
+            UrlManager.getInstance().dealOneLink(lk5.c("", 0, this$0.h));
         }
     }
 
@@ -249,7 +249,7 @@ public final class ForumFullPushDialogController {
         }
     }
 
-    public final void o(oq6.e eVar) {
+    public final void o(sq6.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) {
             this.f = eVar;
@@ -275,13 +275,13 @@ public final class ForumFullPushDialogController {
         return (FrameLayout.LayoutParams) invokeV.objValue;
     }
 
-    public final oq6.e h() {
+    public final sq6.e h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.f;
         }
-        return (oq6.e) invokeV.objValue;
+        return (sq6.e) invokeV.objValue;
     }
 
     public final void i() {
@@ -290,7 +290,7 @@ public final class ForumFullPushDialogController {
             DefaultLog.getInstance().i(this.b, "精灵动画提示控件：隐藏全员推送");
             this.d.q();
             this.g = false;
-            oq6.e eVar = this.f;
+            sq6.e eVar = this.f;
             if (eVar != null) {
                 eVar.onDismiss();
             }
@@ -338,7 +338,7 @@ public final class ForumFullPushDialogController {
             FrsSpriteNewUserGuide.BubbleText bubbleText = frsSpriteNewUserGuide.bubbleText;
             String str6 = (bubbleText == null || (buttonInfo = bubbleText.buttonInfo) == null || (str6 = buttonInfo.text) == null) ? "" : "";
             if (rd.isEmpty(str6)) {
-                str6 = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1856);
+                str6 = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1857);
                 Intrinsics.checkNotNullExpressionValue(str6, "getInst().getString(R.string.view)");
             }
             SpriteBottomTipView.a aVar = new SpriteBottomTipView.a(activity);

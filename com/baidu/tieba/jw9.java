@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,20 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbPage.PbSortType;
 /* loaded from: classes6.dex */
 public class jw9 implements pi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
-    public static final BdUniqueId h;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public List<PbSortType> e;
-    public boolean f;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,15 +30,23 @@ public class jw9 implements pi {
                 return;
             }
         }
-        g = BdUniqueId.gen();
-        h = BdUniqueId.gen();
+        c = BdUniqueId.gen();
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
         return (BdUniqueId) invokeV.objValue;
@@ -65,9 +67,13 @@ public class jw9 implements pi {
                 return;
             }
         }
-        this.a = h;
-        this.b = 0;
-        this.c = false;
         this.a = bdUniqueId;
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.b = z;
+        }
     }
 }

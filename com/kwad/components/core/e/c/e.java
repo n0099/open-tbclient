@@ -156,7 +156,7 @@ public final class e extends c implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.cL = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091359);
+        this.cL = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09135a);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

@@ -2349,7 +2349,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
             View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d049b, (ViewGroup) linearLayout, false);
             if (inflate != null) {
                 LinearLayout linearLayout2 = (LinearLayout) inflate;
-                TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f0923d5);
+                TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f0923d7);
                 FontSizeTextViewExtKt.setScaledSizeRes$default(textView, 0, R.dimen.bd_dialog_stress_button_size, 0, 4, null);
                 if (i2 == 1) {
                     textView.setBackground(FontSizeHelper.getScaledDrawable$default(0, ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08024c, null), 0, 4, null));
@@ -2818,20 +2818,20 @@ public final class BdDialog extends Activity implements BdDialogInterface {
     public final void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0926a5);
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09090f);
-            this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f090904);
-            this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090905);
-            this.mDialogContent = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908fa);
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908fe);
-            this.mDialogRootLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09090b);
+            this.mTitlePanel = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0926a7);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f090910);
+            this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f090905);
+            this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090906);
+            this.mDialogContent = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908fb);
+            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908ff);
+            this.mDialogRootLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09090c);
             this.mDialogLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0903a5);
-            this.mDialogCustomPanel = (RoundAngleFrameLayout) findViewById(R.id.obfuscated_res_0x7f0908f9);
-            this.mBtnContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09105e);
+            this.mDialogCustomPanel = (RoundAngleFrameLayout) findViewById(R.id.obfuscated_res_0x7f0908fa);
+            this.mBtnContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09105f);
             this.mBottomClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f09048d);
-            this.mRightClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f092014);
-            this.mDivider = findViewById(R.id.obfuscated_res_0x7f091062);
-            this.mBtnHeight = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d7);
+            this.mRightClose = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f092016);
+            this.mDivider = findViewById(R.id.obfuscated_res_0x7f091063);
+            this.mBtnHeight = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d8);
             BdBaseImageView bdBaseImageView = this.mRightClose;
             if (bdBaseImageView != null) {
                 FontSizeViewExtKt.setScaledSizeRes$default(bdBaseImageView, 0, R.dimen.bd_dialog_right_close, R.dimen.bd_dialog_right_close, 0, 8, null);
@@ -3340,7 +3340,7 @@ public final class BdDialog extends Activity implements BdDialogInterface {
                         }
                         if (layoutParams2 != null) {
                             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) layoutParams2;
-                            layoutParams3.addRule(3, R.id.obfuscated_res_0x7f0908f9);
+                            layoutParams3.addRule(3, R.id.obfuscated_res_0x7f0908fa);
                             FrameLayout frameLayout5 = this.mBtnContainer;
                             if (frameLayout5 != null) {
                                 frameLayout5.setLayoutParams(layoutParams3);

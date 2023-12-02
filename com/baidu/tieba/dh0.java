@@ -12,7 +12,7 @@ public class dh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public on0 b;
+    public pn0 b;
     public String c;
 
     public dh0() {
@@ -41,7 +41,7 @@ public class dh0 {
             JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
             if (optJSONObject != null) {
                 try {
-                    dh0Var.b = on0.d(optJSONObject);
+                    dh0Var.b = pn0.d(optJSONObject);
                 } catch (ParseError e) {
                     e.printStackTrace();
                 }

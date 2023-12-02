@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.message.HistoryMessage;
 import com.baidu.tbadk.data.NewsNotifyMessage;
-import com.baidu.tieba.gr4;
+import com.baidu.tieba.bq9;
+import com.baidu.tieba.jr4;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryData;
 import com.baidu.tieba.myCollection.history.PbHistoryActivity;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
-import com.baidu.tieba.op9;
-import com.baidu.tieba.up9;
-import com.baidu.tieba.wva;
-import com.baidu.tieba.xp9;
+import com.baidu.tieba.sp9;
+import com.baidu.tieba.vva;
+import com.baidu.tieba.yp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -143,17 +143,17 @@ public class Static {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<gr4> run(CustomMessage<BaseActivity> customMessage) {
+        public CustomResponsedMessage<jr4> run(CustomMessage<BaseActivity> customMessage) {
             InterceptResult invokeL;
-            up9 up9Var;
+            yp9 yp9Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    up9Var = new up9(customMessage.getData());
+                    yp9Var = new yp9(customMessage.getData());
                 } else {
-                    up9Var = null;
+                    yp9Var = null;
                 }
-                return new CustomResponsedMessage<>(2001279, up9Var);
+                return new CustomResponsedMessage<>(2001279, yp9Var);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -179,17 +179,17 @@ public class Static {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<gr4> run(CustomMessage<BaseFragmentActivity> customMessage) {
+        public CustomResponsedMessage<jr4> run(CustomMessage<BaseFragmentActivity> customMessage) {
             InterceptResult invokeL;
-            up9 up9Var;
+            yp9 yp9Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    up9Var = new up9(customMessage.getData());
+                    yp9Var = new yp9(customMessage.getData());
                 } else {
-                    up9Var = null;
+                    yp9Var = null;
                 }
-                return new CustomResponsedMessage<>(2921318, up9Var);
+                return new CustomResponsedMessage<>(2921318, yp9Var);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -226,11 +226,11 @@ public class Static {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    xp9.d().c();
+                    bq9.d().c();
                 } else if (TbadkCoreApplication.isLogin()) {
-                    xp9.d().f();
+                    bq9.d().f();
                 } else {
-                    xp9.d().c();
+                    bq9.d().c();
                 }
             }
         }
@@ -267,9 +267,9 @@ public class Static {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (TbadkCoreApplication.isLogin()) {
-                    xp9.d().e();
+                    bq9.d().e();
                 } else {
-                    xp9.d().c();
+                    bq9.d().c();
                 }
             }
         }
@@ -305,8 +305,8 @@ public class Static {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                op9.b().d();
-                op9.b().e(true);
+                sp9.b().d();
+                sp9.b().e(true);
             }
         }
     }
@@ -342,7 +342,7 @@ public class Static {
         MessageManager.getInstance().registerListener(new e(2001011));
         MessageManager.getInstance().registerListener(new f(2005016));
         MessageManager.getInstance().registerListener(new g(2001120));
-        wva.e(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED, TbConfig.URL_ALA_LIVE_ROOM_CLOSED, AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true);
+        vva.e(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED, TbConfig.URL_ALA_LIVE_ROOM_CLOSED, AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true);
     }
 
     public Static() {

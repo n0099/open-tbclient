@@ -32,7 +32,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.c05;
+import com.baidu.tieba.f05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -272,26 +272,26 @@ public class FullBrowseHelper {
             }
             textView2.setMovementMethod(LinkMovementMethod.getInstance());
             textView2.setText(spannableString);
-            c05 c05Var = new c05(bdPageContext.getPageActivity());
-            c05Var.setContentView(inflate);
-            c05Var.setContentViewSize(8);
-            c05Var.setCanceledOnTouchOutside(false);
-            c05Var.setAutoNight(true);
-            c05Var.setCancelable(false);
+            f05 f05Var = new f05(bdPageContext.getPageActivity());
+            f05Var.setContentView(inflate);
+            f05Var.setContentViewSize(8);
+            f05Var.setCanceledOnTouchOutside(false);
+            f05Var.setAutoNight(true);
+            f05Var.setCancelable(false);
             EMManager.from(textView3).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0303);
             SkinManager.setViewTextColorSelector(textView3, R.color.CAM_X0101, R.color.CAM_X0618, 0);
             SkinManager.setViewTextColorSelector(textView4, R.color.CAM_X0110, R.color.CAM_X0110, 0);
-            textView3.setOnClickListener(new View.OnClickListener(c05Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.3
+            textView3.setOnClickListener(new View.OnClickListener(f05Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c05 val$mPrivateDialog;
+                public final /* synthetic */ f05 val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c05Var};
+                        Object[] objArr = {f05Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -301,7 +301,7 @@ public class FullBrowseHelper {
                             return;
                         }
                     }
-                    this.val$mPrivateDialog = c05Var;
+                    this.val$mPrivateDialog = f05Var;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -314,17 +314,17 @@ public class FullBrowseHelper {
                     }
                 }
             });
-            textView4.setOnClickListener(new View.OnClickListener(c05Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.4
+            textView4.setOnClickListener(new View.OnClickListener(f05Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c05 val$mPrivateDialog;
+                public final /* synthetic */ f05 val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c05Var};
+                        Object[] objArr = {f05Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -334,7 +334,7 @@ public class FullBrowseHelper {
                             return;
                         }
                     }
-                    this.val$mPrivateDialog = c05Var;
+                    this.val$mPrivateDialog = f05Var;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -347,8 +347,8 @@ public class FullBrowseHelper {
                     this.val$mPrivateDialog.dismiss();
                 }
             });
-            c05Var.create(bdPageContext);
-            c05Var.show();
+            f05Var.create(bdPageContext);
+            f05Var.show();
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE).addParam("obj_type", 4));
             EMManager.from(textView).setTextColor(R.color.CAM_X0105);
             WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.full_browse_image1), R.drawable.full_mode_icon_mask_recommend1, null);

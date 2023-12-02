@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,18 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class hq7 implements pi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public LikeReturnData a;
+    public String b;
     public String c;
-    public String d;
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +32,7 @@ public class hq7 implements pi {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
     public hq7() {
@@ -53,49 +45,43 @@ public class hq7 implements pi {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = -1;
-        this.b = -1;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public int b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.c;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean c() {
+    public LikeReturnData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!StringUtils.isNull(this.c) && !StringUtils.isNull(this.d) && this.a >= 0 && this.b >= 0) {
-                return false;
-            }
-            return true;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (LikeReturnData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return d;
         }
         return (BdUniqueId) invokeV.objValue;
     }
@@ -103,28 +89,21 @@ public class hq7 implements pi {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.d = str;
+            this.b = str;
         }
     }
 
-    public void e(int i) {
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.c = str;
         }
     }
 
-    public void h(int i) {
+    public void f(LikeReturnData likeReturnData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeL(1048581, this, likeReturnData) == null) {
+            this.a = likeReturnData;
         }
     }
 }

@@ -1,132 +1,130 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class oi2 {
+public class oi2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final pi2 a;
+    public final Runnable b;
+    public String c;
+    public String[] d;
+    public AtomicBoolean e;
+    public List<oi2> f;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Comparator<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                return Long.compare(file.lastModified(), file2.lastModified());
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public static void a() {
-        File[] listFiles;
+    public oi2(pi2 pi2Var, Runnable runnable, String str, String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            String y = ri2.y(AppRuntime.getAppContext());
-            if (TextUtils.isEmpty(y)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pi2Var, runnable, str, strArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            File file = new File(y);
-            if (!file.exists() || !file.isDirectory() || (listFiles = file.listFiles()) == null) {
-                return;
-            }
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    String str = file2.getAbsolutePath() + File.separator + "aigames/sandbox";
-                    File file3 = new File(str);
-                    if (file3.exists() && file3.isDirectory()) {
-                        String str2 = y + File.separator + "swangame/anonymous/sandbox";
-                        if (!file3.renameTo(new File(str2))) {
-                            ri2.e(str, str2);
-                            ri2.j(str);
-                        }
-                    }
-                }
-            }
+        }
+        this.e = new AtomicBoolean(false);
+        this.f = Collections.synchronizedList(new ArrayList());
+        this.a = pi2Var;
+        this.b = runnable;
+        this.c = str;
+        this.d = strArr;
+    }
+
+    public void a(oi2 oi2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, oi2Var) == null) && !this.f.contains(oi2Var)) {
+            this.f.add(oi2Var);
         }
     }
 
-    public static void b() {
-        File[] d;
+    public void g(oi2 oi2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || (d = pp2.m().d()) == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (File file : d) {
-            String name = file.getName();
-            if (name.startsWith("aigame_storage_") && !name.endsWith("_anonymous.xml")) {
-                arrayList.add(file);
-            }
-        }
-        Collections.sort(arrayList, new a());
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            File file2 = (File) it.next();
-            String absolutePath = file2.getAbsolutePath();
-            int lastIndexOf = absolutePath.lastIndexOf("_");
-            String str = absolutePath.substring(0, lastIndexOf) + "_anonymous.xml";
-            if (!absolutePath.equals(str)) {
-                File file3 = new File(str);
-                if (file3.exists()) {
-                    km4.L(file3);
-                }
-                if (!file2.renameTo(file3)) {
-                    km4.f(file2, file3);
-                    km4.L(file2);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048582, this, oi2Var) == null) {
+            this.f.remove(oi2Var);
         }
     }
 
-    public static void c() {
+    public String[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || !ve3.a().getBoolean("swan_game_data_migration", true)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        ve3.a().putBoolean("swan_game_data_migration", false);
-        if (kp2.a) {
-            Log.d("DataMigrationUtils", "before migrate " + System.currentTimeMillis());
+        return (String[]) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        a();
-        if (kp2.a) {
-            Log.d("DataMigrationUtils", "in migrate " + System.currentTimeMillis());
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f.isEmpty();
         }
-        b();
-        if (kp2.a) {
-            Log.d("DataMigrationUtils", "end migrate " + System.currentTimeMillis());
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ej3.k(this, this.c);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.run();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e.set(true);
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            try {
+                h();
+            } finally {
+                this.a.g(this);
+            }
         }
     }
 }

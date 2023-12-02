@@ -9,7 +9,7 @@ public interface vk0 {
 
     void a(tk0 tk0Var);
 
-    void b(hn0 hn0Var, Context context);
+    void b(in0 in0Var, Context context);
 
     View getView();
 

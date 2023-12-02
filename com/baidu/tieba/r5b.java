@@ -1,117 +1,146 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.album.VideoFileInfo;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class r5b {
-    public static /* synthetic */ Interceptable $ic;
+public final class r5b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "databases";
+    public static final String b = "app_swan_prefs";
+    public static final String c = "shared_prefs";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(InputStream inputStream, String str, svb svbVar) throws IOException {
-        double d;
-        InterceptResult invokeLLL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948074026, "Lcom/baidu/tieba/r5b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948074026, "Lcom/baidu/tieba/r5b;");
+        }
+    }
+
+    public static final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, inputStream, str, svbVar)) == null) {
-            try {
-                if (inputStream instanceof FileInputStream) {
-                    d = ((FileInputStream) inputStream).getChannel().size();
-                } else {
-                    d = 0.0d;
-                }
-                FileOutputStream fileOutputStream = new FileOutputStream(str);
-                byte[] bArr = new byte[1444];
-                int i = 0;
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    i += read;
-                    if (svbVar != null && d != 0.0d) {
-                        svbVar.b((int) ((i / d) * 100.0d));
-                    } else if (svbVar != null && d == 0.0d) {
-                        svbVar.b(80);
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            c(z5b.f());
+            e();
+            d();
+            z5b.a();
+        }
+    }
+
+    public static final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a();
+            i();
+            f();
+            h();
+            g();
+        }
+    }
+
+    public static final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (Intrinsics.areEqual("mounted", Environment.getExternalStorageState()) && z5b.c(z5b.d().getExternalCacheDir())) {
                 return true;
-            } finally {
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
             }
+            return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static boolean b(String str, String str2, svb svbVar) throws IOException {
-        InterceptResult invokeLLL;
+    public static final boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, svbVar)) == null) {
-            return a(new FileInputStream(str), str2, svbVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return z5b.c(z5b.d().getCacheDir());
         }
-        return invokeLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
-    public static VideoFileInfo c(String str) {
+    public static final boolean f() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            File filesDir = z5b.d().getFilesDir();
+            if (filesDir != null) {
+                str = filesDir.getParent();
+            } else {
+                str = null;
+            }
+            return z5b.c(new File(str, a));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return z5b.c(z5b.d().getFilesDir());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static final boolean i() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            File filesDir = z5b.d().getFilesDir();
+            if (filesDir != null) {
+                str = filesDir.getParent();
+            } else {
+                str = null;
+            }
+            return z5b.c(new File(str, b));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static final boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                VideoFileInfo videoFileInfo = new VideoFileInfo();
-                videoFileInfo.videoPath = str;
-                videoFileInfo.lastModified = file.lastModified();
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            videoFileInfo.videoDuration = JavaTypesHelper.toInt(mediaMetadataRetriever.extractMetadata(9), 0);
-                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
-                            videoFileInfo.videoWidth = JavaTypesHelper.toInt(mediaMetadataRetriever.extractMetadata(18), 0);
-                            videoFileInfo.videoHeight = JavaTypesHelper.toInt(mediaMetadataRetriever.extractMetadata(19), 0);
-                            int i = JavaTypesHelper.toInt(mediaMetadataRetriever.extractMetadata(24), 0);
-                            if (i == 90 || i == 270) {
-                                int i2 = videoFileInfo.videoWidth;
-                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
-                                videoFileInfo.videoHeight = i2;
-                            }
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                }
-                return videoFileInfo;
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return z5b.c(z5b.g(str));
         }
-        return (VideoFileInfo) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean h() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            File filesDir = z5b.d().getFilesDir();
+            if (filesDir != null) {
+                str = filesDir.getParent();
+            } else {
+                str = null;
+            }
+            boolean c2 = z5b.c(new File(str, c));
+            if (c2) {
+                z5b.b();
+            }
+            return c2;
+        }
+        return invokeV.booleanValue;
     }
 }

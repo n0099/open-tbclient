@@ -3,7 +3,7 @@ package com.baidu.tbadk.editortools.meme.model;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.dg5;
+import com.baidu.tieba.gg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public final class SpriteMemeLoopRespondedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dg5 spriteMemeLoopData;
+    public gg5 spriteMemeLoopData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpriteMemeLoopRespondedMessage() {
@@ -36,13 +36,13 @@ public final class SpriteMemeLoopRespondedMessage extends JsonHttpResponsedMessa
         }
     }
 
-    public final dg5 getSpriteMemeLoopData() {
+    public final gg5 getSpriteMemeLoopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.spriteMemeLoopData;
         }
-        return (dg5) invokeV.objValue;
+        return (gg5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -50,14 +50,14 @@ public final class SpriteMemeLoopRespondedMessage extends JsonHttpResponsedMessa
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.spriteMemeLoopData = dg5.c.a(optJSONObject);
+            this.spriteMemeLoopData = gg5.c.a(optJSONObject);
         }
     }
 
-    public final void setSpriteMemeLoopData(dg5 dg5Var) {
+    public final void setSpriteMemeLoopData(gg5 gg5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dg5Var) == null) {
-            this.spriteMemeLoopData = dg5Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gg5Var) == null) {
+            this.spriteMemeLoopData = gg5Var;
         }
     }
 }

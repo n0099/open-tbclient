@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,8 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class iz2 implements al3<HybridUbcFlow> {
+public class iz2 implements dl3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +34,7 @@ public class iz2 implements al3<HybridUbcFlow> {
                 return;
             }
         }
-        a = sm1.a;
+        a = vm1.a;
     }
 
     public iz2() {
@@ -48,26 +51,51 @@ public class iz2 implements al3<HybridUbcFlow> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.al3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        PMSAppInfo u;
-        long g;
+    public final JSONObject b(HybridUbcFlow hybridUbcFlow) throws JSONException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            if (a) {
-                Log.i("LaunchCounter", "report: flow=" + hybridUbcFlow);
-            }
-            if (hybridUbcFlow != null && (u = ee4.i().u(g63.K().getAppId())) != null) {
-                UbcFlowEvent g2 = hybridUbcFlow.g("naStart");
-                if (g2 == null) {
-                    g = System.currentTimeMillis();
-                } else {
-                    g = g2.g();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty()) {
+                jSONObject.put("flowId", hybridUbcFlow.l());
+                JSONArray jSONArray = new JSONArray();
+                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f) {
+                    if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.a)) {
+                        if (a) {
+                            Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
+                        }
+                        jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.a).put("timestamp", ubcFlowEvent.g()));
+                    }
                 }
-                u.countLaunch(g);
-                ee4.i().y(u);
+                jSONObject.put("data", jSONArray);
+            }
+            if (a) {
+                Log.i("FlowJarToH5Reporter", "buildJoMsg: joMsg=" + jSONObject);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dl3
+    /* renamed from: c */
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+            if (a) {
+                Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
+            }
+            if (xr2.V().Z()) {
+                if (a || xr2.V().O()) {
+                    try {
+                        rz2.e().c(b(hybridUbcFlow));
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
             }
         }
     }

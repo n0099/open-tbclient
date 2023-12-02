@@ -34,9 +34,9 @@ public final class d extends FrameLayout {
 
     private void B(Context context) {
         com.kwad.sdk.m.l.inflate(context, R.layout.obfuscated_res_0x7f0d04f6, this);
-        this.fg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091378);
-        this.fh = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913e4);
-        this.fi = (ImageView) findViewById(R.id.obfuscated_res_0x7f091373);
+        this.fg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091379);
+        this.fh = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913e5);
+        this.fi = (ImageView) findViewById(R.id.obfuscated_res_0x7f091374);
     }
 
     public static /* synthetic */ int f(d dVar) {

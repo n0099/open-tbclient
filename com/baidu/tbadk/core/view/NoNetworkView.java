@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wya;
+import com.baidu.tieba.vya;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -291,7 +291,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             this.mCheckDetail = (TextView) findViewById(R.id.check_detail_view);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wya.noNetworkView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vya.noNetworkView);
                 this.isSupportOffline = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }

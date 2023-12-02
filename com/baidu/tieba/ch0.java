@@ -49,7 +49,7 @@ public class ch0 {
             if (!TextUtils.isEmpty(h)) {
                 map.put(HttpRequest.OS_VERSION, h);
             }
-            map.put("nt", String.valueOf(new xo0().c()));
+            map.put("nt", String.valueOf(new zo0().c()));
             String b = zf0.c().b(false);
             if (!TextUtils.isEmpty(b)) {
                 map.put("imei", b);
@@ -61,26 +61,26 @@ public class ch0 {
             map.put("ssl", "1");
             JSONObject jSONObject = new JSONObject();
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                my0.f(jSONObject, entry.getKey(), entry.getValue());
+                oy0.f(jSONObject, entry.getKey(), entry.getValue());
             }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;
     }
 
-    public void b(Map<String, String> map, ap0<dh0> ap0Var) {
+    public void b(Map<String, String> map, cp0<dh0> cp0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, ap0Var) == null) {
-            hp0 f = hp0.f(u21.a(a(map).toString().getBytes()));
-            ip0 ip0Var = new ip0();
-            ip0Var.a("Content-Encoding", "gzip");
-            ip0Var.a("Content-Type", "application/json");
-            ip0Var.l("https://afdconf.baidu.com/afd/download");
-            ip0Var.g(3000);
-            ip0Var.j(3000);
-            ip0Var.k(3000);
-            ip0Var.f(f);
-            po0.b().a().a(ip0Var, ap0Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, cp0Var) == null) {
+            jp0 f = jp0.f(w21.a(a(map).toString().getBytes()));
+            kp0 kp0Var = new kp0();
+            kp0Var.a("Content-Encoding", "gzip");
+            kp0Var.a("Content-Type", "application/json");
+            kp0Var.l("https://afdconf.baidu.com/afd/download");
+            kp0Var.g(3000);
+            kp0Var.j(3000);
+            kp0Var.k(3000);
+            kp0Var.f(f);
+            ro0.b().a().a(kp0Var, cp0Var);
         }
     }
 }

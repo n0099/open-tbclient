@@ -12,12 +12,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatRatingBar;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.on0;
+import com.baidu.tieba.pn0;
 /* loaded from: classes3.dex */
 public class SimpleFeedAdInfoView extends SimpleAdInfoView {
-    public TextView j;
-    public AppCompatRatingBar k;
-    public TextView l;
+    public TextView k;
+    public AppCompatRatingBar l;
+    public TextView m;
 
     public SimpleFeedAdInfoView(@NonNull Context context) {
         this(context, null);
@@ -26,23 +26,23 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView
     public void b(AttributeSet attributeSet) {
         super.b(attributeSet);
-        this.j = (TextView) findViewById(R.id.nad_operate_ad_name);
-        this.k = (AppCompatRatingBar) findViewById(R.id.nad_operate_ad_rating_bar);
-        this.l = (TextView) findViewById(R.id.nad_operate_ad_rating_text);
+        this.k = (TextView) findViewById(R.id.nad_operate_ad_name);
+        this.l = (AppCompatRatingBar) findViewById(R.id.nad_operate_ad_rating_bar);
+        this.m = (TextView) findViewById(R.id.nad_operate_ad_rating_text);
         g();
         setRatingBarViewLP(R.drawable.nad_feed_ad_operate_rating_star_full);
     }
 
     public void setRatingBarViewLP(int i) {
         Drawable drawable;
-        if (this.k == null || (drawable = getResources().getDrawable(i)) == null) {
+        if (this.l == null || (drawable = getResources().getDrawable(i)) == null) {
             return;
         }
         int intrinsicHeight = drawable.getIntrinsicHeight();
-        ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.l.getLayoutParams();
         layoutParams.width = -2;
         layoutParams.height = intrinsicHeight;
-        this.k.setLayoutParams(layoutParams);
+        this.l.setLayoutParams(layoutParams);
     }
 
     public SimpleFeedAdInfoView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -54,15 +54,15 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     public void g() {
-        TextView textView = this.j;
+        TextView textView = this.k;
         if (textView != null) {
             textView.setTextColor(getResources().getColor(R.color.NAD_FC1));
         }
-        AppCompatRatingBar appCompatRatingBar = this.k;
+        AppCompatRatingBar appCompatRatingBar = this.l;
         if (appCompatRatingBar != null) {
             appCompatRatingBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.NAD_FC74), PorterDuff.Mode.SRC_ATOP);
         }
-        TextView textView2 = this.l;
+        TextView textView2 = this.m;
         if (textView2 != null) {
             textView2.setTextColor(getResources().getColor(R.color.NAD_FC2));
         }
@@ -85,32 +85,32 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView
-    public void setAdInfo(on0 on0Var) {
-        super.setAdInfo(on0Var);
-        if (this.j != null) {
-            if (!TextUtils.isEmpty(on0Var.c)) {
-                this.j.setText(on0Var.c);
-                this.j.setVisibility(0);
+    public void setAdInfo(pn0 pn0Var) {
+        super.setAdInfo(pn0Var);
+        if (this.k != null) {
+            if (!TextUtils.isEmpty(pn0Var.c)) {
+                this.k.setText(pn0Var.c);
+                this.k.setVisibility(0);
             } else {
-                this.j.setVisibility(8);
+                this.k.setVisibility(8);
             }
         }
-        TextView textView = this.l;
+        TextView textView = this.m;
         if (textView != null) {
-            double d = on0Var.e;
+            double d = pn0Var.e;
             if (d != -1.0d) {
                 textView.setText(String.valueOf(d));
-                this.l.setVisibility(0);
+                this.m.setVisibility(0);
             } else {
                 textView.setVisibility(8);
             }
         }
-        AppCompatRatingBar appCompatRatingBar = this.k;
+        AppCompatRatingBar appCompatRatingBar = this.l;
         if (appCompatRatingBar != null) {
-            double d2 = on0Var.e;
+            double d2 = pn0Var.e;
             if (d2 != -1.0d) {
                 appCompatRatingBar.setRating((float) d2);
-                this.k.setVisibility(0);
+                this.l.setVisibility(0);
                 return;
             }
             appCompatRatingBar.setVisibility(8);

@@ -1,136 +1,247 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.easteregg.data.EasterEggAdData;
-import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.filedownloader.TbDownloadManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.File;
 import kotlin.Unit;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class fw6 implements z15 {
+public final class fw6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final String b;
+    public final TbDownloadManager c;
 
-    public fw6() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947778596, "Lcom/baidu/tieba/fw6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947778596, "Lcom/baidu/tieba/fw6;");
+                return;
+            }
+        }
+        d = new a(null);
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final String a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return context.getCacheDir().getAbsolutePath() + "/home_bottom_egg/";
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public final String b(Context context, String videoUrl) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, videoUrl)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                Intrinsics.checkNotNullParameter(videoUrl, "videoUrl");
+                return a(context) + xd.c(videoUrl);
+            }
+            return (String) invokeLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b extends nu5<Unit> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ File a;
+
+        public b(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = file;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                FileHelper.deleteFile(this.a);
+            }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.nu5
+        public /* bridge */ /* synthetic */ Unit doInBackground() {
+            a();
+            return Unit.INSTANCE;
+        }
+    }
+
+    public fw6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        this.a = context;
+        this.b = d.a(context);
+        this.c = new TbDownloadManager();
+    }
+
+    public final void a(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
+            ru5.b(new b(file), null);
         }
     }
 
-    @Override // com.baidu.tieba.z15
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialogName", "easterEgg");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            File file = new File(this.b);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+            DownloadData downloadData = new DownloadData();
+            downloadData.setUrl(str);
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.b);
+            sb.append("/");
+            String c = xd.c(str);
+            sb.append(c);
+            downloadData.setPath(sb.toString());
+            this.c.y(downloadData);
+            SharedPrefHelper.getInstance().putString("key_home_bottom_egg_video_name", c);
         }
-        return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.z15
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
-        int i;
-        Unit unit;
+    /* JADX WARN: Removed duplicated region for block: B:22:0x003f  */
+    /* JADX WARN: Removed duplicated region for block: B:46:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void c(String jsonStr) {
+        boolean z;
+        boolean z2;
+        String str;
+        boolean z3;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            DefaultLog.getInstance().i("easterEgg", "彩蛋广告触发云弹窗判断逻辑");
-            if (o35.a().b() != 3) {
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.e("easterEgg", "彩蛋广告不展示，非用户启动，启动类型：" + o35.a().b());
-                return false;
-            }
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = StringUtil.NULL_STRING;
-            }
-            Integer num = a2b.j.a().d().get(currentAccount);
-            if (num != null) {
-                i = num.intValue();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsonStr) == null) {
+            Intrinsics.checkNotNullParameter(jsonStr, "jsonStr");
+            boolean z4 = true;
+            if (jsonStr.length() == 0) {
+                z = true;
             } else {
-                i = 0;
+                z = false;
             }
-            if (i >= 1) {
-                TbLog defaultLog2 = DefaultLog.getInstance();
-                defaultLog2.e("easterEgg", "彩蛋广告不展示，当前用户：" + currentAccount + "已经展示过彩蛋广告");
-                return false;
+            if (z) {
+                return;
             }
             try {
-                if (EasterEggAdDataHolder.b.a().b() == null) {
-                    cw6 cw6Var = new cw6();
-                    JSONObject syncJson = TbSingleton.getInstance().getSyncJson();
-                    Intrinsics.checkNotNullExpressionValue(syncJson, "getInstance().syncJson");
-                    cw6Var.parseJson(syncJson);
+                jSONObject = new JSONObject(jsonStr);
+                if (jSONObject.optInt("is_video") == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
                 }
-            } catch (Exception unused) {
-                DefaultLog.getInstance().i("easterEgg", "获取彩蛋广告数据失败");
+            } catch (Exception e) {
+                e = e;
+                z2 = false;
             }
-            EasterEggAdData b = EasterEggAdDataHolder.b.a().b();
-            if (b == null) {
-                return false;
-            }
-            DefaultLog.getInstance().i("easterEgg", "彩蛋广告数据不为空");
-            if (!b.isValidData()) {
-                DefaultLog.getInstance().e("easterEgg", "彩蛋广告不展示，数据不合法");
-                return false;
-            }
-            String url = b.getUrl();
-            if (url != null) {
-                if (c(url)) {
-                    DefaultLog.getInstance().e("easterEgg", "彩蛋广告不展示，已经被手动关闭");
-                    return false;
+            try {
+                str = jSONObject.optString("video_url");
+                Intrinsics.checkNotNullExpressionValue(str, "jsonObject.optString(\"video_url\")");
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                str = "";
+                if (!z2) {
                 }
-                unit = Unit.INSTANCE;
-            } else {
-                unit = null;
             }
-            if (unit == null) {
-                DefaultLog.getInstance().e("easterEgg", "彩蛋广告不展示，广告url为空");
-                return false;
+            if (!z2) {
+                if (str.length() > 0) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                if (z3) {
+                    if (!new File(this.b + xd.c(str)).exists()) {
+                        String oldVideoName = SharedPrefHelper.getInstance().getString("key_home_bottom_egg_video_name", "");
+                        Intrinsics.checkNotNullExpressionValue(oldVideoName, "oldVideoName");
+                        if (oldVideoName.length() <= 0) {
+                            z4 = false;
+                        }
+                        if (z4) {
+                            File file = new File(this.b + oldVideoName);
+                            if (file.exists()) {
+                                a(file);
+                            }
+                        }
+                        b(str);
+                    }
+                }
             }
-            DefaultLog.getInstance().i("easterEgg", "彩蛋广告可以展示");
-            return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            return sharedPrefHelper.getBoolean(EasterEggAdData.KEY_EASTER_EGG_AD + TbadkCoreApplication.getCurrentAccount() + str, false);
-        }
-        return invokeL.booleanValue;
     }
 }

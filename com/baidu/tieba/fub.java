@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.lang.reflect.Type;
 /* loaded from: classes6.dex */
-public class fub implements eub {
+public class fub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
     public fub() {
         Interceptable interceptable = $ic;
@@ -23,61 +23,28 @@ public class fub implements eub {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 10;
+        this.b = 2;
     }
 
-    @Override // com.baidu.tieba.eub
-    public String a(Object obj) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (wsb.d().e() != null && wsb.d().e().c() != null) {
-                    return wsb.d().e().c().a(obj);
-                }
-                return new Gson().toJson(obj);
-            } catch (Exception e) {
-                zwb.b(e.getMessage());
-                return "";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.eub
-    public <T> T b(String str, Class<T> cls) {
-        InterceptResult invokeLL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
-            try {
-                if (wsb.d().e() != null && wsb.d().e().c() != null) {
-                    return (T) wsb.d().e().c().b(str, cls);
-                }
-                return (T) new Gson().fromJson(str, (Class<Object>) cls);
-            } catch (Exception e) {
-                zwb.b(e.getMessage());
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (T) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.eub
-    public <T> T c(String str, Type type) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
-            try {
-                if (wsb.d().e() != null && wsb.d().e().c() != null) {
-                    return (T) wsb.d().e().c().c(str, type);
-                }
-                return (T) new Gson().fromJson(str, type);
-            } catch (Exception e) {
-                zwb.b(e.getMessage());
-                return null;
-            }
-        }
-        return (T) invokeLL.objValue;
+        return invokeV.intValue;
     }
 }

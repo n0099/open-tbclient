@@ -48,20 +48,32 @@ public final class jl0 {
         }
     }
 
-    public static /* synthetic */ void e(jl0 jl0Var, Context context, hn0 hn0Var, String str, int i, Object obj) {
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (ij0.b().a().a("reward_form_switch", 1) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static /* synthetic */ void e(jl0 jl0Var, Context context, in0 in0Var, String str, int i, Object obj) {
         if ((i & 4) != 0) {
             str = "";
         }
-        jl0Var.d(context, hn0Var, str);
+        jl0Var.d(context, in0Var, str);
     }
 
-    public final boolean a(hn0 hn0Var) {
+    public final boolean a(in0 in0Var) {
         InterceptResult invokeL;
         tm0 tm0Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hn0Var)) == null) {
-            xm0 xm0Var = hn0Var.m;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, in0Var)) == null) {
+            xm0 xm0Var = in0Var.m;
             if (xm0Var != null && (tm0Var = xm0Var.p) != null && tm0Var.e) {
                 if (xm0Var != null && tm0Var != null) {
                     str = tm0Var.a;
@@ -95,20 +107,20 @@ public final class jl0 {
         return invokeL.booleanValue;
     }
 
-    public final String c(String str, hn0 adModel) {
+    public final String c(String str, in0 adModel) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, adModel)) == null) {
             Intrinsics.checkNotNullParameter(adModel, "adModel");
-            String str2 = (str == null || (r13 = StringsKt__StringsJVMKt.replace$default(str, "__PANEL_CMD__", adModel.f(), false, 4, (Object) null)) == null) ? "" : "";
+            String str2 = (str == null || (r13 = StringsKt__StringsJVMKt.replace$default(str, "__PANEL_CMD__", adModel.g(), false, 4, (Object) null)) == null) ? "" : "";
             String str3 = adModel.f.c;
             Intrinsics.checkNotNullExpressionValue(str3, "adModel.common.scheme");
-            return StringsKt__StringsJVMKt.replace$default(StringsKt__StringsJVMKt.replace$default(str2, "__CONVERT_CMD__", str3, false, 4, (Object) null), "__WEB_PANEL_CMD__", adModel.n(), false, 4, (Object) null);
+            return StringsKt__StringsJVMKt.replace$default(StringsKt__StringsJVMKt.replace$default(str2, "__CONVERT_CMD__", str3, false, 4, (Object) null), "__WEBPANEL_CMD__", adModel.o(), false, 4, (Object) null);
         }
         return (String) invokeLL.objValue;
     }
 
-    public final void d(Context context, hn0 adModel, String str) {
+    public final void d(Context context, in0 adModel, String str) {
         boolean z;
         String str2;
         String str3;
@@ -122,7 +134,7 @@ public final class jl0 {
                 return;
             }
             boolean z2 = false;
-            if (adModel.p() && a(adModel)) {
+            if (adModel.q() && a(adModel)) {
                 xm0 xm0Var = adModel.m;
                 String str4 = null;
                 if (xm0Var != null && (tm0Var3 = xm0Var.p) != null) {
@@ -130,7 +142,7 @@ public final class jl0 {
                 } else {
                     str2 = null;
                 }
-                if (j11.f(str2)) {
+                if (l11.f(str2)) {
                     xm0 xm0Var2 = adModel.m;
                     if (xm0Var2 != null && (tm0Var2 = xm0Var2.p) != null) {
                         str3 = tm0Var2.b;
@@ -161,15 +173,15 @@ public final class jl0 {
                     return;
                 }
             }
-            String f = adModel.f();
-            if (f.length() == 0) {
+            String g = adModel.g();
+            if (g.length() == 0) {
                 z2 = true;
             }
             if (z2) {
-                f = adModel.f.c;
-                Intrinsics.checkNotNullExpressionValue(f, "adModel.common.scheme");
+                g = adModel.f.c;
+                Intrinsics.checkNotNullExpressionValue(g, "adModel.common.scheme");
             }
-            qe0.c(f, context);
+            qe0.c(g, context);
         }
     }
 }

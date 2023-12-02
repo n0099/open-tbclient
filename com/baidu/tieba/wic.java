@@ -1,42 +1,91 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.uhc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public class wic {
+public abstract class wic {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public uhc a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948272984, "Lcom/baidu/tieba/wic;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948272984, "Lcom/baidu/tieba/wic;");
-        }
+    public abstract void A(hhc hhcVar);
+
+    public abstract void B(mhc mhcVar);
+
+    public abstract void C(nhc nhcVar);
+
+    public abstract void D(ohc ohcVar);
+
+    public abstract void E(int i);
+
+    public abstract void F(int i, long j);
+
+    public abstract void G();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract long g();
+
+    public abstract long h();
+
+    public abstract Object i();
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "12.1.0.34" : (String) invokeV.objValue;
     }
 
-    public static synchronized void a(Context context) {
+    public abstract int k();
+
+    public abstract int l();
+
+    public abstract void m();
+
+    public abstract void n();
+
+    public abstract void o();
+
+    public abstract void p();
+
+    public abstract void q(Executor executor, uhc.d dVar);
+
+    public abstract void r(long j);
+
+    public abstract void s(zgc zgcVar);
+
+    public abstract void t(zgc zgcVar);
+
+    public abstract void u(int i);
+
+    public abstract void v(int i);
+
+    public abstract void w(Executor executor, bhc bhcVar);
+
+    public abstract void x(chc chcVar);
+
+    public abstract void y(ehc ehcVar);
+
+    public abstract void z(ghc ghcVar);
+
+    public wic() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            synchronized (wic.class) {
-                if (a) {
-                    return;
-                }
-                a = true;
-                Log.i("[cronet]", "cronet_lib load");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

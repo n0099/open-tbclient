@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vm4 implements um4<String> {
+public class vm4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile vm4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final um4<String> a;
+    public String b;
 
+    @SuppressLint({"BDThrowableCheck"})
     public vm4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,40 +32,50 @@ public class vm4 implements um4<String> {
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        um4<String> um4Var = new um4<>();
+        this.a = um4Var;
+        if (context == null) {
+            return;
+        }
+        um4Var.a(new ym4(context));
+        this.a.a(new an4(context));
+        this.a.a(new zm4(context));
+        this.a.a(new cn4(context));
+        this.a.a(new wm4(context));
+        this.a.a(new bn4(context));
     }
 
-    @Override // com.baidu.tieba.um4
-    public boolean a() {
+    public static vm4 b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (c == null) {
+                synchronized (vm4.class) {
+                    if (c == null) {
+                        c = new vm4(context);
+                    }
+                }
+            }
+            return c;
+        }
+        return (vm4) invokeL.objValue;
+    }
+
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TextUtils.isEmpty(get());
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return PreferenceManager.getDefaultSharedPreferences(this.a).getString("uuid_identity", null);
+            if (TextUtils.isEmpty(this.b)) {
+                synchronized (this) {
+                    if (TextUtils.isEmpty(this.b)) {
+                        String b = this.a.b();
+                        this.b = b;
+                        this.a.d(b);
+                    }
+                }
+            }
+            return this.b;
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um4
-    /* renamed from: c */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.a).edit();
-            edit.putString("uuid_identity", str);
-            edit.apply();
-        }
     }
 }

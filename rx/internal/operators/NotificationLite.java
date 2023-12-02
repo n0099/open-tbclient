@@ -1,6 +1,6 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.foc;
+import com.baidu.tieba.eoc;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public final class NotificationLite {
@@ -37,19 +37,19 @@ public final class NotificationLite {
         return a;
     }
 
-    public static <T> boolean a(foc<? super T> focVar, Object obj) {
+    public static <T> boolean a(eoc<? super T> eocVar, Object obj) {
         if (obj == a) {
-            focVar.onCompleted();
+            eocVar.onCompleted();
             return true;
         } else if (obj == b) {
-            focVar.onNext(null);
+            eocVar.onNext(null);
             return false;
         } else if (obj != null) {
             if (obj.getClass() == OnErrorSentinel.class) {
-                focVar.onError(((OnErrorSentinel) obj).e);
+                eocVar.onError(((OnErrorSentinel) obj).e);
                 return true;
             }
-            focVar.onNext(obj);
+            eocVar.onNext(obj);
             return false;
         } else {
             throw new IllegalArgumentException("The lite notification can not be null");

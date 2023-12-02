@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.request.IMEmojiReplyListListener;
-import java.util.ArrayList;
-import java.util.Map;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.TreeSet;
 /* loaded from: classes5.dex */
 public interface cl5 {
-    void onFailure(int i, String str);
-
-    void onSuccess(Map<Long, ? extends ArrayList<IMEmojiReplyListListener.IMEmojiItem>> map);
+    void a(int i, long j, @NonNull TreeSet<ChatMsg> treeSet);
 }

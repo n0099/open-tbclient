@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.hi7;
-import com.baidu.tieba.ii7;
-import com.baidu.tieba.ui7;
-import com.baidu.tieba.ul5;
+import com.baidu.tieba.li7;
+import com.baidu.tieba.mi7;
+import com.baidu.tieba.xl5;
+import com.baidu.tieba.yi7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,7 +63,7 @@ public final class SecondFloorVisitHelper {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ((ul5) ServiceManager.getService(ul5.a.a())).b();
+            ((xl5) ServiceManager.getService(xl5.a.a())).b();
         }
     }
 
@@ -76,17 +76,17 @@ public final class SecondFloorVisitHelper {
                 return false;
             }
             Intrinsics.checkNotNull(str);
-            return !((ul5) ServiceManager.getService(ul5.a.a())).a(fid, str);
+            return !((xl5) ServiceManager.getService(xl5.a.a())).a(fid, str);
         }
         return invokeLL.booleanValue;
     }
 
-    public final hi7 b(String fid) {
+    public final li7 b(String fid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fid)) == null) {
             Intrinsics.checkNotNullParameter(fid, "fid");
-            String c = ((ul5) ServiceManager.getService(ul5.a.a())).c(fid);
+            String c = ((xl5) ServiceManager.getService(xl5.a.a())).c(fid);
             if (TextUtils.isEmpty(c)) {
                 return null;
             }
@@ -94,7 +94,7 @@ public final class SecondFloorVisitHelper {
             Intrinsics.checkNotNull(c);
             JSONKt.a(c, new Function1<JSONObject, Unit>(objectRef) { // from class: com.baidu.tieba.forum.secondfloor.SecondFloorVisitHelper$getLastVisitedBotByFid$1
                 public static /* synthetic */ Interceptable $ic;
-                public final /* synthetic */ Ref.ObjectRef<hi7> $bot;
+                public final /* synthetic */ Ref.ObjectRef<li7> $bot;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -126,7 +126,7 @@ public final class SecondFloorVisitHelper {
                     return Unit.INSTANCE;
                 }
 
-                /* JADX WARN: Type inference failed for: r8v1, types: [T, com.baidu.tieba.hi7] */
+                /* JADX WARN: Type inference failed for: r8v1, types: [T, com.baidu.tieba.li7] */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2(JSONObject it) {
                     Interceptable interceptable2 = $ic;
@@ -135,25 +135,25 @@ public final class SecondFloorVisitHelper {
                         String uk = it.optString("uk");
                         String optString = it.optString("paid");
                         String optString2 = it.optString(TaskUIData.keyBgUrl);
-                        Ref.ObjectRef<hi7> objectRef2 = this.$bot;
+                        Ref.ObjectRef<li7> objectRef2 = this.$bot;
                         Intrinsics.checkNotNullExpressionValue(uk, "uk");
-                        objectRef2.element = new hi7(uk, JavaTypesHelper.toLong(optString, 0L), "", "", optString2);
+                        objectRef2.element = new li7(uk, JavaTypesHelper.toLong(optString, 0L), "", "", optString2);
                     }
                 }
             });
-            return (hi7) objectRef.element;
+            return (li7) objectRef.element;
         }
-        return (hi7) invokeL.objValue;
+        return (li7) invokeL.objValue;
     }
 
-    public final hi7 c(ii7 data, String fid) {
+    public final li7 c(mi7 data, String fid) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, data, fid)) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             Intrinsics.checkNotNullParameter(fid, "fid");
-            ui7 d = data.d();
+            yi7 d = data.d();
             if (d != null) {
                 str = d.a();
             } else {
@@ -167,6 +167,6 @@ public final class SecondFloorVisitHelper {
             }
             return b(fid);
         }
-        return (hi7) invokeLL.objValue;
+        return (li7) invokeLL.objValue;
     }
 }

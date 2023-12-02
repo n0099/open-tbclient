@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
@@ -21,23 +22,27 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h68;
-import com.baidu.tieba.j1a;
-import com.baidu.tieba.lo4;
-import com.baidu.tieba.mo4;
-import com.baidu.tieba.n35;
+import com.baidu.tieba.b1a;
+import com.baidu.tieba.fp5;
+import com.baidu.tieba.l4b;
+import com.baidu.tieba.l68;
+import com.baidu.tieba.n1a;
+import com.baidu.tieba.oo4;
 import com.baidu.tieba.pb.fragment.VideoFragmentController;
+import com.baidu.tieba.po4;
+import com.baidu.tieba.q35;
 import com.baidu.tieba.si;
-import com.baidu.tieba.v05;
-import com.baidu.tieba.vv9;
-import com.baidu.tieba.x0a;
+import com.baidu.tieba.y05;
+import com.baidu.tieba.zv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.PushMessageHelper;
+import kotlin.Pair;
 /* loaded from: classes7.dex */
-public class PbActivity extends AbsPbActivity {
+public class PbActivity extends AbsPbActivity implements l4b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
@@ -66,11 +71,27 @@ public class PbActivity extends AbsPbActivity {
         return invokeV.intValue;
     }
 
+    @Override // com.baidu.tieba.l4b
+    @NonNull
+    public String l2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "pb_landing_page" : (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
     public int x1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? R.layout.obfuscated_res_0x7f0d07d4 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? R.layout.obfuscated_res_0x7f0d07d5 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.l4b
+    @NonNull
+    public String z2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? "pb" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
@@ -167,16 +188,25 @@ public class PbActivity extends AbsPbActivity {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onResume() {
+    public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            super.onDestroy();
+            fp5.a.a(getUniqueId(), new Pair<>(PushMessageHelper.ERROR_TYPE, "pb_page"), new Pair<>("error_info", "pb page unfinished destroy"));
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONRESUME_STAMP_KEY);
             super.onResume();
             this.v = true;
-            YunDialogManager.onShow(this, v05.p);
+            YunDialogManager.onShow(this, y05.p);
             if (X1()) {
                 this.x.o(true);
-                mo4.w().Q(lo4.c0, this.x.d().c());
+                po4.w().Q(oo4.c0, this.x.d().c());
             }
         }
     }
@@ -184,7 +214,7 @@ public class PbActivity extends AbsPbActivity {
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048589, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (X1()) {
                 this.x.d().d(i, i2, intent);
@@ -238,10 +268,24 @@ public class PbActivity extends AbsPbActivity {
         return (PriorityOrganizer) invokeV.objValue;
     }
 
+    @Override // com.baidu.tieba.l4b
+    @NonNull
+    public String getTraceId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (getUniqueId() == null) {
+                return BdUniqueId.gen().toString();
+            }
+            return Integer.toString(getUniqueId().getId());
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
     public void initUniqueId() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.initUniqueId();
             this.x.h(getUniqueId());
         }
@@ -250,21 +294,21 @@ public class PbActivity extends AbsPbActivity {
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onPause();
             this.v = false;
-            YunDialogManager.onHidden(v05.p);
+            YunDialogManager.onHidden(y05.p);
             if (X1()) {
                 this.x.o(false);
             }
         }
     }
 
-    public final boolean Z1(vv9 vv9Var) {
+    public final boolean Z1(zv9 zv9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, vv9Var)) == null) {
-            return "video_pb_fragment_tag".equals(z1(vv9Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, zv9Var)) == null) {
+            return "video_pb_fragment_tag".equals(z1(zv9Var));
         }
         return invokeL.booleanValue;
     }
@@ -272,7 +316,7 @@ public class PbActivity extends AbsPbActivity {
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             super.onChangeSkinType(i);
             if (X1()) {
                 this.x.j(i);
@@ -283,7 +327,7 @@ public class PbActivity extends AbsPbActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
             if (X1()) {
                 this.x.k(configuration);
@@ -292,27 +336,27 @@ public class PbActivity extends AbsPbActivity {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public void v1(vv9 vv9Var) {
+    public void v1(zv9 zv9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, vv9Var) == null) {
-            super.v1(vv9Var);
-            if (this.a != null && Z1(vv9Var)) {
-                this.a.p3(vv9Var);
-                this.b.setArguments(this.x.g(vv9Var));
+        if (interceptable == null || interceptable.invokeL(1048598, this, zv9Var) == null) {
+            super.v1(zv9Var);
+            if (this.a != null && Z1(zv9Var)) {
+                this.a.p3(zv9Var);
+                this.b.setArguments(this.x.g(zv9Var));
                 this.x.l();
             }
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public String z1(vv9 vv9Var) {
+    public String z1(zv9 zv9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, vv9Var)) == null) {
-            if (vv9Var != null && vv9Var.y0()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, zv9Var)) == null) {
+            if (zv9Var != null && zv9Var.y0()) {
                 return "video_pb_fragment_tag";
             }
-            return super.z1(vv9Var);
+            return super.z1(zv9Var);
         }
         return (String) invokeL.objValue;
     }
@@ -323,13 +367,13 @@ public class PbActivity extends AbsPbActivity {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY);
                 int i3 = -1;
-                if (n35.a().c == 1) {
+                if (q35.a().c == 1) {
                     i3 = 8;
                 }
-                if (n35.a().c == 2) {
+                if (q35.a().c == 2) {
                     i3 = 9;
                 }
-                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, n35.a().d);
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, q35.a().d);
             }
             long currentTimeMillis = System.currentTimeMillis() - y1();
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
@@ -358,9 +402,9 @@ public class PbActivity extends AbsPbActivity {
         }
     }
 
-    public void c2(int i, j1a j1aVar) {
+    public void c2(int i, n1a n1aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048585, this, i, j1aVar) == null) && !this.u && B1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048585, this, i, n1aVar) == null) && !this.u && B1() != null) {
             int i2 = 1;
             this.u = true;
             if (B1() != null && B1().r1() == 7) {
@@ -371,21 +415,23 @@ public class PbActivity extends AbsPbActivity {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            j1aVar.C2(new b(this, i, i2));
+            n1aVar.C2(new b(this, i, i2));
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new x0a(this));
+            registerListener(new b1a(this));
             if (B1() != null && B1().isFromNewFrs && !TextUtils.isEmpty(B1().R0())) {
-                h68.a.b(B1().R0());
+                l68.a.b(B1().R0());
             }
+            fp5.a.e(getUniqueId(), this);
+            fp5.a.g(getUniqueId());
         }
     }
 
@@ -393,7 +439,7 @@ public class PbActivity extends AbsPbActivity {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048594, this, i, keyEvent)) == null) {
             if (X1() && i == 4) {
                 if (this.x.d().e()) {
                     return false;
@@ -410,7 +456,7 @@ public class PbActivity extends AbsPbActivity {
     public Fragment u1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
             if ("video_pb_fragment_tag".equals(str)) {
                 registerListener(this.x.f());
                 this.x.i(this);

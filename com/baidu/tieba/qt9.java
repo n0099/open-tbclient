@@ -1,157 +1,182 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseView;
-import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.payment.PayVcodeActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.log.Logger;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ResourceAsColor"})
-/* loaded from: classes8.dex */
-public class qt9 extends BdBaseView<PayVcodeActivity> {
+/* loaded from: classes7.dex */
+public class qt9 extends AccountLoginCoreHelper {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile qt9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public PayVcodeActivity a;
-    public ViewGroup b;
-    public View c;
-    public ViewGroup d;
-    public TextView e;
-    public TbWebView f;
-    public TextView g;
-    public ProgressBar h;
+    public final AccountLoginCoreHelper.IReLoginCallback a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qt9(PayVcodeActivity payVcodeActivity) {
-        super(payVcodeActivity.getPageContext());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948103507, "Lcom/baidu/tieba/qt9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948103507, "Lcom/baidu/tieba/qt9;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements AccountLoginCoreHelper.IReLoginCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onBeforeLogin(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        public a(qt9 qt9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qt9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onSuccess(AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921613));
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onFailure(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, str2) == null) && i == 1) {
+                ReloginManager.g().f(null);
+            }
+        }
+    }
+
+    public qt9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {payVcodeActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = payVcodeActivity;
-        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d07bb);
-        C(payVcodeActivity);
+        this.a = new a(this);
     }
 
-    public TbWebView A() {
+    public static qt9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return (TbWebView) invokeV.objValue;
-    }
-
-    public View g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public TextView x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public TextView y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public ViewGroup z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
-
-    public final void C(PayVcodeActivity payVcodeActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payVcodeActivity) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091b7f);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091b79);
-            this.e = textView;
-            SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
-            this.f = (TbWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092983);
-            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092afc);
-            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091b7d);
-            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091b7e);
-            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091b80);
-            this.f.setHorizontalScrollBarEnabled(false);
-            this.f.setScrollBarStyle(33554432);
-        }
-    }
-
-    public void D(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            TextView textView = this.g;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (qt9.class) {
+                    if (b == null) {
+                        b = new qt9();
+                    }
+                }
             }
-            textView.setVisibility(i);
+            return b;
         }
+        return (qt9) invokeV.objValue;
     }
 
-    public void E(boolean z) {
-        int i;
+    @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper
+    public BdAsyncTask<?, ?, ?> asyncReLogin(String str, String str2, String str3, String str4, AccountLoginCoreHelper.IReLoginCallback iReLoginCallback) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            ProgressBar progressBar = this.h;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, iReLoginCallback)) == null) {
+            return vo9.a(str, str2, str3, str4, iReLoginCallback);
+        }
+        return (BdAsyncTask) invokeLLLLL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper
+    public AccountLoginCoreHelper.a parseBDUSS(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            AccountLoginCoreHelper.a aVar = null;
+            if (str == null) {
+                return null;
             }
-            progressBar.setVisibility(i);
+            try {
+                String[] split = str.split("[|]");
+                if (split == null || split.length < 1) {
+                    return null;
+                }
+                AccountLoginCoreHelper.a aVar2 = new AccountLoginCoreHelper.a();
+                try {
+                    aVar2.a = split[0];
+                    if (split.length >= 2) {
+                        aVar2.b = split[1];
+                    }
+                    return aVar2;
+                } catch (Exception e) {
+                    e = e;
+                    aVar = aVar2;
+                    BdLog.e(e.getMessage());
+                    return aVar;
+                }
+            } catch (Exception e2) {
+                e = e2;
+            }
+        } else {
+            return (AccountLoginCoreHelper.a) invokeL.objValue;
         }
     }
 
-    public void onChangeSkinType(int i) {
+    @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper
+    public void reLoginByCacheAccount() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            fq5.a(this.a.getPageContext(), this.b);
-            SkinManager.setBgColor(this.g, i);
-            SkinManager.setBackgroundResource(this.e, R.drawable.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
+            return;
         }
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null) {
+            AccountLoginCoreHelper.a parseBDUSS = parseBDUSS(currentAccountObj.getBDUSS());
+            if (parseBDUSS != null) {
+                vo9.a(currentAccountObj.getAccount(), parseBDUSS.a, parseBDUSS.b, currentAccountObj.getStoken(), this.a);
+                return;
+            }
+            return;
+        }
+        Logger.addLog("account", -1L, 0, "main_tab_has_no_cache_account", 0, "", new Object[0]);
     }
 }

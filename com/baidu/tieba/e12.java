@@ -8,11 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class e12 extends oz1 {
+public class e12 extends rz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public zz1 a;
 
     public e12() {
         Interceptable interceptable = $ic;
@@ -28,23 +27,26 @@ public class e12 extends oz1 {
         }
     }
 
-    @Override // com.baidu.tieba.oz1
-    public void a(pz1 pz1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.rz1
+    public void a(sz1 sz1Var, Canvas canvas) {
+        zz1 zz1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, pz1Var, canvas) == null) {
-            if (pz1Var.a() == 0) {
-                pz1Var.b(canvas.save());
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, sz1Var, canvas) == null) && (zz1Var = this.a) != null && zz1Var.d()) {
+            if (this.a.c()) {
+                sz1Var.c.setShader(this.a.b());
+                return;
             }
-            canvas.translate(this.a, this.b);
+            sz1Var.m = this.a.a();
+            sz1Var.c.setColor(this.a.a());
+            sz1Var.b.setShader(null);
         }
     }
 
-    @Override // com.baidu.tieba.oz1
+    @Override // com.baidu.tieba.rz1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
-            this.a = yj3.g((float) jSONArray.optDouble(0));
-            this.b = yj3.g((float) jSONArray.optDouble(1));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new zz1(jSONArray);
         }
     }
 }

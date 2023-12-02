@@ -106,7 +106,7 @@ public final class c extends com.kwad.components.ad.splashscreen.c.c.c implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.lc = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092362);
+        this.lc = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092364);
     }
 
     @Override // com.kwad.components.ad.splashscreen.c.c.c, com.kwad.sdk.mvp.Presenter

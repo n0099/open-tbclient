@@ -1,5 +1,8 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
+import com.baidu.tieba.fb2;
 /* loaded from: classes7.dex */
 public interface qa2 {
-    public static final boolean a = sm1.a;
+    boolean a(@NonNull fb2.a aVar);
 }

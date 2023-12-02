@@ -1,103 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.NetMessage;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.task.TbSocketMessageTask;
-import com.baidu.tieba.homepage.personalize.data.RealTimeHttpResponse;
-import com.baidu.tieba.homepage.personalize.data.RealTimeRequest;
-import com.baidu.tieba.homepage.personalize.data.RealTimeSocketResponse;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.Personalized.DataRes;
+import tbclient.Personalized.DislikeReason;
+import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes9.dex */
 public class yh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
 
-    public yh8() {
+    public static void a(DataRes.Builder builder, List<pi> list) {
+        um6 um6Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, builder, list) == null) && builder != null && list != null) {
+            LongSparseArray longSparseArray = new LongSparseArray();
+            for (ThreadPersonalized threadPersonalized2 : builder.thread_personalized) {
+                if (threadPersonalized2 != null) {
+                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
+                }
+            }
+            int count = ListUtils.getCount(list);
+            for (int i = 0; i < count; i++) {
+                pi piVar = (pi) ListUtils.getItem(list, i);
+                if ((piVar instanceof um6) && (threadData = (um6Var = (um6) piVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(JavaTypesHelper.toLong(threadData.getTid(), 0L))) != null) {
+                    um6Var.C(threadPersonalized.source);
+                    um6Var.F(threadPersonalized.weight);
+                    um6Var.y(threadPersonalized.abtest_tag);
+                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                    threadData.mRecomSource = threadPersonalized.source;
+                    threadData.mRecomWeight = threadPersonalized.weight;
+                    if (threadData.getThreadVideoInfo() != null) {
+                        um6Var.A(threadData.getThreadVideoInfo().is_vertical);
+                    }
+                    List<DislikeReason> list2 = threadPersonalized.dislike_resource;
+                    if (list2 != null) {
+                        SparseArray<String> sparseArray = new SparseArray<>();
+                        for (DislikeReason dislikeReason : list2) {
+                            int intValue = dislikeReason.dislike_id.intValue();
+                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                        }
+                        um6Var.feedBackReasonMap = sparseArray;
+                        um6Var.z(threadPersonalized.extra);
+                    }
+                }
             }
         }
-        this.a = null;
     }
 
-    public final void b() {
+    public static void b(List<pi> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, wva.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(309277);
-            tbSocketMessageTask.setResponsedClass(RealTimeSocketResponse.class);
-            tbSocketMessageTask.setNeedAck(true);
-            MessageManager.getInstance().registerTask(tbSocketMessageTask);
-        }
-    }
-
-    public void a(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
-            b();
-            c();
-        }
-    }
-
-    public final void d(NetMessage netMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, netMessage) != null) || netMessage == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
             return;
         }
-        if (netMessage.getTag() == null) {
-            netMessage.setTag(this.a);
+        int count = ListUtils.getCount(list);
+        int i = 0;
+        while (i < count) {
+            pi piVar = (pi) ListUtils.getItem(list, i);
+            boolean z = piVar instanceof kn6;
+            if (z) {
+                ((kn6) piVar).i(true);
+            }
+            i++;
+            pi piVar2 = (pi) ListUtils.getItem(list, i);
+            if (z && (piVar2 instanceof kn6)) {
+                kn6 kn6Var = (kn6) piVar;
+                kn6 kn6Var2 = (kn6) piVar2;
+                if (kn6Var.r()) {
+                    kn6Var2.i(false);
+                    if (kn6Var2 instanceof fi8) {
+                        kn6Var.K(false);
+                    }
+                }
+            }
+            if (piVar instanceof fi8) {
+                ((fi8) piVar).K(false);
+            }
         }
-        MessageManager.getInstance().sendMessage(netMessage);
     }
 
-    public void e(long j, String str, String str2, int i, String str3, int i2, String str4, BaijiahaoData baijiahaoData) {
+    public static void c(DataRes.Builder builder, List<pi> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2), str4, baijiahaoData}) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
-            RealTimeRequest realTimeRequest = new RealTimeRequest();
-            realTimeRequest.setTid(j);
-            realTimeRequest.setWeight(str);
-            realTimeRequest.setSource(str2);
-            realTimeRequest.setLocation(i);
-            realTimeRequest.setAbtest_tag(str3);
-            realTimeRequest.setType(i2);
-            realTimeRequest.setPage(str4);
-            if (baijiahaoData != null && i2 != JavaTypesHelper.toInt("2", 0)) {
-                realTimeRequest.setOriUgcNid(baijiahaoData.oriUgcNid);
-                realTimeRequest.setOriUgcTid(baijiahaoData.oriUgcTid);
-                realTimeRequest.setOriUgcType(Integer.toString(baijiahaoData.oriUgcType));
-                realTimeRequest.setOriUgcVid(baijiahaoData.oriUgcVid);
-            }
-            d(realTimeRequest);
+        if (interceptable == null || interceptable.invokeLL(65538, null, builder, list) == null) {
+            b(list);
+            a(builder, list);
         }
     }
 }

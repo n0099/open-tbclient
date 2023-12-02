@@ -49,9 +49,9 @@ import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a59;
-import com.baidu.tieba.cz8;
-import com.baidu.tieba.grb;
+import com.baidu.tieba.e59;
+import com.baidu.tieba.frb;
+import com.baidu.tieba.gz8;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNameChangeNotifyData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
@@ -247,8 +247,8 @@ public class NavigationBarSlice extends Slice {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.j, new String[]{grb.a(grb.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.q)), "forumId", String.valueOf(this.a.r))});
-                cz8.e("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.r, this.a.q);
+                UrlManager.getInstance().dealOneLink(this.a.j, new String[]{frb.a(frb.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.q)), "forumId", String.valueOf(this.a.r))});
+                gz8.e("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.r, this.a.q);
             }
         }
     }
@@ -312,7 +312,7 @@ public class NavigationBarSlice extends Slice {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
                 dialogInterface.dismiss();
-                a59.c((Activity) this.a);
+                e59.c((Activity) this.a);
             }
         }
     }
@@ -435,26 +435,26 @@ public class NavigationBarSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
                 i iVar = new i();
                 iVar.a = view2;
-                NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0919aa);
+                NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0919ac);
                 iVar.b = navigationBar;
                 View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
                 iVar.e = addSystemImageButton;
                 iVar.f = (ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button);
                 View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0406, (ViewGroup) null);
                 iVar.g = inflate;
-                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0919ae);
+                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0919b0);
                 ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
                 layoutParams.width = a(view2.getContext());
                 findViewById.setLayoutParams(layoutParams);
-                iVar.h = (RoundTbImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f02);
-                iVar.i = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f16);
-                iVar.j = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f0910c1);
-                iVar.k = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f1a);
-                iVar.l = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f06);
+                iVar.h = (RoundTbImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f03);
+                iVar.i = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f17);
+                iVar.j = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f0910c2);
+                iVar.k = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f1b);
+                iVar.l = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f07);
                 iVar.b.setTitleView(iVar.g, null, NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER);
-                View addCustomView = iVar.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0835, (View.OnClickListener) null);
+                View addCustomView = iVar.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0836, (View.OnClickListener) null);
                 iVar.c = addCustomView;
-                iVar.d = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090f2d);
+                iVar.d = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090f2e);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(iVar.d, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 return iVar;
             }
@@ -495,9 +495,9 @@ public class NavigationBarSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 j jVar = new j();
                 jVar.a = (ConstraintLayout) view2.findViewById(R.id.dialog_content);
-                jVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09090f);
-                jVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908fb);
-                jVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908ee);
+                jVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090910);
+                jVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908fc);
+                jVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908ef);
                 jVar.e = (ImageView) view2.findViewById(R.id.dialog_image);
                 return jVar;
             }
@@ -675,10 +675,10 @@ public class NavigationBarSlice extends Slice {
                 E0(activity);
                 SharedPrefHelper.getInstance().putBoolean("key_group_chat_subscribe_click", true);
             } else {
-                a59.c(activity);
+                e59.c(activity);
             }
         } else {
-            a59.d(activity);
+            e59.d(activity);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921770));
     }
@@ -857,7 +857,7 @@ public class NavigationBarSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d071e, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d071f, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }

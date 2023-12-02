@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.je9;
+import com.baidu.tieba.ne9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class RequestGetLabelMessage extends NetMessage {
     /* renamed from: common  reason: collision with root package name */
     public CommonReq f1117common;
     public int from;
-    public je9 mLabelDataSet;
+    public ne9 mLabelDataSet;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetLabelMessage() {
@@ -61,13 +61,13 @@ public class RequestGetLabelMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public je9 getLabelDataSet() {
+    public ne9 getLabelDataSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mLabelDataSet;
         }
-        return (je9) invokeV.objValue;
+        return (ne9) invokeV.objValue;
     }
 
     public void setCommon(CommonReq commonReq) {
@@ -84,10 +84,10 @@ public class RequestGetLabelMessage extends NetMessage {
         }
     }
 
-    public void setLabelDataSet(je9 je9Var) {
+    public void setLabelDataSet(ne9 ne9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, je9Var) == null) {
-            this.mLabelDataSet = je9Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ne9Var) == null) {
+            this.mLabelDataSet = ne9Var;
         }
     }
 }

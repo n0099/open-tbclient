@@ -1,33 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes9.dex */
 public class z94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RecommendItemModel a;
+    public List<RecommendItemModel> b;
 
-    public static void a(Callback callback) {
+    public z94() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, callback) == null) {
-            b(callback, "6");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(Callback callback, String str) {
+    public z94(RecommendItemModel recommendItemModel, List<RecommendItemModel> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callback, str) != null) || h63.M() == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {recommendItemModel, list};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
-        newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
-        newBuilder.addQueryParameter(GameGuideConfigInfo.KEY_APP_KEY, h63.M().P());
-        newBuilder.addQueryParameter("source", "4");
-        ((o44) h63.M().j0()).b(new Request.Builder().url(newBuilder.build()).build(), callback);
+        this.a = recommendItemModel;
+        this.b = list;
     }
 }

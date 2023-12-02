@@ -1,38 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService;
-import com.baidu.searchbox.live.interfaces.sharechennel.IShareCallback;
-import com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel;
-import com.baidu.searchbox.live.interfaces.sharechennel.ShareEntity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.searchbox.live.interfaces.service.bd.LiveYYRtcLoadService;
+import com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin;
+import com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback;
+import com.baidu.searchbox.live.nps.LiveYYPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class kl9 implements ShareChannelService {
+public class kl9 implements LiveYYRtcLoadService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements IShareChannel {
+    public class a implements YYEnvResultCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kl9 a;
+        public final /* synthetic */ LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack a;
 
-        public a(kl9 kl9Var) {
+        public a(kl9 kl9Var, LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kl9Var};
+                Object[] objArr = {kl9Var, iLiveThunderLibDownloadStatusCallBack};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,22 +39,24 @@ public class kl9 implements ShareChannelService {
                     return;
                 }
             }
-            this.a = kl9Var;
+            this.a = iLiveThunderLibDownloadStatusCallBack;
         }
 
-        @Override // com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel
-        public void shareToChannel(ShareEntity shareEntity, int i, IShareCallback iShareCallback) {
+        @Override // com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback
+        public void onFail(int i, String str) {
+            LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, shareEntity, i, iShareCallback) == null) {
-                if (i == 1) {
-                    this.a.c(6, shareEntity, iShareCallback);
-                } else if (i == 3) {
-                    this.a.c(2, shareEntity, iShareCallback);
-                } else if (i == 2) {
-                    this.a.c(3, shareEntity, iShareCallback);
-                } else if (i == 4) {
-                    this.a.c(8, shareEntity, iShareCallback);
-                }
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && (iLiveThunderLibDownloadStatusCallBack = this.a) != null) {
+                iLiveThunderLibDownloadStatusCallBack.onLibDownloadFailed();
+            }
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback
+        public void onSuccess() {
+            LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (iLiveThunderLibDownloadStatusCallBack = this.a) != null) {
+                iLiveThunderLibDownloadStatusCallBack.onLibDownloadSuccess();
             }
         }
     }
@@ -76,84 +75,14 @@ public class kl9 implements ShareChannelService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService
-    public IShareChannel buildShareChannel() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.bd.LiveYYRtcLoadService
+    public boolean isLibReady(@NonNull Context context, @Nullable String str, @Nullable LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, iLiveThunderLibDownloadStatusCallBack)) == null) {
+            LiveYYPluginManager.getInstance().prepareYYEnv(context, IYYLiveNPSPlugin.YY_ENV_CREATE_LIVE, new a(this, iLiveThunderLibDownloadStatusCallBack));
+            return true;
         }
-        return (IShareChannel) invokeV.objValue;
-    }
-
-    public final boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i != 2 && i != 3) {
-                if (i != 6) {
-                    if (i != 8) {
-                        return false;
-                    }
-                    boolean b = sva.b(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
-                    if (!b) {
-                        BdUtilHelper.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13ff));
-                        return b;
-                    }
-                    return b;
-                }
-                boolean b2 = sva.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
-                if (!b2) {
-                    BdUtilHelper.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f141d));
-                    return b2;
-                }
-                return b2;
-            }
-            boolean b3 = sva.b(TbadkCoreApplication.getInst(), "com.tencent.mm");
-            if (!b3) {
-                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1424));
-                return b3;
-            }
-            return b3;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void c(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, shareEntity, iShareCallback) != null) || shareEntity == null) {
-            return;
-        }
-        if (!b(i)) {
-            if (iShareCallback != null) {
-                iShareCallback.onShare(0, 0, "");
-                return;
-            }
-            return;
-        }
-        ShareItem d = d(shareEntity);
-        if (d == null) {
-            return;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaSDKShareEmptyActivityConfig(TbadkCoreApplication.getInst(), d, i, 2)));
-    }
-
-    public final ShareItem d(ShareEntity shareEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, shareEntity)) == null) {
-            if (shareEntity != null) {
-                ShareItem shareItem = new ShareItem();
-                shareItem.title = shareEntity.title;
-                shareItem.content = shareEntity.content;
-                shareItem.imageUrl = shareEntity.imageUrl;
-                shareItem.linkUrl = shareEntity.linkUrl;
-                shareItem.extData = String.valueOf(shareEntity.liveId);
-                shareItem.extLiveInfo = String.valueOf(shareEntity.userId);
-                return shareItem;
-            }
-            return null;
-        }
-        return (ShareItem) invokeL.objValue;
+        return invokeLLL.booleanValue;
     }
 }

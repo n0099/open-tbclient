@@ -47,9 +47,9 @@ public class ys extends qs implements it<ThreadData>, jt {
         b();
     }
 
-    public void a(cw4 cw4Var, boolean z) {
+    public void a(fw4 fw4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, cw4Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, fw4Var, z) == null) {
             this.b = z;
             i(0);
             d(true);

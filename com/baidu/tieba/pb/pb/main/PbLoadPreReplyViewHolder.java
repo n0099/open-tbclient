@@ -43,8 +43,8 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09282c);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091163);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09282f);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091164);
     }
 
     public void a(int i) {
@@ -63,7 +63,7 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
                 this.c.setVisibility(8);
                 return;
             }
-            this.b.setText(R.string.obfuscated_res_0x7f0f121e);
+            this.b.setText(R.string.obfuscated_res_0x7f0f121f);
             this.c.setVisibility(0);
         }
     }

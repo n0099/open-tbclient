@@ -30,8 +30,8 @@ public class LiveSearchGuideView extends FrameLayout {
 
     public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d060a, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09164c);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09164d);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09164d);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09164e);
         c();
     }
 

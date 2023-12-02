@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.player.IDuMediaService;
+import com.baidu.searchbox.live.interfaces.service.YYPayService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sk9 extends cg1<IDuMediaService> {
+public class sk9 extends fg1<YYPayService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public class sk9 extends cg1<IDuMediaService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cg1
+    @Override // com.baidu.tieba.fg1
     /* renamed from: a */
-    public IDuMediaService createService() throws ServiceNotFoundException {
+    public YYPayService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new rk9();
+            return new tk9();
         }
-        return (IDuMediaService) invokeV.objValue;
+        return (YYPayService) invokeV.objValue;
     }
 }

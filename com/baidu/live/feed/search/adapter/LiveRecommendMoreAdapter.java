@@ -105,13 +105,13 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
         public MoreFooterHolder(View view2) {
             super(view2);
             this.f1038view = view2;
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0916b9);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0916ba);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "view.findViewById(R.id.l…mend_more_footer_loading)");
             this.loadingView = findViewById;
-            View findViewById2 = this.f1038view.findViewById(R.id.obfuscated_res_0x7f0916ba);
+            View findViewById2 = this.f1038view.findViewById(R.id.obfuscated_res_0x7f0916bb);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "view.findViewById(R.id.l…mmend_more_footer_nomore)");
             this.noMoreView = findViewById2;
-            View findViewById3 = this.f1038view.findViewById(R.id.obfuscated_res_0x7f0916b7);
+            View findViewById3 = this.f1038view.findViewById(R.id.obfuscated_res_0x7f0916b8);
             Intrinsics.checkExpressionValueIsNotNull(findViewById3, "view.findViewById(R.id.l…ommend_more_footer_error)");
             this.errorView = (TextView) findViewById3;
         }

@@ -1,31 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.tieba.er2;
-import com.baidu.tieba.pc3;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.hr2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.util.HashSet;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cd3 extends h23 {
+public final class cd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,132 +29,135 @@ public class cd3 extends h23 {
                 return;
             }
         }
-        f = sm1.a;
+        boolean z = vm1.a;
+        a = 0;
     }
 
-    public cd3() {
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
+        }
+        return invokeV.intValue;
+    }
+
+    public static void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        hr2.a X = j63.K().q().X();
+        String i = pf3.i(X.k0(), X.H());
+        if (!jSONObject.has("appid")) {
+            kj3.f(jSONObject, "appid", X.I());
+        }
+        if (!jSONObject.has("swan")) {
+            kj3.f(jSONObject, "swan", i);
+        }
+        if (!jSONObject.has("appversion")) {
+            kj3.f(jSONObject, "appversion", X.x1());
+        }
+        if (!jSONObject.has("swanNativeVersion")) {
+            kj3.f(jSONObject, "swanNativeVersion", wm1.a());
+        }
+        if (!jSONObject.has("thirdversion")) {
+            kj3.f(jSONObject, "thirdversion", X.y1());
+        }
+        if (j63.K().q().z0() && !jSONObject.has("isWebDowngrade")) {
+            kj3.f(jSONObject, "isWebDowngrade", "1");
         }
     }
 
-    public static boolean e(@Nullable String str) {
+    public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.equals("0", str)) {
-                return false;
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            return true;
+            String o = ck3.o(str);
+            if (TextUtils.isEmpty(o)) {
+                return str;
+            }
+            HashSet hashSet = new HashSet();
+            hashSet.add("bduss");
+            hashSet.add("bduss".toUpperCase());
+            String i = ck3.i(o, hashSet);
+            String f = ck3.f(str);
+            return f + "?" + i;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void f(String str, String str2, @Nullable JSONObject jSONObject) {
-        String str3;
-        String K1;
-        Intent intent;
+    public static void d(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, jSONObject) != null) || !e(str2)) {
-            return;
-        }
-        JSONObject jSONObject2 = new JSONObject();
-        String str4 = StringUtil.NULL_STRING;
-        if (str2 == null) {
-            str2 = StringUtil.NULL_STRING;
-        }
-        try {
-            jSONObject2.put("version", str2);
-            if (str == null) {
-                str3 = StringUtil.NULL_STRING;
-            } else {
-                str3 = str;
-            }
-            jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str3);
-            h63 M = h63.M();
-            if (M != null) {
-                er2.a Z = M.Z();
-                if (Z == null) {
-                    K1 = StringUtil.NULL_STRING;
-                } else {
-                    K1 = Z.K1();
-                }
-                jSONObject2.put("launchInfo", K1);
-                SwanAppActivity w = M.w();
-                er2 er2Var = null;
-                if (w != null && (intent = w.getIntent()) != null) {
-                    er2Var = er2.e1(intent);
-                }
-                if (er2Var != null) {
-                    str4 = er2Var.K1();
-                }
-                jSONObject2.put("launchInfoIntent", str4);
-            } else {
-                jSONObject2.put("swanApp", StringUtil.NULL_STRING);
-            }
-            jSONObject2.put("stackTrace", bk3.y());
-            if (jSONObject != null) {
-                jSONObject2.put("reportExtInfo", jSONObject);
-            }
-        } catch (JSONException e) {
-            if (f) {
-                e.printStackTrace();
-            }
-        }
-        c33 y = g63.K().y();
-        if (y != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("key_swan_appid", str);
-            bundle.putString("key_report_info", jSONObject2.toString());
-            y.W(bundle, cd3.class);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            a = i;
         }
     }
 
-    @Override // com.baidu.tieba.h23
-    public void b(@NonNull Bundle bundle) {
-        ed2 o;
+    public static <EvenT extends md3> EvenT f(EvenT event) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            String str = "";
-            String string = bundle.getString("key_swan_appid", "");
-            String string2 = bundle.getString("key_report_info", "");
-            if (!TextUtils.isEmpty(string2)) {
-                str = string2;
-            }
-            JSONObject jSONObject = null;
-            try {
-                jSONObject = new JSONObject(str);
-            } catch (JSONException e) {
-                if (f) {
-                    Log.e("VersionBusinessUbc", "execCall: ", e);
-                }
-                e.printStackTrace();
-            }
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            if (!TextUtils.isEmpty(string) && (o = SwanAppDbControl.f(AppRuntime.getAppContext()).o(string)) != null) {
-                try {
-                    jSONObject.put("appDbInfo", o.a());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (f) {
-                Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
-            }
-            pc3.b bVar = new pc3.b(10002);
-            bVar.i(jSONObject.toString());
-            bVar.m();
-            c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
+            e(event, "isDownloading", String.valueOf(j63.K().q().G0() ? 1 : 0));
+            return event;
         }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends md3> EvenT g(EvenT event) {
+        InterceptResult invokeL;
+        boolean z;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
+            if (c() == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                str = "2";
+            } else {
+                str = "1";
+            }
+            e(event, "launchType", str);
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends md3> EvenT h(EvenT event) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
+            e(event, "packageState", String.valueOf(j63.K().q().F0()));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends md3> EvenT i(EvenT event) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
+            e(event, "coreState", String.valueOf(ed2.C0()));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends md3> EvenT e(EvenT event, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
+            if (event != null && !TextUtils.isEmpty(str)) {
+                event.a(str, obj);
+            }
+            return event;
+        }
+        return (EvenT) invokeLLL.objValue;
     }
 }

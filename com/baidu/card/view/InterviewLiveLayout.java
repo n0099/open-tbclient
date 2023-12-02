@@ -33,11 +33,11 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw4;
-import com.baidu.tieba.hz4;
-import com.baidu.tieba.im6;
+import com.baidu.tieba.fw4;
 import com.baidu.tieba.it;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.kz4;
+import com.baidu.tieba.mm6;
+import com.baidu.tieba.qv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class InterviewLiveLayout extends FrameLayout implements it<cw4> {
+public class InterviewLiveLayout extends FrameLayout implements it<fw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public im6<cw4> c;
-    public cw4 d;
+    public mm6<fw4> c;
+    public fw4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -299,10 +299,10 @@ public class InterviewLiveLayout extends FrameLayout implements it<cw4> {
         }
     }
 
-    public void setSubClickListener(im6<cw4> im6Var) {
+    public void setSubClickListener(mm6<fw4> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, im6Var) == null) {
-            this.c = im6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mm6Var) == null) {
+            this.c = mm6Var;
         }
     }
 
@@ -325,14 +325,14 @@ public class InterviewLiveLayout extends FrameLayout implements it<cw4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: j */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cw4Var) == null) {
-            this.d = cw4Var;
-            if (cw4Var != null && this.e != null) {
-                ThreadData threadData = cw4Var.getThreadData();
-                hz4 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fw4Var) == null) {
+            this.d = fw4Var;
+            if (fw4Var != null && this.e != null) {
+                ThreadData threadData = fw4Var.getThreadData();
+                kz4 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -340,7 +340,7 @@ public class InterviewLiveLayout extends FrameLayout implements it<cw4> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.h();
-                if (nv4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
+                if (qv4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
                     this.i.clear();
                     this.i.add(taskInfoData.m());
                     setVisibility(0);

@@ -1,39 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class ku0 extends ju0 {
+public class ku0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ju0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mu0 f;
 
-    public abstract void T(mu0 mu0Var);
-
-    public ku0() {
+    public static synchronized ju0 a() {
+        InterceptResult invokeV;
+        ju0 ju0Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ku0.class) {
+                if (a == null) {
+                    a = new ju0();
+                }
+                ju0Var = a;
             }
+            return ju0Var;
         }
-        this.f = new mu0();
-    }
-
-    @Override // com.baidu.tieba.ju0
-    public void D(ru0 ru0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ru0Var) == null) {
-            this.f.a(ru0Var);
-            T(this.f);
-        }
+        return (ju0) invokeV.objValue;
     }
 }

@@ -507,15 +507,15 @@ public class AdRewardPreviewActivityProxy extends c implements HandSlideView.a {
     @SuppressLint({"SetTextI18n"})
     public void initView() {
         String aS;
-        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091512);
+        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091513);
         this.mAdWebView = ksAdWebView;
         this.mAdWebView.setClientConfig(ksAdWebView.getClientConfig().b(getClientParams()).eh(this.mAdTemplate).bt(true).bv(true).bs(true).b(getWebErrorListener()));
         this.mAdWebView.onActivityCreate();
-        this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091409);
-        KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091478);
+        this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09140a);
+        KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091479);
         this.mLogoView = ksLogoView;
         ksLogoView.aD(this.mAdTemplate);
-        this.mHandSlideContainer = findViewById(R.id.obfuscated_res_0x7f091477);
+        this.mHandSlideContainer = findViewById(R.id.obfuscated_res_0x7f091478);
         AdInfo dP = com.kwad.sdk.core.response.b.e.dP(this.mAdTemplate);
         if (this.mUrl != null) {
             com.kwad.components.core.e.d.c cVar = new com.kwad.components.core.e.d.c(this.mAdTemplate);
@@ -549,7 +549,7 @@ public class AdRewardPreviewActivityProxy extends c implements HandSlideView.a {
                 }
             }
         });
-        this.mHandSlideView = (HandSlideView) findViewById(R.id.obfuscated_res_0x7f091476);
+        this.mHandSlideView = (HandSlideView) findViewById(R.id.obfuscated_res_0x7f091477);
         com.kwad.components.core.s.h hVar = new com.kwad.components.core.s.h(this.mCount * 1000);
         this.mCountdownHelper = hVar;
         hVar.a(new h.a() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.2
@@ -561,7 +561,7 @@ public class AdRewardPreviewActivityProxy extends c implements HandSlideView.a {
             }
         });
         this.mCountdownHelper.start();
-        RewardPreviewTopBarView rewardPreviewTopBarView = (RewardPreviewTopBarView) findViewById(R.id.obfuscated_res_0x7f091479);
+        RewardPreviewTopBarView rewardPreviewTopBarView = (RewardPreviewTopBarView) findViewById(R.id.obfuscated_res_0x7f09147a);
         this.mTopBarView = rewardPreviewTopBarView;
         rewardPreviewTopBarView.setTotalCountDuration(this.mCount * 1000);
         this.mTopBarView.setRewardTips(com.kwad.sdk.core.response.b.a.bY(dP));

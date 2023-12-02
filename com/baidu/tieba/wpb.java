@@ -1,217 +1,302 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.net.MailTo;
+import android.content.Context;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.gqb;
+import com.baidu.tieba.vpb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wpb {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile wpb c;
     public transient /* synthetic */ FieldHolder $fh;
-    public xpb a;
+    public final xpb a;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public Map<String, JSONObject> b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-            this.b = new HashMap();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948279680, "Lcom/baidu/tieba/wpb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948279680, "Lcom/baidu/tieba/wpb;");
-                return;
-            }
-        }
-        b = aqb.m();
-    }
-
-    public wpb() {
+    public wpb(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = xpb.Q(context);
     }
 
-    public static wpb f() {
-        InterceptResult invokeV;
+    public void A(List<lpb> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (wpb.class) {
-                    if (c == null) {
-                        c = new wpb();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.a.Z(list);
         }
-        return (wpb) invokeV.objValue;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    public void B(npb npbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            fpb o = fpb.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, npbVar) == null) {
+            this.a.a0(npbVar);
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            fpb o = fpb.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048576, this, str, z) != null) || TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str) || !b()) {
-            return;
-        }
-        this.a.c(str, z);
-    }
-
-    public boolean d(kqb kqbVar) {
+    public boolean D(List<hpb> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, kqbVar)) == null) {
-            if (kqbVar == null || kqbVar.w() || !c()) {
-                return false;
-            }
-            this.a.f();
-            Map<String, a> v = this.a.v(7);
-            if (v != null && v.size() != 0) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    boolean z = false;
-                    for (String str : v.keySet()) {
-                        a aVar = v.get(str);
-                        if (aVar != null && !TextUtils.isEmpty(str)) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            JSONArray jSONArray = new JSONArray();
-                            for (JSONObject jSONObject3 : aVar.b.values()) {
-                                jSONArray.put(jSONObject3);
-                            }
-                            jSONObject2.put("total", aVar.a);
-                            jSONObject2.put("data", jSONArray);
-                            jSONObject.put(str.replace("-", ""), jSONObject2);
-                            z = true;
-                        }
-                    }
-                    if (z) {
-                        mpb mpbVar = new mpb("2980");
-                        mpbVar.y(jSONObject);
-                        mpbVar.B(System.currentTimeMillis());
-                        kqbVar.c(mpbVar, mpbVar.g());
-                        kqbVar.a(v.keySet());
-                        return true;
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            return this.a.c0(list);
         }
         return invokeL.booleanValue;
     }
 
-    public void e(Map<String, a> map, String str, String str2, int i, int i2) {
-        a aVar;
+    public void F(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{map, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || map == null) {
-            return;
-        }
-        if (map.containsKey(str)) {
-            aVar = map.get(str);
-        } else {
-            a aVar2 = new a();
-            map.put(str, aVar2);
-            aVar = aVar2;
-        }
-        Map<String, JSONObject> map2 = aVar.b;
-        if (map2.containsKey(str2) && b) {
-            Log.e("UBCArrivalStatics", "*******duplicate ubc id record: " + str2);
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("id", str2);
-            jSONObject.put("c", i);
-            jSONObject.put(MailTo.CC, i2);
-            aVar.a += i;
-            map2.put(str2, jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.e0(str);
         }
     }
 
-    public void g(xpb xpbVar) {
+    public void a(jqb jqbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xpbVar) == null) {
-            this.a = xpbVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jqbVar) == null) {
+            this.a.a(jqbVar);
+        }
+    }
+
+    public void b(jqb jqbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jqbVar) == null) {
+            this.a.b(jqbVar);
+        }
+    }
+
+    public boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            return this.a.x(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.a.z(str);
+        }
+    }
+
+    public HashMap<String, String> o(ArrayList<String> arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
+            return this.a.H(arrayList);
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public hpb p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+            return this.a.I(str);
+        }
+        return (hpb) invokeL.objValue;
+    }
+
+    public int u(jqb jqbVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, jqbVar)) == null) {
+            return this.a.S(jqbVar);
+        }
+        return invokeL.intValue;
+    }
+
+    public Map<String, vpb.a> v(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
+            return this.a.T(i);
+        }
+        return (Map) invokeI.objValue;
+    }
+
+    public mpb w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
+            return this.a.U(str);
+        }
+        return (mpb) invokeL.objValue;
+    }
+
+    public void x(SparseArray<ArrayList> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, sparseArray) == null) {
+            this.a.V(sparseArray);
+        }
+    }
+
+    public void y(dpb dpbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, dpbVar) == null) {
+            this.a.W(dpbVar);
+        }
+    }
+
+    public void z(lpb lpbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, lpbVar) == null) {
+            this.a.Y(lpbVar);
+        }
+    }
+
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.b0();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a.p();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.a.q();
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.a.v();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.a.w();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.a.y();
+        }
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.a.J();
+        }
+        return invokeV.intValue;
+    }
+
+    public gqb.d s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.a.R();
+        }
+        return (gqb.d) invokeV.objValue;
+    }
+
+    public void E(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
+            this.a.d0(str, i, str2);
+        }
+    }
+
+    public int r(ArrayList<String> arrayList, boolean z, jqb jqbVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{arrayList, Boolean.valueOf(z), jqbVar})) == null) {
+            jqbVar.M(10485760);
+            return this.a.K(arrayList, z, jqbVar);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public int t(ArrayList<String> arrayList, boolean z, jqb jqbVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{arrayList, Boolean.valueOf(z), jqbVar})) == null) {
+            return this.a.K(arrayList, z, jqbVar);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public void G(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+            this.a.f0(str, str2);
+        }
+    }
+
+    public void c(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, str, z) == null) {
+            this.a.h(str, z);
+        }
+    }
+
+    public void d(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048586, this, str, i) == null) {
+            this.a.k(str, i);
+        }
+    }
+
+    public boolean g(jqb jqbVar, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, jqbVar, str)) == null) {
+            return this.a.r(jqbVar, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public int n(jqb jqbVar, jqb jqbVar2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, jqbVar, jqbVar2)) == null) {
+            return this.a.E(jqbVar, jqbVar2);
+        }
+        return invokeLL.intValue;
+    }
+
+    public void m(String str, int i, long j, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), jSONArray}) == null) {
+            this.a.B(str, i, j, jSONArray);
         }
     }
 }

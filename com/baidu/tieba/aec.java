@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
+import android.text.StaticLayout;
+import android.text.TextPaint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,48 +11,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
+import java.util.HashMap;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Function4;
 /* loaded from: classes5.dex */
-public final class aec extends Drawable {
+public final class aec {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public ImageView.ScaleType c;
-    public final fec d;
-    public final SVGAVideoEntity e;
-    public final bec f;
+    public HashMap<String, Boolean> a;
+    public HashMap<String, Bitmap> b;
+    public HashMap<String, String> c;
+    public HashMap<String, TextPaint> d;
+    public HashMap<String, StaticLayout> e;
+    public HashMap<String, Function2<Canvas, Integer, Boolean>> f;
+    public HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> g;
+    public boolean h;
 
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return -2;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorFilter) == null) {
-        }
-    }
-
-    public aec(SVGAVideoEntity sVGAVideoEntity, bec becVar) {
+    public aec() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity, becVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,61 +40,91 @@ public final class aec extends Drawable {
                 return;
             }
         }
-        this.e = sVGAVideoEntity;
-        this.f = becVar;
-        this.a = true;
-        this.c = ImageView.ScaleType.MATRIX;
-        this.d = new fec(sVGAVideoEntity, becVar);
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
+        this.d = new HashMap<>();
+        this.e = new HashMap<>();
+        this.f = new HashMap<>();
+        this.g = new HashMap<>();
     }
 
-    public final int a() {
+    public final HashMap<String, Function2<Canvas, Integer, Boolean>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.f;
         }
-        return invokeV.intValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    public final SVGAVideoEntity b() {
+    public final HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, Boolean> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, Bitmap> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final HashMap<String, StaticLayout> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.e;
         }
-        return (SVGAVideoEntity) invokeV.objValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    public final void c(boolean z) {
+    public final HashMap<String, String> f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.a == z) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
         }
-        this.a = z;
-        invalidateSelf();
+        return (HashMap) invokeV.objValue;
     }
 
-    public final void d(int i) {
+    public final HashMap<String, TextPaint> g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.b == i) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
         }
-        this.b = i;
-        invalidateSelf();
+        return (HashMap) invokeV.objValue;
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public final boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) && !this.a && canvas != null) {
-            this.d.a(canvas, this.b, this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void e(ImageView.ScaleType scaleType) {
+    public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
-            this.c = scaleType;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.h = z;
         }
     }
 }

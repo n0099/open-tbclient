@@ -16,7 +16,6 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
@@ -24,8 +23,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i65;
 import com.baidu.tieba.jt;
+import com.baidu.tieba.l65;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -98,7 +97,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements jt {
                 hashMap.put("home_tab_name", this.a.o);
                 hashMap.put("tab_id", String.valueOf(this.a.n));
                 hashMap.put("sort_type", this.a.m);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "ItemRecommendList", hashMap)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.getContext(), "ItemRecommendList", hashMap)));
                 this.a.o(2);
             }
         }
@@ -249,9 +248,9 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements jt {
     public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            i65 i65Var = new i65(6);
-            i65Var.r(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, i65Var));
+            l65 l65Var = new l65(6);
+            l65Var.r(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, l65Var));
         }
     }
 
@@ -332,16 +331,16 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements jt {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d039d, (ViewGroup) null);
             this.a = viewGroup;
             viewGroup.setPadding(r, 0, 0, 0);
-            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09268b);
-            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091240);
+            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09268d);
+            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091241);
             this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090041);
             this.h = (EMTextView) this.a.findViewById(R.id.item_score);
-            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f091245);
+            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f091246);
             this.i = rankStarView;
             rankStarView.setStarSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X001));
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09101d);
-            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091232);
-            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091247);
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09101e);
+            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091233);
+            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091248);
             this.d.setOnClickListener(this.p);
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);

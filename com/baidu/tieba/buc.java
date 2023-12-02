@@ -1,36 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.schemedispatch.forbid.InvokeStatisticKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.Advertisement;
+import tbclient.Agree;
 /* loaded from: classes5.dex */
-public class buc extends ltc {
+public class buc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Advertisement advertisement) {
+    public static JSONObject b(@NonNull Agree agree) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertisement)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, agree)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "time", advertisement.time);
-            ltc.a(jSONObject, pic.f, advertisement.pic);
-            ltc.a(jSONObject, "pic_click", advertisement.pic_click);
-            ltc.a(jSONObject, "jump_link", advertisement.jump_link);
-            ltc.a(jSONObject, "advertisement_id", advertisement.advertisement_id);
-            ltc.a(jSONObject, "view_statistics_url", advertisement.view_statistics_url);
-            ltc.a(jSONObject, "click_statistics_url", advertisement.click_statistics_url);
-            ltc.a(jSONObject, "floating_text", advertisement.floating_text);
-            ltc.a(jSONObject, InvokeStatisticKt.SCHEME_INVOKE_PAGE_DEEPLINK, advertisement.deeplink);
-            ltc.a(jSONObject, "scheme", advertisement.scheme);
-            ltc.a(jSONObject, "package_name", advertisement.package_name);
-            ltc.a(jSONObject, "display_ad_icon", advertisement.display_ad_icon);
-            ltc.a(jSONObject, "activity_id", advertisement.activity_id);
+            ktc.a(jSONObject, "agree_num", agree.agree_num);
+            ktc.a(jSONObject, "has_agree", agree.has_agree);
+            ktc.a(jSONObject, "agree_type", agree.agree_type);
+            ktc.a(jSONObject, "disagree_num", agree.disagree_num);
+            ktc.a(jSONObject, "diff_agree_num", agree.diff_agree_num);
+            ktc.a(jSONObject, "lz_agree", agree.lz_agree);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

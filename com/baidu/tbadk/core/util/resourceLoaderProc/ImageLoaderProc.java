@@ -20,11 +20,11 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.e7;
 import com.baidu.tieba.k7;
 import com.baidu.tieba.m7;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.qv4;
 import com.baidu.tieba.rb;
 import com.baidu.tieba.sb;
-import com.baidu.tieba.st5;
 import com.baidu.tieba.tb;
+import com.baidu.tieba.wt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -92,7 +92,7 @@ public class ImageLoaderProc implements tb<BdImage> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return nv4.c().g();
+            return qv4.c().g();
         }
         return invokeV.booleanValue;
     }
@@ -204,8 +204,8 @@ public class ImageLoaderProc implements tb<BdImage> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), sbVar, objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             WebClient webClient = new WebClient();
-            st5.e(true, str, str);
-            Pair<Boolean, String> d = st5.d(str);
+            wt5.e(true, str, str);
+            Pair<Boolean, String> d = wt5.d(str);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -223,7 +223,7 @@ public class ImageLoaderProc implements tb<BdImage> {
             if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
                 Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                 if (z && Bytes2Bitmap == null) {
-                    st5.b(str3);
+                    wt5.b(str3);
                     Logger.addLog(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
                     downloadImageBytes = webClient.downloadImageBytes(str, false);
                     needCache = webClient.needCache();

@@ -1,30 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
-import java.io.File;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface im4 extends SharedPreferences, SharedPreferences.Editor {
-    Set<String> a();
+public class im4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b();
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+        }
+    }
 
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    Map<String, ?> getAll();
-
-    long getContentSize();
-
-    @NonNull
-    File getFile();
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947858297, "Lcom/baidu/tieba/im4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947858297, "Lcom/baidu/tieba/im4;");
+                return;
+            }
+        }
+        String str = pl4.h().t() + "/ma/log/token";
+    }
 }

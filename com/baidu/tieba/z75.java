@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,8 +11,7 @@ import org.json.JSONObject;
 public class z75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a85 a;
-    public a85 b;
+    public int a;
 
     public z75() {
         Interceptable interceptable = $ic;
@@ -29,42 +27,23 @@ public class z75 {
         }
     }
 
-    public a85 a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            if (this.a == 1) {
+                return true;
+            }
+            return false;
         }
-        return (a85) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public a85 b() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (a85) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        JSONObject optJSONObject = jSONObject.optJSONObject(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
-        if (optJSONObject != null) {
-            a85 a85Var = new a85();
-            this.a = a85Var;
-            a85Var.q = 1;
-            a85Var.f(optJSONObject);
-        }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
-        if (optJSONObject2 != null) {
-            a85 a85Var2 = new a85();
-            this.b = a85Var2;
-            a85Var2.q = 2;
-            a85Var2.f(optJSONObject2);
-        }
+        this.a = jSONObject.optInt("agree_icon", 0);
     }
 }

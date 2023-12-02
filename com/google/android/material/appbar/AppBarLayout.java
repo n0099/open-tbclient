@@ -1518,7 +1518,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
     private void startLiftOnScrollElevationOverlayAnimation(@NonNull final MaterialShapeDrawable materialShapeDrawable, boolean z) {
         float f;
-        float dimension = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0702a5);
+        float dimension = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0702a6);
         if (z) {
             f = 0.0f;
         } else {

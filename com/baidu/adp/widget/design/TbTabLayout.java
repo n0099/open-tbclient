@@ -49,7 +49,7 @@ import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wya;
+import com.baidu.tieba.vya;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1629,7 +1629,7 @@ public class TbTabLayout extends HorizontalScrollView {
         this.c = eVar;
         super.addView(eVar, 0, new FrameLayout.LayoutParams(-2, -1));
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.TabLayout, i, R.style.obfuscated_res_0x7f10034d);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, wya.TbTabLayout);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, vya.TbTabLayout);
         this.c.h(obtainStyledAttributes.getDimensionPixelSize(12, 0));
         this.c.i(obtainStyledAttributes2.getDimensionPixelSize(0, 0));
         this.c.g(obtainStyledAttributes.getColor(9, 0));
@@ -1664,8 +1664,8 @@ public class TbTabLayout extends HorizontalScrollView {
             obtainStyledAttributes.recycle();
             obtainStyledAttributes2.recycle();
             Resources resources = getResources();
-            this.k = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d5);
-            this.r = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d3);
+            this.k = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d6);
+            this.r = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d4);
             k();
             x();
         } catch (Throwable th) {

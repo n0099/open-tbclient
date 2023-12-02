@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.AugmentedFace;
-import com.google.ar.core.Session;
-import java.util.Map;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes7.dex */
-public final class q8c {
+public final class q8c implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Long, AugmentedFace> a;
+    public final /* synthetic */ InstallActivity a;
 
-    public q8c() {
+    public q8c(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,23 +28,15 @@ public final class q8c {
                 return;
             }
         }
-        this.a = new com.google.ar.core.j(1, 0.75f, true);
+        this.a = installActivity;
     }
 
-    public final synchronized AugmentedFace a(long j, Session session) {
-        InterceptResult invokeJL;
-        AugmentedFace augmentedFace;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
-            synchronized (this) {
-                augmentedFace = this.a.get(Long.valueOf(j));
-                if (augmentedFace == null) {
-                    augmentedFace = new AugmentedFace(j, session);
-                    this.a.put(Long.valueOf(j), augmentedFace);
-                }
-            }
-            return augmentedFace;
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
         }
-        return (AugmentedFace) invokeJL.objValue;
+        this.a.j(new UnavailableUserDeclinedInstallationException());
     }
 }

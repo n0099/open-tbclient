@@ -276,7 +276,7 @@ public final class SpriteMemeReplyView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            getBinding().e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kg5
+            getBinding().e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ng5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -288,7 +288,7 @@ public final class SpriteMemeReplyView extends LinearLayout {
                     }
                 }
             });
-            getBinding().getRoot().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lg5
+            getBinding().getRoot().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.og5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

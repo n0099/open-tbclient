@@ -4,13 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class ox6 extends dx4 {
+public class ox6 implements go5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mx6 d;
-    public List<nx6> e;
+    public boolean a;
+    public int b;
+    public int c;
 
     public ox6() {
         Interceptable interceptable = $ic;
@@ -22,9 +22,7 @@ public class ox6 extends dx4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        d(12);
     }
 }

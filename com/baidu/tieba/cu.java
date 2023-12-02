@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.cw4;
+import com.baidu.tieba.fw4;
 import com.baidu.tieba.nu;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class cu<T extends cw4> implements jt, z16 {
+public class cu<T extends fw4> implements jt, d26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public it<T> a;
@@ -52,7 +52,7 @@ public class cu<T extends cw4> implements jt, z16 {
     public int p;
     public nu.a q;
 
-    @Override // com.baidu.tieba.z16
+    @Override // com.baidu.tieba.d26
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -308,25 +308,25 @@ public class cu<T extends cw4> implements jt, z16 {
         }
     }
 
-    public void r(im6<T> im6Var) {
+    public void r(mm6<T> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, im6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, mm6Var) == null) {
             os<T> osVar = this.g;
             if (osVar != null) {
-                osVar.n(im6Var);
+                osVar.n(mm6Var);
             }
             os<T> osVar2 = this.h;
             if (osVar2 != null) {
-                osVar2.n(im6Var);
+                osVar2.n(mm6Var);
             }
             for (vs vsVar : this.i) {
                 if (vsVar != null) {
-                    vsVar.n(im6Var);
+                    vsVar.n(mm6Var);
                 }
             }
             os<T> osVar3 = this.j;
             if (osVar3 != null) {
-                osVar3.n(im6Var);
+                osVar3.n(mm6Var);
             }
         }
     }
@@ -503,7 +503,7 @@ public class cu<T extends cw4> implements jt, z16 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             qs qsVar = new qs();
             qsVar.setDecorView(new TbImageView(this.b));
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(BdUtilHelper.getDimens(this.b, R.dimen.obfuscated_res_0x7f070386), BdUtilHelper.getDimens(this.b, R.dimen.obfuscated_res_0x7f0703ec));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(BdUtilHelper.getDimens(this.b, R.dimen.obfuscated_res_0x7f070387), BdUtilHelper.getDimens(this.b, R.dimen.obfuscated_res_0x7f0703ed));
             layoutParams.addRule(11);
             layoutParams.addRule(10);
             layoutParams.rightMargin = -this.m.h;
@@ -667,7 +667,7 @@ public class cu<T extends cw4> implements jt, z16 {
                 this.d.setTag(R.id.virtual_image_user_head, null);
                 this.g.onBindDataToView(t);
                 os<T> osVar = this.g;
-                if (osVar instanceof jdb) {
+                if (osVar instanceof idb) {
                     this.d.setTag(R.id.virtual_image_user_head, osVar);
                 }
             }

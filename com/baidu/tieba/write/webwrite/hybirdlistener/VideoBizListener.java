@@ -6,13 +6,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.agb;
-import com.baidu.tieba.bgb;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.tieba.skb;
-import com.baidu.tieba.vgb;
+import com.baidu.tieba.rkb;
+import com.baidu.tieba.ugb;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
+import com.baidu.tieba.zfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public final class VideoBizListener extends BizBase {
     public transient /* synthetic */ FieldHolder $fh;
     public final EditorTools g;
 
-    @Override // com.baidu.tieba.dgb
+    @Override // com.baidu.tieba.cgb
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class VideoBizListener extends BizBase {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoBizListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, vgb writePageState, EditorTools editor) {
+    public VideoBizListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, ugb writePageState, EditorTools editor) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,7 +50,7 @@ public final class VideoBizListener extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (vgb) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (ugb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,24 +64,24 @@ public final class VideoBizListener extends BizBase {
         this.g = editor;
     }
 
-    @Override // com.baidu.tieba.dgb
-    public bgb[] b() {
+    @Override // com.baidu.tieba.cgb
+    public agb[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new bgb[]{p(25064, new VideoBizListener$requestCodeHandlers$1(this))} : (bgb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new agb[]{p(25064, new VideoBizListener$requestCodeHandlers$1(this))} : (agb[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dgb
-    public agb[] f() {
+    @Override // com.baidu.tieba.cgb
+    public zfb[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new agb[]{n(60, new VideoBizListener$editorActionHandlers$1(this))} : (agb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new zfb[]{n(60, new VideoBizListener$editorActionHandlers$1(this))} : (zfb[]) invokeV.objValue;
     }
 
     public final void t(int i, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, intent) == null) {
-            skb.a(i(), k());
+            rkb.a(i(), k());
         }
     }
 
@@ -89,7 +89,7 @@ public final class VideoBizListener extends BizBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i, obj) == null) {
             this.g.y();
-            skb.d(i(), k());
+            rkb.d(i(), k());
         }
     }
 }

@@ -9,9 +9,9 @@ import com.baidu.searchbox.common.security.PermissionStorage;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.searchbox.download.util.MigrateStatisticUtils;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.bz0;
 import com.baidu.tieba.cm0;
 import com.baidu.tieba.dm0;
+import com.baidu.tieba.dz0;
 import com.baidu.tieba.ff0;
 import com.baidu.tieba.lm0;
 import com.baidu.tieba.ol0;
@@ -177,7 +177,7 @@ public final class AlsComponent extends AbsComponentPlugin {
         if (!TextUtils.isEmpty(ext1)) {
             u.k(ext1);
         }
-        bz0.e(u);
+        dz0.e(u);
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin

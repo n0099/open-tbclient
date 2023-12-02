@@ -240,7 +240,7 @@ public final class kl0 {
             if (c6 != null) {
                 str15 = c6.optString("refer_url");
             }
-            jSONObject5.put("prerender_scheme", j11.n(str10, str15));
+            jSONObject5.put("prerender_scheme", l11.n(str10, str15));
             jSONObject4.put("ad_common", jSONObject5);
             JSONObject jSONObject6 = new JSONObject();
             jSONObject6.put("convert", c4);
@@ -269,19 +269,19 @@ public final class kl0 {
         return (JSONObject) invokeL.objValue;
     }
 
-    public final hn0 d(HashMap<String, String> toLpModel) throws Exception {
+    public final in0 d(HashMap<String, String> toLpModel) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, toLpModel)) == null) {
             Intrinsics.checkNotNullParameter(toLpModel, "$this$toLpModel");
             a(toLpModel);
             JSONObject b = b(toLpModel);
-            AdBaseModel d = en0.d("", 0, b, b.optString(MigrateStatisticUtils.EXT_INFO));
+            AdBaseModel d = fn0.d("", 0, b, b.optString(MigrateStatisticUtils.EXT_INFO));
             if (d != null) {
-                return (hn0) d;
+                return (in0) d;
             }
             throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.model.AdRewardVideoLpModel");
         }
-        return (hn0) invokeL.objValue;
+        return (in0) invokeL.objValue;
     }
 }

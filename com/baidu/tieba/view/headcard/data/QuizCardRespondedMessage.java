@@ -3,7 +3,7 @@ package com.baidu.tieba.view.headcard.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.qbb;
+import com.baidu.tieba.pbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import tbclient.QuizOption;
 public final class QuizCardRespondedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qbb dialogData;
+    public pbb dialogData;
     public QuizInfo quizInfo;
 
     /* loaded from: classes8.dex */
@@ -75,13 +75,13 @@ public final class QuizCardRespondedMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public final qbb getDialogData() {
+    public final pbb getDialogData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.dialogData;
         }
-        return (qbb) invokeV.objValue;
+        return (pbb) invokeV.objValue;
     }
 
     public final QuizInfo getQuizInfo() {
@@ -114,22 +114,22 @@ public final class QuizCardRespondedMessage extends JsonHttpResponsedMessage {
             Intrinsics.checkNotNullParameter(retJson, "retJson");
             JSONObject optJSONObject = retJson.optJSONObject("popup_dialog");
             if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("content")) != null && optJSONArray.length() >= 3) {
-                this.dialogData = new qbb();
+                this.dialogData = new pbb();
                 JSONObject titleObj = optJSONArray.optJSONObject(0);
                 if (titleObj != null) {
                     Intrinsics.checkNotNullExpressionValue(titleObj, "titleObj");
-                    qbb qbbVar = this.dialogData;
-                    if (qbbVar != null) {
-                        qbbVar.d(titleObj.optString("text"));
+                    pbb pbbVar = this.dialogData;
+                    if (pbbVar != null) {
+                        pbbVar.d(titleObj.optString("text"));
                     }
                 }
-                ArrayList<qbb.a> arrayList = new ArrayList<>();
+                ArrayList<pbb.a> arrayList = new ArrayList<>();
                 int length = optJSONArray.length();
                 for (int i = 1; i < length; i++) {
                     JSONObject contentObj = optJSONArray.optJSONObject(i);
                     if (contentObj != null) {
                         Intrinsics.checkNotNullExpressionValue(contentObj, "contentObj");
-                        qbb.a aVar = new qbb.a();
+                        pbb.a aVar = new pbb.a();
                         aVar.f(contentObj.optString("text"));
                         aVar.e(contentObj.optInt("has_color"));
                         aVar.g(contentObj.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
@@ -137,9 +137,9 @@ public final class QuizCardRespondedMessage extends JsonHttpResponsedMessage {
                         arrayList.add(aVar);
                     }
                 }
-                qbb qbbVar2 = this.dialogData;
-                if (qbbVar2 != null) {
-                    qbbVar2.c(arrayList);
+                pbb pbbVar2 = this.dialogData;
+                if (pbbVar2 != null) {
+                    pbbVar2.c(arrayList);
                 }
             }
         }
@@ -193,10 +193,10 @@ public final class QuizCardRespondedMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public final void setDialogData(qbb qbbVar) {
+    public final void setDialogData(pbb pbbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, qbbVar) == null) {
-            this.dialogData = qbbVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, pbbVar) == null) {
+            this.dialogData = pbbVar;
         }
     }
 

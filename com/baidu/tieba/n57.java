@@ -1,29 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.IMUserExtraData;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class n57 {
+public abstract class n57 extends bb7<w57<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public w57<?> c;
 
-    public static final m57 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public n57() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            int optInt = jSONObject.optInt("total_recommend_num", 0);
-            int optInt2 = jSONObject.optInt("used_recommend_num", 0);
-            String optString = jSONObject.optString(IMUserExtraData.KEY_BAZHU_LEVEL);
-            Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(\"bazhu_level\")");
-            return new m57(optInt, optInt2, optString);
         }
-        return (m57) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rb7
+    @NonNull
+    /* renamed from: c */
+    public w57<?> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (w57) invokeV.objValue;
     }
 }

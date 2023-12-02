@@ -1,147 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.BdCloseHelper;
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import com.baidu.adp.base.BdActivityStack;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
+import com.baidu.searchbox.wordscommand.data.CommandContent;
+import com.baidu.searchbox.wordscommand.listener.PictureCommandInvokeCallBack;
+import com.baidu.searchbox.wordscommand.runtime.IWordCommandApp;
+import com.baidu.tbadk.GrowthStatsUtil;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.HashMap;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class mma {
+public class mma implements IWordCommandApp {
     public static /* synthetic */ Interceptable $ic;
-    public static mma b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(HashMap<String, String> hashMap);
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public boolean canPreloadSwanApp(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class a extends ju5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mma a;
-
-        public a(mma mmaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mmaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mmaVar;
-        }
-
-        @Override // com.baidu.tieba.ju5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Reader reader;
-            Throwable th;
-            InputStream inputStream;
-            BufferedReader bufferedReader;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    try {
-                        inputStream = TbadkCoreApplication.getInst().getAssets().open("schema_map1.txt");
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                    try {
-                        bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                String[] split = readLine.split(",");
-                                if (split.length == 2 && split[0] != null && split[1] != null) {
-                                    this.a.a.put(split[0], split[1]);
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                e.printStackTrace();
-                                BdCloseHelper.close(inputStream);
-                                BdCloseHelper.close((Reader) bufferedReader);
-                                return null;
-                            }
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        bufferedReader = null;
-                    } catch (Throwable th3) {
-                        reader = null;
-                        th = th3;
-                        BdCloseHelper.close(inputStream);
-                        BdCloseHelper.close(reader);
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    inputStream = null;
-                    bufferedReader = null;
-                } catch (Throwable th4) {
-                    reader = null;
-                    th = th4;
-                    inputStream = null;
-                }
-                BdCloseHelper.close(inputStream);
-                BdCloseHelper.close((Reader) bufferedReader);
-                return null;
-            }
-            return invokeV.objValue;
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public void getPictureCommandContent(String str, PictureCommandInvokeCallBack pictureCommandInvokeCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, pictureCommandInvokeCallBack) == null) {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements ot5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ mma b;
-
-        public b(mma mmaVar, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mmaVar, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mmaVar;
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.ot5
-        public void onReturnDataInUI(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.a.a(this.b.a);
-            }
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public void handlePreloadSwanApp() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
@@ -155,37 +62,57 @@ public class mma {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
-        new HashMap();
     }
 
-    public static mma c() {
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public boolean isMainProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (mma.class) {
-                    if (b == null) {
-                        b = new mma();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return TbadkCoreApplication.getInst().isMainProcess(false);
         }
-        return (mma) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void b(c cVar) {
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public boolean isNewInstall() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            if (!this.a.isEmpty()) {
-                cVar.a(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return TbadkCoreApplication.getInst().getIsFirstUse();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public void doOnShowParseCommandDialogWithPopupExclusion(Context context, CommandContent commandContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, commandContent) == null) {
+            WordCommandManager.getInstance().doOnShowParseCommandDialog(context, commandContent, null, null);
+        }
+    }
+
+    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
+    public void schemeInvoke(String str) {
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || !PermissionUtil.isAgreePrivacyPolicy() || (parse = Uri.parse(str)) == null) {
+            return;
+        }
+        if (str.startsWith("com.baidu.tieba://unidispatch/tbwebview")) {
+            if (!str.contains("tbwebview?url=https%3A") && !str.contains("tbwebview?url=http%3A")) {
+                str = str.replace("com.baidu.tieba://unidispatch/tbwebview?url=", "");
             } else {
-                nu5.b(new a(this), new b(this, cVar));
+                str = parse.getQueryParameter("url");
             }
+        }
+        Activity currentActivity = BdActivityStack.getInst().currentActivity();
+        if (currentActivity != null && (a5.a(currentActivity) instanceof TbPageContext)) {
+            UrlManager.getInstance().dealOneLink((TbPageContext) a5.a(currentActivity), new String[]{str});
+            fp4.c(Uri.parse(str));
+            GrowthStatsUtil.statisticClipBoard(str);
         }
     }
 }

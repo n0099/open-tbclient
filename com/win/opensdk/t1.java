@@ -68,82 +68,81 @@ public class t1 {
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v23, resolved type: boolean */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Can't wrap try/catch for region: R(50:3|(1:5)(20:212|213|214|215|216|217|(2:263|264)|219|220|(1:222)(1:262)|223|224|225|227|228|(1:232)|234|(4:236|237|238|239)|242|243)|6|(1:8)|9|(3:10|11|(1:13)(4:195|(2:197|(1:199)(1:209))(1:210)|200|(3:204|205|206)(1:202)))|14|(3:190|191|192)|(2:16|17)|18|(1:20)|(2:21|22)|23|(1:25)|26|(3:181|182|183)|28|(2:29|30)|(32:34|(1:36)(2:163|(2:165|166))|37|(1:39)|40|41|42|43|(25:44|45|(2:47|(2:48|(4:50|51|52|(1:149)(3:56|57|58))))(1:156)|61|(5:(1:65)|66|(2:68|69)(1:71)|70|62)|72|73|74|(3:142|143|144)|76|(7:78|79|80|81|82|83|84)|89|90|(4:92|93|94|95)|98|(4:100|101|102|103)|106|(4:108|109|110|111)|115|116|117|118|119|120|121)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121)|179|37|(0)|40|41|42|43|(25:44|45|(0)(0)|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121) */
-    /* JADX WARN: Can't wrap try/catch for region: R(51:3|(1:5)(20:212|213|214|215|216|217|(2:263|264)|219|220|(1:222)(1:262)|223|224|225|227|228|(1:232)|234|(4:236|237|238|239)|242|243)|6|(1:8)|9|(3:10|11|(1:13)(4:195|(2:197|(1:199)(1:209))(1:210)|200|(3:204|205|206)(1:202)))|14|(3:190|191|192)|16|17|18|(1:20)|(2:21|22)|23|(1:25)|26|(3:181|182|183)|28|(2:29|30)|(32:34|(1:36)(2:163|(2:165|166))|37|(1:39)|40|41|42|43|(25:44|45|(2:47|(2:48|(4:50|51|52|(1:149)(3:56|57|58))))(1:156)|61|(5:(1:65)|66|(2:68|69)(1:71)|70|62)|72|73|74|(3:142|143|144)|76|(7:78|79|80|81|82|83|84)|89|90|(4:92|93|94|95)|98|(4:100|101|102|103)|106|(4:108|109|110|111)|115|116|117|118|119|120|121)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121)|179|37|(0)|40|41|42|43|(25:44|45|(0)(0)|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121) */
-    /* JADX WARN: Can't wrap try/catch for region: R(55:3|(1:5)(20:212|213|214|215|216|217|(2:263|264)|219|220|(1:222)(1:262)|223|224|225|227|228|(1:232)|234|(4:236|237|238|239)|242|243)|6|(1:8)|9|10|11|(1:13)(4:195|(2:197|(1:199)(1:209))(1:210)|200|(3:204|205|206)(1:202))|14|(3:190|191|192)|16|17|18|(1:20)|21|22|23|(1:25)|26|(3:181|182|183)|28|29|30|(32:34|(1:36)(2:163|(2:165|166))|37|(1:39)|40|41|42|43|(25:44|45|(2:47|(2:48|(4:50|51|52|(1:149)(3:56|57|58))))(1:156)|61|(5:(1:65)|66|(2:68|69)(1:71)|70|62)|72|73|74|(3:142|143|144)|76|(7:78|79|80|81|82|83|84)|89|90|(4:92|93|94|95)|98|(4:100|101|102|103)|106|(4:108|109|110|111)|115|116|117|118|119|120|121)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121)|179|37|(0)|40|41|42|43|(25:44|45|(0)(0)|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121) */
-    /* JADX WARN: Code restructure failed: missing block: B:145:0x02ae, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(50:3|(1:5)(20:212|213|214|215|216|217|(2:263|264)|219|220|(1:222)(1:262)|223|224|225|226|227|(1:231)|233|(4:235|236|237|238)|241|242)|6|(1:8)|9|(3:10|11|(1:13)(4:195|(2:197|(1:199)(1:209))(1:210)|200|(3:204|205|206)(1:202)))|14|(3:190|191|192)|(2:16|17)|18|(1:20)|(2:21|22)|23|(1:25)|26|(3:181|182|183)|28|(2:29|30)|(32:34|(1:36)(2:163|(2:165|166))|37|(1:39)|40|41|42|43|(25:44|45|(2:47|(2:48|(4:50|51|52|(1:149)(3:56|57|58))))(1:156)|61|(5:(1:65)|66|(2:68|69)(1:71)|70|62)|72|73|74|(3:142|143|144)|76|(7:78|79|80|81|82|83|84)|89|90|(4:92|93|94|95)|98|(4:100|101|102|103)|106|(4:108|109|110|111)|115|116|117|118|119|120|121)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121)|179|37|(0)|40|41|42|43|(25:44|45|(0)(0)|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121) */
+    /* JADX WARN: Can't wrap try/catch for region: R(55:3|(1:5)(20:212|213|214|215|216|217|(2:263|264)|219|220|(1:222)(1:262)|223|224|225|226|227|(1:231)|233|(4:235|236|237|238)|241|242)|6|(1:8)|9|10|11|(1:13)(4:195|(2:197|(1:199)(1:209))(1:210)|200|(3:204|205|206)(1:202))|14|(3:190|191|192)|16|17|18|(1:20)|21|22|23|(1:25)|26|(3:181|182|183)|28|29|30|(32:34|(1:36)(2:163|(2:165|166))|37|(1:39)|40|41|42|43|(25:44|45|(2:47|(2:48|(4:50|51|52|(1:149)(3:56|57|58))))(1:156)|61|(5:(1:65)|66|(2:68|69)(1:71)|70|62)|72|73|74|(3:142|143|144)|76|(7:78|79|80|81|82|83|84)|89|90|(4:92|93|94|95)|98|(4:100|101|102|103)|106|(4:108|109|110|111)|115|116|117|118|119|120|121)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121)|179|37|(0)|40|41|42|43|(25:44|45|(0)(0)|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121)|60|61|(1:62)|72|73|74|(0)|76|(0)|89|90|(0)|98|(0)|106|(0)|115|116|117|118|119|120|121) */
+    /* JADX WARN: Code restructure failed: missing block: B:145:0x02ad, code lost:
         r1 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:146:0x02af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:146:0x02ae, code lost:
         r4 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x00aa, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x00a9, code lost:
         if (r5.length() <= 0) goto L219;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:185:0x0374, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:185:0x0373, code lost:
         r10 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:186:0x0375, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:186:0x0374, code lost:
         r10.printStackTrace();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:189:0x0381, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:189:0x0380, code lost:
         r10 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:190:0x0382, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:190:0x0381, code lost:
         r10.printStackTrace();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:191:0x0387, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:191:0x0386, code lost:
         if ((r10 instanceof java.lang.ClassNotFoundException) == false) goto L137;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:195:0x038e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:195:0x038d, code lost:
         r6 = 4;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:196:0x0390, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:196:0x038f, code lost:
         r6 = 3;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:200:0x03a1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:200:0x03a0, code lost:
         r10 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:201:0x03a2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:201:0x03a1, code lost:
         r10.printStackTrace();
         r10.printStackTrace();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:202:0x03aa, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:202:0x03a9, code lost:
         if ((r10 instanceof java.lang.ClassNotFoundException) != false) goto L131;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:206:0x03b1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:206:0x03b0, code lost:
         r10 = "4";
      */
-    /* JADX WARN: Code restructure failed: missing block: B:207:0x03b4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:207:0x03b3, code lost:
         r10 = "2";
      */
-    /* JADX WARN: Code restructure failed: missing block: B:208:0x03b7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:208:0x03b6, code lost:
         r10 = "3";
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x0113, code lost:
-        if (r0 == null) goto L254;
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x0112, code lost:
+        if (r0 == null) goto L253;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:101:0x0218  */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x021b A[Catch: Exception -> 0x0251, TRY_ENTER, TryCatch #24 {Exception -> 0x0251, blocks: (B:95:0x01fe, B:97:0x020c, B:99:0x0212, B:102:0x021b, B:104:0x0221, B:105:0x0229, B:110:0x0235, B:112:0x023b, B:114:0x0243), top: B:269:0x01fe }] */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x0258  */
-    /* JADX WARN: Removed duplicated region for block: B:128:0x0278 A[Catch: SocketException -> 0x02aa, Exception -> 0x02ac, TryCatch #4 {Exception -> 0x02ac, blocks: (B:124:0x026d, B:126:0x0272, B:128:0x0278, B:129:0x0282, B:131:0x0288, B:132:0x028e, B:134:0x0294, B:147:0x02b0, B:148:0x02b3, B:149:0x02c1, B:152:0x02c6, B:153:0x02cb, B:155:0x02d9, B:156:0x02e8, B:157:0x02ee), top: B:234:0x026d }] */
-    /* JADX WARN: Removed duplicated region for block: B:151:0x02c4  */
-    /* JADX WARN: Removed duplicated region for block: B:164:0x0310  */
-    /* JADX WARN: Removed duplicated region for block: B:171:0x033c  */
-    /* JADX WARN: Removed duplicated region for block: B:176:0x0353  */
-    /* JADX WARN: Removed duplicated region for block: B:181:0x036a  */
-    /* JADX WARN: Removed duplicated region for block: B:252:0x01d7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:256:0x0195 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:271:0x02fc A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:284:0x02b3 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00fe  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0137  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0145  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0146 A[Catch: Exception -> 0x018e, TryCatch #20 {Exception -> 0x018e, blocks: (B:57:0x013f, B:60:0x0146, B:62:0x0152, B:64:0x015a, B:67:0x016b, B:71:0x0176, B:66:0x0166), top: B:261:0x013f }] */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x01b0  */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x01c8  */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x020c A[Catch: Exception -> 0x0251, TryCatch #24 {Exception -> 0x0251, blocks: (B:95:0x01fe, B:97:0x020c, B:99:0x0212, B:102:0x021b, B:104:0x0221, B:105:0x0229, B:110:0x0235, B:112:0x023b, B:114:0x0243), top: B:269:0x01fe }] */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x0217  */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x021a A[Catch: Exception -> 0x0250, TRY_ENTER, TryCatch #18 {Exception -> 0x0250, blocks: (B:95:0x01fd, B:97:0x020b, B:99:0x0211, B:102:0x021a, B:104:0x0220, B:105:0x0228, B:110:0x0234, B:112:0x023a, B:114:0x0242), top: B:257:0x01fd }] */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x0257  */
+    /* JADX WARN: Removed duplicated region for block: B:128:0x0277 A[Catch: SocketException -> 0x02a9, Exception -> 0x02ab, TryCatch #5 {SocketException -> 0x02a9, blocks: (B:126:0x0271, B:128:0x0277, B:129:0x0281, B:131:0x0287), top: B:236:0x0271 }] */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x02c3  */
+    /* JADX WARN: Removed duplicated region for block: B:164:0x030f  */
+    /* JADX WARN: Removed duplicated region for block: B:171:0x033b  */
+    /* JADX WARN: Removed duplicated region for block: B:176:0x0352  */
+    /* JADX WARN: Removed duplicated region for block: B:181:0x0369  */
+    /* JADX WARN: Removed duplicated region for block: B:248:0x01d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:265:0x0194 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:271:0x02fb A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:284:0x02b2 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00fd  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0136  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0144  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0145 A[Catch: Exception -> 0x018d, TryCatch #19 {Exception -> 0x018d, blocks: (B:57:0x013e, B:60:0x0145, B:62:0x0151, B:64:0x0159, B:67:0x016a, B:71:0x0175, B:66:0x0165), top: B:259:0x013e }] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x01af  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x01c7  */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x020b A[Catch: Exception -> 0x0250, TryCatch #18 {Exception -> 0x0250, blocks: (B:95:0x01fd, B:97:0x020b, B:99:0x0211, B:102:0x021a, B:104:0x0220, B:105:0x0228, B:110:0x0234, B:112:0x023a, B:114:0x0242), top: B:257:0x01fd }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -211,20 +210,20 @@ public class t1 {
                 a.put("dpi", String.valueOf(context.getResources().getDisplayMetrics().densityDpi));
                 try {
                     str3 = Build.SERIAL;
-                } catch (Exception e) {
-                    e = e;
-                    str3 = "";
-                }
-                try {
-                    if (TextUtils.equals(str3, "unknown") && Build.VERSION.SDK_INT >= 26) {
-                        str3 = Build.getSerial();
+                    try {
+                        if (TextUtils.equals(str3, "unknown") && Build.VERSION.SDK_INT >= 26) {
+                            str3 = Build.getSerial();
+                        }
+                    } catch (Exception e) {
+                        e = e;
+                        e.printStackTrace();
+                        if (!TextUtils.isEmpty(str3)) {
+                        }
+                        str4 = ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
                     }
                 } catch (Exception e2) {
                     e = e2;
-                    e.printStackTrace();
-                    if (!TextUtils.isEmpty(str3)) {
-                    }
-                    str4 = ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
+                    str3 = "";
                 }
                 if (!TextUtils.isEmpty(str3)) {
                     HashMap hashMap5 = a;

@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import tbclient.BookInfo;
+import tbclient.TbBookrack;
 /* loaded from: classes7.dex */
 public class q7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<pi> a;
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-        }
-    }
+    public String a;
+    public int b;
+    public List<r7a> c;
+    public String d;
+    public String e;
+    public String f;
 
     public q7a() {
         Interceptable interceptable = $ic;
@@ -32,10 +33,26 @@ public class q7a {
         }
     }
 
-    public void a(ArrayList<pi> arrayList) {
+    public void a(TbBookrack tbBookrack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.a = arrayList;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tbBookrack) != null) || tbBookrack == null) {
+            return;
+        }
+        this.a = tbBookrack.booktown;
+        this.b = tbBookrack.num.intValue();
+        this.d = tbBookrack.title;
+        this.e = tbBookrack.icon;
+        this.f = tbBookrack.tip;
+        this.c = new ArrayList();
+        List<BookInfo> list = tbBookrack.book_list;
+        if (list != null) {
+            for (BookInfo bookInfo : list) {
+                if (bookInfo != null) {
+                    r7a r7aVar = new r7a();
+                    r7aVar.a(bookInfo);
+                    this.c.add(r7aVar);
+                }
+            }
         }
     }
 }

@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn8;
+import com.baidu.tieba.fn8;
 import com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.to8;
+import com.baidu.tieba.xo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,7 +37,7 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     public TextView i;
     public ImageView j;
     public RobotSkillRecentlyItem k;
-    public final to8 l;
+    public final xo8 l;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -74,13 +74,13 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RobotSkillRecentlyItemViewHolder(@NonNull View view2, to8 to8Var) {
+    public RobotSkillRecentlyItemViewHolder(@NonNull View view2, xo8 xo8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, to8Var};
+            Object[] objArr = {view2, xo8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -91,16 +91,16 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.l = to8Var;
+        this.l = xo8Var;
         this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090477);
         HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09046b);
         this.f = headImageView;
         headImageView.setIsRound(true);
         this.f.setIsBigV(false);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09231e);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092320);
         this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090470);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09231d);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09205e);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09231f);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092060);
         this.e.setOnClickListener(new a(this));
     }
 
@@ -121,17 +121,17 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull bn8 bn8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull fn8 fn8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bn8Var, tbPageContext, i) == null) && (bn8Var instanceof RobotSkillRecentlyItem)) {
-            this.k = (RobotSkillRecentlyItem) bn8Var;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fn8Var, tbPageContext, i) == null) && (fn8Var instanceof RobotSkillRecentlyItem)) {
+            this.k = (RobotSkillRecentlyItem) fn8Var;
             this.h.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f09a4) + this.k.getSkillName());
             this.i.setText(this.k.getSkillDesc());
             this.g.setText(this.k.getBotName());
             if (!TextUtils.isEmpty(this.k.getAvatar())) {
                 this.f.startLoad(this.k.getAvatar(), 12, false);
             } else {
-                this.f.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0811f9), 24, false);
+                this.f.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0811fc), 24, false);
             }
             if (this.i.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 if (this.k.isFuncJump()) {

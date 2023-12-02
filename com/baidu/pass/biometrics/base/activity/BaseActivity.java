@@ -61,7 +61,7 @@ public class BaseActivity extends Activity implements NoProguard {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.c = getResources().getString(R.string.obfuscated_res_0x7f0f0f99);
+        this.c = getResources().getString(R.string.obfuscated_res_0x7f0f0f9a);
     }
 
     @Override // android.app.Activity

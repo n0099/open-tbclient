@@ -18,10 +18,10 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.tieba.hc0;
 import com.baidu.tieba.jc0;
-import com.baidu.tieba.lxb;
+import com.baidu.tieba.kxb;
 import com.baidu.tieba.pc0;
-import com.baidu.tieba.twb;
-import com.baidu.tieba.ywb;
+import com.baidu.tieba.swb;
+import com.baidu.tieba.xwb;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
@@ -65,10 +65,10 @@ public class MultiMediaPreProcessor {
     /* JADX WARN: Code restructure failed: missing block: B:28:0x009a, code lost:
         if (r1 < 0.001d) goto L80;
      */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x01d9  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x01e8  */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0205  */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x0222  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x01d8  */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x01e7  */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0204  */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x0221  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -126,7 +126,7 @@ public class MultiMediaPreProcessor {
             }
             f9 = f12 + ((multiMediaData.width / 2.0f) * f);
             f2 = (f10 - ((multiMediaData.height / 2.0f) * f)) - f13;
-            twb.e("MultiMediaPreProcessor", "ADAPTIVE,x:" + multiMediaData.x + ",y:" + multiMediaData.y + ",posx:" + f9 + ",posy:" + f2 + ",previewwidth:" + i3 + ",previeheight:" + i4);
+            swb.e("MultiMediaPreProcessor", "ADAPTIVE,x:" + multiMediaData.x + ",y:" + multiMediaData.y + ",posx:" + f9 + ",posy:" + f2 + ",previewwidth:" + i3 + ",previeheight:" + i4);
         } else if (multiMediaData.scaleType.contains(charSequence)) {
             int min = Math.min(i, i2);
             float f14 = min;
@@ -233,7 +233,7 @@ public class MultiMediaPreProcessor {
         if (this.mBgBitmap != null) {
             return true;
         }
-        if (ywb.e(this.mUpdateMediaTracks)) {
+        if (xwb.e(this.mUpdateMediaTracks)) {
             return false;
         }
         for (int i = 1; i < this.mUpdateMediaTracks.size(); i++) {
@@ -596,7 +596,7 @@ public class MultiMediaPreProcessor {
         String str;
         if (this.mTestSavePic && (i = this.mTestSavePicCount) < 1) {
             if (i == 0) {
-                lxb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor.1
+                kxb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor.1
                     @Override // java.lang.Runnable
                     public void run() {
                         FileUtils.deleteFileOrDir(new File("/sdcard/zhmy/"));
@@ -690,7 +690,7 @@ public class MultiMediaPreProcessor {
         int i6 = 0;
         this.mCurrentFboIndex = 0;
         this.mPlayTime = j;
-        if (ywb.e(list)) {
+        if (xwb.e(list)) {
             return 0;
         }
         List<MediaTrack> list3 = this.mUpdateMediaTracks;

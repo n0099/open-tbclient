@@ -136,7 +136,7 @@ public class sm0 {
         for (int i3 = 0; i3 < length; i3++) {
             a e = a.e(optJSONArray.optJSONObject(i3));
             if (e != null && e.d()) {
-                ly0.b(this.b, e);
+                ny0.b(this.b, e);
             }
         }
         this.c = jSONObject.optString("scheme");

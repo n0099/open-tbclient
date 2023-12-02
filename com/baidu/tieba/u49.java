@@ -1,62 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class u49 {
+public class u49 extends c55<List<? extends ChatMsg>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TbPageContext<BaseFragmentActivity> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948161167, "Lcom/baidu/tieba/u49;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u49(@NonNull TbPageContext<BaseFragmentActivity> tbPageContext, @NonNull b55<List<? extends ChatMsg>> b55Var) {
+        super(b55Var);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, b55Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((b55) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948161167, "Lcom/baidu/tieba/u49;");
-        }
+        this.b = tbPageContext;
     }
 
-    @JvmStatic
-    public static final String a(List<? extends GroupChatRoomPojo> list) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.c55
+    /* renamed from: b */
+    public void a(@NonNull List<? extends ChatMsg> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a.b(new w49(this.b));
+            v49 v49Var = null;
+            for (ChatMsg chatMsg : list) {
+                if (v49Var == null || v49Var.d().size() >= 10) {
+                    v49Var = new v49(this.b);
+                    this.a.b(v49Var);
+                }
+                if (chatMsg.hasReaction()) {
+                    v49Var.d().add(chatMsg);
+                }
             }
-            ArrayList arrayList = new ArrayList();
-            Intrinsics.checkNotNull(list);
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                GroupChatRoomPojo groupChatRoomPojo = list.get(i);
-                HashMap hashMap = new HashMap();
-                hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
-                hashMap.put("msg_id", String.valueOf(groupChatRoomPojo.getLatestMsgId()));
-                hashMap.put("time", Long.valueOf(groupChatRoomPojo.getLastExitChatRoomTime()));
-                arrayList.add(hashMap);
-            }
-            if (ListUtils.isEmpty(arrayList)) {
-                return null;
-            }
-            return DataExt.toJson(arrayList);
         }
-        return (String) invokeL.objValue;
     }
 }

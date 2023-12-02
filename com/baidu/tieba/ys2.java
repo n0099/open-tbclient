@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class ys2 implements gw2 {
+public class ys2 extends ws2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public at2 a;
-    public int b;
-    public int c;
-    public int d;
-    public float e;
+    public String A;
+    public ArrayList<String> B;
+    public String z;
 
     public ys2() {
         Interceptable interceptable = $ic;
@@ -31,19 +32,17 @@ public class ys2 implements gw2 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = -16777216;
-        this.d = -1;
-        this.e = 0.0f;
+        this.z = "";
+        this.A = "";
     }
 
-    @Override // com.baidu.tieba.gw2
+    @Override // com.baidu.tieba.b22, com.baidu.tieba.jw2
     public boolean isValid() {
         InterceptResult invokeV;
+        dt2 dt2Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            at2 at2Var = this.a;
-            if (at2Var != null && at2Var.isValid() && this.d != -1) {
+            if (!TextUtils.isEmpty(this.c) && (dt2Var = this.j) != null && dt2Var.isValid()) {
                 return true;
             }
             return false;
@@ -51,30 +50,32 @@ public class ys2 implements gw2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gw2
+    @Override // com.baidu.tieba.ws2, com.baidu.tieba.b22, com.baidu.tieba.jw2
     public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("radius")) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        at2 at2Var = new at2();
-        this.a = at2Var;
-        at2Var.a(jSONObject);
-        if (!this.a.isValid()) {
-            return;
+        super.a(jSONObject);
+        if (jSONObject.has("scale")) {
+            this.k = jSONObject.optDouble("scale", 18.0d);
         }
-        this.b = us2.a(jSONObject.optString("color"), 0);
-        this.c = us2.a(jSONObject.optString("fillColor"), -16777216);
-        this.d = jSONObject.optInt("radius", -1);
-        this.e = Math.abs(us2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
+        if (jSONObject.has("name")) {
+            this.z = jSONObject.optString("name");
         }
-        return (String) invokeV.objValue;
+        if (jSONObject.has("address")) {
+            this.A = jSONObject.optString("address");
+        }
+        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
+            int length = optJSONArray.length();
+            this.B = new ArrayList<>();
+            for (int i = 0; i < length; i++) {
+                this.B.add(optJSONArray.optString(i));
+            }
+        }
+        if (jSONObject.has("naviPreference")) {
+            jSONObject.optInt("naviPreference", -1);
+        }
     }
 }

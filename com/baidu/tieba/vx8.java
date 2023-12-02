@@ -3,40 +3,41 @@ package com.baidu.tieba;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.message.LoadHistoryMessage;
 import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
-import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class vx8 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
+public abstract class vx8 implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public fu8 b;
+    public xt8 a;
+    public int b;
 
-    public vx8() {
+    public vx8(xt8 xt8Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xt8Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 2001154;
-        this.b = fu8.w();
+        this.a = xt8Var;
+        this.b = i;
     }
 
     public final LoadHistoryResponsedMessage a(int i) {
@@ -51,35 +52,33 @@ public class vx8 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRes
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            if (this.b == null) {
-                return a(this.a);
-            }
-            List<ju8> x = fu8.x();
-            if (x != null && x.size() > 0) {
-                HashMap hashMap = new HashMap(x.size());
-                for (ju8 ju8Var : x) {
-                    hashMap.put(ju8Var.b(), ju8Var);
+            if (customMessage != null && (customMessage instanceof LoadHistoryMessage) && this.a != null) {
+                LoadHistoryMessage.a data = customMessage.getData();
+                LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.b);
+                LinkedList<ChatMessage> h = this.a.h(JavaTypesHelper.toLong(data.d, 0L), data.a, data.b, data.c);
+                if (h == null) {
+                    return a(this.b);
                 }
-                LinkedList<ChatMessage> l = this.b.l(hashMap, 80);
-                if (l == null) {
-                    return a(this.a);
+                LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
+                if (data.a == null) {
+                    aVar.c = true;
+                } else {
+                    aVar.c = false;
                 }
-                OfficialFeedHeadResponsedMessage.a aVar = new OfficialFeedHeadResponsedMessage.a();
-                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.a);
-                aVar.b = l;
-                aVar.a = x;
+                aVar.a = data.d;
+                aVar.b = h;
                 try {
-                    officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar);
+                    loadHistoryResponsedMessage.decodeInBackGround(2001105, aVar);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                return officialFeedHeadResponsedMessage;
+                return loadHistoryResponsedMessage;
             }
-            return a(this.a);
+            return a(this.b);
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

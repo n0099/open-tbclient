@@ -1,165 +1,109 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class b52 extends e83 {
+public final class b52 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static volatile b52 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public HashMap<String, Long> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b52(e73 e73Var) {
-        super(e73Var, "/swanAPI/sConsole");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {e73Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947595882, "Lcom/baidu/tieba/b52;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947595882, "Lcom/baidu/tieba/b52;");
                 return;
             }
         }
+        c = vm1.a;
     }
 
-    @Override // com.baidu.tieba.e83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h63 h63Var) {
-        InterceptResult invokeLLLL;
+    public b52() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h63Var)) == null) {
-            if (e83.b) {
-                Log.d("ConsoleAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = new HashMap<>();
+    }
+
+    public static b52 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (b52.class) {
+                    if (d == null) {
+                        d = new b52();
+                    }
+                }
+            }
+            return d;
+        }
+        return (b52) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            HashMap<String, Long> hashMap = this.b;
+            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.b.get(str).longValue() <= 18000000) {
+                if (c) {
+                    Log.d("SilentUpdateManager", "id = " + str + " 的小程序已在5小时内被标记为无需更新，不走MaxAge逻辑");
+                    return true;
+                }
+                return true;
+            }
+            if (c) {
+                HashMap<String, Long> hashMap2 = this.b;
+                if (hashMap2 != null && hashMap2.containsKey(str)) {
+                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.b.get(str) + " ，id = " + str);
+                } else {
+                    Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
+                }
             }
             return false;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.e83
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, h63 h63Var) {
-        InterceptResult invokeLLLLL;
-        boolean optBoolean;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, h63Var)) == null) {
-            if (e83.b) {
-                Log.d("ConsoleAction", "handleSubAction subAction: " + str);
-            }
-            if (!e32.a() && !h32.f() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
-                return super.i(context, unitedSchemeEntity, callbackHandler, str, h63Var);
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1923550429:
-                    if (str.equals("/swanAPI/sConsole/sanIncData2Console")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -1792428120:
-                    if (str.equals("/swanAPI/sConsole/sanFullData2Console")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case -797920904:
-                    if (str.equals("/swanAPI/sConsole/hide")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -797593805:
-                    if (str.equals("/swanAPI/sConsole/show")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -161927599:
-                    if (str.equals("/swanAPI/sConsole/postMessage")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 1089933937:
-                    if (str.equals("/swanAPI/sConsole/debugSwitch")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 2136057821:
-                    if (str.equals("/swanAPI/sConsole/getSanDataFromActiveSlave")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    if (optParamsAsJo != null && (optBoolean = optParamsAsJo.optBoolean("enableDebug")) != e32.a()) {
-                        e32.c(context, optBoolean);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        h32.i("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
-                    }
-                    return true;
-                case 1:
-                    ur2.V().r().N(true);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    h32.i("ConsoleAction", "sConsole show");
-                    return true;
-                case 2:
-                    ur2.V().r().N(false);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    h32.i("ConsoleAction", "sConsole hide");
-                    return true;
-                case 3:
-                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                        h32.i("ConsoleAction", "send san inc data");
-                        c52.d(optParamsAsJo.toString());
-                    } else {
-                        h32.c("ConsoleAction", "san inc data is null");
-                    }
-                    return true;
-                case 4:
-                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                        h32.i("ConsoleAction", "send san full data");
-                        c52.c(optParamsAsJo.toString());
-                    } else {
-                        h32.c("ConsoleAction", "san full data is null");
-                    }
-                    return true;
-                case 5:
-                    h32.i("ConsoleAction", "request san full data");
-                    c52.b();
-                    return true;
-                case 6:
-                    rn1 h = pp2.h();
-                    if (h != null) {
-                        h.c(optParamsAsJo);
-                    }
-                    return true;
-                default:
-                    return super.i(context, unitedSchemeEntity, callbackHandler, str, h63Var);
-            }
-        }
-        return invokeLLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

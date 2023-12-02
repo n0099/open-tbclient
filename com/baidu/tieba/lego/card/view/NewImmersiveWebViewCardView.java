@@ -17,10 +17,10 @@ import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.browser.XiubaTbJsBridge;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.axa;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.bxa;
 import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
-import com.baidu.tieba.sj6;
+import com.baidu.tieba.wj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout m;
     public TbWebView n;
-    public bxa o;
+    public axa o;
     public XiubaTbJsBridge p;
 
     /* loaded from: classes7.dex */
@@ -73,7 +73,7 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
     }
 
     /* loaded from: classes7.dex */
-    public class b implements sj6 {
+    public class b implements wj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewImmersiveWebViewCardView a;
@@ -96,7 +96,7 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
             this.a = newImmersiveWebViewCardView;
         }
 
-        @Override // com.baidu.tieba.sj6
+        @Override // com.baidu.tieba.wj6
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -127,9 +127,9 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
             }
         }
         this.i = tbPageContext;
-        bxa bxaVar = new bxa();
-        this.o = bxaVar;
-        bxaVar.a(new XiubaTbJsBridge(this.i));
+        axa axaVar = new axa();
+        this.o = axaVar;
+        axaVar.a(new XiubaTbJsBridge(this.i));
         this.o.a(new CommonTbJsBridge(this.i.getPageActivity()));
     }
 

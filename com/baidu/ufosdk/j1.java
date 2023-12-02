@@ -138,8 +138,8 @@ public class j1 extends Dialog {
             setCanceledOnTouchOutside(true);
             setCancelable(true);
             getWindow().setGravity(17);
-            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09e5);
-            LinearLayout linearLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091fdc);
+            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09e6);
+            LinearLayout linearLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091fde);
             this.a = linearLayout;
             if (z) {
                 i = com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805b7;
@@ -147,7 +147,7 @@ public class j1 extends Dialog {
                 i = com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805b6;
             }
             linearLayout.setBackgroundResource(i);
-            TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091fdd);
+            TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091fdf);
             this.b = textView;
             int i5 = -13421773;
             if (z) {
@@ -156,7 +156,7 @@ public class j1 extends Dialog {
                 i2 = -13421773;
             }
             textView.setTextColor(i2);
-            TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091fdb);
+            TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091fdd);
             this.c = textView2;
             SpannableString spannableString = new SpannableString(this.f.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f05b1));
             spannableString.setSpan(new ForegroundColorSpan((int) BaseAnimatedElement.DEBUG_PAINT_COLOR), 51, 64, 33);
@@ -175,7 +175,7 @@ public class j1 extends Dialog {
             if (text instanceof Spannable) {
                 ((Spannable) textView4.getText()).setSpan(new NoUnderlineSpan(), 0, text.length(), 17);
             }
-            View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090957);
+            View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090958);
             this.d = findViewById;
             if (z) {
                 i4 = -13619152;
@@ -183,7 +183,7 @@ public class j1 extends Dialog {
                 i4 = BdThumbSeekBarView.BUFFERING_PAINT_COLOR;
             }
             findViewById.setBackgroundColor(i4);
-            TextView textView5 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0912d8);
+            TextView textView5 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0912d9);
             this.e = textView5;
             if (z) {
                 i5 = -11711155;

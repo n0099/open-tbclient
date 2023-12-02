@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tieba.feed.log.FeedStat;
-import com.baidu.tieba.forum.statistic.ForumStatConstant$TabType;
+import com.baidu.tieba.fb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes8.dex */
-public final class qm7 implements FeedStat.a {
+/* loaded from: classes7.dex */
+public final class qm7 implements fb7.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Bundle a;
-    public final ForumStatConstant$TabType b;
-    public final long c;
 
     public qm7(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -35,20 +33,35 @@ public final class qm7 implements FeedStat.a {
         }
         Intrinsics.checkNotNullParameter(bundle, "bundle");
         this.a = bundle;
-        this.b = pm7.a(bundle);
-        this.c = this.a.getLong("forum_id");
     }
 
-    @Override // com.baidu.tieba.feed.log.FeedStat.a
-    public void a(String id, Map<String, String> businessInfo, Map<String, String> logInfo, Map<String, String> runInfo) {
+    @Override // com.baidu.tieba.fb7.b
+    public void a(rb7<?> data, int i) {
+        bb7 bb7Var;
+        Map<String, String> emptyMap;
+        Map<String, String> emptyMap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, id, businessInfo, logInfo, runInfo) == null) {
-            Intrinsics.checkNotNullParameter(id, "id");
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            Intrinsics.checkNotNullParameter(logInfo, "logInfo");
-            Intrinsics.checkNotNullParameter(runInfo, "runInfo");
-            um7.a.b(id, businessInfo, this.b, String.valueOf(this.c), JavaTypesHelper.toInt(runInfo.get("get_position"), 0) - 1);
-            sm7.a.a(id, businessInfo, logInfo, runInfo);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (data instanceof bb7) {
+                bb7Var = (bb7) data;
+            } else {
+                bb7Var = null;
+            }
+            if (bb7Var == null) {
+                return;
+            }
+            n77 n77Var = bb7Var.a;
+            if (n77Var == null || (emptyMap = n77Var.a()) == null) {
+                emptyMap = MapsKt__MapsKt.emptyMap();
+            }
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("get_position", String.valueOf(i + 1));
+            v57 v57Var = bb7Var.b;
+            if (v57Var == null || (emptyMap2 = v57Var.a()) == null) {
+                emptyMap2 = MapsKt__MapsKt.emptyMap();
+            }
+            ac7.a.d(new tb7("card_click_other", emptyMap, linkedHashMap, emptyMap2), new um7(this.a));
         }
     }
 }

@@ -63,10 +63,10 @@ public class MinorView extends LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0603, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091845);
-        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091847);
-        this.c = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091844);
-        this.d = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f090b5d);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091846);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091848);
+        this.c = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091845);
+        this.d = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f090b5e);
         b();
     }
 

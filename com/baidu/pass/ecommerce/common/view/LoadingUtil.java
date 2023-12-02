@@ -29,7 +29,7 @@ public class LoadingUtil {
         } else {
             inflate = from.inflate(R.layout.obfuscated_res_0x7f0d05a3, (ViewGroup) null);
         }
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092190)).setText(str);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092192)).setText(str);
         return inflate;
     }
 

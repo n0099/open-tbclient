@@ -230,7 +230,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                     return;
                 }
                 BasePersonInfoActivity basePersonInfoActivity2 = this.a;
-                basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e6f));
+                basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e70));
             }
         }
     }
@@ -384,7 +384,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                 if (this.m == 23011) {
                     navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0bdf));
                 } else {
-                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f13dd));
+                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f13de));
                 }
             } else {
                 navigationBar.setCenterTextTitle(String.format(D1(), this.e));
@@ -451,9 +451,9 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                 int i = this.f;
                 if (i != 1) {
                     if (i != 2) {
-                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f160f);
+                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1610);
                     } else {
-                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1426);
+                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1427);
                     }
                 } else {
                     this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f09de);
@@ -557,7 +557,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.b = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
-        fragmentTabIndicator.setMinimumHeight(BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070420));
+        fragmentTabIndicator.setMinimumHeight(BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070421));
         cVar.b = fragmentTabIndicator;
         this.n.b(cVar);
     }

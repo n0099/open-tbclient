@@ -45,12 +45,12 @@ public class uq {
 
             /* renamed from: com.baidu.tieba.uq$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public class RunnableC0497a implements Runnable {
+            public class RunnableC0492a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0497a(a aVar) {
+                public RunnableC0492a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class uq {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    wo.c(new RunnableC0497a(this));
+                    wo.c(new RunnableC0492a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;
@@ -336,7 +336,7 @@ public class uq {
             gradientDrawable.setColor(zq.a.a(str, resources.getColor(R.color.task_sdk_toast_bg_color_default)));
             gradientDrawable.setAlpha(204);
             relativeLayout.setBackground(gradientDrawable);
-            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091a8f);
+            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091a91);
             if (textView != null) {
                 textView.setTextColor(zq.a.a(str2, resources.getColor(R.color.task_sdk_text_color_default)));
                 textView.setText(charSequence);
@@ -358,12 +358,12 @@ public class uq {
             gradientDrawable.setAlpha(204);
             linearLayout.setBackground(gradientDrawable);
             linearLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092011)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092013)) != null) {
                 textView.setText(charSequence);
                 textView.setTextColor(zq.a.a(str3, resources.getColor(R.color.task_sdk_text_color_default)));
                 textView.setTextSize(1, i);
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092010);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092012);
             GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.sdk_toast_btn_bg);
             gradientDrawable2.setColor(zq.a.a(str4, resources.getColor(R.color.task_sdk_toast_bg_color_default)));
             textView2.setBackground(gradientDrawable2);

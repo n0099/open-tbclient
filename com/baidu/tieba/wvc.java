@@ -1,28 +1,42 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
+import tbclient.ChatRoomAtInfo;
 import tbclient.ChatroomInfoBasic;
-/* loaded from: classes9.dex */
-public class wvc extends ltc {
+import tbclient.ChatroomList;
+import tbclient.ChatroomMEMsgInfo;
+/* loaded from: classes8.dex */
+public class wvc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ChatroomInfoBasic chatroomInfoBasic) {
+    public static JSONObject b(@NonNull ChatroomList chatroomList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatroomInfoBasic)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatroomList)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "forum_id", chatroomInfoBasic.forum_id);
-            ltc.a(jSONObject, "forum_name", chatroomInfoBasic.forum_name);
-            ltc.a(jSONObject, "avatar", chatroomInfoBasic.avatar);
-            ltc.a(jSONObject, "name", chatroomInfoBasic.name);
-            ltc.a(jSONObject, "unread_num", chatroomInfoBasic.unread_num);
-            ltc.a(jSONObject, "btn_type", chatroomInfoBasic.btn_type);
+            ktc.a(jSONObject, "room_id", chatroomList.room_id);
+            ChatroomInfoBasic chatroomInfoBasic = chatroomList.room_info;
+            if (chatroomInfoBasic != null) {
+                ktc.a(jSONObject, "room_info", vvc.b(chatroomInfoBasic));
+            }
+            ChatroomMEMsgInfo chatroomMEMsgInfo = chatroomList.msg_info;
+            if (chatroomMEMsgInfo != null) {
+                ktc.a(jSONObject, "msg_info", xvc.b(chatroomMEMsgInfo));
+            }
+            ktc.a(jSONObject, BigdayActivityConfig.JUMP_URL, chatroomList.jump_url);
+            ChatRoomAtInfo chatRoomAtInfo = chatroomList.at_info;
+            if (chatRoomAtInfo != null) {
+                ktc.a(jSONObject, "at_info", uvc.b(chatRoomAtInfo));
+            }
+            ktc.a(jSONObject, TableDefine.ZhiDaColumns.COLUMN_IS_SUBSCRIBE, chatroomList.is_subscribe);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

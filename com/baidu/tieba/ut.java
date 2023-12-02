@@ -127,9 +127,9 @@ public class ut extends qs implements it<ThreadData>, jt {
         setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
     }
 
-    public void autoAlignParent(cw4 cw4Var) {
+    public void autoAlignParent(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cw4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, fw4Var) == null) {
             c(Align.ALIGN_RIGHT_TOP);
         }
     }

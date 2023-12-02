@@ -10,12 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class n62 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final l62 a;
+    public String a;
+    public String b;
+    public String c;
 
-    public n62() {
+    public n62(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,41 +29,44 @@ public final class n62 {
                 return;
             }
         }
-        this.a = new l62();
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
     }
 
-    public boolean a() {
+    public static n62 a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
+            return new n62(str, str2, str3);
+        }
+        return (n62) invokeLLL.objValue;
+    }
+
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.c();
+            return "1".equals(this.c);
         }
         return invokeV.booleanValue;
     }
 
-    public o62 c() {
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "1".equals(this.a);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            o62 o62Var = new o62();
-            o62Var.c(this.a.d());
-            o62Var.d(this.a.c());
-            return o62Var;
+            return "JSErrorModel{mType='" + this.a + "', mContent='" + this.b + "', mSource='" + this.c + "'}";
         }
-        return (o62) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.b();
-        }
-    }
-
-    public void b(k62 k62Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k62Var) == null) {
-            this.a.a(k62Var);
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -25,8 +25,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jt5;
-import com.baidu.tieba.kea;
+import com.baidu.tieba.nt5;
+import com.baidu.tieba.oea;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 public class OperableVideoShareView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kea a;
+    public oea a;
     public View b;
     public ImageView c;
     public View d;
@@ -87,7 +87,7 @@ public class OperableVideoShareView extends LinearLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || jt5.a()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || nt5.a()) {
                 return;
             }
             if (view2 != this.a.b) {
@@ -222,11 +222,11 @@ public class OperableVideoShareView extends LinearLayout {
         }
     }
 
-    public void setVideoContainer(kea keaVar) {
+    public void setVideoContainer(oea oeaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, keaVar) == null) {
-            this.a = keaVar;
-            this.i.setOnClickListener(keaVar);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, oeaVar) == null) {
+            this.a = oeaVar;
+            this.i.setOnClickListener(oeaVar);
         }
     }
 
@@ -295,7 +295,7 @@ public class OperableVideoShareView extends LinearLayout {
             this.e = (ImageView) findViewById(R.id.share_weixin_timeline_img);
             this.f = findViewById(R.id.share_qq);
             this.g = (ImageView) findViewById(R.id.share_qq_img);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090957);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090958);
             this.i = findViewById(R.id.video_replay);
             this.j = (ImageView) findViewById(R.id.replay_img);
             this.b.setOnClickListener(this.m);

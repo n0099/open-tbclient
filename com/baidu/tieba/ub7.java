@@ -1,9 +1,26 @@
 package com.baidu.tieba;
 
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public interface ub7 {
-    Map<String, String> a(r57 r57Var);
+public final class ub7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String getKey();
+    public static final void a(JSONObject jSONObject, JSONObject jsonObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, jSONObject, jsonObject) == null) {
+            Intrinsics.checkNotNullParameter(jSONObject, "<this>");
+            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+            Iterator<String> keys = jsonObject.keys();
+            Intrinsics.checkNotNullExpressionValue(keys, "jsonObject.keys()");
+            while (keys.hasNext()) {
+                String next = keys.next();
+                jSONObject.put(next, jsonObject.opt(next));
+            }
+        }
+    }
 }

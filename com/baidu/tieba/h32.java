@@ -1,228 +1,99 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Build;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.o53;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class h32 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947772706, "Lcom/baidu/tieba/h32;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947772706, "Lcom/baidu/tieba/h32;");
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k63 a;
 
-    public static String a(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2;
-            }
-            return PreferencesUtil.LEFT_MOUNT + str + "] " + str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void b(String str, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, objArr) == null) && sm1.a && objArr != null) {
-            StringBuilder sb = new StringBuilder();
-            for (Object obj : objArr) {
-                if (obj != null) {
-                    sb.append(obj.toString());
+        public a(k63 k63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k63Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            Log.d(str, sb.toString());
+            this.a = k63Var;
         }
-    }
 
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            m("error", str, str2);
-            op2.p0().e(str, str2);
-            if (sm1.a) {
-                Log.e(str, str2);
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                SwanAppActivity w = this.a.w();
+                if (w != null && Build.VERSION.SDK_INT >= 21) {
+                    w.finishAndRemoveTask();
+                }
+                System.exit(0);
             }
         }
     }
 
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            m("info", str, str2);
-            op2.p0().i(str, str2);
-            if (sm1.a) {
-                Log.i(str, str2);
-            }
-        }
-    }
-
-    public static void k(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
-            op2.p0().i(str, str2);
-            if (sm1.a) {
-                Log.i(str, str2);
-            }
-        }
-    }
-
-    public static void o(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) {
-            m("warn", str, str2);
-            op2.p0().w(str, str2);
-            if (sm1.a) {
-                Log.w(str, str2);
-            }
-        }
-    }
-
-    public static void d(String str, String str2, Throwable th) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
-            if (th != null) {
-                str3 = "Exception:" + th.getMessage() + "\n" + str2;
-            } else {
-                str3 = str2;
-            }
-            m("error", str, str3);
-            op2.p0().e(str, str2, th);
-            if (sm1.a) {
-                Log.e(str, str2, th);
-            }
-        }
-    }
-
-    public static void e(String str, String str2, String str3, @Nullable Throwable th, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, th, Boolean.valueOf(z)}) == null) {
-            String a2 = a(str2, str3);
-            op2.p0().e(str, a2, th);
-            if (z) {
-                m("error", str, a2);
-            }
-        }
-    }
-
-    public static void p(String str, String str2, String str3, @Nullable Throwable th, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{str, str2, str3, th, Boolean.valueOf(z)}) == null) {
-            String a2 = a(str2, str3);
-            op2.p0().w(str, a2, th);
-            if (z) {
-                m("warn", str, a2);
-            }
-        }
-    }
-
-    public static boolean f() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             return a;
         }
         return invokeV.booleanValue;
     }
 
-    public static int h() {
-        InterceptResult invokeV;
+    public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (stackTrace != null && stackTrace.length > 5) {
-                return stackTrace[5].getLineNumber();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (stackTrace != null && stackTrace.length > 5) {
-                return stackTrace[5].getFileName();
-            }
-            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0191);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void j(String str, String str2, String str3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
-            String a2 = a(str2, str3);
-            op2.p0().i(str, a2);
-            if (z) {
-                m("info", str, a2);
-            }
-        }
-    }
-
-    public static void l(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, str, str2, th) == null) {
-            op2.p0().e(str, str2, th);
-            if (sm1.a) {
-                Log.e(str, str2, th);
-            }
-        }
-    }
-
-    public static void m(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65549, null, str, str2, str3) == null) && a && !TextUtils.isEmpty(str3)) {
-            StringBuilder sb = new StringBuilder();
-            String b = vi3.b(new Date(), "yyyy-MM-dd HH:mm:ss");
-            String g = g();
-            int h = h();
-            sb.append(b);
-            sb.append(GlideException.IndentedAppendable.INDENT);
-            sb.append(g);
-            sb.append(GlideException.IndentedAppendable.INDENT);
-            sb.append("line:");
-            sb.append(h);
-            sb.append("\n");
-            sb.append("module:");
-            sb.append(str2);
-            sb.append("\n");
-            sb.append(str3);
-            ur2.V().r().d0(str, sb.toString());
-        }
-    }
-
-    public static void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
             a = z;
+        }
+    }
+
+    public static void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            c(context, !a());
+        }
+    }
+
+    public static void c(Context context, boolean z) {
+        k63 M;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (M = k63.M()) != null) {
+            i32.c(z);
+            if (z) {
+                i = R.string.obfuscated_res_0x7f0f01da;
+            } else {
+                i = R.string.obfuscated_res_0x7f0f014e;
+            }
+            o53.a aVar = new o53.a(context);
+            aVar.V(context.getString(R.string.obfuscated_res_0x7f0f018a));
+            aVar.x(context.getString(i));
+            aVar.n(new sl3());
+            aVar.m(false);
+            aVar.O(R.string.obfuscated_res_0x7f0f0151, new a(M));
+            aVar.X();
         }
     }
 }

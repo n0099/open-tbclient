@@ -6,29 +6,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class wi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public final int a;
     public final String b;
-    public final List<h67> c;
-    public final long d;
-    public final i87 e;
-    public final List<d87> f;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof wi7) {
                 wi7 wi7Var = (wi7) obj;
-                return Intrinsics.areEqual(this.a, wi7Var.a) && Intrinsics.areEqual(this.b, wi7Var.b) && Intrinsics.areEqual(this.c, wi7Var.c) && this.d == wi7Var.d && Intrinsics.areEqual(this.e, wi7Var.e) && Intrinsics.areEqual(this.f, wi7Var.f);
+                return this.a == wi7Var.a && Intrinsics.areEqual(this.b, wi7Var.b);
             }
             return false;
         }
@@ -38,94 +33,53 @@ public final class wi7 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String str = this.a;
-            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-            String str2 = this.b;
-            int hashCode2 = (hashCode + (str2 == null ? 0 : str2.hashCode())) * 31;
-            List<h67> list = this.c;
-            int hashCode3 = (((((hashCode2 + (list == null ? 0 : list.hashCode())) * 31) + c.a(this.d)) * 31) + this.e.hashCode()) * 31;
-            List<d87> list2 = this.f;
-            return hashCode3 + (list2 != null ? list2.hashCode() : 0);
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a * 31) + this.b.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "StaggeredVideoAuthorData(imgUrl=" + this.a + ", imgSchema=" + this.b + ", mainData=" + this.c + ", commentNum=" + this.d + ", videoSchemaData=" + this.e + ", manageItemList=" + this.f + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "GuideBubbleData(type=" + this.a + ", content=" + this.b + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public wi7(String str, String str2, List<? extends h67> list, long j, i87 videoSchemaData, List<d87> list2) {
+    public wi7(int i, String content) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, list, Long.valueOf(j), videoSchemaData, list2};
+            Object[] objArr = {Integer.valueOf(i), content};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-        this.a = str;
-        this.b = str2;
-        this.c = list;
-        this.d = j;
-        this.e = videoSchemaData;
-        this.f = list2;
+        Intrinsics.checkNotNullParameter(content, "content");
+        this.a = i;
+        this.b = content;
     }
 
-    public final long a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public final String c() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final List<h67> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<d87> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 }

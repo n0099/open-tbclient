@@ -23,26 +23,26 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.uiwidget.ExpandIconView;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c21;
 import com.baidu.tieba.de0;
-import com.baidu.tieba.e71;
 import com.baidu.tieba.ee0;
-import com.baidu.tieba.i41;
+import com.baidu.tieba.f21;
+import com.baidu.tieba.g71;
 import com.baidu.tieba.k41;
-import com.baidu.tieba.l41;
+import com.baidu.tieba.m41;
 import com.baidu.tieba.n41;
 import com.baidu.tieba.p41;
+import com.baidu.tieba.r41;
 import com.baidu.tieba.ti0;
-import com.baidu.tieba.u11;
-import com.baidu.tieba.w41;
+import com.baidu.tieba.w11;
+import com.baidu.tieba.y41;
 /* loaded from: classes3.dex */
 public class PanelScrollView extends FrameLayout implements View.OnTouchListener, View.OnLayoutChangeListener, de0 {
-    public static final int B = u11.c.a(e71.a(), 18.0f);
+    public static final int B = w11.c.a(g71.a(), 18.0f);
     public VelocityTracker A;
     public int a;
     public int b;
     public int c;
-    public p41 d;
+    public r41 d;
     public int e;
     public int f;
     public int g;
@@ -51,9 +51,9 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
     public ObjectAnimator j;
     public int k;
     public int l;
-    public i41 m;
-    public l41 n;
-    public n41 o;
+    public k41 m;
+    public n41 n;
+    public p41 o;
     public GestureDetector p;
     public d q;
     public c r;
@@ -273,13 +273,13 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         this.q = dVar;
     }
 
-    public void setPanelData(p41 p41Var) {
-        this.d = p41Var;
-        String k = p41Var.k();
+    public void setPanelData(r41 r41Var) {
+        this.d = r41Var;
+        String k = r41Var.k();
         if (!TextUtils.isEmpty(k)) {
             this.m.g(k);
         }
-        this.m.k(p41Var.A());
+        this.m.k(r41Var.A());
     }
 
     public void setScrollListener(@Nullable ee0 ee0Var) {
@@ -331,12 +331,12 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         l();
     }
 
-    public void k(@NonNull l41 l41Var, n41 n41Var) {
-        this.n = l41Var;
-        this.o = n41Var;
-        l41Var.m(this);
+    public void k(@NonNull n41 n41Var, p41 p41Var) {
+        this.n = n41Var;
+        this.o = p41Var;
+        n41Var.m(this);
         this.n.o(this.m);
-        this.n.t(n41Var);
+        this.n.t(p41Var);
     }
 
     public final void t(int i, int i2) {
@@ -369,7 +369,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
     }
 
     public final void l() {
-        this.m = new i41();
+        this.m = new k41();
         setClipChildren(false);
         setLayerType(2, null);
         setOnTouchListener(this);
@@ -386,16 +386,16 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         this.n.s(i, z);
         if (!z) {
             if (i == 1) {
-                ti0.a().b(new k41(4, this.d.a()));
-                p41 p41Var = this.d;
-                if (p41Var != null) {
-                    w41.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", "down", p41Var.f());
+                ti0.a().b(new m41(4, this.d.a()));
+                r41 r41Var = this.d;
+                if (r41Var != null) {
+                    y41.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", "down", r41Var.f());
                 }
             } else if (i == 2) {
-                ti0.a().b(new k41(3, this.d.a()));
-                p41 p41Var2 = this.d;
-                if (p41Var2 != null) {
-                    w41.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, p41Var2.f());
+                ti0.a().b(new m41(3, this.d.a()));
+                r41 r41Var2 = this.d;
+                if (r41Var2 != null) {
+                    y41.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, r41Var2.f());
                 }
             }
         }
@@ -409,14 +409,14 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         FrameLayout.LayoutParams webViewLayoutParams = getWebViewLayoutParams();
         if (webViewLayoutParams != null) {
             if (webViewLayoutParams.topMargin == 0) {
-                c21.d(activity.getWindow(), 17170443);
+                f21.d(activity.getWindow(), 17170443);
                 if (Build.VERSION.SDK_INT >= 23) {
                     activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() | 8192);
                     return;
                 }
                 return;
             }
-            c21.d(activity.getWindow(), this.h);
+            f21.d(activity.getWindow(), this.h);
             if (Build.VERSION.SDK_INT >= 23) {
                 activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & (-8193));
             }
@@ -498,12 +498,12 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                     if (System.currentTimeMillis() - this.y < ViewConfiguration.getLongPressTimeout()) {
                         if (this.m.d()) {
                             this.n.a();
-                            w41.a(ClogBuilder.LogType.FREE_CLICK, "", "top_area", this.d.f());
+                            y41.a(ClogBuilder.LogType.FREE_CLICK, "", "top_area", this.d.f());
                             return true;
                         }
-                        n41 n41Var = this.o;
-                        if (n41Var != null) {
-                            n41Var.a(0);
+                        p41 p41Var = this.o;
+                        if (p41Var != null) {
+                            p41Var.a(0);
                         }
                     }
                     return true;
@@ -517,8 +517,8 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                                 return false;
                             }
                         } else if (this.z && this.A.getYVelocity() < -800.0f && !this.m.c()) {
-                            p41 p41Var = this.d;
-                            if (p41Var != null && p41Var.s()) {
+                            r41 r41Var = this.d;
+                            if (r41Var != null && r41Var.s()) {
                                 this.z = false;
                                 return false;
                             }
@@ -548,7 +548,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                         if (i5 > i6 / 2 && i5 < i6) {
                             this.i = false;
                             t(160, i6 - i5);
-                            setExpandIconView(this.g - u11.c.a(getContext(), 17.0f));
+                            setExpandIconView(this.g - w11.c.a(getContext(), 17.0f));
                         }
                         int i7 = this.g;
                         if (i5 > i7 + ((this.e - i7) / 4)) {
@@ -558,7 +558,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                         if (i5 > i8 && i5 < ((this.e - i8) / 4) + i8) {
                             this.i = true;
                             t(160, i5 - i8);
-                            setExpandIconView(this.g - u11.c.a(getContext(), 17.0f));
+                            setExpandIconView(this.g - w11.c.a(getContext(), 17.0f));
                         }
                     }
                 }
@@ -584,14 +584,14 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
             return;
         }
         Activity activity = (Activity) getContext();
-        c21.d(activity.getWindow(), this.h);
+        f21.d(activity.getWindow(), this.h);
         if (Build.VERSION.SDK_INT >= 23) {
             activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & (-8193));
         }
     }
 
     public final void s() {
-        this.f = u11.c.a(e71.a(), 100.0f);
+        this.f = w11.c.a(g71.a(), 100.0f);
         if (this.d.g() == 0) {
             if (this.d.h() < 0.0d || this.d.h() > 1.0d) {
                 this.d.I(0.7d);
@@ -601,7 +601,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
             if (this.d.h() <= 0.0d) {
                 this.d.I(1.95d);
             }
-            this.g = (int) (u11.c.e(e71.a()) / this.d.h());
+            this.g = (int) (w11.c.e(g71.a()) / this.d.h());
         }
         this.n.i((this.e - this.g) + B);
         this.n.e(this.g);
@@ -613,17 +613,17 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
             this.t = expandIconView;
             expandIconView.setFraction(0.0f, false);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.height = u11.c.a(getContext(), 24.0f);
-            layoutParams.width = u11.c.a(getContext(), 24.0f);
+            layoutParams.height = w11.c.a(getContext(), 24.0f);
+            layoutParams.width = w11.c.a(getContext(), 24.0f);
             layoutParams.gravity = 1;
-            layoutParams.topMargin = this.g - u11.c.a(getContext(), 17.0f);
+            layoutParams.topMargin = this.g - w11.c.a(getContext(), 17.0f);
             addView(this.t, layoutParams);
         }
     }
 
     public final boolean u(boolean z, int i) {
         int i2;
-        p41 p41Var;
+        r41 r41Var;
         if (this.m.a()) {
             return false;
         }
@@ -636,7 +636,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         if (webViewLayoutParams == null) {
             return false;
         }
-        if (i < 0 && webViewLayoutParams.topMargin + i < this.g && (p41Var = this.d) != null && p41Var.s()) {
+        if (i < 0 && webViewLayoutParams.topMargin + i < this.g && (r41Var = this.d) != null && r41Var.s()) {
             return false;
         }
         if (this.c == 0 && this.b == 2 && this.a == 2) {

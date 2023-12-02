@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tieba.kq2;
+import com.baidu.tieba.pv1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,23 +14,110 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class qv1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String f;
-    public static final MediaType g;
+    public static volatile qv1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Map<String, String> b;
-    public Map<String, String> c;
-    public boolean d;
-    public String e;
+    public c a;
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void b(pv1.c cVar, int i);
+
+        void f(pv1.c cVar, String str);
+
+        void g(pv1.c cVar, j93 j93Var);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements n13 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pv1.c a;
+        public final /* synthetic */ qv1 b;
+
+        public a(qv1 qv1Var, pv1.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qv1Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = qv1Var;
+            this.a = cVar;
+        }
+
+        @Override // com.baidu.tieba.n13
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.b.c(this.a);
+            }
+        }
+
+        @Override // com.baidu.tieba.n13
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                k32.c("GetLocationHelper", str);
+                qd3.b(GameAssistConstKt.METHOD_GET_LOCATION, 5002, "user no permission", 10005, str);
+                this.b.a.f(this.a, str);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements kq2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pv1.c a;
+        public final /* synthetic */ qv1 b;
+
+        public b(qv1 qv1Var, pv1.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qv1Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = qv1Var;
+            this.a = cVar;
+        }
+
+        @Override // com.baidu.tieba.kq2.a
+        public void a(j93 j93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, j93Var) == null) {
+                this.b.a.g(this.a, j93Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.kq2.a
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                qd3.b(GameAssistConstKt.METHOD_GET_LOCATION, 4000, "sdk's errCode is " + i, 1001, String.valueOf(i));
+                this.b.a.b(this.a, i);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -45,24 +132,7 @@ public class qv1 {
                 return;
             }
         }
-        boolean z = sm1.a;
-        f = String.format("%s/ma/call", b32.b());
-        g = ox2.a;
-    }
-
-    public final void b() {
-        h63 c0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (c0 = h63.c0()) == null) {
-            return;
-        }
-        int k = c0.k();
-        String i = mf3.i(ur2.V().getCoreVersion(), k);
-        if (k == 0) {
-            this.c.put("swan_ver", i);
-        } else if (k == 1) {
-            this.c.put("game_ver", i);
-        }
+        boolean z = vm1.a;
     }
 
     public qv1() {
@@ -75,104 +145,53 @@ public class qv1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = f + "?";
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = false;
-        this.e = "";
-        d();
-        e();
     }
 
-    public final void a() {
-        h63 c0;
-        PMSAppInfo g0;
+    public static qv1 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (c0 = h63.c0()) == null || (g0 = c0.X().g0()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (b == null) {
+                synchronized (qv1.class) {
+                    if (b == null) {
+                        b = new qv1();
+                    }
+                }
+            }
+            return b;
         }
-        this.c.put("app_ver", String.valueOf(g0.versionCode));
+        return (qv1) invokeV.objValue;
     }
 
-    public final void e() {
-        int i;
+    public final void c(pv1.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Map<String, String> map = this.b;
-            if (SwanAppAllianceLoginHelper.d.f()) {
-                i = 2;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            String str = "gcj02";
+            if (!TextUtils.equals(cVar.a, "gcj02")) {
+                if (TextUtils.equals(cVar.a, "bd09ll")) {
+                    str = "bd09ll";
+                } else {
+                    str = "wgs84";
+                }
+            }
+            rp2.I().b(str, false, cVar.b, new b(this, cVar));
+        }
+    }
+
+    public void e(@NonNull pv1.c cVar, @NonNull c cVar2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, z) == null) {
+            this.a = cVar2;
+            if (ek3.M()) {
+                c(cVar);
+            } else if (z) {
+                qd3.b(GameAssistConstKt.METHOD_GET_LOCATION, 1002, "GetLocation does not supported when app is invisible", 10005, "GetLocation does not supported when app is invisible");
+                this.a.f(cVar, "GetLocation does not supported when app is invisible");
             } else {
-                i = 0;
+                m13.f(j63.K().w(), new String[]{com.kuaishou.weapon.p0.g.g, com.kuaishou.weapon.p0.g.h}, 0, new a(this, cVar));
             }
-            map.put("mnpunion", String.valueOf(i));
-            this.b.put("Referer", oj3.b());
-        }
-    }
-
-    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback) == null) {
-            if (!this.d) {
-                responseCallback.onFail(new InvalidParameterException("no service has been set"));
-                return;
-            }
-            String b = zj3.b(this.a, this.c);
-            this.a = b;
-            this.a = d32.b(b);
-            kd4 kd4Var = new kd4(this.a, RequestBody.create(g, this.e), responseCallback);
-            kd4Var.c = this.b;
-            kd4Var.g = true;
-            h32.i("CallServiceRequest", "Start request cloud ability: " + this.c.get("service"));
-            ld4.g().e(kd4Var);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (cq3.a() == null) {
-                h32.c("CallServiceRequest", Log.getStackTraceString(new AssertionError("Assertion failed: SwanConfigRuntime.getContext() == null")));
-                return;
-            }
-            this.c.put("host_os", hm4.f());
-            this.c.put("host_os_ver", hm4.g());
-            this.c.put("host_app", cq3.a().c());
-            this.c.put("host_app_ver", cq3.a().h());
-            this.c.put("sdk_ver", cq3.a().b());
-            this.c.put("ua", pm4.b(cq3.a().h()));
-            this.c.put("ut", d32.f());
-            this.c.put("network", hm4.e());
-            this.c.put("bundle_Id", g63.K().getAppId());
-            this.c.put("cuid", cq3.a().g());
-            this.c.put("uuid", cq3.a().e());
-            Map<String, String> map = this.c;
-            map.put("sid", op2.g0().k() + "");
-            this.c.put("source", "swan_sdk");
-            this.c.put("timestamp", String.valueOf(System.currentTimeMillis()));
-            b();
-            a();
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                this.e = "";
-            } else {
-                this.e = jSONObject.toString();
-            }
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TextUtils.isEmpty(str)) {
-            this.c.put("service", str);
-            this.d = true;
         }
     }
 }

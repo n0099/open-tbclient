@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.model.AttentionModel;
 import com.baidu.tieba.R;
+import com.baidu.tieba.br6;
 import com.baidu.tieba.feed.helper.CommonOnClickKt$FeedBackOnClick$1;
-import com.baidu.tieba.i55;
-import com.baidu.tieba.na7;
-import com.baidu.tieba.p67;
-import com.baidu.tieba.q67;
-import com.baidu.tieba.r67;
-import com.baidu.tieba.s95;
-import com.baidu.tieba.t95;
-import com.baidu.tieba.xq6;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.ra7;
+import com.baidu.tieba.t67;
+import com.baidu.tieba.u67;
+import com.baidu.tieba.v67;
+import com.baidu.tieba.v95;
+import com.baidu.tieba.w95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ import kotlin.jvm.internal.Lambda;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H\n¢\u0006\u0002\b\u0006"}, d2 = {"<anonymous>", "", "data", "Lcom/baidu/tieba/feed/data/FeedFeedbackData;", "view", "Landroid/view/View;", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CommonOnClickKt$FeedBackOnClick$1 extends Lambda implements Function2<p67, View, Unit> {
+public final class CommonOnClickKt$FeedBackOnClick$1 extends Lambda implements Function2<t67, View, Unit> {
     public static /* synthetic */ Interceptable $ic;
     public static final CommonOnClickKt$FeedBackOnClick$1 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public final class CommonOnClickKt$FeedBackOnClick$1 extends Lambda implements F
     }
 
     /* renamed from: invoke$lambda-2  reason: not valid java name */
-    public static final void m135invoke$lambda2(p67 data, View view2, na7 helper, List reasons, boolean z) {
+    public static final void m135invoke$lambda2(t67 data, View view2, ra7 helper, List reasons, boolean z) {
         JSONObject c;
         String string;
         Interceptable interceptable = $ic;
@@ -86,21 +86,21 @@ public final class CommonOnClickKt$FeedBackOnClick$1 extends Lambda implements F
             Intrinsics.checkNotNullParameter(data, "$data");
             Intrinsics.checkNotNullParameter(view2, "$view");
             Intrinsics.checkNotNullParameter(helper, "$helper");
-            if (Intrinsics.areEqual(data.d(), ImageViewerConfig.FROM_CONCERN) && (data.a() instanceof r67)) {
+            if (Intrinsics.areEqual(data.d(), ImageViewerConfig.FROM_CONCERN) && (data.a() instanceof v67)) {
                 if (view2.getContext() instanceof TbPageContextSupport) {
                     Context context = view2.getContext();
                     if (context != null) {
                         TbPageContext pageContext = ((TbPageContextSupport) context).getPageContext();
                         if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                            BdUtilHelper.showToast(view2.getContext(), (int) R.string.obfuscated_res_0x7f0f0e6f);
+                            BdUtilHelper.showToast(view2.getContext(), (int) R.string.obfuscated_res_0x7f0f0e70);
                         } else if (ViewHelper.checkUpIsLogin(view2.getContext())) {
                             AttentionModel attentionModel = new AttentionModel(pageContext);
                             Object a = data.a();
                             if (a != null) {
-                                String a2 = ((r67) a).a();
+                                String a2 = ((v67) a).a();
                                 Object a3 = data.a();
                                 if (a3 != null) {
-                                    attentionModel.l(false, a2, ((r67) a3).b(), false, "0", pageContext.getUniqueId(), null, "0");
+                                    attentionModel.l(false, a2, ((v67) a3).b(), false, "0", pageContext.getUniqueId(), null, "0");
                                 } else {
                                     throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.feed.data.FeedFeedbackUserData");
                                 }
@@ -112,17 +112,17 @@ public final class CommonOnClickKt$FeedBackOnClick$1 extends Lambda implements F
                         throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.TbPageContextSupport");
                     }
                 }
-            } else if ((Intrinsics.areEqual(data.d(), "recommend_post") || Intrinsics.areEqual(data.d(), "frs_post")) && (data.a() instanceof q67)) {
+            } else if ((Intrinsics.areEqual(data.d(), "recommend_post") || Intrinsics.areEqual(data.d(), "frs_post")) && (data.a() instanceof u67)) {
                 Object a4 = data.a();
                 if (a4 != null) {
-                    q67 q67Var = (q67) a4;
+                    u67 u67Var = (u67) a4;
                     ArrayList arrayList = new ArrayList();
                     Object a5 = data.a();
                     if (a5 != null) {
                         Intrinsics.checkNotNullExpressionValue(reasons, "reasons");
-                        c = CommonOnClickKt.c((q67) a5, arrayList, reasons);
+                        c = CommonOnClickKt.c((u67) a5, arrayList, reasons);
                         helper.j();
-                        new i55().a = 1500L;
+                        new l55().a = 1500L;
                         if (c != null && Intrinsics.areEqual("7", c.optString("dislike_ids"))) {
                             string = view2.getContext().getResources().getString(R.string.forbidden_forum_success);
                             Intrinsics.checkNotNullExpressionValue(string, "{\n                      …ss)\n                    }");
@@ -131,60 +131,60 @@ public final class CommonOnClickKt$FeedBackOnClick$1 extends Lambda implements F
                             Intrinsics.checkNotNullExpressionValue(string, "{\n                      …nd)\n                    }");
                         }
                         BdUtilHelper.showToast(view2.getContext(), string);
-                        xq6.b().c(new s95(arrayList, helper.l(), data));
-                        xq6.b().c(new t95(data.d(), c));
+                        br6.b().c(new v95(arrayList, helper.l(), data));
+                        br6.b().c(new w95(data.d(), c));
                     }
                     throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.feed.data.FeedFeedbackPostData");
                 }
                 throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.feed.data.FeedFeedbackPostData");
             }
             c = null;
-            xq6.b().c(new t95(data.d(), c));
+            br6.b().c(new w95(data.d(), c));
         }
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function2
-    public /* bridge */ /* synthetic */ Unit invoke(p67 p67Var, View view2) {
-        invoke2(p67Var, view2);
+    public /* bridge */ /* synthetic */ Unit invoke(t67 t67Var, View view2) {
+        invoke2(t67Var, view2);
         return Unit.INSTANCE;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2(final p67 data, final View view2) {
+    public final void invoke2(final t67 data, final View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data, view2) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             Intrinsics.checkNotNullParameter(view2, "view");
-            final na7 na7Var = new na7(view2);
-            na7Var.x(true);
-            na7Var.t(data.c());
-            na7Var.v(data.b());
-            if ((Intrinsics.areEqual(data.d(), "recommend_post") || Intrinsics.areEqual(data.d(), "frs_post")) && (data.a() instanceof q67)) {
+            final ra7 ra7Var = new ra7(view2);
+            ra7Var.x(true);
+            ra7Var.t(data.c());
+            ra7Var.v(data.b());
+            if ((Intrinsics.areEqual(data.d(), "recommend_post") || Intrinsics.areEqual(data.d(), "frs_post")) && (data.a() instanceof u67)) {
                 Object a = data.a();
                 if (a != null) {
-                    q67 q67Var = (q67) a;
-                    na7Var.q(q67Var.c(), q67Var.b());
-                    na7Var.r(q67Var);
+                    u67 u67Var = (u67) a;
+                    ra7Var.q(u67Var.c(), u67Var.b());
+                    ra7Var.r(u67Var);
                 } else {
                     throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.feed.data.FeedFeedbackPostData");
                 }
             }
-            na7Var.u(new na7.f() { // from class: com.baidu.tieba.la7
+            ra7Var.u(new ra7.f() { // from class: com.baidu.tieba.pa7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.na7.f
+                @Override // com.baidu.tieba.ra7.f
                 public final void a(List list, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, list, z) == null) {
-                        CommonOnClickKt$FeedBackOnClick$1.m135invoke$lambda2(p67.this, view2, na7Var, list, z);
+                        CommonOnClickKt$FeedBackOnClick$1.m135invoke$lambda2(t67.this, view2, ra7Var, list, z);
                     }
                 }
             });
-            na7Var.s(true);
-            na7Var.w(view2);
+            ra7Var.s(true);
+            ra7Var.w(view2);
         }
     }
 }

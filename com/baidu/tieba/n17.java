@@ -1,92 +1,134 @@
 package com.baidu.tieba;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.faceshop.EmotionGroupData;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.ve5;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class n17 extends ve5 {
+public class n17 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
-    public static n17 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<ye5> a;
+    public TbPageContext a;
+    public View b;
+    public SpannableString c;
+    public TextView d;
+    public TextView e;
+    public int f;
 
-    @Override // com.baidu.tieba.ve5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n17 a;
+
+        public a(n17 n17Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n17Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n17Var;
         }
-        return invokeV.intValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                n17 n17Var = this.a;
+                yb.b(n17Var, n17Var.a);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.ve5
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public n17() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n17(TbPageContext tbPageContext, int i) {
+        super(tbPageContext.getContext(), i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedList<>();
+        this.a = tbPageContext;
     }
 
-    public static n17 e() {
-        InterceptResult invokeV;
+    public final void b() {
+        TbPageContext tbPageContext;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (n17.class) {
-                    if (b == null) {
-                        b = new n17();
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbPageContext = this.a) != null) {
+            BDLayoutMode layoutMode = tbPageContext.getLayoutMode();
+            if (this.f == 4) {
+                z = true;
+            } else {
+                z = false;
             }
-            return b;
+            layoutMode.setNightMode(z);
+            this.a.getLayoutMode().onModeChanged(this.b);
         }
-        return (n17) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ve5
-    public void b(ve5.a aVar) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
-            List<MyEmotionGroupData> h = a17.c().h(TbadkCoreApplication.getCurrentAccount());
-            this.a.clear();
-            for (MyEmotionGroupData myEmotionGroupData : h) {
-                EmotionGroupData n = i17.o().n(myEmotionGroupData.getGroupId());
-                if (n != null) {
-                    c17 c17Var = new c17(n);
-                    if (c17Var.d() != null) {
-                        this.a.add(c17Var);
-                        if (aVar != null) {
-                            aVar.a(c17Var);
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02d9, (ViewGroup) null);
+            this.f = TbadkApplication.getInst().getSkinType();
+            String string = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1204);
+            this.c = new SpannableString(string);
+            this.c.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10159)), 5, string.length(), 33);
+            setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703f4), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ca)));
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09256d);
+            this.d = textView;
+            textView.setText(this.c);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0907ea);
+            this.e = textView2;
+            textView2.setOnClickListener(new a(this));
+            setCancelable(true);
+            b();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02da, (ViewGroup) null);
+            this.f = TbadkApplication.getInst().getSkinType();
+            setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703f4), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703b2)));
+            setCancelable(false);
+            b();
         }
     }
 }

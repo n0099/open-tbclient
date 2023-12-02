@@ -1,12 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import org.json.JSONArray;
-/* loaded from: classes8.dex */
+import java.io.IOException;
+import java.io.InputStream;
+/* loaded from: classes7.dex */
 public interface qq1 {
-    long a(Context context);
-
-    void b(Context context, String str, al3<String> al3Var);
-
-    void c(Context context, JSONArray jSONArray, al3<String> al3Var);
+    InputStream a(InputStream inputStream) throws IOException;
 }

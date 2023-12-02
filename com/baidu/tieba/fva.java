@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.Fans;
-import tbclient.FrsPage.Size;
-import tbclient.FrsPage.StarInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.NavTabInfo;
+import tbclient.FrsTabInfo;
 /* loaded from: classes6.dex */
 public class fva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public boolean c;
-    public String d;
+    public List<FrsTabInfo> a;
+    public List<FrsTabInfo> b;
 
     public fva() {
         Interceptable interceptable = $ic;
@@ -31,70 +28,16 @@ public class fva {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0L;
-        this.c = false;
-        this.d = null;
+        this.a = new ArrayList();
+        this.b = new ArrayList();
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(NavTabInfo navTabInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(StarInfo starInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, starInfo) != null) || starInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, navTabInfo) != null) || navTabInfo == null) {
             return;
         }
-        int intValue = starInfo.has_frs_star.intValue();
-        this.a = intValue;
-        boolean z = true;
-        if (intValue == 1) {
-            String str = starInfo.top;
-            String str2 = starInfo.head;
-            Fans fans = starInfo.fans;
-            if (fans != null) {
-                fans.is_get.intValue();
-                fans.num.intValue();
-                fans.open.intValue();
-                this.b = fans.left_time.intValue();
-            }
-            Size size = starInfo.top_size;
-            if (size != null) {
-                size.width.intValue();
-                size.height.intValue();
-            }
-            Size size2 = starInfo.head_size;
-            if (size2 != null) {
-                size2.width.intValue();
-                size2.height.intValue();
-            }
-        }
-        if (starInfo.trade == null) {
-            z = false;
-        }
-        this.c = z;
-        if (z) {
-            Integer num = starInfo.trade.time;
-            if (num != null) {
-                num.intValue();
-            }
-            String str3 = starInfo.trade.url;
-        }
-        this.d = starInfo.star_forum_headimg;
+        this.a = new ArrayList(navTabInfo.tab);
+        this.b = new ArrayList(navTabInfo.menu);
     }
 }

@@ -1,13 +1,26 @@
 package com.baidu.tieba;
+
+import android.content.Intent;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes8.dex */
 public interface w7b {
-    void G(String str, String str2);
+    String a();
 
-    void K(String str);
+    void b(Intent intent);
 
-    void L(String str);
+    String c();
 
-    void finishActivity();
+    String d();
 
-    void showErrorView();
+    void e(BdUniqueId bdUniqueId);
+
+    String f();
+
+    String g();
+
+    String getVideoUrl();
+
+    String h();
+
+    String i();
 }

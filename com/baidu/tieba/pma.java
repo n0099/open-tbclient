@@ -1,193 +1,161 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.TbImageView;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.ActivityLog;
+import com.baidu.tieba.qma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pma extends BaseAdapter {
+public class pma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public List<qma> b;
-    public boolean c;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public static class a implements qma.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final WeakReference<Context> a;
+        public final String b;
+        public final Uri c;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public TbImageView c;
-        public View d;
-
-        public b(pma pmaVar) {
+        public a(Context context, Uri uri, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pmaVar};
+                Object[] objArr = {context, uri, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(context);
+            this.b = str;
+            this.c = uri;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:43:0x00a9 A[ORIG_RETURN, RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:51:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        @Override // com.baidu.tieba.qma.c
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void a(HashMap<String, String> hashMap) {
+            JSONObject jSONObject;
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, hashMap) != null) || hashMap == null) {
+                return;
+            }
+            Class<?> cls = null;
+            try {
+                JSONObject jSONObject2 = new JSONObject(this.b);
+                str = jSONObject2.optString("page");
+                try {
+                    String optString = jSONObject2.optString("refre");
+                    jSONObject = jSONObject2.optJSONObject(YunDialogManager.PAGE_PARAMS_KEY);
+                    if (jSONObject == null) {
+                        try {
+                            jSONObject = new JSONObject();
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (jSONObject == null) {
+                            }
+                        }
+                    }
+                    jSONObject.put("page", str);
+                    jSONObject.put("refre", optString);
+                    jSONObject.put("from", 1);
+                    for (String str2 : this.c.getQueryParameterNames()) {
+                        if (!"params".equals(str2)) {
+                            jSONObject.put(str2, this.c.getQueryParameter(str2));
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    jSONObject = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                jSONObject = null;
+                str = null;
+            }
+            if (jSONObject == null) {
+                try {
+                    cls = Class.forName(hashMap.get(str));
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                if (cls == null) {
+                    return;
+                }
+                for (Class<?> cls2 : cls.getInterfaces()) {
+                    if (cls2.isAssignableFrom(oma.class)) {
+                        try {
+                            ((oma) cls.newInstance()).dispatch(jSONObject, this.a.get());
+                            return;
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                            return;
+                        }
+                    }
                 }
             }
         }
-
-        public /* synthetic */ b(pma pmaVar, a aVar) {
-            this(pmaVar);
-        }
     }
 
-    public pma(Context context) {
+    public static int a(Context context, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, strArr)) == null) {
+            if (context != null && strArr != null && strArr.length != 0) {
+                String str = strArr[0];
+                if (TextUtils.isEmpty(str)) {
+                    return 3;
+                }
+                if (!str.startsWith("tiebaapp://router/portal") && !str.startsWith("com.baidu.tieba://unidispatch/router/portal") && ((str = rd.getUrlDecode(str)) == null || !str.startsWith("com.baidu.tieba://unidispatch/router/portal"))) {
+                    str = null;
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    Uri parse = Uri.parse(str);
+                    ActivityLog.getInstance().i("scheme", "SchemaHelper:" + str);
+                    try {
+                        qma.c().b(new a(context, parse, parse.getQueryParameter("params")));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return 0;
+                }
             }
+            return 3;
         }
-        this.c = true;
-        this.a = context;
-        this.b = new ArrayList();
+        return invokeLL.intValue;
     }
 
-    public void a(List<qma> list) {
+    public static int b(TbPageContext<?> tbPageContext, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && list != null && list.size() != 0) {
-            this.b.addAll(list);
-            notifyDataSetChanged();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public qma getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            List<qma> list = this.b;
-            if (list != null && i < list.size()) {
-                return this.b.get(i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, strArr)) == null) {
+            if (tbPageContext != null && strArr != null && strArr.length != 0) {
+                return a(tbPageContext.getPageActivity(), strArr);
             }
-            return null;
+            return 3;
         }
-        return (qma) invokeI.objValue;
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public final b b(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            b bVar = new b(this, null);
-            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec6);
-            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec4);
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ec5);
-            bVar.c = tbImageView;
-            tbImageView.setAutoChangeStyle(false);
-            bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0915e9);
-            return bVar;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public View d(qma qmaVar, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLLL;
-        b b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, qmaVar, view2, viewGroup)) == null) {
-            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof b)) {
-                b2 = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08ae, viewGroup, false);
-                b2 = b(view2);
-                view2.setTag(b2);
-            }
-            if (qmaVar == null) {
-                return view2;
-            }
-            b2.a.setText(qmaVar.d);
-            b2.b.setText(qmaVar.e);
-            b2.c.setDefaultResource(R.drawable.obfuscated_res_0x7f0813ad);
-            b2.c.startLoad(qmaVar.f, 10, 0, 0, false);
-            return view2;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<qma> list = this.b;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
-            return d(this.b.get(i), view2, viewGroup);
-        }
-        return (View) invokeILL.objValue;
+        return invokeLL.intValue;
     }
 }

@@ -1,178 +1,158 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b64;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 /* loaded from: classes8.dex */
 public class u74 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile u74 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b64 a;
+    public final String a;
+    public final Object b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163895, "Lcom/baidu/tieba/u74;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948163895, "Lcom/baidu/tieba/u74;");
-                return;
+    public static String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "boolean";
+                case 2:
+                case 3:
+                case 5:
+                    return "number";
+                case 4:
+                default:
+                    return "unknown";
+                case 6:
+                    return "array";
+                case 7:
+                    return EMABTest.TYPE_STRING;
+                case 8:
+                    return "function";
+                case 9:
+                    return "object";
+                case 10:
+                    return "arraybuffer";
+                case 11:
+                    return StringUtil.NULL_STRING;
+                case 12:
+                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
             }
         }
-        b = sm1.a;
+        return (String) invokeI.objValue;
     }
 
-    public u74() {
+    public u74(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, obj};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = obj;
     }
 
-    public static u74 b() {
+    public static Object a(ud2 ud2Var, String str, String str2, u74 u74Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, ud2Var, str, str2, u74Var)) == null) {
+            if (u74Var.g()) {
+                return u74Var.d();
+            }
+            String a = r74.a(str, str2, u74Var.e());
+            ud2Var.throwJSException(JSExceptionType.Error, a);
+            return a;
+        }
+        return invokeLLLL.objValue;
+    }
+
+    public static u74 b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new u74(str, null);
+        }
+        return (u74) invokeL.objValue;
+    }
+
+    public static u74 i(@Nullable Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
+            return new u74(null, obj);
+        }
+        return (u74) invokeL.objValue;
+    }
+
+    public static Object h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (u74.class) {
-                    if (c == null) {
-                        c = new u74();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new JsObject();
         }
-        return (u74) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
-        b64 b64Var;
-        b64.c cVar;
-        HashMap<String, String> hashMap;
+    public Object d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String c2 = c(str, 1);
-            if (TextUtils.isEmpty(c2) || (b64Var = this.a) == null || (cVar = b64Var.d) == null || (hashMap = cVar.a) == null) {
-                return null;
-            }
-            return hashMap.get(c2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (String) invokeL.objValue;
+        return invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0023  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c(String str, int i) {
-        InterceptResult invokeLI;
-        b64 b64Var;
-        b64.b bVar;
-        List<b64.a> list;
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str) && (b64Var = this.a) != null && (bVar = b64Var.c) != null && (list = bVar.a) != null) {
-                for (b64.a aVar : list) {
-                    if (TextUtils.equals(aVar.a, str) || TextUtils.equals(aVar.b, str)) {
-                        if (i != 0) {
-                            if (i != 1) {
-                                if (i != 2) {
-                                    if (i != 3) {
-                                        return aVar.b;
-                                    }
-                                    return aVar.d;
-                                }
-                                return aVar.c;
-                            }
-                            return aVar.b;
-                        }
-                        return aVar.a;
-                    }
-                    while (r0.hasNext()) {
-                    }
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return (String) invokeLI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void f(String str, boolean z) {
-        b64 b64Var;
-        b64.b bVar;
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (b64Var = this.a) != null && (bVar = b64Var.c) != null && bVar.b != null) {
-            if (b) {
-                Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a == null) {
+                return true;
             }
-            this.a.c.b.put(str, Boolean.valueOf(z));
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        b64.b bVar;
-        HashMap<String, Boolean> hashMap;
+    public String c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String c2 = c(str, 1);
-            if (TextUtils.isEmpty(c2)) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (g()) {
+                return r74.b(str);
             }
-            b64 b64Var = this.a;
-            if (b64Var != null && (bVar = b64Var.c) != null && (hashMap = bVar.b) != null && hashMap.containsKey(c2)) {
-                if (b) {
-                    Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
-                }
-                return this.a.c.b.get(c2).booleanValue();
-            }
-            if (b) {
-                Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
-            }
-            String h0 = h63.h0();
-            if (h63.M() == null) {
-                return false;
-            }
-            String l0 = h63.M().l0();
-            if (TextUtils.isEmpty(h0) || TextUtils.isEmpty(l0)) {
-                return false;
-            }
-            boolean n = ee4.i().n(h0, l0, c2);
-            if (n) {
-                f(c2, true);
-            }
-            return n;
+            return r74.a(str, str2, e());
         }
-        return invokeL.booleanValue;
-    }
-
-    public void e(b64 b64Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, b64Var) == null) {
-            this.a = b64Var;
-        }
+        return (String) invokeLL.objValue;
     }
 }

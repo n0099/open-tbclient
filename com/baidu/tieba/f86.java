@@ -1,75 +1,54 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.view.OfficialRecommendLiveViewHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class f86 extends ci<j86, OfficialRecommendLiveViewHolder> {
+public class f86 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<Integer, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public n96 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f86(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), j86.b);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947718053, "Lcom/baidu/tieba/f86;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947718053, "Lcom/baidu/tieba/f86;");
                 return;
             }
         }
-        this.a = tbPageContext;
+        a = new HashMap<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: t */
-    public OfficialRecommendLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new n96(this.a, viewGroup);
-            return new OfficialRecommendLiveViewHolder(this.b);
-        }
-        return (OfficialRecommendLiveViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, j86 j86Var, OfficialRecommendLiveViewHolder officialRecommendLiveViewHolder) {
-        InterceptResult invokeCommon;
-        n96 n96Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j86Var, officialRecommendLiveViewHolder})) == null) {
-            if (officialRecommendLiveViewHolder != null && (n96Var = officialRecommendLiveViewHolder.a) != null) {
-                n96Var.j(j86Var);
-                officialRecommendLiveViewHolder.a.k(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return officialRecommendLiveViewHolder.getView();
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            if (a.containsKey(Integer.valueOf(i))) {
+                a.put(Integer.valueOf(i), Integer.valueOf(a.get(Integer.valueOf(i)).intValue() + 1));
+            } else {
+                a.put(Integer.valueOf(i), 2);
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public static int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (a.containsKey(Integer.valueOf(i))) {
+                return a.get(Integer.valueOf(i)).intValue();
+            }
+            a.put(Integer.valueOf(i), 1);
+            return 1;
+        }
+        return invokeI.intValue;
     }
 }

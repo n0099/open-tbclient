@@ -1,97 +1,66 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.collection.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class iu5 {
+public class iu5<KEY> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayMap<KEY, Long> a;
+    public final long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947866016, "Lcom/baidu/tieba/iu5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947866016, "Lcom/baidu/tieba/iu5;");
+    public iu5(int i, @NonNull TimeUnit timeUnit) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), timeUnit};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
-        b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
+        this.a = new ArrayMap<>();
+        this.b = timeUnit.toMillis(i);
     }
 
-    public static boolean a() {
+    public static <T> iu5<T> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Date date = new Date(SharedPrefHelper.getInstance().getLong("show_login_dialog_strategy_key", 0L));
-            long currentTimeMillis = System.currentTimeMillis();
-            Date date2 = new Date(currentTimeMillis);
-            SharedPrefHelper.getInstance().putLong("show_login_dialog_strategy_key", currentTimeMillis);
-            return !TimeHelper.isSameDay(date, date2);
+            return new iu5<>(1000, TimeUnit.MILLISECONDS);
         }
-        return invokeV.booleanValue;
+        return (iu5) invokeV.objValue;
     }
 
-    public static boolean b(String str) {
+    public synchronized boolean a(@NonNull KEY key) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (rd.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
+            synchronized (this) {
+                Long l = this.a.get(key);
+                long uptimeMillis = SystemClock.uptimeMillis();
+                if (l == null) {
+                    this.a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else if (uptimeMillis - l.longValue() > this.b) {
+                    this.a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else {
+                    return false;
+                }
             }
-            return a.matcher(str.toLowerCase()).find();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (rd.isEmpty(str)) {
-                return false;
-            }
-            return b.matcher(str.toLowerCase()).find();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (rd.isEmpty(str)) {
-                return false;
-            }
-            return "person".equalsIgnoreCase(Uri.parse(str).getAuthority());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!b(str) && !c(str) && !d(str)) {
-                return false;
-            }
-            return true;
         }
         return invokeL.booleanValue;
     }

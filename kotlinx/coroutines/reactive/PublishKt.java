@@ -76,7 +76,7 @@ public final class PublishKt {
 
     @InternalCoroutinesApi
     public static final <T> Publisher<T> publishInternal(final CoroutineScope coroutineScope, final CoroutineContext coroutineContext, final Function2<? super Throwable, ? super CoroutineContext, Unit> function2, final Function2<? super ProducerScope<? super T>, ? super Continuation<? super Unit>, ? extends Object> function22) {
-        return new Publisher() { // from class: com.baidu.tieba.klc
+        return new Publisher() { // from class: com.baidu.tieba.jlc
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

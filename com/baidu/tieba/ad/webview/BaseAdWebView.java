@@ -22,10 +22,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tieba.ds4;
-import com.baidu.tieba.u26;
+import com.baidu.tieba.a21;
+import com.baidu.tieba.gs4;
 import com.baidu.tieba.wg0;
-import com.baidu.tieba.x11;
+import com.baidu.tieba.y26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ public abstract class BaseAdWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseAdWebView a;
     public Context b;
-    public u26 c;
+    public y26 c;
     public wg0 d;
     public d e;
 
@@ -172,7 +172,7 @@ public abstract class BaseAdWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, renderProcessGoneDetail)) == null) {
-                ds4.a("BaseAdWebView", webView);
+                gs4.a("BaseAdWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -334,10 +334,10 @@ public abstract class BaseAdWebView extends WebView {
         }
     }
 
-    public void setDownloadStartListener(u26 u26Var) {
+    public void setDownloadStartListener(y26 y26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, u26Var) == null) {
-            this.c = u26Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, y26Var) == null) {
+            this.c = y26Var;
         }
     }
 
@@ -420,8 +420,8 @@ public abstract class BaseAdWebView extends WebView {
             Log.e(str4, "download url：" + str);
         }
         this.d.g = str;
-        String e = x11.e(str, str2, str3);
-        if (x11.b(x11.c(e), str3) == 3) {
+        String e = a21.e(str, str2, str3);
+        if (a21.b(a21.c(e), str3) == 3) {
             z = true;
         } else {
             z = false;

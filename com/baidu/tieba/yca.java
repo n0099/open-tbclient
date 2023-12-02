@@ -2,25 +2,40 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes9.dex */
-public class yca extends jl6<wba> {
+public class yca extends nl6<wba> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
+    public TbPageContext i;
+    public View j;
+    public View k;
+    public TextView l;
+    public HTypeListView m;
+    public uaa n;
 
-    @Override // com.baidu.tieba.jl6
+    @Override // com.baidu.tieba.nl6
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01e2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01c7 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,8 +45,43 @@ public class yca extends jl6<wba> {
         }
     }
 
+    /* loaded from: classes9.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wba a;
+        public final /* synthetic */ yca b;
+
+        public a(yca ycaVar, wba wbaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ycaVar, wbaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ycaVar;
+            this.a = wbaVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.r(this.a);
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yca(TbPageContext<?> tbPageContext) {
+    public yca(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,29 +98,87 @@ public class yca extends jl6<wba> {
                 return;
             }
         }
-        this.i = (TextView) i();
+        this.i = tbPageContext;
+        View i3 = i();
+        this.j = i3;
+        this.k = i3.findViewById(R.id.obfuscated_res_0x7f09096e);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090ebd);
+        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f090eaa);
+        this.m = hTypeListView;
+        this.n = new uaa(this.i, hTypeListView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jl6
-    /* renamed from: p */
+    @Override // com.baidu.tieba.nl6
+    /* renamed from: s */
     public void j(wba wbaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, wbaVar) != null) || wbaVar == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, wbaVar) == null) {
+            if (wbaVar != null && wbaVar.isValid()) {
+                a aVar = new a(this, wbaVar);
+                this.n.a(aVar);
+                this.j.setOnClickListener(aVar);
+                this.n.b(aVar);
+                this.m.setData(y(wbaVar.g));
+                if (wbaVar.a) {
+                    this.l.setText(R.string.obfuscated_res_0x7f0f0916);
+                } else if (wbaVar.b) {
+                    this.l.setText(R.string.obfuscated_res_0x7f0f0915);
+                } else {
+                    this.l.setText(R.string.obfuscated_res_0x7f0f0914);
+                }
+                k(this.i, TbadkCoreApplication.getInst().getSkinType());
+                return;
+            }
+            this.j.setVisibility(8);
         }
-        this.i.setPadding(wbaVar.b, wbaVar.c, 0, wbaVar.d);
-        this.i.setText(this.c.getString(wbaVar.a));
     }
 
-    @Override // com.baidu.tieba.jl6
+    @Override // com.baidu.tieba.nl6
     public void k(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
-            return;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
         }
-        this.a = i;
-        SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1);
-        SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
+    }
+
+    public final void r(wba wbaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, wbaVar) == null) {
+            if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
+                this.i.showToast(R.string.obfuscated_res_0x7f0f0912);
+            } else if (!ViewHelper.checkUpIsLogin(this.i.getPageActivity())) {
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.i.getPageActivity(), wbaVar.c, wbaVar.d, wbaVar.e, wbaVar.f)));
+            }
+        }
+    }
+
+    public final List<pi> y(List<pi> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
+            int count = ListUtils.getCount(list);
+            if (count <= 0) {
+                return list;
+            }
+            List<pi> arrayList = new ArrayList<>(list);
+            int dimens = BdUtilHelper.getDimens(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a);
+            int dimens2 = BdUtilHelper.getDimens(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
+            if (count > 7) {
+                arrayList = arrayList.subList(0, 7);
+                xba xbaVar = new xba();
+                xbaVar.b = dimens;
+                xbaVar.a = dimens;
+                ListUtils.add(arrayList, xbaVar);
+            }
+            f7a f7aVar = new f7a(dimens2, dimens);
+            ListUtils.add(arrayList, 0, f7aVar);
+            ListUtils.add(arrayList, f7aVar);
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

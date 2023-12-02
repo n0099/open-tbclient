@@ -41,11 +41,11 @@ public class AddrOptionDialog extends BaseDialogFragment implements View.OnClick
     public void onClick(View view2) {
         if (this.optionOnClickListener != null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092103) {
+            if (id == R.id.obfuscated_res_0x7f092105) {
                 this.optionOnClickListener.onOptionClick(1001);
-            } else if (id == R.id.obfuscated_res_0x7f0920d6) {
+            } else if (id == R.id.obfuscated_res_0x7f0920d8) {
                 this.optionOnClickListener.onOptionClick(1003);
-            } else if (id == R.id.obfuscated_res_0x7f0920e1) {
+            } else if (id == R.id.obfuscated_res_0x7f0920e3) {
                 this.optionOnClickListener.onOptionClick(1002);
             }
         }
@@ -59,27 +59,27 @@ public class AddrOptionDialog extends BaseDialogFragment implements View.OnClick
     @Override // androidx.fragment.app.Fragment
     public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
         super.onViewCreated(view2, bundle);
-        this.setDefaultView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092103);
-        this.setDefaultViewBottomLine = view2.findViewById(R.id.obfuscated_res_0x7f092104);
-        this.copyView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920d6);
+        this.setDefaultView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092105);
+        this.setDefaultViewBottomLine = view2.findViewById(R.id.obfuscated_res_0x7f092106);
+        this.copyView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920d8);
         this.setDefaultView.setOnClickListener(this);
         this.copyView.setOnClickListener(this);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920e1);
-        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920fb);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920e3);
+        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920fd);
         textView.setOnClickListener(this);
         textView2.setOnClickListener(this);
         if (this.isDarkMode) {
             Resources resources = getResources();
-            this.setDefaultView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081399);
+            this.setDefaultView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08139c);
             this.setDefaultView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a44));
             this.setDefaultViewBottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609c5));
-            this.copyView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081397);
+            this.copyView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08139a);
             this.copyView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a44));
-            view2.findViewById(R.id.obfuscated_res_0x7f0920d7).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609c5));
-            textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081397);
+            view2.findViewById(R.id.obfuscated_res_0x7f0920d9).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609c5));
+            textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08139a);
             textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a34));
-            view2.findViewById(R.id.obfuscated_res_0x7f0920e3).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609c5));
-            textView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081397);
+            view2.findViewById(R.id.obfuscated_res_0x7f0920e5).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609c5));
+            textView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08139a);
             textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a44));
         }
         Bundle arguments = getArguments();

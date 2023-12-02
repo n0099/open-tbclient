@@ -3,18 +3,18 @@ package com.baidu.card;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cea;
 import com.baidu.tieba.cu;
-import com.baidu.tieba.cw4;
+import com.baidu.tieba.fw4;
+import com.baidu.tieba.gea;
 import com.baidu.tieba.ku;
-import com.baidu.tieba.lda;
+import com.baidu.tieba.pda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AutoVideoCardViewHolder<T extends cw4> extends ThreadCardViewHolder<T> implements lda {
+public class AutoVideoCardViewHolder<T extends fw4> extends ThreadCardViewHolder<T> implements pda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ku k;
@@ -43,7 +43,7 @@ public class AutoVideoCardViewHolder<T extends cw4> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class AutoVideoCardViewHolder<T extends cw4> extends ThreadCardViewHolder
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class AutoVideoCardViewHolder<T extends cw4> extends ThreadCardViewHolder
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class AutoVideoCardViewHolder<T extends cw4> extends ThreadCardViewHolder
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class AutoVideoCardViewHolder<T extends cw4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class AutoVideoCardViewHolder<T extends cw4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class AutoVideoCardViewHolder<T extends cw4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public void startPlay() {
         ku kuVar;
         Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class AutoVideoCardViewHolder<T extends cw4> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public void stopPlay() {
         ku kuVar;
         Interceptable interceptable = $ic;
@@ -154,11 +154,11 @@ public class AutoVideoCardViewHolder<T extends cw4> extends ThreadCardViewHolder
         return (ku) invokeV.objValue;
     }
 
-    public void z(cea ceaVar) {
+    public void z(gea geaVar) {
         ku kuVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, ceaVar) == null) && (kuVar = this.k) != null) {
-            kuVar.B(ceaVar);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, geaVar) == null) && (kuVar = this.k) != null) {
+            kuVar.B(geaVar);
         }
     }
 }

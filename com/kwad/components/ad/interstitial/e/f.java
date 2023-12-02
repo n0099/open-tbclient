@@ -301,16 +301,16 @@ public final class f extends b implements com.kwad.sdk.widget.c {
         this.kL.re();
         this.mApkDownloadHelper = this.jK.mApkDownloadHelper;
         dv();
-        float dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704cf);
+        float dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704d0);
         this.kK.setRadius(dimension, dimension, 0.0f, 0.0f);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.kJ = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f09133b);
-        this.kK = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0914e7);
-        this.eM = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f0914f7);
+        this.kJ = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f09133c);
+        this.kK = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0914e8);
+        this.eM = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f0914f8);
         this.kK.setVisibility(4);
         this.mContext = getContext();
     }

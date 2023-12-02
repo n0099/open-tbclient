@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o31;
-import com.baidu.tieba.q11;
+import com.baidu.tieba.q31;
+import com.baidu.tieba.s11;
 /* loaded from: classes3.dex */
 public class NadHighLightTextView extends AppCompatTextView {
     public NadHighLightTextView(@NonNull Context context) {
@@ -36,21 +36,21 @@ public class NadHighLightTextView extends AppCompatTextView {
         setTextSize(1, 18.0f);
     }
 
-    public void e(@Nullable o31 o31Var) {
-        if (o31Var != null && !TextUtils.isEmpty(o31Var.a)) {
-            SpannableString spannableString = new SpannableString(o31Var.a);
-            for (o31.a aVar : o31Var.c) {
+    public void e(@Nullable q31 q31Var) {
+        if (q31Var != null && !TextUtils.isEmpty(q31Var.a)) {
+            SpannableString spannableString = new SpannableString(q31Var.a);
+            for (q31.a aVar : q31Var.c) {
                 int[] iArr = aVar.a;
                 if (iArr != null && iArr.length == 2) {
-                    int a = q11.a(aVar.b, R.color.nad_high_light_text_default_color);
-                    aVar.a[1] = Math.min(o31Var.a.length(), aVar.a[1]);
+                    int a = s11.a(aVar.b, R.color.nad_high_light_text_default_color);
+                    aVar.a[1] = Math.min(q31Var.a.length(), aVar.a[1]);
                     ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(a);
                     int[] iArr2 = aVar.a;
                     spannableString.setSpan(foregroundColorSpan, iArr2[0], iArr2[1], 17);
                 }
             }
             setText(spannableString);
-            setTextColor(q11.a(o31Var.b, R.color.nad_high_light_text_default_color));
+            setTextColor(s11.a(q31Var.b, R.color.nad_high_light_text_default_color));
         }
     }
 }

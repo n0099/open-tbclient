@@ -1,153 +1,119 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.feed.data.ThreadManageType;
+import com.baidu.searchbox.live.frame.PageInfo;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.LayoutManageInfo;
+import kotlin.jvm.internal.StringCompanionObject;
+import tbclient.FeedVideoComponent;
+import tbclient.ThumbnailInfo;
+import tbclient.VideoField;
 /* loaded from: classes8.dex */
 public final class s97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final d87 a(LayoutManageInfo layoutManageInfo) {
-        InterceptResult invokeL;
+    public static final String a(String schema, r67 feedExtraData) {
+        InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, layoutManageInfo)) == null) {
-            String str = layoutManageInfo.text;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, schema, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(schema, "schema");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            String a = ya7.a(ya7.b(schema, feedExtraData.d()), "author_is_living", feedExtraData.a().a().get("author_is_living"));
+            String str = feedExtraData.a().a().get("yy_ext");
             if (str != null && str.length() != 0) {
                 z = false;
             } else {
                 z = true;
             }
             if (z) {
-                return null;
+                Intrinsics.checkNotNullExpressionValue(a, "{\n        result\n    }");
+                return a;
             }
-            String text = layoutManageInfo.text;
-            Intrinsics.checkNotNullExpressionValue(text, "text");
-            Integer type = layoutManageInfo.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            d87 d87Var = new d87(text, type.intValue());
-            try {
-                String ext = layoutManageInfo.ext;
-                Intrinsics.checkNotNullExpressionValue(ext, "ext");
-                Integer type2 = layoutManageInfo.type;
-                Intrinsics.checkNotNullExpressionValue(type2, "type");
-                Object c = c(ext, type2.intValue());
-                if (c == null) {
-                    return null;
-                }
-                d87Var.d(c);
-                return d87Var;
-            } catch (Exception unused) {
-                return null;
-            }
+            String a2 = ya7.a(a, "yy_ext", str);
+            Intrinsics.checkNotNullExpressionValue(a2, "{\n        SchemaUtil.app…yy_ext\", yyExtInfo)\n    }");
+            return a2;
         }
-        return (d87) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static final List<d87> b(List<LayoutManageInfo> list) {
-        InterceptResult invokeL;
+    public static final b57 b(VideoField videoField, m87 videoSchemaData, r67 feedExtraData) {
+        InterceptResult invokeLLL;
+        String str;
         boolean z;
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                z = false;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, videoField, videoSchemaData, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(videoField, "videoField");
+            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            l87 l87Var = new l87();
+            ThumbnailInfo thumbnailInfo = videoField.thumbnail;
+            if (thumbnailInfo != null) {
+                str = thumbnailInfo.url;
             } else {
+                str = null;
+            }
+            l87Var.a = str;
+            Integer num = videoField.is_vertical;
+            if (num != null && num.intValue() == 1) {
                 z = true;
+            } else {
+                z = false;
             }
-            if (z) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (LayoutManageInfo layoutManageInfo : list) {
-                d87 a = a(layoutManageInfo);
-                if (a != null) {
-                    arrayList.add(a);
-                }
-            }
-            return arrayList;
+            l87Var.d = z;
+            Integer num2 = videoField.width;
+            Intrinsics.checkNotNullExpressionValue(num2, "videoField.width");
+            l87Var.b = num2.intValue();
+            Integer num3 = videoField.height;
+            Intrinsics.checkNotNullExpressionValue(num3, "videoField.height");
+            l87Var.c = num3.intValue();
+            StringBuilder sb = new StringBuilder();
+            sb.append(StringHelper.stringForVideoTime(videoField.duration.intValue() * 1000));
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String string = v27.a.getString(R.string.play_count_new);
+            Intrinsics.checkNotNullExpressionValue(string, "FeedAppContext.getString(R.string.play_count_new)");
+            String format = String.format(string, Arrays.copyOf(new Object[]{StringHelper.numFormatOverWan(videoField.play_count.intValue())}, 1));
+            Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
+            sb.append(format);
+            sb.toString();
+            l87Var.e = videoField.url;
+            Integer num4 = videoField.duration;
+            Intrinsics.checkNotNullExpressionValue(num4, "videoField.duration");
+            l87Var.f = num4.intValue();
+            l87Var.g = 0;
+            Integer num5 = videoField.play_count;
+            Intrinsics.checkNotNullExpressionValue(num5, "videoField.play_count");
+            l87Var.h = num5.intValue();
+            l87Var.i = videoField.md5;
+            Map<String, String> a2 = feedExtraData.a().a();
+            l87Var.j = a2;
+            Intrinsics.checkNotNullExpressionValue(a2, "videoData.businessInfo");
+            yb7 yb7Var = feedExtraData.e().get(PageInfo.KEY);
+            a2.put("page_from", (yb7Var == null || (a = yb7Var.a(new v57())) == null || (r0 = a.get("page_from")) == null) ? "" : "");
+            return new b57(l87Var, videoSchemaData, CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "video_click", null, 2, null), s67.e(feedExtraData, "video_click2", null, 2, null)}), feedExtraData.a().a(), feedExtraData.c().a(), null, 32, null);
         }
-        return (List) invokeL.objValue;
+        return (b57) invokeLLL.objValue;
     }
 
-    public static final Object c(String str, int i) throws Exception {
-        InterceptResult invokeLI;
+    public static final void c(FeedVideoComponent feedVideoComponent, List<rb7<?>> dataList, m87 videoSchemaData, r67 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            JSONObject jSONObject = new JSONObject(str);
-            int i2 = 0;
-            if (i == ThreadManageType.ID_DEL.getValue()) {
-                JSONArray jSONArray = jSONObject.getJSONArray("reason_list");
-                ArrayList arrayList = new ArrayList();
-                int length = jSONArray.length();
-                while (i2 < length) {
-                    e67 a = f67.a(jSONArray.optJSONObject(i2));
-                    if (a != null) {
-                        arrayList.add(a);
-                    }
-                    i2++;
-                }
-                if (arrayList.isEmpty()) {
-                    return null;
-                }
-                return d67.a(arrayList, ra7.a.b(jSONObject.optJSONArray("business_info")));
-            } else if (i == ThreadManageType.ID_FORBID.getValue()) {
-                return v67.a(ra7.a.b(jSONObject.optJSONArray("business_info")));
-            } else {
-                if (i == ThreadManageType.ID_TOP.getValue()) {
-                    return g87.a(ra7.a.b(jSONObject.optJSONArray("business_info")));
-                }
-                if (i == ThreadManageType.ID_GOOD.getValue()) {
-                    return y67.a(ra7.a.b(jSONObject.optJSONArray("business_info")));
-                }
-                if (i == ThreadManageType.ID_MULTI_DEL.getValue()) {
-                    JSONArray jSONArray2 = jSONObject.getJSONArray("reason_list");
-                    ArrayList arrayList2 = new ArrayList();
-                    int length2 = jSONArray2.length();
-                    while (i2 < length2) {
-                        e67 a2 = f67.a(jSONArray2.optJSONObject(i2));
-                        if (a2 != null) {
-                            arrayList2.add(a2);
-                        }
-                        i2++;
-                    }
-                    if (arrayList2.isEmpty()) {
-                        return null;
-                    }
-                    return d67.a(arrayList2, ra7.a.b(jSONObject.optJSONArray("business_info")));
-                } else if (i == ThreadManageType.ID_RECOMMEND.getValue()) {
-                    return v77.a(n57.a(jSONObject.optJSONObject("bawu_thrones")), ra7.a.b(jSONObject.optJSONArray("business_info")));
-                } else {
-                    if (i == ThreadManageType.ID_MOVE_AREA.getValue()) {
-                        JSONArray jSONArray3 = jSONObject.getJSONArray("tab_list");
-                        ArrayList arrayList3 = new ArrayList();
-                        int length3 = jSONArray3.length();
-                        while (i2 < length3) {
-                            n77 a3 = m77.a(jSONArray3.optJSONObject(i2));
-                            if (a3 != null) {
-                                arrayList3.add(a3);
-                            }
-                            i2++;
-                        }
-                        if (arrayList3.isEmpty()) {
-                            return null;
-                        }
-                        return o77.a(arrayList3, ra7.a.b(jSONObject.optJSONArray("business_info")));
-                    } else if (i != ThreadManageType.ID_BROADCAST.getValue()) {
-                        return null;
-                    } else {
-                        return p57.a(ra7.a.b(jSONObject.optJSONArray("business_info")));
-                    }
-                }
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, feedVideoComponent, dataList, videoSchemaData, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedVideoComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            VideoField videoField = feedVideoComponent.video_info;
+            if (videoField != null) {
+                dataList.add(new sb7(b(videoField, videoSchemaData, feedExtraData), "video"));
             }
         }
-        return invokeLI.objValue;
     }
 }

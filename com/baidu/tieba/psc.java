@@ -5,188 +5,76 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
-import rx.internal.operators.NotificationLite;
 /* loaded from: classes7.dex */
-public class psc<T> implements foc<T> {
+public class psc<T> extends joc<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final foc<? super T> a;
-    public boolean b;
-    public volatile boolean c;
-    public a d;
+    public final eoc<T> e;
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Object[] a;
-        public int b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                int i = this.b;
-                Object[] objArr = this.a;
-                if (objArr == null) {
-                    objArr = new Object[16];
-                    this.a = objArr;
-                } else if (i == objArr.length) {
-                    Object[] objArr2 = new Object[(i >> 2) + i];
-                    System.arraycopy(objArr, 0, objArr2, 0, i);
-                    this.a = objArr2;
-                    objArr = objArr2;
-                }
-                objArr[i] = obj;
-                this.b = i + 1;
-            }
-        }
-    }
-
-    public psc(foc<? super T> focVar) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public psc(joc<? super T> jocVar) {
+        this(jocVar, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {focVar};
+            Object[] objArr = {jocVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((joc) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = focVar;
     }
 
-    @Override // com.baidu.tieba.foc
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public psc(joc<? super T> jocVar, boolean z) {
+        super(jocVar, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jocVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((joc) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = new osc(jocVar);
+    }
+
+    @Override // com.baidu.tieba.eoc
     public void onCompleted() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c) {
-            return;
-        }
-        synchronized (this) {
-            if (this.c) {
-                return;
-            }
-            this.c = true;
-            if (this.b) {
-                a aVar = this.d;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.d = aVar;
-                }
-                aVar.a(NotificationLite.b());
-                return;
-            }
-            this.b = true;
-            this.a.onCompleted();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.foc
+    @Override // com.baidu.tieba.eoc
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            qoc.e(th);
-            if (this.c) {
-                return;
-            }
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                this.c = true;
-                if (this.b) {
-                    a aVar = this.d;
-                    if (aVar == null) {
-                        aVar = new a();
-                        this.d = aVar;
-                    }
-                    aVar.a(NotificationLite.c(th));
-                    return;
-                }
-                this.b = true;
-                this.a.onError(th);
-            }
+            this.e.onError(th);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0031, code lost:
-        continue;
-     */
-    @Override // com.baidu.tieba.foc
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    @Override // com.baidu.tieba.eoc
     public void onNext(T t) {
-        Object[] objArr;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.c) {
-            return;
-        }
-        synchronized (this) {
-            if (this.c) {
-                return;
-            }
-            if (this.b) {
-                a aVar = this.d;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.d = aVar;
-                }
-                aVar.a(NotificationLite.i(t));
-                return;
-            }
-            this.b = true;
-            try {
-                this.a.onNext(t);
-                while (true) {
-                    synchronized (this) {
-                        a aVar2 = this.d;
-                        if (aVar2 == null) {
-                            this.b = false;
-                            return;
-                        }
-                        this.d = null;
-                        for (Object obj : aVar2.a) {
-                            if (obj == null) {
-                                break;
-                            }
-                            try {
-                                if (NotificationLite.a(this.a, obj)) {
-                                    this.c = true;
-                                    return;
-                                }
-                            } catch (Throwable th) {
-                                this.c = true;
-                                qoc.e(th);
-                                this.a.onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                                return;
-                            }
-                        }
-                    }
-                }
-            } catch (Throwable th2) {
-                this.c = true;
-                qoc.g(th2, this.a, t);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.e.onNext(t);
         }
     }
 }

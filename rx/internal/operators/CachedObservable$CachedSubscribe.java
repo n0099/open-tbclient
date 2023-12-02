@@ -1,30 +1,30 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.eoc;
-import com.baidu.tieba.epc;
-import com.baidu.tieba.koc;
+import com.baidu.tieba.doc;
+import com.baidu.tieba.dpc;
+import com.baidu.tieba.joc;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
-public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements eoc.a<T> {
+public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements doc.a<T> {
     public static final long serialVersionUID = -2817751667698696782L;
-    public final epc<T> state;
+    public final dpc<T> state;
 
-    public CachedObservable$CachedSubscribe(epc<T> epcVar) {
-        this.state = epcVar;
+    public CachedObservable$CachedSubscribe(dpc<T> dpcVar) {
+        this.state = dpcVar;
     }
 
-    public void call(koc<? super T> kocVar) {
-        CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer = new CachedObservable$ReplayProducer<>(kocVar, this.state);
+    public void call(joc<? super T> jocVar) {
+        CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer = new CachedObservable$ReplayProducer<>(jocVar, this.state);
         this.state.c(cachedObservable$ReplayProducer);
-        kocVar.b(cachedObservable$ReplayProducer);
-        kocVar.f(cachedObservable$ReplayProducer);
+        jocVar.b(cachedObservable$ReplayProducer);
+        jocVar.f(cachedObservable$ReplayProducer);
         if (!get() && compareAndSet(false, true)) {
             this.state.d();
         }
     }
 
-    @Override // com.baidu.tieba.soc
+    @Override // com.baidu.tieba.roc
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((koc) ((koc) obj));
+        call((joc) ((joc) obj));
     }
 }

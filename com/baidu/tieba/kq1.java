@@ -1,19 +1,11 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface kq1 {
-    void a(String str, ot2 ot2Var);
+    boolean a(Context context, String str);
 
-    int getDuration();
+    boolean b(Context context, String str);
 
-    boolean isPlaying();
-
-    void onRelease();
-
-    void pause();
-
-    void play();
-
-    void seek(int i);
-
-    void stop();
+    boolean c(Context context, String str);
 }

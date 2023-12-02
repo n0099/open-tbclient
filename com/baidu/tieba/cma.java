@@ -1,19 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-@Service
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class cma implements pl5 {
+public final class cma implements yb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.yb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c10734" : (String) invokeV.objValue;
+    }
 
     public cma() {
         Interceptable interceptable = $ic;
@@ -29,13 +36,22 @@ public final class cma implements pl5 {
         }
     }
 
-    @Override // com.baidu.tieba.pl5
-    public List<LaunchTask> asyncList() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yb7
+    public Map<String, String> a(v57 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return CollectionsKt__CollectionsKt.mutableListOf(new dma());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.putAll(tla.a.a(businessInfo));
+            String str = a.get("is_vertical_video");
+            if (str == null) {
+                str = "0";
+            }
+            hashMap.put(TiebaStatic.Params.IS_VERTICAL, str);
+            return hashMap;
         }
-        return (List) invokeV.objValue;
+        return (Map) invokeL.objValue;
     }
 }

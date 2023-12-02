@@ -35,7 +35,7 @@ public final class id0 {
     public static ArrayList<Long> d;
     public static final Hashtable<String, ArrayList<jd0<Integer, Integer>>> e;
     public static boolean f;
-    public static final vy0 g;
+    public static final xy0 g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -87,7 +87,7 @@ public final class id0 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class b<T> implements uj0<so0> {
+    public static final class b<T> implements uj0<uo0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -117,7 +117,7 @@ public final class id0 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.uj0
         /* renamed from: a */
-        public final void accept(so0 res) {
+        public final void accept(uo0 res) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, res) == null) {
                 Intrinsics.checkNotNullParameter(res, "res");
@@ -126,7 +126,7 @@ public final class id0 {
                     id0.d().h("iadex_sp_key_etag", res.a());
                     id0.d().h("iadex_sp_key_modified_time", res.b());
                     id0.d().g("iadex_last_update_time", this.a);
-                    if (res.c() > 0 && y11.a(this.b, new File(this.c, "iadex.json")) > 0) {
+                    if (res.c() > 0 && b21.a(this.b, new File(this.c, "iadex.json")) > 0) {
                         z = true;
                     }
                 } else {
@@ -159,7 +159,7 @@ public final class id0 {
         d = new ArrayList<>();
         e = new Hashtable<>();
         f = true;
-        vy0 b2 = yy0.a().b("iad_sp_file");
+        xy0 b2 = az0.a().b("iad_sp_file");
         Intrinsics.checkNotNullExpressionValue(b2, "SpUtils.getInstance().getSp(SP_FILE_NAME)");
         g = b2;
     }
@@ -175,7 +175,7 @@ public final class id0 {
             }
             File file2 = new File(file, "iadex.json");
             if (file2.exists()) {
-                String e2 = y11.e(file2);
+                String e2 = b21.e(file2);
                 if (!TextUtils.isEmpty(e2)) {
                     synchronized (jd0.class) {
                         try {
@@ -195,13 +195,13 @@ public final class id0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             ArrayList<Long> arrayList = d;
-            if (ly0.g(arrayList)) {
+            if (ny0.g(arrayList)) {
                 return "";
             }
             ArrayList arrayList2 = new ArrayList();
             Iterator<Long> it = arrayList.iterator();
             while (it.hasNext()) {
-                ly0.b(arrayList2, String.valueOf(it.next().longValue()));
+                ny0.b(arrayList2, String.valueOf(it.next().longValue()));
             }
             String join = TextUtils.join(",", arrayList2);
             Intrinsics.checkNotNullExpressionValue(join, "TextUtils.join(IADEX_DELIMITER, tmpFlag)");
@@ -210,13 +210,13 @@ public final class id0 {
         return (String) invokeV.objValue;
     }
 
-    public static final vy0 d() {
+    public static final xy0 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             return g;
         }
-        return (vy0) invokeV.objValue;
+        return (xy0) invokeV.objValue;
     }
 
     public static final void l(int i) {
@@ -240,7 +240,7 @@ public final class id0 {
             if (TextUtils.isEmpty(b)) {
                 b = h();
                 if (a.compareAndSet(0, 1)) {
-                    c01.c(a.a, "update_iad_ex", 3);
+                    e01.c(a.a, "update_iad_ex", 3);
                 }
             }
             return b;
@@ -275,7 +275,7 @@ public final class id0 {
                 Object[] array = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{","}, false, 0, 6, (Object) null).toArray(new String[0]);
                 if (array != null) {
                     for (String str2 : (String[]) array) {
-                        ly0.b(arrayList, Long.valueOf(str2));
+                        ny0.b(arrayList, Long.valueOf(str2));
                     }
                     d = arrayList;
                 } else {
@@ -294,16 +294,16 @@ public final class id0 {
         if ((interceptable == null || interceptable.invokeV(65550, null) == null) && (jSONObject = c) != null && (optJSONArray = jSONObject.optJSONArray("data")) != null) {
             ArrayList<Long> arrayList = new ArrayList<>(d);
             int length = optJSONArray.length();
-            int l = ly0.l(arrayList);
+            int l = ny0.l(arrayList);
             if (length != l) {
                 if (length > l) {
                     while (l < length) {
-                        ly0.b(arrayList, 0L);
+                        ny0.b(arrayList, 0L);
                         l++;
                     }
                 } else {
                     for (int i = length; i < l; i++) {
-                        ly0.i(arrayList, i);
+                        ny0.i(arrayList, i);
                     }
                 }
             }
@@ -343,12 +343,12 @@ public final class id0 {
                 return false;
             }
             File file2 = new File(file, "iadex.json.temp");
-            lo0 lo0Var = new lo0();
-            ro0 ro0Var = new ro0();
-            ro0Var.a = string;
-            ro0Var.b = string2;
-            ro0Var.c = z;
-            lo0Var.a("https://pn.baidu.com/iad/os_type2_all.json", ro0Var, file2, new b(currentTimeMillis, file2, file, string));
+            no0 no0Var = new no0();
+            to0 to0Var = new to0();
+            to0Var.a = string;
+            to0Var.b = string2;
+            to0Var.c = z;
+            no0Var.a("https://pn.baidu.com/iad/os_type2_all.json", to0Var, file2, new b(currentTimeMillis, file2, file, string));
             return true;
         }
         return invokeZ.booleanValue;
@@ -399,7 +399,7 @@ public final class id0 {
                 if (arrayList == null) {
                     arrayList = new ArrayList<>();
                 }
-                ly0.b(arrayList, jd0Var);
+                ny0.b(arrayList, jd0Var);
                 e.put(packageName, arrayList);
                 Intrinsics.checkNotNullExpressionValue(packageManager, "packageManager");
                 Intrinsics.checkNotNullExpressionValue(packageName, "packageName");

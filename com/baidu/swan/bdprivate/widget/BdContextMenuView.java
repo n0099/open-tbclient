@@ -10,10 +10,10 @@ import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r53;
-import com.baidu.tieba.sm1;
+import com.baidu.tieba.u53;
+import com.baidu.tieba.vm1;
 /* loaded from: classes4.dex */
-public class BdContextMenuView extends FrameLayout implements r53.g {
+public class BdContextMenuView extends FrameLayout implements u53.g {
     public b a;
     public Context b;
     public ListView c;
@@ -38,7 +38,7 @@ public class BdContextMenuView extends FrameLayout implements r53.g {
     }
 
     static {
-        boolean z = sm1.a;
+        boolean z = vm1.a;
     }
 
     public BdContextMenuView(Context context) {

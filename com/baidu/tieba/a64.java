@@ -1,45 +1,168 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+@Autowired
 /* loaded from: classes5.dex */
-public class a64 {
+public final class a64 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a64 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public boolean cancel;
-    @V8JavascriptField
-    public boolean confirm;
 
-    public a64(boolean z) {
+    /* loaded from: classes5.dex */
+    public static final class a implements z54 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.z54
+        public void a(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.z54
+        public void b(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.z54
+        public void c(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.z54
+        public void d(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.z54
+        public void e(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.z54
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.z54
+        public void g(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.z54
+        public void h(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.z54
+        public void i(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.baidu.tieba.z54
+        public void j() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.z54
+        public void k(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947567114, "Lcom/baidu/tieba/a64;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947567114, "Lcom/baidu/tieba/a64;");
+                return;
+            }
+        }
+        a = new a64();
+    }
+
+    public a64() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.confirm = z;
-        this.cancel = !z;
     }
 
-    public String toString() {
+    @Inject(force = false)
+    public final z54 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanGameReloadResult{confirm=" + this.confirm + ", cancel=" + this.cancel + '}';
+            return new a();
         }
-        return (String) invokeV.objValue;
+        return (z54) invokeV.objValue;
     }
 }

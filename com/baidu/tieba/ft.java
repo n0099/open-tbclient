@@ -21,7 +21,7 @@ public class ft extends vs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HeadlinesAgreeCardView h;
-    public cw4 i;
+    public fw4 i;
     public int j;
     public final nu.b k;
     public ru l;
@@ -68,15 +68,15 @@ public class ft extends vs {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cw4 a;
+        public final /* synthetic */ fw4 a;
         public final /* synthetic */ ft b;
 
-        public b(ft ftVar, cw4 cw4Var) {
+        public b(ft ftVar, fw4 fw4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ftVar, cw4Var};
+                Object[] objArr = {ftVar, fw4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -87,7 +87,7 @@ public class ft extends vs {
                 }
             }
             this.b = ftVar;
-            this.a = cw4Var;
+            this.a = fw4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -191,11 +191,11 @@ public class ft extends vs {
         }
     }
 
-    public final boolean B(cw4 cw4Var) {
+    public final boolean B(fw4 fw4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cw4Var)) == null) {
-            if (cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().getTaskInfoData() != null && cw4Var.getThreadData().getTaskInfoData().f() != null && cw4Var.getThreadData().getTaskInfoData().j() == 3) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fw4Var)) == null) {
+            if (fw4Var != null && fw4Var.getThreadData() != null && fw4Var.getThreadData().getTaskInfoData() != null && fw4Var.getThreadData().getTaskInfoData().f() != null && fw4Var.getThreadData().getTaskInfoData().j() == 3) {
                 return true;
             }
             return false;
@@ -206,14 +206,14 @@ public class ft extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: C */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cw4Var) == null) {
-            this.i = cw4Var;
-            if (B(cw4Var)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fw4Var) == null) {
+            this.i = fw4Var;
+            if (B(fw4Var)) {
                 this.h.setVisibility(0);
-                this.h.onBindDataToView(cw4Var);
-                this.h.setItemBtnClickListener(new b(this, cw4Var));
+                this.h.onBindDataToView(fw4Var);
+                this.h.setItemBtnClickListener(new b(this, fw4Var));
                 return;
             }
             this.h.setVisibility(8);

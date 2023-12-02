@@ -27,12 +27,12 @@ import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b65;
-import com.baidu.tieba.c65;
-import com.baidu.tieba.gu8;
+import com.baidu.tieba.e65;
+import com.baidu.tieba.f65;
 import com.baidu.tieba.im.data.GamePlayOrderMsgData;
 import com.baidu.tieba.im.model.FlutterCommonModel;
 import com.baidu.tieba.im.model.IFlutterCommonDataCallback;
+import com.baidu.tieba.ku8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,12 +69,12 @@ public final class GamePlayCardMsgView extends LinearLayout {
 
         /* renamed from: com.baidu.tieba.im.widget.GamePlayCardMsgView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0362a implements View.OnClickListener {
+        public class View$OnClickListenerC0341a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0362a(a aVar) {
+            public View$OnClickListenerC0341a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(this.a.f("c14878").addParam("obj_locate", 2));
-                new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity()).setTitle(R.string.game_back_tip).setDesc(R.string.game_play_confirm_order).setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f05a0, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f05ab, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0362a(this))).setAutoClose().setCancelable(false).show();
+                new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity()).setTitle(R.string.game_back_tip).setDesc(R.string.game_play_confirm_order).setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f05a0, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f05ab, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0341a(this))).setAutoClose().setCancelable(false).show();
             }
         }
     }
@@ -883,7 +883,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (this.n == null) {
                 return false;
             }
-            return gu8.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
+            return ku8.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
         }
         return invokeV.booleanValue;
     }
@@ -910,14 +910,14 @@ public final class GamePlayCardMsgView extends LinearLayout {
             this.i = (LinearLayout) findViewById(R.id.msg_card_btn_ll);
             this.j = (TBSpecificationBtn) findViewById(R.id.msg_card_btn_main);
             this.k = (TBSpecificationBtn) findViewById(R.id.msg_card_btn_second);
-            b65 b65Var = new b65();
-            b65Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.j.setConfig(b65Var);
+            e65 e65Var = new e65();
+            e65Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.j.setConfig(e65Var);
             this.j.setTextSize(R.dimen.T_X08);
             this.j.setEnabled(true);
-            c65 c65Var = new c65();
-            c65Var.t(R.color.CAM_X0105);
-            this.k.setConfig(c65Var);
+            f65 f65Var = new f65();
+            f65Var.t(R.color.CAM_X0105);
+            this.k.setConfig(f65Var);
             this.k.setTextSize(R.dimen.T_X08);
             this.k.setEnabled(true);
             l("");

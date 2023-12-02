@@ -96,11 +96,11 @@ public class LiveBannerStatusAnimView extends FrameLayout {
     public final void d(Context context) {
         this.a = context;
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05f5, this);
-        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091651);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091652);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091653);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091650);
-        this.f = findViewById(R.id.obfuscated_res_0x7f091631);
+        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091652);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091653);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091654);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091651);
+        this.f = findViewById(R.id.obfuscated_res_0x7f091632);
         this.l = new LottieDrawable();
         c();
         this.l.loop(true);

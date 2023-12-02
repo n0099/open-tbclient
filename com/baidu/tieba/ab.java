@@ -1047,19 +1047,19 @@ public class ab {
                     jbVar = jbVar2;
                     bdHttpStat = bdHttpStat2;
                     i11 = i14;
-                    i12 = R.string.obfuscated_res_0x7f0f0e6f;
+                    i12 = R.string.obfuscated_res_0x7f0f0e70;
                 } catch (SocketException e9) {
                     e = e9;
                     i8 = i15;
                     jbVar = jbVar2;
                     bdHttpStat = bdHttpStat2;
-                    i10 = R.string.obfuscated_res_0x7f0f0e6f;
+                    i10 = R.string.obfuscated_res_0x7f0f0e70;
                 } catch (SocketTimeoutException e10) {
                     e = e10;
                     i8 = i15;
                     jbVar = jbVar2;
                     bdHttpStat = bdHttpStat2;
-                    i9 = R.string.obfuscated_res_0x7f0f0e6f;
+                    i9 = R.string.obfuscated_res_0x7f0f0e70;
                 }
                 if (this.a.c().b != 200) {
                     bdHttpStat = bdHttpStat2;
@@ -1080,7 +1080,7 @@ public class ab {
                                 jbVar.a();
                             } catch (SocketException e11) {
                                 e = e11;
-                                i10 = R.string.obfuscated_res_0x7f0f0e6f;
+                                i10 = R.string.obfuscated_res_0x7f0f0e70;
                                 this.a.c().c = -12;
                                 eb c = this.a.c();
                                 c.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1100,7 +1100,7 @@ public class ab {
                                 i13 = 1;
                             } catch (SocketTimeoutException e12) {
                                 e = e12;
-                                i9 = R.string.obfuscated_res_0x7f0f0e6f;
+                                i9 = R.string.obfuscated_res_0x7f0f0e70;
                                 this.a.c().c = -13;
                                 eb c2 = this.a.c();
                                 c2.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1121,7 +1121,7 @@ public class ab {
                             }
                         } catch (UnsupportedOperationException e13) {
                             e = e13;
-                            i12 = R.string.obfuscated_res_0x7f0f0e6f;
+                            i12 = R.string.obfuscated_res_0x7f0f0e70;
                             if (i11 >= i7) {
                             }
                             this.a.c().c = -14;
@@ -1147,7 +1147,7 @@ public class ab {
                                 c4.g = th.getMessage() + Log.getStackTraceString(th);
                                 if (i11 >= i7) {
                                 }
-                                bdHttpStat.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e6f);
+                                bdHttpStat.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e70);
                                 BdLog.e(th.getMessage());
                                 this.a.e(bdHttpStat);
                                 jbVar.b = -10;
@@ -1193,7 +1193,7 @@ public class ab {
                         return;
                     } catch (UnsupportedOperationException e17) {
                         e = e17;
-                        i12 = R.string.obfuscated_res_0x7f0f0e6f;
+                        i12 = R.string.obfuscated_res_0x7f0f0e70;
                         if (i11 >= i7) {
                             z3 = true;
                         } else {
@@ -1225,7 +1225,7 @@ public class ab {
                         } else {
                             z3 = false;
                         }
-                        bdHttpStat.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e6f);
+                        bdHttpStat.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e70);
                         BdLog.e(th.getMessage());
                         this.a.e(bdHttpStat);
                         jbVar.b = -10;
@@ -1409,19 +1409,19 @@ public class ab {
                     jbVar = jbVar2;
                     bdHttpStat = bdHttpStat2;
                     i11 = i14;
-                    i12 = R.string.obfuscated_res_0x7f0f0e6f;
+                    i12 = R.string.obfuscated_res_0x7f0f0e70;
                 } catch (SocketException e9) {
                     e = e9;
                     i8 = i15;
                     jbVar = jbVar2;
                     bdHttpStat = bdHttpStat2;
-                    i10 = R.string.obfuscated_res_0x7f0f0e6f;
+                    i10 = R.string.obfuscated_res_0x7f0f0e70;
                 } catch (SocketTimeoutException e10) {
                     e = e10;
                     i8 = i15;
                     jbVar = jbVar2;
                     bdHttpStat = bdHttpStat2;
-                    i9 = R.string.obfuscated_res_0x7f0f0e6f;
+                    i9 = R.string.obfuscated_res_0x7f0f0e70;
                 }
                 if (this.a.c().b != 200) {
                     bdHttpStat = bdHttpStat2;
@@ -1442,7 +1442,7 @@ public class ab {
                                 jbVar.a();
                             } catch (SocketException e11) {
                                 e = e11;
-                                i10 = R.string.obfuscated_res_0x7f0f0e6f;
+                                i10 = R.string.obfuscated_res_0x7f0f0e70;
                                 this.a.c().c = -12;
                                 eb c = this.a.c();
                                 c.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1462,7 +1462,7 @@ public class ab {
                                 i13 = 1;
                             } catch (SocketTimeoutException e12) {
                                 e = e12;
-                                i9 = R.string.obfuscated_res_0x7f0f0e6f;
+                                i9 = R.string.obfuscated_res_0x7f0f0e70;
                                 this.a.c().c = -13;
                                 eb c2 = this.a.c();
                                 c2.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1483,7 +1483,7 @@ public class ab {
                             }
                         } catch (UnsupportedOperationException e13) {
                             e = e13;
-                            i12 = R.string.obfuscated_res_0x7f0f0e6f;
+                            i12 = R.string.obfuscated_res_0x7f0f0e70;
                             if (i11 >= i7) {
                             }
                             this.a.c().c = -14;
@@ -1509,7 +1509,7 @@ public class ab {
                                 c4.g = th.getMessage() + Log.getStackTraceString(th);
                                 if (i11 >= i7) {
                                 }
-                                bdHttpStat.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e6f);
+                                bdHttpStat.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e70);
                                 BdLog.e(th.getMessage());
                                 this.a.e(bdHttpStat);
                                 jbVar.b = -10;
@@ -1555,7 +1555,7 @@ public class ab {
                         return;
                     } catch (UnsupportedOperationException e17) {
                         e = e17;
-                        i12 = R.string.obfuscated_res_0x7f0f0e6f;
+                        i12 = R.string.obfuscated_res_0x7f0f0e70;
                         if (i11 >= i7) {
                             z3 = true;
                         } else {
@@ -1587,7 +1587,7 @@ public class ab {
                         } else {
                             z3 = false;
                         }
-                        bdHttpStat.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e6f);
+                        bdHttpStat.exception = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0e70);
                         BdLog.e(th.getMessage());
                         this.a.e(bdHttpStat);
                         jbVar.b = -10;

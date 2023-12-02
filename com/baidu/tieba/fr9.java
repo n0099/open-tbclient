@@ -1,7 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface fr9 {
-    void a(GetCloudFaceGroupMessage getCloudFaceGroupMessage);
+public class fr9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+        }
+    }
 }

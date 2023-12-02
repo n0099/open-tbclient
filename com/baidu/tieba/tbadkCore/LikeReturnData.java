@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.data.FeedForumData;
-import com.baidu.tieba.dva;
+import com.baidu.tieba.cva;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +36,7 @@ public class LikeReturnData {
     public BlockPopInfoData mBlockPopInfoData;
     public String memberSum;
     public JSONObject originData;
-    public List<dva> recommendForums;
+    public List<cva> recommendForums;
     public BdToastData toastData;
     public int user_level;
 
@@ -88,8 +88,8 @@ public class LikeReturnData {
             if (jSONArray != null && jSONArray.length() != 0) {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     try {
-                        dva b = dva.b((JSONObject) jSONArray.opt(i));
-                        if (b != null && dva.a(b)) {
+                        cva b = cva.b((JSONObject) jSONArray.opt(i));
+                        if (b != null && cva.a(b)) {
                             this.recommendForums.add(b);
                         }
                     } catch (Exception e) {
@@ -200,7 +200,7 @@ public class LikeReturnData {
         return (String) invokeV.objValue;
     }
 
-    public List<dva> getRecommendForums() {
+    public List<cva> getRecommendForums() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {

@@ -155,10 +155,10 @@ public class FeedDownloadActivityProxy extends com.kwad.components.core.proxy.c 
 
     @Override // com.kwad.components.core.proxy.c
     public void initView() {
-        KsAdContainer ksAdContainer = (KsAdContainer) findViewById(R.id.obfuscated_res_0x7f09133b);
+        KsAdContainer ksAdContainer = (KsAdContainer) findViewById(R.id.obfuscated_res_0x7f09133c);
         this.mAdContainer = ksAdContainer;
         ksAdContainer.setOnClickListener(this);
-        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) findViewById(R.id.obfuscated_res_0x7f09134d);
+        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) findViewById(R.id.obfuscated_res_0x7f09134e);
         this.mAppTailFrameView = tailFrameBarAppPortraitVertical;
         tailFrameBarAppPortraitVertical.b(this.mAdTemplate);
         this.mAppTailFrameView.D(com.kwad.sdk.core.response.b.e.dP(this.mAdTemplate));

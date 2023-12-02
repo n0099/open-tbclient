@@ -1,11 +1,13 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes8.dex */
-public interface rw5 {
-    void a(View view2);
+public interface rw5 extends kq5 {
+    void d2(String str, boolean z);
 
-    void b(View view2);
+    boolean goBack();
 
-    View getView();
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
 }

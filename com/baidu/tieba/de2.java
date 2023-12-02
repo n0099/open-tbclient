@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.webkit.ValueCallback;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,31 +30,24 @@ public class de2 {
         this.a = v8Engine;
     }
 
-    public void a(@NonNull Object obj, @NonNull String str) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, obj, str) == null) {
-            this.a.addJavascriptInterface(obj, str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            c(4, str);
         }
     }
 
-    public void b(String str, ValueCallback<String> valueCallback) {
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
-            this.a.evaluateJavascript(str, valueCallback, "mainContextEvaluate");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            c(1, str);
         }
     }
 
-    public void c(String str, String str2) {
+    public final void c(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            this.a.requireJSFile(str, str2);
-        }
-    }
-
-    public void d(JSExceptionType jSExceptionType, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jSExceptionType, str) == null) {
-            this.a.throwJSException(jSExceptionType, str);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            this.a.onConsoleCallBack(i, str);
         }
     }
 }

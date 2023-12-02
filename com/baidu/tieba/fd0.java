@@ -22,7 +22,7 @@ import kotlin.text.StringsKt__StringsKt;
 public final class fd0 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a = false;
-    public static final vy0 b;
+    public static final xy0 b;
     public static final fd0 c;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,7 +74,7 @@ public final class fd0 {
                     }
                     return;
                 }
-                bz0.e(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TRANS).j(GrsBaseInfo.CountryCodeSource.APP).p(this.b).k(String.valueOf(this.a)).l(String.valueOf(System.currentTimeMillis())).m("1"));
+                dz0.e(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TRANS).j(GrsBaseInfo.CountryCodeSource.APP).p(this.b).k(String.valueOf(this.a)).l(String.valueOf(System.currentTimeMillis())).m("1"));
                 fd0.y();
                 if (fd0.a(fd0.c)) {
                     Log.d("AdDeepLinkStayTime", "tryToPostStayTrans: successfully made a deepLink stay trans!");
@@ -97,7 +97,7 @@ public final class fd0 {
             }
         }
         c = new fd0();
-        vy0 b2 = yy0.a().b("nad_deeplink_stay_time");
+        xy0 b2 = az0.a().b("nad_deeplink_stay_time");
         Intrinsics.checkNotNullExpressionValue(b2, "SpUtils.getInstance().ge…\"nad_deeplink_stay_time\")");
         b = b2;
     }
@@ -151,7 +151,7 @@ public final class fd0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            String f = y11.f("ad_deeplink_stay_time_ext");
+            String f = b21.f("ad_deeplink_stay_time_ext");
             if (f == null) {
                 return "";
             }
@@ -242,7 +242,7 @@ public final class fd0 {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            y11.j("", "ad_deeplink_stay_time_ext");
+            b21.j("", "ad_deeplink_stay_time_ext");
         }
     }
 
@@ -314,7 +314,7 @@ public final class fd0 {
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            y11.j(str, "ad_deeplink_stay_time_ext");
+            b21.j(str, "ad_deeplink_stay_time_ext");
         }
     }
 
@@ -374,7 +374,7 @@ public final class fd0 {
                 } else {
                     return;
                 }
-                bz0.e(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TIME).p(str).k(String.valueOf(j)).l(String.valueOf(j2)).m(str2));
+                dz0.e(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TIME).p(str).k(String.valueOf(j)).l(String.valueOf(j2)).m(str2));
                 x(str, true);
                 if (a) {
                     Log.d("AdDeepLinkStayTime", "postDeepLinkStayTime: post a deepLink stay time on " + boot);
@@ -398,7 +398,7 @@ public final class fd0 {
                     }
                     return;
                 }
-                bz0.e(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TRANS).j(GrsBaseInfo.CountryCodeSource.APP).p(str).k(String.valueOf(j)).l(String.valueOf(j2)).m("2"));
+                dz0.e(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TRANS).j(GrsBaseInfo.CountryCodeSource.APP).p(str).k(String.valueOf(j)).l(String.valueOf(j2)).m("2"));
                 if (a) {
                     Log.d("AdDeepLinkStayTime", "postDeepLinkStayTrans: post last deepLink stay trans when cold boot.");
                 }

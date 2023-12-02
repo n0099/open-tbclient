@@ -78,12 +78,12 @@ public class CloseParentView extends LinearLayout {
         }
         this.i = new t2(this, Looper.getMainLooper());
         this.d = context;
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0a69, this);
-        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092b35);
-        this.e = findViewById(R.id.obfuscated_res_0x7f092b32);
-        this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092b36);
-        this.f = findViewById(R.id.obfuscated_res_0x7f092b3c);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092b40);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0a6a, this);
+        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092b3b);
+        this.e = findViewById(R.id.obfuscated_res_0x7f092b38);
+        this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092b3c);
+        this.f = findViewById(R.id.obfuscated_res_0x7f092b42);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092b46);
         this.b.setOnClickListener(new u2(this));
         this.f.setOnClickListener(new v2(this));
         setAreaLevel(1);

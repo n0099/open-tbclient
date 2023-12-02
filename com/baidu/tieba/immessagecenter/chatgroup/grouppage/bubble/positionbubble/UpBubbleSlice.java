@@ -31,9 +31,9 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.o39;
-import com.baidu.tieba.p39;
 import com.baidu.tieba.pi;
+import com.baidu.tieba.s39;
+import com.baidu.tieba.t39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class UpBubbleSlice extends Slice {
     public GroupChatRepo l;
     public GroupChatRepo.u<TreeSet<ChatMsg>> m;
     @NonNull
-    public final p39 n;
+    public final t39 n;
     public String o;
     public boolean p;
     public long q;
@@ -59,7 +59,7 @@ public class UpBubbleSlice extends Slice {
     public final ChatPage s;
 
     /* loaded from: classes6.dex */
-    public class a implements o39 {
+    public class a implements s39 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpBubbleSlice a;
@@ -82,7 +82,7 @@ public class UpBubbleSlice extends Slice {
             this.a = upBubbleSlice;
         }
 
-        @Override // com.baidu.tieba.o39
+        @Override // com.baidu.tieba.s39
         public void a(BdTypeRecyclerView bdTypeRecyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) {
@@ -94,7 +94,7 @@ public class UpBubbleSlice extends Slice {
             }
         }
 
-        @Override // com.baidu.tieba.o39
+        @Override // com.baidu.tieba.s39
         public void b(BdTypeRecyclerView bdTypeRecyclerView, GroupChatRepo groupChatRepo, GroupChatRepo.u<TreeSet<ChatMsg>> uVar) {
             RecyclerViewTypeAdapter recyclerViewTypeAdapter;
             Interceptable interceptable = $ic;
@@ -227,7 +227,7 @@ public class UpBubbleSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 d dVar = new d();
                 dVar.a = view2;
-                dVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0928ef);
+                dVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0928f2);
                 dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09054d);
                 dVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090559);
                 return dVar;
@@ -254,7 +254,7 @@ public class UpBubbleSlice extends Slice {
         this.q = Long.MAX_VALUE;
         this.j = groupChatFragment;
         this.s = chatPage;
-        this.n = new p39();
+        this.n = new t39();
     }
 
     public void r0(ChatRoomDetail chatRoomDetail) {
@@ -294,7 +294,7 @@ public class UpBubbleSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09ed, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09ee, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }

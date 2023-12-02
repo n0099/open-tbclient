@@ -1,210 +1,301 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.recentforum.data.RecentForumRespondedMessage;
+import com.baidu.tbadk.abtest.helper.LiveEnterForumTestHelper;
+import com.baidu.tbadk.abtest.helper.LiveEnterForumTestHelperKt;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
 public final class xja {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public boolean b;
-    public a c;
-    public boolean d;
-    public final b e;
 
-    /* loaded from: classes9.dex */
-    public interface a {
-        void a(lh8 lh8Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303674, "Lcom/baidu/tieba/xja;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948303674, "Lcom/baidu/tieba/xja;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
 
-        void onFail();
+    public /* synthetic */ xja(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    @JvmStatic
+    public static final xja e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a() : (xja) invokeV.objValue;
     }
 
     /* loaded from: classes9.dex */
-    public static final class b extends HttpMessageListener {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xja a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(xja xjaVar) {
-            super(CmdConfigHttp.CMD_RECENT_FORUM);
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xjaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final xja a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
+            }
+            return (xja) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final xja b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-285929348, "Lcom/baidu/tieba/xja$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-285929348, "Lcom/baidu/tieba/xja$b;");
+                    return;
+                }
+            }
+            a = new b();
+            b = new xja(null);
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final xja a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (xja) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class c extends nu5<Unit> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                da<String> n = e05.n("tb.homepage_enterforum_second_floor", TbadkCoreApplication.getCurrentAccount());
+                if (n != null) {
+                    n.g("key_homepage_enter_forum", "");
+                }
+                DefaultLog.getInstance().i(LiveEnterForumTestHelperKt.LIVE_ENTER_FORUM_TEST_LOG_TAGE, "DB进吧二楼数据清除成功");
+            }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.nu5
+        public /* bridge */ /* synthetic */ Unit doInBackground() {
+            a();
+            return Unit.INSTANCE;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class d extends nu5<Unit> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ ph8 b;
+
+        public d(boolean z, ph8 ph8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), ph8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = xjaVar;
+            this.a = z;
+            this.b = ph8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        public void a() {
+            String f;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003572 && (httpResponsedMessage instanceof RecentForumRespondedMessage)) {
-                    RecentForumRespondedMessage recentForumRespondedMessage = (RecentForumRespondedMessage) httpResponsedMessage;
-                    if (recentForumRespondedMessage.getError() != 0) {
-                        this.a.g(false);
-                        TbLog defaultLog = DefaultLog.getInstance();
-                        defaultLog.i("RecentForumLog", "请求结束，返回错误，错误码为：" + recentForumRespondedMessage.getError());
-                        a a = this.a.a();
-                        if (a != null) {
-                            a.onFail();
-                            return;
-                        }
-                        return;
-                    }
-                    this.a.g(false);
-                    lh8 data = recentForumRespondedMessage.getData();
-                    Unit unit = null;
-                    if (data != null) {
-                        xja xjaVar = this.a;
-                        DefaultLog.getInstance().i("RecentForumLog", "请求结束，有返回数据");
-                        a a2 = xjaVar.a();
-                        if (a2 != null) {
-                            a2.a(data);
-                            unit = Unit.INSTANCE;
-                        }
-                    }
-                    if (unit == null) {
-                        DefaultLog.getInstance().i("RecentForumLog", "请求结束，返回数据为空");
-                        return;
-                    }
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a) {
+                    f = this.b.g();
+                } else {
+                    f = this.b.f();
                 }
-                this.a.g(false);
-                DefaultLog.getInstance().i("RecentForumLog", "请求结束，数据不合法");
-                a a3 = this.a.a();
-                if (a3 != null) {
-                    a3.onFail();
+                Intrinsics.checkNotNullExpressionValue(f, "if (fromNet) data.getOri…tRecentForumListJsonStr()");
+                da<String> n = e05.n("tb.homepage_enterforum_second_floor", TbadkCoreApplication.getCurrentAccount());
+                if (n != null) {
+                    n.g("key_homepage_enter_forum", f);
                 }
+                DefaultLog.getInstance().i("RecentForumLog", "进吧二楼数据DB存储成功");
             }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.nu5
+        public /* bridge */ /* synthetic */ Unit doInBackground() {
+            a();
+            return Unit.INSTANCE;
         }
     }
 
-    public xja(BdUniqueId bdUniqueId) {
+    public xja() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = bdUniqueId;
-        this.e = new b(this);
-        e();
     }
 
-    public final a a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ru5.b(new c(), null);
         }
-        return (a) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c();
+            a();
+        }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_RECENT_FORUM);
-            MessageManager.getInstance().unRegisterListener(this.e);
-            this.d = true;
+            mqa.e.a().g(null);
         }
     }
 
-    public final void e() {
+    public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d();
-            this.e.setSelfListener(true);
-            this.e.setTag(this.a);
-            MessageManager.getInstance().registerListener(this.e);
+            LiveEnterForumTestHelper.resetLiveEnterForumTest();
+            if (LiveEnterForumTestHelper.isLiveEnterForumTestA()) {
+                mqa.e.a().f(false);
+            }
         }
-    }
-
-    public final boolean b(ma8 ma8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ma8Var)) == null) {
-            if (this.d) {
-                e();
-                this.d = false;
-                DefaultLog.getInstance().i("RecentForumLog", "重新注册");
-            }
-            if (this.b) {
-                DefaultLog.getInstance().i("RecentForumLog", "上一次请求正在执行，不请求");
-                return false;
-            }
-            this.b = true;
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RECENT_FORUM);
-            String str = null;
-            if (ma8Var != null) {
-                str = ma8Var.a().toString();
-                httpMessage.addParam("forum_frscsm", str);
-            }
-            httpMessage.setTag(this.a);
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("RecentForumLog", "开始请求，请求参数：" + str);
-            MessageManager.getInstance().sendMessage(httpMessage);
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 
     public final void d() {
+        Unit unit;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECENT_FORUM, TbConfig.SERVER_ADDRESS + "c/f/excellent/getRecentForum");
-            tbHttpMessageTask.setResponsedClass(RecentForumRespondedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            da<String> n = e05.n("tb.homepage_enterforum_second_floor", TbadkCoreApplication.getCurrentAccount());
+            if (n != null) {
+                ph8 ph8Var = new ph8();
+                ph8Var.l(n.get("key_homepage_enter_forum"));
+                if (ph8Var.isValid()) {
+                    mqa.e.a().g(ph8Var);
+                } else {
+                    c();
+                }
+                unit = Unit.INSTANCE;
+            } else {
+                unit = null;
+            }
+            if (unit == null) {
+                c();
+            }
+            DefaultLog.getInstance().i(LiveEnterForumTestHelperKt.LIVE_ENTER_FORUM_TEST_LOG_TAGE, "DB进吧二楼数据获取成功");
         }
     }
 
-    public final void f(a aVar) {
+    public final void g(ph8 data, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.c = aVar;
-        }
-    }
-
-    public final void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, data, z) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            ru5.b(new d(z, data), null);
         }
     }
 }

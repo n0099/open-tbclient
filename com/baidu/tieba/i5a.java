@@ -1,62 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.pb.report.UEGReportRequestMessage;
+import com.baidu.tieba.pb.pb.report.UEGReportResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i5a extends PbListView {
+public class i5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> F;
+    public BdUniqueId a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i5a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public i5a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.F = tbPageContext;
-        x(false);
-        c().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070416));
-        D();
-        C();
-        z();
-        L(R.dimen.tbfontsize33);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UEG_REPORT, TbConfig.SERVER_ADDRESS + TbConfig.URL_UEG_REPORT);
+        tbHttpMessageTask.setResponsedClass(UEGReportResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void V() {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.g();
-            H(this.F.getResources().getString(R.string.load_more));
-            c().setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            UEGReportRequestMessage uEGReportRequestMessage = new UEGReportRequestMessage();
+            uEGReportRequestMessage.setTag(this.a);
+            uEGReportRequestMessage.setPid(str);
+            MessageManager.getInstance().sendMessage(uEGReportRequestMessage);
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.PbListView
-    public void g() {
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.g();
-            H(this.F.getResources().getString(R.string.sub_pb_list_no_more));
-            c().setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            UEGReportRequestMessage uEGReportRequestMessage = new UEGReportRequestMessage();
+            uEGReportRequestMessage.setTag(this.a);
+            uEGReportRequestMessage.setTUid(str);
+            MessageManager.getInstance().sendMessage(uEGReportRequestMessage);
+        }
+    }
+
+    public void c(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
         }
     }
 }

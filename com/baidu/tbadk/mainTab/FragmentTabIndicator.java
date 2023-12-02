@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.uua;
+import com.baidu.tieba.tua;
 import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -489,7 +489,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.l = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
-            this.m = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070363);
+            this.m = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070364);
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.fragment_bottom_indicator_item, this);
             this.j = (ImageView) inflate.findViewById(R.id.view_bottom_icon);
             TextView textView = (TextView) inflate.findViewById(R.id.view_bottom_text);
@@ -618,10 +618,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 ThemeColorInfo themeColorInfo = this.mThemeColorInfo;
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                        this.k.setTextColor(uua.f(this.mThemeColorInfo.dark.font_color));
+                        this.k.setTextColor(tua.f(this.mThemeColorInfo.dark.font_color));
                         return;
                     } else {
-                        this.k.setTextColor(uua.f(this.mThemeColorInfo.day.font_color));
+                        this.k.setTextColor(tua.f(this.mThemeColorInfo.day.font_color));
                         return;
                     }
                 }

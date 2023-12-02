@@ -1,67 +1,30 @@
 package com.baidu.tieba;
 
-import android.database.DataSetObservable;
-import android.database.DataSetObserver;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 /* loaded from: classes5.dex */
-public abstract class bw5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public DataSetObservable a;
+public interface bw5 {
+    void a();
 
-    public abstract int a();
+    void b(Canvas canvas);
 
-    public abstract View b(int i, ViewGroup viewGroup);
+    void c(ListView listView, Context context, AttributeSet attributeSet);
 
-    public bw5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new DataSetObservable();
-    }
+    void onDraw(Canvas canvas);
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.notifyChanged();
-        }
-    }
+    boolean onInterceptTouchEvent(MotionEvent motionEvent);
 
-    public void d(DataSetObserver dataSetObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dataSetObserver) == null) {
-            try {
-                this.a.registerObserver(dataSetObserver);
-            } catch (Throwable th) {
-                BdLog.e(th, true);
-            }
-        }
-    }
+    void onMeasure(int i, int i2);
 
-    public void e(DataSetObserver dataSetObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dataSetObserver) == null) {
-            try {
-                this.a.unregisterObserver(dataSetObserver);
-            } catch (Throwable th) {
-                BdLog.e(th, true);
-            }
-        }
-    }
+    void onSizeChanged(int i, int i2, int i3, int i4);
+
+    boolean onTouchEvent(MotionEvent motionEvent);
+
+    void requestLayout();
+
+    void setAdapter(ListAdapter listAdapter);
 }

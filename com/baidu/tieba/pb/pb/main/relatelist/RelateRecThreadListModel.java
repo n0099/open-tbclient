@@ -13,8 +13,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ru4;
-import com.baidu.tieba.wva;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.vva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public RelateRecThreadRequestMessage b;
-    public ru4 c;
+    public uu4 c;
     public NetMessageListener d;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -148,17 +148,17 @@ public class RelateRecThreadListModel extends BdBaseModel {
         return (String) invokeI.objValue;
     }
 
-    public void V(ru4 ru4Var) {
+    public void V(uu4 uu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ru4Var) == null) {
-            this.c = ru4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, uu4Var) == null) {
+            this.c = uu4Var;
         }
     }
 
     public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            wva.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            vva.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
             registerListener(this.d);
         }

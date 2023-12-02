@@ -5,13 +5,13 @@ import android.webkit.WebResourceResponse;
 import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.sdk.internal.bx;
+import com.baidu.tieba.aj6;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.di6;
-import com.baidu.tieba.kk6;
-import com.baidu.tieba.mi6;
-import com.baidu.tieba.sh6;
-import com.baidu.tieba.th6;
-import com.baidu.tieba.wi6;
+import com.baidu.tieba.hi6;
+import com.baidu.tieba.ok6;
+import com.baidu.tieba.qi6;
+import com.baidu.tieba.wh6;
+import com.baidu.tieba.xh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,12 +21,12 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class WebViewDiskLoader extends di6<WebResourceResponse> {
+public class WebViewDiskLoader extends hi6<WebResourceResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final sh6<String, Pair<InputStream, Long>> b;
+    public final wh6<String, Pair<InputStream, Long>> b;
 
-    @Override // com.baidu.tieba.di6
+    @Override // com.baidu.tieba.hi6
     public boolean e(String str, String str2, Map<String, String> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -49,14 +49,14 @@ public class WebViewDiskLoader extends di6<WebResourceResponse> {
                 return;
             }
         }
-        this.b = new th6();
+        this.b = new xh6();
     }
 
     public final WebResourceResponse f(String str, InputStream inputStream) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, inputStream)) == null) {
-            WebResourceResponse webResourceResponse = new WebResourceResponse(kk6.b(str), "UTF-8", inputStream);
+            WebResourceResponse webResourceResponse = new WebResourceResponse(ok6.b(str), "UTF-8", inputStream);
             webResourceResponse.setStatusCodeAndReasonPhrase(200, bx.k);
             webResourceResponse.setResponseHeaders(new HashMap<String, String>(this) { // from class: com.baidu.tieba.browser.core.webview.flyweight.loader.WebViewDiskLoader.1
                 public static /* synthetic */ Interceptable $ic;
@@ -88,19 +88,19 @@ public class WebViewDiskLoader extends di6<WebResourceResponse> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.di6
+    @Override // com.baidu.tieba.hi6
     /* renamed from: g */
     public WebResourceResponse c(String str, String str2, Map<String, String> map) {
         InterceptResult invokeLLL;
-        wi6 f;
+        aj6 f;
         String str3;
         Pair<InputStream, Long> a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, map)) == null) {
             try {
-                f = mi6.e().f(str);
+                f = qi6.e().f(str);
                 if (f == null) {
-                    f = mi6.e().f(kk6.c(str2));
+                    f = qi6.e().f(ok6.c(str2));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -116,7 +116,7 @@ public class WebViewDiskLoader extends di6<WebResourceResponse> {
                 }
                 str3 = f.e + str5;
             } else {
-                String c = kk6.c(str2);
+                String c = ok6.c(str2);
                 for (String str6 : f.f) {
                     if (c.endsWith(str6)) {
                         str4 = f.e + str6;

@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,18 +11,11 @@ public class z44 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public String data;
+    public JsArrayBuffer data;
     @V8JavascriptField
     public Object header;
     @V8JavascriptField
     public int statusCode;
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
 
     public z44() {
         Interceptable interceptable = $ic;

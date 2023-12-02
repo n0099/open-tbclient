@@ -1,61 +1,32 @@
 package com.baidu.tieba;
 
+import android.util.Base64;
 import android.util.Log;
+import androidx.annotation.CheckResult;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.KeyFactory;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes5.dex */
 public class cj3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-
-        public a(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + cj3.b;
-                if (cj3.a) {
-                    Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + this.a);
-                }
-                kp2.b(str, this.a, this.b);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -70,14 +41,157 @@ public class cj3 {
                 return;
             }
         }
-        a = sm1.a;
-        b = "aiapps_folder" + File.separator + "feed_back_record.txt";
+        a = vm1.a;
     }
 
-    public static void c(@NonNull String str, boolean z) {
+    @NonNull
+    @CheckResult
+    public static String a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
-            bj3.k(new a(str, z), "record_feedback_ext_info");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, str4)) == null) {
+            try {
+                Cipher cipher = Cipher.getInstance(str3);
+                cipher.init(1, new SecretKeySpec(str.getBytes("utf-8"), "AES"), new IvParameterSpec(str4.getBytes("utf-8")));
+                return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
+            } catch (Exception e) {
+                if (a) {
+                    Log.e("SwanAppEncryptUtils", "aesEncrypt", e);
+                    return "";
+                }
+                return "";
+            }
         }
+        return (String) invokeLLLL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0034 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    public static String b(String str, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, file, z)) == null) {
+            ?? r0 = 0;
+            try {
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance(str);
+                    messageDigest.reset();
+                    fileInputStream = new FileInputStream(file);
+                    try {
+                        byte[] bArr = new byte[8192];
+                        while (true) {
+                            int read = fileInputStream.read(bArr);
+                            if (read > 0) {
+                                messageDigest.update(bArr, 0, read);
+                            } else {
+                                String e = e(messageDigest.digest(), "", z);
+                                nm4.d(fileInputStream);
+                                return e;
+                            }
+                        }
+                    } catch (FileNotFoundException e2) {
+                        e = e2;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        nm4.d(fileInputStream);
+                        return null;
+                    } catch (IOException e3) {
+                        e = e3;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        nm4.d(fileInputStream);
+                        return null;
+                    } catch (NoSuchAlgorithmException e4) {
+                        e = e4;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        nm4.d(fileInputStream);
+                        return null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    r0 = interceptable;
+                    nm4.d(r0);
+                    throw th;
+                }
+            } catch (FileNotFoundException e5) {
+                e = e5;
+                fileInputStream = null;
+            } catch (IOException e6) {
+                e = e6;
+                fileInputStream = null;
+            } catch (NoSuchAlgorithmException e7) {
+                e = e7;
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                nm4.d(r0);
+                throw th;
+            }
+        } else {
+            return (String) invokeLLZ.objValue;
+        }
+    }
+
+    public static String c(String str, byte[] bArr, boolean z) throws NoSuchAlgorithmException {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, bArr, z)) == null) {
+            MessageDigest messageDigest = MessageDigest.getInstance(str);
+            messageDigest.reset();
+            messageDigest.update(bArr);
+            return e(messageDigest.digest(), "", z);
+        }
+        return (String) invokeLLZ.objValue;
+    }
+
+    @NonNull
+    @CheckResult
+    public static String d(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
+            try {
+                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
+                Cipher cipher = Cipher.getInstance(str3);
+                cipher.init(1, generatePublic);
+                return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
+            } catch (Exception e) {
+                if (a) {
+                    Log.e("SwanAppEncryptUtils", "rsaEncrypt", e);
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String e(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
     }
 }

@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.feed.component.BrowseLocationView;
 import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
-import com.baidu.tieba.gb7;
-import com.baidu.tieba.hb7;
-import com.baidu.tieba.q57;
+import com.baidu.tieba.kb7;
+import com.baidu.tieba.lb7;
+import com.baidu.tieba.u57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\u000f\u001a\u00020\u0010H\u0016J\b\u0010\u0011\u001a\u00020\u0010H\u0002J\u0012\u0010\u0012\u001a\u00020\u00102\b\u0010\u0013\u001a\u0004\u0018\u00010\u0014H\u0007R\u000e\u0010\b\u001a\u00020\tX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\tX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0015"}, d2 = {"Lcom/baidu/tieba/feed/component/BrowseLocationView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "ANIMATOR_DELAY", "", "ANIMATOR_DURATION", "EXPANDED_HEIGHT", "", "progressView", "Landroid/widget/TextView;", "onChangeSkin", "", "playAnimation", "updateState", "state", "Lcom/baidu/tieba/feed/component/uistate/BrowseLocationUiState;", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class BrowseLocationView extends FrameLayout implements gb7 {
+public final class BrowseLocationView extends FrameLayout implements kb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -130,11 +130,11 @@ public final class BrowseLocationView extends FrameLayout implements gb7 {
         }
     }
 
-    public static final void d(BrowseLocationUiState browseLocationUiState, q57 data, View view2) {
+    public static final void d(BrowseLocationUiState browseLocationUiState, u57 data, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, browseLocationUiState, data, view2) == null) {
             Intrinsics.checkNotNullParameter(data, "$data");
-            Function2<q57, View, Unit> m = browseLocationUiState.m();
+            Function2<u57, View, Unit> m = browseLocationUiState.m();
             Intrinsics.checkNotNullExpressionValue(view2, "view");
             m.invoke(data, view2);
         }
@@ -155,7 +155,7 @@ public final class BrowseLocationView extends FrameLayout implements gb7 {
             return;
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-        ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.z37
+        ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.d47
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -171,10 +171,10 @@ public final class BrowseLocationView extends FrameLayout implements gb7 {
         ofFloat.start();
     }
 
-    @Override // com.baidu.tieba.gb7
+    @Override // com.baidu.tieba.kb7
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || hb7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || lb7.a(this)) {
             return;
         }
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0304);
@@ -185,11 +185,11 @@ public final class BrowseLocationView extends FrameLayout implements gb7 {
 
     @SuppressLint({"NotifyDataSetChanged"})
     public final void c(final BrowseLocationUiState browseLocationUiState) {
-        final q57 l;
+        final u57 l;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, browseLocationUiState) == null) && browseLocationUiState != null && (l = browseLocationUiState.l()) != null) {
             this.d.setText(browseLocationUiState.l().f());
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.j37
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.n37
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -206,7 +206,7 @@ public final class BrowseLocationView extends FrameLayout implements gb7 {
                 layoutParams.height = 0;
             }
             f();
-            postDelayed(new Runnable() { // from class: com.baidu.tieba.d47
+            postDelayed(new Runnable() { // from class: com.baidu.tieba.h47
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

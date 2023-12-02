@@ -13,17 +13,17 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.model.MonitorUrl;
 import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tieba.bz0;
-import com.baidu.tieba.cz0;
+import com.baidu.tieba.dz0;
 import com.baidu.tieba.ek0;
+import com.baidu.tieba.ez0;
 import com.baidu.tieba.ld0;
 import com.baidu.tieba.md0;
-import com.baidu.tieba.p21;
+import com.baidu.tieba.r21;
 /* loaded from: classes3.dex */
 public abstract class NadInsertingBaseView extends RelativeLayout {
     public ld0 a;
     public long b;
-    public p21 c;
+    public r21 c;
     public ek0 d;
 
     public abstract void a();
@@ -98,21 +98,21 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
         if (TextUtils.isEmpty(adBaseModel.f.d)) {
             return;
         }
-        bz0.e(new ClogBuilder().y(ClogBuilder.LogType.CHECK).p(adBaseModel.f.d).k(str).l(str2));
+        dz0.e(new ClogBuilder().y(ClogBuilder.LogType.CHECK).p(adBaseModel.f.d).k(str).l(str2));
     }
 
     public void e(@NonNull AdBaseModel adBaseModel, @NonNull ClogBuilder.Area area, long j) {
         if (TextUtils.isEmpty(adBaseModel.f.d)) {
             return;
         }
-        bz0.e(new ClogBuilder().y(ClogBuilder.LogType.CLOSE).p(adBaseModel.f.d).k(String.valueOf(j)).i(area));
+        dz0.e(new ClogBuilder().y(ClogBuilder.LogType.CLOSE).p(adBaseModel.f.d).k(String.valueOf(j)).i(area));
     }
 
     public void d(@NonNull AdBaseModel adBaseModel, @NonNull ClogBuilder.Area area) {
-        bz0.e(new ClogBuilder().y(ClogBuilder.LogType.CLICK).p(adBaseModel.f.d).i(area));
+        dz0.e(new ClogBuilder().y(ClogBuilder.LogType.CLICK).p(adBaseModel.f.d).i(area));
         for (MonitorUrl monitorUrl : adBaseModel.e) {
             if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.clickUrl)) {
-                cz0.b(monitorUrl.clickUrl);
+                ez0.b(monitorUrl.clickUrl);
             }
         }
     }
@@ -121,10 +121,10 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
         if (adBaseModel.a) {
             return;
         }
-        bz0.e(new ClogBuilder().y(ClogBuilder.LogType.SHOW).p(adBaseModel.f.d));
+        dz0.e(new ClogBuilder().y(ClogBuilder.LogType.SHOW).p(adBaseModel.f.d));
         for (MonitorUrl monitorUrl : adBaseModel.e) {
             if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.showUrl)) {
-                cz0.b(monitorUrl.showUrl);
+                ez0.b(monitorUrl.showUrl);
             }
         }
         adBaseModel.a = true;

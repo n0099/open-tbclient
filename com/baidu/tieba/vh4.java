@@ -1,28 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.node.Node;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.Nullable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vh4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vh4 {
+    void a(JSONArray jSONArray, fe4 fe4Var, @Nullable fe4 fe4Var2, @Nullable fe4 fe4Var3);
 
-    public static sh4 a(Node node) {
-        InterceptResult invokeL;
-        Class<? extends sh4> processor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, node)) == null) {
-            if (node == null || (processor = node.getProcessor()) == null) {
-                return null;
-            }
-            try {
-                return processor.newInstance();
-            } catch (IllegalAccessException | InstantiationException unused) {
-                return null;
-            }
-        }
-        return (sh4) invokeL.objValue;
-    }
+    void b(JSONObject jSONObject, fe4 fe4Var, @Nullable fe4 fe4Var2, @Nullable fe4 fe4Var3);
 }

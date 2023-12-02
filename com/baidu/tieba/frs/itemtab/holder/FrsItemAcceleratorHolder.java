@@ -7,10 +7,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c18;
 import com.baidu.tieba.frs.itemtab.view.FrsItemAcceleratorView;
-import com.baidu.tieba.gu7;
-import com.baidu.tieba.i65;
+import com.baidu.tieba.g18;
+import com.baidu.tieba.ku7;
+import com.baidu.tieba.l65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -53,7 +53,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
                 return;
             }
             this.a.f(2);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new i65(19)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new l65(19)));
         }
     }
 
@@ -88,7 +88,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
                 return;
             }
             this.a.f(1);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new i65(18)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new l65(18)));
         }
     }
 
@@ -116,11 +116,11 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         this.b = bdUniqueId;
     }
 
-    public void b(c18 c18Var) {
+    public void b(g18 g18Var) {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, c18Var) == null) && (frsItemAcceleratorView = this.a) != null) {
-            frsItemAcceleratorView.setBtnColor(c18Var.b());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, g18Var) == null) && (frsItemAcceleratorView = this.a) != null) {
+            frsItemAcceleratorView.setBtnColor(g18Var.b());
             this.a.setBtnImgClickListener(new a(this));
             this.a.setBtnDescClickListener(new b(this));
         }
@@ -129,7 +129,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
     public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new gu7(i));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new ku7(i));
             CustomMessage customMessage = new CustomMessage(2921662);
             customMessage.setTag(this.b);
             customResponsedMessage.setOrginalMessage(customMessage);

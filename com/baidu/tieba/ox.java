@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ox extends cg1<BoxDownloadManager> {
+public class ox extends fg1<BoxDownloadManager> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public class ox extends cg1<BoxDownloadManager> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cg1
+    @Override // com.baidu.tieba.fg1
     /* renamed from: a */
     public BoxDownloadManager createService() throws ServiceNotFoundException {
         InterceptResult invokeV;

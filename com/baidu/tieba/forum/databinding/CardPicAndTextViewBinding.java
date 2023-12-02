@@ -56,11 +56,11 @@ public final class CardPicAndTextViewBinding implements ViewBinding {
             int i = R.id.image_content;
             TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.image_content);
             if (tbImageView != null) {
-                i = R.id.obfuscated_res_0x7f091169;
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091169);
+                i = R.id.obfuscated_res_0x7f09116a;
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09116a);
                 if (textView != null) {
-                    i = R.id.obfuscated_res_0x7f09186f;
-                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09186f);
+                    i = R.id.obfuscated_res_0x7f091870;
+                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091870);
                     if (eMTextView != null) {
                         return new CardPicAndTextViewBinding(view2, tbImageView, textView, eMTextView);
                     }

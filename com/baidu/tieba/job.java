@@ -1,90 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.ExperimentalCronetEngine;
-import com.baidu.turbonet.net.TurbonetEngine;
-import com.baidu.turbonet.net.impl.VersionSafeCallbacks;
-import org.json.JSONException;
+import com.baidu.turbonet.net.ExperimentalUrlRequest;
+import com.baidu.turbonet.net.UploadDataProvider;
+import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public final class job {
+public abstract class job extends ExperimentalUrlRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TurbonetEngine a;
-    public Context b;
-    public String c;
-    public String d;
 
-    public job(Context context, String str, String str2, iob iobVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947891436, "Lcom/baidu/tieba/job;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947891436, "Lcom/baidu/tieba/job;");
+        }
+    }
+
+    public abstract void n(String str, String str2);
+
+    public abstract void p(String str);
+
+    public abstract void q(UploadDataProvider uploadDataProvider, Executor executor);
+
+    public job() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, iobVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = context;
-        this.c = str;
-        this.d = str2;
-        a(iobVar);
     }
 
-    public final void a(iob iobVar) {
+    public static int o(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iobVar) == null) {
-            ExperimentalCronetEngine.Builder builder = new ExperimentalCronetEngine.Builder(this.b);
-            if (iobVar == null) {
-                builder.g(this.c);
-                builder.f(this.d);
-                this.a = builder.b();
-            } else {
-                if (iobVar.h()) {
-                    builder.h(iobVar.l());
-                }
-                try {
-                    if (iobVar.g().has("nq") && iobVar.g().getJSONObject("nq").getBoolean("network_quality_enabled")) {
-                        builder.k(true, "");
-                    }
-                } catch (JSONException e) {
-                    Log.e("cr_TurbonetContext", "JSON expcetion: " + e);
-                }
-                builder.g(this.c);
-                builder.f(this.d);
-                builder.a(iobVar.g().toString());
-                this.a = builder.b();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            switch (i) {
+                case 0:
+                    return 0;
+                case 1:
+                    return 1;
+                case 2:
+                    return 2;
+                case 3:
+                    return 3;
+                case 4:
+                    return 4;
+                case 5:
+                default:
+                    throw new IllegalArgumentException("No request status found.");
+                case 6:
+                    return 5;
+                case 7:
+                    return 6;
+                case 8:
+                    return 7;
+                case 9:
+                    return 8;
+                case 10:
+                    return 9;
+                case 11:
+                    return 10;
+                case 12:
+                    return 11;
+                case 13:
+                    return 12;
+                case 14:
+                    return 13;
+                case 15:
+                    return 14;
             }
-            Log.v("cr_TurbonetContext", "Turbonet init context success.");
         }
-    }
-
-    public TurbonetEngine b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (TurbonetEngine) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new VersionSafeCallbacks.f(this.a).a();
-        }
-        return invokeV.longValue;
+        return invokeI.intValue;
     }
 }

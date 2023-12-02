@@ -2,7 +2,7 @@ package com.baidu.searchbox.aperf.param;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.poa;
+import com.baidu.tieba.toa;
 @Autowired
 /* loaded from: classes3.dex */
 public class AperfOverlayRuntime {
@@ -15,6 +15,6 @@ public class AperfOverlayRuntime {
 
     @Inject(force = false)
     public static IAperfOverlayContext getAperfOverlayContext() {
-        return poa.a();
+        return toa.a();
     }
 }

@@ -3,61 +3,32 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.NegFeedBackDecorItem;
 import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.cu;
+import com.baidu.tieba.nu;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class ob8 extends ci<bc8, ThreadCardViewHolder<bc8>> implements a26 {
+public class ob8 extends ci<dn6, ThreadCardViewHolder<dn6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public TbPageContext<?> b;
     public vi c;
-    public String d;
-    public NEGFeedBackView.NEGFeedbackEventCallback e;
 
     /* loaded from: classes7.dex */
-    public class a implements NEGFeedBackView.NEGFeedbackEventCallback {
+    public class a implements zi {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ob8 a;
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.NEGFeedbackEventCallback
-        public void onCheckedChanged(NegativeFeedBackData negativeFeedBackData, CompoundButton compoundButton, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(1048576, this, negativeFeedBackData, compoundButton, z) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.NEGFeedbackEventCallback
-        public void onNEGFeedbackWindowShow(NegativeFeedBackData negativeFeedBackData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, negativeFeedBackData) == null) {
-            }
-        }
 
         public a(ob8 ob8Var) {
             Interceptable interceptable = $ic;
@@ -71,89 +42,16 @@ public class ob8 extends ci<bc8, ThreadCardViewHolder<bc8>> implements a26 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ob8Var;
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.NEGFeedbackEventCallback
-        public void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, NegativeFeedBackData negativeFeedBackData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, str, negativeFeedBackData) == null) && arrayList != null && negativeFeedBackData != null) {
-                CustomMessage customMessage = new CustomMessage(2921425, this.a.b.getUniqueId());
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921425);
-                customResponsedMessage.setOrginalMessage(customMessage);
-                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                new b().execute(new Integer[0]);
-                TiebaStatic.log(new StatisticItem("c13572"));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends BdAsyncTask<Integer, Integer, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public NetWork a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.cancel(true);
-                NetWork netWork = this.a;
-                if (netWork != null) {
-                    netWork.cancelNetConnect();
-                    this.a = null;
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(Integer... numArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.zi
+        public void b(View view2, pi piVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr)) == null) {
-                try {
-                    NetWork netWork = new NetWork();
-                    this.a = netWork;
-                    netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
-                    this.a.addPostData("dislike_from", "concernpage");
-                    this.a.addPostData("dislike_type", "1");
-                    this.a.getNetContext().getRequest().mIsNeedTbs = true;
-                    return this.a.postNetData();
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    return null;
-                }
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                super.onPostExecute((b) str);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (piVar instanceof dn6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardUtils.jumpToPB((fw4) ((dn6) piVar), view2.getContext(), 1, false);
+                ((ThreadCardViewHolder) view2.getTag()).a().q(new nu.a(1));
             }
         }
     }
@@ -177,48 +75,30 @@ public class ob8 extends ci<bc8, ThreadCardViewHolder<bc8>> implements a26 {
                 return;
             }
         }
-        this.e = new a(this);
         this.b = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.a26
-    public void g(String str) {
+    public void x(vi viVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void y(vi viVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, viVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, viVar) == null) {
             this.c = viVar;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
-    /* renamed from: u */
-    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: t */
+    public ThreadCardViewHolder<dn6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.b.getPageActivity(), false);
-            mc8 mc8Var = new mc8(this.b, this.a);
-            mc8Var.s(true);
-            bVar.n(mc8Var);
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().i(0);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
+            bVar.h(new st(this.b.getPageActivity()));
+            cu k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
+            k.t(1);
+            ThreadCardViewHolder<dn6> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.i(this.a);
-            NegFeedBackDecorItem r = threadCardViewHolder.r(false);
-            r.setNegEventCallback(this.e);
-            r.setAutoProcess(false);
-            r.setHeadText(this.mContext.getString(R.string.obfuscated_res_0x7f0f04cd));
-            r.showWithNone(true);
-            r.isConcernRecommend = true;
+            setOnAdapterItemClickListener(new a(this));
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -226,26 +106,15 @@ public class ob8 extends ci<bc8, ThreadCardViewHolder<bc8>> implements a26 {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
-    /* renamed from: x */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bc8 bc8Var, ThreadCardViewHolder<bc8> threadCardViewHolder) {
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dn6 dn6Var, ThreadCardViewHolder<dn6> threadCardViewHolder) {
         InterceptResult invokeCommon;
-        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bc8Var, threadCardViewHolder})) == null) {
-            if (bc8Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null) {
-                StatisticItem statisticItem = new StatisticItem("c13565");
-                if (bc8Var.e()) {
-                    i2 = 1;
-                } else {
-                    i2 = 2;
-                }
-                statisticItem.param("obj_source", i2);
-                am6.b().a(statisticItem);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dn6Var, threadCardViewHolder})) == null) {
+            if (dn6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && dn6Var.a != null) {
+                dn6Var.B(dn6Var.position + 1);
                 threadCardViewHolder.a().s(i);
-                if (threadCardViewHolder.a() instanceof z16) {
-                    threadCardViewHolder.a().b(this.d);
-                }
-                threadCardViewHolder.e(bc8Var);
+                threadCardViewHolder.e(dn6Var);
                 threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
                 return threadCardViewHolder.getView();
             }

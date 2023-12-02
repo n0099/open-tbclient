@@ -427,7 +427,7 @@ public final class p extends e implements com.kwad.components.ad.splashscreen.e,
     private void lq() {
         lo();
         boolean dE = com.kwad.sdk.core.response.b.d.dE(this.mAdTemplate);
-        com.kwad.components.ad.splashscreen.f.b bVar = new com.kwad.components.ad.splashscreen.f.b((ViewGroup) getRootView(), (ViewStub) findViewById(R.id.obfuscated_res_0x7f0914b1), dE, this.Df.mApkDownloadHelper);
+        com.kwad.components.ad.splashscreen.f.b bVar = new com.kwad.components.ad.splashscreen.f.b((ViewGroup) getRootView(), (ViewStub) findViewById(R.id.obfuscated_res_0x7f0914b2), dE, this.Df.mApkDownloadHelper);
         this.DU = bVar;
         bVar.ah(this.mAdTemplate);
         this.DU.a(this);
@@ -451,7 +451,7 @@ public final class p extends e implements com.kwad.components.ad.splashscreen.e,
         super.aj();
         this.mStartTime = SystemClock.elapsedRealtime();
         this.Df.Cr.a(this);
-        ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914d1);
+        ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914d2);
         this.Ea = viewGroup;
         viewGroup.setVisibility(0);
         try {

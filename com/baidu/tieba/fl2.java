@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes6.dex */
-public class fl2 extends bk2<rm2> {
+/* loaded from: classes5.dex */
+public class fl2 extends ek2<um2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bk2
+    @Override // com.baidu.tieba.ek2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setUserId" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onItemRelease" : (String) invokeV.objValue;
     }
 
     public fl2() {
@@ -36,17 +36,13 @@ public class fl2 extends bk2<rm2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bk2
+    @Override // com.baidu.tieba.ek2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull rm2 rm2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull um2 um2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rm2Var) == null) {
-            String str = command.what;
-            d(rm2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Long) {
-                rm2Var.W(((Long) obj).longValue());
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, um2Var) == null) {
+            d(um2Var, command.what, null, true);
+            um2Var.onRelease();
         }
     }
 }

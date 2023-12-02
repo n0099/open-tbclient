@@ -2,19 +2,13 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.shrinkhead.LogicField;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,75 +22,77 @@ public abstract class b38 implements d38 {
     public FrsFragment a;
     public Context b;
     public View c;
-    public View.OnClickListener d;
-    public NavigationBar e;
-    public View f;
-    public ImageView g;
-    public boolean h;
-    public boolean i;
 
     @Override // com.baidu.tieba.d38
+    @Nullable
     @CallSuper
+    public <T> T a(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
+            return null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.d38
     public void b(@NonNull ThemeElement themeElement) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.d38
-    public void d(int i, boolean z) {
+    @Override // com.baidu.tieba.j38
+    public void d(int i, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
         }
     }
 
     @Override // com.baidu.tieba.d38
-    public int g() {
-        InterceptResult invokeV;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
         }
     }
 
-    public abstract void k();
+    @Override // com.baidu.tieba.j38
+    public void i(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        }
+    }
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.j38
+    public void j(@Nullable String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+        }
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-967785787, "Lcom/baidu/tieba/b38$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-967785787, "Lcom/baidu/tieba/b38$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[LogicField.values().length];
-            a = iArr;
-            try {
-                iArr[LogicField.BACK_BTN.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[LogicField.BACK_IV.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
+    @Override // com.baidu.tieba.j38
+    public void k(@NonNull LogicField logicField, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, logicField, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.d38
+    public int l(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, logicField)) == null) {
+            return 8;
+        }
+        return invokeL.intValue;
+    }
+
+    public abstract void m();
+
+    @Override // com.baidu.tieba.j38
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
         }
     }
 
@@ -113,114 +109,37 @@ public abstract class b38 implements d38 {
                 return;
             }
         }
-        this.h = true;
-        uua.b();
-        this.i = false;
+        tua.b();
     }
 
     @Override // com.baidu.tieba.d38
     @NonNull
-    public NavigationBar e() {
+    public h38 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            cu5.b(this.e);
-            return this.e;
+            return this.a.u2().j0();
         }
-        return (NavigationBar) invokeV.objValue;
+        return (h38) invokeV.objValue;
     }
 
-    public final void i() {
+    @Override // com.baidu.tieba.j38
+    public void onDestory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f = addSystemImageButton;
-            addSystemImageButton.setOnClickListener(this.d);
-            this.g = (ImageView) this.f.findViewById(R.id.widget_navi_back_button);
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.a != null) {
+            this.a = null;
         }
     }
 
     @Override // com.baidu.tieba.d38
-    @Nullable
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
+    public void c(@NonNull FrsFragment frsFragment, @NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            int i = a.a[logicField.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return null;
-                }
-                return (T) this.g;
-            }
-            return (T) this.f;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.d38
-    @CallSuper
-    public void c(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
-            if (f < 0.5f) {
-                if (!this.h) {
-                    j(true);
-                    this.h = true;
-                }
-            } else if (this.h) {
-                j(false);
-                this.h = false;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.d38
-    @CallSuper
-    public void f(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.i = z;
-            FrameLayout contentLayout = this.e.getContentLayout();
-            if (z) {
-                i = R.color.CAM_X0201;
-            } else {
-                i = R.color.black_alpha0;
-            }
-            SkinManager.setBackgroundColor(contentLayout, i);
-        }
-    }
-
-    @Override // com.baidu.tieba.d38
-    public void onChangeSkinType(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            FrameLayout contentLayout = this.e.getContentLayout();
-            if (this.i) {
-                i2 = R.color.CAM_X0201;
-            } else {
-                i2 = R.color.black_alpha0;
-            }
-            SkinManager.setBackgroundColor(contentLayout, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.d38
-    public void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048583, this, frsFragment, view2, onClickListener) != null) || this.c != null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, frsFragment, view2) != null) || this.c != null) {
             return;
         }
         this.a = frsFragment;
         this.b = view2.getContext();
         this.c = view2;
-        this.d = onClickListener;
-        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.view_navigation_bar);
-        this.e = navigationBar;
-        navigationBar.getBarBgView().setAlpha(1.0f);
-        i();
-        k();
+        m();
     }
 }

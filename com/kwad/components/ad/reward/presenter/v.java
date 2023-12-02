@@ -49,10 +49,10 @@ public final class v extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.tz = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0914ff);
-        this.tA = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913e8);
-        this.tC = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913e9);
-        this.tB = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0913ea);
+        this.tz = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091500);
+        this.tA = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913e9);
+        this.tC = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913ea);
+        this.tB = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0913eb);
     }
 
     private void O(@LayoutRes int i) {

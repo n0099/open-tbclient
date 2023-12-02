@@ -33,7 +33,7 @@ public class oz implements kz {
 
         /* renamed from: com.baidu.tieba.oz$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0426a {
+        public static class C0418a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
@@ -41,7 +41,7 @@ public class oz implements kz {
             public String c;
             public int d;
 
-            public C0426a(Context context) {
+            public C0418a(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,9 +178,9 @@ public class oz implements kz {
             StringBuilder sb;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                C0426a c0426a = new C0426a(context);
-                String d = c0426a.d();
-                int c = c0426a.c();
+                C0418a c0418a = new C0418a(context);
+                String d = c0418a.d();
+                int c = c0418a.c();
                 if (TextUtils.isEmpty(d)) {
                     sb = new StringBuilder();
                 } else {

@@ -8,12 +8,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ag9;
+import com.baidu.tieba.bg9;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
-import com.baidu.tieba.pic;
-import com.baidu.tieba.vf9;
-import com.baidu.tieba.wf9;
-import com.baidu.tieba.xf9;
+import com.baidu.tieba.zf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements vf9<PlayPicInfoCard> {
+public class PlayPicInfoCard extends BaseCardInfo implements zf9<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -42,8 +41,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements vf9<PlayPicInfoCard
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public xf9 c;
-        public wf9 d;
+        public bg9 c;
+        public ag9 d;
 
         public boolean b() {
             InterceptResult invokeV;
@@ -72,17 +71,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements vf9<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                xf9 xf9Var = new xf9();
-                this.c = xf9Var;
-                xf9Var.d = jSONObject.optString("rText");
+                bg9 bg9Var = new bg9();
+                this.c = bg9Var;
+                bg9Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    wf9 wf9Var = new wf9(optJSONObject);
-                    this.d = wf9Var;
-                    if (!wf9Var.j()) {
+                    ag9 ag9Var = new ag9(optJSONObject);
+                    this.d = ag9Var;
+                    if (!ag9Var.j()) {
                         this.d = null;
                     }
                 }
@@ -153,7 +152,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements vf9<PlayPicInfoCard
                 }
             }
             if (jSONObject != null) {
-                this.a = jSONObject.optString(pic.f);
+                this.a = jSONObject.optString("pic");
                 this.b = jSONObject.optString("picN");
                 this.c = jSONObject.optInt("xPos");
                 this.d = jSONObject.optInt("yPos");
@@ -218,7 +217,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements vf9<PlayPicInfoCard
         this.imageResList = new ArrayList(length);
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-            String optString = optJSONObject.optString(pic.f);
+            String optString = optJSONObject.optString("pic");
             if (!TextUtils.isEmpty(optString)) {
                 b bVar = new b();
                 bVar.i = this.statistics;
@@ -249,7 +248,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements vf9<PlayPicInfoCard
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vf9
+    @Override // com.baidu.tieba.zf9
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {

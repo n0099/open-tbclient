@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ae1;
+import com.baidu.tieba.de1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,8 +25,8 @@ public class CouponEntranceView extends FrameLayout {
     public TextView a;
     public TextView b;
     public View c;
-    public ae1 d;
-    public ae1.a e;
+    public de1 d;
+    public de1.a e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CouponEntranceView(Context context) {
@@ -53,9 +53,9 @@ public class CouponEntranceView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d023f, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090840);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09083f);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09107a);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090841);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090840);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09107b);
         }
     }
 
@@ -111,22 +111,22 @@ public class CouponEntranceView extends FrameLayout {
         return (String) invokeJ.objValue;
     }
 
-    public void d(ae1 ae1Var) {
+    public void d(de1 de1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ae1Var) == null) {
-            this.d = ae1Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, de1Var) == null) {
+            this.d = de1Var;
             c();
         }
     }
 
     public void c() {
         boolean z;
-        List<ae1.a> list;
+        List<de1.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e = null;
-            ae1 ae1Var = this.d;
-            if (ae1Var != null && (list = ae1Var.b) != null && list.size() > 0) {
+            de1 de1Var = this.d;
+            if (de1Var != null && (list = de1Var.b) != null && list.size() > 0) {
                 z = true;
             } else {
                 z = false;
@@ -135,12 +135,12 @@ public class CouponEntranceView extends FrameLayout {
                 setVisibility(8);
                 return;
             }
-            Iterator<ae1.a> it = this.d.b.iterator();
+            Iterator<de1.a> it = this.d.b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                ae1.a next = it.next();
+                de1.a next = it.next();
                 if (next.h == 1) {
                     this.e = next;
                     break;
@@ -152,7 +152,7 @@ public class CouponEntranceView extends FrameLayout {
             }
             setVisibility(0);
             this.a.setText(this.e.c);
-            ae1.a aVar = this.e;
+            de1.a aVar = this.e;
             if (aVar.b == -1) {
                 String str = aVar.d;
                 this.b.setVisibility(8);
@@ -171,12 +171,12 @@ public class CouponEntranceView extends FrameLayout {
         }
     }
 
-    public ae1.a getSelectedItem() {
+    public de1.a getSelectedItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.e;
         }
-        return (ae1.a) invokeV.objValue;
+        return (de1.a) invokeV.objValue;
     }
 }

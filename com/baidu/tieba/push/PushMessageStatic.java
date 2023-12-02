@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.util.ChatStatusManager;
-import com.baidu.tieba.l45;
-import com.baidu.tieba.rfa;
-import com.baidu.tieba.sfa;
-import com.baidu.tieba.tfa;
+import com.baidu.tieba.ba5;
+import com.baidu.tieba.bga;
+import com.baidu.tieba.ca5;
+import com.baidu.tieba.o45;
+import com.baidu.tieba.vfa;
+import com.baidu.tieba.wfa;
 import com.baidu.tieba.xfa;
-import com.baidu.tieba.y95;
-import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,18 +46,18 @@ public class PushMessageStatic {
 
         /* renamed from: com.baidu.tieba.push.PushMessageStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0454a implements y95.h {
+        public class C0445a implements ba5.h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Ringtone a;
-            public final /* synthetic */ tfa b;
+            public final /* synthetic */ xfa b;
 
-            public C0454a(a aVar, Ringtone ringtone, tfa tfaVar) {
+            public C0445a(a aVar, Ringtone ringtone, xfa xfaVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, ringtone, tfaVar};
+                    Object[] objArr = {aVar, ringtone, xfaVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -68,10 +68,10 @@ public class PushMessageStatic {
                     }
                 }
                 this.a = ringtone;
-                this.b = tfaVar;
+                this.b = xfaVar;
             }
 
-            @Override // com.baidu.tieba.y95.h
+            @Override // com.baidu.tieba.ba5.h
             public void dismiss() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -79,26 +79,26 @@ public class PushMessageStatic {
                     if (ringtone != null) {
                         ringtone.stop();
                     }
-                    tfa tfaVar = this.b;
-                    if (tfaVar != null) {
-                        tfaVar.l();
+                    xfa xfaVar = this.b;
+                    if (xfaVar != null) {
+                        xfaVar.l();
                     }
                 }
             }
         }
 
         /* loaded from: classes7.dex */
-        public class b implements tfa.e {
+        public class b implements xfa.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ y95 a;
+            public final /* synthetic */ ba5 a;
 
-            public b(a aVar, y95 y95Var) {
+            public b(a aVar, ba5 ba5Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, y95Var};
+                    Object[] objArr = {aVar, ba5Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -108,15 +108,15 @@ public class PushMessageStatic {
                         return;
                     }
                 }
-                this.a = y95Var;
+                this.a = ba5Var;
             }
 
-            @Override // com.baidu.tieba.tfa.e
+            @Override // com.baidu.tieba.xfa.e
             public void a(View view2) {
-                y95 y95Var;
+                ba5 ba5Var;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (y95Var = this.a) != null) {
-                    y95Var.t();
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (ba5Var = this.a) != null) {
+                    ba5Var.t();
                 }
             }
         }
@@ -157,9 +157,9 @@ public class PushMessageStatic {
                         return;
                     }
                     if (currentActivity != null) {
-                        new rfa(currentActivity, this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo()).t();
+                        new vfa(currentActivity, this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo()).t();
                     } else {
-                        sfa.c().f(this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo());
+                        wfa.c().f(this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo());
                     }
                 }
             }
@@ -238,12 +238,12 @@ public class PushMessageStatic {
                         SafeHandler.getInst().post(new c(this, type, pushGeneralData));
                     }
                 } else {
-                    tfa tfaVar = new tfa(currentPageContext);
-                    tfaVar.o(pushGeneralData);
-                    Ringtone f = xfa.f();
-                    y95 f2 = z95.f(tfaVar.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
-                    f2.y(new C0454a(this, f, tfaVar));
-                    tfaVar.p(new b(this, f2));
+                    xfa xfaVar = new xfa(currentPageContext);
+                    xfaVar.o(pushGeneralData);
+                    Ringtone f = bga.f();
+                    ba5 f2 = ca5.f(xfaVar.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
+                    f2.y(new C0445a(this, f, xfaVar));
+                    xfaVar.p(new b(this, f2));
                 }
                 IdleHandlerManager.getInstance().addOrRunTask("processLiveData", new d(this, isLiveData, remindInfo, extData));
             }
@@ -277,19 +277,19 @@ public class PushMessageStatic {
                 if (strArr != null && tbPageContext != null && strArr.length > 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
-                        xfa.e(tbPageContext.getContext(), str, true);
+                        bga.e(tbPageContext.getContext(), str, true);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ALBUM)) {
-                        xfa.a(tbPageContext.getContext(), str);
+                        bga.a(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_SKILL_DETAIL)) {
-                        xfa.d(tbPageContext.getContext(), str);
+                        bga.d(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
-                        xfa.b(tbPageContext.getContext(), str);
+                        bga.b(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ORDER_PAGE)) {
-                        xfa.c(tbPageContext.getContext(), str);
+                        bga.c(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_MAIN_PAGE)) {
                         UrlSchemaJumpHelper.jumpGamePlayPage(tbPageContext.getContext(), str);
@@ -375,10 +375,10 @@ public class PushMessageStatic {
             hashMap.put("view_top_params_key_yyext", yyExtData);
             hashMap.put("view_top_params_key_type", 1);
             hashMap.put("view_top_params_room_id", pushExtData.getLiveId());
-            if (z95.f(null, tbPageContext, hashMap, 0L, pushRemindInfo.getShowtime()) != null) {
-                z95.e();
+            if (ca5.f(null, tbPageContext, hashMap, 0L, pushRemindInfo.getShowtime()) != null) {
+                ca5.e();
                 TbSingleton.getInstance().setIsNeedRemindLiveRoom(false);
-                l45.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+                o45.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
             }
         }
     }

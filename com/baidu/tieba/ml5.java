@@ -1,32 +1,14 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes7.dex */
 public interface ml5 {
     @NonNull
-    public static final ServiceReference a;
-    @NonNull
-    public static final ml5 b;
-
-    boolean a(@NonNull String str);
+    public static final ServiceReference a = new ServiceReference("AlaSquare", "FrsLiveTabService");
 
     @NonNull
-    String b(@NonNull String str);
-
-    @NonNull
-    String c();
-
-    @NonNull
-    String d(@NonNull String str, boolean z);
-
-    @NonNull
-    String e(@NonNull String str, @NonNull String str2);
-
-    static {
-        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
-        a = serviceReference;
-        b = (ml5) ServiceManager.getService(serviceReference);
-    }
+    Fragment a(@Nullable String str, @Nullable String str2);
 }

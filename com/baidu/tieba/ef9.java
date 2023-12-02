@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import android.widget.AbsListView;
 /* loaded from: classes5.dex */
 public interface ef9 {
-    void onScrollStateChanged(AbsListView absListView, int i);
+    void a(ug9 ug9Var, int i);
 }

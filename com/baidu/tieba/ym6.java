@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class ym6 extends zm6 {
+public class ym6 extends dn6 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId S0;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,21 +32,21 @@ public class ym6 extends zm6 {
         S0 = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.zm6, com.baidu.tieba.qm6, com.baidu.tieba.cw4
+    @Override // com.baidu.tieba.dn6, com.baidu.tieba.um6, com.baidu.tieba.fw4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
         return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zm6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
+    @Override // com.baidu.tieba.dn6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return S0;
         }
         return (BdUniqueId) invokeV.objValue;
@@ -71,31 +70,15 @@ public class ym6 extends zm6 {
         this.a = threadData;
     }
 
-    public static boolean R(ThreadData threadData) {
+    public static boolean V(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
             if (threadData == null) {
                 return false;
             }
-            if (threadData.getThreadType() != 49 && threadData.getThreadType() != 69) {
-                return false;
-            }
-            return true;
+            return threadData.isBJHNormalThreadType();
         }
         return invokeL.booleanValue;
-    }
-
-    public StatisticItem V(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            StatisticItem d = d(str);
-            d.delete("obj_type");
-            d.delete("obj_type");
-            d.param("obj_type", 3);
-            return d;
-        }
-        return (StatisticItem) invokeL.objValue;
     }
 }

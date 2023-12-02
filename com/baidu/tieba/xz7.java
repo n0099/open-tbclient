@@ -1,84 +1,125 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.app.Activity;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentDelegate;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.FragmentTabStructure;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.gametab.FrsSpriteGuideTipController;
+import com.baidu.tieba.sq6;
+import com.baidu.tieba.u05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class xz7 extends FragmentDelegate {
+public final class xz7 extends u05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final wz7 c;
+    public final FrsSpriteGuideTipController d;
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public boolean isAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public xz7(FrsFragment frsFragment) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xz7(Activity activity, wz7 wz7Var, FrsSpriteGuideTipController frsSpriteGuideTipController) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
+            Object[] objArr = {activity, wz7Var, frsSpriteGuideTipController};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        getFragmentTabStructure().frag = frsFragment;
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        this.c = wz7Var;
+        this.d = frsSpriteGuideTipController;
     }
 
-    public void a(ct7 ct7Var) {
+    public static final void g(xz7 this$0) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, ct7Var) != null) || ct7Var == null || !ct7Var.i(1)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c();
         }
-        ct7Var.a(this);
     }
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public TbFragmentTabIndicator getTabIndicator(Context context) {
-        InterceptResult invokeL;
+    public static final void h(xz7 this$0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.mIndicator = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.mIndicator;
+        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c();
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public FragmentTabStructure createFragmentTabStructure() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.u05
+    public void d(u05.a shouldShowCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-            fragmentTabStructure.type = 1;
-            fragmentTabStructure.textResId = R.string.chosen_pb_title;
-            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
-            return fragmentTabStructure;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
+            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
+            shouldShowCallback.callback(true);
         }
-        return (FragmentTabStructure) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.u05
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            wz7 wz7Var = this.c;
+            if (wz7Var != null) {
+                wz7Var.o();
+            }
+            FrsSpriteGuideTipController frsSpriteGuideTipController = this.d;
+            if (frsSpriteGuideTipController != null) {
+                frsSpriteGuideTipController.g();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u05
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            DefaultLog.getInstance().i("FrsGuide", "开始显示frs吧引导");
+            wz7 wz7Var = this.c;
+            if (wz7Var != null) {
+                DefaultLog.getInstance().i("FrsGuide", "展示线上吧引导样式");
+                wz7Var.t(new sq6.e() { // from class: com.baidu.tieba.qz7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.sq6.e
+                    public final void onDismiss() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            xz7.g(xz7.this);
+                        }
+                    }
+                });
+                wz7Var.w();
+            }
+            FrsSpriteGuideTipController frsSpriteGuideTipController = this.d;
+            if (frsSpriteGuideTipController != null) {
+                DefaultLog.getInstance().i("FrsGuide", "展示精灵吧引导样式");
+                frsSpriteGuideTipController.j(new sq6.e() { // from class: com.baidu.tieba.sz7
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.sq6.e
+                    public final void onDismiss() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            xz7.h(xz7.this);
+                        }
+                    }
+                });
+                frsSpriteGuideTipController.l();
+            }
+        }
     }
 }

@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv5;
+import com.baidu.tieba.gv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,7 +163,7 @@ public class TiebaPrepareImageService extends BdBaseService {
                 boolean z2 = false;
                 try {
                     if (TextUtils.isEmpty(this.e)) {
-                        bitmap = cv5.c(this.a, this.f, this.b, this.c, this.f.mMaxSize);
+                        bitmap = gv5.c(this.a, this.f, this.b, this.c, this.f.mMaxSize);
                     } else {
                         BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResourceFromMemery(this.e, 10, new Object[0]);
                         if (bdImage != null) {

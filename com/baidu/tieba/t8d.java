@@ -1,29 +1,24 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.SpritePBGuide;
+import tbclient.StarRankIcon;
 /* loaded from: classes8.dex */
-public class t8d extends ltc {
+public class t8d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SpritePBGuide spritePBGuide) {
+    public static JSONObject b(@NonNull StarRankIcon starRankIcon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, spritePBGuide)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, starRankIcon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, GuildActivityConfig.GUIDE_TYPE, spritePBGuide.guide_type);
-            ltc.a(jSONObject, "guide_text", spritePBGuide.guide_text);
-            ltc.a(jSONObject, GameGuideConfigInfo.KEY_BUTTON_TEXT, spritePBGuide.button_text);
-            ltc.a(jSONObject, BigdayActivityConfig.JUMP_URL, spritePBGuide.jump_url);
+            ktc.a(jSONObject, "icon_pic_url", starRankIcon.icon_pic_url);
+            ktc.a(jSONObject, "icon_link", starRankIcon.icon_link);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

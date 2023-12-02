@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetWebviewCacheInfo.DataReq;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WebViewCacheReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

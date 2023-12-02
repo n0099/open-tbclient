@@ -1,23 +1,80 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
+import java.net.URLDecoder;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class uc1 {
+public class uc1 {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
-    public static JSONObject b;
+    public static uc1 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public b b;
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        void onResult(int i, String str);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends sb1<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wd1 a;
+
+        public a(uc1 uc1Var, wd1 wd1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uc1Var, wd1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wd1Var;
+        }
+
+        @Override // com.baidu.tieba.sb1
+        public void b(Throwable th, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
+                this.a.onResult(119501, "");
+                th.printStackTrace();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sb1
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+                int optInt = jSONObject.optInt("status", -1);
+                int optInt2 = jSONObject.optInt("signStatus", -1);
+                int optInt3 = jSONObject.optInt("payStatus", -1);
+                if (2 != optInt && 2 != optInt3) {
+                    this.a.onResult(optInt2, "");
+                } else {
+                    this.a.onResult(0, EventAlias.PayEventAlias.PAY_SUCCESS);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,131 +89,71 @@ public final class uc1 {
                 return;
             }
         }
-        b = new JSONObject();
+        c = new uc1();
     }
 
-    public static final void a(String str, long j) {
+    public uc1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, null, str, j) == null) {
-            try {
-                if (b == null) {
-                    b = new JSONObject();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static uc1 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (uc1) invokeV.objValue;
+    }
+
+    public b c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public void a(wd1 wd1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, wd1Var) == null) {
+            String[] split = this.a.split("&");
+            tb1 tb1Var = new tb1();
+            for (String str : split) {
+                String[] split2 = str.split("=");
+                if (split2 != null && split2.length == 2) {
+                    if (TextUtils.equals(split2[0], "timestamp")) {
+                        tb1Var.d(split2[0], URLDecoder.decode(split2[1]));
+                    } else {
+                        tb1Var.d(split2[0], split2[1]);
+                    }
                 }
-                JSONObject jSONObject = b;
-                if (jSONObject != null) {
-                    jSONObject.put(str, j);
-                }
-            } catch (Exception unused) {
-                hd1.g("add panelShow json error");
             }
+            ac1.j().g(cc1.e(), tb1Var, new a(this, wd1Var));
         }
     }
 
-    public static final void b(String str, String str2, String str3) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("exceptionCode", 3);
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("errno", str2);
-                }
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject.put("errmsg", str3);
-                }
-            } catch (Exception unused) {
-            }
-            vc1 vc1Var = new vc1(str);
-            vc1Var.c(jSONObject);
-            yc1.e(vc1Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public static final void c(String str, HashMap<String, String> hashMap) {
+    public void e(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, hashMap) == null) {
-            if (hashMap != null) {
-                JSONObject jSONObject = new JSONObject();
-                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-                vc1 vc1Var = new vc1(str);
-                vc1Var.c(jSONObject);
-                yc1.e(vc1Var);
-                return;
-            }
-            yc1.e(new vc1(str));
-        }
-    }
-
-    public static final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && a > 0) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("3", a);
-                jSONObject.put("4", System.currentTimeMillis());
-            } catch (Exception unused) {
-            }
-            vc1 vc1Var = new vc1(Constants.DEFAULT_UIN);
-            vc1Var.c(jSONObject);
-            yc1.e(vc1Var);
-            a = 0L;
-        }
-    }
-
-    public static final void e() {
-        JSONObject jSONObject;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (jSONObject = b) != null) {
-            if (jSONObject != null) {
-                i = jSONObject.length();
-            } else {
-                i = 0;
-            }
-            if (i > 0) {
-                a("2", System.currentTimeMillis());
-                vc1 vc1Var = new vc1(Constants.DEFAULT_UIN);
-                vc1Var.c(b);
-                yc1.e(vc1Var);
-                b = null;
-            }
-        }
-    }
-
-    public static final void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
-            a = j;
-        }
-    }
-
-    public static final void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("exceptionCode", 0);
-            } catch (Exception unused) {
-            }
-            vc1 vc1Var = new vc1(str);
-            vc1Var.c(jSONObject);
-            yc1.e(vc1Var);
-        }
-    }
-
-    public static final void g(int i, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("exceptionType", i);
-            jSONObject.put("payChannel", str2);
-            jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str3);
-            jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str4);
-            vc1 vc1Var = new vc1(str);
-            vc1Var.c(jSONObject);
-            yc1.e(vc1Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 }

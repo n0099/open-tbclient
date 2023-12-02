@@ -2,9 +2,9 @@ package com.weibo.ssosdk;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.dfc;
 import com.baidu.tieba.efc;
 import com.baidu.tieba.ffc;
-import com.baidu.tieba.gfc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import org.json.JSONObject;
 public class WeiboSsoSdk {
     public static /* synthetic */ Interceptable $ic;
     public static WeiboSsoSdk e;
-    public static gfc f;
+    public static ffc f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile ReentrantLock a;
     public boolean b;
@@ -135,15 +135,15 @@ public class WeiboSsoSdk {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ffc a;
+        public final /* synthetic */ efc a;
         public final /* synthetic */ WeiboSsoSdk b;
 
-        public c(WeiboSsoSdk weiboSsoSdk, ffc ffcVar) {
+        public c(WeiboSsoSdk weiboSsoSdk, efc efcVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {weiboSsoSdk, ffcVar};
+                Object[] objArr = {weiboSsoSdk, efcVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -154,7 +154,7 @@ public class WeiboSsoSdk {
                 }
             }
             this.b = weiboSsoSdk;
-            this.a = ffcVar;
+            this.a = efcVar;
         }
 
         @Override // java.lang.Runnable
@@ -286,8 +286,8 @@ public class WeiboSsoSdk {
         }
         this.a = new ReentrantLock(true);
         this.b = true;
-        gfc gfcVar = f;
-        if (gfcVar != null && gfcVar.n()) {
+        ffc ffcVar = f;
+        if (ffcVar != null && ffcVar.n()) {
             this.d = 0;
             new Thread(new a(this)).start();
             new Thread(new b(this)).start();
@@ -296,23 +296,23 @@ public class WeiboSsoSdk {
         throw new Exception("config error");
     }
 
-    public static synchronized boolean j(gfc gfcVar) {
+    public static synchronized boolean j(ffc ffcVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, gfcVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, ffcVar)) == null) {
             synchronized (WeiboSsoSdk.class) {
-                if (gfcVar == null) {
+                if (ffcVar == null) {
                     return false;
                 }
-                if (!gfcVar.n()) {
+                if (!ffcVar.n()) {
                     return false;
                 }
                 if (f != null) {
                     return false;
                 }
-                gfc gfcVar2 = (gfc) gfcVar.clone();
-                f = gfcVar2;
-                efc.w(gfcVar2.b());
+                ffc ffcVar2 = (ffc) ffcVar.clone();
+                f = ffcVar2;
+                dfc.w(ffcVar2.b());
                 return true;
             }
         }
@@ -370,14 +370,14 @@ public class WeiboSsoSdk {
         return (File) invokeI.objValue;
     }
 
-    public void m(ffc ffcVar) {
+    public void m(efc efcVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ffcVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, efcVar) == null) {
             d dVar = this.c;
             if (dVar != null && !TextUtils.isEmpty(dVar.a()) && !TextUtils.isEmpty(this.c.b())) {
-                ffcVar.handler(this.c);
+                efcVar.handler(this.c);
             } else {
-                Executors.newSingleThreadExecutor().execute(new c(this, ffcVar));
+                Executors.newSingleThreadExecutor().execute(new c(this, efcVar));
             }
         }
     }
@@ -480,7 +480,7 @@ public class WeiboSsoSdk {
             return;
         }
         this.b = false;
-        String n = efc.n(f.b());
+        String n = dfc.n(f.b());
         try {
             str2 = URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException unused) {

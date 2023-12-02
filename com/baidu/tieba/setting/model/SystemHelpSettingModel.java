@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.StorageFile;
 import com.baidu.tieba.R;
 import com.baidu.tieba.i7;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.p75;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,12 +92,13 @@ public class SystemHelpSettingModel extends BdBaseModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
         public String doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                m75.a();
+                p75.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");
@@ -156,12 +157,13 @@ public class SystemHelpSettingModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         @SuppressLint({"DefaultLocale"})
+        /* renamed from: b */
         public String doInBackground(String... strArr) {
             InterceptResult invokeL;
             long j;
             long j2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 i7 i7Var = new i7();
                 String a = i7Var.a("image", true, false, true);
                 String cacheDir = FileHelper.getCacheDir();

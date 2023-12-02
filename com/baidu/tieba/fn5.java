@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class fn5 implements lm5<LiveStartClickDataEvent> {
+/* loaded from: classes5.dex */
+public class fn5 implements om5<HotEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,17 +27,18 @@ public class fn5 implements lm5<LiveStartClickDataEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm5
+    @Override // com.baidu.tieba.om5
     /* renamed from: a */
-    public boolean onEvent(LiveStartClickDataEvent liveStartClickDataEvent) {
+    public boolean onEvent(HotEvent hotEvent) {
         InterceptResult invokeL;
+        HotEventData hotEventData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveStartClickDataEvent)) == null) {
-            if (liveStartClickDataEvent == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hotEvent)) == null) {
+            if (hotEvent != null && (hotEventData = hotEvent.hotEventData) != null) {
+                sb5.u(hotEventData);
+                return true;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921734, liveStartClickDataEvent.viewTag));
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }

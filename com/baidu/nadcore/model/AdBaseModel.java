@@ -9,13 +9,13 @@ import com.baidu.searchbox.interaction.cloudcontrol.ccs.InteractionPrivacySwitch
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
-import com.baidu.tieba.bn0;
-import com.baidu.tieba.dn0;
+import com.baidu.tieba.cn0;
+import com.baidu.tieba.en0;
 import com.baidu.tieba.ke0;
-import com.baidu.tieba.kn0;
-import com.baidu.tieba.ly0;
-import com.baidu.tieba.nn0;
+import com.baidu.tieba.ln0;
+import com.baidu.tieba.ny0;
 import com.baidu.tieba.on0;
+import com.baidu.tieba.pn0;
 import com.baidu.tieba.sm0;
 import com.baidu.tieba.tm0;
 import com.baidu.tieba.vm0;
@@ -36,17 +36,17 @@ public class AdBaseModel {
     @NonNull
     public final List<MonitorUrl> e;
     @NonNull
-    public final bn0 f;
+    public final cn0 f;
     @Nullable
     public final sm0 g;
     @Nullable
     public final AdOperator h;
     @Nullable
-    public final on0 i;
+    public final pn0 i;
     @Nullable
-    public final kn0 j;
+    public final ln0 j;
     @Nullable
-    public final List<dn0> k;
+    public final List<en0> k;
     @Nullable
     public final tm0 l;
     @Nullable
@@ -54,11 +54,11 @@ public class AdBaseModel {
     public int n;
     @NonNull
     public List<String> o;
-    public nn0 p;
+    public on0 p;
     public ke0 q;
 
-    public AdBaseModel(@NonNull bn0 bn0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        this(bn0Var, jSONObject, false);
+    public AdBaseModel(@NonNull cn0 cn0Var, @NonNull JSONObject jSONObject) throws ParseError {
+        this(cn0Var, jSONObject, false);
     }
 
     /* loaded from: classes3.dex */
@@ -95,16 +95,16 @@ public class AdBaseModel {
         }
     }
 
-    public AdBaseModel(@NonNull bn0 bn0Var, @NonNull JSONObject jSONObject, boolean z) throws ParseError {
+    public AdBaseModel(@NonNull cn0 cn0Var, @NonNull JSONObject jSONObject, boolean z) throws ParseError {
         sm0 a;
         AdOperator a2;
         boolean z2;
-        on0 d;
+        pn0 d;
         int length;
         int length2;
         this.e = new ArrayList();
         this.o = new ArrayList();
-        String str = bn0Var.b;
+        String str = cn0Var.b;
         JSONObject optJSONObject = jSONObject.optJSONObject(GameGuideConfigInfo.KEY_CLOSE_INFO);
         if (optJSONObject == null) {
             a = null;
@@ -112,9 +112,9 @@ public class AdBaseModel {
             a = sm0.a(optJSONObject);
         }
         this.g = a;
-        this.f = bn0Var;
-        this.j = kn0.b(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO), z);
-        this.k = dn0.a(jSONObject.optJSONArray("prefetch_video"));
+        this.f = cn0Var;
+        this.j = ln0.b(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO), z);
+        this.k = en0.a(jSONObject.optJSONArray("prefetch_video"));
         this.l = tm0.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
         this.m = xm0.a(jSONObject.optJSONObject("enhance"));
         vm0.a(jSONObject.optJSONObject(InteractionPrivacySwitch.MODULE));
@@ -135,12 +135,12 @@ public class AdBaseModel {
         if (optJSONObject3 == null) {
             d = null;
         } else {
-            d = on0.d(optJSONObject3);
+            d = pn0.d(optJSONObject3);
         }
         if (d != null) {
-            d.m = bn0Var.d;
+            d.n = cn0Var.d;
         }
-        this.i = (d == null || !d.l) ? null : d;
+        this.i = (d == null || !d.m) ? null : d;
         JSONArray optJSONArray = jSONObject.optJSONArray("ad_monitor_url");
         if (optJSONArray == null) {
             length = 0;
@@ -153,7 +153,7 @@ public class AdBaseModel {
                 String optString = optJSONObject4.optString("show_url");
                 String optString2 = optJSONObject4.optString("click_url");
                 if (!TextUtils.isEmpty(optString) || !TextUtils.isEmpty(optString2)) {
-                    ly0.b(this.e, new MonitorUrl(optString, optString2));
+                    ny0.b(this.e, new MonitorUrl(optString, optString2));
                 }
             }
         }
@@ -168,26 +168,26 @@ public class AdBaseModel {
             if (optJSONObject5 != null) {
                 String optString3 = optJSONObject5.optString(DownloadStatisticConstants.UBC_VALUE_WORD);
                 if (!TextUtils.isEmpty(optString3)) {
-                    ly0.b(this.o, optString3);
+                    ny0.b(this.o, optString3);
                 }
             }
         }
-        kn0 kn0Var = this.j;
-        if (kn0Var != null) {
-            kn0Var.d(this);
+        ln0 ln0Var = this.j;
+        if (ln0Var != null) {
+            ln0Var.d(this);
         }
         this.c = null;
     }
 
-    public void a(@Nullable nn0 nn0Var) {
-        List<dn0> list;
-        this.p = nn0Var;
-        if (nn0Var == null || nn0Var.c) {
+    public void a(@Nullable on0 on0Var) {
+        List<en0> list;
+        this.p = on0Var;
+        if (on0Var == null || on0Var.c) {
             this.f.b();
         }
-        if ((nn0Var == null || nn0Var.d) && (list = this.k) != null && list.size() > 0) {
-            for (dn0 dn0Var : this.k) {
-                dn0Var.b();
+        if ((on0Var == null || on0Var.d) && (list = this.k) != null && list.size() > 0) {
+            for (en0 en0Var : this.k) {
+                en0Var.b();
             }
         }
     }

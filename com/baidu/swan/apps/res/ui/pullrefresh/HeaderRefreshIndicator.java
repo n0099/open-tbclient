@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.op2;
-import com.baidu.tieba.yj3;
+import com.baidu.tieba.bk3;
+import com.baidu.tieba.rp2;
 /* loaded from: classes4.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public boolean n;
@@ -31,15 +31,15 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
             return;
         }
         this.n = true;
-        this.o = op2.M().a();
+        this.o = rp2.M().a();
         j();
         setTextSize(1, 11.0f);
-        setCompoundDrawablePadding(yj3.f(getContext(), 5.0f));
+        setCompoundDrawablePadding(bk3.f(getContext(), 5.0f));
         b(0);
     }
 
     public void k() {
-        boolean a = op2.M().a();
+        boolean a = rp2.M().a();
         if (this.o != a) {
             j();
             this.o = a;
@@ -55,6 +55,6 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public void j() {
         setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801d9));
         setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06045f));
-        c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801da), 0, yj3.f(getContext(), 11.0f), yj3.f(getContext(), 11.0f));
+        c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801da), 0, bk3.f(getContext(), 11.0f), bk3.f(getContext(), 11.0f));
     }
 }

@@ -1,131 +1,79 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectAdapter;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectCategoryAdapter;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ie6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public List<ci> c;
-    public AlaEnterEffectAdapter d;
-    public AlaEnterEffectCategoryAdapter e;
-    public List<pi> f;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
 
-    public ie6(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
+    public ie6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        a();
-    }
-
-    public void d(String str, int i) {
-        List<pi> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) && !StringUtils.isNull(str) && (list = this.f) != null) {
-            for (pi piVar : list) {
-                if (piVar instanceof AlaEnterEffectData) {
-                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) piVar;
-                    if (alaEnterEffectData.type == 1 && str.equals(alaEnterEffectData.gift.giftId)) {
-                        alaEnterEffectData.downLoadStatus = i;
-                        b();
-                    }
-                }
             }
         }
     }
 
-    public void e(String str, boolean z) {
-        List<pi> list;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
-            for (pi piVar : list) {
-                if (piVar instanceof AlaEnterEffectData) {
-                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) piVar;
-                    if (str.equals(alaEnterEffectData.id)) {
-                        alaEnterEffectData.isOwn = z;
-                        b();
-                        return;
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void f(String str, boolean z) {
-        List<pi> list;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
-            for (pi piVar : list) {
-                if (piVar instanceof AlaEnterEffectData) {
-                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) piVar;
-                    if (str.equals(alaEnterEffectData.id)) {
-                        alaEnterEffectData.use_status = z ? 1 : 0;
-                    } else {
-                        alaEnterEffectData.use_status = 0;
-                    }
-                    b();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void a() {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new ArrayList();
-            AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.a.getPageActivity());
-            this.d = alaEnterEffectAdapter;
-            this.c.add(alaEnterEffectAdapter);
-            AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.a.getPageActivity());
-            this.e = alaEnterEffectCategoryAdapter;
-            this.c.add(alaEnterEffectCategoryAdapter);
-            this.b.addAdapters(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 
-    public void b() {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (ci ciVar : this.c) {
-                ciVar.notifyDataSetChanged();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 
-    public void c(List<pi> list) {
+    public void e(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.b.setData(list);
-        this.f = this.b.getData();
+        this.a = jSONObject.optString("mark_name");
+        this.d = jSONObject.optString("mark_pic");
+        this.c = jSONObject.optInt("mark_rank");
+        this.b = jSONObject.optInt("mark_score");
     }
 }

@@ -1,240 +1,165 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e52 extends SwanAppWebViewManager implements ns1<NgWebView> {
+public class e52 extends h83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean y;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context w;
-    public boolean x;
-
-    public void E(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void I0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.qs1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "console" : (String) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685255, "Lcom/baidu/tieba/e52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947685255, "Lcom/baidu/tieba/e52;");
-                return;
-            }
-        }
-        y = sm1.a;
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h32.n(false);
-            ViewParent parent = getWebView().getParent();
-            if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(getWebView());
-            }
-            destroy();
-        }
-    }
-
-    public final void Q() {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (context = this.w) != null && (context instanceof Activity)) {
-            ij3.a(context, ((Activity) context).getWindow().getDecorView().getWindowToken());
-        }
-    }
-
-    @Override // com.baidu.tieba.ns1
-    public void S() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (getWebView().getVisibility() != 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            N(z);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.qs1
-    public void b0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.b0();
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.qs1
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            Q();
-            super.destroy();
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e52(Context context) {
-        super(context);
+    public e52(h73 h73Var) {
+        super(h73Var, "/swanAPI/sConsole");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {h73Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.x = false;
-        this.w = context;
-        d1();
     }
 
-    @Override // com.baidu.tieba.ns1
-    public void D(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.h83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k63 k63Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null) {
-            return;
-        }
-        i(viewGroup, getWebView());
-    }
-
-    public void N(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            NgWebView webView = getWebView();
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            webView.setVisibility(i);
-        }
-    }
-
-    public final void b1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (y) {
-                Log.d("SwanAppConsoleManager", "call downloadConsoleCore: " + z);
-            }
-            if (this.x && !z) {
-                return;
-            }
-            kh4 kh4Var = new kh4("sconsole-core", i32.c(), i32.b(), 2);
-            ce4 ce4Var = null;
-            rn1 h = pp2.h();
-            if (h != null) {
-                ce4Var = h.d();
-            }
-            rd4.g(kh4Var, ce4Var);
-            this.x = true;
-        }
-    }
-
-    public final boolean c1(ViewGroup viewGroup, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, viewGroup, view2)) == null) {
-            int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                if (viewGroup.getChildAt(i) == view2) {
-                    return true;
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, k63Var)) == null) {
+            if (h83.b) {
+                Log.d("ConsoleAction", "handle entity: " + unitedSchemeEntity.toString());
+                return false;
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public final void i(ViewGroup viewGroup, View view2) {
+    @Override // com.baidu.tieba.h83
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, k63 k63Var) {
+        InterceptResult invokeLLLLL;
+        boolean optBoolean;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048590, this, viewGroup, view2) != null) || viewGroup == null || view2 == null || c1(viewGroup, view2)) {
-            return;
-        }
-        viewGroup.addView(view2, new FrameLayout.LayoutParams(-1, -1));
-    }
-
-    public void d0(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            JSONArray jSONArray = new JSONArray();
-            if (!TextUtils.isEmpty(str2)) {
-                jSONArray.put(str2);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, k63Var)) == null) {
+            if (h83.b) {
+                Log.d("ConsoleAction", "handleSubAction subAction: " + str);
             }
-            HashMap hashMap = new HashMap();
-            hashMap.put("logType", str);
-            hashMap.put("logs", jSONArray.toString());
-            ur2.V().n("console", new ig2("searchboxSConsole", hashMap));
-        }
-    }
-
-    public void d1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            getWebView().setVisibility(8);
-            getWebView().setBackgroundColor(0);
-            File file = new File(i32.a(), "index.html");
-            if (file.exists() && file.isFile()) {
-                loadUrl(Uri.fromFile(file).toString());
-                b1(false);
-                return;
+            if (!h32.a() && !k32.f() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
+                return super.i(context, unitedSchemeEntity, callbackHandler, str, k63Var);
             }
-            loadUrl("file:///android_asset/aiapps/sConsole.html");
-            i32.d();
-            b1(true);
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1923550429:
+                    if (str.equals("/swanAPI/sConsole/sanIncData2Console")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case -1792428120:
+                    if (str.equals("/swanAPI/sConsole/sanFullData2Console")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case -797920904:
+                    if (str.equals("/swanAPI/sConsole/hide")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -797593805:
+                    if (str.equals("/swanAPI/sConsole/show")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -161927599:
+                    if (str.equals("/swanAPI/sConsole/postMessage")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 1089933937:
+                    if (str.equals("/swanAPI/sConsole/debugSwitch")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 2136057821:
+                    if (str.equals("/swanAPI/sConsole/getSanDataFromActiveSlave")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    if (optParamsAsJo != null && (optBoolean = optParamsAsJo.optBoolean("enableDebug")) != h32.a()) {
+                        h32.c(context, optBoolean);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                        k32.i("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
+                    }
+                    return true;
+                case 1:
+                    xr2.V().r().N(true);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    k32.i("ConsoleAction", "sConsole show");
+                    return true;
+                case 2:
+                    xr2.V().r().N(false);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    k32.i("ConsoleAction", "sConsole hide");
+                    return true;
+                case 3:
+                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                        k32.i("ConsoleAction", "send san inc data");
+                        f52.d(optParamsAsJo.toString());
+                    } else {
+                        k32.c("ConsoleAction", "san inc data is null");
+                    }
+                    return true;
+                case 4:
+                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                        k32.i("ConsoleAction", "send san full data");
+                        f52.c(optParamsAsJo.toString());
+                    } else {
+                        k32.c("ConsoleAction", "san full data is null");
+                    }
+                    return true;
+                case 5:
+                    k32.i("ConsoleAction", "request san full data");
+                    f52.b();
+                    return true;
+                case 6:
+                    un1 h = sp2.h();
+                    if (h != null) {
+                        h.c(optParamsAsJo);
+                    }
+                    return true;
+                default:
+                    return super.i(context, unitedSchemeEntity, callbackHandler, str, k63Var);
+            }
         }
+        return invokeLLLLL.booleanValue;
     }
 }

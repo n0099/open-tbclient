@@ -1,10 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes5.dex */
 public interface ds1 {
-    @Nullable
-    iy1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull lj2 lj2Var);
+    void b();
+
+    void c();
+
+    ds1 create();
+
+    void d(uv2 uv2Var, boolean z);
+
+    void e(uv2 uv2Var, Context context);
+
+    boolean isPlaying();
+
+    boolean onBackPressed();
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

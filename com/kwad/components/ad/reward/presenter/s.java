@@ -78,12 +78,12 @@ public final class s extends b implements com.kwad.components.ad.reward.e.g, a.I
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.tc = findViewById(R.id.obfuscated_res_0x7f0913d7);
-        this.te = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0914ff);
-        this.td = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0914c4);
-        this.sb = (ImageView) findViewById(R.id.obfuscated_res_0x7f091318);
-        this.tg = findViewById(R.id.obfuscated_res_0x7f0913eb);
-        this.th = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0913d8);
+        this.tc = findViewById(R.id.obfuscated_res_0x7f0913d8);
+        this.te = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091500);
+        this.td = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0914c5);
+        this.sb = (ImageView) findViewById(R.id.obfuscated_res_0x7f091319);
+        this.tg = findViewById(R.id.obfuscated_res_0x7f0913ec);
+        this.th = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0913d9);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -206,7 +206,7 @@ public final class s extends b implements com.kwad.components.ad.reward.e.g, a.I
     }
 
     private int b(float f) {
-        return (int) (f + getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070528) + getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070529));
+        return (int) (f + getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070529) + getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07052a));
     }
 
     @Override // com.kwad.components.core.i.a.InterfaceC0649a

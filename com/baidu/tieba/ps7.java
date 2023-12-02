@@ -1,142 +1,68 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.FeatureCardGod;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.base.BdBaseFragmentActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPageUserExtend;
-import tbclient.User;
 /* loaded from: classes7.dex */
-public class ps7 implements pi {
+public class ps7 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<MetaData> b;
-    public String c;
-    public boolean d;
+    public final FrsActivity a;
+    public l28 b;
+    public m28 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948072693, "Lcom/baidu/tieba/ps7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948072693, "Lcom/baidu/tieba/ps7;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public ps7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ps7(FrsActivity frsActivity) {
+        super(2921728);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.c = "本吧都在关注";
-        this.d = false;
+        this.a = frsActivity;
+        l28 l28Var = new l28(frsActivity);
+        this.b = l28Var;
+        l28Var.a(true);
+        m28 m28Var = new m28(frsActivity);
+        this.c = m28Var;
+        m28Var.a(true);
+        PriorityOrganizer.makeChain(this.b, this.c);
+        setPriority(1);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<MetaData> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pi
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void e(FeatureCardGod featureCardGod) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, featureCardGod) == null) && featureCardGod != null && !ListUtils.isEmpty(featureCardGod.sub_nodes)) {
-            this.a = featureCardGod.floor.intValue();
-            this.b = featureCardGod.sub_nodes;
-            this.c = featureCardGod.title;
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void f(FrsPageUserExtend frsPageUserExtend) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, frsPageUserExtend) == null) && frsPageUserExtend != null && !ListUtils.isEmpty(frsPageUserExtend.data)) {
-            List<User> list = frsPageUserExtend.data;
-            this.a = frsPageUserExtend.user_extend_storey.intValue();
-            this.b = new ArrayList(list.size());
-            for (int i = 0; i < list.size(); i++) {
-                User user = list.get(i);
-                if (user != null && user.id.longValue() != 0) {
-                    MetaData metaData = new MetaData();
-                    metaData.parserProtobuf(list.get(i));
-                    this.b.add(metaData);
-                }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            BdUniqueId bdUniqueId = null;
+            if (currentActivity instanceof BdBaseFragmentActivity) {
+                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
             }
-            this.c = frsPageUserExtend.tips;
+            if (getTag() == bdUniqueId && !this.b.isExecuting(true)) {
+                this.b.reset(true);
+                this.a.a0().tryAdd(this.b);
+            }
         }
     }
 }

@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public class cac {
+public final class cac<TResult> implements vac<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
+    public yac<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    public cac(String str) {
+    public cac(Executor executor, yac<TResult> yacVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {executor, yacVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,49 +28,17 @@ public class cac {
                 return;
             }
         }
-        this.a = str;
-        this.b = a(str);
+        this.c = new Object();
+        this.a = yacVar;
+        this.b = executor;
     }
 
-    public static int a(Object... objArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vac
+    public final void a(hac<TResult> hacVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) {
-            return Arrays.hashCode(objArr);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, hacVar) == null) && hacVar.f()) {
+            hacVar.e();
+            this.b.execute(new aac(this, hacVar));
         }
-        return invokeL.intValue;
-    }
-
-    public static cac b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new cac(str);
-        }
-        return (cac) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj != null && cac.class == obj.getClass()) {
-                return TextUtils.equals(this.a, ((cac) obj).a);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
     }
 }

@@ -1,137 +1,148 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import androidx.appcompat.app.AlertDialog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import android.content.res.AssetManager;
+import android.graphics.BitmapFactory;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.WebpForceSwitch;
+import com.baidu.tbadk.switchs.WebpSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+import java.io.IOException;
+import java.io.InputStream;
+/* loaded from: classes8.dex */
 public class wt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
 
-    /* loaded from: classes9.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wt5 a;
-
-        public a(wt5 wt5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wt5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                this.a.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ wt5 b;
-
-        public b(wt5 wt5Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt5Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wt5Var;
-            this.a = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.b.a != null) {
-                    this.b.a.dismiss();
-                }
-                if (!StringUtils.isNull(TbConfig.MEMBER_AUTO_RENEWAL_URL)) {
-                    BrowserHelper.startWebActivity(this.a, TbConfig.MEMBER_AUTO_RENEWAL_URL);
-                }
-            }
-        }
-    }
-
-    public wt5() {
+    public static void e(boolean z, @Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
         }
     }
 
-    public static boolean b() {
+    public static void g(@NonNull String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+        }
+    }
+
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return SharedPrefHelper.getInstance().getBoolean("key_member_auto_ban_renewal_show", false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return TbadkCoreApplication.getInst().getCapabilityOfWebp();
         }
         return invokeV.booleanValue;
     }
 
-    public void c(Activity activity) {
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            AlertDialog alertDialog = this.a;
-            if (alertDialog != null && alertDialog.isShowing()) {
-                this.a.dismiss();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (!WebpForceSwitch.isOn() && (!a() || !h())) {
+                return false;
             }
-            if (activity == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (SwitchManager.getInstance().findType(WebpSwitch.WEBP_ENABLE) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void b(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            int loadInt = TbadkSettings.getInst().loadInt("webp_failure_count", 0) + 1;
+            if (loadInt > 5) {
+                TbadkCoreApplication.getInst().setCapableOfWebp(false);
+                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", false);
                 return;
             }
-            TBAlertConfig.OperateBtnConfig operateBtnConfig = new TBAlertConfig.OperateBtnConfig((int) R.string.protocol_confirm, TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertConfig.OperateBtnConfig operateBtnConfig2 = new TBAlertConfig.OperateBtnConfig((int) R.string.goto_see_more, TBAlertConfig.OperateBtnStyle.SECONDARY);
-            this.a = new TBAlertBuilder(activity).setTitle(R.string.member_reminder).setDesc(R.string.cancel_member_auto_renewal).setOperateBtn(operateBtnConfig2, operateBtnConfig).setDescLightStyle(true).setCancelable(false).setDescGravity(3).show();
-            SharedPrefHelper.getInstance().putBoolean("key_member_auto_ban_renewal_show", true);
-            operateBtnConfig.setListener(new a(this));
-            operateBtnConfig2.setListener(new b(this, activity));
+            TbadkSettings.getInst().saveInt("webp_failure_count", loadInt);
         }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:19:0x003b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            int i = 0;
+            if (TbadkSettings.getInst().loadInt("webp_failure_count", -1) == -1) {
+                AssetManager assets = TbadkCoreApplication.getInst().getContext().getAssets();
+                if (assets != null) {
+                    InputStream inputStream = null;
+                    try {
+                        inputStream = assets.open("webp_test/test.webp");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    if (inputStream != null && BitmapFactory.decodeStream(inputStream) != null) {
+                        z = true;
+                        if (!z) {
+                            TiebaStatic.log("LocalWebpUnSupport");
+                            i = 6;
+                        }
+                        TbadkCoreApplication.getInst().setCapableOfWebp(z);
+                        TbadkSettings.getInst().saveInt("webp_failure_count", i);
+                        TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
+                        return;
+                    }
+                }
+                z = false;
+                if (!z) {
+                }
+                TbadkCoreApplication.getInst().setCapableOfWebp(z);
+                TbadkSettings.getInst().saveInt("webp_failure_count", i);
+                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
+                return;
+            }
+            TbadkCoreApplication.getInst().setCapableOfWebp(TbadkSettings.getInst().loadBoolean("capable_of_webp_format", false));
+        }
+    }
+
+    @NonNull
+    public static Pair<Boolean, String> d(@Nullable String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!f()) {
+                return new Pair<>(Boolean.FALSE, str);
+            }
+            if (str != null && str.length() != 0) {
+                int indexOf = str.indexOf("hiphotos.baidu.com");
+                if (indexOf <= 0) {
+                    indexOf = str.indexOf("tiebapic.baidu.com");
+                }
+                if (indexOf > 0 && (lastIndexOf = str.lastIndexOf(".jpg")) > 0) {
+                    return new Pair<>(Boolean.TRUE, str.substring(0, lastIndexOf) + ".webp" + str.substring(lastIndexOf + 4));
+                }
+                return new Pair<>(Boolean.FALSE, str);
+            }
+            return new Pair<>(Boolean.FALSE, str);
+        }
+        return (Pair) invokeL.objValue;
     }
 }

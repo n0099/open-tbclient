@@ -41,7 +41,7 @@ public class zg0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             zg0 zg0Var = new zg0();
-            JSONObject c = my0.c(str);
+            JSONObject c = oy0.c(str);
             zg0Var.a = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_1);
             zg0Var.b = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_2);
             zg0Var.c = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_3);

@@ -12,10 +12,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ru4;
 import com.baidu.tieba.userblock.message.UserBlockSetHttpResponseMessage;
 import com.baidu.tieba.userblock.message.UserBlockSetRequestMessage;
-import com.baidu.tieba.wva;
+import com.baidu.tieba.uu4;
+import com.baidu.tieba.vva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class UserBlockSetModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public ru4 b;
+    public uu4 b;
     public NetMessageListener c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -136,17 +136,17 @@ public class UserBlockSetModel extends BdBaseModel {
         return (String) invokeI.objValue;
     }
 
-    public void V(ru4 ru4Var) {
+    public void V(uu4 uu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ru4Var) == null) {
-            this.b = ru4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, uu4Var) == null) {
+            this.b = uu4Var;
         }
     }
 
     public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            wva.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
+            vva.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
             this.c.getHttpMessageListener().setSelfListener(true);
             registerListener(this.c);
         }

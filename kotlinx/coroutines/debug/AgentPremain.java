@@ -73,7 +73,7 @@ public final class AgentPremain {
 
     private final void installSignalHandler() {
         try {
-            Signal.handle(new Signal("TRAP"), new SignalHandler() { // from class: com.baidu.tieba.jlc
+            Signal.handle(new Signal("TRAP"), new SignalHandler() { // from class: com.baidu.tieba.ilc
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
             });

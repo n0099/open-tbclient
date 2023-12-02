@@ -2,7 +2,7 @@ package com.baidu.searchbox.http.callback;
 
 import java.util.List;
 import okhttp3.Response;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class CookieResponseCallback<T> extends ResponseCallback<T> {
     public abstract void handleCookies(List<String> list) throws Exception;
 

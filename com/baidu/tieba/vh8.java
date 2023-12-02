@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.Personalized.DataRes;
+import tbclient.ThreadInfo;
 /* loaded from: classes8.dex */
-public class vh8 {
+public final class vh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pi> a;
-    public int b;
-    public int c;
 
-    public vh8() {
+    public static final uh8 a(DataRes.Builder builderData, ThreadInfo threadInfo) {
+        InterceptResult invokeLL;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, builderData, threadInfo)) == null) {
+            Intrinsics.checkNotNullParameter(builderData, "builderData");
+            Intrinsics.checkNotNullParameter(threadInfo, "threadInfo");
+            Long l = threadInfo.tid;
+            Intrinsics.checkNotNullExpressionValue(l, "threadInfo.tid");
+            uh8 uh8Var = new uh8(l.longValue(), false, 2, null);
+            Integer num2 = builderData.is_need_live_ununiq;
+            if (num2 != null && num2.intValue() == 1 && (num = threadInfo.thread_type) != null && num.intValue() == 69) {
+                uh8Var.b(false);
             }
+            return uh8Var;
         }
-        this.b = 0;
-        this.c = 0;
+        return (uh8) invokeLL.objValue;
     }
 }

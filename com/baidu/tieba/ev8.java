@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.TextImageMsg;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.chatmessage.messages.ImageMsg;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.fluency.utils.CommonUtilsKt;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.lib.socket.msg.TbSingleTextImageMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseImageMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbBigEmotionMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbImageMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,8 +19,9 @@ import java.util.Map;
 import kotlin.Triple;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes5.dex */
-public final class ev8 extends zu8<TbSingleTextImageMsg, TextImageMsg> {
+public final class ev8 extends dv8<TbBaseImageMsg, ImageMsg> {
     public static /* synthetic */ Interceptable $ic;
     public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,13 +69,55 @@ public final class ev8 extends zu8<TbSingleTextImageMsg, TextImageMsg> {
             }
         }
 
-        public final Triple<Class<TbSingleTextImageMsg>, Class<TextImageMsg>, ev8> a() {
+        public final Triple<Class<TbBaseImageMsg>, Class<ImageMsg>, ev8> d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new Triple<>(TbSingleTextImageMsg.class, TextImageMsg.class, new ev8(null));
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return new Triple<>(TbBaseImageMsg.class, ImageMsg.class, new ev8(null));
             }
             return (Triple) invokeV.objValue;
+        }
+
+        public final void a(ImageMsg imageMsg, TbBaseImageMsg tbMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, imageMsg, tbMsg) == null) {
+                Intrinsics.checkNotNullParameter(imageMsg, "imageMsg");
+                Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+                imageMsg.setThumbUrl(tbMsg.getThumbUrl());
+                imageMsg.setContent(tbMsg.getBigSrc());
+                String thumbSize = tbMsg.getThumbSize();
+                Intrinsics.checkNotNullExpressionValue(thumbSize, "tbMsg.thumbSize");
+                String[] c = c(thumbSize);
+                if (c != null && c.length > 1) {
+                    imageMsg.setImgWH(CommonUtilsKt.toIntSafely(c[0]), CommonUtilsKt.toIntSafely(c[1]));
+                }
+            }
+        }
+
+        public final void b(TbBaseImageMsg tbMsg, ImageMsg sdkMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbMsg, sdkMsg) == null) {
+                Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+                Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+                tbMsg.setThumbUrl(sdkMsg.getThumbUrl());
+                tbMsg.setBigSrc(sdkMsg.getRemoteUrl());
+            }
+        }
+
+        public final String[] c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                if (StringUtils.isNull(str)) {
+                    return null;
+                }
+                Object[] array = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{","}, false, 0, 6, (Object) null).toArray(new String[0]);
+                if (array != null) {
+                    return (String[]) array;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>");
+            }
+            return (String[]) invokeL.objValue;
         }
     }
 
@@ -88,40 +134,38 @@ public final class ev8 extends zu8<TbSingleTextImageMsg, TextImageMsg> {
                 return;
             }
         }
-        j(102, TbSingleTextImageMsg.class);
-        j(101, TbTextGenImageMsg.class);
+        j(2, TbImageMsg.class);
+        j(4, TbBigEmotionMsg.class);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zu8
+    @Override // com.baidu.tieba.dv8
     /* renamed from: n */
-    public TextImageMsg g(TbSingleTextImageMsg tbMsg) {
+    public ImageMsg g(TbBaseImageMsg tbMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
             Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            TextImageMsg textImageMsg = new TextImageMsg();
-            textImageMsg.setText(tbMsg.getText());
-            av8.f.a(textImageMsg, tbMsg);
-            return textImageMsg;
+            ImageMsg imageMsg = new ImageMsg();
+            f.a(imageMsg, tbMsg);
+            return imageMsg;
         }
-        return (TextImageMsg) invokeL.objValue;
+        return (ImageMsg) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zu8
+    @Override // com.baidu.tieba.dv8
     /* renamed from: o */
-    public TbSingleTextImageMsg h(int i, TextImageMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
+    public TbBaseImageMsg h(int i, ImageMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, sdkMsg, sdkMsgMap)) == null) {
             Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
             Intrinsics.checkNotNullParameter(sdkMsgMap, "sdkMsgMap");
-            TbSingleTextImageMsg tbSingleTextImageMsg = (TbSingleTextImageMsg) DataExt.toEntity(sdkMsgMap, l(i));
-            av8.f.b(tbSingleTextImageMsg, sdkMsg);
-            tbSingleTextImageMsg.setText(sdkMsg.getText());
-            return tbSingleTextImageMsg;
+            TbBaseImageMsg tbBaseImageMsg = (TbBaseImageMsg) DataExt.toEntity(sdkMsgMap, l(i));
+            f.b(tbBaseImageMsg, sdkMsg);
+            return tbBaseImageMsg;
         }
-        return (TbSingleTextImageMsg) invokeILL.objValue;
+        return (TbBaseImageMsg) invokeILL.objValue;
     }
 }

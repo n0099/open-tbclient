@@ -11,14 +11,14 @@ public class af0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public qf1<re0> a;
+    public tf1<re0> a;
     @Inject(force = false)
-    public qf1<te0> b;
+    public tf1<te0> b;
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            of1 b = of1.b();
+            rf1 b = rf1.b();
             this.a = b;
             b.a(new se0());
         }
@@ -27,7 +27,7 @@ public class af0 {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            of1 b = of1.b();
+            rf1 b = rf1.b();
             this.b = b;
             b.a(new ue0());
         }

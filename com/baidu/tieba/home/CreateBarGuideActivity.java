@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.atomData.AboutActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateBarGuideActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.fa8;
+import com.baidu.tieba.f05;
 import com.baidu.tieba.home.BfbInfoModel;
+import com.baidu.tieba.ja8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public fa8 b;
+    public ja8 b;
     public BfbInfoModel c;
     public BfbInfoModel.b d;
 
@@ -72,18 +72,18 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     }
 
     /* loaded from: classes6.dex */
-    public class b implements c05.e {
+    public class b implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c05 a;
+        public final /* synthetic */ f05 a;
         public final /* synthetic */ CreateBarGuideActivity b;
 
-        public b(CreateBarGuideActivity createBarGuideActivity, c05 c05Var) {
+        public b(CreateBarGuideActivity createBarGuideActivity, f05 f05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {createBarGuideActivity, c05Var};
+                Object[] objArr = {createBarGuideActivity, f05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -94,13 +94,13 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                 }
             }
             this.b = createBarGuideActivity;
-            this.a = c05Var;
+            this.a = f05Var;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
                 this.a.dismiss();
                 this.b.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.b.getPageContext().getPageActivity())));
             }
@@ -108,18 +108,18 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     }
 
     /* loaded from: classes6.dex */
-    public class c implements c05.e {
+    public class c implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c05 a;
+        public final /* synthetic */ f05 a;
         public final /* synthetic */ CreateBarGuideActivity b;
 
-        public c(CreateBarGuideActivity createBarGuideActivity, c05 c05Var) {
+        public c(CreateBarGuideActivity createBarGuideActivity, f05 f05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {createBarGuideActivity, c05Var};
+                Object[] objArr = {createBarGuideActivity, f05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -130,13 +130,13 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                 }
             }
             this.b = createBarGuideActivity;
-            this.a = c05Var;
+            this.a = f05Var;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
                 this.a.dismiss();
             }
         }
@@ -163,9 +163,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            fa8 fa8Var = this.b;
-            if (fa8Var != null) {
-                fa8Var.g();
+            ja8 ja8Var = this.b;
+            if (ja8Var != null) {
+                ja8Var.g();
                 this.b = null;
             }
             this.c.O();
@@ -177,9 +177,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.changeSkinType(i);
-            fa8 fa8Var = this.b;
-            if (fa8Var != null) {
-                fa8Var.f();
+            ja8 ja8Var = this.b;
+            if (ja8Var != null) {
+                ja8Var.f();
             }
         }
     }
@@ -188,14 +188,14 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (StringUtils.isNull(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f16fc);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f16fd);
             }
-            c05 c05Var = new c05(getActivity());
-            c05Var.setTitle(str);
-            c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04d2, new b(this, c05Var));
-            c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new c(this, c05Var));
-            c05Var.create(getPageContext());
-            c05Var.show();
+            f05 f05Var = new f05(getActivity());
+            f05Var.setTitle(str);
+            f05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04d2, new b(this, f05Var));
+            f05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new c(this, f05Var));
+            f05Var.create(getPageContext());
+            f05Var.show();
         }
     }
 
@@ -212,9 +212,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
             this.c = bfbInfoModel;
             bfbInfoModel.S(this.d);
-            fa8 fa8Var = new fa8(this);
-            this.b = fa8Var;
-            fa8Var.e();
+            ja8 ja8Var = new ja8(this);
+            this.b = ja8Var;
+            ja8Var.e();
             showLoadingView(this.b.d());
             this.c.loadData();
             TiebaStatic.log("c11222");

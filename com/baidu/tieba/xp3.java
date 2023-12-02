@@ -1,111 +1,88 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes9.dex */
-public abstract class xp3 {
+public class xp3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public String c;
 
-    public abstract void e(IOException iOException);
-
-    public abstract void f(int i);
-
-    public abstract void h(byte[] bArr);
-
-    public xp3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.b = 0;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.b = 0;
-            gp3.b().a(str, this);
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public final String g(byte[] bArr) {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static tp3 a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
-            String str = new String(bArr);
-            if (dp3.a) {
-                Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            tp3 tp3Var = null;
+            if (bArr == null) {
+                return null;
             }
-            if (this.a) {
-                rp3 c = hp3.f().c(jp3.l().m(), bArr);
-                if (c != null) {
-                    if (!TextUtils.isEmpty(c.a())) {
-                        str = c.a();
-                    }
-                    this.b = c.b().intValue();
-                } else {
-                    this.b = -1;
-                }
-                jp3.l().m().s(this.b);
-                if (this.b == -1) {
-                    gp3.b().f(false);
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            byte b = wrap.get();
+            byte b2 = wrap.get();
+            if (b == -27 && b2 == -89) {
+                tp3Var = new tp3();
+                wrap.get();
+                wrap.get();
+                tp3Var.r(wrap.get());
+                tp3Var.p(wrap.get());
+                int i = wrap.getShort();
+                tp3Var.q(i);
+                int i2 = wrap.getInt();
+                tp3Var.k(i2);
+                tp3Var.l(wrap.getLong());
+                byte[] bArr2 = new byte[i];
+                wrap.get(bArr2, 0, i);
+                tp3Var.o(bArr2);
+                if (i2 > 0) {
+                    byte[] bArr3 = new byte[i2];
+                    wrap.get(bArr3, 0, i2);
+                    tp3Var.j(bArr3);
                 }
             }
-            return str;
+            return tp3Var;
         }
-        return (String) invokeL.objValue;
+        return (tp3) invokeL.objValue;
+    }
+
+    public static byte[] b(tp3 tp3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tp3Var)) == null) {
+            if (tp3Var == null) {
+                return null;
+            }
+            ByteBuffer allocate = ByteBuffer.allocate(tp3Var.h() + 20 + tp3Var.b());
+            allocate.put((byte) -27);
+            allocate.put((byte) -89);
+            if (tp3Var.e() != null && tp3Var.e().length == 2) {
+                allocate.put(tp3Var.e()[0]);
+                allocate.put(tp3Var.e()[1]);
+                allocate.put(tp3Var.i());
+                allocate.put(tp3Var.g());
+                if (tp3Var.f() != null && tp3Var.f().length != 0) {
+                    int length = tp3Var.f().length;
+                    allocate.put((byte) ((length >> 8) & 255));
+                    allocate.put((byte) (length & 255));
+                    if (tp3Var.a() != null && tp3Var.a().length != 0) {
+                        allocate.putInt(tp3Var.a().length);
+                    } else {
+                        allocate.putInt(0);
+                    }
+                    allocate.putLong(tp3Var.c());
+                    if (tp3Var.f() != null) {
+                        allocate.put(tp3Var.f());
+                    }
+                    if (tp3Var.a() != null) {
+                        allocate.put(tp3Var.a());
+                    }
+                    return allocate.array();
+                }
+            }
+            return null;
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

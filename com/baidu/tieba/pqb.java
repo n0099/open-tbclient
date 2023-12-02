@@ -1,9 +1,13 @@
 package com.baidu.tieba;
-
-import android.os.IBinder;
 /* loaded from: classes7.dex */
 public interface pqb {
-    IBinder a(String str);
+    mqb a();
 
-    void b();
+    oqb b();
+
+    opb c();
+
+    spb d();
+
+    nqb e();
 }

@@ -85,7 +85,7 @@ public class BaseBubbleView extends LinearLayout implements BdMenu.OnMenuSetChan
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.base_buddle_view, (ViewGroup) this, true);
         this.mBubbleLayout = (BubbleFrameLayout) findViewById(R.id.share_buddle_layout);
-        this.mContentView = (TextView) findViewById(R.id.obfuscated_res_0x7f09228e);
-        this.mImageView = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09228d);
+        this.mContentView = (TextView) findViewById(R.id.obfuscated_res_0x7f092290);
+        this.mImageView = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09228f);
     }
 }

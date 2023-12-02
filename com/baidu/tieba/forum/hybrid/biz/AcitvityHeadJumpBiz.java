@@ -9,19 +9,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.bk7;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.ex4;
+import com.baidu.tieba.fk7;
 import com.baidu.tieba.forum.hybrid.manager.BizBase;
 import com.baidu.tieba.forum.hybrid.manager.WrapListener;
-import com.baidu.tieba.fy5;
 import com.baidu.tieba.hx4;
+import com.baidu.tieba.jy5;
+import com.baidu.tieba.kx4;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.nk7;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.yyc;
+import com.baidu.tieba.rk7;
+import com.baidu.tieba.xyc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,11 +34,11 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\u0012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0015\u0010\t\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\nH\u0016¢\u0006\u0002\u0010\fJ\b\u0010\r\u001a\u00020\u000eH\u0016J\u0010\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0010\u001a\u00020\u0011H\u0002¨\u0006\u0012"}, d2 = {"Lcom/baidu/tieba/forum/hybrid/biz/AcitvityHeadJumpBiz;", "Lcom/baidu/tieba/forum/hybrid/manager/BizBase;", "Lcom/baidu/tieba/forum/hybrid/manager/Clean;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;)V", "keyListeners", "", "Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", "()[Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", MissionEvent.MESSAGE_DESTROY, "", "onFrsAcitvityHeadJump", "data", "", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class AcitvityHeadJumpBiz extends BizBase implements nk7 {
+public final class AcitvityHeadJumpBiz extends BizBase implements rk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.nk7
+    @Override // com.baidu.tieba.rk7
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -68,7 +68,7 @@ public final class AcitvityHeadJumpBiz extends BizBase implements nk7 {
         Intrinsics.checkNotNullParameter(webView, "webView");
     }
 
-    @Override // com.baidu.tieba.mk7
+    @Override // com.baidu.tieba.qk7
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,12 +78,12 @@ public final class AcitvityHeadJumpBiz extends BizBase implements nk7 {
     public final void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            final ex4 ex4Var = new ex4();
+            final hx4 hx4Var = new hx4();
             try {
-                JSONKt.a(str, new Function1<JSONObject, Unit>(ex4Var) { // from class: com.baidu.tieba.forum.hybrid.biz.AcitvityHeadJumpBiz$onFrsAcitvityHeadJump$1
+                JSONKt.a(str, new Function1<JSONObject, Unit>(hx4Var) { // from class: com.baidu.tieba.forum.hybrid.biz.AcitvityHeadJumpBiz$onFrsAcitvityHeadJump$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ ex4 $forumActivityHeadData;
+                    public final /* synthetic */ hx4 $forumActivityHeadData;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -92,7 +92,7 @@ public final class AcitvityHeadJumpBiz extends BizBase implements nk7 {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {ex4Var};
+                            Object[] objArr = {hx4Var};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -103,7 +103,7 @@ public final class AcitvityHeadJumpBiz extends BizBase implements nk7 {
                                 return;
                             }
                         }
-                        this.$forumActivityHeadData = ex4Var;
+                        this.$forumActivityHeadData = hx4Var;
                     }
 
                     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -119,7 +119,7 @@ public final class AcitvityHeadJumpBiz extends BizBase implements nk7 {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
                             Intrinsics.checkNotNullParameter(it, "it");
-                            this.$forumActivityHeadData.d(yyc.b(it), 0L);
+                            this.$forumActivityHeadData.d(xyc.b(it), 0L);
                         }
                     }
                 });
@@ -127,17 +127,17 @@ public final class AcitvityHeadJumpBiz extends BizBase implements nk7 {
                 TbLog hybridLog = HybridLog.getInstance();
                 hybridLog.e("BusinessPromotBiz", "头图点击数据解析失败: " + str);
             }
-            hx4 hx4Var = (hx4) ListUtils.getItem(ex4Var.b(), 0);
-            if (hx4Var != null && !fy5.a(f().getContext(), hx4Var.f()) && !TextUtils.isEmpty(hx4Var.e())) {
-                if (rd.isEquals(TbadkCoreApplication.getInst().getPackageName(), hx4Var.g()) && !StringUtils.isNull(hx4Var.i())) {
+            kx4 kx4Var = (kx4) ListUtils.getItem(hx4Var.b(), 0);
+            if (kx4Var != null && !jy5.a(f().getContext(), kx4Var.f()) && !TextUtils.isEmpty(kx4Var.e())) {
+                if (rd.isEquals(TbadkCoreApplication.getInst().getPackageName(), kx4Var.g()) && !StringUtils.isNull(kx4Var.i())) {
                     UrlManager urlManager = UrlManager.getInstance();
                     TbPageContext<BaseFragmentActivity> f = f();
-                    String i = hx4Var.i();
+                    String i = kx4Var.i();
                     Intrinsics.checkNotNullExpressionValue(i, "forumHeadImageData.getSchema()");
                     urlManager.dealOneLink(f, new String[]{i});
                     return;
                 }
-                bk7.b(f(), hx4Var.i(), hx4Var.e(), hx4Var.g());
+                fk7.b(f(), kx4Var.i(), kx4Var.e(), kx4Var.g());
             }
         }
     }

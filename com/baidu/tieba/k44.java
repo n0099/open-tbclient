@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.launch.stats.AppBeforeCreateSpeedStats;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,19 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class k44 extends JSEvent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @V8JavascriptField
-        public boolean devhook;
-        @V8JavascriptField
-        public String scene;
+        public long startupTime;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -37,13 +36,13 @@ public class k44 extends JSEvent {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k44(er2 er2Var) {
-        super("appshow");
+    public k44(long j) {
+        super(AppBeforeCreateSpeedStats.APP_ATTACH);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {er2Var};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,18 +53,17 @@ public class k44 extends JSEvent {
                 return;
             }
         }
-        this.data = a(er2Var);
+        this.data = a(j);
     }
 
-    public final Object a(er2 er2Var) {
-        InterceptResult invokeL;
+    public final Object a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, er2Var)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
             a aVar = new a();
-            aVar.scene = er2Var.U();
-            aVar.devhook = er2Var.n0();
+            aVar.startupTime = j;
             return aVar;
         }
-        return invokeL.objValue;
+        return invokeJ.objValue;
     }
 }

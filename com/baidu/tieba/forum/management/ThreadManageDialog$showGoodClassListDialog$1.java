@@ -16,10 +16,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BlueCheckRadioButton;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b77;
 import com.baidu.tieba.forum.management.ThreadManageDialog$showGoodClassListDialog$1;
-import com.baidu.tieba.fq5;
-import com.baidu.tieba.tx4;
-import com.baidu.tieba.x67;
+import com.baidu.tieba.jq5;
+import com.baidu.tieba.wx4;
 import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +33,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0016\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u001a\u0010\u0002\u001a\u0016\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003j\n\u0012\u0004\u0012\u00020\u0004\u0018\u0001`\u0005H\n¢\u0006\u0002\b\u0006"}, d2 = {"<anonymous>", "", "goodDataList", "Ljava/util/ArrayList;", "Lcom/baidu/tbadk/core/data/GoodData;", "Lkotlin/collections/ArrayList;", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda implements Function1<ArrayList<tx4>, Unit> {
+public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda implements Function1<ArrayList<wx4>, Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ ThreadManageDialog this$0;
@@ -74,35 +74,35 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
     /* renamed from: invoke$lambda-1  reason: not valid java name */
     public static final void m139invoke$lambda1(Dialog mGoodClassListDialog, ThreadManageDialog this$0, View view2) {
         TbPageContext tbPageContext;
-        x67 x67Var;
+        b77 b77Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, mGoodClassListDialog, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(mGoodClassListDialog, "$mGoodClassListDialog");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             tbPageContext = this$0.l;
             yb.b(mGoodClassListDialog, tbPageContext);
-            x67Var = this$0.s;
-            this$0.W(x67Var, this$0.r, false);
+            b77Var = this$0.s;
+            this$0.W(b77Var, this$0.r, false);
         }
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Unit invoke(ArrayList<tx4> arrayList) {
+    public /* bridge */ /* synthetic */ Unit invoke(ArrayList<wx4> arrayList) {
         invoke2(arrayList);
         return Unit.INSTANCE;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2(ArrayList<tx4> arrayList) {
+    public final void invoke2(ArrayList<wx4> arrayList) {
         TbPageContext tbPageContext;
         String N;
         BlueCheckRadioButton K;
         ArrayList arrayList2;
         ArrayList arrayList3;
         TbPageContext tbPageContext2;
-        x67 x67Var;
+        b77 b77Var;
         BlueCheckRadioButton K2;
         ArrayList arrayList4;
         Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
                 layoutParams = window.getAttributes();
             }
             if (layoutParams != null) {
-                layoutParams.width = BdUtilHelper.getDimens(this.this$0.n, R.dimen.obfuscated_res_0x7f0703f5);
+                layoutParams.width = BdUtilHelper.getDimens(this.this$0.n, R.dimen.obfuscated_res_0x7f0703f6);
             }
             Window window2 = dialog.getWindow();
             if (window2 != null) {
@@ -128,7 +128,7 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
             }
             View findViewById = inflate.findViewById(R.id.dialog_button_cancel);
             final ThreadManageDialog threadManageDialog = this.this$0;
-            findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tk7
+            findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xk7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -142,7 +142,7 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
             });
             View findViewById2 = inflate.findViewById(R.id.dialog_button_ok);
             final ThreadManageDialog threadManageDialog2 = this.this$0;
-            findViewById2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xk7
+            findViewById2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bl7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -156,7 +156,7 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
             });
             View findViewById3 = dialog.findViewById(R.id.commit_good_layout);
             tbPageContext = this.this$0.l;
-            fq5.a(tbPageContext, findViewById3);
+            jq5.a(tbPageContext, findViewById3);
             View findViewById4 = dialog.findViewById(R.id.good_class_group);
             if (findViewById4 != null) {
                 LinearLayout linearLayout = (LinearLayout) findViewById4;
@@ -174,11 +174,11 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
                 if (arrayList != null) {
                     int size = arrayList.size();
                     for (int i = 0; i < size; i++) {
-                        tx4 tx4Var = arrayList.get(i);
-                        Intrinsics.checkNotNullExpressionValue(tx4Var, "goodDataList[i]");
-                        tx4 tx4Var2 = tx4Var;
-                        if (!TextUtils.isEmpty(tx4Var2.b()) && tx4Var2.a() > 0) {
-                            K2 = this.this$0.K(String.valueOf(tx4Var2.a()), tx4Var2.b());
+                        wx4 wx4Var = arrayList.get(i);
+                        Intrinsics.checkNotNullExpressionValue(wx4Var, "goodDataList[i]");
+                        wx4 wx4Var2 = wx4Var;
+                        if (!TextUtils.isEmpty(wx4Var2.b()) && wx4Var2.a() > 0) {
+                            K2 = this.this$0.K(String.valueOf(wx4Var2.a()), wx4Var2.b());
                             arrayList4 = this.this$0.t;
                             if (arrayList4 != null) {
                                 arrayList4.add(K2);
@@ -215,8 +215,8 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
                 if ((arrayList3 == null || arrayList3.size() != 1) ? false : false) {
                     this.this$0.r = "0";
                     ThreadManageDialog threadManageDialog4 = this.this$0;
-                    x67Var = threadManageDialog4.s;
-                    threadManageDialog4.W(x67Var, this.this$0.r, false);
+                    b77Var = threadManageDialog4.s;
+                    threadManageDialog4.W(b77Var, this.this$0.r, false);
                     return;
                 }
                 tbPageContext2 = this.this$0.l;

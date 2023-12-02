@@ -1,18 +1,34 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vb7;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class cla implements vb7 {
+public final class cla extends fla implements vb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+
+    @Override // com.baidu.tieba.vb7
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TiebaStatic.Params.OBJ_FLOOR : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "common_click" : (String) invokeV.objValue;
+    }
 
     public cla() {
         Interceptable interceptable = $ic;
@@ -24,61 +40,34 @@ public final class cla implements vb7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "0";
     }
 
-    @Override // com.baidu.tieba.ub7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return vb7.a.b(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ub7
-    public Map<String, String> a(r57 r57Var) {
+    @Override // com.baidu.tieba.fla, com.baidu.tieba.yb7
+    public Map<String, String> a(v57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r57Var)) == null) {
-            return vb7.a.a(this, r57Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            hashMap.putAll(super.a(businessInfo));
+            hashMap.put("obj_locate", this.a);
+            return hashMap;
         }
         return (Map) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.vb7
-    public String c(r57 businessInfo) {
+    public final cla d(String objLocate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
-                return "";
-            }
-            String str = businessInfo.a().get("pic_type");
-            if (str == null) {
-                str = "normal";
-            }
-            int hashCode = str.hashCode();
-            if (hashCode != -1039745817) {
-                if (hashCode != 3322092) {
-                    if (hashCode != 112202875 || !str.equals("video")) {
-                        return "";
-                    }
-                    return "live_mix_card_video_image_click";
-                } else if (!str.equals("live")) {
-                    return "";
-                } else {
-                    return "live_mix_card_live_image_click";
-                }
-            } else if (!str.equals("normal")) {
-                return "";
-            } else {
-                return "live_mix_card_normal_image_click";
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objLocate)) == null) {
+            Intrinsics.checkNotNullParameter(objLocate, "objLocate");
+            this.a = objLocate;
+            return this;
         }
-        return (String) invokeL.objValue;
+        return (cla) invokeL.objValue;
     }
 }

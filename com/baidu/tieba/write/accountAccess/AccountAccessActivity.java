@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.xdb;
 import com.baidu.tieba.ydb;
-import com.baidu.tieba.zdb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public zdb a;
-    public ydb b;
+    public ydb a;
+    public xdb b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -130,7 +130,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new zdb(this);
+            this.a = new ydb(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -151,9 +151,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                     }
                     newWriteModel2.k0(z);
                 }
-                ydb ydbVar = new ydb(this.a, this.c);
-                this.b = ydbVar;
-                this.a.m(ydbVar);
+                xdb xdbVar = new xdb(this.a, this.c);
+                this.b = xdbVar;
+                this.a.m(xdbVar);
                 this.b.h(H0());
                 return;
             }

@@ -65,14 +65,14 @@ public final class LayoutChatMessageBubbleBinding implements ViewBinding {
                 i = R.id.obfuscated_res_0x7f0902ff;
                 Space space = (Space) view2.findViewById(R.id.obfuscated_res_0x7f0902ff);
                 if (space != null) {
-                    i = R.id.obfuscated_res_0x7f090822;
-                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090822);
+                    i = R.id.obfuscated_res_0x7f090823;
+                    EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090823);
                     if (eMTextView != null) {
-                        i = R.id.obfuscated_res_0x7f0917bc;
-                        TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917bc);
+                        i = R.id.obfuscated_res_0x7f0917bd;
+                        TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917bd);
                         if (tbImageView2 != null) {
-                            i = R.id.obfuscated_res_0x7f09206d;
-                            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09206d);
+                            i = R.id.obfuscated_res_0x7f09206f;
+                            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09206f);
                             if (findViewById != null) {
                                 return new LayoutChatMessageBubbleBinding(view2, tbImageView, space, eMTextView, tbImageView2, findViewById);
                             }

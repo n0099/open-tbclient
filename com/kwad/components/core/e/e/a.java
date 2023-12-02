@@ -20,7 +20,7 @@ public final class a extends KSFrameLayout {
         this.Lh = dialogFragment;
         this.Lj = c0644a;
         l.inflate(context, R.layout.obfuscated_res_0x7f0d0510, this);
-        this.Li = findViewById(R.id.obfuscated_res_0x7f09149a);
+        this.Li = findViewById(R.id.obfuscated_res_0x7f09149b);
     }
 
     public static Presenter af() {

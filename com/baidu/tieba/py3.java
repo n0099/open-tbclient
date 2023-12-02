@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,14 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class py3 implements ds1 {
+public class py3 extends qy3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile py3 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ky3 a;
-    public oy3 b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public py3() {
+        super("echoSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,51 +22,27 @@ public class py3 implements ds1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
     }
 
-    public static py3 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qy3
+    public ly1 a(@NonNull JSONObject jSONObject, @NonNull oj2 oj2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (py3.class) {
-                    if (c == null) {
-                        c = new py3();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, oj2Var)) == null) {
+            int optInt = jSONObject.optInt("status", 0);
+            String optString = jSONObject.optString("message");
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optInt == 0) {
+                return new ly1(optInt, optJSONObject);
             }
-            return c;
+            return new ly1(optInt, optString);
         }
-        return (py3) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new ky3();
-            this.b = new oy3();
-        }
-    }
-
-    @Override // com.baidu.tieba.ds1
-    public iy1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull lj2 lj2Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, lj2Var)) == null) {
-            if (this.a.e(str)) {
-                return this.a.a(str, jSONObject, lj2Var);
-            }
-            if (this.a.f()) {
-                return this.b.a(str, jSONObject, lj2Var);
-            }
-            return new iy1(10001, "authorize fail.");
-        }
-        return (iy1) invokeLLL.objValue;
+        return (ly1) invokeLL.objValue;
     }
 }

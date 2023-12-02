@@ -5,21 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.TbVipInfo;
+import tbclient.TbmallMonthIcon;
 /* loaded from: classes7.dex */
-public class m9d extends ltc {
+public class m9d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TbVipInfo tbVipInfo) {
+    public static JSONObject b(@NonNull TbmallMonthIcon tbmallMonthIcon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbVipInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbmallMonthIcon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "intro", tbVipInfo.intro);
-            ltc.a(jSONObject, "v_url", tbVipInfo.v_url);
-            ltc.a(jSONObject, "v_detail", tbVipInfo.v_detail);
+            ktc.a(jSONObject, "mon", tbmallMonthIcon.mon);
+            ktc.a(jSONObject, "icon", tbmallMonthIcon.icon);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,211 +1,103 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
-import com.baidu.tbadk.switchs.QqShareH5Switch;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.sharesdk.ShareHandlerActivity;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
-import com.baidu.tieba.zna;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.share.QQShare;
-import com.tencent.tauth.IUiListener;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class aoa extends zna {
+public class aoa implements hb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IUiListener p;
-    public final BdResourceCallback<EmotionShareLoaderProc.EmotionShare> q;
+    public Context a;
 
-    /* loaded from: classes5.dex */
-    public class a extends BdResourceCallback<EmotionShareLoaderProc.EmotionShare> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aoa a;
-
-        public a(aoa aoaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aoaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aoaVar;
-        }
-
-        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
-        public void onCancelled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                super.onCancelled(str);
-                this.a.t(3, 4);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
-        /* renamed from: a */
-        public void onLoaded(EmotionShareLoaderProc.EmotionShare emotionShare, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, emotionShare, str, i) == null) {
-                super.onLoaded(emotionShare, str, i);
-                if (emotionShare == null || emotionShare.image == null || TextUtils.isEmpty(emotionShare.path)) {
-                    this.a.t(2, 4);
-                }
-                if (emotionShare != null && !TextUtils.isEmpty(emotionShare.path)) {
-                    this.a.O(emotionShare.path);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aoa(Context context) {
-        super(context);
+    public aoa(Context context, gb5 gb5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, gb5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.q = new a(this);
-        this.l = 4;
+        this.a = null;
+        this.a = context;
     }
 
-    public final void O(String str) {
+    @Override // com.baidu.tieba.hb5
+    public void a(ShareItem shareItem, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("imageLocalUrl", str);
-            bundle.putInt("req_type", 5);
-            bundle.putInt("cflag", 1);
-            IUiListener iUiListener = this.p;
-            if (iUiListener != null) {
-                this.k.shareToQQ((Activity) this.b, bundle, iUiListener);
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            b(shareItem, i);
         }
     }
 
-    public final void M(ShareEntity shareEntity, IUiListener iUiListener) {
+    public final void b(ShareItem shareItem, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, iUiListener) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("req_type", 7);
-            bundle.putString("title", hoa.c(this.b));
-            if (!StringUtils.isNull(shareEntity.getTitle())) {
-                bundle.putString("summary", shareEntity.getTitle());
-            } else if (!StringUtils.isNull(shareEntity.getContent())) {
-                bundle.putString("summary", shareEntity.getContent());
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) && this.a != null && shareItem != null) {
+            IntentConfig intentConfig = new IntentConfig(this.a);
+            ShareEntity shareEntity = new ShareEntity();
+            shareEntity.setTitle(shareItem.title);
+            shareEntity.setContent(shareItem.content);
+            shareEntity.setReadCount(shareItem.readCount);
+            int i2 = shareItem.obj_type;
+            if (i2 != 2 && i2 != 6 && i2 != 8) {
+                z = false;
             } else {
-                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f13fc));
+                z = true;
             }
-            bundle.putString("targetUrl", shareEntity.getLinkUrl());
-            ArrayList<String> arrayList = new ArrayList<>();
-            if (!TextUtils.isEmpty(shareEntity.getImgUrl())) {
-                arrayList.add(shareEntity.getImgUrl());
-            } else {
-                arrayList.add("http://tb3.bdstatic.com/public/img/fcf10e29473417fa5e0d4a1e6.fcf10e29.png");
+            shareEntity.setIsVideoThread(z);
+            shareEntity.setFestivalTaskTid(shareItem.festivalTaskTid);
+            shareEntity.setFestivalTaskType(shareItem.festivalTaskType);
+            shareEntity.setImageUri(shareItem.imageUri);
+            shareEntity.canShareBySmartApp = shareItem.canShareBySmartApp;
+            String str = shareItem.linkUrl;
+            if (i == 6 && !StringUtils.isNull(shareItem.spareLinkUrl)) {
+                str = shareItem.spareLinkUrl;
             }
-            bundle.putStringArrayList("imageUrl", arrayList);
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_APPID, "1111264064");
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_TYPE, "3");
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_PATH, "pages/pb/pb?tid=" + shareEntity.getTid());
-            if (iUiListener != null) {
-                this.k.shareToQzone((Activity) this.b, bundle, iUiListener);
+            shareEntity.setLinkUrl(str);
+            shareEntity.setLocalFile(shareItem.localFile);
+            shareEntity.setLocation(shareItem.location);
+            shareEntity.setShareTo(i);
+            shareEntity.setStats(shareItem.getStats());
+            shareEntity.setPreferImageToLink(shareItem.shareType);
+            shareEntity.setTid(shareItem.tid);
+            shareEntity.setFloorAuthorUid(shareItem.floorAuthorUid);
+            shareEntity.setfName(shareItem.fName);
+            shareEntity.setTypeShareToSmallApp(shareItem.typeShareToSmallApp);
+            shareEntity.topic = shareItem.topic;
+            if (i == 6 && !StringUtils.isNull(shareItem.wbcontent)) {
+                shareEntity.topic = shareItem.wbtitle + shareItem.wbcontent;
+                shareEntity.setContent("");
             }
-        }
-    }
-
-    public final void N(ShareEntity shareEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareEntity) == null) {
+            shareEntity.taskCompleteId = shareItem.taskCompleteId;
+            shareEntity.diskPicOperate = shareItem.diskPicOperate;
+            shareEntity.setExtLiveInfo(shareItem.extLiveInfo);
+            shareEntity.setFromDuXiaoMan(shareItem.isFromDuXiaoMan);
+            shareEntity.setTopicId(shareItem.topicId);
+            shareEntity.groupData = shareItem.groupData;
+            shareEntity.shareMediaType = shareItem.shareMediaType;
             Bundle bundle = new Bundle();
-            bundle.putInt("req_type", 1);
-            bundle.putString("title", shareEntity.getTitle());
-            bundle.putString("summary", shareEntity.getContent());
-            bundle.putString("targetUrl", shareEntity.getLinkUrl());
-            ArrayList<String> arrayList = new ArrayList<>();
-            if (!TextUtils.isEmpty(shareEntity.getImgUrl())) {
-                arrayList.add(shareEntity.getImgUrl());
-            }
-            bundle.putStringArrayList("imageUrl", arrayList);
-            IUiListener iUiListener = this.p;
-            if (iUiListener != null) {
-                this.k.shareToQzone((Activity) this.b, bundle, iUiListener);
-            }
-        }
-    }
-
-    public final void P(ShareEntity shareEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, shareEntity) == null) {
-            if (p(shareEntity.getLocalFile())) {
-                O(shareEntity.getLocalFile());
-            } else if (o(shareEntity.getImageUri())) {
-                O(shareEntity.getImageUri().getPath());
-            } else {
-                BdResourceLoader.getInstance().loadResource(shareEntity.getImgUrl(), 34, this.q, 0, 0, j(), new Object[0]);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zna, com.baidu.tieba.eoa
-    public void a(ShareEntity shareEntity, foa foaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, shareEntity, foaVar) == null) {
-            if (shareEntity != null && this.k != null) {
-                this.e = shareEntity;
-                Context context = this.b;
-                if (context != null && (context instanceof Activity)) {
-                    this.p = new zna.c(this, foaVar);
-                    if (!QqShareH5Switch.isOn() && !StringUtils.isNull(shareEntity.getTid()) && !"0".equals(shareEntity.getTid())) {
-                        M(shareEntity, this.p);
-                        return;
-                    } else if (shareEntity.getShareType() != 0) {
-                        P(shareEntity);
-                        return;
-                    } else {
-                        N(shareEntity);
-                        return;
-                    }
-                }
-                t(2, 4);
-                if (foaVar != null) {
-                    foaVar.i0(0, 2);
-                    return;
-                }
-                return;
-            }
-            t(2, 4);
-            if (foaVar != null) {
-                foaVar.i0(0, 2);
-            }
+            bundle.putParcelable("extra_share_data", shareEntity);
+            bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
+            intentConfig.getIntent().putExtras(bundle);
+            shareItem.setShowShare(true);
+            intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
         }
     }
 }

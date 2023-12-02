@@ -19,10 +19,10 @@ import com.baidu.nadcore.slidingtag.NadRewardSlidingTagView;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bl0;
-import com.baidu.tieba.co0;
-import com.baidu.tieba.hn0;
-import com.baidu.tieba.z81;
-import com.baidu.tieba.zn0;
+import com.baidu.tieba.bo0;
+import com.baidu.tieba.d91;
+import com.baidu.tieba.eo0;
+import com.baidu.tieba.in0;
 /* loaded from: classes3.dex */
 public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     public LinearLayout A;
@@ -95,24 +95,24 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     }
 
     public final void L(@NonNull AdBaseModel adBaseModel) {
-        zn0 zn0Var;
-        if (adBaseModel instanceof hn0) {
-            zn0Var = ((hn0) adBaseModel).j();
+        bo0 bo0Var;
+        if (adBaseModel instanceof in0) {
+            bo0Var = ((in0) adBaseModel).k();
         } else {
-            zn0Var = null;
+            bo0Var = null;
         }
-        if (zn0Var == null) {
+        if (bo0Var == null) {
             this.y.setVisibility(8);
             return;
         }
         this.y.setVisibility(0);
-        this.y.G(zn0Var);
+        this.y.G(bo0Var);
         this.y.setOnClickListener(w(adBaseModel, ClogBuilder.Area.REWARD_SLIDING_TAG.type));
     }
 
     @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
     public float q(Drawable drawable) {
-        return getResources().getDimension(bl0.a().n());
+        return getResources().getDimension(bl0.a().q());
     }
 
     @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
@@ -129,7 +129,7 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
         super.setData(adBaseModel);
         L(adBaseModel);
         K(adBaseModel);
-        this.q.setFontSize(R.dimen.nad_dimen_10dp, R.dimen.nad_dimen_10dp, R.dimen.nad_dimen_10dp, R.dimen.nad_dimen_10dp, R.dimen.nad_dimen_10dp);
+        this.q.setFontSize(R.dimen.nad_dimen_10dp, R.dimen.nad_dimen_10dp, R.dimen.nad_dimen_10dp, R.dimen.nad_dimen_10dp, R.dimen.nad_dimen_10dp, R.dimen.nad_dimen_10dp);
     }
 
     public void setFestivalClickCallback(@NonNull View.OnClickListener onClickListener) {
@@ -160,7 +160,7 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     }
 
     @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
-    public z81<View> l(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull View view2) {
+    public d91<View> l(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull View view2) {
         return new NadRewardEnhanceButtonView(context, viewGroup, view2);
     }
 
@@ -174,11 +174,11 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
 
     @Override // com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer
     public int getLayoutId() {
-        return bl0.a().u();
+        return bl0.a().y();
     }
 
     @Nullable
-    public z81<View> getTransitionButtonView() {
+    public d91<View> getTransitionButtonView() {
         return this.j;
     }
 
@@ -187,18 +187,18 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     }
 
     public final void K(@NonNull AdBaseModel adBaseModel) {
-        co0 co0Var;
-        if (adBaseModel instanceof hn0) {
-            co0Var = ((hn0) adBaseModel).g().m();
+        eo0 eo0Var;
+        if (adBaseModel instanceof in0) {
+            eo0Var = ((in0) adBaseModel).h().m();
         } else {
-            co0Var = null;
+            eo0Var = null;
         }
-        if (co0Var == null) {
+        if (eo0Var == null) {
             this.A.setVisibility(8);
             return;
         }
-        M(getContext(), this.C, co0Var.b);
-        M(getContext(), this.B, co0Var.a);
+        M(getContext(), this.C, eo0Var.b);
+        M(getContext(), this.B, eo0Var.a);
         this.A.setVisibility(0);
         D(ClogBuilder.LogType.FREE_SHOW, "packet", adBaseModel);
         this.A.setOnClickListener(new a(adBaseModel));

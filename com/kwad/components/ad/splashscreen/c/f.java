@@ -16,9 +16,9 @@ public final class f extends e {
         int i;
         super.aj();
         if (com.kwad.components.ad.splashscreen.f.c.z(com.kwad.sdk.core.response.b.e.dP(this.Df.mAdTemplate))) {
-            i = R.id.obfuscated_res_0x7f091339;
+            i = R.id.obfuscated_res_0x7f09133a;
         } else {
-            i = R.id.obfuscated_res_0x7f091338;
+            i = R.id.obfuscated_res_0x7f091339;
         }
         ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(i);
         this.cj = complianceTextView;

@@ -1,11 +1,21 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface ijb {
-    void i(String str);
+    void E();
 
-    void k(String str);
+    void I();
 
-    void u(String str);
+    void K0(boolean z);
 
-    void v(String str);
+    void L0(int i, boolean z);
+
+    void a(String str);
+
+    void c();
+
+    void finish();
+
+    void setResult(int i);
+
+    void t();
 }

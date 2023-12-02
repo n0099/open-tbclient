@@ -1,80 +1,18 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import com.baidu.searchbox.http.NetworkQuality;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Response;
 /* loaded from: classes9.dex */
-public class xx2 implements Interceptor {
+public class xx2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    @SuppressLint({"BDThrowableCheck"})
-    public final nx2 b;
-
-    /* loaded from: classes9.dex */
-    public interface b {
-        void a(long j);
-
-        void b(int i, long j, long j2);
-
-        void c(long j, long j2);
-    }
-
-    /* loaded from: classes9.dex */
-    public class a implements nx2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xx2 a;
-
-        public a(xx2 xx2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xx2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xx2Var;
-        }
-
-        @Override // com.baidu.tieba.nx2
-        public void a(long j, long j2, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-                if (this.a.a == null) {
-                    if (!sm1.a) {
-                        return;
-                    }
-                    throw new RuntimeException("DownloadProgressInterceptor.mIProgressCallback == null");
-                } else if (j2 == -1 && j != 0) {
-                    this.a.a.b(0, j, j2);
-                } else if (j2 > 52428800) {
-                    this.a.a.a(j2);
-                } else if (j2 > 0 && j <= j2 && j != 0) {
-                    int floor = (int) Math.floor((100 * j) / j2);
-                    if (floor <= 100) {
-                        this.a.a.b(floor, j, j2);
-                    }
-                } else {
-                    this.a.a.c(j, j2);
-                }
-            }
-        }
-    }
 
     public xx2() {
         Interceptable interceptable = $ic;
@@ -86,27 +24,36 @@ public class xx2 implements Interceptor {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new a(this);
     }
 
-    public void b(b bVar) {
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.a = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            z23 c = x23.c(xx2.class, null);
+            if (!c.a()) {
+                return -1;
+            }
+            return c.a.getInt("net_quality", -1);
         }
+        return invokeV.intValue;
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-            Response proceed = chain.proceed(chain.request());
-            return proceed.newBuilder().body(new qx2(proceed.body(), this.b)).build();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            if (SwanAppNetworkUtils.h()) {
+                bundle2.putInt("net_quality", NetworkQuality.getNetworkQuality());
+            } else {
+                bundle2.putInt("net_quality", 3);
+            }
+            return bundle2;
         }
-        return (Response) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

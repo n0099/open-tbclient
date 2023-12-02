@@ -1,75 +1,146 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
+import com.baidu.adp.base.BdBaseView;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
+import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipUpgrade;
+import java.util.List;
 /* loaded from: classes9.dex */
-public class zl9 implements pi {
+public class zl9 extends BdBaseView<BubbleChooseActivity> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+    public NavigationBar a;
+    public ViewGroup b;
+    public GridView c;
+    public View d;
+    public yl9 e;
+    public BubbleChooseActivity f;
+    public ProgressBar g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948363938, "Lcom/baidu/tieba/zl9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948363938, "Lcom/baidu/tieba/zl9;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    public zl9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zl9(TbPageContext<BubbleChooseActivity> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
+        this.f = orignalPage;
+        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0192);
+        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.lay_title_bar);
+        this.a = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a.setTitleText(R.string.editor_privilege);
+        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0193, this.f);
+        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0907f7);
+        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090f51);
+        yl9 yl9Var = new yl9(tbPageContext);
+        this.e = yl9Var;
+        this.c.setAdapter((ListAdapter) yl9Var);
+        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f090552);
     }
 
-    @Override // com.baidu.tieba.pi
-    public BdUniqueId getType() {
+    public void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.setVisibility(8);
+        }
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g.setVisibility(0);
+        }
+    }
+
+    public yl9 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (yl9) invokeV.objValue;
     }
 
-    public void a(DataRes dataRes) {
-        VipUpgrade vipUpgrade;
+    public View x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) && dataRes != null && (vipUpgrade = dataRes.upgrade) != null) {
-            String str = vipUpgrade.svip;
-            String str2 = vipUpgrade.link;
-            String str3 = vipUpgrade.button;
-            String str4 = vipUpgrade.text;
-            vipUpgrade.pay.intValue();
-            dataRes.upgrade.normal.intValue();
-            VipUpgrade vipUpgrade2 = dataRes.upgrade;
-            String str5 = vipUpgrade2.card_id;
-            String str6 = vipUpgrade2.expire;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
         }
+        return (View) invokeV.objValue;
+    }
+
+    public GridView y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (GridView) invokeV.objValue;
+    }
+
+    public void C(List<BubbleListData.BubbleData> list, boolean z) {
+        yl9 yl9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z) == null) && (yl9Var = this.e) != null) {
+            yl9Var.d(z);
+            this.e.c(list);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a.onChangeSkinType((TbPageContext) getPageContext(), i);
+            BDLayoutMode layoutMode = this.f.getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            layoutMode.setNightMode(z);
+            this.f.getLayoutMode().onModeChanged(this.b);
+        }
+    }
+
+    public BubbleListData.BubbleData z(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            yl9 yl9Var = this.e;
+            if (yl9Var == null) {
+                return null;
+            }
+            return yl9Var.getItem(i);
+        }
+        return (BubbleListData.BubbleData) invokeI.objValue;
     }
 }

@@ -714,7 +714,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     public void initForMenu(@NonNull Context context, @NonNull MenuBuilder menuBuilder) {
         this.layoutInflater = LayoutInflater.from(context);
         this.menu = menuBuilder;
-        this.paddingSeparator = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0702c6);
+        this.paddingSeparator = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0702c7);
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter

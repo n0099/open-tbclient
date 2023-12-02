@@ -34,14 +34,14 @@ public final class j extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.lu = (KSCornerImageView) this.sy.findViewById(R.id.obfuscated_res_0x7f091431);
-        this.hz = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091433);
-        this.lv = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f09142f);
-        this.zb = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091432);
-        this.lw = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091430);
-        this.vn = this.sy.findViewById(R.id.obfuscated_res_0x7f09142c);
-        this.zc = this.sy.findViewById(R.id.obfuscated_res_0x7f09142e);
-        this.zd = this.sy.findViewById(R.id.obfuscated_res_0x7f09142d);
+        this.lu = (KSCornerImageView) this.sy.findViewById(R.id.obfuscated_res_0x7f091432);
+        this.hz = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091434);
+        this.lv = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091430);
+        this.zb = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091433);
+        this.lw = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091431);
+        this.vn = this.sy.findViewById(R.id.obfuscated_res_0x7f09142d);
+        this.zc = this.sy.findViewById(R.id.obfuscated_res_0x7f09142f);
+        this.zd = this.sy.findViewById(R.id.obfuscated_res_0x7f09142e);
         this.vn.setOnClickListener(this);
         this.zc.setOnClickListener(this);
         this.zd.setOnClickListener(this);

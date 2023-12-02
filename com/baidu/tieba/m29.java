@@ -1,106 +1,318 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.MeasureTextLength;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.a17;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNewMessage;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class m29 implements h29 {
+public class m29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public ImageView c;
-    public RecyclerView d;
-    public m29 e;
+    @NonNull
+    public d39 a;
+    @NonNull
+    public i29 b;
+    public long c;
+    public String d;
+    @Nullable
+    public TbPageContext e;
+    public jn8 f;
+    public final View.OnClickListener g;
 
-    public m29() {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m29 a;
+
+        public a(m29 m29Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m29Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m29Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Activity pageActivity;
+            d39 d39Var;
+            long roomId;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                m29 m29Var = this.a;
+                if (m29Var.f != null && (d39Var = m29Var.a) != null) {
+                    if (d39Var.a() == null) {
+                        roomId = this.a.c;
+                    } else {
+                        roomId = this.a.a.a().getRoomId();
+                    }
+                    if (this.a.d.equals("message_tab")) {
+                        m29 m29Var2 = this.a;
+                        m29Var2.l(m29Var2.a, "2");
+                    }
+                    this.a.f.a(roomId, 0);
+                }
+                if (this.a.b.e() != null) {
+                    this.a.b.e().setVisibility(8);
+                }
+                TbPageContext tbPageContext = this.a.e;
+                if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
+                    fm5 a = em5.a();
+                    m29 m29Var3 = this.a;
+                    a.d(pageActivity, m29Var3.c, "source_from_group_chat_dialog", m29Var3.f(), this.a.e());
+                }
+                this.a.d(1);
+                this.a.b.c().setVisibility(8);
+                d39 d39Var2 = this.a.a;
+                if (d39Var2 != null && d39Var2.a() != null) {
+                    this.a.a.a().setAtInfo(null);
+                }
+            }
+        }
+    }
+
+    public m29(@Nullable TbPageContext tbPageContext, @NonNull d39 d39Var, @NonNull i29 i29Var, String str, jn8 jn8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, d39Var, i29Var, str, jn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = new a(this);
+        this.a = d39Var;
+        this.b = i29Var;
+        this.d = str;
+        this.e = tbPageContext;
+        this.f = jn8Var;
     }
 
-    @Override // com.baidu.tieba.h29
-    public RelativeLayout a() {
+    public /* synthetic */ void g(SpannableStringBuilder spannableStringBuilder) {
+        this.b.d().setText(spannableStringBuilder);
+    }
+
+    public void n(@NonNull ChatRoomInfo chatRoomInfo, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, chatRoomInfo, z) == null) {
+            j(chatRoomInfo);
+            k(chatRoomInfo, z);
+            h(chatRoomInfo);
+        }
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK);
+            d39 d39Var = this.a;
+            if (d39Var != null && d39Var.a() != null) {
+                statisticItem.param("fid", this.a.a().getForumId());
+                statisticItem.param("fname", this.a.a().getForumName());
+                statisticItem.param("room_id", this.a.a().getRoomId());
+            }
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_type", i);
+            if (this.d.equals("message_tab")) {
+                statisticItem.param("obj_locate", 15);
+            } else {
+                statisticItem.param("obj_locate", 2);
+            }
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            d39 d39Var = this.a;
+            if (d39Var != null && d39Var.a() != null && this.a.a().getSingleListHotText() != null) {
+                return this.a.a().getSingleListHotText();
+            }
+            return "";
         }
-        return (RelativeLayout) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h29
-    public RecyclerView c() {
+    public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e.d;
-        }
-        return (RecyclerView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h29
-    public ImageView d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e.c;
-        }
-        return (ImageView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h29
-    public TextView e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e.b;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public static m29 f(@NonNull View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            m29 m29Var = new m29();
-            m29Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918c2);
-            m29Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918c1);
-            m29Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918c8);
-            m29Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0918da);
-            m29Var.e = m29Var;
-            return m29Var;
-        }
-        return (m29) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.h29
-    public void b(int i, @NonNull y29 y29Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, y29Var) == null) {
-            if (!y29Var.e()) {
-                EMManager.from(this.e.b).setTextSize(R.dimen.T_X12).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
+            if ("message_tab".equals(this.d)) {
+                return 15;
             }
-            EMManager.from(this.e.d).setBackGroundColor(R.color.CAM_X0201);
-            EMManager.from(this.e.a).setBackGroundColor(R.color.CAM_X0201);
+            if ("frs".equals(this.d)) {
+            }
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h(@NonNull ChatRoomInfo chatRoomInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, chatRoomInfo) == null) {
+            ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
+            if (newMessage != null && !StringUtils.isNull(newMessage.getSpecialMsg())) {
+                this.b.c().setVisibility(0);
+                this.b.c().setText(newMessage.getSpecialMsg());
+                return;
+            }
+            this.b.c().setVisibility(8);
+        }
+    }
+
+    public void i(@NonNull ChatRoomInfo chatRoomInfo) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, chatRoomInfo) == null) {
+            if (chatRoomInfo.getUnreadNum() < 10) {
+                i = R.drawable.icon_list_dot_one_number;
+            } else if (chatRoomInfo.getUnreadNum() < 100) {
+                i = R.drawable.icon_list_dot_two_number;
+            } else {
+                i = R.drawable.icon_list_dot_three_number;
+            }
+            this.b.e().setBackgroundResource(i);
+        }
+    }
+
+    public void j(@NonNull ChatRoomInfo chatRoomInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, chatRoomInfo) == null) {
+            if (chatRoomInfo.getNewMessage() != null && !StringUtils.isNull(chatRoomInfo.getNewMessage().getContent())) {
+                String str = "";
+                if (!TextUtils.isEmpty(chatRoomInfo.getNewMessage().getFromName())) {
+                    str = "" + chatRoomInfo.getNewMessage().getFromName() + ": ";
+                }
+                if (!TextUtils.isEmpty(chatRoomInfo.getNewMessage().getContent())) {
+                    str = str + chatRoomInfo.getNewMessage().getContent();
+                }
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                spannableStringBuilder.append((CharSequence) str);
+                a17.g(this.e.getContext(), spannableStringBuilder, new a17.i() { // from class: com.baidu.tieba.b29
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.a17.i
+                    public final void a(SpannableStringBuilder spannableStringBuilder2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder2) == null) {
+                            m29.this.g(spannableStringBuilder2);
+                        }
+                    }
+                });
+                this.b.d().setVisibility(0);
+                return;
+            }
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(15);
+            this.b.f().setLayoutParams(layoutParams);
+            this.b.d().setVisibility(8);
+        }
+    }
+
+    public void k(@NonNull ChatRoomInfo chatRoomInfo, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, chatRoomInfo, z) == null) {
+            if (chatRoomInfo.getUnreadNum() != 0 && z) {
+                this.b.e().setVisibility(0);
+                if (chatRoomInfo.getUnreadNum() >= 100) {
+                    this.b.e().setText("99+");
+                } else {
+                    this.b.e().setText(String.valueOf(chatRoomInfo.getUnreadNum()));
+                }
+                if (this.d.equals("message_tab")) {
+                    this.b.a(this.a);
+                    return;
+                } else {
+                    i(chatRoomInfo);
+                    return;
+                }
+            }
+            this.b.e().setVisibility(8);
+        }
+    }
+
+    public void l(d39 d39Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d39Var, str) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15358");
+            if (d39Var != null && d39Var.a() != null) {
+                statisticItem.param("fid", d39Var.a().getForumId());
+                statisticItem.param("room_id", d39Var.a().getRoomId());
+                if (d39Var.a().getUnreadNum() > 0) {
+                    statisticItem.param("obj_source", "1");
+                } else {
+                    statisticItem.param("obj_source", "2");
+                }
+            }
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_type", str);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            d39 d39Var = this.a;
+            if (d39Var != null && d39Var.a() != null) {
+                ChatRoomInfo a2 = this.a.a();
+                if (a2.getName() != null) {
+                    this.b.f().setText(MeasureTextLength.fitTextLabel(a2.getName(), "...", MeasureTextLength.spaceLength(this.b.i()), this.b.f().getPaint(), ""));
+                }
+                n(a2, this.a.b());
+                if (this.d.equals("message_tab")) {
+                    SkinManager.setImageResource(this.b.b(), R.drawable.obfuscated_res_0x7f08086d);
+                } else if (a2.getAvatar() != null) {
+                    this.b.b().startLoad(a2.getAvatar(), 10, false);
+                }
+                this.c = a2.getRoomId();
+            }
+            this.b.h(this.a);
+            this.b.j();
+            this.b.g().setOnClickListener(this.g);
+            l(this.a, "1");
+            d(2);
         }
     }
 }

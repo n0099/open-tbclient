@@ -140,10 +140,10 @@ public final class na {
     }
 
     public final void b() {
-        qf1<ka> qf1Var;
+        tf1<ka> tf1Var;
         List<ka> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (qf1Var = new qa().a) != null && (list = qf1Var.getList()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tf1Var = new qa().a) != null && (list = tf1Var.getList()) != null) {
             for (ka kaVar : list) {
             }
         }

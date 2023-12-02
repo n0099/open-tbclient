@@ -285,35 +285,35 @@ public class jg0 {
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.y(logType).p(wg0Var.p.a).v(wg0Var.q.a).j(str).k(wg0Var.d).l(wg0Var.q.a).m(wg0Var.q.b).n(wg0Var.g);
         JSONObject jSONObject = new JSONObject();
-        my0.d(jSONObject, "is_swallow", 1);
+        oy0.d(jSONObject, "is_swallow", 1);
         if (!TextUtils.isEmpty(wg0Var.q.d)) {
-            my0.f(jSONObject, "ad_download_content_type", wg0Var.q.d);
+            oy0.f(jSONObject, "ad_download_content_type", wg0Var.q.d);
         }
         long j = wg0Var.q.e;
         if (j > 0) {
-            my0.e(jSONObject, "ad_download_content_length", j);
+            oy0.e(jSONObject, "ad_download_content_length", j);
         }
         int i = wg0Var.n;
         if (i > 0) {
-            my0.d(jSONObject, "version_code", i);
+            oy0.d(jSONObject, "version_code", i);
         }
         if (!TextUtils.isEmpty(wg0Var.o)) {
-            my0.f(jSONObject, NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, wg0Var.o);
+            oy0.f(jSONObject, NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, wg0Var.o);
         }
         if (eh0Var != null) {
             Exception exc = eh0Var.a;
             if (exc != null) {
-                my0.f(jSONObject, "failed_reason", exc.getClass().toString());
+                oy0.f(jSONObject, "failed_reason", exc.getClass().toString());
             }
             String str2 = eh0Var.b;
             if (str2 != null) {
-                my0.f(jSONObject, "failed_reason", str2);
+                oy0.f(jSONObject, "failed_reason", str2);
             }
         }
         if (jSONObject.length() > 0) {
             clogBuilder.o(jSONObject.toString());
         }
-        bz0.e(clogBuilder);
+        dz0.e(clogBuilder);
     }
 
     public final void b(@NonNull String str, @NonNull String str2) {
@@ -325,7 +325,7 @@ public class jg0 {
                 return;
             }
             ((ClipboardManager) systemService).setPrimaryClip(ClipData.newPlainText(b2.getResources().getString(R.string.nad_invite_code_label), str));
-            w01.a().showToast(b2, str2);
+            y01.a().showToast(b2, str2);
         }
     }
 
@@ -335,12 +335,12 @@ public class jg0 {
             f(adDownloadAction, wg0Var, eh0Var);
             this.b.readLock().lock();
             try {
-                List list = (List) ny0.b(this.a, wg0Var.e());
+                List list = (List) py0.b(this.a, wg0Var.e());
                 if (list == null) {
                     return;
                 }
-                for (int i = 0; i != ly0.l(list); i++) {
-                    oh0 oh0Var = (oh0) ly0.d(list, i);
+                for (int i = 0; i != ny0.l(list); i++) {
+                    oh0 oh0Var = (oh0) ny0.d(list, i);
                     if (oh0Var != null && oh0Var.getData() != null) {
                         oh0Var.getData().i(wg0Var);
                         oh0Var.a(adDownloadAction, oh0Var.getData());
@@ -366,7 +366,7 @@ public class jg0 {
                 qe0.c(wg0Var.p.l, context);
             }
             if (wg0Var.q.r) {
-                w01.a().a(hf0.b(), R.string.nad_apk_download_start_toast);
+                y01.a().a(hf0.b(), R.string.nad_apk_download_start_toast);
             }
             yg0 yg0Var = wg0Var.p.k;
             if (yg0Var != null && !TextUtils.isEmpty(yg0Var.a)) {
@@ -381,12 +381,12 @@ public class jg0 {
         if ((interceptable == null || interceptable.invokeLL(1048582, this, str, oh0Var) == null) && !TextUtils.isEmpty(str) && oh0Var != null) {
             this.b.writeLock().lock();
             try {
-                List list = (List) ny0.b(this.a, str);
+                List list = (List) py0.b(this.a, str);
                 if (list == null) {
                     list = new ArrayList();
-                    ny0.e(this.a, str, list);
+                    py0.e(this.a, str, list);
                 }
-                ly0.b(list, oh0Var);
+                ny0.b(list, oh0Var);
             } finally {
                 this.b.writeLock().unlock();
             }
@@ -398,11 +398,11 @@ public class jg0 {
         if ((interceptable == null || interceptable.invokeLL(1048587, this, str, oh0Var) == null) && !TextUtils.isEmpty(str) && oh0Var != null) {
             this.b.writeLock().lock();
             try {
-                List list = (List) ny0.b(this.a, str);
+                List list = (List) py0.b(this.a, str);
                 if (list == null) {
                     return;
                 }
-                ly0.j(list, oh0Var);
+                ny0.j(list, oh0Var);
             } finally {
                 this.b.writeLock().unlock();
             }

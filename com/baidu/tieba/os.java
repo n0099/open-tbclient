@@ -8,7 +8,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.ThreadCardView;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tieba.cw4;
+import com.baidu.tieba.fw4;
 import com.baidu.tieba.nu;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,18 +16,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class os<T extends cw4> implements jt, it<T> {
+public abstract class os<T extends fw4> implements jt, it<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public cu a;
     public Context b;
     public Boolean c;
-    public im6<T> d;
+    public mm6<T> d;
     public a e;
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(cw4 cw4Var);
+        void a(fw4 fw4Var);
     }
 
     public void b(int i) {
@@ -75,13 +75,13 @@ public abstract class os<T extends cw4> implements jt, it<T> {
         this.b = context;
     }
 
-    public im6<T> d() {
+    public mm6<T> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
-        return (im6) invokeV.objValue;
+        return (mm6) invokeV.objValue;
     }
 
     public Boolean f() {
@@ -141,10 +141,10 @@ public abstract class os<T extends cw4> implements jt, it<T> {
         }
     }
 
-    public void n(im6<T> im6Var) {
+    public void n(mm6<T> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, im6Var) == null) {
-            this.d = im6Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, mm6Var) == null) {
+            this.d = mm6Var;
         }
     }
 

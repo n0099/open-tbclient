@@ -5,17 +5,17 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ew8;
-import com.baidu.tieba.hs8;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.iw8;
+import com.baidu.tieba.ls8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class MsgMultiImageTextView extends hs8 {
+public class MsgMultiImageTextView extends ls8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiContentView I;
@@ -46,7 +46,7 @@ public class MsgMultiImageTextView extends hs8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.i = (TextView) g(R.id.tex_msgitem_time);
-            this.I = (MultiContentView) g(R.id.obfuscated_res_0x7f09189e);
+            this.I = (MultiContentView) g(R.id.obfuscated_res_0x7f09189f);
         }
     }
 
@@ -56,7 +56,7 @@ public class MsgMultiImageTextView extends hs8 {
             return;
         }
         f0(chatMessage);
-        List<ew8.a> b = ew8.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        List<iw8.a> b = iw8.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
         this.I.setPosition(this.f);
         this.I.setOnItemViewLongClickListener(this.c);
         this.I.setNeedNightMode(true);

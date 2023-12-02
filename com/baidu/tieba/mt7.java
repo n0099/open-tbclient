@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface mt7 {
-    void O0();
+    void E0();
 
-    void a2();
+    void L0();
+
+    void T();
+
+    void e0();
 }

@@ -23,10 +23,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.el5;
-import com.baidu.tieba.ez8;
-import com.baidu.tieba.g49;
-import com.baidu.tieba.gq8;
+import com.baidu.tieba.hl5;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
@@ -34,7 +31,10 @@ import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.EmojiGroupAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiGroupData;
-import com.baidu.tieba.ok5;
+import com.baidu.tieba.iz8;
+import com.baidu.tieba.k49;
+import com.baidu.tieba.kq8;
+import com.baidu.tieba.rk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class ReplayEmojiSlice extends Slice {
     @NonNull
     public final GroupChatFragment n;
     public EmojiGroupAdapter o;
-    public final g49 p;
+    public final k49 p;
     public final View.OnClickListener q;
     @Nullable
     public List<Reaction> r;
@@ -64,11 +64,11 @@ public class ReplayEmojiSlice extends Slice {
     @Nullable
     public BaseItem<? extends TbBaseMsg> t;
     @NonNull
-    public final gq8 u;
+    public final kq8 u;
     public final BdUniqueId v;
 
     /* loaded from: classes6.dex */
-    public class a implements g49 {
+    public class a implements k49 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplayEmojiSlice a;
@@ -91,11 +91,11 @@ public class ReplayEmojiSlice extends Slice {
             this.a = replayEmojiSlice;
         }
 
-        @Override // com.baidu.tieba.g49
+        @Override // com.baidu.tieba.k49
         public void a(@NonNull Reaction reaction) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, reaction) == null) {
-                ez8.g(this.a.u, reaction, this.a.t, 1);
+                iz8.g(this.a.u, reaction, this.a.t, 1);
                 this.a.p0();
             }
         }
@@ -128,7 +128,7 @@ public class ReplayEmojiSlice extends Slice {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091fa5) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091fa7) {
                 int i = this.a.s;
                 if (i != 1) {
                     if (i == 2) {
@@ -146,7 +146,7 @@ public class ReplayEmojiSlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements el5 {
+    public class c implements hl5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplayEmojiSlice a;
@@ -169,7 +169,7 @@ public class ReplayEmojiSlice extends Slice {
             this.a = replayEmojiSlice;
         }
 
-        @Override // com.baidu.tieba.el5
+        @Override // com.baidu.tieba.hl5
         public void a(@Nullable List<String> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
@@ -215,12 +215,12 @@ public class ReplayEmojiSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 d dVar = new d();
                 dVar.a = view2;
-                dVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fa5);
-                dVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa6);
-                RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0909e8);
+                dVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fa7);
+                dVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa8);
+                RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0909e9);
                 dVar.d = recyclerView;
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) recyclerView.getLayoutParams();
-                int i = ez8.a;
+                int i = iz8.a;
                 layoutParams.leftMargin = i;
                 layoutParams.rightMargin = i;
                 dVar.d.setLayoutParams(layoutParams);
@@ -230,12 +230,12 @@ public class ReplayEmojiSlice extends Slice {
         }
     }
 
-    public ReplayEmojiSlice(@NonNull TbPageContext<BaseFragmentActivity> tbPageContext, @NonNull GroupChatFragment groupChatFragment, @NonNull gq8 gq8Var) {
+    public ReplayEmojiSlice(@NonNull TbPageContext<BaseFragmentActivity> tbPageContext, @NonNull GroupChatFragment groupChatFragment, @NonNull kq8 kq8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, groupChatFragment, gq8Var};
+            Object[] objArr = {tbPageContext, groupChatFragment, kq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -252,7 +252,7 @@ public class ReplayEmojiSlice extends Slice {
         this.v = BdUniqueId.gen();
         this.m = tbPageContext;
         this.n = groupChatFragment;
-        this.u = gq8Var;
+        this.u = kq8Var;
     }
 
     public void q0(int i, @NonNull BaseItem<? extends TbBaseMsg> baseItem, @Nullable List<Reaction> list) {
@@ -275,7 +275,7 @@ public class ReplayEmojiSlice extends Slice {
                 r0();
                 return;
             }
-            ok5.b().e(this.m.getPageActivity(), true, -ez8.a(), new c(this));
+            rk5.b().e(this.m.getPageActivity(), true, -iz8.a(), new c(this));
         }
     }
 
@@ -314,7 +314,7 @@ public class ReplayEmojiSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d089f, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08a0, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -323,7 +323,7 @@ public class ReplayEmojiSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.j.b.setOnClickListener(this.q);
-            this.j.c.setText(R.string.obfuscated_res_0x7f0f12ac);
+            this.j.c.setText(R.string.obfuscated_res_0x7f0f12ad);
             this.j.d.setLayoutManager(new LinearLayoutManager(this.n.getContext(), 1, false));
             this.o = new EmojiGroupAdapter(this.p);
             BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this.m.getPageActivity());
@@ -340,14 +340,14 @@ public class ReplayEmojiSlice extends Slice {
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             if (!list.isEmpty()) {
                 EmojiGroupData emojiGroupData = new EmojiGroupData();
-                emojiGroupData.setGroupName(UtilHelper.getString(R.string.obfuscated_res_0x7f0f12ae));
+                emojiGroupData.setGroupName(UtilHelper.getString(R.string.obfuscated_res_0x7f0f12af));
                 emojiGroupData.setReactions(list);
                 this.l.add(emojiGroupData);
             }
             List<Reaction> list2 = this.r;
             if (list2 != null && !list2.isEmpty()) {
                 EmojiGroupData emojiGroupData2 = new EmojiGroupData();
-                emojiGroupData2.setGroupName(UtilHelper.getString(R.string.obfuscated_res_0x7f0f12ad));
+                emojiGroupData2.setGroupName(UtilHelper.getString(R.string.obfuscated_res_0x7f0f12ae));
                 emojiGroupData2.setReactions(this.r);
                 this.l.add(emojiGroupData2);
             }

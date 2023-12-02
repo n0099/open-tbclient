@@ -1,69 +1,152 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.settingcache.OfficialSettingCache;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.http.message.JsonResponsedMessage;
+import com.baidu.tieba.http.message.ProtoResponseMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class ym8 {
+public final class ym8<T> extends tm8<T> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long e;
     public transient /* synthetic */ FieldHolder $fh;
+    public qm8<T> a;
+    public HttpMessage b;
+    public TbHttpMessageTask c;
+    public xm8<T> d;
 
-    public static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterPojo)) == null) {
-            if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8) {
-                if (imMessageCenterPojo.getUnread_count() <= 0) {
-                    return imMessageCenterPojo;
-                }
-                return b(imMessageCenterPojo, aw8.n().k());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948335077, "Lcom/baidu/tieba/ym8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return imMessageCenterPojo;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948335077, "Lcom/baidu/tieba/ym8;");
+                return;
+            }
         }
-        return (ImMessageCenterPojo) invokeL.objValue;
+        e = mc.b().a();
     }
 
-    public static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
-        InterceptResult invokeLL;
+    public final qm8<T> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, imMessageCenterPojo, list)) == null) {
-            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-            imMessageCenterPojo2.setGid(imMessageCenterPojo.getGid());
-            imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
-            imMessageCenterPojo2.setNameShow(imMessageCenterPojo.getNameShow());
-            imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
-            imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
-            imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
-            imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
-            imMessageCenterPojo2.setLast_user_name(imMessageCenterPojo.getLast_user_name());
-            imMessageCenterPojo2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-            imMessageCenterPojo2.setLast_content(imMessageCenterPojo.getLast_content());
-            imMessageCenterPojo2.setSend_status(imMessageCenterPojo.getSend_status());
-            imMessageCenterPojo2.setType(imMessageCenterPojo.getType());
-            imMessageCenterPojo2.setSelf(imMessageCenterPojo.isSelf());
-            imMessageCenterPojo2.setIsFriend(imMessageCenterPojo.getIsFriend());
-            imMessageCenterPojo2.setFollowStatus(imMessageCenterPojo.getFollowStatus());
-            imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
-                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
-                    if (!OfficialSettingCache.getInstance().isAcceptNotify(currentAccount, imMessageCenterPojo3.getGid())) {
-                        imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
-                    } else {
-                        ax8.a().c(true);
-                    }
-                }
-            }
-            if (imMessageCenterPojo2.getUnread_count() <= 0) {
-                imMessageCenterPojo2.setUnread_count(1);
-                ax8.a().c(false);
-            }
-            return imMessageCenterPojo2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (ImMessageCenterPojo) invokeLL.objValue;
+        return (qm8) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ym8(qm8<T> builder) {
+        super(builder);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {builder};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((um8) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(builder, "builder");
+        this.a = builder;
+        this.b = new HttpMessage(CmdConfigHttp.THE_COMMON_HTTP_CMD_FOR_ALL);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.THE_COMMON_HTTP_CMD_FOR_ALL, "");
+        this.c = tbHttpMessageTask;
+        tbHttpMessageTask.setIsNeedAddCommenParam(this.a.h());
+        this.c.setIsNeedTbs(this.a.j());
+        this.c.setIsNeedLogin(this.a.u());
+        this.c.setIsNeedCookie(this.a.i());
+        this.c.setPriority(this.a.l());
+        this.c.setIsUseCurrentBDUSS(this.a.g());
+        this.c.setIsBDImage(this.a.p());
+        this.c.setIsFromCDN(this.a.r());
+        this.c.setIsNeedAddStatisticsParam(this.a.s());
+        this.c.setmIsNBaiduServer(this.a.q());
+        this.c.setIsNeedToast(this.a.v());
+        this.c.setIsNeedDialog(this.a.t());
+    }
+
+    @Override // com.baidu.tieba.sm8
+    public void a(rm8<T> rm8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, rm8Var) == null) {
+            c(rm8Var, true);
+        }
+    }
+
+    public final void c(rm8<T> rm8Var, boolean z) {
+        HttpResponsedMessage httpResponsedMessage;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, rm8Var, z) == null) {
+            TbHttpMessageTask tbHttpMessageTask = this.c;
+            tbHttpMessageTask.setUrl(this.a.f() + this.a.o());
+            if (this.a.n() == 2) {
+                this.c.setResponsedClass(JsonResponsedMessage.class);
+            } else {
+                this.c.setResponsedClass(ProtoResponseMessage.class);
+            }
+            this.c.setTimeOut(z6.d().b());
+            this.c.setRetry(z6.d().a());
+            this.c.setConnectTimeOut(z6.d().c());
+            for (Map.Entry<String, Object> entry : this.a.k().entrySet()) {
+                Object value = entry.getValue();
+                this.b.addParam(entry.getKey(), value);
+            }
+            for (Map.Entry<String, String> entry2 : this.a.e().entrySet()) {
+                this.b.addHeader(entry2.getKey(), entry2.getValue());
+            }
+            if (this.a.n() == 1) {
+                this.b.addHeader(NetMessage.HTTP_HEADER_KEY, "protobuf");
+            } else {
+                this.b.removeHeader(NetMessage.HTTP_HEADER_KEY);
+            }
+            if (this.a.m() == 1) {
+                this.c.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+            } else {
+                this.c.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+            }
+            this.b.setClientLogID(e);
+            xm8<T> xm8Var = new xm8<>(this.b, this.c, this, rm8Var);
+            this.d = xm8Var;
+            if (z) {
+                if (xm8Var != null) {
+                    xm8Var.execute(new HttpMessage[0]);
+                }
+            } else if (xm8Var != null) {
+                ResponsedMessage<?>[] responsedMessageArr = new ResponsedMessage[1];
+                if (xm8Var != null) {
+                    httpResponsedMessage = xm8Var.doInBackground(new HttpMessage[0]);
+                } else {
+                    httpResponsedMessage = null;
+                }
+                responsedMessageArr[0] = httpResponsedMessage;
+                xm8Var.onProgressUpdate(responsedMessageArr);
+            }
+        }
     }
 }

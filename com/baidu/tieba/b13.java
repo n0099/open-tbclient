@@ -1,199 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class b13 implements d13, lr2 {
+public final class b13 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile b13 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean c;
-    public CopyOnWriteArrayList<c> d;
-    public CountDownTimer e;
-
-    @Override // com.baidu.tieba.d13
-    public void c(@NonNull Runnable runnable, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.d13
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SwanLaunchTriggerMgr" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends CountDownTimer {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b13 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(b13 b13Var, long j, long j2) {
-            super(j, j2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b13Var, Long.valueOf(j), Long.valueOf(j2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b13Var;
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (lr2.a) {
-                    Log.d("SwanPerformance", "count down onFinish");
-                }
-                this.a.d(true);
-            }
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onTick(long j) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                Iterator it = this.a.d.iterator();
-                while (it.hasNext()) {
-                    c cVar = (c) it.next();
-                    if (5000 - cVar.e() >= j) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (!cVar.g() && z) {
-                        cVar.h(true);
-                        d13 f = cVar.f();
-                        if (lr2.a) {
-                            Log.e("SwanPerformance", "triggerFmp, timeout = " + cVar.e() + ", trigger = " + f.getName());
-                        }
-                        f.d(true);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b13 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-969781753, "Lcom/baidu/tieba/b13$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-969781753, "Lcom/baidu/tieba/b13$b;");
-                    return;
-                }
-            }
-            a = new b13(null);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public d13 a;
-        public int b;
-        public boolean c;
-
-        public c(@NonNull b13 b13Var, d13 d13Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b13Var, d13Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = false;
-            this.a = d13Var;
-            this.b = i;
-        }
-
-        public /* synthetic */ c(b13 b13Var, d13 d13Var, int i, a aVar) {
-            this(b13Var, d13Var, i);
-        }
-
-        public final void h(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.c = z;
-            }
-        }
-
-        public final int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return invokeV.intValue;
-        }
-
-        @NonNull
-        public final d13 f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (d13) invokeV.objValue;
-        }
-
-        public final boolean g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.booleanValue;
-        }
-    }
+    public HashMap<String, c13> a;
+    public HashMap<String, c13> b;
+    public HashMap<String, c13> c;
 
     public b13() {
         Interceptable interceptable = $ic;
@@ -208,169 +30,231 @@ public class b13 implements d13, lr2 {
                 return;
             }
         }
-        this.c = false;
-        this.d = new CopyOnWriteArrayList<>();
-        this.e = new a(this, 5000L, 500L);
+        c();
     }
 
-    @Override // com.baidu.tieba.d13
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.d.isEmpty()) {
-            return;
-        }
-        if (lr2.a) {
-            Log.e("SwanPerformance", "triggerDestroy");
-        }
-        k();
-        Iterator<c> it = this.d.iterator();
-        while (it.hasNext()) {
-            it.next().f().b();
-        }
-        this.c = false;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            try {
-                this.e.start();
-            } catch (Throwable th) {
-                if (lr2.a) {
-                    Log.d("SwanPerformance", "start timer exception = " + th.getMessage());
-                }
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            try {
-                this.e.cancel();
-            } catch (Throwable th) {
-                if (lr2.a) {
-                    Log.d("SwanPerformance", "stop timer exception = " + th.getMessage());
-                }
-            }
-        }
-    }
-
-    public /* synthetic */ b13(a aVar) {
-        this();
-    }
-
-    public static b13 g() {
+    public static b13 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (b13.class) {
+                    if (d == null) {
+                        d = new b13();
+                    }
+                }
+            }
+            return d;
         }
         return (b13) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d13
-    public void a(String str) {
+    public static synchronized void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (lr2.a) {
-                Log.e("SwanPerformance", "triggerFcp, url = " + str);
-            }
-            Iterator<c> it = this.d.iterator();
-            while (it.hasNext()) {
-                it.next().f().a(str);
-            }
-        }
-    }
-
-    public boolean h(d13 d13Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, d13Var)) == null) {
-            if (d13Var == null) {
-                return false;
-            }
-            Iterator<c> it = this.d.iterator();
-            while (it.hasNext()) {
-                if (d13Var.equals(it.next().f())) {
-                    return true;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (b13.class) {
+                if (d != null) {
+                    d.e();
+                    d = null;
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.d13
-    public void d(boolean z) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || this.c) {
-            return;
-        }
-        this.c = true;
-        k();
-        if (this.d.isEmpty()) {
-            return;
-        }
-        if (lr2.a) {
-            Log.e("SwanPerformance", "triggerFmp, timeout = " + z);
-        }
-        Iterator<c> it = this.d.iterator();
-        while (it.hasNext()) {
-            c next = it.next();
-            if (!next.g()) {
-                next.h(true);
-                next.f().d(z);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                this.a = new HashMap<>();
+            }
+            if (this.b == null) {
+                this.b = new HashMap<>();
+            }
+            if (this.c == null) {
+                this.c = new HashMap<>();
             }
         }
-        ad3.p();
-        Bundle bundle = new Bundle();
-        bundle.putBoolean("is_timeout", z);
-        bundle.putString("app_id", g63.K().getAppId());
-        x23 e = x23.e();
-        z23 z23Var = new z23(23, bundle);
-        z23Var.f(true);
-        e.h(z23Var);
     }
 
-    @Override // com.baidu.tieba.d13
-    @UiThread
-    public void e(String str) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (i03.k()) {
-                ad3.a0(i03.j());
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            HashMap<String, c13> hashMap = this.a;
+            if (hashMap != null) {
+                hashMap.clear();
             }
-            this.c = false;
-            if (this.d.isEmpty()) {
+            HashMap<String, c13> hashMap2 = this.b;
+            if (hashMap2 != null) {
+                hashMap2.clear();
+            }
+            HashMap<String, c13> hashMap3 = this.c;
+            if (hashMap3 != null) {
+                hashMap3.clear();
+            }
+        }
+    }
+
+    public final void a(String str, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(1048576, this, str, j) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != 767526192) {
+            if (hashCode != 1331686101) {
+                if (hashCode == 1390184462 && str.equals("PageUpdateRender")) {
+                    c = 2;
+                }
+            } else if (str.equals("PageInitRender")) {
+                c = 1;
+            }
+        } else if (str.equals("PageSwitchCost")) {
+            c = 0;
+        }
+        if (c != 0) {
+            if (c != 1) {
+                if (c == 2) {
+                    gi3.f.d(Long.valueOf(j));
+                    return;
+                }
                 return;
             }
-            if (lr2.a) {
-                Log.e("SwanPerformance", "triggerLaunch, source = " + str);
+            gi3.e.d(Long.valueOf(j));
+            return;
+        }
+        gi3.d.d(Long.valueOf(j));
+    }
+
+    public void d(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
+            c();
+            char c = 65535;
+            switch (str2.hashCode()) {
+                case -1880922749:
+                    if (str2.equals("pageUpdateEnd")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -964566145:
+                    if (str2.equals("pageSwitchStart")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -410083667:
+                    if (str2.equals("pageInitRenderStart")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 4028902:
+                    if (str2.equals("pageInitRenderEnd")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 627578634:
+                    if (str2.equals("pageUpdateStart")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 1719651128:
+                    if (str2.equals("pageSwitchEnd")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
             }
-            Iterator<c> it = this.d.iterator();
-            while (it.hasNext()) {
-                c next = it.next();
-                next.h(false);
-                next.f().e(str);
+            if (c != 0 && c != 1 && c != 2) {
+                if (c == 3 || c == 4 || c == 5) {
+                    g(str, str2, j);
+                    return;
+                }
+                return;
             }
-            k();
-            j();
+            h(str, str2, j);
         }
     }
 
-    public void i(d13 d13Var, int i) {
+    public final void g(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048583, this, d13Var, i) != null) || this.c || d13Var == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            c13 c13Var = null;
+            char c = 65535;
+            int hashCode = str2.hashCode();
+            if (hashCode != -1880922749) {
+                if (hashCode != 4028902) {
+                    if (hashCode == 1719651128 && str2.equals("pageSwitchEnd")) {
+                        c = 0;
+                    }
+                } else if (str2.equals("pageInitRenderEnd")) {
+                    c = 1;
+                }
+            } else if (str2.equals("pageUpdateEnd")) {
+                c = 2;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        c13Var = this.c.remove(str);
+                    }
+                } else {
+                    c13Var = this.b.remove(str);
+                }
+            } else {
+                c13Var = this.a.remove(str);
+            }
+            if (c13Var == null) {
+                return;
+            }
+            c13Var.b(j);
+            a(c13Var.getType(), c13Var.a());
         }
-        if (i > 5000) {
-            i = 5000;
-        }
-        if (!h(d13Var)) {
-            this.d.add(new c(this, d13Var, i, null));
-            if (lr2.a) {
-                Log.e("SwanPerformance", "register, task name = " + d13Var.getName() + " ; timeout = " + i);
+    }
+
+    public final void h(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            c13 c13Var = null;
+            char c = 65535;
+            int hashCode = str2.hashCode();
+            if (hashCode != -964566145) {
+                if (hashCode != -410083667) {
+                    if (hashCode == 627578634 && str2.equals("pageUpdateStart")) {
+                        c = 2;
+                    }
+                } else if (str2.equals("pageInitRenderStart")) {
+                    c = 1;
+                }
+            } else if (str2.equals("pageSwitchStart")) {
+                c = 0;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2 && (c13Var = this.c.get(str)) == null) {
+                        c13Var = new a13();
+                        this.c.put(str, c13Var);
+                    }
+                } else {
+                    c13Var = this.b.get(str);
+                    if (c13Var == null) {
+                        c13Var = new y03();
+                        this.b.put(str, c13Var);
+                    }
+                }
+            } else {
+                c13Var = this.a.get(str);
+                if (c13Var == null) {
+                    c13Var = new z03();
+                    this.a.put(str, c13Var);
+                }
+            }
+            if (c13Var != null) {
+                c13Var.c(j);
             }
         }
     }

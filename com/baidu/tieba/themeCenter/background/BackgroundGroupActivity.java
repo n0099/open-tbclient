@@ -6,10 +6,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.j3b;
+import com.baidu.tieba.i3b;
+import com.baidu.tieba.l2b;
 import com.baidu.tieba.m2b;
 import com.baidu.tieba.n2b;
-import com.baidu.tieba.o2b;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,8 +23,8 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundGroupModel b;
-    public n2b c;
-    public o2b d;
+    public m2b c;
+    public n2b d;
     public BackgroundGroupModel.c e;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
@@ -59,9 +59,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, j3b j3bVar, List<m2b> list) {
+        public void a(int i, String str, i3b i3bVar, List<l2b> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, j3bVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, i3bVar, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.c.d());
                 this.a.c.i();
@@ -70,7 +70,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     this.a.c.j();
                     return;
                 }
-                this.a.c.k(j3bVar, list, this.a.b.X());
+                this.a.c.k(i3bVar, list, this.a.b.X());
             }
         }
     }
@@ -124,10 +124,10 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        n2b n2bVar;
+        m2b m2bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b != null && (n2bVar = this.c) != null) {
-            showLoadingView(n2bVar.d());
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b != null && (m2bVar = this.c) != null) {
+            showLoadingView(m2bVar.d());
             this.b.loadData();
         }
     }
@@ -137,9 +137,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            n2b n2bVar = this.c;
-            if (n2bVar != null) {
-                n2bVar.f();
+            m2b m2bVar = this.c;
+            if (m2bVar != null) {
+                m2bVar.f();
             }
         }
     }
@@ -154,12 +154,12 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.b = backgroundGroupModel;
             backgroundGroupModel.a0(this.e);
-            o2b o2bVar = new o2b(this.a, this.b.getUniqueId());
-            this.d = o2bVar;
-            o2bVar.c(1);
-            n2b n2bVar = new n2b(this, this.d);
-            this.c = n2bVar;
-            n2bVar.e();
+            n2b n2bVar = new n2b(this.a, this.b.getUniqueId());
+            this.d = n2bVar;
+            n2bVar.c(1);
+            m2b m2bVar = new m2b(this, this.d);
+            this.c = m2bVar;
+            m2bVar.e();
             showLoadingView(this.c.d());
             this.b.loadData();
         }

@@ -1,115 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.safe.UiUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
+import com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter;
+import com.baidu.tieba.im.base.core.uilist.MsgSender;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class rq8 extends CustomMessageListener {
+public class rq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WeakReference<a> a;
+    public MsgSender<? extends BaseNormalAdapter, ? extends BaseItem<? extends TbBaseMsg>> a;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(CustomResponsedMessage<?> customResponsedMessage);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public rq8(int i, a callback) {
-        this(i, false, callback, 2, null);
+    public rq8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), callback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), (a) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(callback, "callback");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public rq8(int i, boolean z, a callback) {
-        super(i, z);
+    @NonNull
+    public <T extends BaseNormalAdapter, Msg extends BaseItem<? extends TbBaseMsg>> MsgSender<T, Msg> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), callback};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (MsgSender<T, Msg>) this.a;
         }
-        Intrinsics.checkNotNullParameter(callback, "callback");
-        this.a = new WeakReference<>(callback);
+        return (MsgSender) invokeV.objValue;
     }
 
-    public /* synthetic */ rq8(int i, boolean z, a aVar, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(i, (i2 & 2) != 0 ? false : z, aVar);
-    }
-
-    public static final void g(rq8 this$0) {
+    @Nullable
+    public static rq8 b(@NonNull View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            MessageManager.getInstance().unRegisterListener(this$0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return (rq8) view2.getTag(R.id.obfuscated_res_0x7f0924ca);
+        }
+        return (rq8) invokeL.objValue;
+    }
+
+    public <T extends BaseNormalAdapter, Msg extends BaseItem<? extends TbBaseMsg>> void c(@NonNull MsgSender<T, Msg> msgSender) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, msgSender) == null) {
+            this.a = msgSender;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Unit unit;
+    public static void d(@NonNull View view2, @NonNull rq8 rq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-            a aVar = this.a.get();
-            if (aVar != null) {
-                aVar.a(customResponsedMessage);
-                unit = Unit.INSTANCE;
-            } else {
-                unit = null;
-            }
-            if (unit == null) {
-                UiUtils.post(new Runnable() { // from class: com.baidu.tieba.oq8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            rq8.g(rq8.this);
-                        }
-                    }
-                });
-            }
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, rq8Var) == null) {
+            view2.setTag(R.id.obfuscated_res_0x7f0924ca, rq8Var);
         }
     }
 }

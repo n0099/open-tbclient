@@ -1,45 +1,38 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.atomData.EditHeadActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedContentText;
-import tbclient.FeedKV;
-import tbclient.SidewayRecomComponent;
+import tbclient.SignActivityInfo;
 /* loaded from: classes5.dex */
-public class f8d extends ltc {
+public class f8d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SidewayRecomComponent sidewayRecomComponent) {
+    public static JSONObject b(@NonNull SignActivityInfo signActivityInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sidewayRecomComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, signActivityInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "type", sidewayRecomComponent.type);
-            FeedContentText feedContentText = sidewayRecomComponent.title;
-            if (feedContentText != null) {
-                ltc.a(jSONObject, "title", fxc.b(feedContentText));
-            }
-            FeedContentText feedContentText2 = sidewayRecomComponent.desc;
-            if (feedContentText2 != null) {
-                ltc.a(jSONObject, "desc", fxc.b(feedContentText2));
-            }
-            ltc.a(jSONObject, BigdayActivityConfig.IMG_URL, sidewayRecomComponent.img_url);
-            ltc.a(jSONObject, "corner_url", sidewayRecomComponent.corner_url);
-            if (sidewayRecomComponent.business_info != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FeedKV feedKV : sidewayRecomComponent.business_info) {
-                    jSONArray.put(sxc.b(feedKV));
-                }
-                ltc.a(jSONObject, "business_info", jSONArray);
-            }
-            ltc.a(jSONObject, "schema", sidewayRecomComponent.schema);
+            ktc.a(jSONObject, "activity_id", signActivityInfo.activity_id);
+            ktc.a(jSONObject, "activity_time", signActivityInfo.activity_time);
+            ktc.a(jSONObject, "countdown_time", signActivityInfo.countdown_time);
+            ktc.a(jSONObject, "activity_duration", signActivityInfo.activity_duration);
+            ktc.a(jSONObject, "countdown_msg", signActivityInfo.countdown_msg);
+            ktc.a(jSONObject, "activity_msg", signActivityInfo.activity_msg);
+            ktc.a(jSONObject, "activity_suc_msg", signActivityInfo.activity_suc_msg);
+            ktc.a(jSONObject, "activity_fail_msg", signActivityInfo.activity_fail_msg);
+            ktc.a(jSONObject, "gift_type", signActivityInfo.gift_type);
+            ktc.a(jSONObject, "gift_url", signActivityInfo.gift_url);
+            ktc.a(jSONObject, "gift_name", signActivityInfo.gift_name);
+            ktc.a(jSONObject, "icon_name", signActivityInfo.icon_name);
+            ktc.a(jSONObject, "icon_lifecycle", signActivityInfo.icon_lifecycle);
+            ktc.a(jSONObject, "activity_name", signActivityInfo.activity_name);
+            ktc.a(jSONObject, EditHeadActivityConfig.IMAGE_URL, signActivityInfo.image_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

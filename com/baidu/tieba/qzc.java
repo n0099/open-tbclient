@@ -1,27 +1,27 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.CarrierEnter;
+import tbclient.FrsPage.Classify;
 /* loaded from: classes8.dex */
-public class qzc extends ltc {
+public class qzc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull CarrierEnter carrierEnter) {
+    public static JSONObject b(@NonNull Classify classify) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, carrierEnter)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, classify)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "title", carrierEnter.title);
-            ltc.a(jSONObject, "text", carrierEnter.text);
-            ltc.a(jSONObject, "headline_cover", carrierEnter.headline_cover);
-            ltc.a(jSONObject, "url", carrierEnter.url);
-            ltc.a(jSONObject, "obj_id", carrierEnter.obj_id);
+            ktc.a(jSONObject, "name", classify.name);
+            ktc.a(jSONObject, "id", classify.id);
+            ktc.a(jSONObject, "class_id", classify.class_id);
+            ktc.a(jSONObject, ForumSquareActivityConfig.FORUM_CLASS_NAME, classify.class_name);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

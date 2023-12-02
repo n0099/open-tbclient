@@ -1,68 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class cz2 {
     public static /* synthetic */ Interceptable $ic;
+    public static bz2 a;
+    public static final bz2 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, callbackHandler, unitedSchemeEntity)) == null) {
-            String b = b(unitedSchemeEntity);
-            if (TextUtils.isEmpty(b)) {
-                h32.i("WxWebViewPayment", "wxPay: url is empty");
-                h32.k("WxWebViewPayment", "param check error - src" + b);
-                ad3.H(false, "wechatH5Action", ad3.m(b, "param check error - src"));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else if (!ya1.a().b(context)) {
-                z53.g(context, context.getText(R.string.obfuscated_res_0x7f0f0221)).G();
-                h32.k("WxWebViewPayment", "Error: wechat not install. " + b);
-                ad3.H(false, "wechatH5Action", ad3.m(b, "Error: wechat not install. "));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
-                return false;
-            } else {
-                hw2 d = hw2.d(b, b);
-                h32.k("WxWebViewPayment", "Info: open wechat pay webview, pageParam =" + d);
-                if (!v52.k3("wxPay", d)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    h32.k("WxWebViewPayment", "Error: webview fragment not opened.");
-                    return false;
-                }
-                h32.k("WxWebViewPayment", "Success:open wxPay page success");
-                h32.k("WxWebViewPayment", "Info: end WeChat H5 redirect " + b);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(vy2.c(b), 0));
-                return true;
+    /* loaded from: classes5.dex */
+    public static class a implements bz2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.bz2
+        public void onPayResult(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
             }
         }
-        return invokeLLL.booleanValue;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    public static String b(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeEntity)) == null) {
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (TextUtils.isEmpty(str)) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947691982, "Lcom/baidu/tieba/cz2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                return new JSONObject(str).optString("src");
-            } catch (JSONException unused) {
-                return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947691982, "Lcom/baidu/tieba/cz2;");
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        b = new a();
+    }
+
+    public static bz2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            bz2 bz2Var = a;
+            if (bz2Var == null) {
+                return b;
+            }
+            return bz2Var;
+        }
+        return (bz2) invokeV.objValue;
+    }
+
+    public static void b(bz2 bz2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, bz2Var) == null) && a != bz2Var) {
+            a = bz2Var;
+        }
     }
 }

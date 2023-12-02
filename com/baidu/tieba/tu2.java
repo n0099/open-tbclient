@@ -1,14 +1,12 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,22 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.InputStream;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class tu2 {
+public class tu2 implements ru2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static String i;
-    public static String j;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public CallbackHandler a;
-    public UnitedSchemeEntity b;
 
     static {
         InterceptResult invokeClinit;
@@ -46,93 +36,87 @@ public class tu2 {
                 return;
             }
         }
-        c = sm1.a;
+        a = vm1.a;
     }
 
-    public tu2(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    public tu2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callbackHandler, unitedSchemeEntity, str, str2, str3, str4, str5, str6, str7};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = callbackHandler;
-        this.b = unitedSchemeEntity;
-        d = str;
-        e = str2;
-        f = str3;
-        g = str4;
-        h = str5;
-        i = str6;
-        j = str7;
     }
 
-    public static tu2 a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, tu2 tu2Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.ru2
+    @SuppressLint({"BDThrowableCheck"})
+    public Bitmap decode(Context context, Uri uri) throws Exception {
+        InterceptResult invokeLL;
+        Bitmap bitmap;
+        Resources resourcesForApplication;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, callbackHandler, unitedSchemeEntity, str, tu2Var)) == null) {
-            if (str == null) {
-                return tu2Var;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("onStart");
-                String optString2 = jSONObject.optString(MissionEvent.MESSAGE_PAUSE);
-                String optString3 = jSONObject.optString("onResume");
-                String optString4 = jSONObject.optString(MissionEvent.MESSAGE_STOP);
-                String optString5 = jSONObject.optString(GameAssistConstKt.TYPE_CALLBACK_ERROR);
-                String optString6 = jSONObject.optString("onInterruptionBegin");
-                String optString7 = jSONObject.optString("onInterruptionEnd");
-                if (callbackHandler != null && unitedSchemeEntity != null && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString5)) {
-                    return new tu2(callbackHandler, unitedSchemeEntity, optString, optString2, optString3, optString4, optString5, optString6, optString7);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, uri)) == null) {
+            String uri2 = uri.toString();
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            if (uri2.startsWith("android.resource://")) {
+                String authority = uri.getAuthority();
+                if (context.getPackageName().equals(authority)) {
+                    resourcesForApplication = context.getResources();
+                } else {
+                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+                List<String> pathSegments = uri.getPathSegments();
+                int size = pathSegments.size();
+                int i = 0;
+                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
+                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
+                } else if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
+                    try {
+                        i = Integer.parseInt(pathSegments.get(0));
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+                bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
+            } else {
+                InputStream inputStream = null;
+                if (uri2.startsWith("file:///android_asset/")) {
+                    bitmap = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(22)), null, options);
+                } else if (uri2.startsWith("file://")) {
+                    bitmap = BitmapFactory.decodeFile(uri2.substring(7), options);
+                } else {
+                    try {
+                        InputStream openInputStream = context.getContentResolver().openInputStream(uri);
+                        try {
+                            Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
+                            nm4.d(openInputStream);
+                            bitmap = decodeStream;
+                        } catch (Throwable th) {
+                            th = th;
+                            inputStream = openInputStream;
+                            nm4.d(inputStream);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                }
             }
-            return tu2Var;
+            if (bitmap == null) {
+                if (!a) {
+                    k32.k("SkiaImageDecoder", "bitmap is null");
+                } else {
+                    throw new RuntimeException("Skia image region decoder returned null bitmap - image format may not be supported");
+                }
+            }
+            return bitmap;
         }
-        return (tu2) invokeLLLL.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            c(str, null);
-        }
-    }
-
-    public void c(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-        UnitedSchemeUtility.safeCallback(this.a, this.b, wrapCallbackParams.toString(), str);
-        if (c) {
-            Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
-        }
-    }
-
-    public void d(int i2, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_CODE, Integer.valueOf(i2));
-            jSONObject.putOpt(StatConstants.KEY_EXT_ERR_MSG, str);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        c(h, jSONObject);
+        return (Bitmap) invokeLL.objValue;
     }
 }

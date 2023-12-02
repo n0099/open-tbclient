@@ -1,21 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.forum.data.protobuf.FrsHeadlinesExtensionKt;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.ComponentFactory;
-import tbclient.FeedToutiao;
 /* loaded from: classes5.dex */
-public final class cj7 implements s87 {
+public final class cj7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final cj7 a;
+    public static final String a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,35 +26,25 @@ public final class cj7 implements s87 {
                 return;
             }
         }
-        a = new cj7();
+        a = TbConfig.TIEBA_ADDRESS + "mo/q/forumtarget?fid=%1$s&fn=%2$s&nomenu=1";
+        b = TbConfig.TIEBA_ADDRESS + "mo/q/priforum/editinfo?fid=%1$s&nomenu=1";
     }
 
-    public cj7() {
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s87
-    public void a(ComponentFactory componentFactory, List<nb7<? extends Object>> dataList, n67 feedExtraData, String schema) {
-        FeedToutiao feedToutiao;
+    public static final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, componentFactory, dataList, feedExtraData, schema) == null) {
-            Intrinsics.checkNotNullParameter(componentFactory, "componentFactory");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            Intrinsics.checkNotNullParameter(schema, "schema");
-            if (Intrinsics.areEqual(componentFactory.component, "feed_toutiao") && (feedToutiao = componentFactory.feed_toutiao) != null) {
-                FrsHeadlinesExtensionKt.a(feedToutiao, dataList, feedExtraData, schema);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
+        return (String) invokeV.objValue;
     }
 }

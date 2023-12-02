@@ -14,14 +14,14 @@ import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.aea;
 import com.baidu.tieba.bh;
-import com.baidu.tieba.fq4;
 import com.baidu.tieba.ih;
 import com.baidu.tieba.image.ImageViewerActivity;
-import com.baidu.tieba.wda;
+import com.baidu.tieba.iq4;
 /* loaded from: classes4.dex */
 public class InitSDKTask extends LaunchTask {
-    public wda cyberMediaContextDef = new wda();
+    public aea cyberMediaContextDef = new aea();
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -73,7 +73,7 @@ public class InitSDKTask extends LaunchTask {
 
     private void initTBTaskSDK() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            fq4.f().g(TbadkCoreApplication.getInst());
+            iq4.f().g(TbadkCoreApplication.getInst());
         }
     }
 

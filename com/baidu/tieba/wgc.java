@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public abstract class wgc {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wgc {
+    void a(int i, int i2, int i3, int i4);
+
+    void b(int i, int i2, String str);
 }

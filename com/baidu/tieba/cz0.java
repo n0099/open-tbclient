@@ -1,107 +1,159 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.net.request.Headers;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.nadcore.sweetsqlite.IntegerColumn;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cz0 {
+public final class cz0 extends vz0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final nz0 A;
+    public static final nz0[] B;
+    public static final nz0[][] C;
+    public static final nz0[] D;
+    public static final nz0 o;
+    public static final nz0 p;
+    public static final nz0 q;
+    public static final nz0 r;
+    public static final nz0 s;
+    public static final nz0 t;
+    public static final nz0 u;
+    public static final nz0 v;
+    public static final nz0 w;
+    public static final nz0 x;
+    public static final nz0 y;
+    public static final nz0 z;
     public transient /* synthetic */ FieldHolder $fh;
+    public final StringColumn a;
+    public final IntegerColumn b;
+    public final IntegerColumn c;
+    public final StringColumn d;
+    public final StringColumn e;
+    public final StringColumn f;
+    public final IntegerColumn g;
+    public final IntegerColumn h;
+    public final LongColumn i;
+    public final LongColumn j;
+    public final StringColumn k;
+    public final StringColumn l;
+    public final StringColumn m;
+    public final Column[] n;
 
-    /* loaded from: classes5.dex */
-    public class a extends bp0<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dz0 a;
+    @Override // com.baidu.tieba.vz0
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "t_apk_info" : (String) invokeV.objValue;
+    }
 
-        public String f(Headers headers, String str, int i) throws Exception {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
-        }
-
-        public a(dz0 dz0Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947691920, "Lcom/baidu/tieba/cz0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dz0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = dz0Var;
-        }
-
-        @Override // com.baidu.tieba.zo0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && this.a.c()) {
-                bz0.e(this.a.a(i, exc.getMessage()));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947691920, "Lcom/baidu/tieba/cz0;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.ap0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ap0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) && this.a.c()) {
-                bz0.e(this.a.a(i, "success"));
-            }
-        }
+        o = vz0.b(4, "key", "                   key", 0, 2);
+        p = vz0.a(2, "task_id", "               task_id", 1);
+        q = vz0.a(2, "status", "                status", 2);
+        r = vz0.a(4, "package_name", "          package_name", 3);
+        s = vz0.a(4, "url", "                   url", 4);
+        t = vz0.a(4, "file", "                  file", 5);
+        u = vz0.a(2, "progress", "              progress", 6);
+        v = vz0.a(2, "v_progress", "            v_progress", 7);
+        w = vz0.a(3, "start_download_time", "   start_download_time", 8);
+        x = vz0.a(3, "finished_download_time", "finished_download_time", 9);
+        y = vz0.a(4, "mt", "                    mt", 10);
+        z = vz0.a(4, "ctrl", "                  ctrl", 11);
+        nz0 a = vz0.a(4, "extra", "                 extra", 12);
+        A = a;
+        nz0 nz0Var = o;
+        B = new nz0[]{nz0Var, p, q, r, s, t, u, v, w, x, y, z, a};
+        C = new nz0[0];
+        D = new nz0[]{nz0Var};
     }
 
-    public static void a(@Nullable dz0 dz0Var) {
-        f11 f11Var;
+    public cz0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, dz0Var) == null) && dz0Var != null && !TextUtils.isEmpty(dz0Var.d())) {
-            ip0 ip0Var = new ip0();
-            ip0Var.l(dz0Var.d());
-            ip0Var.g(3000);
-            ip0Var.c();
-            if (!TextUtils.isEmpty(dz0Var.e)) {
-                ip0Var.d("User-Agent", dz0Var.e);
-            } else {
-                ip0Var.d("User-Agent", hf0.e());
-            }
-            po0.b().a().a(ip0Var, new a(dz0Var));
-            if (y01.a && (f11Var = (f11) x01.a().a(f11.class)) != null) {
-                f11Var.b(new z01("计费", "", "并行计费"));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new StringColumn(o);
+        this.b = new IntegerColumn(p);
+        this.c = new IntegerColumn(q);
+        this.d = new StringColumn(r);
+        this.e = new StringColumn(s);
+        this.f = new StringColumn(t);
+        this.g = new IntegerColumn(u);
+        this.h = new IntegerColumn(v);
+        this.i = new LongColumn(w);
+        this.j = new LongColumn(x);
+        this.k = new StringColumn(y);
+        this.l = new StringColumn(z);
+        StringColumn stringColumn = new StringColumn(A);
+        this.m = stringColumn;
+        this.n = new Column[]{this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l, stringColumn};
     }
 
-    public static void b(@Nullable String str) {
-        f11 f11Var;
+    @Override // com.baidu.tieba.vz0
+    public Column[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.n;
         }
-        ip0 ip0Var = new ip0();
-        ip0Var.l(str);
-        ip0Var.g(3000);
-        ip0Var.d("User-Agent", hf0.e());
-        ip0Var.c();
-        po0.b().a().a(ip0Var, null);
-        if (y01.a && (f11Var = (f11) x01.a().a(f11.class)) != null) {
-            f11Var.b(new z01("计费", "", "并行计费"));
+        return (Column[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vz0
+    public nz0[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return B;
         }
+        return (nz0[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vz0
+    public nz0[][] e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return C;
+        }
+        return (nz0[][]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vz0
+    public nz0[] f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return D;
+        }
+        return (nz0[]) invokeV.objValue;
     }
 }

@@ -131,10 +131,10 @@ public class AlaLiveUserNotifyDialog extends Dialog {
             this.alaNotifyContentPanel = (RelativeLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090242);
             this.alaNotifyDescription = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090243);
             this.btnKnow = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0904dc);
-            this.portraitLayout = (FrameLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091de1);
-            this.userPortrait = (HeadImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092948);
-            this.ivHeadWrapper = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091299);
-            this.overUserPortraitBg = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091b29);
+            this.portraitLayout = (FrameLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091de3);
+            this.userPortrait = (HeadImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09294b);
+            this.ivHeadWrapper = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09129a);
+            this.overUserPortraitBg = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091b2b);
             this.userPortrait.setDefaultResource(R.drawable.icon_default_avatar100_bg);
             this.userPortrait.setIsRound(true);
             this.userPortrait.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -145,10 +145,10 @@ public class AlaLiveUserNotifyDialog extends Dialog {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.alaNotifyContentPanel.setBackgroundResource(R.drawable.obfuscated_res_0x7f0815d6);
+            this.alaNotifyContentPanel.setBackgroundResource(R.drawable.obfuscated_res_0x7f0815d9);
             this.alaNotifyDescription.setTextColor(getContext().getResources().getColor(R.color.common_color_10037));
             this.btnKnow.setTextColor(getContext().getResources().getColor(R.color.CAM_X0302));
-            this.portraitLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0815d7);
+            this.portraitLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0815da);
             this.overUserPortraitBg.setVisibility(8);
         }
     }

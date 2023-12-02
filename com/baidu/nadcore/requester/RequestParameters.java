@@ -2,7 +2,7 @@ package com.baidu.nadcore.requester;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.nn0;
+import com.baidu.tieba.on0;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class RequestParameters {
@@ -11,7 +11,7 @@ public class RequestParameters {
     public final String c;
     public final String d;
     @Nullable
-    public final nn0 e;
+    public final on0 e;
     @NonNull
     public final RefreshType f;
     public final String g;
@@ -39,7 +39,7 @@ public class RequestParameters {
         public String a;
         public String c;
         public String d;
-        public nn0 e;
+        public on0 e;
         public String g;
         public String i;
         public String j;

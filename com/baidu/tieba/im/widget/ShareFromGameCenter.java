@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qxa;
+import com.baidu.tieba.pxa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -119,7 +119,7 @@ public class ShareFromGameCenter extends LinearLayout {
                 this.f.setBackgroundDrawable(this.k.getResources().getDrawable(R.drawable.selector_msg_text_bubble_other));
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.setMargins(BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0701b2), 0, 0, 0);
-                layoutParams.height = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703e5);
+                layoutParams.height = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703e6);
                 this.g.setLayoutParams(layoutParams);
             }
             this.a.setText(this.j.getTitle());
@@ -132,7 +132,7 @@ public class ShareFromGameCenter extends LinearLayout {
             if (!TextUtils.isEmpty(this.j.getButton())) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070253));
                 int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070201);
-                layoutParams2.setMargins(dimens, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070385), dimens, dimens);
+                layoutParams2.setMargins(dimens, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070386), dimens, dimens);
                 this.d.setLayoutParams(layoutParams2);
                 this.d.setVisibility(0);
                 this.d.setText(this.j.getButton());
@@ -150,7 +150,7 @@ public class ShareFromGameCenter extends LinearLayout {
             this.e.setDefaultResource(R.drawable.tb_launcher_icon);
             this.e.setAutoChangeStyle(false);
             this.e.startLoad(this.j.getShareSourceIcon(), 10, false);
-            TiebaStatic.eventStat(this.k, "game_show", "show", 1, "dev_id", qxa.a(this.j.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
+            TiebaStatic.eventStat(this.k, "game_show", "show", 1, "dev_id", pxa.a(this.j.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
         }
     }
 

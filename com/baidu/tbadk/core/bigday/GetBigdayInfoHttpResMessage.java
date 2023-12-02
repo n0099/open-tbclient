@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.bigday;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.b05;
 import com.baidu.tieba.da;
-import com.baidu.tieba.vv4;
+import com.baidu.tieba.e05;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<vv4> bigdayInfos;
+    public ArrayList<yv4> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoHttpResMessage() {
@@ -49,8 +49,8 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            b05.k();
-            da<byte[]> i2 = b05.i("tb.bigday_datas");
+            e05.k();
+            da<byte[]> i2 = e05.i("tb.bigday_datas");
             i2.remove("tb.bigday_datas");
             i2.g("tb.bigday_datas", bArr);
         }
@@ -72,10 +72,10 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
                 this.bigdayInfos = new ArrayList<>();
                 for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
                     if (bigdayInfo != null) {
-                        vv4 vv4Var = new vv4();
-                        vv4Var.b(bigdayInfo);
-                        if (vv4Var.a()) {
-                            this.bigdayInfos.add(vv4Var);
+                        yv4 yv4Var = new yv4();
+                        yv4Var.b(bigdayInfo);
+                        if (yv4Var.a()) {
+                            this.bigdayInfos.add(yv4Var);
                         }
                     }
                 }

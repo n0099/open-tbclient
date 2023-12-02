@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes8.dex */
 public final class r8c implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -37,6 +36,7 @@ public final class r8c implements View.OnClickListener {
         if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
             return;
         }
-        this.a.j(new UnavailableUserDeclinedInstallationException());
+        this.a.h();
+        this.a.n();
     }
 }

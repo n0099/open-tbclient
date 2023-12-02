@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
-public interface woc<R> extends Object {
-    R call();
+public interface woc<T, R> {
+    R call(T t);
 }

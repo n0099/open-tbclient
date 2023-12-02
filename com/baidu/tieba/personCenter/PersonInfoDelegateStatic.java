@@ -25,14 +25,14 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.dynamicIcon.MainTabBottomDynamicIconManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gk5;
-import com.baidu.tieba.hk5;
+import com.baidu.tieba.jk5;
+import com.baidu.tieba.kk5;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.redpackage.NewUserRedPackageActivity;
 import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.tieba.tropicgiftbag.UserTropicGiftBagActivity;
-import com.baidu.tieba.wva;
+import com.baidu.tieba.vva;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -91,7 +91,7 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements hk5.b {
+    public class b implements kk5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -114,7 +114,7 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.hk5.b
+        @Override // com.baidu.tieba.kk5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -156,8 +156,8 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof gk5)) {
-                this.a.b = Boolean.valueOf(((gk5) customResponsedMessage.getData()).a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof jk5)) {
+                this.a.b = Boolean.valueOf(((jk5) customResponsedMessage.getData()).a);
                 if (this.a.b.booleanValue()) {
                     this.a.a.refresh(0);
                     this.a.a.setVisibility(0);
@@ -243,8 +243,8 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            wva.h(303012, ProfileSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, wva.a("c/u/user/profile", 303012));
+            vva.h(303012, ProfileSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, vva.a("c/u/user/profile", 303012));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -276,7 +276,7 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.mIndicator = (MaintabBottomIndicator) hk5.e().d(1005, new b(this, context));
+            this.mIndicator = (MaintabBottomIndicator) kk5.e().d(1005, new b(this, context));
             this.a = new MessageRedDotView(context);
             TbFragmentTabIndicator.FragmentTapTip fragmentTapTip = new TbFragmentTabIndicator.FragmentTapTip();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;

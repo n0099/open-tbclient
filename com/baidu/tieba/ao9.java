@@ -1,70 +1,28 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.DLauncher;
-import com.baidu.tieba.mh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class ao9 extends mh5 {
+public class ao9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<ne5> m;
-
-    @Override // com.baidu.tieba.fe5
-    public void U(ee5 ee5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ee5Var) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements mh5.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ao9 a;
-
-        public a(ao9 ao9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ao9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ao9Var;
-        }
-
-        @Override // com.baidu.tieba.mh5.a
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
-                DLauncher A = this.a.A(i);
-                if (A.getLayoutParams() == null) {
-                    A.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-                }
-                return A;
-            }
-            return (View) invokeILL.objValue;
-        }
-    }
+    public View a;
+    public ImageView b;
+    public Context c;
+    public TextView d;
 
     public ao9() {
         Interceptable interceptable = $ic;
@@ -80,60 +38,48 @@ public class ao9 extends mh5 {
         }
     }
 
-    @Override // com.baidu.tieba.mh5
-    public void a() {
-        LinkedList<ne5> linkedList;
+    public void a(TbPageContext<?> tbPageContext) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (linkedList = this.m) != null) {
-            linkedList.clear();
-            this.m = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.mh5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LinkedList<ne5> linkedList = this.m;
-            if (linkedList != null) {
-                return linkedList.size();
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            BDLayoutMode layoutMode = tbPageContext.getLayoutMode();
+            if (skinType == 4) {
+                z = true;
+            } else {
+                z = false;
             }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public final DLauncher A(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && i < c()) {
-                return (DLauncher) this.m.get(i);
-            }
-            return null;
-        }
-        return (DLauncher) invokeI.objValue;
-    }
-
-    public void z(LinkedList<ne5> linkedList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, linkedList) == null) {
-            this.m = linkedList;
+            layoutMode.setNightMode(z);
+            tbPageContext.getLayoutMode().onModeChanged(this.a);
         }
     }
 
-    @Override // com.baidu.tieba.mh5
-    public void n(Context context) {
+    public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            o(4);
-            v(2);
-            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
-            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            x(new a(this));
-            h().b(this);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.b.setOnClickListener(onClickListener);
         }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f162f), Integer.valueOf(i)));
+        }
+    }
+
+    public View b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            this.c = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d099c, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setTag(this);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09252c);
+            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09252b);
+            return this.a;
+        }
+        return (View) invokeL.objValue;
     }
 }

@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.content.ContextWrapper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class v27 {
+public final class v27 extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
-    public static final View.OnClickListener a;
-    public static final View.OnClickListener b;
+    public static final v27 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,61 +29,34 @@ public final class v27 {
                 return;
             }
         }
-        a = new View.OnClickListener() { // from class: com.baidu.tieba.s27
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        a = new v27();
+    }
 
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    v27.b(view2);
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v27() {
+        super(null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-        };
-        b = new View.OnClickListener() { // from class: com.baidu.tieba.t27
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        }
+    }
 
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    v27.a(view2);
-                }
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            if (getBaseContext() == null) {
+                attachBaseContext(context);
             }
-        };
-    }
-
-    public static final View.OnClickListener c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b;
-        }
-        return (View.OnClickListener) invokeV.objValue;
-    }
-
-    public static final View.OnClickListener d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return a;
-        }
-        return (View.OnClickListener) invokeV.objValue;
-    }
-
-    public static final void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
-            xq6.b().c(new t95("frs_fun_ad", null));
-        }
-    }
-
-    public static final void b(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, view2) == null) {
-            xq6.b().c(new t95("recommend_fun_ad", null));
         }
     }
 }

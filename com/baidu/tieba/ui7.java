@@ -6,55 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class ui7 {
+public final class ui7 extends si7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final long d;
-    public final String e;
-    public final String f;
+    public ri7 c;
+    public List<Long> d;
+    public oi7 e;
+    public bj7 f;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof ui7) {
-                ui7 ui7Var = (ui7) obj;
-                return Intrinsics.areEqual(this.a, ui7Var.a) && Intrinsics.areEqual(this.b, ui7Var.b) && Intrinsics.areEqual(this.c, ui7Var.c) && this.d == ui7Var.d && Intrinsics.areEqual(this.e, ui7Var.e) && Intrinsics.areEqual(this.f, ui7Var.f);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + c.a(this.d)) * 31) + this.e.hashCode()) * 31) + this.f.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "NewGuideInfoData(portrait=" + this.a + ", botUk=" + this.b + ", botName=" + this.c + ", botPaid=" + this.d + ", botBackground=" + this.e + ", text=" + this.f + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ui7(String portrait, String botUk, String botName, long j, String botBackground, String text) {
+    public ui7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {portrait, botUk, botName, Long.valueOf(j), botBackground, text};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -64,52 +31,75 @@ public final class ui7 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(portrait, "portrait");
-        Intrinsics.checkNotNullParameter(botUk, "botUk");
-        Intrinsics.checkNotNullParameter(botName, "botName");
-        Intrinsics.checkNotNullParameter(botBackground, "botBackground");
-        Intrinsics.checkNotNullParameter(text, "text");
-        this.a = portrait;
-        this.b = botUk;
-        this.c = botName;
-        this.d = j;
-        this.e = botBackground;
-        this.f = text;
+        this.c = new ri7(0L, null, null, null, null, 0, 0, 0, 0, 0, null, null, null, null, null, null, null, 0, null, 524287, null);
+        this.d = CollectionsKt__CollectionsKt.emptyList();
+        this.e = new oi7();
     }
 
-    public final String a() {
+    public final oi7 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.e;
         }
-        return (String) invokeV.objValue;
+        return (oi7) invokeV.objValue;
     }
 
-    public final String b() {
+    public final ri7 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return (ri7) invokeV.objValue;
     }
 
-    public final String c() {
+    public final List<Long> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+            return this.d;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final hi7 d() {
+    public final bj7 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new hi7(this.b, this.d, this.c, this.a, this.e);
+            return this.f;
         }
-        return (hi7) invokeV.objValue;
+        return (bj7) invokeV.objValue;
+    }
+
+    public final void k(oi7 oi7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, oi7Var) == null) {
+            Intrinsics.checkNotNullParameter(oi7Var, "<set-?>");
+            this.e = oi7Var;
+        }
+    }
+
+    public final void l(ri7 ri7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ri7Var) == null) {
+            Intrinsics.checkNotNullParameter(ri7Var, "<set-?>");
+            this.c = ri7Var;
+        }
+    }
+
+    public final void m(List<Long> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "<set-?>");
+            this.d = list;
+        }
+    }
+
+    public final void n(bj7 bj7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bj7Var) == null) {
+            this.f = bj7Var;
+        }
     }
 }

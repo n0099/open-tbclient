@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class l02 extends oz1 {
+public class l02 extends rz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wz1 a;
+    public float a;
 
     public l02() {
         Interceptable interceptable = $ic;
@@ -27,26 +27,24 @@ public class l02 extends oz1 {
         }
     }
 
-    @Override // com.baidu.tieba.oz1
-    public void a(pz1 pz1Var, Canvas canvas) {
-        wz1 wz1Var;
+    @Override // com.baidu.tieba.rz1
+    public void a(sz1 sz1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, pz1Var, canvas) == null) && (wz1Var = this.a) != null && wz1Var.d()) {
-            if (this.a.c()) {
-                pz1Var.b.setShader(this.a.b());
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, sz1Var, canvas) == null) {
+            if (sz1Var.a() == 0) {
+                sz1Var.b(canvas.save());
             }
-            pz1Var.e.setColor(this.a.a());
-            pz1Var.b.setColor(this.a.a());
-            pz1Var.b.setShader(null);
+            canvas.rotate(this.a);
         }
     }
 
-    @Override // com.baidu.tieba.oz1
+    @Override // com.baidu.tieba.rz1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new wz1(jSONArray);
+            float optDouble = (float) jSONArray.optDouble(0);
+            this.a = optDouble;
+            this.a = (float) Math.toDegrees(optDouble);
         }
     }
 }

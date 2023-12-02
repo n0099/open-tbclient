@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
@@ -16,7 +17,7 @@ import kotlin.text.StringsKt__StringNumberConversionsJVMKt;
 import kotlin.text.StringsKt__StringNumberConversionsKt;
 import kotlin.text.StringsKt__StringsJVMKt;
 @Service
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class fl0 extends re0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,6 +44,7 @@ public final class fl0 extends re0 {
     }
 
     @Override // com.baidu.tieba.re0
+    @SuppressLint({"MissingSuperCall"})
     public boolean b(Context context, ve0 schemeModel, Map<String, Object> map, ze0 ze0Var) {
         InterceptResult invokeLLLL;
         String str;
@@ -62,7 +64,10 @@ public final class fl0 extends re0 {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, schemeModel, map, ze0Var)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
-            super.b(context, schemeModel, map, ze0Var);
+            boolean z3 = false;
+            if (!jl0.a.f()) {
+                return false;
+            }
             HashMap<String, String> d2 = schemeModel.d();
             Intrinsics.checkNotNullExpressionValue(d2, "schemeModel.params");
             String str3 = d2.get("url");
@@ -79,7 +84,6 @@ public final class fl0 extends re0 {
                 d = 0.7d;
             }
             String str5 = d2.get("height_calculate_mode");
-            boolean z3 = false;
             if (str5 != null && (intOrNull2 = StringsKt__StringNumberConversionsKt.toIntOrNull(str5)) != null) {
                 i = intOrNull2.intValue();
             } else {
@@ -92,7 +96,7 @@ public final class fl0 extends re0 {
                 str2 = str6;
             }
             Intrinsics.checkNotNullExpressionValue(str2, "params[\"ext_info\"] ?: \"\"");
-            p41 p41Var = new p41(str, d, i, str2);
+            r41 r41Var = new r41(str, d, i, str2);
             String str7 = d2.get("log_switch");
             if (str7 != null) {
                 StringBuilder sb = new StringBuilder();
@@ -106,7 +110,7 @@ public final class fl0 extends re0 {
                 String sb2 = sb.toString();
                 Intrinsics.checkNotNullExpressionValue(sb2, "filterTo(StringBuilder(), predicate).toString()");
                 if (sb2 != null) {
-                    p41Var.J(sb2);
+                    r41Var.J(sb2);
                 }
             }
             String str8 = d2.get("top_blank_click_disable");
@@ -120,7 +124,7 @@ public final class fl0 extends re0 {
             } else {
                 z = false;
             }
-            p41Var.S(z);
+            r41Var.S(z);
             String str9 = d2.get("panel_control");
             if (str9 != null) {
                 StringBuilder sb3 = new StringBuilder();
@@ -134,12 +138,12 @@ public final class fl0 extends re0 {
                 String sb4 = sb3.toString();
                 Intrinsics.checkNotNullExpressionValue(sb4, "filterTo(StringBuilder(), predicate).toString()");
                 if (sb4 != null) {
-                    p41Var.M(sb4);
+                    r41Var.M(sb4);
                 }
             }
             String str10 = d2.get("lp_real_url");
             if (str10 != null) {
-                p41Var.L(str10);
+                r41Var.L(str10);
             }
             String it = d2.get("support_full_screen");
             if (it != null) {
@@ -155,23 +159,23 @@ public final class fl0 extends re0 {
                 } else {
                     z2 = false;
                 }
-                p41Var.H(z2);
+                r41Var.H(z2);
             }
             String str11 = d2.get("charge_url");
             if (str11 != null) {
-                p41Var.E(str11);
+                r41Var.E(str11);
             }
             String str12 = d2.get("lp_org_type");
             if (str12 != null) {
-                p41Var.K(str12);
+                r41Var.K(str12);
             }
             String str13 = d2.get("ad_invoke_flag");
             if (str13 != null) {
-                p41Var.B(str13);
+                r41Var.B(str13);
             }
             String str14 = d2.get("sdk_script");
             if (str14 != null) {
-                p41Var.P(str14);
+                r41Var.P(str14);
             }
             String it2 = d2.get("enable_outer_back");
             if (it2 != null) {
@@ -185,11 +189,11 @@ public final class fl0 extends re0 {
                 if (i3 == 0) {
                     z3 = true;
                 }
-                p41Var.N(z3);
+                r41Var.N(z3);
             }
             String str15 = d2.get("auto_pop");
             if (str15 != null) {
-                p41Var.C(Intrinsics.areEqual(str15, "1"));
+                r41Var.C(Intrinsics.areEqual(str15, "1"));
             }
             String it3 = d2.get("charge_delay_time");
             if (it3 != null) {
@@ -200,9 +204,9 @@ public final class fl0 extends re0 {
                 } else {
                     j = -1;
                 }
-                p41Var.D(j);
+                r41Var.D(j);
             }
-            ml0.e.d(context, p41Var);
+            ml0.e.d(context, r41Var);
             return true;
         }
         return invokeLLLL.booleanValue;

@@ -47,11 +47,11 @@ public final class LayoutMsgGuideBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090f3d);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090f3e);
             if (bdRecyclerView != null) {
                 return new LayoutMsgGuideBinding((RelativeLayout) view2, bdRecyclerView);
             }
-            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f090f3d)));
+            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f090f3e)));
         }
         return (LayoutMsgGuideBinding) invokeL.objValue;
     }

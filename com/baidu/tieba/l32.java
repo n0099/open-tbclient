@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.dp2;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,43 +11,45 @@ public class l32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static dp2.g a(er2 er2Var) {
-        InterceptResult invokeL;
+    public static File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, er2Var)) == null) {
-            File file = new File(Environment.getExternalStorageDirectory() + "/" + m32.d());
-            dp2.M(file, b(), er2Var);
-            km4.j(file);
-            dp2.g gVar = new dp2.g();
-            File file2 = new File(b(), "app.json");
-            SwanAppConfigData c = SwanAppConfigData.c(km4.E(file2), b());
-            gVar.a = b().getPath() + File.separator;
-            gVar.b = c;
-            h32.k("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.a);
-            return gVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new File(gp2.q(), "sConsole-core");
         }
-        return (dp2.g) invokeL.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public static File b() {
+    public static long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_adb_debug");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
+            return ye3.a().getLong("get_app_console_core_code", -1L);
         }
-        return (File) invokeV.objValue;
+        return invokeV.longValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_adb_debug";
+            return ye3.a().getString("get_app_console_core", "-1");
         }
         return (String) invokeV.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            e("-1", -1L);
+        }
+    }
+
+    public static void e(@NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
+            ye3.a().putString("get_app_console_core", str);
+            ye3.a().putLong("get_app_console_core_code", j);
+        }
     }
 }

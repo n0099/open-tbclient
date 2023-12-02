@@ -27,9 +27,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b65;
-import com.baidu.tieba.i65;
+import com.baidu.tieba.e65;
 import com.baidu.tieba.jt;
+import com.baidu.tieba.l65;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -67,13 +67,13 @@ public class CardItemInfoTagLayout extends FrameLayout implements jt {
 
             /* renamed from: com.baidu.tieba.frs.itemtab.card.CardItemInfoTagLayout$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class View$OnClickListenerC0309a implements View.OnClickListener {
+            public class View$OnClickListenerC0286a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ View a;
                 public final /* synthetic */ a b;
 
-                public View$OnClickListenerC0309a(a aVar, b bVar, View view2) {
+                public View$OnClickListenerC0286a(a aVar, b bVar, View view2) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,9 +100,9 @@ public class CardItemInfoTagLayout extends FrameLayout implements jt {
                         if (view2 instanceof TBSpecificationBtn) {
                             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2;
                             if (tBSpecificationBtn.a instanceof HashMap) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "CatetoryRecommendList", (HashMap) tBSpecificationBtn.a)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.b.b.a.getContext(), "CatetoryRecommendList", (HashMap) tBSpecificationBtn.a)));
                                 if (valueOf instanceof Integer) {
-                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new i65(2, valueOf.intValue())));
+                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new l65(2, valueOf.intValue())));
                                 }
                             }
                         }
@@ -130,22 +130,22 @@ public class CardItemInfoTagLayout extends FrameLayout implements jt {
                 }
                 this.b = bVar;
                 FrameLayout frameLayout = (FrameLayout) view2;
-                b65 b65Var = new b65();
-                b65Var.j(0, R.drawable.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
-                b65Var.i(R.color.CAM_X0107);
-                b65Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
-                b65Var.g(0);
-                b65Var.v(R.color.CAM_X0105);
-                b65Var.k(1, 0);
-                b65Var.p(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
-                b65Var.o(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+                e65 e65Var = new e65();
+                e65Var.j(0, R.drawable.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
+                e65Var.i(R.color.CAM_X0107);
+                e65Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
+                e65Var.g(0);
+                e65Var.v(R.color.CAM_X0105);
+                e65Var.k(1, 0);
+                e65Var.p(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
+                e65Var.o(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
                 TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(view2.getContext());
                 this.a = tBSpecificationBtn;
-                tBSpecificationBtn.setConfig(b65Var);
+                tBSpecificationBtn.setConfig(e65Var);
                 if (this.a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) this.a.getLayoutParams()).rightMargin = TbadkApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006);
                 }
-                this.a.setOnClickListener(new View$OnClickListenerC0309a(this, bVar, view2));
+                this.a.setOnClickListener(new View$OnClickListenerC0286a(this, bVar, view2));
                 frameLayout.addView(this.a);
             }
 

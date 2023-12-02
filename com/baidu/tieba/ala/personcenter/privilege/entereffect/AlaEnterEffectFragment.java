@@ -37,8 +37,8 @@ import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.ge6;
-import com.baidu.tieba.ie6;
+import com.baidu.tieba.ke6;
+import com.baidu.tieba.me6;
 import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -59,8 +59,8 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public TextView d;
     public TbImageView e;
     public BdTypeListView f;
-    public ie6 g;
-    public ge6 h;
+    public me6 g;
+    public ke6 h;
     public LoadingView i;
     public AlaNetRefreshView j;
     public TextView k;
@@ -70,11 +70,11 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public TextView o;
     public RelativeLayout p;
     public CustomMessageListener q;
-    public ge6.b r;
+    public ke6.b r;
     public CustomMessageListener s;
 
     /* loaded from: classes5.dex */
-    public class c implements ge6.b {
+    public class c implements ke6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectFragment a;
@@ -132,7 +132,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
             this.a = alaEnterEffectFragment;
         }
 
-        @Override // com.baidu.tieba.ge6.b
+        @Override // com.baidu.tieba.ke6.b
         public void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, alaGetEnterEffectResponsedMessage) != null) {
@@ -339,9 +339,9 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
             hideLoadingView();
-            ge6 ge6Var = this.h;
-            if (ge6Var != null) {
-                ge6Var.c();
+            ke6 ke6Var = this.h;
+            if (ke6Var != null) {
+                ke6Var.c();
             }
         }
     }
@@ -379,7 +379,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.i == null) {
-                this.i = new LoadingView(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d0));
+                this.i = new LoadingView(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d1));
             }
             this.i.attachView(this.a, false);
         }
@@ -409,14 +409,14 @@ public class AlaEnterEffectFragment extends AbsFragment {
         this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090209);
         this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09020b);
         this.m = this.a.findViewById(R.id.obfuscated_res_0x7f090215);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a4a);
-        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a4e);
+        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a4b);
+        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a4f);
         this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090212);
         this.f = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f090213);
-        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f090a59);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f090a5a);
         this.l = findViewById;
         this.f.setEmptyView(findViewById);
-        this.g = new ie6(getPageContext(), this.f);
+        this.g = new me6(getPageContext(), this.f);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -498,7 +498,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
             this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00f9, (ViewGroup) null);
             P2();
-            this.h = new ge6(getPageContext(), this.r);
+            this.h = new ke6(getPageContext(), this.r);
             Q2();
             this.h.d();
             return this.a;

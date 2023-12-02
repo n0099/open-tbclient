@@ -1,10 +1,10 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.ey9;
-import com.baidu.tieba.fy9;
-import com.baidu.tieba.gy9;
-import com.baidu.tieba.n35;
+import com.baidu.tieba.iy9;
+import com.baidu.tieba.jy9;
+import com.baidu.tieba.ky9;
+import com.baidu.tieba.q35;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class InitPbNetRequestTask extends LaunchTask {
@@ -25,13 +25,13 @@ public class InitPbNetRequestTask extends LaunchTask {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        if (ey9.a().c() && n35.a().c == 1) {
-            new gy9().i(n35.a().d);
+        if (iy9.a().c() && q35.a().c == 1) {
+            new ky9().i(q35.a().d);
         }
-        if (ey9.a().c() && n35.a().c == 2) {
+        if (iy9.a().c() && q35.a().c == 2) {
             try {
-                String str = n35.a().d;
-                fy9.l(new String[]{new JSONObject(str.substring(str.indexOf("tbyunpushnotifybody=") + 20)).getString("jump_scheme")});
+                String str = q35.a().d;
+                jy9.l(new String[]{new JSONObject(str.substring(str.indexOf("tbyunpushnotifybody=") + 20)).getString("jump_scheme")});
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

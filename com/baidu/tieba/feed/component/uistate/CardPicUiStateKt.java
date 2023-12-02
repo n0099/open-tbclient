@@ -2,7 +2,7 @@ package com.baidu.tieba.feed.component.uistate;
 
 import android.content.Context;
 import android.graphics.Rect;
-import com.baidu.tieba.q47;
+import com.baidu.tieba.u47;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import kotlin.jvm.functions.Function5;
 /* loaded from: classes5.dex */
 public final class CardPicUiStateKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function5<Context, Integer, Rect, String, q47, Unit> a;
+    public static final Function5<Context, Integer, Rect, String, u47, Unit> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

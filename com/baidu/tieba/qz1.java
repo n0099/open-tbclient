@@ -1,77 +1,72 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-/* loaded from: classes8.dex */
-public class qz1 extends oz1 {
+/* loaded from: classes7.dex */
+public class qz1 extends iz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RectF a;
-    public float b;
-    public float c;
-    public boolean d;
 
-    public qz1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qz1(h73 h73Var) {
+        super(h73Var, "/swanAPI/canvas/update");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {h73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((h73) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.oz1
-    public void a(pz1 pz1Var, Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, pz1Var, canvas) == null) && this.a != null) {
-            if (!this.d && Math.abs(this.c) >= 360.0f) {
-                Path path = pz1Var.f;
-                RectF rectF = this.a;
-                float f = rectF.bottom;
-                float f2 = rectF.top;
-                path.addCircle((rectF.right + rectF.left) / 2.0f, (f + f2) / 2.0f, (f - f2) / 2.0f, Path.Direction.CW);
-                pz1Var.f.arcTo(this.a, 0.0f, this.b);
                 return;
             }
-            float f3 = this.c % 360.0f;
-            if (f3 < 0.0f && !this.d) {
-                f3 += 360.0f;
-            } else if (f3 > 0.0f && this.d) {
-                f3 -= 360.0f;
-            }
-            pz1Var.f.arcTo(this.a, this.b, f3);
         }
     }
 
-    @Override // com.baidu.tieba.oz1
-    public void b(JSONArray jSONArray) {
+    @Override // com.baidu.tieba.h83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k63 k63Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            if (jSONArray.length() > 4) {
-                int g = yj3.g((float) jSONArray.optDouble(0));
-                int g2 = yj3.g((float) jSONArray.optDouble(1));
-                int g3 = yj3.g((float) jSONArray.optDouble(2));
-                float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
-                float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
-                this.a = new RectF(g - g3, g2 - g3, g + g3, g2 + g3);
-                this.b = degrees;
-                this.c = degrees2 - degrees;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, k63Var)) == null) {
+            i12 k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = l(201);
+                k32.c("SwanAppCanvas", "update action parse model is null");
+                return false;
             }
-            if (jSONArray.length() > 5) {
-                this.d = jSONArray.optBoolean(5);
+            String str = k.b;
+            qw2 qw2Var = k.h;
+            if (!TextUtils.isEmpty(str) && qw2Var != null && qw2Var.h()) {
+                k22 k22Var = (k22) x22.a(k);
+                if (k22Var == null) {
+                    k32.c("SwanAppCanvas", "update canvas fail: fina a null component");
+                    unitedSchemeEntity.result = l(1001);
+                    return false;
+                }
+                c22 G = k22Var.G(k);
+                boolean a = G.a();
+                if (!a) {
+                    k32.c("SwanAppCanvas", "update canvas fail: " + G.b);
+                }
+                j(unitedSchemeEntity, callbackHandler, a);
+                return a;
             }
+            k32.c("SwanAppCanvas", "some params invalid");
+            unitedSchemeEntity.result = l(202);
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 }

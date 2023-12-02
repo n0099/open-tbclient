@@ -44,6 +44,6 @@ public final class d extends com.kwad.components.ad.f.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.mW = findViewById(R.id.obfuscated_res_0x7f0914fb);
+        this.mW = findViewById(R.id.obfuscated_res_0x7f0914fc);
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.tracker.Tracker;
-import com.baidu.tieba.wa5;
+import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 @Service
 @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0007\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016¨\u0006\u0007"}, d2 = {"Lcom/baidu/tbadk/tracker/LogUploadConfig;", "Lcom/baidu/tbadk/coreExtra/parser/WlConfigParseInject;", "()V", "parseJson", "", "json", "Lorg/json/JSONObject;", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class LogUploadConfig implements wa5 {
+public final class LogUploadConfig implements za5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,7 +37,7 @@ public final class LogUploadConfig implements wa5 {
         }
     }
 
-    @Override // com.baidu.tieba.wa5
+    @Override // com.baidu.tieba.za5
     public void parseJson(JSONObject json) {
         Map<String, Object> map;
         String jSONObject;

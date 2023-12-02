@@ -1,71 +1,150 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
-import com.baidu.tieba.newinterest.model.InterestSelectionStyleAModel;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleAMoreViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ms9<V> implements ws9<V> {
+public class ms9 extends ci<vs9, InterestedForumStyleAMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterestSelectionStyleAModel a;
-    public fs9 b;
-    public BaseInterestSelectionFragment c;
+    public bt9 a;
+    public ct9 b;
 
-    public ms9(BaseInterestSelectionFragment baseInterestSelectionFragment, fs9 fs9Var) {
+    /* loaded from: classes7.dex */
+    public class a implements zi {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ms9 a;
+
+        public a(ms9 ms9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ms9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ms9Var;
+        }
+
+        @Override // com.baidu.tieba.zi
+        public void b(View view2, pi piVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(piVar instanceof vs9)) {
+                return;
+            }
+            vs9 vs9Var = (vs9) piVar;
+            if (this.a.a != null) {
+                this.a.a.d(vs9Var.a(), vs9Var.b(), i);
+            }
+            if (this.a.b != null) {
+                this.a.b.a();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ms9(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseInterestSelectionFragment, fs9Var};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = baseInterestSelectionFragment;
-        this.b = fs9Var;
-        this.a = new InterestSelectionStyleAModel(fs9Var, this);
+        this.mContext = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.ws9
-    public void a(V v) {
-        BaseInterestSelectionFragment baseInterestSelectionFragment;
+    public void A(bt9 bt9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, v) == null) && (baseInterestSelectionFragment = this.c) != null) {
-            baseInterestSelectionFragment.H2();
+        if (interceptable == null || interceptable.invokeL(1048576, this, bt9Var) == null) {
+            this.a = bt9Var;
         }
     }
 
-    public void b() {
-        InterestSelectionStyleAModel interestSelectionStyleAModel;
+    public void B(ct9 ct9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
-            interestSelectionStyleAModel.onDestroy();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ct9Var) == null) {
+            this.b = ct9Var;
         }
     }
 
-    public void c() {
-        InterestSelectionStyleAModel interestSelectionStyleAModel;
+    public final void C(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
-            interestSelectionStyleAModel.T();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interestedForumStyleAMoreViewHolder) == null) {
+            EMManager.from(interestedForumStyleAMoreViewHolder.c).setTextColor(R.color.CAM_X0302).setTextSize(R.dimen.T_X07);
+            EMManager.from(interestedForumStyleAMoreViewHolder.d).setBackGroundColor(R.color.CAM_X0206);
         }
     }
 
-    @Override // com.baidu.tieba.ws9
-    public void onError(int i, String str) {
-        BaseInterestSelectionFragment baseInterestSelectionFragment;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: x */
+    public InterestedForumStyleAMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (baseInterestSelectionFragment = this.c) != null) {
-            baseInterestSelectionFragment.I2(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            return new InterestedForumStyleAMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d048b, viewGroup, false));
+        }
+        return (InterestedForumStyleAMoreViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.ci
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vs9 vs9Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
+        y(i, view2, viewGroup, vs9Var, interestedForumStyleAMoreViewHolder);
+        return view2;
+    }
+
+    public View y(int i, View view2, ViewGroup viewGroup, vs9 vs9Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vs9Var, interestedForumStyleAMoreViewHolder})) == null) {
+            C(interestedForumStyleAMoreViewHolder);
+            z(interestedForumStyleAMoreViewHolder, vs9Var);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void z(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, vs9 vs9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, interestedForumStyleAMoreViewHolder, vs9Var) == null) {
+            interestedForumStyleAMoreViewHolder.c.setText(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0b11));
+            if (vs9Var.c()) {
+                interestedForumStyleAMoreViewHolder.b.setVisibility(0);
+            } else {
+                interestedForumStyleAMoreViewHolder.b.setVisibility(8);
+            }
         }
     }
 }

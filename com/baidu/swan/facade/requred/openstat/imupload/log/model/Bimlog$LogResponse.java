@@ -1,6 +1,6 @@
 package com.baidu.swan.facade.requred.openstat.imupload.log.model;
 
-import com.baidu.tieba.at3;
+import com.baidu.tieba.dt3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -78,7 +78,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: m */
         public Bimlog$LogResponse buildPartial() {
-            Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (at3) null);
+            Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (dt3) null);
             int i = this.a;
             int i2 = 1;
             if ((i & 1) != 1) {
@@ -381,7 +381,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         }
     }
 
-    public /* synthetic */ Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, at3 at3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, dt3 dt3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -419,7 +419,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         }
     }
 
-    public /* synthetic */ Bimlog$LogResponse(GeneratedMessageLite.Builder builder, at3 at3Var) {
+    public /* synthetic */ Bimlog$LogResponse(GeneratedMessageLite.Builder builder, dt3 dt3Var) {
         this(builder);
     }
 

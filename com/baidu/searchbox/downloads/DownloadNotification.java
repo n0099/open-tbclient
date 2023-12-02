@@ -498,11 +498,11 @@ public class DownloadNotification {
                 int category = FileClassifyHelper.getCategory(FileClassifyHelper.getFileSuffix(str), downloadInfo.mMimeType);
                 Uri withAppendedId = ContentUris.withAppendedId(Downloads.Impl.ALL_DOWNLOADS_CONTENT_URI, j);
                 if (Downloads.Impl.isStatusError(downloadInfo.mStatus)) {
-                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0ee8);
+                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0ee9);
                     intent = new Intent(Constants.ACTION_LIST);
                     smallIcon.setSmallIcon(17301642);
                 } else {
-                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0ee7);
+                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0ee8);
                     int i = downloadInfo.mDestination;
                     if (i != 0 && i != 5) {
                         intent = new Intent(Constants.ACTION_LIST);

@@ -7,8 +7,8 @@ import android.os.Process;
 import android.webkit.WebView;
 import com.baidu.mobads.sdk.api.BDAdConfig;
 import com.baidu.mobads.sdk.api.MobadsPermissionSettings;
-import com.baidu.tieba.k2c;
-import com.baidu.tieba.n2c;
+import com.baidu.tieba.j2c;
+import com.baidu.tieba.m2c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,8 +80,8 @@ public class BaiduModule implements Module {
                 } catch (Exception unused2) {
                     LogPrinter.e("baidu init webview error", new Object[0]);
                 }
-                funAdConfig.runtimeAdConfig.registerPersonalRecommendObserver(new k2c.a());
-                return new n2c();
+                funAdConfig.runtimeAdConfig.registerPersonalRecommendObserver(new j2c.a());
+                return new m2c();
             }
             throw new RuntimeException("The baidu config need ModuleConfigBaidu!");
         }

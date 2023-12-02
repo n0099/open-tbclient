@@ -2,25 +2,13 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.pj2;
+import android.net.Uri;
+import com.baidu.tieba.w73;
 /* loaded from: classes9.dex */
 public interface xq1 {
-    boolean a(@Nullable Activity activity);
+    boolean a(Activity activity, String str, w73.b bVar);
 
-    void b(@NonNull Context context);
+    boolean b(Context context, String str);
 
-    void c(@NonNull String str);
-
-    void d(CallbackHandler callbackHandler);
-
-    void e(h63 h63Var);
-
-    String f(@NonNull Context context);
-
-    void g(h63 h63Var);
-
-    void h(@NonNull Activity activity, String str, String str2, oj2 oj2Var, pj2.b bVar);
+    boolean c(Activity activity, Uri uri, String str);
 }

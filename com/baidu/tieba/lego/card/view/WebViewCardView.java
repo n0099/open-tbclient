@@ -240,7 +240,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.hg9
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lg9
     public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, bdUniqueId) != null) || bdUniqueId == null) {
@@ -326,10 +326,10 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
             int container = webViewCard.getContainer();
             if (container != 1) {
                 if (container == 2) {
-                    setWebviewHeight(equipmentHeight - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703bc));
+                    setWebviewHeight(equipmentHeight - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703bd));
                 }
             } else {
-                setWebviewHeight(equipmentHeight - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703a0));
+                setWebviewHeight(equipmentHeight - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703a1));
             }
         }
         if (!TextUtils.isEmpty(webViewCard.getPageUrl())) {

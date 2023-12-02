@@ -23,21 +23,21 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bd9;
-import com.baidu.tieba.ee9;
-import com.baidu.tieba.ik5;
+import com.baidu.tieba.fd9;
+import com.baidu.tieba.ie9;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.impersonal.data.BehaviorExt;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalReplyBinding;
 import com.baidu.tieba.impersonal.reply.ChatReplyAdapter;
 import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
-import com.baidu.tieba.lb9;
+import com.baidu.tieba.lk5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.qb9;
-import com.baidu.tieba.rb9;
+import com.baidu.tieba.pb9;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.ub9;
+import com.baidu.tieba.vb9;
+import com.baidu.tieba.yb9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +53,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ChatReplySlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bd9 j;
+    public final fd9 j;
     public final BehaviorExt k;
     public SlicePersonalReplyBinding l;
     public long m;
@@ -80,7 +80,7 @@ public final class ChatReplySlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a extends bd9.a {
+    public static final class a extends fd9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatReplySlice a;
@@ -103,15 +103,15 @@ public final class ChatReplySlice extends Slice {
             this.a = chatReplySlice;
         }
 
-        @Override // com.baidu.tieba.bd9.b
-        public void a(List<? extends lb9> list) {
+        @Override // com.baidu.tieba.fd9.b
+        public void a(List<? extends pb9> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 Intrinsics.checkNotNullParameter(list, "list");
-                for (lb9 lb9Var : list) {
+                for (pb9 pb9Var : list) {
                     TbLog defaultLog = DefaultLog.getInstance();
-                    defaultLog.i("sendSpriteMsg", "新消息返回：" + lb9Var.b());
-                    if (rd.isEquals(lb9Var.b(), ik5.d())) {
+                    defaultLog.i("sendSpriteMsg", "新消息返回：" + pb9Var.b());
+                    if (rd.isEquals(pb9Var.b(), lk5.d())) {
                         DefaultLog.getInstance().i("sendSpriteMsg", "命中匹配，是通过sendSpriteMsg发送的");
                         return;
                     }
@@ -169,7 +169,7 @@ public final class ChatReplySlice extends Slice {
                         currentAccount = "";
                     }
                     Intrinsics.checkNotNullExpressionValue(currentAccount, "TbadkApplication.getCurrentAccount() ?: \"\"");
-                    ee9.a("c15230", currentAccount, questionData.getQuestion());
+                    ie9.a("c15230", currentAccount, questionData.getQuestion());
                 }
             }
         }
@@ -236,7 +236,7 @@ public final class ChatReplySlice extends Slice {
         }
     }
 
-    public ChatReplySlice(bd9 repo, BehaviorExt behaviorExt) {
+    public ChatReplySlice(fd9 repo, BehaviorExt behaviorExt) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -263,10 +263,10 @@ public final class ChatReplySlice extends Slice {
     public final void n0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            qb9<rb9> a2 = ub9.a(str);
+            ub9<vb9> a2 = yb9.a(str);
             Intrinsics.checkNotNullExpressionValue(a2, "genTextMsg(text)");
             this.j.u(a2);
-            ee9.b(TbadkCoreApplication.getCurrentAccount(), "3", this.k);
+            ie9.b(TbadkCoreApplication.getCurrentAccount(), "3", this.k);
         }
     }
 

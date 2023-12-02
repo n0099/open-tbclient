@@ -1,25 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public class te8 {
+public class te8 implements pi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public int c;
+    public String d;
+    public int e;
+    public ThreadData f;
 
-    public static void a() {
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            new StatisticItem("c14707").addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return qe8.b;
         }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            new StatisticItem("c14706").addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

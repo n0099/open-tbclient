@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hu extends os<cw4> {
+public class hu extends os<fw4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class hu extends os<cw4> {
     public TextView g;
     public TextView h;
     public OriginalThreadCardView i;
-    public cw4 j;
+    public fw4 j;
     public boolean k;
     public OriginalThreadCardView.b l;
 
@@ -65,7 +65,7 @@ public class hu extends os<cw4> {
                     this.a.d().a(this.a.i, this.a.j);
                 }
                 String id = this.a.j.getThreadData().getId();
-                tl6.a(id);
+                xl6.a(id);
                 this.a.x(id);
                 this.a.a.q(new nu.a(1));
             }
@@ -121,19 +121,19 @@ public class hu extends os<cw4> {
     }
 
     @Override // com.baidu.tieba.os
-    public void n(im6<cw4> im6Var) {
+    public void n(mm6<fw4> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, im6Var) == null) {
-            super.n(im6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mm6Var) == null) {
+            super.n(mm6Var);
         }
     }
 
     public final void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            tl6.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            tl6.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.i.setReadState(tl6.k(str));
+            xl6.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            xl6.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.i.setReadState(xl6.k(str));
         }
     }
 
@@ -172,13 +172,13 @@ public class hu extends os<cw4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: u */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, cw4Var) == null) && cw4Var != null && cw4Var.getThreadData() != null) {
-            this.j = cw4Var;
-            ThreadCardUtils.setTitle(this.g, cw4Var.getThreadData(), this.k);
-            ThreadCardUtils.setAbstract(this.h, this.g, cw4Var.getThreadData(), m, this.k);
-            this.i.i(cw4Var.getThreadData().originalThreadData);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, fw4Var) == null) && fw4Var != null && fw4Var.getThreadData() != null) {
+            this.j = fw4Var;
+            ThreadCardUtils.setTitle(this.g, fw4Var.getThreadData(), this.k);
+            ThreadCardUtils.setAbstract(this.h, this.g, fw4Var.getThreadData(), m, this.k);
+            this.i.i(fw4Var.getThreadData().originalThreadData);
         }
     }
 }

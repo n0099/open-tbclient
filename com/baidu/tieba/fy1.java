@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class fy1 implements ey1 {
+public class fy1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, pz2> a;
+    public HashMap<String, yx1> a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +33,7 @@ public class fy1 implements ey1 {
                 return;
             }
         }
-        b = sm1.a;
+        b = vm1.a;
     }
 
     public fy1() {
@@ -51,54 +49,58 @@ public class fy1 implements ey1 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        this.a = new LinkedHashMap();
     }
 
-    @Override // com.baidu.tieba.ey1
-    public void a(String str) {
+    public synchronized void a(BasePendingOperation basePendingOperation) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.containsKey(str)) {
-            return;
-        }
-        if (b) {
-            Log.d("Api-FirstRecorder", "markStart: " + str);
-        }
-        pz2 pz2Var = new pz2();
-        this.a.put(str, pz2Var);
-        pz2Var.i(System.currentTimeMillis());
-        pz2Var.f(str);
-    }
-
-    @Override // com.baidu.tieba.ey1
-    @SuppressLint({"BDThrowableCheck"})
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            pz2 pz2Var = this.a.get(str);
-            if (pz2Var == null) {
-                if (!b) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
+            synchronized (this) {
+                if (basePendingOperation == null) {
                     return;
                 }
-                throw new RuntimeException(str + " markEnd before markStart");
-            } else if (pz2Var.d() > 0) {
-            } else {
-                pz2Var.h(System.currentTimeMillis());
                 if (b) {
-                    Log.d("Api-FirstRecorder", str + " first called cost " + pz2Var.c());
+                    Log.d("PendingOperationHandler", "*************** 【Add pending module】:" + basePendingOperation.b() + " params: " + basePendingOperation.c());
                 }
-                if (TextUtils.equals(str, "request")) {
-                    if (b) {
-                        Log.d("Api-FirstRecorder", "record first request api called " + pz2Var.toString());
-                    }
-                    HybridUbcFlow p = mz2.p("startup");
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
-                    ubcFlowEvent.h(pz2Var.e());
-                    p.F(ubcFlowEvent);
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
-                    ubcFlowEvent2.h(pz2Var.d());
-                    p.F(ubcFlowEvent2);
+                c(basePendingOperation.d()).b(basePendingOperation);
+            }
+        }
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, yx1> entry : this.a.entrySet()) {
+                    entry.getValue().c();
+                }
+                this.a.clear();
+            }
+        }
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, yx1> entry : this.a.entrySet()) {
+                    entry.getValue().a();
                 }
             }
         }
+    }
+
+    public final yx1 c(BasePendingOperation.OperationType operationType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, operationType)) == null) {
+            if (!this.a.containsKey(operationType.name())) {
+                yx1 a = cy1.a(operationType);
+                this.a.put(operationType.name(), a);
+                return a;
+            }
+            return this.a.get(operationType.name());
+        }
+        return (yx1) invokeL.objValue;
     }
 }

@@ -25,12 +25,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ar6;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.c67;
-import com.baidu.tieba.d87;
+import com.baidu.tieba.bg7;
+import com.baidu.tieba.bi7;
+import com.baidu.tieba.br6;
 import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
-import com.baidu.tieba.di7;
-import com.baidu.tieba.e67;
+import com.baidu.tieba.er6;
+import com.baidu.tieba.f05;
 import com.baidu.tieba.feed.data.ThreadManageType;
 import com.baidu.tieba.forum.controller.MultiManageBottomController;
 import com.baidu.tieba.forum.data.ForumTabItem;
@@ -40,26 +40,26 @@ import com.baidu.tieba.forum.view.FrsMoveAreaChooseView;
 import com.baidu.tieba.forum.view.FrsMultiDeleteBottomView;
 import com.baidu.tieba.forum.view.FrsMultiMoveBottomView;
 import com.baidu.tieba.forum.viewmodel.ForumViewModel;
-import com.baidu.tieba.g16;
-import com.baidu.tieba.g57;
-import com.baidu.tieba.il7;
-import com.baidu.tieba.j16;
+import com.baidu.tieba.g67;
+import com.baidu.tieba.h87;
+import com.baidu.tieba.hi7;
+import com.baidu.tieba.i67;
 import com.baidu.tieba.k16;
-import com.baidu.tieba.l77;
-import com.baidu.tieba.n77;
-import com.baidu.tieba.n87;
-import com.baidu.tieba.nb7;
-import com.baidu.tieba.ni7;
-import com.baidu.tieba.o87;
-import com.baidu.tieba.p87;
-import com.baidu.tieba.rm7;
-import com.baidu.tieba.s57;
-import com.baidu.tieba.sh7;
-import com.baidu.tieba.vj7;
-import com.baidu.tieba.wq6;
-import com.baidu.tieba.xf7;
-import com.baidu.tieba.xh7;
-import com.baidu.tieba.xq6;
+import com.baidu.tieba.k57;
+import com.baidu.tieba.ml7;
+import com.baidu.tieba.n16;
+import com.baidu.tieba.o16;
+import com.baidu.tieba.p77;
+import com.baidu.tieba.r77;
+import com.baidu.tieba.r87;
+import com.baidu.tieba.rb7;
+import com.baidu.tieba.ri7;
+import com.baidu.tieba.s87;
+import com.baidu.tieba.t87;
+import com.baidu.tieba.vm7;
+import com.baidu.tieba.w57;
+import com.baidu.tieba.wh7;
+import com.baidu.tieba.zj7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -82,17 +82,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000\u008a\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010#\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u0000 C2\u00020\u0001:\u0001CB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u0016\u001a\u00020\u0017H\u0002J\b\u0010\u0018\u001a\u00020\fH\u0002J\u0018\u0010\u0019\u001a\u00020\u00172\u000e\u0010\u001a\u001a\n\u0012\u0004\u0012\u00020\u001c\u0018\u00010\u001bH\u0002J\b\u0010\u001d\u001a\u00020\u0017H\u0002J\u0012\u0010\u001e\u001a\u0004\u0018\u00010\u001f2\u0006\u0010 \u001a\u00020\u0015H\u0002J\u0012\u0010!\u001a\u0004\u0018\u00010\"2\u0006\u0010#\u001a\u00020\u0015H\u0002J\u001a\u0010$\u001a\u0004\u0018\u00010\u001f2\u000e\u0010%\u001a\n\u0012\u0004\u0012\u00020&\u0018\u00010\u001bH\u0002J\u001a\u0010'\u001a\u0004\u0018\u00010\"2\u000e\u0010%\u001a\n\u0012\u0004\u0012\u00020&\u0018\u00010\u001bH\u0002J\u0018\u0010(\u001a\n\u0012\u0004\u0012\u00020&\u0018\u00010\u001b2\u0006\u0010 \u001a\u00020\u0015H\u0002J\b\u0010)\u001a\u00020\u0017H\u0002J\u0018\u0010*\u001a\u00020\u00172\u0006\u0010+\u001a\u00020\f2\u0006\u0010,\u001a\u00020\fH\u0002J\b\u0010-\u001a\u00020\u0017H\u0002J\b\u0010.\u001a\u00020\u0017H\u0002J\u0010\u0010/\u001a\u00020\u00172\u0006\u0010 \u001a\u00020\u0015H\u0002J\b\u00100\u001a\u00020\fH\u0016J\u0010\u00101\u001a\u00020\u00172\u0006\u00102\u001a\u000203H\u0016J\u001a\u00104\u001a\u00020\u00172\b\u00105\u001a\u0004\u0018\u0001062\u0006\u00107\u001a\u000208H\u0016J\b\u00109\u001a\u00020\u0017H\u0016J\u0010\u0010:\u001a\u00020\u00172\u0006\u0010;\u001a\u000203H\u0002J\u0010\u0010<\u001a\u00020\u00172\u0006\u0010=\u001a\u000203H\u0002J \u0010>\u001a\u00020\u00172\u0006\u0010?\u001a\u00020@2\u000e\u0010A\u001a\n\u0012\u0004\u0012\u00020&\u0018\u00010\u001bH\u0002J\b\u0010B\u001a\u00020\u0017H\u0002R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082.¢\u0006\u0002\n\u0000R\u0014\u0010\u0013\u001a\b\u0012\u0004\u0012\u00020\u00150\u0014X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006D"}, d2 = {"Lcom/baidu/tieba/forum/controller/MultiManageBottomController;", "Lcom/baidu/tieba/forum/controller/BaseActivityController;", "activity", "Landroidx/fragment/app/FragmentActivity;", "(Landroidx/fragment/app/FragmentActivity;)V", "getActivity", "()Landroidx/fragment/app/FragmentActivity;", "deleteManager", "Lcom/baidu/tieba/NEGFeedBack/UEGDeleteThreadManager;", "deleteViewController", "Lcom/baidu/tieba/NEGFeedBack/UEGNewDeleteThreadViewController;", "inDeleteThreadMode", "", "moveChooseView", "Lcom/baidu/tieba/forum/view/FrsMoveAreaChooseView;", "multiDeleteBottomView", "Lcom/baidu/tieba/forum/view/FrsMultiDeleteBottomView;", "multiMoveBottomView", "Lcom/baidu/tieba/forum/view/FrsMultiMoveBottomView;", "selectedThreadSet", "", "Lcom/baidu/tieba/feed/data/event/ThreadEditSelectEvent;", "cancelEditMode", "", "checkSelectedSize", "doDeleteThreadInList", "successItems", "", "", "doMoveThreadInList", "findDeleteThreadItemData", "Lcom/baidu/tieba/feed/data/DeleteThreadItemData;", "event", "findMoveThreadItemData", "Lcom/baidu/tieba/feed/data/MoveThreadItemData;", "data", "findMultiDeleteThreadItemData", "manageItemList", "Lcom/baidu/tieba/feed/data/ThreadManageItemData;", "findMultiMoveThreadItemData", "findSocialMeta", "handleDeleteThread", "handleEditModeEvent", "inEditMode", "formDeleteThread", "handleForbiddenAndDeleteThread", "handleMoveThread", "handleSelectEvent", "onBackPressed", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", MissionEvent.MESSAGE_DESTROY, "requestMove", "toId", "showDeleteThreadPopupWindow", "deleteType", "showThreadManageDialog", "context", "Landroid/content/Context;", "manageList", "updateMultiBottomLayout", "Companion", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes6.dex */
-public final class MultiManageBottomController extends sh7 {
+/* loaded from: classes5.dex */
+public final class MultiManageBottomController extends wh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity b;
     public FrsMultiDeleteBottomView c;
     public FrsMultiMoveBottomView d;
-    public final Set<p87> e;
+    public final Set<t87> e;
     public boolean f;
-    public final g16 g;
-    public k16 h;
+    public final k16 g;
+    public o16 h;
     public FrsMoveAreaChooseView i;
 
     static {
@@ -110,14 +110,14 @@ public final class MultiManageBottomController extends sh7 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a extends ar6<o87> {
+    /* loaded from: classes5.dex */
+    public static final class a extends er6<s87> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MultiManageBottomController b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(MultiManageBottomController multiManageBottomController, Class<o87> cls) {
+        public a(MultiManageBottomController multiManageBottomController, Class<s87> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -138,10 +138,10 @@ public final class MultiManageBottomController extends sh7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ar6
-        public void onEvent(o87 event) {
+        @Override // com.baidu.tieba.er6
+        public void onEvent(s87 event) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
                 if (!Intrinsics.areEqual(event.a(), this.b.J())) {
                     return;
@@ -151,14 +151,14 @@ public final class MultiManageBottomController extends sh7 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b extends ar6<p87> {
+    /* loaded from: classes5.dex */
+    public static final class b extends er6<t87> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MultiManageBottomController b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(MultiManageBottomController multiManageBottomController, Class<p87> cls) {
+        public b(MultiManageBottomController multiManageBottomController, Class<t87> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -179,10 +179,10 @@ public final class MultiManageBottomController extends sh7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ar6
-        public void onEvent(p87 event) {
+        @Override // com.baidu.tieba.er6
+        public void onEvent(t87 event) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
                 if (Intrinsics.areEqual(event.b(), this.b.J())) {
                     this.b.R(event);
@@ -191,14 +191,14 @@ public final class MultiManageBottomController extends sh7 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class c extends ar6<n87> {
+    /* loaded from: classes5.dex */
+    public static final class c extends er6<r87> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MultiManageBottomController b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(MultiManageBottomController multiManageBottomController, Class<n87> cls) {
+        public c(MultiManageBottomController multiManageBottomController, Class<r87> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -219,18 +219,18 @@ public final class MultiManageBottomController extends sh7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ar6
-        public void onEvent(n87 event) {
+        @Override // com.baidu.tieba.er6
+        public void onEvent(r87 event) {
             Long l;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
                 if (!Intrinsics.areEqual(event.a(), this.b.J())) {
                     return;
                 }
                 this.b.U(event.a(), event.b());
-                ni7 value = ((ForumViewModel) new ViewModelProvider(this.b.J()).get(ForumViewModel.class)).c().getValue();
-                rm7.a aVar = rm7.a;
+                ri7 value = ((ForumViewModel) new ViewModelProvider(this.b.J()).get(ForumViewModel.class)).c().getValue();
+                vm7.a aVar = vm7.a;
                 String c = event.c();
                 if (value != null) {
                     l = Long.valueOf(value.e());
@@ -242,8 +242,8 @@ public final class MultiManageBottomController extends sh7 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class d implements g16.c {
+    /* loaded from: classes5.dex */
+    public static final class d implements k16.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MultiManageBottomController a;
@@ -266,21 +266,21 @@ public final class MultiManageBottomController extends sh7 {
             this.a = multiManageBottomController;
         }
 
-        public static final void b(c05 c05Var) {
+        public static final void b(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(65537, null, c05Var) == null) && c05Var != null) {
-                c05Var.dismiss();
+            if ((interceptable == null || interceptable.invokeL(65537, null, f05Var) == null) && f05Var != null) {
+                f05Var.dismiss();
             }
         }
 
-        public static final void c(c05 c05Var) {
+        public static final void c(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(65538, null, c05Var) == null) && c05Var != null) {
-                c05Var.dismiss();
+            if ((interceptable == null || interceptable.invokeL(65538, null, f05Var) == null) && f05Var != null) {
+                f05Var.dismiss();
             }
         }
 
-        @Override // com.baidu.tieba.g16.c
+        @Override // com.baidu.tieba.k16.c
         public void a(DeleteThreadHttpResponseMessage deleteThreadHttpResponseMessage) {
             String string;
             Interceptable interceptable = $ic;
@@ -288,10 +288,10 @@ public final class MultiManageBottomController extends sh7 {
                 return;
             }
             this.a.A();
-            k16 k16Var = this.a.h;
-            if (k16Var != null) {
-                k16Var.y();
-                k16Var.x();
+            o16 o16Var = this.a.h;
+            if (o16Var != null) {
+                o16Var.y();
+                o16Var.x();
             }
             if (deleteThreadHttpResponseMessage.getError() == 0) {
                 if (!TextUtils.isEmpty(deleteThreadHttpResponseMessage.getText())) {
@@ -300,44 +300,44 @@ public final class MultiManageBottomController extends sh7 {
                     string = this.a.J().getString(R.string.delete_fail);
                 }
                 if (deleteThreadHttpResponseMessage.getRetType() == 1211066) {
-                    c05 c05Var = new c05(this.a.J());
-                    c05Var.setMessage(string);
-                    c05Var.setPositiveButton(R.string.dialog_known, new c05.e() { // from class: com.baidu.tieba.eh7
+                    f05 f05Var = new f05(this.a.J());
+                    f05Var.setMessage(string);
+                    f05Var.setPositiveButton(R.string.dialog_known, new f05.e() { // from class: com.baidu.tieba.ih7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
-                        @Override // com.baidu.tieba.c05.e
-                        public final void onClick(c05 c05Var2) {
+                        @Override // com.baidu.tieba.f05.e
+                        public final void onClick(f05 f05Var2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, c05Var2) == null) {
-                                MultiManageBottomController.d.b(c05Var2);
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, f05Var2) == null) {
+                                MultiManageBottomController.d.b(f05Var2);
                             }
                         }
                     });
-                    c05Var.setCanceledOnTouchOutside(false);
+                    f05Var.setCanceledOnTouchOutside(false);
                     if ((this.a.J() instanceof TbPageContextSupport) && ((TbPageContextSupport) this.a.J()).getPageContext() != null) {
-                        c05Var.create(((TbPageContextSupport) this.a.J()).getPageContext());
-                        c05Var.show();
+                        f05Var.create(((TbPageContextSupport) this.a.J()).getPageContext());
+                        f05Var.show();
                     }
                 } else if (deleteThreadHttpResponseMessage.getRetType() == 1211067) {
-                    c05 c05Var2 = new c05(this.a.J());
-                    c05Var2.setMessage(string);
-                    c05Var2.setPositiveButton(R.string.obfuscated_res_0x7f0f0b86, new c05.e() { // from class: com.baidu.tieba.ph7
+                    f05 f05Var2 = new f05(this.a.J());
+                    f05Var2.setMessage(string);
+                    f05Var2.setPositiveButton(R.string.obfuscated_res_0x7f0f0b86, new f05.e() { // from class: com.baidu.tieba.th7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
-                        @Override // com.baidu.tieba.c05.e
-                        public final void onClick(c05 c05Var3) {
+                        @Override // com.baidu.tieba.f05.e
+                        public final void onClick(f05 f05Var3) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, c05Var3) == null) {
-                                MultiManageBottomController.d.c(c05Var3);
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, f05Var3) == null) {
+                                MultiManageBottomController.d.c(f05Var3);
                             }
                         }
                     });
-                    c05Var2.setCanceledOnTouchOutside(false);
+                    f05Var2.setCanceledOnTouchOutside(false);
                     if ((this.a.J() instanceof TbPageContextSupport) && ((TbPageContextSupport) this.a.J()).getPageContext() != null) {
-                        c05Var2.create(((TbPageContextSupport) this.a.J()).getPageContext());
-                        c05Var2.show();
+                        f05Var2.create(((TbPageContextSupport) this.a.J()).getPageContext());
+                        f05Var2.show();
                     }
                 } else {
                     BdUtilHelper.showToast(this.a.J(), deleteThreadHttpResponseMessage.getText());
@@ -349,7 +349,7 @@ public final class MultiManageBottomController extends sh7 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class e extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -412,23 +412,23 @@ public final class MultiManageBottomController extends sh7 {
         this.b = activity;
         this.e = new LinkedHashSet();
         this.f = true;
-        this.g = new g16("0", f());
+        this.g = new k16("0", f());
     }
 
-    public final List<d87> I(p87 p87Var) {
+    public final List<h87> I(t87 t87Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, p87Var)) == null) {
-            if (p87Var.a() instanceof s57) {
-                for (nb7<? extends Object> nb7Var : ((s57) p87Var.a()).c()) {
-                    Object b2 = nb7Var.b();
-                    if (b2 instanceof g57) {
-                        return ((g57) b2).m().m;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t87Var)) == null) {
+            if (t87Var.a() instanceof w57) {
+                for (rb7<? extends Object> rb7Var : ((w57) t87Var.a()).c()) {
+                    Object b2 = rb7Var.b();
+                    if (b2 instanceof k57) {
+                        return ((k57) b2).m().m;
                     }
                 }
                 return null;
-            } else if (p87Var.a() instanceof xf7) {
-                return ((xf7) p87Var.a()).l().e();
+            } else if (t87Var.a() instanceof bg7) {
+                return ((bg7) t87Var.a()).l().e();
             } else {
                 return null;
             }
@@ -436,11 +436,11 @@ public final class MultiManageBottomController extends sh7 {
         return (List) invokeL.objValue;
     }
 
-    public final void R(p87 p87Var) {
+    public final void R(t87 t87Var) {
         boolean d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, p87Var) == null) {
-            d2 = di7.d(p87Var);
+        if (interceptable == null || interceptable.invokeL(1048590, this, t87Var) == null) {
+            d2 = hi7.d(t87Var);
             boolean z = !d2;
             if (z) {
                 if (this.f) {
@@ -452,11 +452,11 @@ public final class MultiManageBottomController extends sh7 {
                     BdUtilHelper.showToast(this.b, (int) R.string.obfuscated_res_0x7f0f0865);
                     return;
                 }
-                this.e.add(p87Var);
-                di7.e(p87Var, z);
+                this.e.add(t87Var);
+                hi7.e(t87Var, z);
             } else {
-                this.e.remove(p87Var);
-                di7.e(p87Var, z);
+                this.e.remove(t87Var);
+                hi7.e(t87Var, z);
             }
             V();
         }
@@ -470,7 +470,7 @@ public final class MultiManageBottomController extends sh7 {
         }
     }
 
-    public static final void P(MultiManageBottomController this$0, n77 it) {
+    public static final void P(MultiManageBottomController this$0, r77 it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, it) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -493,29 +493,29 @@ public final class MultiManageBottomController extends sh7 {
     public final void C(List<String> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null) {
-            xq6.b().c(new vj7(this.b, list, 0));
+            br6.b().c(new zj7(this.b, list, 0));
         }
     }
 
-    public final c67 E(p87 p87Var) {
+    public final g67 E(t87 t87Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, p87Var)) == null) {
-            return G(I(p87Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t87Var)) == null) {
+            return G(I(t87Var));
         }
-        return (c67) invokeL.objValue;
+        return (g67) invokeL.objValue;
     }
 
-    public final l77 F(p87 p87Var) {
+    public final p77 F(t87 t87Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, p87Var)) == null) {
-            return H(I(p87Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t87Var)) == null) {
+            return H(I(t87Var));
         }
-        return (l77) invokeL.objValue;
+        return (p77) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.sh7
+    @Override // com.baidu.tieba.wh7
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
@@ -539,7 +539,7 @@ public final class MultiManageBottomController extends sh7 {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            xq6.b().c(new o87(this.b, false, false, 4, null));
+            br6.b().c(new s87(this.b, false, false, 4, null));
         }
     }
 
@@ -568,7 +568,7 @@ public final class MultiManageBottomController extends sh7 {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            rm7.a.c();
+            vm7.a.c();
             if (B()) {
                 return;
             }
@@ -579,7 +579,7 @@ public final class MultiManageBottomController extends sh7 {
     public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            rm7.a.d();
+            vm7.a.d();
             if (B()) {
                 return;
             }
@@ -587,7 +587,7 @@ public final class MultiManageBottomController extends sh7 {
         }
     }
 
-    @Override // com.baidu.tieba.sh7
+    @Override // com.baidu.tieba.wh7
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
@@ -601,12 +601,12 @@ public final class MultiManageBottomController extends sh7 {
         String f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ForumTabItem B = xh7.m(this.b).B();
+            ForumTabItem B = bi7.m(this.b).B();
             boolean z = true;
             if ((B == null || !B.isGeneralTab()) ? false : false) {
                 ArrayList arrayList = new ArrayList();
-                for (p87 p87Var : this.e) {
-                    f = di7.f(p87Var);
+                for (t87 t87Var : this.e) {
+                    f = hi7.f(t87Var);
                     if (f != null) {
                         arrayList.add(f);
                     }
@@ -616,7 +616,7 @@ public final class MultiManageBottomController extends sh7 {
         }
     }
 
-    @Override // com.baidu.tieba.sh7
+    @Override // com.baidu.tieba.wh7
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -642,46 +642,46 @@ public final class MultiManageBottomController extends sh7 {
         return invokeV.booleanValue;
     }
 
-    public final c67 G(List<d87> list) {
+    public final g67 G(List<h87> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
             if (list == null) {
                 return null;
             }
-            for (d87 d87Var : list) {
-                if (d87Var.c() == ThreadManageType.ID_MULTI_DEL.getValue()) {
-                    Object a2 = d87Var.a();
-                    if (!(a2 instanceof c67)) {
+            for (h87 h87Var : list) {
+                if (h87Var.c() == ThreadManageType.ID_MULTI_DEL.getValue()) {
+                    Object a2 = h87Var.a();
+                    if (!(a2 instanceof g67)) {
                         return null;
                     }
-                    return (c67) a2;
+                    return (g67) a2;
                 }
             }
             return null;
         }
-        return (c67) invokeL.objValue;
+        return (g67) invokeL.objValue;
     }
 
-    public final l77 H(List<d87> list) {
+    public final p77 H(List<h87> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
             if (list == null) {
                 return null;
             }
-            for (d87 d87Var : list) {
-                if (d87Var.c() == ThreadManageType.ID_MOVE_AREA.getValue()) {
-                    Object a2 = d87Var.a();
-                    if (!(a2 instanceof l77)) {
+            for (h87 h87Var : list) {
+                if (h87Var.c() == ThreadManageType.ID_MOVE_AREA.getValue()) {
+                    Object a2 = h87Var.a();
+                    if (!(a2 instanceof p77)) {
                         return null;
                     }
-                    return (l77) a2;
+                    return (p77) a2;
                 }
             }
             return null;
         }
-        return (l77) invokeL.objValue;
+        return (p77) invokeL.objValue;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -754,7 +754,7 @@ public final class MultiManageBottomController extends sh7 {
             TbPageContext pageContext = ((TbPageContextSupport) fragmentActivity).getPageContext();
             if (this.i == null) {
                 final FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(pageContext);
-                frsMoveAreaChooseView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zg7
+                frsMoveAreaChooseView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dh7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -774,19 +774,19 @@ public final class MultiManageBottomController extends sh7 {
                 ViewParent parent = frsMultiMoveBottomView.getParent();
                 if (parent != null) {
                     ((ViewGroup) parent).addView(frsMoveAreaChooseView, -1, -1);
-                    frsMoveAreaChooseView.setDoneListener(new FrsMoveAreaChooseView.a() { // from class: com.baidu.tieba.oh7
+                    frsMoveAreaChooseView.setDoneListener(new FrsMoveAreaChooseView.a() { // from class: com.baidu.tieba.sh7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         @Override // com.baidu.tieba.forum.view.FrsMoveAreaChooseView.a
-                        public final void a(n77 n77Var) {
+                        public final void a(r77 r77Var) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, n77Var) == null) {
-                                MultiManageBottomController.P(MultiManageBottomController.this, n77Var);
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, r77Var) == null) {
+                                MultiManageBottomController.P(MultiManageBottomController.this, r77Var);
                             }
                         }
                     });
-                    frsMoveAreaChooseView.setCancelListener(new View.OnClickListener() { // from class: com.baidu.tieba.zf7
+                    frsMoveAreaChooseView.setCancelListener(new View.OnClickListener() { // from class: com.baidu.tieba.dg7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -803,7 +803,7 @@ public final class MultiManageBottomController extends sh7 {
                     throw new NullPointerException("null cannot be cast to non-null type android.view.ViewGroup");
                 }
             }
-            l77 F = F((p87) CollectionsKt___CollectionsKt.last(this.e));
+            p77 F = F((t87) CollectionsKt___CollectionsKt.last(this.e));
             if (F == null) {
                 return;
             }
@@ -824,17 +824,17 @@ public final class MultiManageBottomController extends sh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             try {
-                ni7 value = ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().getValue();
+                ri7 value = ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().getValue();
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
                 JSONArray jSONArray = new JSONArray();
-                Iterator<p87> it = this.e.iterator();
+                Iterator<t87> it = this.e.iterator();
                 while (true) {
                     obj = "";
                     if (!it.hasNext()) {
                         break;
                     }
                     JSONObject jSONObject = new JSONObject();
-                    f = di7.f(it.next());
+                    f = hi7.f(it.next());
                     if (f != null) {
                         obj = f;
                     }
@@ -859,20 +859,20 @@ public final class MultiManageBottomController extends sh7 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && (this.b instanceof TbPageContextSupport) && this.e.size() > 0) {
             TbPageContext pageContext = ((TbPageContextSupport) this.b).getPageContext();
-            c67 E = E((p87) CollectionsKt___CollectionsKt.last(this.e));
+            g67 E = E((t87) CollectionsKt___CollectionsKt.last(this.e));
             if (E == null) {
                 return;
             }
-            j16 k = il7.k(E);
-            UserData l = il7.l(E);
+            n16 k = ml7.k(E);
+            UserData l = ml7.l(E);
             SparseArray<String> sparseArray = new SparseArray<>();
-            for (e67 e67Var : E.f()) {
-                sparseArray.put(e67Var.a(), e67Var.b());
+            for (i67 i67Var : E.f()) {
+                sparseArray.put(i67Var.a(), i67Var.b());
             }
             JSONArray jSONArray = new JSONArray();
             JSONArray jSONArray2 = new JSONArray();
-            for (p87 p87Var : this.e) {
-                c67 E2 = E(p87Var);
+            for (t87 t87Var : this.e) {
+                g67 E2 = E(t87Var);
                 if (E2 != null) {
                     jSONArray.put(E2.g());
                     jSONArray2.put(E2.e());
@@ -895,26 +895,26 @@ public final class MultiManageBottomController extends sh7 {
             String string5 = this.b.getString(R.string.delete_thread_reason_5);
             Intrinsics.checkNotNullExpressionValue(string5, "activity.getString(R.str…g.delete_thread_reason_5)");
             String[] strArr = {string, string2, string3, string4, string5};
-            k16 k16Var = this.h;
-            if (k16Var != null) {
-                k16Var.x();
-                k16Var.y();
+            o16 o16Var = this.h;
+            if (o16Var != null) {
+                o16Var.x();
+                o16Var.y();
             }
             FrsMultiDeleteBottomView frsMultiDeleteBottomView = this.c;
             if (frsMultiDeleteBottomView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("multiDeleteBottomView");
                 frsMultiDeleteBottomView = null;
             }
-            k16 k16Var2 = new k16(pageContext, frsMultiDeleteBottomView, k, l, f());
-            k16Var2.G(false);
-            k16Var2.I(strArr);
-            k16Var2.H(negativeFeedBackData);
-            k16Var2.K("2");
-            this.h = k16Var2;
+            o16 o16Var2 = new o16(pageContext, frsMultiDeleteBottomView, k, l, f());
+            o16Var2.G(false);
+            o16Var2.I(strArr);
+            o16Var2.H(negativeFeedBackData);
+            o16Var2.K("2");
+            this.h = o16Var2;
         }
     }
 
-    public final void U(Context context, List<d87> list) {
+    public final void U(Context context, List<h87> list) {
         TbPageContext tbPageContext;
         boolean z;
         Interceptable interceptable = $ic;
@@ -962,7 +962,7 @@ public final class MultiManageBottomController extends sh7 {
         }
     }
 
-    @Override // com.baidu.tieba.sh7
+    @Override // com.baidu.tieba.wh7
     public void k(Bundle bundle, ActivityForumBinding binding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, bundle, binding) == null) {
@@ -974,9 +974,9 @@ public final class MultiManageBottomController extends sh7 {
             FrsMultiMoveBottomView frsMultiMoveBottomView = binding.o;
             Intrinsics.checkNotNullExpressionValue(frsMultiMoveBottomView, "binding.multiMultiMoveBottomLayout");
             this.d = frsMultiMoveBottomView;
-            xq6.b().b(new wq6(f(), Reflection.getOrCreateKotlinClass(o87.class)), new a(this, o87.class));
-            xq6.b().b(new wq6(f(), Reflection.getOrCreateKotlinClass(p87.class)), new b(this, p87.class));
-            xq6.b().b(new wq6(f(), Reflection.getOrCreateKotlinClass(n87.class)), new c(this, n87.class));
+            br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(s87.class)), new a(this, s87.class));
+            br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(t87.class)), new b(this, t87.class));
+            br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(r87.class)), new c(this, r87.class));
             FrsMultiDeleteBottomView frsMultiDeleteBottomView2 = this.c;
             FrsMultiMoveBottomView frsMultiMoveBottomView2 = null;
             if (frsMultiDeleteBottomView2 == null) {

@@ -12,8 +12,8 @@ import android.widget.SeekBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uua;
-import com.baidu.tieba.wya;
+import com.baidu.tieba.tua;
+import com.baidu.tieba.vya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -131,7 +131,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
         this.b = 1;
         this.c = false;
         this.e = new a(this);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wya.LinearVideoLoadingSeekBar);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vya.LinearVideoLoadingSeekBar);
         this.d = obtainStyledAttributes.getColor(1, -16777216);
         this.b = obtainStyledAttributes.getDimensionPixelSize(0, this.b);
         obtainStyledAttributes.recycle();
@@ -183,7 +183,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
             } else {
                 max = Math.max(255 - ((this.a * 255) / width), 30) / 255.0f;
             }
-            paint.setColor(uua.a(this.d, max));
+            paint.setColor(tua.a(this.d, max));
             paint.setStrokeWidth(this.b);
             float f = width / 2.0f;
             int i2 = this.a;

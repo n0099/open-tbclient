@@ -19,12 +19,12 @@ public class od0 implements zj0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a extends bp0<JSONObject> {
+    public class a extends dp0<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ od0 a;
 
-        @Override // com.baidu.tieba.zo0
+        @Override // com.baidu.tieba.bp0
         public void a(Exception exc, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
@@ -50,7 +50,7 @@ public class od0 implements zj0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ap0
+        @Override // com.baidu.tieba.cp0
         /* renamed from: e */
         public void b(Headers headers, JSONObject jSONObject, int i) {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class od0 implements zj0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ap0
+        @Override // com.baidu.tieba.cp0
         /* renamed from: f */
         public JSONObject d(Headers headers, String str, int i) throws Exception {
             InterceptResult invokeLLI;
@@ -137,7 +137,7 @@ public class od0 implements zj0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return yy0.a().b("nad_app_quick_config").getLong("ip_dx_expire_time", 0L);
+            return az0.a().b("nad_app_quick_config").getLong("ip_dx_expire_time", 0L);
         }
         return invokeV.longValue;
     }
@@ -146,7 +146,7 @@ public class od0 implements zj0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return yy0.a().b("nad_app_quick_config").getLong("request_ip_dx_time", 0L);
+            return az0.a().b("nad_app_quick_config").getLong("request_ip_dx_time", 0L);
         }
         return invokeV.longValue;
     }
@@ -155,7 +155,7 @@ public class od0 implements zj0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return yy0.a().b("nad_app_quick_config").getString("ip_dx_data", "");
+            return az0.a().b("nad_app_quick_config").getString("ip_dx_data", "");
         }
         return (String) invokeV.objValue;
     }
@@ -208,21 +208,21 @@ public class od0 implements zj0 {
     public final void j(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            yy0.a().b("nad_app_quick_config").g("ip_dx_expire_time", j);
+            az0.a().b("nad_app_quick_config").g("ip_dx_expire_time", j);
         }
     }
 
     public final void k(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
-            yy0.a().b("nad_app_quick_config").h("ip_dx_data", jSONObject.toString());
+            az0.a().b("nad_app_quick_config").h("ip_dx_data", jSONObject.toString());
         }
     }
 
     public final void l(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            yy0.a().b("nad_app_quick_config").g("request_ip_dx_time", j);
+            az0.a().b("nad_app_quick_config").g("request_ip_dx_time", j);
         }
     }
 
@@ -234,11 +234,11 @@ public class od0 implements zj0 {
             String g = a2.g();
             String k = a2.k();
             String str = "https://bz-ipdx.baidu.com/miaozhen?" + String.format("uid=%s&appname=%s", g, k);
-            to0 a3 = po0.b().a();
-            ip0 ip0Var = new ip0();
-            ip0Var.l(str);
-            ip0Var.c();
-            a3.a(ip0Var, new a(this));
+            vo0 a3 = ro0.b().a();
+            kp0 kp0Var = new kp0();
+            kp0Var.l(str);
+            kp0Var.c();
+            a3.a(kp0Var, new a(this));
         }
     }
 }

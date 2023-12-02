@@ -112,14 +112,14 @@ public final class n extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.zs = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f09146c);
-        this.zy = (KSCornerImageView) this.gS.findViewById(R.id.obfuscated_res_0x7f091469);
-        this.yz = (TextView) this.gS.findViewById(R.id.obfuscated_res_0x7f09146e);
-        this.zz = (LinearLayout) this.gS.findViewById(R.id.obfuscated_res_0x7f09145b);
-        this.zA = (KsPriceView) this.gS.findViewById(R.id.obfuscated_res_0x7f09146b);
-        this.zB = (TextView) this.gS.findViewById(R.id.obfuscated_res_0x7f091458);
-        this.zC = this.gS.findViewById(R.id.obfuscated_res_0x7f09146d);
-        this.zD = (KSCornerImageView) this.gS.findViewById(R.id.obfuscated_res_0x7f09146a);
+        this.zs = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f09146d);
+        this.zy = (KSCornerImageView) this.gS.findViewById(R.id.obfuscated_res_0x7f09146a);
+        this.yz = (TextView) this.gS.findViewById(R.id.obfuscated_res_0x7f09146f);
+        this.zz = (LinearLayout) this.gS.findViewById(R.id.obfuscated_res_0x7f09145c);
+        this.zA = (KsPriceView) this.gS.findViewById(R.id.obfuscated_res_0x7f09146c);
+        this.zB = (TextView) this.gS.findViewById(R.id.obfuscated_res_0x7f091459);
+        this.zC = this.gS.findViewById(R.id.obfuscated_res_0x7f09146e);
+        this.zD = (KSCornerImageView) this.gS.findViewById(R.id.obfuscated_res_0x7f09146b);
         this.zB.setText(com.kwad.components.ad.d.b.Y());
         this.zB.setOnClickListener(this);
         this.zy.setOnClickListener(this);
@@ -129,7 +129,7 @@ public final class n extends d implements View.OnClickListener {
             ViewGroup.LayoutParams layoutParams = this.gS.getLayoutParams();
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-                layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050b);
+                layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050c);
                 this.gS.setLayoutParams(layoutParams2);
             }
         }

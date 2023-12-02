@@ -65,7 +65,7 @@ public final class t extends b implements View.OnClickListener, com.kwad.compone
 
     @Override // com.kwad.components.ad.reward.e.o
     public final int cf() {
-        return com.kwad.sdk.d.a.a.g(getContext(), R.dimen.obfuscated_res_0x7f07054d) + com.kwad.sdk.d.a.a.g(getContext(), R.dimen.obfuscated_res_0x7f070547);
+        return com.kwad.sdk.d.a.a.g(getContext(), R.dimen.obfuscated_res_0x7f07054e) + com.kwad.sdk.d.a.a.g(getContext(), R.dimen.obfuscated_res_0x7f070548);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -87,8 +87,8 @@ public final class t extends b implements View.OnClickListener, com.kwad.compone
         });
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.hy, Key.TRANSLATION_X, f - (this.hy.getLeft() + (this.hy.getWidth() / 2.0f)));
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.hy, Key.TRANSLATION_Y, f2 - (this.hy.getTop() + (this.hy.getHeight() / 2.0f)));
-        float dimension = resources.getDimension(R.dimen.obfuscated_res_0x7f070547);
-        final float dimension2 = resources.getDimension(R.dimen.obfuscated_res_0x7f07054b);
+        float dimension = resources.getDimension(R.dimen.obfuscated_res_0x7f070548);
+        final float dimension2 = resources.getDimension(R.dimen.obfuscated_res_0x7f07054c);
         float width = this.hC.getWidth();
         float width2 = this.hB.getWidth();
         if (width == 0.0f || width2 == 0.0f) {
@@ -120,7 +120,7 @@ public final class t extends b implements View.OnClickListener, com.kwad.compone
         });
         int color = resources.getColor(R.color.obfuscated_res_0x7f0607aa);
         final int color2 = resources.getColor(R.color.obfuscated_res_0x7f0607a6);
-        final int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07054c);
+        final int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07054d);
         ValueAnimator ofArgb = com.kwad.sdk.widget.a.ofArgb(color, color2);
         ofArgb.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.reward.presenter.t.10
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -197,7 +197,7 @@ public final class t extends b implements View.OnClickListener, com.kwad.compone
             }
         });
         final ViewGroup.LayoutParams layoutParams = this.hE.getLayoutParams();
-        ValueAnimator duration = ValueAnimator.ofFloat(0.0f, resources.getDimension(R.dimen.obfuscated_res_0x7f07054e)).setDuration(500L);
+        ValueAnimator duration = ValueAnimator.ofFloat(0.0f, resources.getDimension(R.dimen.obfuscated_res_0x7f07054f)).setDuration(500L);
         duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.reward.presenter.t.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -260,26 +260,26 @@ public final class t extends b implements View.OnClickListener, com.kwad.compone
     private void cg() {
         final int dimensionPixelSize;
         int dimensionPixelSize2;
-        final AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09148f);
+        final AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091490);
         ViewGroup viewGroup = (ViewGroup) com.kwad.sdk.m.l.a(getContext(), R.layout.obfuscated_res_0x7f0d0511, adBaseFrameLayout, false);
         this.hy = viewGroup;
         viewGroup.setVisibility(0);
         Resources resources = this.hy.getResources();
-        final int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070549);
+        final int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07054a);
         if (this.qn.mScreenOrientation == 1) {
-            dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070548) + com.kwad.sdk.d.a.a.a(getContext(), 50.0f);
+            dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070549) + com.kwad.sdk.d.a.a.a(getContext(), 50.0f);
         } else {
-            dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070548);
+            dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070549);
         }
         if (this.qn.mScreenOrientation == 1) {
-            dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07054d) + com.kwad.sdk.d.a.a.a(getContext(), 50.0f);
+            dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07054e) + com.kwad.sdk.d.a.a.a(getContext(), 50.0f);
         } else {
-            dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07054d);
+            dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07054e);
         }
-        int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070547);
+        int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070548);
         FrameLayout frameLayout = (FrameLayout) com.kwad.sdk.m.l.a(getContext(), R.layout.obfuscated_res_0x7f0d0512, adBaseFrameLayout, false);
         this.hE = frameLayout;
-        this.hF = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0914a5);
+        this.hF = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0914a6);
         this.hE.setVisibility(4);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, dimensionPixelSize4);
         layoutParams.leftMargin = dimensionPixelSize3;
@@ -304,11 +304,11 @@ public final class t extends b implements View.OnClickListener, com.kwad.compone
     }
 
     private void initView() {
-        this.hz = (TextView) this.hy.findViewById(R.id.obfuscated_res_0x7f0914a1);
-        this.hA = (TextView) this.hy.findViewById(R.id.obfuscated_res_0x7f0914a0);
-        this.hB = (ImageView) this.hy.findViewById(R.id.obfuscated_res_0x7f09149e);
-        this.hC = (FrameLayout) this.hy.findViewById(R.id.obfuscated_res_0x7f09149c);
-        this.hD = (ImageView) this.hy.findViewById(R.id.obfuscated_res_0x7f09149d);
+        this.hz = (TextView) this.hy.findViewById(R.id.obfuscated_res_0x7f0914a2);
+        this.hA = (TextView) this.hy.findViewById(R.id.obfuscated_res_0x7f0914a1);
+        this.hB = (ImageView) this.hy.findViewById(R.id.obfuscated_res_0x7f09149f);
+        this.hC = (FrameLayout) this.hy.findViewById(R.id.obfuscated_res_0x7f09149d);
+        this.hD = (ImageView) this.hy.findViewById(R.id.obfuscated_res_0x7f09149e);
         this.hz.setOnClickListener(this);
         this.hA.setOnClickListener(this);
         this.hC.setOnClickListener(this);

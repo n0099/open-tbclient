@@ -34,9 +34,9 @@ import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.TbSocketMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b05;
+import com.baidu.tieba.bo5;
 import com.baidu.tieba.da;
-import com.baidu.tieba.xn5;
+import com.baidu.tieba.e05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -252,13 +252,13 @@ public abstract class NetModel<T extends INetRequestData, D extends IResponseDat
                         if (i != 3 && i != 4) {
                             return;
                         }
-                        this.a.j0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e6f));
+                        this.a.j0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e70));
                         return;
                     }
-                    this.a.l0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e6f));
+                    this.a.l0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e70));
                     return;
                 }
-                this.a.k0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e6f));
+                this.a.k0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e70));
             }
         }
     }
@@ -293,7 +293,7 @@ public abstract class NetModel<T extends INetRequestData, D extends IResponseDat
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.a.k0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e6f));
+            this.a.k0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e70));
         }
     }
 
@@ -327,7 +327,7 @@ public abstract class NetModel<T extends INetRequestData, D extends IResponseDat
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.a.j0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e6f));
+            this.a.j0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e70));
         }
     }
 
@@ -361,7 +361,7 @@ public abstract class NetModel<T extends INetRequestData, D extends IResponseDat
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.a.l0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e6f));
+            this.a.l0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e70));
         }
     }
 
@@ -395,7 +395,7 @@ public abstract class NetModel<T extends INetRequestData, D extends IResponseDat
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.a.j0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e6f));
+            this.a.j0(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e70));
         }
     }
 
@@ -660,18 +660,18 @@ public abstract class NetModel<T extends INetRequestData, D extends IResponseDat
             publishProgress(b);
             if (this.a.isNeedCache() && (httpNetContext = this.b) != null && httpNetContext.getResponse() != null && this.b.getResponse().isRequestSuccess() && b != null) {
                 T t = this.a.c;
-                if (t instanceof xn5) {
-                    xn5 xn5Var = (xn5) t;
-                    String cacheKey = xn5Var.getCacheKey();
-                    String cacheTableName = xn5Var.getCacheTableName();
-                    if (xn5Var.isNeedUid()) {
+                if (t instanceof bo5) {
+                    bo5 bo5Var = (bo5) t;
+                    String cacheKey = bo5Var.getCacheKey();
+                    String cacheTableName = bo5Var.getCacheTableName();
+                    if (bo5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     } else {
                         str = null;
                     }
                     if (cacheKey != null && !TextUtils.isEmpty(cacheTableName) && b != null) {
-                        b05.k();
-                        da<String> n = b05.n(cacheTableName, str);
+                        e05.k();
+                        da<String> n = e05.n(cacheTableName, str);
                         if (n == null) {
                             return b;
                         }

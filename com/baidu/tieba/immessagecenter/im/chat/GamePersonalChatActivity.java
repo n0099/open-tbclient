@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.atomData.GamePersonalChatActivityConfig;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.es8;
+import com.baidu.tieba.is8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,10 +32,10 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     public CustomMessageListener r0;
 
     @Override // com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity
-    public boolean P1(es8 es8Var) {
+    public boolean P1(is8 is8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, es8Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, is8Var)) == null) {
             return true;
         }
         return invokeL.booleanValue;
@@ -249,7 +249,7 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.i0.isEmpty()) {
             return;
         }
-        new TBAlertBuilder(getPageContext().getPageActivity()).setTitle(R.string.game_back_tip).setDesc(R.string.cancel_game_match).setDescLightStyle(true).setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f05a0, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f120e, TBAlertConfig.OperateBtnStyle.MAIN, new c(this))).setAutoClose().setCancelable(false).show();
+        new TBAlertBuilder(getPageContext().getPageActivity()).setTitle(R.string.game_back_tip).setDesc(R.string.cancel_game_match).setDescLightStyle(true).setOperateBtn(new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f05a0, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f120f, TBAlertConfig.OperateBtnStyle.MAIN, new c(this))).setAutoClose().setCancelable(false).show();
     }
 
     @Override // com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity

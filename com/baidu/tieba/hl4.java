@@ -1,130 +1,95 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.ddmlib.tools.perflib.vmtrace.utils.Strings;
+import com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hl4 {
+public class hl4 implements Comparable<hl4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public long b;
+    public long c;
+    public String d;
+    public long e;
+    public MethodInfo f;
 
-    public static Map<String, Integer> a(Set<String> set) {
+    public hl4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j = this.c - this.b;
+            if (j < 0) {
+                return 0L;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public MethodInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (MethodInfo) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(hl4 hl4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, set)) == null) {
-            HashMap hashMap = new HashMap();
-            int i = 0;
-            for (String str : set) {
-                hashMap.put(str, Integer.valueOf(i));
-                i++;
-            }
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hl4Var)) == null) {
+            return (int) (this.e - hl4Var.e());
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public static StringBuilder b(StringBuilder... sbArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sbArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (StringBuilder sb2 : sbArr) {
-                sb.append((CharSequence) sb2);
-            }
-            return sb;
-        }
-        return (StringBuilder) invokeL.objValue;
-    }
-
-    public static String c(List<el4> list, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, str)) == null) {
-            Set<String> d = fl4.b().d();
-            int size = d.size();
-            Map<String, Integer> a = a(d);
-            StringBuilder[] sbArr = new StringBuilder[size];
-            for (int i = 0; i < size; i++) {
-                sbArr[i] = new StringBuilder();
-            }
-            for (el4 el4Var : list) {
-                Integer num = a.get(el4Var.f());
-                if (num != null) {
-                    sbArr[num.intValue()].append(Strings.repeat(GlideException.IndentedAppendable.INDENT, el4Var.d()));
-                    sbArr[num.intValue()].append("- ");
-                    StringBuilder sb = sbArr[num.intValue()];
-                    sb.append(el4Var.b() / 1000);
-                    sb.append(ms.c);
-                    sbArr[num.intValue()].append("   ");
-                    sbArr[num.intValue()].append(el4Var.f());
-                    sbArr[num.intValue()].append("   ");
-                    sbArr[num.intValue()].append(el4Var.c().getFullName());
-                    sbArr[num.intValue()].append("\n");
-                }
-            }
-            String sb2 = b(sbArr).toString();
-            d(sb2, str);
-            return sb2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void d(String str, String str2) {
-        FileWriter fileWriter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-            FileWriter fileWriter2 = null;
-            try {
-                try {
-                    try {
-                        File parentFile = new File(str2).getParentFile();
-                        if (parentFile != null && !parentFile.exists()) {
-                            parentFile.mkdirs();
-                        }
-                        fileWriter = new FileWriter(str2);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return;
-                    }
-                } catch (IOException e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                fileWriter.write(str);
-                fileWriter.flush();
-                fileWriter.close();
-            } catch (IOException e3) {
-                e = e3;
-                fileWriter2 = fileWriter;
-                e.printStackTrace();
-                if (fileWriter2 != null) {
-                    fileWriter2.close();
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                fileWriter2 = fileWriter;
-                if (fileWriter2 != null) {
-                    try {
-                        fileWriter2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-        }
+        return invokeL.intValue;
     }
 }

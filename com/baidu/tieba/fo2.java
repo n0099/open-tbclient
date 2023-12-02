@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes6.dex */
-public class fo2 extends bk2<so2> {
+/* loaded from: classes5.dex */
+public class fo2 extends ek2<vo2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bk2
+    @Override // com.baidu.tieba.ek2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "seekTo" : (String) invokeV.objValue;
     }
 
     public fo2() {
@@ -37,16 +36,14 @@ public class fo2 extends bk2<so2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bk2
+    @Override // com.baidu.tieba.ek2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull so2 so2Var) {
-        Object obj;
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull vo2 vo2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, so2Var) != null) || (obj = command.obj) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, vo2Var) == null) {
+            vo2Var.seekTo(command.arg1);
+            String str = command.what;
+            d(vo2Var, str, "SeekTo: " + command.arg1, false);
         }
-        so2Var.setSurface((Surface) obj);
-        String str = command.what;
-        d(so2Var, str, "Surface:" + command.obj.hashCode(), false);
     }
 }

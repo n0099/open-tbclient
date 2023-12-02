@@ -1,23 +1,68 @@
 package com.baidu.tieba;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
 /* loaded from: classes6.dex */
-public interface htb {
-    boolean available();
+public class htb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public AudioPlayData a;
+    public itb b;
 
-    int availableBytes();
+    public htb(AudioPlayData audioPlayData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {audioPlayData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = audioPlayData;
+        if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
+            return;
+        }
+        this.b = new itb(audioPlayData.audioPath);
+    }
 
-    void clearQueues();
+    public itb a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (itb) invokeV.objValue;
+    }
 
-    void close();
+    public AudioPlayData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AudioPlayData) invokeV.objValue;
+    }
 
-    void flush();
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            itb itbVar = this.b;
+            return itbVar != null && itbVar.i();
+        }
+        return invokeV.booleanValue;
+    }
 
-    int getBytes(byte[] bArr, int i);
-
-    void initVoiceChanger(int i, int i2, int i3, int i4);
-
-    boolean putBytes(byte[] bArr, int i);
-
-    void setVoiceChangeType(int[] iArr);
-
-    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
+    public void d(itb itbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, itbVar) == null) {
+            this.b = itbVar;
+        }
+    }
 }

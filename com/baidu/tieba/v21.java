@@ -1,100 +1,100 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.pm.PackageManager;
-import com.baidu.tieba.u11;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v21 extends x21 {
+public abstract class v21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
-    }
+    public abstract void b(CharSequence charSequence);
 
+    @TargetApi(11)
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public static class a extends v21 {
         public static /* synthetic */ Interceptable $ic;
+        public static ClipboardManager a;
+        public static ClipData b;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ b c;
-        public final /* synthetic */ int d;
 
-        public a(String[] strArr, Activity activity, b bVar, int i) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-396334825, "Lcom/baidu/tieba/v21$a;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-396334825, "Lcom/baidu/tieba/v21$a;");
+            }
+        }
+
+        @SuppressLint({"ServiceCast"})
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {strArr, activity, bVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.a = strArr;
-            this.b = activity;
-            this.c = bVar;
-            this.d = i;
+            a = (ClipboardManager) hf0.b().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.v21
+        public void b(CharSequence charSequence) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = new int[this.a.length];
-                PackageManager packageManager = this.b.getPackageManager();
-                String packageName = this.b.getPackageName();
-                int length = this.a.length;
-                for (int i = 0; i < length; i++) {
-                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
+            if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
+                ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
+                b = newPlainText;
+                try {
+                    a.setPrimaryClip(newPlainText);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                this.c.onRequestPermissionsResult(this.d, this.a, iArr);
             }
         }
     }
 
-    public static void b(Activity activity, String[] strArr, int i) {
+    public v21() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, activity, strArr, i) == null) {
-            if (u11.b.d()) {
-                w21.a(activity, strArr, i);
-            } else if (activity instanceof b) {
-                c(activity, strArr, i, (b) activity);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c(Activity activity, String[] strArr, int i, b bVar) {
+    public static v21 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65537, null, activity, strArr, i, bVar) == null) {
-            if (u11.b.d()) {
-                w21.a(activity, strArr, i);
-            } else if (!activity.isFinishing() && bVar != null) {
-                wf0.c(new a(strArr, activity, bVar, i));
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return new a();
         }
-    }
-
-    public static boolean d(Activity activity, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, activity, str)) == null) {
-            if (u11.b.d() && w21.b(activity, str)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (v21) invokeL.objValue;
     }
 }

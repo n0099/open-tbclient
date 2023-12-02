@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.recforum.holder;
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.enterForum.recforum.view.RecommendThreadView;
-import com.baidu.tieba.ny6;
+import com.baidu.tieba.ry6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,10 +35,10 @@ public class RecommendThreadHolder extends TypeAdapter.ViewHolder {
         this.a = recommendThreadView;
     }
 
-    public void a(ny6 ny6Var) {
+    public void a(ry6 ry6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ny6Var) == null) {
-            this.a.setData(ny6Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ry6Var) == null) {
+            this.a.setData(ry6Var);
         }
     }
 }

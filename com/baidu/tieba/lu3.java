@@ -1,22 +1,17 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.tieba.cu3;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 /* loaded from: classes7.dex */
 public interface lu3 {
-    void a(DownloadInfo downloadInfo);
+    void a(int i);
 
-    void b(DownloadInfo downloadInfo);
+    void b();
 
-    void c(DownloadInfo downloadInfo);
+    void c(DownloadState downloadState, int i);
 
-    void d(DownloadInfo downloadInfo);
+    void d(String str);
 
-    void destroy();
+    String e();
 
-    void f(@NonNull String str, @NonNull Uri uri, @NonNull cu3.d<Boolean> dVar);
-
-    DownloadInfo g(String str);
+    void f(boolean z);
 }

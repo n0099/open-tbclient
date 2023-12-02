@@ -99,9 +99,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         Resources resources = context.getResources();
         this.badgeBounds = new Rect();
         this.shapeDrawable = new MaterialShapeDrawable();
-        this.badgeRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705af);
-        this.badgeWidePadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705ae);
-        this.badgeWithTextRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705b2);
+        this.badgeRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705b2);
+        this.badgeWidePadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705b1);
+        this.badgeWithTextRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705b5);
         TextDrawableHelper textDrawableHelper = new TextDrawableHelper(this);
         this.textDrawableHelper = textDrawableHelper;
         textDrawableHelper.getTextPaint().setTextAlign(Paint.Align.CENTER);
@@ -220,9 +220,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         }
         Resources resources = context.getResources();
         if (hasNumber()) {
-            i = R.dimen.obfuscated_res_0x7f0705b0;
+            i = R.dimen.obfuscated_res_0x7f0705b3;
         } else {
-            i = R.dimen.obfuscated_res_0x7f0705ad;
+            i = R.dimen.obfuscated_res_0x7f0705b0;
         }
         int dimensionPixelSize = resources.getDimensionPixelSize(i);
         int i3 = this.savedState.badgeGravity;

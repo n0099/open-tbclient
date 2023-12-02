@@ -1,52 +1,42 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Agree;
-import tbclient.FeedContentResource;
-import tbclient.FeedKV;
-import tbclient.FeedPostExpose;
-import tbclient.PostExposeHead;
+import tbclient.FeedRoomComponent;
+import tbclient.ThreadRecommendTag;
+import tbclient.Voice;
 /* loaded from: classes5.dex */
-public class byc extends ltc {
+public class byc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedPostExpose feedPostExpose) {
+    public static JSONObject b(@NonNull FeedRoomComponent feedRoomComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedPostExpose)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedRoomComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "schema", feedPostExpose.schema);
-            ltc.a(jSONObject, "stamp_url", feedPostExpose.stamp_url);
-            if (feedPostExpose.floor != null) {
+            ktc.a(jSONObject, "top_label", feedRoomComponent.top_label);
+            ktc.a(jSONObject, "status", feedRoomComponent.status);
+            Voice voice = feedRoomComponent.voice;
+            if (voice != null) {
+                ktc.a(jSONObject, "voice", ibd.b(voice));
+            }
+            if (feedRoomComponent.bottom_labels != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (FeedContentResource feedContentResource : feedPostExpose.floor) {
-                    jSONArray.put(exc.b(feedContentResource));
+                for (ThreadRecommendTag threadRecommendTag : feedRoomComponent.bottom_labels) {
+                    jSONArray.put(aad.b(threadRecommendTag));
                 }
-                ltc.a(jSONObject, "floor", jSONArray);
+                ktc.a(jSONObject, "bottom_labels", jSONArray);
             }
-            PostExposeHead postExposeHead = feedPostExpose.head_img;
-            if (postExposeHead != null) {
-                ltc.a(jSONObject, "head_img", s6d.b(postExposeHead));
-            }
-            if (feedPostExpose.business_info != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (FeedKV feedKV : feedPostExpose.business_info) {
-                    jSONArray2.put(sxc.b(feedKV));
-                }
-                ltc.a(jSONObject, "business_info", jSONArray2);
-            }
-            ltc.a(jSONObject, "head_text", feedPostExpose.head_text);
-            Agree agree = feedPostExpose.head_agree;
-            if (agree != null) {
-                ltc.a(jSONObject, "head_agree", cuc.b(agree));
-            }
+            ktc.a(jSONObject, "scheme", feedRoomComponent.scheme);
+            ktc.a(jSONObject, NetDiskFileMsg.NetDiskFile.JSON_KEY_COVER_URL, feedRoomComponent.cover_url);
+            ktc.a(jSONObject, "room_id", feedRoomComponent.room_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

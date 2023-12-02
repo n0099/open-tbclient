@@ -185,7 +185,7 @@ public class SwiperIndicatorView extends View {
         int mode = View.MeasureSpec.getMode(i2);
         int size = View.MeasureSpec.getSize(i2);
         if (mode != 1073741824) {
-            size = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029c);
+            size = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029d);
         }
         if (isSelectedDrawRectangle()) {
             float f = this.mIndicatorAttrs.indicatorItemSelectedWidth * this.mDensity;

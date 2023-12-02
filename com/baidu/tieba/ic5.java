@@ -1,136 +1,267 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.SocketMessageListener;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.InetSocketAddress;
-import java.net.Socket;
+import java.util.HashSet;
+@ModifyClass
 /* loaded from: classes6.dex */
-public class ic5 {
+public class ic5 extends SocketMessageListener {
     public static /* synthetic */ Interceptable $ic;
+    public static ic5 g;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public int b;
+    public long c;
+    public final SparseArray<b> d;
+    public final HashSet<Integer> e;
+    public int f;
 
-    public ic5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public boolean b;
+        public long c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a = 0;
+                if (this.b) {
+                    this.b = false;
+                    this.c = 0L;
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                int i2 = this.a + 1;
+                this.a = i2;
+                if (!this.b && i2 >= i) {
+                    this.b = true;
+                    this.c = System.currentTimeMillis();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947848718, "Lcom/baidu/tieba/ic5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947848718, "Lcom/baidu/tieba/ic5;");
                 return;
             }
         }
-        this.a = false;
-        this.b = 0;
+        g = new ic5();
     }
 
-    public int b() {
+    public static ic5 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return g;
+        }
+        return (ic5) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
         return invokeV.intValue;
     }
 
-    public final int c() {
+    @Modify(description = "强制使用短连接", type = Constants.SHORT_PING_CMD_TYPE)
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            if (netType != 1) {
-                if (netType != 2) {
-                    return 5000;
-                }
-                return 10000;
-            }
-            return 3000;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public void a(String str) {
-        int lastIndexOf;
-        String str2;
+    public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a = false;
-            this.b = 0;
-            if (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(":")) < 5) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            for (int i = 0; i < this.d.size(); i++) {
+                this.d.valueAt(i).b();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ic5() {
+        super(1001);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            String str3 = null;
-            try {
-                str2 = str.substring(5, lastIndexOf);
-            } catch (Exception e) {
-                e = e;
-                str2 = null;
-            }
-            try {
-                str3 = str.substring(lastIndexOf + 1);
-            } catch (Exception e2) {
-                e = e2;
-                BdLog.e(e.getMessage());
-                if (TextUtils.isEmpty(str2)) {
-                }
-                return;
-            }
-            if (TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                int i = 0;
-                int i2 = 0;
-                for (int i3 = 0; i3 < 3; i3++) {
-                    Socket socket = new Socket();
-                    long currentTimeMillis = System.currentTimeMillis();
-                    try {
-                        try {
-                            socket.connect(new InetSocketAddress(str2, JavaTypesHelper.toInt(String.valueOf(str3), 8000)), c());
-                            if (socket.isConnected()) {
-                                i++;
-                                i2 = (int) (i2 + (System.currentTimeMillis() - currentTimeMillis));
-                                this.a = true;
-                            }
-                            try {
-                                socket.close();
-                            } catch (Exception e3) {
-                                BdLog.e(e3.getMessage());
-                            }
-                        } catch (Throwable th) {
-                            try {
-                                socket.close();
-                            } catch (Exception e4) {
-                                BdLog.e(e4.getMessage());
-                            }
-                            throw th;
-                        }
-                    } catch (Exception e5) {
-                        BdLog.e(e5.getMessage());
-                        socket.close();
+        }
+        this.b = 3;
+        this.c = 300000L;
+        this.d = new SparseArray<>();
+        this.e = new HashSet<>();
+        this.f = 0;
+        MessageManager.getInstance().registerListener(0, this);
+    }
+
+    @Modify(description = "长连接是否可用", type = 32)
+    public boolean i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            this.f = 0;
+            if (j()) {
+                this.f = 3;
+                return false;
+            } else if (this.e.contains(Integer.valueOf(i))) {
+                this.f = 6;
+                return false;
+            } else if (!MessageManager.getInstance().getSocketClient().u()) {
+                this.f = 1;
+                return false;
+            } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().p() > kc5.j().i() + 20000) {
+                z5.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
+                this.f = 2;
+                return false;
+            } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
+                return false;
+            } else {
+                b bVar = this.d.get(i);
+                if (bVar != null && bVar.b) {
+                    if (Math.abs(System.currentTimeMillis() - bVar.c) > this.c) {
+                        bVar.b();
+                    } else {
+                        this.f = 4;
+                        return false;
                     }
                 }
-                if (this.a && i > 0) {
-                    this.b = i2 / i;
-                }
+                return true;
+            }
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            b bVar = this.d.get(i);
+            if (bVar == null) {
+                bVar = new b(null);
+                this.d.append(i, bVar);
+            }
+            if (bVar != null) {
+                bVar.a(this.b);
+            }
+            this.f = 5;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.d.remove(i);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: n */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, socketResponsedMessage) != null) || !(socketResponsedMessage instanceof ResponseOnlineMessage) || ((ResponseOnlineMessage) socketResponsedMessage).getError() != 0) {
+            return;
+        }
+        o();
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void r(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public void s(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, iArr) == null) && iArr != null && iArr.length > 0) {
+            this.e.clear();
+            for (int i : iArr) {
+                this.e.add(Integer.valueOf(i));
             }
         }
     }

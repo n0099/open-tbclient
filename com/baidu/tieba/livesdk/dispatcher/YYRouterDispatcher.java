@@ -1,8 +1,8 @@
 package com.baidu.tieba.livesdk.dispatcher;
 
 import android.content.Context;
-import com.baidu.tieba.fh9;
-import com.baidu.tieba.kma;
+import com.baidu.tieba.jh9;
+import com.baidu.tieba.oma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,7 +11,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class YYRouterDispatcher implements kma {
+public class YYRouterDispatcher implements oma {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFIX = "bdtiebalive://video/yylive/router";
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,12 +30,12 @@ public class YYRouterDispatcher implements kma {
         }
     }
 
-    @Override // com.baidu.tieba.kma
+    @Override // com.baidu.tieba.oma
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             try {
-                fh9.c(context, "bdtiebalive://video/yylive/router?url=" + URLEncoder.encode(jSONObject.optString("url"), "utf-8"));
+                jh9.c(context, "bdtiebalive://video/yylive/router?url=" + URLEncoder.encode(jSONObject.optString("url"), "utf-8"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

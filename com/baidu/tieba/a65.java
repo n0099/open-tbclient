@@ -1,28 +1,42 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
-import androidx.annotation.ColorRes;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a65 extends TBSpecificationButtonConfig {
+public class a65 implements b65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] v;
-    public boolean w;
+    public final ImageView a;
 
-    public a65() {
+    @Override // com.baidu.tieba.b65
+    public void onDismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.b65
+    public void onShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public a65(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,83 +46,35 @@ public class a65 extends TBSpecificationButtonConfig {
                 return;
             }
         }
-        this.w = false;
-        this.b = R.color.CAM_X0101;
-        this.d = R.color.CAM_X0302;
+        this.a = new ImageView(context);
     }
 
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
+    @Override // com.baidu.tieba.b65
+    public void a(x55 x55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            return t(f);
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void r(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.d = i;
-            this.b = R.color.CAM_X0101;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || interceptable.invokeL(1048576, this, x55Var) == null) {
+            ImageView imageView = this.a;
+            int i = x55Var.c;
+            int i2 = -2;
+            if (i < 0) {
+                i = -2;
             }
+            int i3 = x55Var.c;
+            if (i3 >= 0) {
+                i2 = i3;
+            }
+            imageView.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
+            SkinManager.setImageResource(this.a, x55Var.b);
         }
     }
 
-    public void s(@ColorRes int i) {
+    @Override // com.baidu.tieba.b65
+    public View getView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-            this.r = true;
-            TBSpecificationButtonConfig.a aVar = this.u;
-            if (aVar != null) {
-                aVar.c();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-    }
-
-    public void u(int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) {
-            this.v = iArr;
-            this.w = true;
-        }
-    }
-
-    public final Drawable t(float f) {
-        InterceptResult invokeF;
-        int i;
-        GradientDrawable gradientDrawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
-            if (!this.r) {
-                this.b = SkinManager.getColor(this.s, (int) R.color.CAM_X0101);
-            }
-            if (this.r) {
-                i = SkinManager.getColor(this.s, this.d);
-            } else {
-                i = this.d;
-            }
-            if (!this.w) {
-                this.v = new int[]{i, i};
-            }
-            if (Build.VERSION.SDK_INT >= 16) {
-                gradientDrawable = new GradientDrawable();
-                gradientDrawable.setOrientation(this.t);
-                gradientDrawable.setColors(this.v);
-            } else {
-                gradientDrawable = new GradientDrawable(this.t, this.v);
-            }
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeF.objValue;
+        return (View) invokeV.objValue;
     }
 }

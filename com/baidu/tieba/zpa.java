@@ -1,52 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes9.dex */
-public class zpa implements bqa {
+public class zpa implements ICloudCommandObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public zpa(int i, int i2) {
+    @Override // com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver
+    public String getCommandType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "online_net_log_notice" : (String) invokeV.objValue;
+    }
+
+    public zpa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = i2;
     }
 
-    @Override // com.baidu.tieba.bqa
-    public boolean a(NetworkStatRecord networkStatRecord) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver
+    public void dispatch(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
-            if (networkStatRecord == null) {
-                return false;
-            }
-            if ((networkStatRecord.from == 3 && GlobalBuildConfig.isDebug()) || new Random().nextInt(this.b) >= this.a) {
-                return false;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        try {
+            if (!"fulllog_network".equals(jSONObject.getString("type"))) {
+                return;
+            }
+            aqa.a().d(jSONObject, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,24 +7,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class e87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<s77> a;
-    public SpannableStringBuilder b;
-    public SpannableStringBuilder c;
-    public y77 d;
-    public v57 e;
-    public List<? extends h67> f;
-    public String g;
-    public boolean h;
-    public boolean i;
+    public final String a;
+    public final Map<String, String> b;
+    public final Map<String, String> c;
+    public String d;
+    public d87 e;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e87() {
+        this(null, null, null, null, null, 31, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,167 +31,145 @@ public final class e87 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], (Map) objArr[1], (Map) objArr[2], (String) objArr[3], (d87) objArr[4], ((Integer) objArr[5]).intValue(), (DefaultConstructorMarker) objArr[6]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new SpannableStringBuilder();
-        this.c = new SpannableStringBuilder();
-        this.d = new y77();
-        this.f = new ArrayList();
-        this.g = "";
     }
 
-    public final SpannableStringBuilder a() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof e87) {
+                e87 e87Var = (e87) obj;
+                return Intrinsics.areEqual(this.a, e87Var.a) && Intrinsics.areEqual(this.b, e87Var.b) && Intrinsics.areEqual(this.c, e87Var.c) && Intrinsics.areEqual(this.d, e87Var.d) && Intrinsics.areEqual(this.e, e87Var.e);
+            }
+            return false;
         }
-        return (SpannableStringBuilder) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final boolean b() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode() : invokeV.intValue;
     }
 
-    public final boolean c() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final v57 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (v57) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.baidu.tieba.h67>, java.util.List<com.baidu.tieba.h67> */
-    public final List<h67> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<s77> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "StatData(key=" + this.a + ", customMap=" + this.b + ", passthroughMap=" + this.c + ", positionName=" + this.d + ", callback=" + this.e + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public final y77 h() {
-        InterceptResult invokeV;
+    public e87(String key, Map<String, String> customMap, Map<String, String> passthroughMap, String positionName, d87 callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {key, customMap, passthroughMap, positionName, callback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (y77) invokeV.objValue;
+        Intrinsics.checkNotNullParameter(key, "key");
+        Intrinsics.checkNotNullParameter(customMap, "customMap");
+        Intrinsics.checkNotNullParameter(passthroughMap, "passthroughMap");
+        Intrinsics.checkNotNullParameter(positionName, "positionName");
+        Intrinsics.checkNotNullParameter(callback, "callback");
+        this.a = key;
+        this.b = customMap;
+        this.c = passthroughMap;
+        this.d = positionName;
+        this.e = callback;
     }
 
-    public final SpannableStringBuilder i() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ e87(String str, Map map, Map map2, String str2, d87 d87Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r10, (i & 2) != 0 ? new HashMap() : map, (i & 4) != 0 ? new HashMap() : map2, (i & 8) == 0 ? str2 : "", (i & 16) != 0 ? f87.a() : d87Var);
+        String str3;
+        if ((i & 1) != 0) {
+            str3 = "";
+        } else {
+            str3 = str;
+        }
+    }
+
+    public final d87 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (d87) invokeV.objValue;
+    }
+
+    public final Map<String, String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (SpannableStringBuilder) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public final void j(SpannableStringBuilder spannableStringBuilder) {
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, spannableStringBuilder) == null) {
-            Intrinsics.checkNotNullParameter(spannableStringBuilder, "<set-?>");
-            this.c = spannableStringBuilder;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Map<String, String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void f(d87 d87Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, d87Var) == null) {
+            Intrinsics.checkNotNullParameter(d87Var, "<set-?>");
+            this.e = d87Var;
         }
     }
 
-    public final void k(boolean z) {
+    public final void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public final void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public final void m(v57 v57Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, v57Var) == null) {
-            this.e = v57Var;
-        }
-    }
-
-    public final void n(List<? extends h67> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.f = list;
-        }
-    }
-
-    public final void o(List<s77> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.a = list;
-        }
-    }
-
-    public final void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.g = str;
-        }
-    }
-
-    public final void q(y77 y77Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, y77Var) == null) {
-            Intrinsics.checkNotNullParameter(y77Var, "<set-?>");
-            this.d = y77Var;
-        }
-    }
-
-    public final void r(SpannableStringBuilder spannableStringBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, spannableStringBuilder) == null) {
-            Intrinsics.checkNotNullParameter(spannableStringBuilder, "<set-?>");
-            this.b = spannableStringBuilder;
+            this.d = str;
         }
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c05;
+import com.baidu.tieba.f05;
 import com.baidu.tieba.lego.activity.LegoListFragment;
 import com.baidu.tieba.lego.card.model.ButtonCard;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
@@ -78,7 +78,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements c05.e {
+    public class b implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ButtonCard a;
@@ -103,18 +103,18 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             this.a = buttonCard;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
                 UrlManager.getInstance().dealOneLink(this.b.i, new String[]{this.a.getBtnScheme()});
-                c05Var.dismiss();
+                f05Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements c05.e {
+    public class c implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ButtonCardView a;
@@ -137,11 +137,11 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             this.a = buttonCardView;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
+                f05Var.dismiss();
             }
         }
     }
@@ -172,11 +172,11 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public void setDialog(ButtonCard buttonCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, buttonCard) == null) {
-            c05 c05Var = new c05(this.i.getPageActivity());
-            c05Var.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
-            c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f03cc, new b(this, buttonCard));
-            c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new c(this));
-            c05Var.create(this.i).show();
+            f05 f05Var = new f05(this.i.getPageActivity());
+            f05Var.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
+            f05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f03cc, new b(this, buttonCard));
+            f05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new c(this));
+            f05Var.create(this.i).show();
         }
     }
 
@@ -203,7 +203,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         } else {
             this.n.setDefaultBgResource(R.color.transparent);
         }
-        int dimension = layoutParams.height - ((int) (TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0701fc) * cardWidth));
+        int dimension = layoutParams.height - ((int) (TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f0701fd) * cardWidth));
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
         layoutParams2.height = dimension;
         layoutParams2.addRule(13);
@@ -229,7 +229,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
             if (!ColorUtils.isColorInvalid(buttonColor)) {
-                gradientDrawable.setStroke(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703b6), buttonColor);
+                gradientDrawable.setStroke(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703b7), buttonColor);
             }
             gradientDrawable.setColor(0);
             this.o.setBackgroundDrawable(gradientDrawable);
@@ -256,7 +256,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.i.getPageActivity().getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d01ae, (ViewGroup) null);
             this.m = relativeLayout;
             this.o = (Button) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0904d4);
-            this.n = (TbImageView) this.m.findViewById(R.id.obfuscated_res_0x7f09255c);
+            this.n = (TbImageView) this.m.findViewById(R.id.obfuscated_res_0x7f09255e);
             return this.m;
         }
         return (View) invokeV.objValue;

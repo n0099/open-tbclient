@@ -1,145 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.impl.ResponsesPanelControllerImpl;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
+import com.baidu.tieba.y29;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public final class v29 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final ResponsesPanelControllerImpl a;
-    public List<Reaction> b;
+public interface v29 extends s29 {
+    void a(@NonNull String str);
 
-    /* loaded from: classes8.dex */
-    public static final class a implements el5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v29 a;
-        public final /* synthetic */ int b;
+    void c(@NonNull BaseItem<? extends TbBaseMsg> baseItem, @NonNull ChatRoomDetail chatRoomDetail);
 
-        public a(v29 v29Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v29Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v29Var;
-            this.b = i;
-        }
+    void h();
 
-        @Override // com.baidu.tieba.el5
-        public void a(List<String> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                ArrayList arrayList = new ArrayList();
-                if (ListUtils.isEmpty(list)) {
-                    if (!ListUtils.isEmpty(this.a.a())) {
-                        List<Reaction> a = this.a.a();
-                        Intrinsics.checkNotNull(a);
-                        int size = a.size();
-                        if (size > this.b) {
-                            List<Reaction> a2 = this.a.a();
-                            Intrinsics.checkNotNull(a2);
-                            arrayList.addAll(a2.subList(0, this.b));
-                        } else {
-                            List<Reaction> a3 = this.a.a();
-                            Intrinsics.checkNotNull(a3);
-                            arrayList.addAll(a3.subList(0, size));
-                        }
-                        this.a.b().f(arrayList);
-                    }
-                } else {
-                    Intrinsics.checkNotNull(list);
-                    for (String str : list) {
-                        arrayList.add(new Reaction("", str));
-                    }
-                }
-                this.a.b().f(arrayList);
-            }
-        }
-    }
+    void i(boolean z, int i, int i2, @Nullable Map<String, Object> map, boolean z2, int i3, long j, long j2);
 
-    public v29(ResponsesPanelControllerImpl controller) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {controller};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(controller, "controller");
-        this.a = controller;
-    }
+    void j(@NonNull String str);
 
-    public final List<Reaction> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
+    void k(@NonNull String str, @NonNull CharSequence charSequence);
 
-    public final ResponsesPanelControllerImpl b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ResponsesPanelControllerImpl) invokeV.objValue;
-    }
+    void l(@NonNull t29 t29Var);
 
-    public final void c(gq8 process, Reaction reaction, BaseItem<? extends TbBaseMsg> msg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, process, reaction, msg) == null) {
-            Intrinsics.checkNotNullParameter(process, "process");
-            Intrinsics.checkNotNullParameter(reaction, "reaction");
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            ez8.g(process, reaction, msg, 1);
-        }
-    }
+    void n(Object obj);
 
-    public final void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            int abs = Math.abs(1 - ez8.a());
-            ok5.b().e(context, true, -abs, new a(this, abs));
-        }
-    }
+    FastRequest.b<y29.e> o();
 
-    public final void e(List<Reaction> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.b = list;
-        }
-    }
+    void onChangeSkinType();
+
+    void onDestroy();
+
+    void q();
+
+    boolean r();
+
+    void s(@NonNull String str, @Nullable String str2);
+
+    void t(int i, int i2, @Nullable String str, Object obj);
+
+    void u(@Nullable BaseItem baseItem, @Nullable ChatRoomDetail chatRoomDetail);
 }

@@ -10,9 +10,9 @@ import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.fa5;
+import com.baidu.tieba.ia5;
 import com.baidu.tieba.immessagecenter.mention.FeedData;
-import com.baidu.tieba.nj6;
+import com.baidu.tieba.rj6;
 import com.baidu.tieba.setting.model.MsgRemindHelper;
 import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -43,7 +43,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class MsgRemindHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final MsgRemindHelper a;
-    public static final fa5 b;
+    public static final ia5 b;
     public static WeakReference<WebView> c;
     public static final Map<String, TypeAndMethod> d;
     public transient /* synthetic */ FieldHolder $fh;
@@ -264,7 +264,7 @@ public final class MsgRemindHelper {
             }
         }
         a = new MsgRemindHelper();
-        b = fa5.e();
+        b = ia5.e();
         d = MapsKt__MapsKt.mutableMapOf(TuplesKt.to("officialPush", new TypeAndMethod(6, true, null, MsgRemindHelper$nameToTypeAndMethod$1.INSTANCE, 4, null)), TuplesKt.to("collectThreadsUpdate", new TypeAndMethod(36, false, null, MsgRemindHelper$nameToTypeAndMethod$2.INSTANCE, 6, null)), TuplesKt.to("replyMe", new TypeAndMethod(1, false, null, MsgRemindHelper$nameToTypeAndMethod$3.INSTANCE, 6, null)), TuplesKt.to(FeedData.TYPE_ZAN, new TypeAndMethod(20, false, null, MsgRemindHelper$nameToTypeAndMethod$4.INSTANCE, 6, null)), TuplesKt.to("atMe", new TypeAndMethod(2, false, null, MsgRemindHelper$nameToTypeAndMethod$5.INSTANCE, 6, null)), TuplesKt.to("newFans", new TypeAndMethod(3, false, null, MsgRemindHelper$nameToTypeAndMethod$6.INSTANCE, 6, null)), TuplesKt.to("mutualFriendPush", new TypeAndMethod(10, false, null, MsgRemindHelper$nameToTypeAndMethod$7.INSTANCE, 6, null)), TuplesKt.to("followUserEssenceUpdate", new TypeAndMethod(34, false, null, MsgRemindHelper$nameToTypeAndMethod$8.INSTANCE, 6, null)), TuplesKt.to("signPush", new TypeAndMethod(-1, false, MsgRemindHelper$nameToTypeAndMethod$9.INSTANCE, MsgRemindHelper$nameToTypeAndMethod$10.INSTANCE, 2, null)), TuplesKt.to("signAlert", new TypeAndMethod(37, false, null, MsgRemindHelper$nameToTypeAndMethod$11.INSTANCE, 6, null)), TuplesKt.to("forumBroadcast", new TypeAndMethod(7, true, null, MsgRemindHelper$nameToTypeAndMethod$12.INSTANCE, 4, null)));
     }
 
@@ -337,7 +337,7 @@ public final class MsgRemindHelper {
             Intrinsics.checkNotNullParameter(params, "$params");
             WeakReference<WebView> weakReference = c;
             if (weakReference != null && (webView = weakReference.get()) != null) {
-                nj6.a().d(webView, "pushNotificationPermission", new HashMap<>(params));
+                rj6.a().d(webView, "pushNotificationPermission", new HashMap<>(params));
             }
         }
     }
@@ -345,7 +345,7 @@ public final class MsgRemindHelper {
     public final void e(final Map<String, ? extends Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
-            UiUtils.post(new Runnable() { // from class: com.baidu.tieba.fna
+            UiUtils.post(new Runnable() { // from class: com.baidu.tieba.jna
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

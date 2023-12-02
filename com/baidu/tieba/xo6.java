@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.compact.RecommendBannerCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-@Service
 /* loaded from: classes9.dex */
-public class xo6 implements eb7 {
+public class xo6 extends ab7<RecommendBannerCardView, i37> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xo6() {
+        super("recommend_banner");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,28 +25,41 @@ public class xo6 implements eb7 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.eb7
+    @Override // com.baidu.tieba.ab7, com.baidu.tieba.qb7
     @NonNull
-    public List<mb7<?, ?>> a() {
-        InterceptResult invokeV;
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new fo6());
-            arrayList.add(new to6());
-            arrayList.add(new ho6());
-            arrayList.add(new vo6());
-            arrayList.add(new uo6());
-            arrayList.add(new ko6());
-            arrayList.add(new yo6());
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            RecommendBannerCardView recommendBannerCardView = new RecommendBannerCardView(viewGroup.getContext());
+            recommendBannerCardView.a(viewGroup);
+            jd7.i(recommendBannerCardView, Integer.valueOf(jd7.e() * 2));
+            return recommendBannerCardView;
         }
-        return (List) invokeV.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qb7
+    /* renamed from: e */
+    public void b(@NonNull RecommendBannerCardView recommendBannerCardView, @NonNull i37 i37Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendBannerCardView, i37Var) == null) {
+            Object obj = i37Var.a().a;
+            if (obj instanceof rh8) {
+                recommendBannerCardView.setVisibility(0);
+                recommendBannerCardView.c((rh8) obj);
+                return;
+            }
+            recommendBannerCardView.setVisibility(8);
+        }
     }
 }

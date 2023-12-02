@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.Arrays;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DownloadHttpManager extends HttpManager {
     @SuppressLint({"StaticFieldLeak"})
     public static volatile DownloadHttpManager sDownloadHttpManager;

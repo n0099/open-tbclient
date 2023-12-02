@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.pageStayDuration.IPageStayDuration;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c75;
+import com.baidu.tieba.f75;
 import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class LikeButtonWithHeadPortrait extends FrameLayout implements c75 {
+public class LikeButtonWithHeadPortrait extends FrameLayout implements f75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -38,7 +38,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements c75 {
     public boolean e;
     public Animation.AnimationListener f;
 
-    @Override // com.baidu.tieba.c75
+    @Override // com.baidu.tieba.f75
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -160,7 +160,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements c75 {
         f(context);
     }
 
-    @Override // com.baidu.tieba.c75
+    @Override // com.baidu.tieba.f75
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -178,7 +178,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements c75 {
         }
     }
 
-    @Override // com.baidu.tieba.c75
+    @Override // com.baidu.tieba.f75
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -186,7 +186,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements c75 {
         }
     }
 
-    @Override // com.baidu.tieba.c75
+    @Override // com.baidu.tieba.f75
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -194,7 +194,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements c75 {
         }
     }
 
-    @Override // com.baidu.tieba.c75
+    @Override // com.baidu.tieba.f75
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -205,13 +205,13 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements c75 {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0a26, this);
-            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090f72);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0a27, this);
+            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090f73);
             this.b = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09050a);
-            this.c = findViewById(R.id.obfuscated_res_0x7f092a38);
-            this.d = findViewById(R.id.obfuscated_res_0x7f092013);
+            this.c = findViewById(R.id.obfuscated_res_0x7f092a3b);
+            this.d = findViewById(R.id.obfuscated_res_0x7f092015);
         }
     }
 

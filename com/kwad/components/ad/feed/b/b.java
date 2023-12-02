@@ -61,11 +61,11 @@ public abstract class b extends a implements View.OnClickListener, com.kwad.sdk.
     }
 
     private void bd() {
-        findViewById(R.id.obfuscated_res_0x7f0912ed).setVisibility(0);
-        findViewById(R.id.obfuscated_res_0x7f0912e4).setVisibility(8);
-        this.eG = (TextView) findViewById(R.id.obfuscated_res_0x7f09136f);
-        this.dM = (TextView) findViewById(R.id.obfuscated_res_0x7f091371);
-        this.eH = findViewById(R.id.obfuscated_res_0x7f091372);
+        findViewById(R.id.obfuscated_res_0x7f0912ee).setVisibility(0);
+        findViewById(R.id.obfuscated_res_0x7f0912e5).setVisibility(8);
+        this.eG = (TextView) findViewById(R.id.obfuscated_res_0x7f091370);
+        this.dM = (TextView) findViewById(R.id.obfuscated_res_0x7f091372);
+        this.eH = findViewById(R.id.obfuscated_res_0x7f091373);
         this.eG.setText(com.kwad.components.ad.feed.f.c(this.mAdTemplate));
         this.dM.setText(com.kwad.sdk.core.response.b.a.aE(this.mAdInfo));
         this.eH.setOnClickListener(this);
@@ -77,11 +77,11 @@ public abstract class b extends a implements View.OnClickListener, com.kwad.sdk.
     }
 
     private void be() {
-        findViewById(R.id.obfuscated_res_0x7f0912e4).setVisibility(0);
-        findViewById(R.id.obfuscated_res_0x7f0912ed).setVisibility(8);
-        this.dE = (ImageView) findViewById(R.id.obfuscated_res_0x7f091306);
-        this.dF = (TextView) findViewById(R.id.obfuscated_res_0x7f09130a);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091302);
+        findViewById(R.id.obfuscated_res_0x7f0912e5).setVisibility(0);
+        findViewById(R.id.obfuscated_res_0x7f0912ee).setVisibility(8);
+        this.dE = (ImageView) findViewById(R.id.obfuscated_res_0x7f091307);
+        this.dF = (TextView) findViewById(R.id.obfuscated_res_0x7f09130b);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091303);
         this.eF = textView;
         com.kwad.sdk.d.a.a.a(this, this.dE, this.dF, textView);
         new com.kwad.sdk.widget.f(getContext(), this.dE, this);
@@ -151,14 +151,14 @@ public abstract class b extends a implements View.OnClickListener, com.kwad.sdk.
 
     @Override // com.kwad.components.core.widget.b
     public final void bc() {
-        this.eB = (TextView) findViewById(R.id.obfuscated_res_0x7f0912df);
-        RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091376);
+        this.eB = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e0);
+        RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091377);
         this.eE = ratioFrameLayout;
         ratioFrameLayout.setRatio(0.5600000023841858d);
-        this.eC = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ee);
-        this.eD = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912e2);
-        this.mLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912e3);
-        this.eI = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091304);
+        this.eC = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ef);
+        this.eD = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912e3);
+        this.mLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912e4);
+        this.eI = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091305);
     }
 
     @Override // com.kwad.components.core.widget.b

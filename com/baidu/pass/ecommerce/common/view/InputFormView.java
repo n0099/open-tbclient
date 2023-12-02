@@ -77,11 +77,11 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     private void init() {
         int i;
         View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d05a2, (ViewGroup) this, true);
-        this.mEditText = (LengthLimitEditText) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092140);
-        this.mImg = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092142);
-        this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092143);
-        this.mCleanEtBtn = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09213e);
-        this.mCleanEtBtnDarkShape = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09213f);
+        this.mEditText = (LengthLimitEditText) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092142);
+        this.mImg = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092144);
+        this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092145);
+        this.mCleanEtBtn = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092140);
+        this.mCleanEtBtnDarkShape = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092141);
         this.mCleanEtBtn.setOnClickListener(this);
         this.mEditText.setOnFocusChangeListener(this);
         this.mEditText.setLengthLimit(this.mMaxLength);
@@ -183,7 +183,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f09213e) {
+        if (view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f092140) {
             this.mEditText.setText("");
             this.mCleanEtBtn.setVisibility(8);
         }

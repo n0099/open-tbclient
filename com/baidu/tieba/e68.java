@@ -1,61 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public final class e68 {
+public class e68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_entrance_guide_has_show_array"), "");
-        }
-        return (String) invokeV.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ms7 a;
 
-    public static final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_has_show_array"), "");
+        public a(ms7 ms7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ms7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ms7Var;
         }
-        return (String) invokeV.objValue;
-    }
 
-    public static final int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return SharedPrefHelper.getInstance().getInt(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_entrance_guide_frequency"), 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public static final int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return SharedPrefHelper.getInstance().getInt(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_frequency"), 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public static final void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_entrance_guide_has_show_array"), str);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.P0();
+            }
         }
     }
 
-    public static final void l(String str) {
+    public static void a(ResponsedMessage<?> responsedMessage, ms7 ms7Var, FrsViewData frsViewData) {
+        List<DownloadData> data;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_has_show_array"), str);
+        if ((interceptable != null && interceptable.invokeLLL(65536, null, responsedMessage, ms7Var, frsViewData) != null) || frsViewData == null || ms7Var == null || !(responsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) responsedMessage).getData()) == null) {
+            return;
+        }
+        boolean z = false;
+        Iterator<DownloadData> it = data.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            } else if (it.next().getStatus() == 0) {
+                z = true;
+                break;
+            }
+        }
+        if (z) {
+            SafeHandler.getInst().postDelayed(new a(ms7Var), TimeUnit.SECONDS.toMillis(2L));
+        }
+    }
+
+    public static void b(ms7 ms7Var) {
+        HashMap<Integer, ThreadData> h;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, ms7Var) == null) && ms7Var != null && ms7Var.a0() != null && (h = ms7Var.a0().h()) != null) {
+            ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
+            for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
+                ThreadData value = entry.getValue();
+                if (value != null && (value instanceof AdvertAppInfo)) {
+                    arrayList.add((AdvertAppInfo) value);
+                }
+            }
+            kia.n().w(arrayList);
         }
     }
 }

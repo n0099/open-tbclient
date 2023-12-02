@@ -1,33 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class iz1 extends fz1 {
+public abstract class iz1 extends h83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iz1(e73 e73Var) {
-        super(e73Var, "/swanAPI/canvas/insert");
+    public iz1(h73 h73Var, String str) {
+        super(h73Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e73Var};
+            Object[] objArr = {h73Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((e73) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,37 +37,34 @@ public class iz1 extends fz1 {
         }
     }
 
-    @Override // com.baidu.tieba.e83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h63 h63Var) {
-        InterceptResult invokeLLLL;
+    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h63Var)) == null) {
-            f12 k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = l(201);
-                h32.c("SwanAppCanvas", "insert action parse model is null");
-                return false;
-            } else if (context == null) {
-                h32.c("SwanAppCanvas", "context is null");
-                unitedSchemeEntity.result = l(1001);
-                return false;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, unitedSchemeEntity, callbackHandler, z) == null) {
+            if (z) {
+                i = 0;
             } else {
-                String str = k.b;
-                nw2 nw2Var = k.h;
-                if (!TextUtils.isEmpty(str) && nw2Var != null && nw2Var.h()) {
-                    z12 w = new h22(context, k).w();
-                    boolean a = w.a();
-                    if (!a) {
-                        h32.c("SwanAppCanvas", "insert canvas fail: " + w.b);
-                    }
-                    j(unitedSchemeEntity, callbackHandler, a);
-                    return a;
-                }
-                h32.c("SwanAppCanvas", "canvas id is empty or position is null");
-                unitedSchemeEntity.result = l(202);
-                return false;
+                i = 1001;
             }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, i);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public i12 k(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
+            return new i12(unitedSchemeEntity.getParams().get("params"));
+        }
+        return (i12) invokeL.objValue;
+    }
+
+    public JSONObject l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return UnitedSchemeUtility.wrapCallbackParams(i);
+        }
+        return (JSONObject) invokeI.objValue;
     }
 }

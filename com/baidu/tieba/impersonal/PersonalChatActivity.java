@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ee9;
+import com.baidu.tieba.ie9;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.tieba.impersonal.databinding.ActivityPersonalChatBinding;
-import com.baidu.tieba.mt5;
-import com.baidu.tieba.xwb;
+import com.baidu.tieba.qt5;
+import com.baidu.tieba.wwb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -364,7 +364,6 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
@@ -374,22 +373,14 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
             if (bundle == null) {
                 PersonalChatFragment personalChatFragment = new PersonalChatFragment();
                 personalChatFragment.setArguments(getIntent().getExtras());
-                mt5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090702, personalChatFragment);
+                qt5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090702, personalChatFragment);
             }
             adjustResizeForSoftInput();
             addGlobalLayoutListener();
             Intent intent = getIntent();
-            if (intent != null) {
-                str = intent.getStringExtra("key_sprite_talk_type");
-            } else {
-                str = null;
-            }
-            if (str == null) {
-                str = "0";
-            }
             boolean z = false;
-            int b = xwb.b(str, 0);
-            ee9.c((b == 1 || b == 2) ? true : true);
+            int b = wwb.b((intent == null || (r5 = intent.getStringExtra("key_sprite_talk_type")) == null) ? "0" : "0", 0);
+            ie9.c((b == 1 || b == 2) ? true : true);
         }
     }
 

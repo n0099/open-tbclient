@@ -1,15 +1,31 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface uz8 {
-    boolean a();
+public class uz8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b();
+    public static long a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) ? j * 100 : invokeJ.longValue;
+    }
 
-    boolean isForeground();
+    public static long b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) ? j + 1 : invokeJ.longValue;
+    }
 
-    void setRecoding(boolean z);
-
-    void startRecord();
-
-    void stopRecord();
+    public static long c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            return j / 100;
+        }
+        return invokeJ.longValue;
+    }
 }

@@ -1,50 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.text.TextUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.retrieve.YaLogInitManager;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.log.TbLogManager;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class jnb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            pd.d().h(SwanKV.LIB_CPP_SHARED, 2);
-            YaLogInitManager.getInstance().initYaLog(true, true, true, String.valueOf(10773430L));
-            TbLogManager.initTbUbcLog(new inb());
-            c();
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            String string = SharedPrefHelper.getInstance().getString("key_ubc_yalog_config", "");
-            if (TextUtils.isEmpty(string)) {
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null || str == null) {
+                return null;
             }
             try {
-                ((qzb) ServiceManager.getService(qzb.a)).a(new JSONObject(string));
-            } catch (JSONException e) {
-                e.printStackTrace();
+                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                if (applicationInfo != null) {
+                    bundle = applicationInfo.metaData;
+                } else {
+                    bundle = null;
+                }
+                if (bundle == null) {
+                    return null;
+                }
+                return bundle.getString(str);
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
         }
-    }
-
-    public static void b(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
-            YaLogInitManager.getInstance().initYaLogBaseContext(application);
-        }
+        return (String) invokeLL.objValue;
     }
 }

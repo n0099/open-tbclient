@@ -14,8 +14,8 @@ import android.view.animation.DecelerateInterpolator;
 import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.n71;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.p71;
+import com.baidu.tieba.w11;
 /* loaded from: classes3.dex */
 public class ExpandIconView extends View {
     public float a;
@@ -129,10 +129,10 @@ public class ExpandIconView extends View {
         this.k = new Point();
         this.l = new Point();
         this.m = new Path();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n71.ExpandIconView, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, p71.ExpandIconView, 0, 0);
         try {
-            this.e = obtainStyledAttributes.getDimensionPixelSize(2, u11.c.a(getContext(), 40.0f));
-            this.f = obtainStyledAttributes.getDimensionPixelSize(3, u11.c.a(getContext(), 2.0f));
+            this.e = obtainStyledAttributes.getDimensionPixelSize(2, w11.c.a(getContext(), 40.0f));
+            this.f = obtainStyledAttributes.getDimensionPixelSize(3, w11.c.a(getContext(), 2.0f));
             int color = obtainStyledAttributes.getColor(1, -16777216);
             long integer = obtainStyledAttributes.getInteger(0, 150);
             obtainStyledAttributes.recycle();

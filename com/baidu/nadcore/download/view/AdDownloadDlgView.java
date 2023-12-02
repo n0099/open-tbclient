@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh0;
-import com.baidu.tieba.on0;
+import com.baidu.tieba.pn0;
 import com.baidu.tieba.qe0;
 import com.baidu.tieba.yf0;
 /* loaded from: classes3.dex */
@@ -41,25 +41,25 @@ public class AdDownloadDlgView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             String str;
-            if (!(AdDownloadDlgView.this.getTag() instanceof on0)) {
+            if (!(AdDownloadDlgView.this.getTag() instanceof pn0)) {
                 return;
             }
-            on0 on0Var = (on0) AdDownloadDlgView.this.getTag();
+            pn0 pn0Var = (pn0) AdDownloadDlgView.this.getTag();
             int id = view2.getId();
             if (id == R.id.nad_download_lp_dlg_privacy) {
-                on0.c cVar = on0Var.g;
+                pn0.c cVar = pn0Var.g;
                 if (cVar != null) {
                     str = cVar.b;
                 }
                 str = "";
             } else {
                 if (id == R.id.nad_download_lp_dlg_permission) {
-                    on0.b bVar = on0Var.h;
+                    pn0.b bVar = pn0Var.h;
                     if (bVar != null) {
                         str = bVar.b;
                     }
-                } else if (id == R.id.nad_download_lp_dlg_dev_name && !TextUtils.isEmpty(on0Var.d)) {
-                    AdDownloadDlgView.this.d(on0Var.d);
+                } else if (id == R.id.nad_download_lp_dlg_dev_name && !TextUtils.isEmpty(pn0Var.d)) {
+                    AdDownloadDlgView.this.d(pn0Var.d);
                     return;
                 }
                 str = "";
@@ -98,20 +98,20 @@ public class AdDownloadDlgView extends RelativeLayout {
                 i = 0;
             }
             textView.setVisibility(i);
-            on0 on0Var = dh0Var.b;
-            setTag(on0Var);
-            this.b.u(on0Var.b);
-            this.c.setText(on0Var.c);
-            this.d.setText(on0Var.j);
-            this.e.setText(on0Var.d);
+            pn0 pn0Var = dh0Var.b;
+            setTag(pn0Var);
+            this.b.u(pn0Var.b);
+            this.c.setText(pn0Var.c);
+            this.d.setText(pn0Var.k);
+            this.e.setText(pn0Var.d);
             this.e.setOnClickListener(this.k);
-            this.f.setText(on0Var.f);
-            on0.c cVar = on0Var.g;
+            this.f.setText(pn0Var.f);
+            pn0.c cVar = pn0Var.g;
             if (cVar != null && !TextUtils.isEmpty(cVar.b) && !TextUtils.isEmpty(cVar.a)) {
                 this.g.setText(cVar.a);
                 this.g.setOnClickListener(this.k);
             }
-            on0.b bVar = on0Var.h;
+            pn0.b bVar = pn0Var.h;
             if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(bVar.a)) {
                 this.h.setText(bVar.a);
                 this.h.setOnClickListener(this.k);

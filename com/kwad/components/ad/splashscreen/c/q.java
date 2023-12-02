@@ -203,7 +203,7 @@ public final class q extends e implements com.kwad.sdk.core.h.c {
         String str;
         super.aj();
         this.mAdInfo = com.kwad.sdk.core.response.b.e.dP(this.Df.mAdTemplate);
-        ((DetailVideoView) this.Df.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0914d0)).setVisibility(0);
+        ((DetailVideoView) this.Df.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0914d1)).setVisibility(0);
         com.kwad.components.ad.splashscreen.e.a aVar = this.Df.Cp;
         if (aVar != null) {
             aVar.b(this.Ei);
@@ -211,9 +211,9 @@ public final class q extends e implements com.kwad.sdk.core.h.c {
         this.Df.Cr.a(this);
         AdBaseFrameLayout adBaseFrameLayout = this.Df.mRootContainer;
         if (com.kwad.components.ad.splashscreen.f.c.z(this.mAdInfo)) {
-            i = R.id.obfuscated_res_0x7f0914ca;
+            i = R.id.obfuscated_res_0x7f0914cb;
         } else {
-            i = R.id.obfuscated_res_0x7f0914c9;
+            i = R.id.obfuscated_res_0x7f0914ca;
         }
         this.Eh = (SkipView) adBaseFrameLayout.findViewById(i);
         if (u(this.mAdInfo)) {
@@ -241,7 +241,7 @@ public final class q extends e implements com.kwad.sdk.core.h.c {
             aVar2.setAudioEnabled(this.Ee, false);
             this.Df.Cp.a(this.hq);
         }
-        this.hp = (ImageView) this.Df.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0914cf);
+        this.hp = (ImageView) this.Df.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0914d0);
         if (com.kwad.components.ad.splashscreen.f.c.z(this.mAdInfo)) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.hp.getLayoutParams();
             layoutParams.gravity = 51;

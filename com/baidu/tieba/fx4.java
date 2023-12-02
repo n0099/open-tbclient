@@ -1,70 +1,146 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
+import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes6.dex */
-public class fx4 {
+public class fx4 implements Comparable<fx4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
     public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public boolean n;
+    public int o;
+    public CardLinkInfoData p;
+    public int q;
 
-    public fx4() {
+    public fx4(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = i2;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static fx4 b(TbLinkSpanGroup tbLinkSpanGroup, ca8 ca8Var) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, ca8Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
+            }
+            fx4 fx4Var = new fx4(tbLinkSpanGroup.e(), 2);
+            if (ca8Var == null) {
+                return fx4Var;
+            }
+            if (TextUtils.isEmpty(ca8Var.f())) {
+                str = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
+            } else {
+                str = ca8Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
+            }
+            fx4Var.d = str;
+            fx4Var.c = ca8Var.c();
+            fx4Var.m = ca8Var.a();
+            if (!ListUtils.isEmpty(ca8Var.b()) && ca8Var.b().get(0) != null) {
+                fx4Var.e = ca8Var.b().get(0).a();
+            }
+            fx4Var.l = ca8Var.f();
+            fx4Var.f = ca8Var.d();
+            if (ca8Var.e() != null) {
+                fx4Var.j = ca8Var.e().a();
+                fx4Var.k = ca8Var.e().b();
+            }
+            tbLinkSpanGroup.B(fx4Var);
+            return fx4Var;
         }
-        return (String) invokeV.objValue;
+        return (fx4) invokeLL.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static fx4 c(TbLinkSpanGroup tbLinkSpanGroup, d75 d75Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbLinkSpanGroup, d75Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
+            }
+            boolean z = true;
+            fx4 fx4Var = new fx4(tbLinkSpanGroup.e(), 1);
+            if (d75Var == null) {
+                return fx4Var;
+            }
+            int i = d75Var.b;
+            if (i == 4) {
+                CardLinkInfoData cardLinkInfoData = d75Var.j;
+                if (cardLinkInfoData != null) {
+                    fx4Var.p = cardLinkInfoData;
+                    fx4Var.c = cardLinkInfoData.title;
+                    fx4Var.e = cardLinkInfoData.imageUrl;
+                    fx4Var.l = cardLinkInfoData.tagText;
+                    fx4Var.g = cardLinkInfoData.url;
+                    fx4Var.i = false;
+                    fx4Var.o = i;
+                }
+            } else {
+                fx4Var.p = d75Var.j;
+                fx4Var.c = d75Var.e;
+                fx4Var.e = d75Var.d;
+                fx4Var.l = d75Var.f;
+                fx4Var.f = d75Var.g;
+                fx4Var.g = d75Var.c;
+                fx4Var.n = d75Var.h;
+                String str = d75Var.i;
+                if (i != 1 && i != 5) {
+                    z = false;
+                }
+                fx4Var.i = z;
+                fx4Var.o = d75Var.b;
+            }
+            tbLinkSpanGroup.B(fx4Var);
+            return fx4Var;
         }
-        return invokeV.intValue;
+        return (fx4) invokeLL.objValue;
     }
 
-    public void c(ForumBookInfo forumBookInfo) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(@NonNull fx4 fx4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumBookInfo) != null) || forumBookInfo == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fx4Var)) == null) {
+            return this.q - fx4Var.q;
         }
-        this.a = forumBookInfo.book_id;
-        this.b = forumBookInfo.book_type.intValue();
-        String str = forumBookInfo.book_title;
-        String str2 = forumBookInfo.book_cover;
-        String str3 = forumBookInfo.author;
-        String str4 = forumBookInfo.forum_pic;
-        String str5 = forumBookInfo.show_chapter_id;
-        String str6 = forumBookInfo.show_chapter_no;
-        String str7 = forumBookInfo.show_chapter_title;
-        forumBookInfo.history_page_id.longValue();
-        forumBookInfo.history_paragraph_id.longValue();
-        forumBookInfo.history_word_id.longValue();
-        forumBookInfo.history_percent.longValue();
-        forumBookInfo.show_page_id.longValue();
-        forumBookInfo.show_paragraph_id.longValue();
+        return invokeL.intValue;
     }
 }

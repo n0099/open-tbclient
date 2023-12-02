@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ueb;
+import com.baidu.tieba.teb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -245,19 +245,19 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             setGravity(16);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08e5, (ViewGroup) this, true);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0922bf);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0922c1);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0922bd);
-            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0922b9);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ba);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0922bc);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922c2);
-            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f0922c0);
-            this.j = findViewById(R.id.obfuscated_res_0x7f0922be);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0922bb);
-            this.l = findViewById(R.id.obfuscated_res_0x7f0922b8);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0922c3);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08e6, (ViewGroup) this, true);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0922c1);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0922c3);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0922bf);
+            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0922bb);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0922bc);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0922be);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922c4);
+            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f0922c2);
+            this.j = findViewById(R.id.obfuscated_res_0x7f0922c0);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0922bd);
+            this.l = findViewById(R.id.obfuscated_res_0x7f0922ba);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0922c5);
             setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.m.setOnClickListener(this);
@@ -335,23 +335,23 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    public void setData(ueb uebVar) {
+    public void setData(teb tebVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, uebVar) == null) {
-            if (uebVar == null && getParent() != null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, tebVar) == null) {
+            if (tebVar == null && getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
                 return;
             }
-            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1409), uebVar.f));
-            this.e.startLoad(uebVar.d, 10, false);
-            this.f.setText(uebVar.c);
-            if (StringUtils.isNull(uebVar.h)) {
+            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f140a), tebVar.f));
+            this.e.startLoad(tebVar.d, 10, false);
+            this.f.setText(tebVar.c);
+            if (StringUtils.isNull(tebVar.h)) {
                 this.g.setVisibility(8);
             } else {
-                this.g.setText(uebVar.h);
+                this.g.setText(tebVar.h);
             }
             this.h.setEvent(new b(this));
-            this.h.startLoad(uebVar.i, 42, false);
+            this.h.startLoad(tebVar.i, 42, false);
         }
     }
 }

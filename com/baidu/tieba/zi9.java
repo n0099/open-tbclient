@@ -1,80 +1,159 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Item;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RecommendForumInfo;
-import tbclient.SearchSug.DataRes;
-import tbclient.SugLiveInfo;
-import tbclient.SugRankingInfo;
 /* loaded from: classes9.dex */
-public class zi9 {
+public class zi9 implements pi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
+    public Long a;
+    public String b;
+    public String c;
+    public Integer d;
+    public Integer e;
+    public String f;
+    public int g;
+    public boolean h;
 
-    public static List<pi> a(DataRes dataRes, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
-            if (dataRes == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948361055, "Lcom/baidu/tieba/zi9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            ArrayList arrayList = new ArrayList();
-            List<RecommendForumInfo> list = dataRes.forum_cards;
-            if (list != null && list.size() > 0) {
-                for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i) != null) {
-                        vi9 vi9Var = new vi9();
-                        vi9Var.k(list.get(i));
-                        vi9Var.l(true);
-                        arrayList.add(vi9Var);
-                    }
-                }
-            } else {
-                RecommendForumInfo recommendForumInfo = dataRes.forum_card;
-                if (recommendForumInfo != null) {
-                    vi9 vi9Var2 = new vi9();
-                    vi9Var2.k(recommendForumInfo);
-                    vi9Var2.l(false);
-                    arrayList.add(vi9Var2);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948361055, "Lcom/baidu/tieba/zi9;");
+                return;
             }
-            Item item = dataRes.item_card;
-            if (item != null) {
-                wi9 wi9Var = new wi9();
-                wi9Var.g(item);
-                arrayList.add(wi9Var);
-            }
-            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
-                xi9 xi9Var = new xi9();
-                xi9Var.n(str);
-                xi9Var.l(sugLiveInfo);
-                arrayList.add(xi9Var);
-            }
-            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
-            if (sugRankingInfo != null) {
-                yi9 yi9Var = new yi9();
-                yi9Var.f(str);
-                yi9Var.e(sugRankingInfo);
-                arrayList.add(yi9Var);
-            }
-            int size = arrayList.size();
-            for (String str2 : dataRes.list) {
-                ui9 ui9Var = new ui9();
-                ui9Var.c(str);
-                ui9Var.d(str2);
-                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
-                    arrayList.add(size, ui9Var);
-                } else {
-                    arrayList.add(ui9Var);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+        i = BdUniqueId.gen();
+    }
+
+    public zi9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Integer f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return i;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public Integer h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public void k(RecommendForumInfo recommendForumInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, recommendForumInfo) == null) {
+            this.c = recommendForumInfo.avatar;
+            this.a = recommendForumInfo.forum_id;
+            this.b = recommendForumInfo.forum_name;
+            this.d = recommendForumInfo.thread_count;
+            this.e = recommendForumInfo.member_count;
+            this.f = recommendForumInfo.slogan;
+            this.g = recommendForumInfo.is_like.intValue();
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.h = z;
+        }
     }
 }

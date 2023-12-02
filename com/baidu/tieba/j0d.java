@@ -1,64 +1,38 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.BrandBook;
-import tbclient.FrsPage.FrsBannerHeader;
-import tbclient.IconUrlInfo;
-import tbclient.ThemeColorInfo;
+import tbclient.FrsBottomActivityBase;
+import tbclient.FrsBottomChatroomBase;
+import tbclient.FrsBottomSmartBgColor;
+import tbclient.FrsPage.FrsBottom;
 /* loaded from: classes6.dex */
-public class j0d extends ltc {
+public class j0d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsBannerHeader frsBannerHeader) {
+    public static JSONObject b(@NonNull FrsBottom frsBottom) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBannerHeader)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBottom)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "icon_url", frsBannerHeader.icon_url);
-            ltc.a(jSONObject, GameGuideConfigInfo.KEY_CONTENT1, frsBannerHeader.content1);
-            ltc.a(jSONObject, GameGuideConfigInfo.KEY_CONTENT2, frsBannerHeader.content2);
-            ThemeColorInfo themeColorInfo = frsBannerHeader.content1_color;
-            if (themeColorInfo != null) {
-                ltc.a(jSONObject, "content1_color", t9d.b(themeColorInfo));
+            FrsBottomActivityBase frsBottomActivityBase = frsBottom.frs_activity;
+            if (frsBottomActivityBase != null) {
+                ktc.a(jSONObject, "frs_activity", qyc.b(frsBottomActivityBase));
             }
-            ThemeColorInfo themeColorInfo2 = frsBannerHeader.content2_color;
-            if (themeColorInfo2 != null) {
-                ltc.a(jSONObject, "content2_color", t9d.b(themeColorInfo2));
+            FrsBottomChatroomBase frsBottomChatroomBase = frsBottom.frs_chatroom;
+            if (frsBottomChatroomBase != null) {
+                ktc.a(jSONObject, "frs_chatroom", tyc.b(frsBottomChatroomBase));
             }
-            ThemeColorInfo themeColorInfo3 = frsBannerHeader.jump_tips_color;
-            if (themeColorInfo3 != null) {
-                ltc.a(jSONObject, "jump_tips_color", t9d.b(themeColorInfo3));
+            FrsBottomSmartBgColor frsBottomSmartBgColor = frsBottom.frs_smart_bg_color;
+            if (frsBottomSmartBgColor != null) {
+                ktc.a(jSONObject, "frs_smart_bg_color", uyc.b(frsBottomSmartBgColor));
             }
-            ThemeColorInfo themeColorInfo4 = frsBannerHeader.background_color;
-            if (themeColorInfo4 != null) {
-                ltc.a(jSONObject, "background_color", t9d.b(themeColorInfo4));
-            }
-            ltc.a(jSONObject, "jump_tips", frsBannerHeader.jump_tips);
-            ltc.a(jSONObject, "jump_link", frsBannerHeader.jump_link);
-            ltc.a(jSONObject, "type", frsBannerHeader.type);
-            IconUrlInfo iconUrlInfo = frsBannerHeader.jump_tips_icon;
-            if (iconUrlInfo != null) {
-                ltc.a(jSONObject, "jump_tips_icon", a4d.b(iconUrlInfo));
-            }
-            IconUrlInfo iconUrlInfo2 = frsBannerHeader.brand_icon;
-            if (iconUrlInfo2 != null) {
-                ltc.a(jSONObject, "brand_icon", a4d.b(iconUrlInfo2));
-            }
-            ltc.a(jSONObject, "card_type", frsBannerHeader.card_type);
-            ltc.a(jSONObject, "btn_text", frsBannerHeader.btn_text);
-            ltc.a(jSONObject, "btn_text_after", frsBannerHeader.btn_text_after);
-            ltc.a(jSONObject, "background_img", frsBannerHeader.background_img);
-            BrandBook brandBook = frsBannerHeader.book;
-            if (brandBook != null) {
-                ltc.a(jSONObject, "book", kzc.b(brandBook));
-            }
+            ktc.a(jSONObject, "has_more_module", frsBottom.has_more_module);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

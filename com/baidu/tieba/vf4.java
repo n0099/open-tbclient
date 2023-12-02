@@ -1,65 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class vf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final jj4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948238853, "Lcom/baidu/tieba/vf4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948238853, "Lcom/baidu/tieba/vf4;");
-                return;
-            }
-        }
-        a = jj4.e();
-    }
-
-    public vf4() {
+    public static void a(@NonNull eh4 eh4Var, @Nullable List<kf4> list, @Nullable List<lf4> list2, @NonNull fe4 fe4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, eh4Var, list, list2, fe4Var) == null) {
+            pg4 b = xf4.b(eh4Var, fe4Var);
+            if (list != null && !list.isEmpty()) {
+                xf4.a(b, og4.h(list, fe4Var));
             }
+            if (list2 != null && !list2.isEmpty()) {
+                xf4.a(b, og4.e(list2, fe4Var));
+            }
+            b.e();
         }
     }
 
-    public Integer a(Map<String, Object> map) {
-        InterceptResult invokeL;
+    public static void b(fh4 fh4Var, fe4 fe4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            if (map != null && !map.isEmpty() && map.containsKey("queue_priority")) {
-                try {
-                    int intValue = ((Integer) map.get("queue_priority")).intValue();
-                    if (intValue == 200 || intValue == 300) {
-                        return Integer.valueOf(intValue);
-                    }
-                } catch (Exception e) {
-                    a.h("QueuePriorityOptionHelper", "#parseOption error", e, false);
-                }
-            }
-            return 100;
+        if (interceptable == null || interceptable.invokeLL(65537, null, fh4Var, fe4Var) == null) {
+            xf4.c(fh4Var, fe4Var);
         }
-        return (Integer) invokeL.objValue;
+    }
+
+    public static void c(gh4 gh4Var, fe4 fe4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, gh4Var, fe4Var) == null) {
+            xf4.d(gh4Var, fe4Var);
+        }
+    }
+
+    public static void d(hh4 hh4Var, fe4 fe4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, hh4Var, fe4Var) == null) {
+            xf4.e(hh4Var, fe4Var);
+        }
+    }
+
+    public static void e(cj4 cj4Var, fe4 fe4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cj4Var, fe4Var) == null) {
+            xf4.f(cj4Var, fe4Var);
+        }
+    }
+
+    public static synchronized void f(List<lf4> list, fe4 fe4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, list, fe4Var) == null) {
+            synchronized (vf4.class) {
+                xf4.g(list, fe4Var);
+            }
+        }
     }
 }

@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.ala.frsgamelive.message.AlaFrsStoryLiveGatherRequestMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaFrsStoryLiveGatherRespMessage;
-import com.baidu.tieba.lb6;
-import com.baidu.tieba.mb6;
+import com.baidu.tieba.cc6;
+import com.baidu.tieba.pb6;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.yb6;
+import com.baidu.tieba.qb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -210,21 +210,21 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
                 LinkedList linkedList = new LinkedList();
                 int size = list.size();
                 for (int i = 0; i < size; i += 2) {
-                    yb6 yb6Var = new yb6();
+                    cc6 cc6Var = new cc6();
                     ThreadData threadData = list.get(i);
-                    yb6Var.a = threadData;
+                    cc6Var.a = threadData;
                     if (threadData.getAuthor() != null) {
-                        TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", yb6Var.a.getAuthor().getUserId()));
+                        TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", cc6Var.a.getAuthor().getUserId()));
                     }
                     int i2 = i + 1;
                     if (i2 < size) {
                         ThreadData threadData2 = list.get(i2);
-                        yb6Var.b = threadData2;
+                        cc6Var.b = threadData2;
                         if (threadData2.getAuthor() != null) {
-                            TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", yb6Var.b.getAuthor().getUserId()));
+                            TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", cc6Var.b.getAuthor().getUserId()));
                         }
                     }
-                    linkedList.add(yb6Var);
+                    linkedList.add(cc6Var);
                 }
                 return linkedList;
             }
@@ -297,11 +297,11 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
                 this.l.addAll(this.j);
                 this.d = true;
             } else {
-                this.l.add(new lb6());
+                this.l.add(new pb6());
                 this.d = false;
             }
             if (ListUtils.getCount(this.k) > 0 && !this.f) {
-                this.l.add(new mb6());
+                this.l.add(new qb6());
                 for (int i = 0; i < 3 && i < ListUtils.getCount(this.k); i++) {
                     if (this.k.get(i) != null) {
                         this.l.add(this.k.get(i));

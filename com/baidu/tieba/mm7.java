@@ -1,67 +1,103 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tieba.bb7;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.collections.MapsKt__MapsKt;
+import com.facebook.drawee.drawable.ScalingUtils;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class mm7 implements bb7.b {
+public final class mm7 extends ScalingUtils.AbstractScaleType {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
+    public static final ScalingUtils.ScaleType b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Bundle a;
 
-    public mm7(Bundle bundle) {
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fit_top" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final ScalingUtils.ScaleType a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return mm7.b;
+            }
+            return (ScalingUtils.ScaleType) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947977554, "Lcom/baidu/tieba/mm7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947977554, "Lcom/baidu/tieba/mm7;");
+                return;
+            }
+        }
+        a = new a(null);
+        b = new mm7();
+    }
+
+    public mm7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundle};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(bundle, "bundle");
-        this.a = bundle;
     }
 
-    @Override // com.baidu.tieba.bb7.b
-    public void a(nb7<?> data, int i) {
-        xa7 xa7Var;
-        Map<String, String> emptyMap;
-        Map<String, String> emptyMap2;
+    @Override // com.facebook.drawee.drawable.ScalingUtils.AbstractScaleType
+    public void getTransformImpl(Matrix outTransform, Rect parentRect, int i, int i2, float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (data instanceof xa7) {
-                xa7Var = (xa7) data;
-            } else {
-                xa7Var = null;
-            }
-            if (xa7Var == null) {
-                return;
-            }
-            j77 j77Var = xa7Var.a;
-            if (j77Var == null || (emptyMap = j77Var.a()) == null) {
-                emptyMap = MapsKt__MapsKt.emptyMap();
-            }
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("get_position", String.valueOf(i + 1));
-            r57 r57Var = xa7Var.b;
-            if (r57Var == null || (emptyMap2 = r57Var.a()) == null) {
-                emptyMap2 = MapsKt__MapsKt.emptyMap();
-            }
-            wb7.a.d(new pb7("card_click_other", emptyMap, linkedHashMap, emptyMap2), new qm7(this.a));
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{outTransform, parentRect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            Intrinsics.checkNotNullParameter(outTransform, "outTransform");
+            Intrinsics.checkNotNullParameter(parentRect, "parentRect");
+            outTransform.setScale(f3, f3);
+            outTransform.postTranslate((int) (parentRect.left + 0.5f), 0.0f);
         }
     }
 }

@@ -1,13 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes7.dex */
 public interface nha {
-    String C0();
+    int d(String str, boolean z);
 
-    TbPageContext<?> I();
+    int e(String str, boolean z);
 
-    void Z0();
+    void f();
 
-    int m2();
+    void g(String str, int i, boolean z);
 }

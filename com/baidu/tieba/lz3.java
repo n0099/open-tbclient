@@ -1,77 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class lz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile lz3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<nz3> a;
 
-    public lz3() {
+    public static JSONObject a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, "fail");
+                jSONObject.put("errDes", xv3.a(str));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return jSONObject;
         }
-        this.a = new CopyOnWriteArrayList();
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static lz3 b() {
-        InterceptResult invokeV;
+    public static JSONObject b(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (lz3.class) {
-                    if (b == null) {
-                        b = new lz3();
-                    }
-                }
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("width", i);
+                jSONObject.put("height", i2);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return b;
+            return jSONObject;
         }
-        return (lz3) invokeV.objValue;
-    }
-
-    public void a(nz3 nz3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, nz3Var) == null) && nz3Var != null && !this.a.contains(nz3Var)) {
-            this.a.add(nz3Var);
-        }
-    }
-
-    public void d(nz3 nz3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nz3Var) == null) && this.a.contains(nz3Var)) {
-            this.a.remove(nz3Var);
-        }
-    }
-
-    public void c(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            for (nz3 nz3Var : this.a) {
-                if (i == 16) {
-                    nz3Var.c();
-                } else if (i == 17) {
-                    nz3Var.b(str);
-                }
-                d(nz3Var);
-            }
-        }
+        return (JSONObject) invokeII.objValue;
     }
 }

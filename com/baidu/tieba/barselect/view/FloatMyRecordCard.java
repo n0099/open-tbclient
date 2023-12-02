@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.af6;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
-import com.baidu.tieba.jf6;
-import com.baidu.tieba.ye6;
-import com.baidu.tieba.ze6;
+import com.baidu.tieba.cf6;
+import com.baidu.tieba.df6;
+import com.baidu.tieba.ef6;
+import com.baidu.tieba.nf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,8 +34,8 @@ public class FloatMyRecordCard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public af6 c;
-    public ye6 d;
+    public ef6 c;
+    public cf6 d;
     public TextView e;
     public BazhuHeadView f;
     public TextView g;
@@ -142,16 +142,16 @@ public class FloatMyRecordCard extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0928a1);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0928a4);
             BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
             this.f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.f.getHeadView().setIsRound(true);
             }
             this.g = (TextView) findViewById(R.id.user_name);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee2);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092ac1);
-            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f09192b);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee3);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092ac4);
+            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f09192c);
         }
     }
 
@@ -167,12 +167,12 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public void d(int i) {
-        ye6 ye6Var;
+        cf6 cf6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (ye6Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (cf6Var = this.d) == null) {
             return;
         }
-        if (ye6Var.i() > 3) {
+        if (cf6Var.i() > 3) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
@@ -183,21 +183,21 @@ public class FloatMyRecordCard extends LinearLayout {
         setGrade(this.d.d());
     }
 
-    public void setData(af6 af6Var) {
-        ye6 ye6Var;
+    public void setData(ef6 ef6Var) {
+        cf6 cf6Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, af6Var) == null) {
-            this.c = af6Var;
-            if (af6Var != null && af6Var.a() != null) {
-                ze6 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048579, this, ef6Var) == null) {
+            this.c = ef6Var;
+            if (ef6Var != null && ef6Var.a() != null) {
+                df6 a2 = this.c.a();
                 if (a2 != null) {
                     this.b = a2.h();
                 }
                 this.d = this.c.f();
             }
-            if (this.c != null && (ye6Var = this.d) != null && this.b == jf6.c) {
-                int i = ye6Var.i();
+            if (this.c != null && (cf6Var = this.d) != null && this.b == nf6.c) {
+                int i = cf6Var.i();
                 if (i < 10) {
                     this.e.setText("0" + i);
                 } else {

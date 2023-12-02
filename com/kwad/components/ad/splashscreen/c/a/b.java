@@ -35,11 +35,11 @@ public final class b extends com.kwad.components.ad.splashscreen.c.e implements 
     }
 
     private void initView() {
-        this.Eu = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e7);
-        this.Ev = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fd);
-        this.Ew = (TextView) findViewById(R.id.obfuscated_res_0x7f0912f4);
-        this.Ex = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fe);
-        this.Ey = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e1);
+        this.Eu = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e8);
+        this.Ev = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fe);
+        this.Ew = (TextView) findViewById(R.id.obfuscated_res_0x7f0912f5);
+        this.Ex = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ff);
+        this.Ey = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e2);
     }
 
     private void lu() {

@@ -57,7 +57,7 @@ public class SwitchMaterial extends SwitchCompat {
         if (this.materialThemeColorsThumbTintList == null) {
             int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040190);
             int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04017b);
-            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f070644);
+            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f070648);
             if (this.elevationOverlayProvider.isThemeElevationOverlayEnabled()) {
                 dimension += ViewUtils.getParentAbsoluteElevation(this);
             }

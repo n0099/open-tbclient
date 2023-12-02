@@ -1,52 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.write.webwrite.data.WriteDataManager;
+import com.baidu.tieba.write.webwrite.data.WrapListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class cgb extends WriteDataManager {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface cgb {
 
-    public cgb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static Function1<JSONObject, Unit> a(cgb cgbVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cgbVar)) == null) {
+                return null;
             }
+            return (Function1) invokeL.objValue;
         }
     }
 
-    @Override // com.baidu.tieba.write.webwrite.data.WriteDataManager
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b().setType(11);
-            b().setRichTextEditorMode(true);
-            b().setIsArticle(wdb.m);
-        }
-    }
+    WrapListener[] a();
 
-    @Override // com.baidu.tieba.write.webwrite.data.WriteDataManager
-    public void o(TbPageContext<?> pageContext, xfb fileInterceptor, EditorTools editor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pageContext, fileInterceptor, editor) == null) {
-            Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-            Intrinsics.checkNotNullParameter(fileInterceptor, "fileInterceptor");
-            Intrinsics.checkNotNullParameter(editor, "editor");
-            a().l(new phb(pageContext, c(), b(), fileInterceptor, d(), editor));
-            a().l(new mhb(pageContext, c(), b(), d()));
-        }
-    }
+    agb[] b();
+
+    Function1<JSONObject, Unit> e();
+
+    zfb[] f();
 }

@@ -1,47 +1,106 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
+import tbclient.FrsPage.ActivityConfig;
+import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
 public final class bj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ForumWriteData a;
+    public final ActivityConfig b;
+    public final ItemInfo c;
 
-    public static final JSONObject a(ki7 ki7Var) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ki7Var)) == null) {
-            Intrinsics.checkNotNullParameter(ki7Var, "<this>");
-            JSONObject jSONObject = new JSONObject();
-            DataRes c = ki7Var.c();
-            if (c != null) {
-                DataRes.Builder builder = new DataRes.Builder(c);
-                ForumInfo.Builder builder2 = new ForumInfo.Builder(builder.forum);
-                builder2.banner_list = null;
-                builder.forum = builder2.build(true);
-                builder.thread_list = null;
-                builder.page_data = null;
-                builder.user_list = null;
-                builder.nav_tab_info = null;
-                try {
-                    JSONObject b = xzc.b(builder.build(true));
-                    Intrinsics.checkNotNullExpressionValue(b, "toJSON(data)");
-                    return b;
-                } catch (Exception e) {
-                    TbLog hybridLog = HybridLog.getInstance();
-                    hybridLog.e("BottomData", "frs接口数据转换失败：" + e);
-                    return jSONObject;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            return jSONObject;
+            if (obj instanceof bj7) {
+                bj7 bj7Var = (bj7) obj;
+                return Intrinsics.areEqual(this.a, bj7Var.a) && Intrinsics.areEqual(this.b, bj7Var.b) && Intrinsics.areEqual(this.c, bj7Var.c);
+            }
+            return false;
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ForumWriteData forumWriteData = this.a;
+            int hashCode = (forumWriteData == null ? 0 : forumWriteData.hashCode()) * 31;
+            ActivityConfig activityConfig = this.b;
+            int hashCode2 = (hashCode + (activityConfig == null ? 0 : activityConfig.hashCode())) * 31;
+            ItemInfo itemInfo = this.c;
+            return hashCode2 + (itemInfo != null ? itemInfo.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "WriteButtonData(forumWriteData=" + this.a + ", activityConfig=" + this.b + ", itemInfo=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public bj7(ForumWriteData forumWriteData, ActivityConfig activityConfig, ItemInfo itemInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forumWriteData, activityConfig, itemInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = forumWriteData;
+        this.b = activityConfig;
+        this.c = itemInfo;
+    }
+
+    public final ActivityConfig a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (ActivityConfig) invokeV.objValue;
+    }
+
+    public final ForumWriteData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ForumWriteData) invokeV.objValue;
+    }
+
+    public final ItemInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (ItemInfo) invokeV.objValue;
     }
 }

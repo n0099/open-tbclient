@@ -2,56 +2,42 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.pj2;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tieba.w73;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes8.dex */
 public class so1 implements xq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tieba.xq1
-    public boolean a(Activity activity) {
-        InterceptResult invokeL;
+    public boolean a(Activity activity, String str, w73.b bVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, bVar)) == null) {
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
     @Override // com.baidu.tieba.xq1
-    public void b(@NonNull Context context) {
+    public boolean b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            return true;
         }
-    }
-
-    @Override // com.baidu.tieba.xq1
-    public void c(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xq1
-    public void e(h63 h63Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, h63Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xq1
-    public void g(h63 h63Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, h63Var) == null) {
-        }
+        return invokeLL.booleanValue;
     }
 
     public so1() {
@@ -69,28 +55,31 @@ public class so1 implements xq1 {
     }
 
     @Override // com.baidu.tieba.xq1
-    public void d(@NonNull CallbackHandler callbackHandler) {
+    public boolean c(Activity activity, Uri uri, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, callbackHandler) == null) {
-            callbackHandler.handleSchemeDispatchCallback("", "");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, uri, str)) == null) {
+            if (activity != null && uri != null && uri.getPath() != null && !TextUtils.isEmpty(str)) {
+                if (ri3.i()) {
+                    uri = hk3.a(activity, new File(uri.getPath()));
+                }
+                d(activity, uri, str);
+                return true;
+            }
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xq1
-    public String f(@NonNull Context context) {
-        InterceptResult invokeL;
+    public final void d(Activity activity, Uri uri, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return context.getString(R.string.obfuscated_res_0x7f0f0194);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xq1
-    public void h(@NonNull Activity activity, String str, String str2, oj2 oj2Var, pj2.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, oj2Var, bVar) == null) && bVar != null) {
-            bVar.a();
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, uri, str) == null) {
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
+            intent.addCategory("android.intent.category.DEFAULT");
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            intent.addFlags(1);
+            intent.setDataAndType(uri, str);
+            ti3.f(activity, intent);
         }
     }
 }

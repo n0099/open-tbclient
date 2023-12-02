@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cz8;
+import com.baidu.tieba.gz8;
 import com.baidu.tieba.im.base.core.uilist.BaseSysAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbRecallSysMsg;
@@ -58,10 +58,10 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysItem, Holder> {
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f22);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910b4);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f24);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910b5);
             this.c = (TextView) view2.findViewById(R.id.user_name);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09293a);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09293d);
         }
     }
 
@@ -165,7 +165,7 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysItem, Holder> {
                     }
                 }
             }
-            cz8.d("c15095", 3, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
+            gz8.d("c15095", 3, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
         }
     }
 }

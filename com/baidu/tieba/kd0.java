@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class kd0 extends cg1<rf0> {
+public class kd0 extends fg1<rf0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +58,7 @@ public class kd0 extends cg1<rf0> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cg1
+    @Override // com.baidu.tieba.fg1
     /* renamed from: a */
     public rf0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;

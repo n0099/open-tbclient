@@ -1,66 +1,172 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.ArrayList;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class tl7 {
+public final class tl7 implements ul7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<nb7<?>> a;
-    public xl7 b;
-    public wl7 c;
+    public final xl7 a;
 
-    public boolean equals(Object obj) {
+    @Override // com.baidu.tieba.ul7
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public void c(wl7 initData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, initData) == null) {
+            Intrinsics.checkNotNullParameter(initData, "initData");
+        }
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public boolean d(String adId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof tl7) {
-                tl7 tl7Var = (tl7) obj;
-                return Intrinsics.areEqual(this.a, tl7Var.a) && Intrinsics.areEqual(this.b, tl7Var.b) && Intrinsics.areEqual(this.c, tl7Var.c);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adId)) == null) {
+            Intrinsics.checkNotNullParameter(adId, "adId");
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public int hashCode() {
+    @Override // com.baidu.tieba.ul7
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            xl7 xl7Var = this.b;
-            int hashCode2 = (hashCode + (xl7Var == null ? 0 : xl7Var.hashCode())) * 31;
-            wl7 wl7Var = this.c;
-            return hashCode2 + (wl7Var != null ? wl7Var.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public void h(JSONObject jSONObject, BdUniqueId pageUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, jSONObject, pageUniqueId) == null) {
+            Intrinsics.checkNotNullParameter(pageUniqueId, "pageUniqueId");
+        }
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public boolean hasMore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public int j(rb7<?> data) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public int k(ThreadData data) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public boolean m(String tid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tid)) == null) {
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ul7
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return -1;
         }
         return invokeV.intValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "ModelData(feedList=" + this.a + ", subTabData=" + this.b + ", sortTabData=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public tl7(List<nb7<?>> feedList, xl7 xl7Var, wl7 wl7Var) {
+    public tl7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {feedList, xl7Var, wl7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,54 +176,16 @@ public final class tl7 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(feedList, "feedList");
-        this.a = feedList;
-        this.b = xl7Var;
-        this.c = wl7Var;
+        this.a = new xl7(new ArrayList(), null, null, 6, null);
     }
 
-    public /* synthetic */ tl7(List list, xl7 xl7Var, wl7 wl7Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(list, (i & 2) != 0 ? null : xl7Var, (i & 4) != 0 ? null : wl7Var);
-    }
-
-    public final List<nb7<?>> a() {
+    @Override // com.baidu.tieba.ul7
+    public xl7 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.a;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final wl7 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (wl7) invokeV.objValue;
-    }
-
-    public final xl7 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
         return (xl7) invokeV.objValue;
-    }
-
-    public final void d(wl7 wl7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, wl7Var) == null) {
-            this.c = wl7Var;
-        }
-    }
-
-    public final void e(xl7 xl7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xl7Var) == null) {
-            this.b = xl7Var;
-        }
     }
 }

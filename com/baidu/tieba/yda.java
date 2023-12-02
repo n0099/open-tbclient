@@ -1,57 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.provider.Settings;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.helper.ProgressHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class yda extends ProgressHelper {
+public class yda extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BDVideoPlayer a;
+    public Context a;
+    public a b;
+
+    /* loaded from: classes9.dex */
+    public interface a {
+        void onChange(boolean z);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yda(@NonNull BDVideoPlayer bDVideoPlayer) {
-        super(bDVideoPlayer);
+    public yda(Context context, Handler handler) {
+        super(handler);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bDVideoPlayer};
+            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((BDVideoPlayer) newInitContext.callArgs[0]);
+                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = bDVideoPlayer;
+        this.a = context;
     }
 
-    public final void callPlayerBack(int i, int i2, int i3) {
+    public final void a() {
+        Context context;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) && i2 > 0) {
-            this.a.getPlayerCallbackManager().onUpdateProgress(i, (i3 * 100) / i2, i2);
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (context = this.a) == null) {
+            return;
+        }
+        try {
+            int i = Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation");
+            if (this.b != null) {
+                a aVar = this.b;
+                boolean z = true;
+                if (i != 1) {
+                    z = false;
+                }
+                aVar.onChange(z);
+            }
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
-    @Override // com.baidu.searchbox.player.helper.ProgressHelper, com.baidu.searchbox.player.helper.ITimerTask
-    public void doTask() {
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int position = this.a.getPosition();
-            int durationMs = this.a.getDurationMs();
-            int bufferingPosition = this.a.getBufferingPosition();
-            int positionMs = this.a.getPositionMs();
-            this.a.getControlEventTrigger().syncPos(position, positionMs, durationMs, bufferingPosition);
-            callPlayerBack(positionMs, durationMs, bufferingPosition);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
+            a();
+        }
+    }
+
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            a();
         }
     }
 }

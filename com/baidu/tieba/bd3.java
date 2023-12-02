@@ -1,12 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.er2;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,56 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class bd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static volatile bd3 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HashMap a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ String c;
-
-        public a(HashMap hashMap, File file, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hashMap, file, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hashMap;
-            this.b = file;
-            this.c = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            wq1 u;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (u = op2.u()) != null) {
-                u.a(this.a, this.b, null, "error_js");
-                if (bd3.a) {
-                    Log.d("V8StabilityHelper", "extraData :" + this.a.toString());
-                    Log.d("V8StabilityHelper", "filePath :" + this.c);
-                }
-            }
-        }
+    public interface a {
+        void a(String str, String str2);
     }
 
     static {
@@ -79,118 +35,59 @@ public class bd3 {
                 return;
             }
         }
-        a = sm1.a;
+        boolean z = vm1.a;
     }
 
-    public static void b(V8ExceptionInfo v8ExceptionInfo) {
+    public bd3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, v8ExceptionInfo) == null) {
-            if (v8ExceptionInfo == null) {
-                if (a) {
-                    Log.d("V8StabilityHelper", "empty exceptionInfo");
-                    return;
-                }
-                return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            c(v8ExceptionInfo);
-            d(v8ExceptionInfo);
         }
     }
 
-    public static void c(V8ExceptionInfo v8ExceptionInfo) {
+    public static bd3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, v8ExceptionInfo) == null) {
-            if (!op2.g0().A()) {
-                if (a) {
-                    Log.d("V8StabilityHelper", "stability switch off");
-                    return;
-                }
-                return;
-            }
-            er2.a aVar = null;
-            h63 M = h63.M();
-            if (M != null) {
-                aVar = M.Z();
-            }
-            ai3 ai3Var = new ai3();
-            ai3Var.k(5L);
-            ai3Var.i(37L);
-            id3 id3Var = new id3();
-            id3Var.p(ai3Var);
-            id3Var.r(aVar);
-            id3Var.q(ad3.n(g63.K().k()));
-            id3Var.m(h63.h0());
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
-                    jSONObject.put("exceptionMsg", v8ExceptionInfo.exceptionMsg);
-                }
-                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
-                    jSONObject.put("exceptionTrace", v8ExceptionInfo.exceptionTrace);
-                }
-                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
-                    jSONObject.put("exceptionType", v8ExceptionInfo.exceptionType);
-                }
-                id3Var.e(jSONObject);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (bd3.class) {
+                    if (b == null) {
+                        b = new bd3();
+                    }
                 }
             }
-            ad3.R(id3Var);
+            return b;
         }
+        return (bd3) invokeV.objValue;
     }
 
-    public static void d(V8ExceptionInfo v8ExceptionInfo) {
+    public void b(String str) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, v8ExceptionInfo) == null) {
-            if (!op2.g0().G()) {
-                if (a) {
-                    Log.d("V8StabilityHelper", "upload js switch off");
-                }
-            } else if (TextUtils.isEmpty(v8ExceptionInfo.filePath)) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (ProcessUtils.isMainProcess() && (aVar = this.a) != null) {
+                aVar.a("swanLauncherTag", str);
             } else {
-                String str = v8ExceptionInfo.filePath;
-                if (str.startsWith("script:")) {
-                    if (a) {
-                        Log.d("V8StabilityHelper", "file path start with js code prefix");
-                        return;
-                    }
-                    return;
-                }
-                SwanCoreVersion e = mf3.e(g63.K().k());
-                if (e != null && !TextUtils.isEmpty(e.swanCorePath)) {
-                    if (!str.startsWith(e.swanCorePath)) {
-                        if (a) {
-                            Log.d("V8StabilityHelper", "file path is not swan core path");
-                            return;
-                        }
-                        return;
-                    }
-                    File file = new File(str);
-                    if (!file.exists()) {
-                        return;
-                    }
-                    HashMap hashMap = new HashMap();
-                    h63 M = h63.M();
-                    if (!TextUtils.isEmpty(h63.h0())) {
-                        hashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, h63.h0());
-                    }
-                    if (M != null && !TextUtils.isEmpty(M.l0())) {
-                        hashMap.put("appVersion", M.l0());
-                    }
-                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
-                        hashMap.put("exceptionMsg", v8ExceptionInfo.exceptionMsg);
-                    }
-                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
-                        hashMap.put("exceptionTrace", v8ExceptionInfo.exceptionTrace);
-                    }
-                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
-                        hashMap.put("exceptionType", v8ExceptionInfo.exceptionType);
-                    }
-                    bj3.k(new a(hashMap, file, str), "error_js");
-                }
+                c("swanLauncherTag", str);
             }
+        }
+    }
+
+    public final void c(String str, String str2) {
+        f33 y;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && (y = j63.K().y()) != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("statTag", str);
+            bundle.putString("statisticData", str2);
+            y.W(bundle, ad3.class);
         }
     }
 }

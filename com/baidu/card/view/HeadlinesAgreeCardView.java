@@ -23,13 +23,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz4;
-import com.baidu.tieba.cw4;
-import com.baidu.tieba.hz4;
+import com.baidu.tieba.cr6;
+import com.baidu.tieba.ez4;
+import com.baidu.tieba.fw4;
 import com.baidu.tieba.it;
+import com.baidu.tieba.kz4;
 import com.baidu.tieba.ru;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.yq6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HeadlinesAgreeCardView extends FrameLayout implements it<cw4> {
+public class HeadlinesAgreeCardView extends FrameLayout implements it<fw4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public static final int l;
@@ -52,7 +52,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements it<cw4> {
     public TbImageAutoSwitch d;
     public TextView e;
     public HeadlinesItemInfoView f;
-    public bz4 g;
+    public ez4 g;
     public ru h;
     public final List<String> i;
     public final TbImageAutoSwitch.b j;
@@ -165,7 +165,7 @@ public class HeadlinesAgreeCardView extends FrameLayout implements it<cw4> {
     }
 
     /* loaded from: classes3.dex */
-    public static class c extends yq6 {
+    public static class c extends cr6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
@@ -255,10 +255,10 @@ public class HeadlinesAgreeCardView extends FrameLayout implements it<cw4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: i */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, cw4Var) == null) && cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().getTaskInfoData() != null && cw4Var.getThreadData().getTaskInfoData().f() != null) {
-            e(cw4Var.getThreadData().getTaskInfoData());
+        if ((interceptable == null || interceptable.invokeL(1048580, this, fw4Var) == null) && fw4Var != null && fw4Var.getThreadData() != null && fw4Var.getThreadData().getTaskInfoData() != null && fw4Var.getThreadData().getTaskInfoData().f() != null) {
+            e(fw4Var.getThreadData().getTaskInfoData());
         }
     }
 
@@ -308,17 +308,17 @@ public class HeadlinesAgreeCardView extends FrameLayout implements it<cw4> {
     }
 
     public void g() {
-        bz4 bz4Var;
+        ez4 ez4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bz4Var = this.g) != null && !TextUtils.isEmpty(bz4Var.a())) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ez4Var = this.g) != null && !TextUtils.isEmpty(ez4Var.a())) {
             BrowserHelper.startWebActivity(getContext(), (String) null, this.g.a(), true);
         }
     }
 
     public void h() {
-        bz4 bz4Var;
+        ez4 ez4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bz4Var = this.g) != null && !TextUtils.isEmpty(bz4Var.i())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ez4Var = this.g) != null && !TextUtils.isEmpty(ez4Var.i())) {
             BrowserHelper.startWebActivity(getContext(), (String) null, this.g.i(), true);
         }
     }
@@ -351,12 +351,12 @@ public class HeadlinesAgreeCardView extends FrameLayout implements it<cw4> {
         }
     }
 
-    public void e(@Nullable hz4 hz4Var) {
+    public void e(@Nullable kz4 kz4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, hz4Var) != null) || hz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, kz4Var) != null) || kz4Var == null) {
             return;
         }
-        bz4 f = hz4Var.f();
+        ez4 f = kz4Var.f();
         this.g = f;
         if (f == null) {
             return;

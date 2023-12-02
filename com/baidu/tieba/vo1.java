@@ -1,42 +1,56 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.tieba.sj2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class vo1 implements ar1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tieba.ar1
-    public void a() {
+    public boolean a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ar1
+    public void b(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
         }
     }
 
     @Override // com.baidu.tieba.ar1
-    public void b(String str, yu1 yu1Var) {
+    public void c(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, yu1Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
     }
 
     @Override // com.baidu.tieba.ar1
-    public void c(SwanAppActivity swanAppActivity, String str, yu1 yu1Var) {
+    public void e(k63 k63Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, swanAppActivity, str, yu1Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, k63Var) == null) {
         }
     }
 
     @Override // com.baidu.tieba.ar1
-    public void d(String str, String str2, JSONObject jSONObject, yu1 yu1Var) {
+    public void g(k63 k63Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, jSONObject, yu1Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, k63Var) == null) {
         }
     }
 
@@ -51,6 +65,32 @@ public class vo1 implements ar1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.ar1
+    public void d(@NonNull CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, callbackHandler) == null) {
+            callbackHandler.handleSchemeDispatchCallback("", "");
+        }
+    }
+
+    @Override // com.baidu.tieba.ar1
+    public String f(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            return context.getString(R.string.obfuscated_res_0x7f0f0194);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ar1
+    public void h(@NonNull Activity activity, String str, String str2, rj2 rj2Var, sj2.b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, rj2Var, bVar) == null) && bVar != null) {
+            bVar.a();
         }
     }
 }

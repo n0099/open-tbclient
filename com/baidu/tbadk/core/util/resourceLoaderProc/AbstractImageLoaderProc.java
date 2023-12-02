@@ -28,13 +28,13 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
 import com.baidu.tieba.k7;
 import com.baidu.tieba.nb;
-import com.baidu.tieba.nv4;
 import com.baidu.tieba.o7;
+import com.baidu.tieba.qv4;
 import com.baidu.tieba.rb;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.sb;
-import com.baidu.tieba.st5;
 import com.baidu.tieba.tb;
+import com.baidu.tieba.wt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,7 +111,7 @@ public abstract class AbstractImageLoaderProc implements tb<BdImage> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return nv4.c().g();
+            return qv4.c().g();
         }
         return invokeV.booleanValue;
     }
@@ -383,8 +383,8 @@ public abstract class AbstractImageLoaderProc implements tb<BdImage> {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i9, i10);
             }
-            st5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = st5.d(urlbyClientServerAddr);
+            wt5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = wt5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -497,7 +497,7 @@ public abstract class AbstractImageLoaderProc implements tb<BdImage> {
                 rawBitmap = decodeToResourceWithWH(bArr3, i7, i6).getRawBitmap();
             }
             if (z && rawBitmap == null) {
-                st5.b(str4);
+                wt5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z5);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {

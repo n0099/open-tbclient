@@ -2,8 +2,8 @@ package com.huawei.hms.push.ups;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.fcc;
-import com.baidu.tieba.icc;
+import com.baidu.tieba.ecc;
+import com.baidu.tieba.hcc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,7 +64,7 @@ public final class UPSService {
             if (!s.b()) {
                 uPSTurnCallBack.onResult(new TokenResult(ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.getExternalCode()));
             } else {
-                HmsMessaging.getInstance(context).turnOffPush().a(new fcc<Void>(uPSTurnCallBack) { // from class: com.huawei.hms.push.ups.UPSService.2
+                HmsMessaging.getInstance(context).turnOffPush().a(new ecc<Void>(uPSTurnCallBack) { // from class: com.huawei.hms.push.ups.UPSService.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UPSTurnCallBack a;
@@ -87,15 +87,15 @@ public final class UPSService {
                         this.a = uPSTurnCallBack;
                     }
 
-                    @Override // com.baidu.tieba.fcc
-                    public void onComplete(icc<Void> iccVar) {
+                    @Override // com.baidu.tieba.ecc
+                    public void onComplete(hcc<Void> hccVar) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, iccVar) == null) {
-                            if (iccVar.h()) {
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, hccVar) == null) {
+                            if (hccVar.h()) {
                                 this.a.onResult(new CodeResult());
                                 return;
                             }
-                            ApiException apiException = (ApiException) iccVar.d();
+                            ApiException apiException = (ApiException) hccVar.d();
                             this.a.onResult(new CodeResult(apiException.getStatusCode(), apiException.getMessage()));
                         }
                     }
@@ -112,7 +112,7 @@ public final class UPSService {
             if (!s.b()) {
                 uPSTurnCallBack.onResult(new TokenResult(ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.getExternalCode()));
             } else {
-                HmsMessaging.getInstance(context).turnOnPush().a(new fcc<Void>(uPSTurnCallBack) { // from class: com.huawei.hms.push.ups.UPSService.1
+                HmsMessaging.getInstance(context).turnOnPush().a(new ecc<Void>(uPSTurnCallBack) { // from class: com.huawei.hms.push.ups.UPSService.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UPSTurnCallBack a;
@@ -135,15 +135,15 @@ public final class UPSService {
                         this.a = uPSTurnCallBack;
                     }
 
-                    @Override // com.baidu.tieba.fcc
-                    public void onComplete(icc<Void> iccVar) {
+                    @Override // com.baidu.tieba.ecc
+                    public void onComplete(hcc<Void> hccVar) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, iccVar) == null) {
-                            if (iccVar.h()) {
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, hccVar) == null) {
+                            if (hccVar.h()) {
                                 this.a.onResult(new CodeResult());
                                 return;
                             }
-                            ApiException apiException = (ApiException) iccVar.d();
+                            ApiException apiException = (ApiException) hccVar.d();
                             this.a.onResult(new CodeResult(apiException.getStatusCode(), apiException.getMessage()));
                         }
                     }

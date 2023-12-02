@@ -1,111 +1,108 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.ala.livecard.holder.FrsPageAlaInsertRecLiveHolder;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.mainTab.FragmentDelegate;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.FragmentTabStructure;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.ala.gamebar.AlaGameFrsLiveTabFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes9.dex */
-public class zb6 extends cs7<xua, FrsPageAlaInsertRecLiveHolder> implements gm6 {
+public class zb6 extends FragmentDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String l;
-    public kc6 m;
+    public AlaGameFrsLiveTabFragment a;
 
-    @Override // com.baidu.tieba.gm6
-    public void q(int i) {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public boolean isAvailable() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zb6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public zb6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = "";
+        this.a = new AlaGameFrsLiveTabFragment();
+        getFragmentTabStructure().frag = this.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: H */
-    public FrsPageAlaInsertRecLiveHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public FragmentTabStructure createFragmentTabStructure() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
+            fragmentTabStructure.type = 2;
+            fragmentTabStructure.textResId = R.string.ala_live;
+            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
+            return fragmentTabStructure;
+        }
+        return (FragmentTabStructure) invokeV.objValue;
+    }
+
+    public void a(gt7 gt7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, gt7Var) != null) || gt7Var == null || !gt7Var.i(2)) {
+            return;
+        }
+        gt7Var.a(this);
+    }
+
+    public void b(String str) {
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (alaGameFrsLiveTabFragment = this.a) != null) {
+            alaGameFrsLiveTabFragment.Q2(str);
+        }
+    }
+
+    public void c(String str) {
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (alaGameFrsLiveTabFragment = this.a) != null) {
+            alaGameFrsLiveTabFragment.R2(str);
+        }
+    }
+
+    public void d(String str) {
+        AlaGameFrsLiveTabFragment alaGameFrsLiveTabFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaGameFrsLiveTabFragment = this.a) != null) {
+            alaGameFrsLiveTabFragment.S2(str);
+        }
+    }
+
+    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
+    public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            TbPageContext<?> tbPageContext = this.c;
-            if (tbPageContext == null) {
-                return null;
-            }
-            kc6 kc6Var = new kc6(tbPageContext);
-            this.m = kc6Var;
-            kc6Var.a(this.l);
-            return new FrsPageAlaInsertRecLiveHolder(this.m);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.mIndicator = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.mIndicator;
         }
-        return (FrsPageAlaInsertRecLiveHolder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.gm6
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.l = str;
-        }
-    }
-
-    public View I(int i, View view2, ViewGroup viewGroup, xua xuaVar, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
-        InterceptResult invokeCommon;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xuaVar, frsPageAlaInsertRecLiveHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) xuaVar, (xua) frsPageAlaInsertRecLiveHolder);
-            if (xuaVar != null) {
-                FrsViewData frsViewData = this.b;
-                if (frsViewData != null) {
-                    i2 = frsViewData.getTopThreadSize();
-                } else {
-                    i2 = 0;
-                }
-                List<ThreadData> list = xuaVar.a;
-                if (list != null && list.get(0) != null) {
-                    xuaVar.a.get(0).statFloor = (i + 1) - i2;
-                }
-                frsPageAlaInsertRecLiveHolder.a.a(this.l);
-                frsPageAlaInsertRecLiveHolder.a.j(xuaVar);
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.cs7, com.baidu.tieba.ci
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        I(i, view2, viewGroup, (xua) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
-        return view2;
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 }

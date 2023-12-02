@@ -307,12 +307,12 @@ public final class c extends com.kwad.components.core.l.c<h> implements DialogIn
 
     @Override // com.kwad.components.core.l.c
     public final void kp() {
-        this.mRootContainer = (AdBaseFrameLayout) this.lC.findViewById(R.id.obfuscated_res_0x7f0914c8);
-        DetailVideoView detailVideoView = (DetailVideoView) this.lC.findViewById(R.id.obfuscated_res_0x7f0914d0);
+        this.mRootContainer = (AdBaseFrameLayout) this.lC.findViewById(R.id.obfuscated_res_0x7f0914c9);
+        DetailVideoView detailVideoView = (DetailVideoView) this.lC.findViewById(R.id.obfuscated_res_0x7f0914d1);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.setAd(true);
         this.mDetailVideoView.setVisibility(8);
-        this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f092361).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.splashscreen.c.2
+        this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f092363).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.splashscreen.c.2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 if (!com.kwad.sdk.d.a.a.zz() && c.n(c.this.mAdInfo) && c.this.Mo != null) {

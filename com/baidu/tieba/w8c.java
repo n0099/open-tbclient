@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes8.dex */
-public class w8c {
+public final class w8c implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ InstallActivity b;
+    public final /* synthetic */ u8c a;
 
-    public w8c(InstallActivity installActivity) {
+    public w8c(u8c u8cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
+            Object[] objArr = {u8cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,47 +29,24 @@ public class w8c {
                 return;
             }
         }
-        this.b = installActivity;
-        this.a = false;
+        this.a = u8cVar;
     }
 
-    public void b(Exception exc) {
+    @Override // android.content.ServiceConnection
+    public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                this.a = true;
-                this.b.d = com.google.ar.core.p.CANCELLED;
-                boolean z = exc instanceof UnavailableException;
-                this.b.j(exc);
-            }
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) != null) {
+            return;
         }
+        this.a.q();
     }
 
-    public void a(com.google.ar.core.p pVar) {
-        boolean z;
+    @Override // android.content.ServiceConnection
+    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            synchronized (this.b) {
-                if (!this.a) {
-                    this.b.d = pVar;
-                    int ordinal = pVar.ordinal();
-                    if (ordinal != 0) {
-                        if (ordinal == 1) {
-                            this.b.j(new UnavailableUserDeclinedInstallationException());
-                        } else if (ordinal == 2) {
-                            z = this.b.g;
-                            if (!z) {
-                                this.b.i();
-                            }
-                            this.b.j(null);
-                        }
-                        this.a = true;
-                    }
-                }
-            }
+        if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
+            return;
         }
+        this.a.f(iBinder);
     }
 }

@@ -1,25 +1,27 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.io.File;
 /* loaded from: classes5.dex */
 public interface bp9 {
-    void a(int i, String str);
+    public static final String a = File.separator;
+    public static final String b = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String c = b + a + ".tieba_video_monitor";
+    public static final String d = c + a + "v1";
+    public static final String e;
+    public static final String f;
+    public static final String g;
 
-    void b(int i, String str);
-
-    void c();
-
-    void d();
-
-    void e(String str);
-
-    void f(int i, int i2, String str);
-
-    void g();
-
-    void h(int i, String str);
-
-    void i(int i, String str);
-
-    void j();
-
-    void k(String str);
+    static {
+        StringBuilder sb = new StringBuilder();
+        sb.append(d);
+        sb.append(a);
+        e = sb.toString();
+        f = b + a + ".tieba_video_monitor_log";
+        g = f + a + "v1";
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(g);
+        sb2.append(a);
+        sb2.toString();
+    }
 }

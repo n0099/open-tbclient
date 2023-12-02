@@ -1,31 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tieba.e5c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import com.fun.ad.sdk.internal.api.utils.MD5Utils;
-import java.util.ArrayList;
-import java.util.List;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import com.qq.e.ads.nativ.NativeUnifiedADDataAdapter;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h4c<A extends e5c> extends AdReporter<A> {
+public class h4c extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean e;
-    public final String f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h4c(Ssp.Pid pid) {
-        super(pid.pid, pid.type, pid.ssp.type);
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,55 +30,43 @@ public class h4c<A extends e5c> extends AdReporter<A> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = pid.isBidding;
-        this.f = pid.pid;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReport(Object obj, String str) {
-        InterceptResult invokeLL;
-        double c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
-            e5c e5cVar = (e5c) obj;
-            if (e5cVar != null && e5cVar.a != 0 && !TextUtils.isEmpty(e5cVar.e())) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(Pair.create("gdt_rq_id", e5cVar.e()));
-                if (!this.e) {
-                    c = FunAdSdk.getARPU(this.f);
-                } else {
-                    c = (e5cVar.c() / 100.0d) / 1000.0d;
-                }
-                arrayList.add(Pair.create("rvn", Double.valueOf(c)));
-                arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * c)))));
-                arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReward(Object obj) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            e5c e5cVar = (e5c) obj;
-            if (e5cVar != null && !TextUtils.isEmpty(e5cVar.f())) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(Pair.create("gdt_tr_id", e5cVar.f()));
-                return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
-            return null;
+            try {
+                A a = ((d5c) obj).a;
+                if (!(a instanceof NativeUnifiedADDataAdapter)) {
+                    return null;
+                }
+                Object field = ReflectionUtils.getField((NativeUnifiedADDataAdapter) a, "a", "e");
+                Field declaredField = field.getClass().getSuperclass().getDeclaredField("M");
+                if (declaredField == null) {
+                    return null;
+                }
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(field);
+                if (!(obj2 instanceof JSONObject)) {
+                    return null;
+                }
+                return m4c.a((JSONObject) obj2);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
+            }
         }
-        return (List) invokeL.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

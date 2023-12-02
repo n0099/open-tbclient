@@ -1,19 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryWriteMessage;
-import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryWriteMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.HotForum.ForumInfo;
 /* loaded from: classes6.dex */
-public class hi9 implements CustomMessageTask.CustomRunnable<Object> {
+public class hi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,31 +24,15 @@ public class hi9 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    public void a(ForumInfo forumInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryWriteMessage)) {
-                RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = (RequestSearchPersonHistoryWriteMessage) customMessage;
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                b05.k();
-                da<String> n = b05.n("tb.searchperson_history", currentAccount);
-                if (requestSearchPersonHistoryWriteMessage.isClear()) {
-                    BdCacheService.o().m(n);
-                } else {
-                    Object data = requestSearchPersonHistoryWriteMessage.getData();
-                    if (data != null && (data instanceof String)) {
-                        n.g((String) data, null);
-                    }
-                }
-                return new ResponseSearchPersonHistoryWriteMessage();
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, forumInfo) == null) && forumInfo != null) {
+            String str = forumInfo.avatar;
+            forumInfo.forum_id.longValue();
+            String str2 = forumInfo.forum_name;
+            forumInfo.time_out.longValue();
+            forumInfo.member_count.longValue();
+            forumInfo.thread_count.longValue();
         }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

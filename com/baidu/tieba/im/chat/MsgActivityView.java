@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hs8;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.ls8;
 import com.baidu.tieba.va;
 import com.baidu.tieba.wa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class MsgActivityView extends hs8 {
+public class MsgActivityView extends ls8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView I;
@@ -165,10 +165,10 @@ public class MsgActivityView extends hs8 {
             }
         }
         this.i = (TextView) g(R.id.tex_msgitem_time);
-        this.J = (TextView) g(R.id.obfuscated_res_0x7f0918bf);
-        this.K = (TextView) g(R.id.obfuscated_res_0x7f0918be);
-        this.L = (TextView) g(R.id.obfuscated_res_0x7f0918bd);
-        HeadImageView headImageView = (HeadImageView) g(R.id.obfuscated_res_0x7f09116a);
+        this.J = (TextView) g(R.id.obfuscated_res_0x7f0918c0);
+        this.K = (TextView) g(R.id.obfuscated_res_0x7f0918bf);
+        this.L = (TextView) g(R.id.obfuscated_res_0x7f0918be);
+        HeadImageView headImageView = (HeadImageView) g(R.id.obfuscated_res_0x7f09116b);
         this.I = headImageView;
         headImageView.setIsRound(false);
         this.I.setClickable(true);
@@ -176,7 +176,7 @@ public class MsgActivityView extends hs8 {
         x().setOnLongClickListener(new b(this));
     }
 
-    @Override // com.baidu.tieba.hs8
+    @Override // com.baidu.tieba.ls8
     public void T(va vaVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, vaVar) == null) {
@@ -184,7 +184,7 @@ public class MsgActivityView extends hs8 {
         }
     }
 
-    @Override // com.baidu.tieba.hs8
+    @Override // com.baidu.tieba.ls8
     public void U(wa waVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, waVar) == null) {
@@ -192,7 +192,7 @@ public class MsgActivityView extends hs8 {
         }
     }
 
-    @Override // com.baidu.tieba.hs8
+    @Override // com.baidu.tieba.ls8
     public void V(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -228,16 +228,16 @@ public class MsgActivityView extends hs8 {
                 String str = "";
                 switch (i3) {
                     case 0:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13d5);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13d6);
                         break;
                     case 1:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0f25);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0f26);
                         break;
                     case 2:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1791);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1792);
                         break;
                     case 3:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f16ab);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f16ac);
                         break;
                     case 4:
                         str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0805);
@@ -246,11 +246,11 @@ public class MsgActivityView extends hs8 {
                         str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0764);
                         break;
                     case 6:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1455);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1456);
                         break;
                 }
                 if (i > 12) {
-                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1152);
+                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1153);
                     i -= 12;
                 } else {
                     string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f02be);

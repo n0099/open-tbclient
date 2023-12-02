@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fs9;
-import com.baidu.tieba.os9;
-import com.baidu.tieba.vs9;
+import com.baidu.tieba.js9;
+import com.baidu.tieba.ss9;
+import com.baidu.tieba.zs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class BaseInterestSelectionFragment extends BaseFragment implements fs9.a {
+public abstract class BaseInterestSelectionFragment extends BaseFragment implements js9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
     public TBSpecificationBtn b;
-    public fs9 c;
+    public js9 c;
     public View d;
     public int e;
     public String[] f;
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(List<os9> list);
+        void a(List<ss9> list);
     }
 
     public BaseInterestSelectionFragment() {
@@ -65,12 +65,12 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 1) {
-                vs9.c(1, this.e);
+                zs9.c(1, this.e);
             }
         }
     }
 
-    @Override // com.baidu.tieba.fs9.a
+    @Override // com.baidu.tieba.js9.a
     public void D2(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -79,7 +79,7 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
                 this.b.setText(getString(R.string.next_step));
             } else if (i == 0) {
                 this.b.setEnabled(false);
-                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1399));
+                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f139a));
             }
         }
     }

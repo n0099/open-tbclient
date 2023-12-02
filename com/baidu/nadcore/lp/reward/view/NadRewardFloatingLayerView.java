@@ -11,12 +11,12 @@ import com.baidu.nadcore.rotationpop.NadLottiePopView;
 import com.baidu.nadcore.rotationpop.NadSensorLottieComponent;
 import com.baidu.nadcore.utils.ExtensionsKt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn0;
-import com.baidu.tieba.hn0;
-import com.baidu.tieba.hy0;
+import com.baidu.tieba.ao0;
+import com.baidu.tieba.cn0;
+import com.baidu.tieba.in0;
+import com.baidu.tieba.jy0;
 import com.baidu.tieba.ll0;
-import com.baidu.tieba.u11;
-import com.baidu.tieba.yn0;
+import com.baidu.tieba.w11;
 import com.baidu.webkit.sdk.WebChromeClient;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -28,13 +28,13 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000d\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B'\b\u0007\u0012\u0006\u00103\u001a\u000202\u0012\n\b\u0002\u00105\u001a\u0004\u0018\u000104\u0012\b\b\u0002\u00106\u001a\u00020\u0011¢\u0006\u0004\b7\u00108J\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\u000b\u0010\fJ\u0019\u0010\u000f\u001a\u00020\u000e2\b\u0010\r\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\u000f\u0010\u0010J\u0015\u0010\u0013\u001a\u00020\u000e2\u0006\u0010\u0012\u001a\u00020\u0011¢\u0006\u0004\b\u0013\u0010\u0014J\u0019\u0010\u0017\u001a\u00020\u000e2\b\u0010\u0016\u001a\u0004\u0018\u00010\u0015H\u0002¢\u0006\u0004\b\u0017\u0010\u0018J\r\u0010\u0019\u001a\u00020\u000e¢\u0006\u0004\b\u0019\u0010\u001aJ\u000f\u0010\u001b\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u001b\u0010\u001aJ\u0017\u0010\u001e\u001a\u00020\u000e2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001c¢\u0006\u0004\b\u001e\u0010\u001fJ!\u0010\"\u001a\u00020\u000e2\u0012\u0010!\u001a\u000e\u0012\u0004\u0012\u00020\u0015\u0012\u0004\u0012\u00020\u000e0 ¢\u0006\u0004\b\"\u0010#R\u0018\u0010\u001d\u001a\u0004\u0018\u00010\u001c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001d\u0010$R\u001d\u0010)\u001a\u00020\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b%\u0010&\u001a\u0004\b'\u0010(R\u0018\u0010\r\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\r\u0010*R\u0016\u0010+\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010,R\u0018\u0010.\u001a\u0004\u0018\u00010-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010/R$\u00100\u001a\u0010\u0012\u0004\u0012\u00020\u0015\u0012\u0004\u0012\u00020\u000e\u0018\u00010 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b0\u00101¨\u00069"}, d2 = {"Lcom/baidu/nadcore/lp/reward/view/NadRewardFloatingLayerView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/nadcore/model/NadRotationPopModel;", "model", "", "checkDataValid", "(Lcom/baidu/nadcore/model/NadRotationPopModel;)Z", "Lcom/baidu/nadcore/rotation/NadSensorEventAbsListener;", "getSLComponentSensorListener", "()Lcom/baidu/nadcore/rotation/NadSensorEventAbsListener;", "Lcom/baidu/nadcore/rotationpop/NadLottiePopView$DefaultViewActionListener;", "getSLComponentViewListener", "()Lcom/baidu/nadcore/rotationpop/NadLottiePopView$DefaultViewActionListener;", "floatingLayerModel", "", "initSensorComponent", "(Lcom/baidu/nadcore/model/NadRotationPopModel;)V", "", "progress", "onUpdateProgress", "(I)V", "", "cmd", "performInvoke", "(Ljava/lang/String;)V", "release", "()V", "resetSensorState", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "adModel", "setData", "(Lcom/baidu/nadcore/model/AdRewardVideoLpModel;)V", "Lkotlin/Function1;", WebChromeClient.KEY_ARG_CALLBACK, "setTriggerCallback", "(Lkotlin/Function1;)V", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "container$delegate", "Lkotlin/Lazy;", "getContainer", "()Landroid/widget/FrameLayout;", "container", "Lcom/baidu/nadcore/model/NadRotationPopModel;", "hasShown", "Z", "Lcom/baidu/nadcore/rotationpop/NadSensorLottieComponent;", "sensorLottieComponent", "Lcom/baidu/nadcore/rotationpop/NadSensorLottieComponent;", "triggerCallback", "Lkotlin/Function1;", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000d\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B'\b\u0007\u0012\u0006\u00105\u001a\u000204\u0012\n\b\u0002\u00107\u001a\u0004\u0018\u000106\u0012\b\b\u0002\u00108\u001a\u00020\u0014¢\u0006\u0004\b9\u0010:J\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\u000b\u0010\fJ\u0011\u0010\u000e\u001a\u0004\u0018\u00010\rH\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0012\u001a\u00020\u00112\b\u0010\u0010\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u0015\u0010\u0016\u001a\u00020\u00112\u0006\u0010\u0015\u001a\u00020\u0014¢\u0006\u0004\b\u0016\u0010\u0017J\u0019\u0010\u0019\u001a\u00020\u00112\b\u0010\u0018\u001a\u0004\u0018\u00010\rH\u0002¢\u0006\u0004\b\u0019\u0010\u001aJ\r\u0010\u001b\u001a\u00020\u0011¢\u0006\u0004\b\u001b\u0010\u001cJ\u000f\u0010\u001d\u001a\u00020\u0011H\u0002¢\u0006\u0004\b\u001d\u0010\u001cJ\u0017\u0010 \u001a\u00020\u00112\b\u0010\u001f\u001a\u0004\u0018\u00010\u001e¢\u0006\u0004\b \u0010!J!\u0010$\u001a\u00020\u00112\u0012\u0010#\u001a\u000e\u0012\u0004\u0012\u00020\r\u0012\u0004\u0012\u00020\u00110\"¢\u0006\u0004\b$\u0010%R\u0018\u0010\u001f\u001a\u0004\u0018\u00010\u001e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001f\u0010&R\u001d\u0010+\u001a\u00020\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b'\u0010(\u001a\u0004\b)\u0010*R\u0018\u0010\u0010\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0010\u0010,R\u0016\u0010-\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b-\u0010.R\u0018\u00100\u001a\u0004\u0018\u00010/8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b0\u00101R$\u00102\u001a\u0010\u0012\u0004\u0012\u00020\r\u0012\u0004\u0012\u00020\u0011\u0018\u00010\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u00103¨\u0006;"}, d2 = {"Lcom/baidu/nadcore/lp/reward/view/NadRewardFloatingLayerView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/nadcore/model/NadRotationPopModel;", "model", "", "checkDataValid", "(Lcom/baidu/nadcore/model/NadRotationPopModel;)Z", "Lcom/baidu/nadcore/rotation/NadSensorEventAbsListener;", "getSLComponentSensorListener", "()Lcom/baidu/nadcore/rotation/NadSensorEventAbsListener;", "Lcom/baidu/nadcore/rotationpop/NadLottiePopView$DefaultViewActionListener;", "getSLComponentViewListener", "()Lcom/baidu/nadcore/rotationpop/NadLottiePopView$DefaultViewActionListener;", "", "getTriggerCmd", "()Ljava/lang/String;", "floatingLayerModel", "", "initSensorComponent", "(Lcom/baidu/nadcore/model/NadRotationPopModel;)V", "", "progress", "onUpdateProgress", "(I)V", "cmd", "performInvoke", "(Ljava/lang/String;)V", "release", "()V", "resetSensorState", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "adModel", "setData", "(Lcom/baidu/nadcore/model/AdRewardVideoLpModel;)V", "Lkotlin/Function1;", WebChromeClient.KEY_ARG_CALLBACK, "setTriggerCallback", "(Lkotlin/Function1;)V", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "container$delegate", "Lkotlin/Lazy;", "getContainer", "()Landroid/widget/FrameLayout;", "container", "Lcom/baidu/nadcore/model/NadRotationPopModel;", "hasShown", "Z", "Lcom/baidu/nadcore/rotationpop/NadSensorLottieComponent;", "sensorLottieComponent", "Lcom/baidu/nadcore/rotationpop/NadSensorLottieComponent;", "triggerCallback", "Lkotlin/Function1;", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class NadRewardFloatingLayerView extends FrameLayout {
     public final Lazy a;
     public NadSensorLottieComponent b;
-    public hn0 c;
-    public yn0 d;
+    public in0 c;
+    public ao0 d;
     public Function1<? super String, Unit> e;
     public boolean f;
 
@@ -63,11 +63,11 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            yn0 d;
+            ao0 d;
             NadRewardFloatingLayerView.this.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-            hn0 hn0Var = NadRewardFloatingLayerView.this.c;
-            if (hn0Var != null && (d = hn0Var.d()) != null) {
-                int e = (int) ((u11.c.e(this.b) * d.q) + (u11.c.a(this.b, 25.0f) * 2));
+            in0 in0Var = NadRewardFloatingLayerView.this.c;
+            if (in0Var != null && (d = in0Var.d()) != null) {
+                int e = (int) ((w11.c.e(this.b) * d.r) + (w11.c.a(this.b, 25.0f) * 2));
                 FrameLayout container = NadRewardFloatingLayerView.this.getContainer();
                 ViewGroup.LayoutParams layoutParams = NadRewardFloatingLayerView.this.getContainer().getLayoutParams();
                 layoutParams.height = e;
@@ -78,8 +78,8 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public static final class b extends hy0 {
-        @Override // com.baidu.tieba.hy0
+    public static final class b extends jy0 {
+        @Override // com.baidu.tieba.jy0
         public boolean a() {
             return true;
         }
@@ -88,21 +88,14 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         public b() {
         }
 
-        @Override // com.baidu.tieba.hy0
+        @Override // com.baidu.tieba.jy0
         public void h() {
             NadLottiePopView c;
-            String str;
             NadSensorLottieComponent nadSensorLottieComponent = NadRewardFloatingLayerView.this.b;
             if (nadSensorLottieComponent != null && (c = nadSensorLottieComponent.c()) != null && c.getVisibility() == 0) {
-                ll0.w(NadRewardFloatingLayerView.this.c);
+                ll0.x(NadRewardFloatingLayerView.this.c);
                 NadRewardFloatingLayerView nadRewardFloatingLayerView = NadRewardFloatingLayerView.this;
-                yn0 yn0Var = nadRewardFloatingLayerView.d;
-                if (yn0Var != null) {
-                    str = yn0Var.i;
-                } else {
-                    str = null;
-                }
-                nadRewardFloatingLayerView.k(str);
+                nadRewardFloatingLayerView.k(nadRewardFloatingLayerView.getTriggerCmd());
             }
         }
     }
@@ -124,17 +117,10 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
 
         @Override // com.baidu.nadcore.rotationpop.NadLottiePopView.e
         public void b(View view2) {
-            String str;
             Intrinsics.checkNotNullParameter(view2, "view");
             ll0.m(NadRewardFloatingLayerView.this.c);
             NadRewardFloatingLayerView nadRewardFloatingLayerView = NadRewardFloatingLayerView.this;
-            yn0 yn0Var = nadRewardFloatingLayerView.d;
-            if (yn0Var != null) {
-                str = yn0Var.i;
-            } else {
-                str = null;
-            }
-            nadRewardFloatingLayerView.k(str);
+            nadRewardFloatingLayerView.k(nadRewardFloatingLayerView.getTriggerCmd());
         }
 
         @Override // com.baidu.nadcore.rotationpop.NadLottiePopView.e
@@ -145,10 +131,10 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         @Override // com.baidu.nadcore.rotationpop.NadLottiePopView.e
         public void onShown() {
             String str;
-            bn0 bn0Var;
-            hn0 hn0Var = NadRewardFloatingLayerView.this.c;
-            if (hn0Var != null && (bn0Var = hn0Var.f) != null) {
-                str = bn0Var.d;
+            cn0 cn0Var;
+            in0 in0Var = NadRewardFloatingLayerView.this.c;
+            if (in0Var != null && (cn0Var = in0Var.f) != null) {
+                str = cn0Var.d;
             } else {
                 str = null;
             }
@@ -184,14 +170,14 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final boolean h(yn0 yn0Var) {
+    public final boolean h(ao0 ao0Var) {
         String str;
-        if (yn0Var != null) {
-            str = yn0Var.n;
+        if (ao0Var != null) {
+            str = ao0Var.o;
         } else {
             str = null;
         }
-        if (Intrinsics.areEqual(str, "shake") && (!StringsKt__StringsJVMKt.isBlank(yn0Var.b))) {
+        if (Intrinsics.areEqual(str, "shake") && (!StringsKt__StringsJVMKt.isBlank(ao0Var.b))) {
             return true;
         }
         return false;
@@ -225,15 +211,15 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         }
     }
 
-    public final void setData(hn0 hn0Var) {
-        yn0 yn0Var;
-        this.c = hn0Var;
-        if (hn0Var != null) {
-            yn0Var = hn0Var.d();
+    public final void setData(in0 in0Var) {
+        ao0 ao0Var;
+        this.c = in0Var;
+        if (in0Var != null) {
+            ao0Var = in0Var.d();
         } else {
-            yn0Var = null;
+            ao0Var = null;
         }
-        this.d = yn0Var;
+        this.d = ao0Var;
         m();
         if (!h(this.d)) {
             return;
@@ -246,12 +232,29 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         this.e = callback;
     }
 
-    private final hy0 getSLComponentSensorListener() {
+    private final jy0 getSLComponentSensorListener() {
         return new b();
     }
 
     private final NadLottiePopView.d getSLComponentViewListener() {
         return new c();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final String getTriggerCmd() {
+        in0 in0Var = this.c;
+        if (in0Var != null && in0Var.q()) {
+            ao0 ao0Var = this.d;
+            if (ao0Var == null) {
+                return null;
+            }
+            return ao0Var.j;
+        }
+        ao0 ao0Var2 = this.d;
+        if (ao0Var2 == null) {
+            return null;
+        }
+        return ao0Var2.i;
     }
 
     public final void l() {
@@ -271,12 +274,12 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         this.f = false;
     }
 
-    public final void i(yn0 yn0Var) {
+    public final void i(ao0 ao0Var) {
         String str;
         NadLottiePopView c2;
         NadLottiePopView nadLottiePopView = null;
-        if (yn0Var != null) {
-            str = yn0Var.n;
+        if (ao0Var != null) {
+            str = ao0Var.o;
         } else {
             str = null;
         }
@@ -286,7 +289,7 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
             NadSensorLottieComponent nadSensorLottieComponent = new NadSensorLottieComponent(context, getSLComponentViewListener(), getSLComponentSensorListener());
             this.b = nadSensorLottieComponent;
             if (nadSensorLottieComponent != null) {
-                nadSensorLottieComponent.g(yn0Var);
+                nadSensorLottieComponent.g(ao0Var);
             }
             NadSensorLottieComponent nadSensorLottieComponent2 = this.b;
             if (nadSensorLottieComponent2 != null && (c2 = nadSensorLottieComponent2.c()) != null) {

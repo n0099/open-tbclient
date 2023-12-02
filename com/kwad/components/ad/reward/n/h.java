@@ -46,11 +46,11 @@ public class h extends s implements View.OnClickListener {
     }
 
     public static int jS() {
-        return R.id.obfuscated_res_0x7f09132f;
+        return R.id.obfuscated_res_0x7f091330;
     }
 
     public int hW() {
-        return R.id.obfuscated_res_0x7f091330;
+        return R.id.obfuscated_res_0x7f091331;
     }
 
     public final void show() {
@@ -163,13 +163,13 @@ public class h extends s implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        this.mLogoView = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091335);
-        this.yd = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091333);
-        this.yz = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091336);
-        this.yh = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091337);
-        this.yA = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091331);
-        this.yB = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091332);
-        this.yy = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09132d);
+        this.mLogoView = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091336);
+        this.yd = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091334);
+        this.yz = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091337);
+        this.yh = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091338);
+        this.yA = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091332);
+        this.yB = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091333);
+        this.yy = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09132e);
     }
 
     @Override // com.kwad.components.ad.reward.n.d

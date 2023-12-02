@@ -1,79 +1,35 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
+import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BDLayoutMode;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.video.editvideo.data.MusicData;
+import com.baidu.tieba.r6b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.muxer.VideoMuxer;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class q6b extends BaseAdapter {
+public class q6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdPageContext a;
-    public List<MusicData> b;
-    public int c;
-    public String d;
+    public Context a;
+    public y6b b;
+    public r6b c;
+    public r6b.c d;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public View b;
-        public TextView c;
-
-        public a(q6b q6bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q6bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public q6b(BdPageContext bdPageContext) {
+    public q6b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -83,177 +39,122 @@ public class q6b extends BaseAdapter {
                 return;
             }
         }
-        this.a = bdPageContext;
+        this.a = context;
     }
 
-    public void d(int i) {
+    public void h(y6b y6bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c = i;
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(1048580, this, y6bVar) == null) {
+            this.b = y6bVar;
         }
     }
 
-    public void f(List<MusicData> list) {
+    public void i(r6b.c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || list == null) {
-            return;
-        }
-        this.b = list;
-        e(this.d);
-        notifyDataSetChanged();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            List<MusicData> list = this.b;
-            if (list == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.d = cVar;
+            r6b r6bVar = this.c;
+            if (r6bVar != null) {
+                r6bVar.h(cVar);
             }
-            return list.get(i);
         }
-        return invokeI.objValue;
     }
 
-    public void a(TextView textView, int i, String str) {
+    public static void a(List<y6b> list, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048576, this, textView, i, str) != null) || i <= 0) {
+        if ((interceptable != null && interceptable.invokeLILL(65537, null, list, i, str, str2) != null) || list == null) {
             return;
         }
-        float dimens = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702b3);
-        TextPaint textPaint = new TextPaint();
-        textPaint.setTextSize(dimens);
-        while (textPaint.measureText(str) > i) {
-            dimens -= 1.0f;
-            textPaint.setTextSize(dimens);
-        }
-        textView.setTextSize(0, dimens);
+        list.add(new y6b(str, i, str2));
     }
 
-    public int b() {
+    public static List<y6b> c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (context == null) {
+                context = TbadkCoreApplication.getInst();
+            }
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c1, context.getString(R.string.obfuscated_res_0x7f0f075a), "origin");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c5, context.getString(R.string.obfuscated_res_0x7f0f0757), "hongkong");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c8, context.getString(R.string.obfuscated_res_0x7f0f075b), "refreshing");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c4, context.getString(R.string.obfuscated_res_0x7f0f0755), "girly");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806bf, context.getString(R.string.obfuscated_res_0x7f0f0752), "concrete");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806cc, context.getString(R.string.obfuscated_res_0x7f0f075f), "warm");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806be, context.getString(R.string.obfuscated_res_0x7f0f0751), "cold");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c6, context.getString(R.string.obfuscated_res_0x7f0f0758), "Japanese");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c0, context.getString(R.string.obfuscated_res_0x7f0f0756), "cruz");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806bb, context.getString(R.string.obfuscated_res_0x7f0f074e), "abao");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c2, context.getString(R.string.obfuscated_res_0x7f0f0753), "dew");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806ca, context.getString(R.string.obfuscated_res_0x7f0f075d), "slowlived");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806cb, context.getString(R.string.obfuscated_res_0x7f0f075e), "sweet");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806bd, context.getString(R.string.obfuscated_res_0x7f0f0750), "boardwalk");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c7, context.getString(R.string.obfuscated_res_0x7f0f0759), "keylime");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c3, context.getString(R.string.obfuscated_res_0x7f0f0754), "electric");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806c9, context.getString(R.string.obfuscated_res_0x7f0f075c), "silver");
+            a(arrayList, R.drawable.obfuscated_res_0x7f0806bc, context.getString(R.string.obfuscated_res_0x7f0f074f), "blackwhite");
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return f6b.f + VideoMuxer.FILTER_TEMP_DIR_PREFIX + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public List<MusicData> c() {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            y6b y6bVar = this.b;
+            if (y6bVar != null && !"normal".equalsIgnoreCase(y6bVar.c)) {
+                return this.b.c;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void e() {
+        r6b r6bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (r6bVar = this.c) != null) {
+            r6bVar.e();
+        }
+    }
+
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            r6b r6bVar = this.c;
+            if (r6bVar != null) {
+                return r6bVar.f();
+            }
+            return false;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void g(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<MusicData> list = this.b;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.d = str;
-            if (!TextUtils.isEmpty(str) && this.b != null) {
-                int i = -1;
-                for (int i2 = 0; i2 < this.b.size(); i2++) {
-                    if (str.equals(this.b.get(i2).id)) {
-                        i = i2;
-                    }
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            r6b r6bVar = this.c;
+            if ((r6bVar == null || !r6bVar.f()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+                r6b r6bVar2 = new r6b(this.a, str, d(), str2);
+                this.c = r6bVar2;
+                r6b.c cVar = this.d;
+                if (cVar != null) {
+                    r6bVar2.h(cVar);
                 }
-                if (i == -1) {
-                    i = 1;
-                }
-                this.c = i;
+                this.c.i();
             }
         }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
-            boolean z = true;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d056b, (ViewGroup) null);
-                aVar = new a(this);
-                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091918);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09191c);
-                aVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091919);
-                aVar.a.setDrawerType(1);
-                aVar.a.setIsRound(true);
-                aVar.a.setDefaultBgResource(R.color.transparent);
-                aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f08037d);
-                aVar.a.setBorderWidth(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
-                aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-                aVar.a.setConrers(15);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
-            }
-            MusicData musicData = this.b.get(i);
-            if (musicData != null) {
-                int i2 = musicData.editMusicType;
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        aVar.a.startLoad(musicData.img, 10, false);
-                    } else {
-                        aVar.a.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f080d65), 24, false);
-                    }
-                } else {
-                    aVar.a.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f080d79), 24, false);
-                }
-                aVar.b.setVisibility(4);
-                aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
-                aVar.c.setText(musicData.name);
-                a(aVar.c, BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070364), musicData.name);
-                if (i == this.c) {
-                    aVar.a.setDrawBorder(true);
-                } else {
-                    aVar.a.setDrawBorder(false);
-                }
-                if (i == 0) {
-                    view2.setPadding(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0703dd), 0, 0);
-                } else if (i == this.b.size() - 1) {
-                    view2.setPadding(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0703dd), BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0);
-                } else {
-                    view2.setPadding(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9), BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0703dd), 0, 0);
-                }
-                if (this.a.getPageActivity() instanceof BaseActivity) {
-                    BDLayoutMode layoutMode = ((BaseActivity) this.a.getPageActivity()).getLayoutMode();
-                    if (TbadkCoreApplication.getInst().getSkinType() != 4) {
-                        z = false;
-                    }
-                    layoutMode.setNightMode(z);
-                    ((BaseActivity) this.a.getPageActivity()).getLayoutMode().onModeChanged(view2);
-                } else if (this.a.getPageActivity() instanceof BaseFragmentActivity) {
-                    BDLayoutMode layoutMode2 = ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode();
-                    if (TbadkCoreApplication.getInst().getSkinType() != 4) {
-                        z = false;
-                    }
-                    layoutMode2.setNightMode(z);
-                    ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode().onModeChanged(view2);
-                }
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
     }
 }

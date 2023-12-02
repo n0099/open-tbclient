@@ -310,7 +310,7 @@ public class SingleChoiceDialog extends BoxAlertDialog {
             this.mListView.setAdapter((ListAdapter) new SingleChoiceAdapter());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             Resources resources = getContext().getResources();
-            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707e8);
+            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707ec);
             int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.single_choice_dialog_bottom_margin);
             layoutParams.leftMargin = dimensionPixelSize;
             layoutParams.rightMargin = dimensionPixelSize;

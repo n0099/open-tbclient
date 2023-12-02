@@ -1,23 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.callback.IDownloadListener;
+import com.baidu.searchbox.download.unified.DownloadInfoData;
+import com.baidu.searchbox.download.unified.DownloadParams;
+import com.baidu.searchbox.download.unified.DownloadUnifiedManager;
+import com.baidu.searchbox.download.unified.EventCallback;
+import com.baidu.searchbox.download.unified.EventControlInfoForResume;
+import com.baidu.searchbox.download.unified.EventControlInfoForStart;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class gv6 {
+public class gv6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile gv6 a;
+    public static volatile DownloadUnifiedManager b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
 
     public gv6() {
         Interceptable interceptable = $ic;
@@ -32,118 +35,59 @@ public final class gv6 {
                 return;
             }
         }
-        this.b = 6;
+        b = DownloadUnifiedManager.getInstance();
     }
 
-    public final int a() {
+    public static gv6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (gv6.class) {
+                    if (a == null) {
+                        a = new gv6();
+                    }
+                }
+            }
+            return a;
         }
-        return invokeV.intValue;
+        return (gv6) invokeV.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public void a(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeL(1048576, this, uri) == null) {
+            b.deleteDownload(uri);
         }
     }
 
-    public final void i(String str) {
+    public void c(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) {
+            b.pauseDownload(uri);
         }
     }
 
-    public final void j(String str) {
+    public DownloadInfoData d(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
+            return b.queryDownloadInfoData(uri);
+        }
+        return (DownloadInfoData) invokeL.objValue;
+    }
+
+    public void e(Context context, String str, Uri uri, IDownloadListener iDownloadListener, EventControlInfoForResume eventControlInfoForResume, EventCallback eventCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback}) == null) {
+            b.resumeDownload(context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback);
         }
     }
 
-    public final void k(String str) {
+    public void f(Context context, String str, DownloadParams downloadParams, IDownloadListener iDownloadListener, EventControlInfoForStart eventControlInfoForStart, EventCallback eventCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public final void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public final void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public final void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback}) == null) {
+            b.startDownload(context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback);
         }
     }
 }

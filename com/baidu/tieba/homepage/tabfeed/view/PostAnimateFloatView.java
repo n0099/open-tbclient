@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bj8;
 import com.baidu.tieba.jt;
-import com.baidu.tieba.xi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements jt {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                xi8.g();
+                bj8.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -412,9 +412,9 @@ public class PostAnimateFloatView extends FrameLayout implements jt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d057b, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092069);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091df0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091e08);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09206b);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091df2);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091e0a);
             this.c = textView;
             this.f = textView.getPaint().measureText(getContext().getString(R.string.post_new_local_thread));
             j();

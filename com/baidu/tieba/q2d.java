@@ -4,23 +4,21 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopLiveDataPostList;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes7.dex */
-public class q2d extends ltc {
+public class q2d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TopLiveDataPostList topLiveDataPostList) {
+    public static JSONObject b(@NonNull TopNews topNews) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topLiveDataPostList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topNews)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "nickname", topLiveDataPostList.nickname);
-            ltc.a(jSONObject, "content", topLiveDataPostList.content);
-            ltc.a(jSONObject, PushConstants.SEQ_ID, topLiveDataPostList.seq_id);
+            ktc.a(jSONObject, "news_link", topNews.news_link);
+            ktc.a(jSONObject, "summary", topNews.summary);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

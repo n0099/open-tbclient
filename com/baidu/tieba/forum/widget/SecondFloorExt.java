@@ -11,9 +11,9 @@ import androidx.annotation.FloatRange;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.dp7;
 import com.baidu.tieba.forum.widget.SecondFloorExt;
-import com.baidu.tieba.fp7;
+import com.baidu.tieba.hp7;
+import com.baidu.tieba.jp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public final class SecondFloorExt {
     public float f;
     public float g;
     public int h;
-    public final ArrayList<fp7> i;
+    public final ArrayList<jp7> i;
     public final a j;
     public ValueAnimator k;
     public ViewPropertyAnimator l;
@@ -48,7 +48,7 @@ public final class SecondFloorExt {
     public final ValueAnimator.AnimatorUpdateListener o;
 
     /* loaded from: classes6.dex */
-    public static final class a implements dp7 {
+    public static final class a implements hp7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SecondFloorExt a;
@@ -71,7 +71,7 @@ public final class SecondFloorExt {
             this.a = secondFloorExt;
         }
 
-        @Override // com.baidu.tieba.dp7
+        @Override // com.baidu.tieba.hp7
         public Boolean a(MotionEvent e) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -123,10 +123,10 @@ public final class SecondFloorExt {
                 return;
             }
             this.a.h = 0;
-            ArrayList<fp7> arrayList = this.a.i;
+            ArrayList<jp7> arrayList = this.a.i;
             SecondFloorExt secondFloorExt = this.a;
-            for (fp7 fp7Var : arrayList) {
-                fp7Var.b(secondFloorExt.j());
+            for (jp7 jp7Var : arrayList) {
+                jp7Var.b(secondFloorExt.j());
             }
         }
 
@@ -137,10 +137,10 @@ public final class SecondFloorExt {
                 return;
             }
             this.a.h = 0;
-            ArrayList<fp7> arrayList = this.a.i;
+            ArrayList<jp7> arrayList = this.a.i;
             SecondFloorExt secondFloorExt = this.a;
-            for (fp7 fp7Var : arrayList) {
-                fp7Var.b(secondFloorExt.j());
+            for (jp7 jp7Var : arrayList) {
+                jp7Var.b(secondFloorExt.j());
             }
         }
     }
@@ -176,10 +176,10 @@ public final class SecondFloorExt {
                 return;
             }
             this.a.h = 0;
-            ArrayList<fp7> arrayList = this.a.i;
+            ArrayList<jp7> arrayList = this.a.i;
             SecondFloorExt secondFloorExt = this.a;
-            for (fp7 fp7Var : arrayList) {
-                fp7Var.b(secondFloorExt.j());
+            for (jp7 jp7Var : arrayList) {
+                jp7Var.b(secondFloorExt.j());
             }
         }
 
@@ -190,10 +190,10 @@ public final class SecondFloorExt {
                 return;
             }
             this.a.h = 4;
-            ArrayList<fp7> arrayList = this.a.i;
+            ArrayList<jp7> arrayList = this.a.i;
             SecondFloorExt secondFloorExt = this.a;
-            for (fp7 fp7Var : arrayList) {
-                fp7Var.b(secondFloorExt.j());
+            for (jp7 jp7Var : arrayList) {
+                jp7Var.b(secondFloorExt.j());
             }
         }
 
@@ -208,8 +208,8 @@ public final class SecondFloorExt {
                     z = false;
                 }
                 if (z) {
-                    for (fp7 fp7Var : this.a.i) {
-                        fp7Var.d(false);
+                    for (jp7 jp7Var : this.a.i) {
+                        jp7Var.d(false);
                     }
                 }
                 this.a.h = 3;
@@ -267,8 +267,8 @@ public final class SecondFloorExt {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                for (fp7 fp7Var : this.a.i) {
-                    fp7Var.d(false);
+                for (jp7 jp7Var : this.a.i) {
+                    jp7Var.d(false);
                 }
             }
         }
@@ -298,7 +298,7 @@ public final class SecondFloorExt {
         this.j = new a(this);
         this.m = new b(this);
         this.n = new c(this);
-        this.o = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ap7
+        this.o = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ep7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -312,7 +312,7 @@ public final class SecondFloorExt {
         };
     }
 
-    public final SecondFloorExt f(fp7 listener) {
+    public final SecondFloorExt f(jp7 listener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listener)) == null) {
@@ -409,8 +409,8 @@ public final class SecondFloorExt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, this$0, valueAnimator) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            for (fp7 fp7Var : this$0.i) {
-                fp7Var.a(this$0.h, this$0.a.getTranslationY());
+            for (jp7 jp7Var : this$0.i) {
+                jp7Var.a(this$0.h, this$0.a.getTranslationY());
             }
         }
     }
@@ -423,8 +423,8 @@ public final class SecondFloorExt {
             if (animatedValue != null) {
                 float floatValue = ((Float) animatedValue).floatValue();
                 this$0.a.setTranslationY(floatValue);
-                for (fp7 fp7Var : this$0.i) {
-                    fp7Var.c(floatValue);
+                for (jp7 jp7Var : this$0.i) {
+                    jp7Var.c(floatValue);
                 }
                 return;
             }
@@ -568,8 +568,8 @@ public final class SecondFloorExt {
                                     if (z) {
                                         g();
                                         this.h = 1;
-                                        for (fp7 fp7Var : this.i) {
-                                            fp7Var.d(true);
+                                        for (jp7 jp7Var : this.i) {
+                                            jp7Var.d(true);
                                         }
                                     }
                                 }
@@ -582,15 +582,15 @@ public final class SecondFloorExt {
                             if ((this.a.getTranslationY() > 0.0f || rawY <= 0) ? false : false) {
                                 this.a.setTranslationY(0.0f);
                                 this.h = 0;
-                                for (fp7 fp7Var2 : this.i) {
-                                    fp7Var2.b(this.h);
+                                for (jp7 jp7Var2 : this.i) {
+                                    jp7Var2.b(this.h);
                                 }
                                 return Boolean.TRUE;
                             }
                             View view3 = this.a;
                             view3.setTranslationY(view3.getTranslationY() - (rawY * this.d));
-                            for (fp7 fp7Var3 : this.i) {
-                                fp7Var3.c(this.a.getTranslationY());
+                            for (jp7 jp7Var3 : this.i) {
+                                jp7Var3.c(this.a.getTranslationY());
                             }
                             return Boolean.TRUE;
                         }
@@ -625,7 +625,7 @@ public final class SecondFloorExt {
             ofFloat.setRepeatCount(1);
             ofFloat.setRepeatMode(2);
             ofFloat.setStartDelay(j);
-            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.xo7
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.bp7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

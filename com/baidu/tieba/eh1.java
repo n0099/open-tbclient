@@ -1,9 +1,24 @@
 package com.baidu.tieba;
-
-import android.view.Surface;
 /* loaded from: classes5.dex */
 public interface eh1 {
-    void a(Surface surface);
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void onPrepared();
+    }
+
+    void a();
 
     void b();
+
+    void playCompletion();
+
+    void playPause();
+
+    void playResume();
 }

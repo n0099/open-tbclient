@@ -5,7 +5,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.dna;
+import com.baidu.tieba.hna;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public dna b;
+    public hna b;
     public String c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -61,21 +61,21 @@ public class AccountSafeModel extends BdBaseModel {
         return (PrivateInfoNetMessage) invokeV.objValue;
     }
 
-    public dna P() {
+    public hna P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (dna) invokeV.objValue;
+        return (hna) invokeV.objValue;
     }
 
     public final SimpleUser Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            dna dnaVar = this.b;
-            if (dnaVar != null && dnaVar.f() != null) {
+            hna hnaVar = this.b;
+            if (hnaVar != null && hnaVar.f() != null) {
                 return this.b.f();
             }
             return null;
@@ -136,10 +136,10 @@ public class AccountSafeModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public void U(dna dnaVar) {
+    public void U(hna hnaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dnaVar) == null) {
-            this.b = dnaVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, hnaVar) == null) {
+            this.b = hnaVar;
             S();
         }
     }

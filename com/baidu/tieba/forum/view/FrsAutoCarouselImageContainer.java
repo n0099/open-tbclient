@@ -414,7 +414,7 @@ public final class FrsAutoCarouselImageContainer extends FrameLayout {
     public final void setMaxWidth(final int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            post(new Runnable() { // from class: com.baidu.tieba.no7
+            post(new Runnable() { // from class: com.baidu.tieba.ro7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

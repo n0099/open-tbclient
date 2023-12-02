@@ -26,18 +26,18 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hk5;
 import com.baidu.tieba.i70;
-import com.baidu.tieba.ik5;
-import com.baidu.tieba.it7;
-import com.baidu.tieba.s96;
+import com.baidu.tieba.kk5;
+import com.baidu.tieba.lk5;
+import com.baidu.tieba.mt7;
+import com.baidu.tieba.w96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements it7 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements mt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ILiveFeedPageView a;
@@ -107,7 +107,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements it7 {
         this.h = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.it7
+    @Override // com.baidu.tieba.mt7
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -115,7 +115,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements it7 {
         }
     }
 
-    @Override // com.baidu.tieba.it7
+    @Override // com.baidu.tieba.mt7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -124,7 +124,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements it7 {
         }
     }
 
-    @Override // com.baidu.tieba.it7
+    @Override // com.baidu.tieba.mt7
     public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -136,7 +136,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements it7 {
         }
     }
 
-    @Override // com.baidu.tieba.it7
+    @Override // com.baidu.tieba.mt7
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -165,7 +165,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements it7 {
             if (iLiveFeedPageView != null) {
                 iLiveFeedPageView.onViewDestroy();
             }
-            hk5.e().b();
+            kk5.e().b();
             MessageManager.getInstance().unRegisterListener(this.h);
         }
     }
@@ -227,7 +227,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements it7 {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                 layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
                 layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
-                if (ik5.e()) {
+                if (lk5.e()) {
                     layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.tbds177);
                 } else {
                     layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
@@ -249,7 +249,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements it7 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(null);
             I2("onCreate");
-            s96.a().c(TbadkCoreApplication.getInst());
+            w96.a().c(TbadkCoreApplication.getInst());
             this.a = new i70();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
             registerListener(this.h);

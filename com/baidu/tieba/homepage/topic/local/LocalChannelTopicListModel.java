@@ -7,8 +7,8 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.hk8;
 import com.baidu.tieba.homepage.topic.local.message.LocalChannelTopicListResponseMessage;
+import com.baidu.tieba.lk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(hk8 hk8Var);
+        void a(lk8 lk8Var);
 
         void onFail(String str);
     }
@@ -79,9 +79,9 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
                 }
                 return;
             }
-            hk8 hk8Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
+            lk8 lk8Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
             if (this.a.a != null) {
-                this.a.a.a(hk8Var);
+                this.a.a.a(lk8Var);
             }
         }
     }

@@ -1,21 +1,29 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class joc<T> implements loc {
+public abstract class joc<T> implements eoc<T>, koc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yqc a;
+    public final xqc a;
+    public final joc<?> b;
+    public foc c;
+    public long d;
 
-    public abstract void b(Throwable th);
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
-    public abstract void c(T t);
-
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public joc() {
+        this(null, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,36 +31,142 @@ public abstract class joc<T> implements loc {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((joc) objArr[0], ((Boolean) objArr[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new yqc();
     }
 
-    @Override // com.baidu.tieba.loc
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public joc(joc<?> jocVar) {
+        this(jocVar, true);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jocVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((joc) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public final void e(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            if (j >= 0) {
+                synchronized (this) {
+                    if (this.c != null) {
+                        this.c.request(j);
+                        return;
+                    }
+                    c(j);
+                    return;
+                }
+            }
+            throw new IllegalArgumentException("number requested cannot be negative: " + j);
+        }
+    }
+
+    public void f(foc focVar) {
+        long j;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, focVar) == null) {
+            synchronized (this) {
+                j = this.d;
+                this.c = focVar;
+                if (this.b != null && j == Long.MIN_VALUE) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            if (z) {
+                this.b.f(this.c);
+            } else if (j == Long.MIN_VALUE) {
+                this.c.request(Long.MAX_VALUE);
+            } else {
+                this.c.request(j);
+            }
+        }
+    }
+
+    public joc(joc<?> jocVar, boolean z) {
+        xqc xqcVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jocVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.d = Long.MIN_VALUE;
+        this.b = jocVar;
+        if (z && jocVar != null) {
+            xqcVar = jocVar.a;
+        } else {
+            xqcVar = new xqc();
+        }
+        this.a = xqcVar;
+    }
+
+    public final void b(koc kocVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, kocVar) == null) {
+            this.a.a(kocVar);
+        }
+    }
+
+    public final void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            long j2 = this.d;
+            if (j2 == Long.MIN_VALUE) {
+                this.d = j;
+                return;
+            }
+            long j3 = j2 + j;
+            if (j3 < 0) {
+                this.d = Long.MAX_VALUE;
+            } else {
+                this.d = j3;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.koc
     public final boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a.isUnsubscribed();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.loc
+    @Override // com.baidu.tieba.koc
     public final void unsubscribe() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.a.unsubscribe();
-        }
-    }
-
-    public final void a(loc locVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, locVar) == null) {
-            this.a.a(locVar);
         }
     }
 }

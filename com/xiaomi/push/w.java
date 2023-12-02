@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class w extends v {
     public final /* synthetic */ Runnable a;
 

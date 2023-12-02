@@ -1,47 +1,41 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
-import android.graphics.Bitmap;
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
-import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.w11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class n31 extends Drawable {
+public abstract class n31 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Paint a;
-    public final Bitmap b;
-    public final Bitmap c;
-    public final Rect d;
-    public final Rect e;
-    public final Rect f;
-    public int g;
-    public final ValueAnimator h;
-    public int i;
+    public final ValueAnimator.AnimatorUpdateListener a;
+    public final Rect b;
+    public Drawable.Callback c;
+    public ValueAnimator d;
+    public long e;
+    public float f;
+    public float g;
 
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return -2;
-        }
-        return invokeV.intValue;
-    }
+    public abstract void c(float f);
+
+    public abstract void d(Canvas canvas);
+
+    public abstract void h();
+
+    public abstract void i(int i);
+
+    public abstract void l(ColorFilter colorFilter);
 
     /* loaded from: classes7.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
@@ -70,208 +64,111 @@ public class n31 extends Drawable {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, valueAnimator) != null) {
-                return;
-            }
-            this.a.k(((Integer) valueAnimator.getAnimatedValue()).intValue());
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947951421, "Lcom/baidu/tieba/n31;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947951421, "Lcom/baidu/tieba/n31;");
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                this.a.c(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.a.f();
             }
         }
-        j = new int[]{0, 18, 9};
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.g == 2000) {
-                this.g = 1000;
-                this.h.start();
-                return;
-            }
-            this.g = 2000;
-            this.h.reverse();
-        }
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return getBounds().height();
-        }
-        return invokeV.intValue;
-    }
-
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c.getHeight();
-        }
-        return invokeV.intValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c.getWidth();
-        }
-        return invokeV.intValue;
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b.getHeight();
-        }
-        return invokeV.intValue;
-    }
-
-    public final int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.b.getWidth();
-        }
-        return invokeV.intValue;
-    }
-
-    public final int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return getBounds().width();
-        }
-        return invokeV.intValue;
-    }
-
-    public n31(Bitmap bitmap, Bitmap bitmap2) {
+    public n31(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, bitmap2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 2000;
-        this.i = 0;
-        this.a = new Paint(1);
-        this.b = bitmap;
-        this.c = bitmap2;
-        this.d = new Rect();
-        this.e = new Rect();
-        this.f = new Rect();
-        ValueAnimator ofInt = ValueAnimator.ofInt(j);
-        this.h = ofInt;
-        ofInt.setDuration(300L);
-        this.h.addUpdateListener(new a(this));
+        this.a = new a(this);
+        this.b = new Rect();
+        e(context);
+        m();
     }
 
-    public final void c(Canvas canvas) {
+    public void b(Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawBitmap(this.c, (Rect) null, this.f, this.a);
+        if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
+            this.d.addListener(animatorListener);
         }
     }
 
-    public final void d(Canvas canvas) {
+    public final void e(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            canvas.drawBitmap(this.b, this.d, this.e, this.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            this.f = w11.c.a(context, 31.0f);
+            this.g = w11.c.a(context, 31.0f);
+            this.e = 1333L;
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void draw(@NonNull Canvas canvas) {
+    public void j(Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            d(canvas);
-            c(canvas);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect) == null) {
+            this.b.set(rect);
         }
     }
 
-    public final void k(int i) {
+    public void k(Drawable.Callback callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            int i2 = i - this.i;
-            this.e.top += i2;
-            this.d.bottom -= i2;
-            this.i = i;
-            invalidateSelf();
+        if (interceptable == null || interceptable.invokeL(1048585, this, callback) == null) {
+            this.c = callback;
         }
     }
 
-    public void l(int i) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.g = i;
-            if (i == 1000) {
-                k(j[2]);
-            } else {
-                k(j[0]);
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c.invalidateDrawable(null);
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.a.setAlpha(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d.isRunning();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.d.removeUpdateListener(this.a);
+            this.d.setRepeatCount(0);
+            this.d.setDuration(0L);
+            this.d.end();
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(@Nullable ColorFilter colorFilter) {
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, colorFilter) == null) {
-            this.a.setColorFilter(colorFilter);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+            this.d = ofFloat;
+            ofFloat.setRepeatCount(-1);
+            this.d.setRepeatMode(1);
+            this.d.setDuration(this.e);
+            this.d.setInterpolator(new LinearInterpolator());
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, rect) == null) {
-            Rect rect2 = this.d;
-            rect2.top = 0;
-            rect2.left = 0;
-            rect2.right = i();
-            this.d.bottom = h();
-            this.e.top = (e() - ((h() + f()) + 10)) / 2;
-            this.e.left = (j() - i()) / 2;
-            Rect rect3 = this.e;
-            rect3.right = rect3.left + i();
-            Rect rect4 = this.e;
-            rect4.bottom = rect4.top + h();
-            this.f.top = ((e() - ((h() + f()) + 10)) / 2) + h();
-            this.f.left = (j() - g()) / 2;
-            Rect rect5 = this.f;
-            rect5.right = rect5.left + g();
-            Rect rect6 = this.f;
-            rect6.bottom = rect6.top + f();
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            h();
+            this.d.addUpdateListener(this.a);
+            this.d.setRepeatCount(-1);
+            this.d.setDuration(this.e);
+            this.d.setStartDelay(200L);
+            this.d.start();
         }
     }
 }

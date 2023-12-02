@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,28 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewTopicList.NewTopicList;
-import tbclient.NewTopicList.PkModule;
-import tbclient.TopicModule;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class kk8 extends qm6 {
+public class kk8 implements pi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c0;
-    public static final BdUniqueId d0;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int R;
-    public long S;
-
-    /* renamed from: T  reason: collision with root package name */
-    public String f1123T;
-    public String U;
-    public long V;
-    public String W;
-    public lk8 X;
-    public nwa Y;
-    public int Z;
-    public String a0;
-    public ThreadData b0;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -47,8 +32,7 @@ public class kk8 extends qm6 {
                 return;
             }
         }
-        c0 = BdUniqueId.gen();
-        d0 = BdUniqueId.gen();
+        e = BdUniqueId.gen();
     }
 
     public kk8() {
@@ -61,110 +45,34 @@ public class kk8 extends qm6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.Z = 0;
     }
 
-    @Override // com.baidu.tieba.qm6, com.baidu.tieba.cw4
-    public NegativeFeedBackData getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            NegativeFeedBackData negFeedBackData = super.getNegFeedBackData();
-            if (negFeedBackData != null) {
-                negFeedBackData.setTopicID(this.S);
-            }
-            return negFeedBackData;
-        }
-        return (NegativeFeedBackData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qm6, com.baidu.tieba.cw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b0;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
+    @Override // com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.Z == 0) {
-                return c0;
-            }
-            return d0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return e;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public static boolean G(ThreadData threadData) {
+    public static kk8 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null || threadData.getType() != ThreadData.TYPE_TOPIC) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            return true;
+            kk8 kk8Var = new kk8();
+            kk8Var.a = jSONObject.optString("title");
+            kk8Var.b = jSONObject.optString("desc");
+            kk8Var.c = jSONObject.optString("tag");
+            kk8Var.d = jSONObject.optString("img");
+            return kk8Var;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void J(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
-            this.b0 = threadData;
-        }
-    }
-
-    public void H(NewTopicList newTopicList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, newTopicList) != null) || newTopicList == null) {
-            return;
-        }
-        this.S = newTopicList.topic_id.longValue();
-        this.f1123T = newTopicList.topic_name;
-        this.U = newTopicList.topic_desc;
-        this.V = newTopicList.discuss_num.longValue();
-        this.W = newTopicList.topic_image;
-        PkModule pkModule = newTopicList.pk_module;
-        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            lk8 lk8Var = new lk8();
-            this.X = lk8Var;
-            lk8Var.a = this.S;
-            lk8Var.f = 1;
-            lk8Var.a(newTopicList.pk_module);
-        }
-        if (newTopicList.top_agree_post != null) {
-            nwa nwaVar = new nwa();
-            this.Y = nwaVar;
-            nwaVar.N0(newTopicList.top_agree_post);
-        }
-    }
-
-    public void I(TopicModule topicModule) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicModule) != null) || topicModule == null) {
-            return;
-        }
-        this.S = topicModule.topic_id.longValue();
-        this.f1123T = topicModule.topic_name;
-        this.U = topicModule.topic_desc;
-        this.W = topicModule.topic_image;
-        this.a0 = topicModule.topic_avatar;
-        tbclient.PkModule pkModule = topicModule.pk_module;
-        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            lk8 lk8Var = new lk8();
-            this.X = lk8Var;
-            lk8Var.a = this.S;
-            lk8Var.f = 3;
-            lk8Var.b(topicModule.pk_module);
-        }
+        return (kk8) invokeL.objValue;
     }
 }

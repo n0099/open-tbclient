@@ -48,8 +48,8 @@ public final class h extends com.kwad.components.ad.f.a.a implements View.OnClic
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.nf = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914e6);
-        this.ng = (TextView) findViewById(R.id.obfuscated_res_0x7f091370);
+        this.nf = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914e7);
+        this.ng = (TextView) findViewById(R.id.obfuscated_res_0x7f091371);
     }
 
     @Override // android.view.View.OnClickListener

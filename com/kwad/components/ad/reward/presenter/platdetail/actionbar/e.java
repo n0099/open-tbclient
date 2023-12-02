@@ -35,7 +35,7 @@ public final class e extends com.kwad.components.ad.reward.presenter.b implement
         this.qn.oL.a(this);
         AdInfo dP = com.kwad.sdk.core.response.b.e.dP(this.qn.mAdTemplate);
         this.uV = this.sq.getVisibility();
-        this.uW = d.a(getContext(), dP, this.sq, R.dimen.obfuscated_res_0x7f070536, !this.qn.oI.jK());
+        this.uW = d.a(getContext(), dP, this.sq, R.dimen.obfuscated_res_0x7f070537, !this.qn.oI.jK());
         n nVar = new n(this.gS, new com.kwad.components.ad.reward.n.a(getContext(), this.qn) { // from class: com.kwad.components.ad.reward.presenter.platdetail.actionbar.e.1
             @Override // com.kwad.components.ad.reward.n.a, com.kwad.components.ad.reward.n.b
             /* renamed from: if */
@@ -57,7 +57,7 @@ public final class e extends com.kwad.components.ad.reward.presenter.b implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.sq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912f5);
+        this.sq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912f6);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

@@ -1,26 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.app.Activity;
 import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.ToastService;
-import com.baidu.searchbox.live.interfaces.toast.ToastClickListener;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tl9 implements ToastService {
+public class tl9 implements ThirdPartAliRechargeService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showToastCenter(@NonNull Context context, @NonNull String str, @NonNull Drawable drawable, int i) {
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
+    public void aliSign(@NonNull Activity activity, @NonNull String str, @Nullable ThirdPartAliRechargeService.ThirdPartAliSignCallback thirdPartAliSignCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, drawable, i) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, thirdPartAliSignCallback) == null) {
         }
     }
 
@@ -38,27 +38,21 @@ public class tl9 implements ToastService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showClickableToast(Context context, String str, String str2, int i, ToastClickListener toastClickListener) {
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
+    public String aliRecharge(Activity activity, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), toastClickListener}) == null) {
-            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
+            tq4 tq4Var = new tq4();
+            tq4Var.a = activity;
+            tq4Var.b = str;
+            tq4Var.c = z;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, tq4Var);
+            if (runTask == null) {
+                return "";
+            }
+            return (String) runTask.getData();
         }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showNormal(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
-            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showToastBottom(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i) == null) {
-            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
-        }
+        return (String) invokeLLZ.objValue;
     }
 }

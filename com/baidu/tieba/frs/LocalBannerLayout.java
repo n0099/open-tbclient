@@ -9,11 +9,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.flow.CoverFlowLocalView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a35;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.c35;
+import com.baidu.tieba.d35;
+import com.baidu.tieba.ds7;
 import com.baidu.tieba.e35;
-import com.baidu.tieba.zr7;
+import com.baidu.tieba.f35;
+import com.baidu.tieba.h35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,13 +24,13 @@ import java.util.List;
 public class LocalBannerLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowLocalView<zr7> a;
-    public c35<zr7> b;
-    public List<zr7> c;
-    public c35<zr7> d;
+    public CoverFlowLocalView<ds7> a;
+    public f35<ds7> b;
+    public List<ds7> c;
+    public f35<ds7> d;
 
     /* loaded from: classes6.dex */
-    public class a extends a35 {
+    public class a extends d35 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalBannerLayout a;
@@ -53,7 +53,7 @@ public class LocalBannerLayout extends RelativeLayout {
             this.a = localBannerLayout;
         }
 
-        @Override // com.baidu.tieba.a35, com.baidu.tieba.y25
+        @Override // com.baidu.tieba.d35, com.baidu.tieba.b35
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -68,37 +68,37 @@ public class LocalBannerLayout extends RelativeLayout {
             return (TbImageView) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.a35, com.baidu.tieba.y25
-        public b35 a() {
+        @Override // com.baidu.tieba.d35, com.baidu.tieba.b35
+        public e35 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                b35 b35Var = new b35();
-                b35Var.c(R.drawable.icon_mask_goods_select8);
-                b35Var.g(R.drawable.icon_mask_goods_unselect8);
-                b35Var.d(81);
-                b35Var.e(R.dimen.tbds36);
-                b35Var.h(R.dimen.tbds20);
-                return b35Var;
-            }
-            return (b35) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.a35, com.baidu.tieba.y25
-        public e35 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 e35 e35Var = new e35();
-                e35Var.a(BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds690));
+                e35Var.c(R.drawable.icon_mask_goods_select8);
+                e35Var.g(R.drawable.icon_mask_goods_unselect8);
+                e35Var.d(81);
+                e35Var.e(R.dimen.tbds36);
+                e35Var.h(R.dimen.tbds20);
                 return e35Var;
             }
             return (e35) invokeV.objValue;
         }
+
+        @Override // com.baidu.tieba.d35, com.baidu.tieba.b35
+        public h35 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                h35 h35Var = new h35();
+                h35Var.a(BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds690));
+                return h35Var;
+            }
+            return (h35) invokeV.objValue;
+        }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements c35<zr7> {
+    public class b implements f35<ds7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalBannerLayout a;
@@ -121,7 +121,7 @@ public class LocalBannerLayout extends RelativeLayout {
             this.a = localBannerLayout;
         }
 
-        @Override // com.baidu.tieba.c35
+        @Override // com.baidu.tieba.f35
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
@@ -130,12 +130,12 @@ public class LocalBannerLayout extends RelativeLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c35
+        @Override // com.baidu.tieba.f35
         /* renamed from: c */
-        public void a(int i, zr7 zr7Var) {
+        public void a(int i, ds7 ds7Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, zr7Var) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
-                this.a.b.a(i, zr7Var);
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, ds7Var) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
+                this.a.b.a(i, ds7Var);
             }
         }
     }
@@ -205,7 +205,7 @@ public class LocalBannerLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(List<zr7> list) {
+    public void setData(List<ds7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.c = list;
@@ -213,10 +213,10 @@ public class LocalBannerLayout extends RelativeLayout {
         }
     }
 
-    public void setOnCoverViewCallback(c35<zr7> c35Var) {
+    public void setOnCoverViewCallback(f35<ds7> f35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c35Var) == null) {
-            this.b = c35Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f35Var) == null) {
+            this.b = f35Var;
         }
     }
 

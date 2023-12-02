@@ -1,64 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Intent;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.AppTransmitData;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
 public class xs5 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static volatile xs5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public xs5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(TiebaStatic.Params.WISE_SAMPLE_ID, c());
-                jSONObject.put(DI.YY.YY_HDID, TbadkCoreApplication.getInst().getHdid());
-                jSONObject.put("yy_version", "");
-            } catch (JSONException e) {
-                BdLog.e(e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return jSONObject.toString();
         }
-        return (String) invokeV.objValue;
     }
 
-    public static AppTransmitData b() {
+    public static xs5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            AppTransmitData.Builder builder = new AppTransmitData.Builder();
-            builder.wise_sample_id = c();
-            builder.yy_hdid = TbadkCoreApplication.getInst().getHdid();
-            builder.yy_version = "";
-            return builder.build(false);
-        }
-        return (AppTransmitData) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (xs5.class) {
+                    if (a == null) {
+                        a = new xs5();
+                    }
+                }
+            }
             return a;
         }
-        return (String) invokeV.objValue;
+        return (xs5) invokeV.objValue;
     }
 
-    public static void d(String str) {
+    public void b(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a = str;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null && intent.getData() != null && !StringUtils.isNull(intent.getData().getSchemeSpecificPart())) {
+            SharedPrefHelper.getInstance().remove("key_ad_retarget_tips_app_count_" + intent.getData().getSchemeSpecificPart());
         }
     }
 }

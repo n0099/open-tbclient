@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.YunPushOppoproxyEnableSwitch;
-import com.baidu.tieba.fa5;
-import com.baidu.tieba.knb;
-import com.baidu.tieba.lr6;
+import com.baidu.tieba.ia5;
+import com.baidu.tieba.jnb;
+import com.baidu.tieba.pr6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,11 +47,11 @@ public class PushStatic {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC0546a implements Runnable {
+        public class RunnableC0547a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0546a(a aVar) {
+            public RunnableC0547a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class PushStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !TbadkCoreApplication.getInst().isMainProcess(false) || !PermissionUtil.isAgreePrivacyPolicy()) {
                 return;
             }
-            lr6.a(new RunnableC0546a(this), "processPushBySwitch", 3);
+            pr6.a(new RunnableC0547a(this), "processPushBySwitch", 3);
         }
     }
 
@@ -522,7 +522,7 @@ public class PushStatic {
         }
         boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
         if (TbadkCoreApplication.isLogin()) {
-            z = fa5.e().m();
+            z = ia5.e().m();
         } else {
             z = false;
         }
@@ -545,7 +545,7 @@ public class PushStatic {
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
             PushManager.enableHonorProxy(context, true);
-            PushManager.startWork(context, 0, knb.a(context, "api_key"));
+            PushManager.startWork(context, 0, jnb.a(context, "api_key"));
             e();
             NotificationHelper.createIMChannel4Oppo(context);
             NotificationHelper.createDefaultChannel2(context);
@@ -593,7 +593,7 @@ public class PushStatic {
         if ((interceptable != null && interceptable.invokeV(65550, null) != null) || !TbadkCoreApplication.getInst().isMainProcess(false) || !TbadkCoreApplication.isLogin()) {
             return;
         }
-        boolean o = fa5.e().o();
+        boolean o = ia5.e().o();
         PushManager.uploadNotifyStatus(TbadkCoreApplication.getInst(), o ? 1 : 0, new b());
     }
 }

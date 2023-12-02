@@ -1,60 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.impersonal.data.BehaviorExt;
-import com.baidu.tieba.impersonal.template.PersonalImageMsgTemplate;
-import com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate;
+import com.baidu.tieba.immessagecenter.service.MessageCenterAIBotService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class va9 implements eb7 {
+public final class va9 extends fg1<av8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gq8 a;
-    public final dd9 b;
-    public final BehaviorExt c;
 
-    public va9(gq8 processor, dd9 sendTransfer, BehaviorExt behaviorExt) {
+    public va9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {processor, sendTransfer, behaviorExt};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(processor, "processor");
-        Intrinsics.checkNotNullParameter(sendTransfer, "sendTransfer");
-        Intrinsics.checkNotNullParameter(behaviorExt, "behaviorExt");
-        this.a = processor;
-        this.b = sendTransfer;
-        this.c = behaviorExt;
     }
 
-    @Override // com.baidu.tieba.eb7
-    public List<mb7<?, ?>> a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fg1
+    /* renamed from: a */
+    public av8 createService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PersonalTextMsgTemplate("text_left", this.b, this.a, this.c));
-            arrayList.add(new PersonalTextMsgTemplate("text_right", this.b, this.a, this.c));
-            arrayList.add(new nd9("loading_left"));
-            arrayList.add(new od9("voice_left"));
-            arrayList.add(new PersonalImageMsgTemplate("image_left"));
-            return arrayList;
+            return MessageCenterAIBotService.b.a();
         }
-        return (List) invokeV.objValue;
+        return (av8) invokeV.objValue;
     }
 }

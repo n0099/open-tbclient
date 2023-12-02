@@ -1,133 +1,77 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes6.dex */
-public class h56 extends cg1<u31> {
+public class h56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
 
     /* loaded from: classes6.dex */
-    public class a implements u31 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        @Override // com.baidu.tieba.u31
-        public int[] b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{R.drawable.nad_web_back} : (int[]) invokeV.objValue;
-        }
+    @NonNull
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
+    }
 
-        @Override // com.baidu.tieba.u31
-        public int[] c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.nad_web_close} : (int[]) invokeV.objValue;
-        }
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final h56 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: com.baidu.tieba.h56$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0339a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ v31 a;
-
-            public View$OnClickListenerC0339a(a aVar, v31 v31Var) {
-                Interceptable interceptable = $ic;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-794223390, "Lcom/baidu/tieba/h56$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, v31Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
+                    $ic = interceptable;
                 }
-                this.a = v31Var;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                v31 v31Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (v31Var = this.a) != null) {
-                    v31Var.i();
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-794223390, "Lcom/baidu/tieba/h56$b;");
+                    return;
                 }
             }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ v31 a;
-
-            public b(a aVar, v31 v31Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, v31Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = v31Var;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                v31 v31Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (v31Var = this.a) != null) {
-                    v31Var.k();
-                }
-            }
-        }
-
-        public a(h56 h56Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h56Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.u31
-        public void a(View view2, v31 v31Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, v31Var) == null) {
-                int intValue = ((Integer) view2.getTag()).intValue();
-                if (intValue == R.drawable.nad_web_back) {
-                    view2.setOnClickListener(new View$OnClickListenerC0339a(this, v31Var));
-                } else if (intValue == R.drawable.nad_web_close) {
-                    view2.setOnClickListener(new b(this, v31Var));
-                }
-            }
+            a = new h56(null);
         }
     }
 
@@ -141,19 +85,320 @@ public class h56 extends cg1<u31> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        try {
+            this.a = TbConfig.getVersion();
+            this.b = DeviceInfoHelper.getOsVersion();
+            this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            this.d = r();
+            this.e = s();
+            this.f = DeviceInfoHelper.getModel();
+            this.g = TbadkCoreApplication.getInst().getImei();
+            this.h = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            this.i = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+            this.j = BdBaseApplication.getInst().getPackageName();
+            this.k = TbadkCoreApplication.getInst().getAndroidId();
+            this.l = "com.baidu.tieba.fileprovider";
+        } catch (Exception e) {
+            BdLog.e(e);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cg1
-    /* renamed from: a */
-    public u31 createService() throws ServiceNotFoundException {
+    @NonNull
+    public final String r() {
+        InterceptResult invokeV;
+        String sb;
+        String replace;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            String property = System.getProperty("http.agent");
+            if (TextUtils.isEmpty(property)) {
+                sb = "";
+            } else {
+                StringBuilder sb2 = new StringBuilder();
+                int length = property.length();
+                for (int i = 0; i < length; i++) {
+                    char charAt = property.charAt(i);
+                    if (charAt > 31 && charAt < 127) {
+                        sb2.append(charAt);
+                    } else {
+                        sb2.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                    }
+                }
+                sb = sb2.toString();
+            }
+            String osVersion = DeviceInfoHelper.getOsVersion();
+            if (TextUtils.isEmpty(osVersion)) {
+                replace = com.baidu.mobads.sdk.internal.cj.d;
+            } else {
+                replace = osVersion.replace("_", "-");
+            }
+            return sb + " baiduboxapp/" + TbConfig.getVersion() + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ h56(a aVar) {
+        this();
+    }
+
+    public static h56 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (h56) invokeV.objValue;
+    }
+
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+            if (StringUtils.isNull(this.k)) {
+                try {
+                    this.k = TbadkCoreApplication.getInst().getAndroidId();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.k;
         }
-        return (u31) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String baiduIdForAnti = TbSingleton.getInstance().getBaiduIdForAnti();
+            if (baiduIdForAnti == null) {
+                return "";
+            }
+            return baiduIdForAnti;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (StringUtils.isNull(this.a)) {
+                try {
+                    this.a = TbConfig.getVersion();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (StringUtils.isNull(this.c)) {
+                try {
+                    this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.l == null) {
+                this.l = "com.baidu.tieba.fileprovider";
+            }
+            return this.l;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (StringUtils.isNull(this.g)) {
+                try {
+                    this.g = TbadkCoreApplication.getInst().getImei();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (StringUtils.isNull(this.i)) {
+                try {
+                    this.i = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (StringUtils.isNull(this.f)) {
+                this.f = DeviceInfoHelper.getModel();
+            }
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (StringUtils.isNull(this.h)) {
+                try {
+                    this.h = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (StringUtils.isNull(this.b)) {
+                this.b = DeviceInfoHelper.getOsVersion();
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (StringUtils.isNull(this.j)) {
+                try {
+                    this.j = BdBaseApplication.getInst().getPackageName();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (StringUtils.isNull(this.e)) {
+                try {
+                    this.e = s();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            String sampleId = TbSingleton.getInstance().getSampleId();
+            if (sampleId == null) {
+                return "";
+            }
+            return sampleId.replace(SignatureImpl.SEP, ',');
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return TbadkCoreApplication.getCurrentAccount();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (StringUtils.isNull(this.d)) {
+                try {
+                    this.d = r();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            DisplayMetrics displayMetrics = TbadkCoreApplication.getInst().getResources().getDisplayMetrics();
+            int i = 0;
+            String[] strArr = {String.valueOf(displayMetrics.widthPixels), String.valueOf(displayMetrics.heightPixels), "android", TbConfig.getVersion(), String.valueOf(displayMetrics.densityDpi)};
+            StringBuilder sb = new StringBuilder();
+            String str = "";
+            while (i < 5) {
+                String str2 = strArr[i];
+                sb.append(str);
+                sb.append(str2);
+                i++;
+                str = "_";
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

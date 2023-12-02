@@ -29,8 +29,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forum.databinding.LayoutInterviewLiveViewBinding;
 import com.baidu.tieba.forum.view.InterviewLiveView;
-import com.baidu.tieba.hz4;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.kz4;
+import com.baidu.tieba.qv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -225,7 +225,7 @@ public final class InterviewLiveView extends ConstraintLayout {
         LayoutInterviewLiveViewBinding b = LayoutInterviewLiveViewBinding.b(LayoutInflater.from(context), this);
         Intrinsics.checkNotNullExpressionValue(b, "inflate(LayoutInflater.from(context), this)");
         this.f = b;
-        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.po7
+        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.to7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -292,7 +292,7 @@ public final class InterviewLiveView extends ConstraintLayout {
         }
     }
 
-    public final void a(hz4 data) {
+    public final void a(kz4 data) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
@@ -301,7 +301,7 @@ public final class InterviewLiveView extends ConstraintLayout {
             Intrinsics.checkNotNullExpressionValue(h, "data.taskId");
             this.c = h;
             String m = data.m();
-            if (nv4.c().g() && StringUtils.isNotNull(m)) {
+            if (qv4.c().g() && StringUtils.isNotNull(m)) {
                 this.e.clear();
                 this.e.add(m);
                 TbImageView tbImageView = this.f.b;

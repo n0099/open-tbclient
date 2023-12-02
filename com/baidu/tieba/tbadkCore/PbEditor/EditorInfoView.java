@@ -76,8 +76,8 @@ public class EditorInfoView extends TextView {
                 return;
             }
         }
-        this.a = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070385);
-        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070400);
+        this.a = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070386);
+        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070401);
         this.b = dimension;
         int i4 = this.a;
         setPadding(i4, dimension, i4, dimension);
@@ -91,7 +91,7 @@ public class EditorInfoView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703e5));
+            setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703e6));
         }
     }
 }

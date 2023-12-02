@@ -84,10 +84,10 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
             this.mContext = context;
             this.mView = view2;
             this.scene = str;
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091692);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091693);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "mView.findViewById(R.id.…earch_suggestion_content)");
             this.suggestionWordContent = (TextView) findViewById;
-            View findViewById2 = this.mView.findViewById(R.id.obfuscated_res_0x7f091691);
+            View findViewById2 = this.mView.findViewById(R.id.obfuscated_res_0x7f091692);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "mView.findViewById(R.id.…arch_suggestion_arrow_iv)");
             this.suggestionArrow = (ImageView) findViewById2;
         }

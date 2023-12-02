@@ -64,12 +64,12 @@ public class CoverSeekBar extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.video.editvideo.view.CoverSeekBar$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0505a implements MediaPlayer.OnInfoListener {
+        public class C0499a implements MediaPlayer.OnInfoListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0505a(a aVar) {
+            public C0499a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class CoverSeekBar extends FrameLayout {
                 mediaPlayer.setVolume(0.0f, 0.0f);
                 if (Build.VERSION.SDK_INT >= 17) {
                     this.a.c.i();
-                    mediaPlayer.setOnInfoListener(new C0505a(this));
+                    mediaPlayer.setOnInfoListener(new C0499a(this));
                     return;
                 }
                 this.a.c.h(0);
@@ -361,10 +361,10 @@ public class CoverSeekBar extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.i = ViewConfiguration.get(getContext()).getScaledTouchSlop();
             this.d = BdUtilHelper.getEquipmentWidth(getContext()) / 10;
-            this.e = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f07035f);
+            this.e = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070360);
             this.g = new LinearLayout.LayoutParams(this.d, this.e);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091129);
-            this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f09084e);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09112a);
+            this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f09084f);
             this.c.setLayoutParams(new FrameLayout.LayoutParams(this.d, this.e));
         }
     }

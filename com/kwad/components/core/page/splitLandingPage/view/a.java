@@ -69,10 +69,10 @@ public final class a {
         }
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d051c, (ViewGroup) null);
         this.yF = viewGroup;
-        this.PW = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0914d4);
-        this.PX = (FrameLayout) this.yF.findViewById(R.id.obfuscated_res_0x7f0914e7);
-        this.eM = (ImageView) this.yF.findViewById(R.id.obfuscated_res_0x7f0914f7);
-        this.IK = (ImageView) this.yF.findViewById(R.id.obfuscated_res_0x7f0914d3);
+        this.PW = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0914d5);
+        this.PX = (FrameLayout) this.yF.findViewById(R.id.obfuscated_res_0x7f0914e8);
+        this.eM = (ImageView) this.yF.findViewById(R.id.obfuscated_res_0x7f0914f8);
+        this.IK = (ImageView) this.yF.findViewById(R.id.obfuscated_res_0x7f0914d4);
         this.PW.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.components.core.page.splitLandingPage.view.a.1
             public float Qb = 0.0f;
             public float Qc = 0.0f;

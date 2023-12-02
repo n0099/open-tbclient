@@ -1,49 +1,39 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class jm4 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(JSONObject jSONObject, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, jSONObject, str, str2)) == null) {
-            if (jSONObject != null) {
-                return jSONObject.optString(str, str2);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947888088, "Lcom/baidu/tieba/jm4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return str2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947888088, "Lcom/baidu/tieba/jm4;");
+                return;
+            }
         }
-        return (String) invokeLLL.objValue;
+        a = hm4.e().getString("openstat_switch", "1");
     }
 
-    public static JSONObject b(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "NA";
-            }
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            try {
-                if (TextUtils.isEmpty(a(jSONObject, "pre_source", null))) {
-                    jSONObject.put("pre_source", str);
-                }
-                if (TextUtils.isEmpty(a(jSONObject, "pre_appid", null))) {
-                    jSONObject.put("pre_appid", "NA");
-                }
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return TextUtils.equals(a, "1");
         }
-        return (JSONObject) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 }

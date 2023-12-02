@@ -1,189 +1,201 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.js9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class ks9 {
+public class ks9 extends js9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public final List<ci> b;
-    public List<pi> c;
-    public js9 d;
-    public hs9 e;
-    public is9 f;
-    public ys9 g;
 
-    public ks9(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ss9 a;
+        public final /* synthetic */ b b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ ks9 d;
+
+        public a(ks9 ks9Var, ss9 ss9Var, b bVar, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ks9Var, ss9Var, bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ks9Var;
+            this.a = ss9Var;
+            this.b = bVar;
+            this.c = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ss9 ss9Var = this.a;
+                ss9Var.j(!ss9Var.e());
+                ks9 ks9Var = this.d;
+                b bVar = this.b;
+                ks9Var.h(bVar.d, bVar.e, this.a);
+                this.d.f(this.a);
+                ks9 ks9Var2 = this.d;
+                js9.a aVar = ks9Var2.e;
+                if (aVar != null) {
+                    aVar.D2(ks9Var2.a);
+                }
+                if (this.a.e()) {
+                    StatisticItem statisticItem = new StatisticItem("c13682");
+                    statisticItem.param("obj_type", 2);
+                    statisticItem.param("obj_locate", 1);
+                    statisticItem.param("obj_source", this.c);
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public LinearLayout a;
+        public HeadImageView b;
+        public TextView c;
+        public ImageView d;
+        public View e;
+
+        public b(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911de);
+            this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911d4);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911e0);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09225d);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0911d5);
+            int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()) / 5;
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(equipmentWidth, equipmentWidth);
+            this.b.setLayoutParams(layoutParams);
+            this.e.setLayoutParams(layoutParams);
+        }
+
+        public void a(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+                EMManager.from(this.c).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X06);
+                this.b.setConrers(15);
+                this.b.setIsRound(true);
+                this.b.setDrawBorder(true);
+                this.b.setPlaceHolder(3);
+                this.b.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+                this.b.setBorderWidth(BdUtilHelper.getDimens(context, R.dimen.L_X02));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ks9(List<ss9> list, Context context) {
+        super(list, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdTypeRecyclerView};
+            Object[] objArr = {list, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((List) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        d(context, bdTypeRecyclerView);
     }
 
-    public void a(int i, ps9 ps9Var, int i2) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), ps9Var, Integer.valueOf(i2)}) == null) {
-            new us9().a(i, ps9Var, i2, this.c, this.a);
-        }
-    }
-
-    public void b(boolean z) {
-        List<pi> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (list = this.c) != null && list.size() > 0) {
-            for (pi piVar : this.c) {
-                if (piVar != null && (piVar instanceof qs9)) {
-                    qs9 qs9Var = (qs9) piVar;
-                    qs9Var.s(z);
-                    h(qs9Var);
-                }
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && b()) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d05ec, viewGroup, false);
+                bVar = new b(view2);
+                view2.setTag(bVar);
             }
-            this.a.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void j(List<ns9> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, list) != null) || this.a == null) {
-            return;
-        }
-        List<pi> b = new us9().b(list);
-        if (ListUtils.isEmpty(this.c)) {
-            this.c = b;
-        } else {
-            this.c.addAll(b);
-        }
-        if (!ListUtils.isEmpty(this.c)) {
-            this.a.setData(this.c);
-            this.g.a();
-        }
-    }
-
-    public List<pi> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void d(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, bdTypeRecyclerView) == null) {
-            this.d = new js9(context, ss9.c);
-            this.e = new hs9(context, qs9.i);
-            this.f = new is9(context, rs9.d);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.b.add(this.f);
-            this.a = bdTypeRecyclerView;
-            bdTypeRecyclerView.addAdapters(this.b);
-        }
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<pi> list = this.c;
-            if (list != null && list.size() > 0) {
-                for (pi piVar : this.c) {
-                    if (piVar != null && (piVar instanceof qs9) && ((qs9) piVar).h()) {
-                        return true;
-                    }
-                }
+            bVar.a(this.c);
+            ss9 ss9Var = this.d.get(i);
+            if (ss9Var == null) {
+                return view2;
             }
-            return false;
+            bVar.b.startLoad(ss9Var.b(), 25, false);
+            bVar.c.setText(ss9Var.a());
+            h(bVar.d, bVar.e, ss9Var);
+            view2.setOnClickListener(new a(this, ss9Var, bVar, i));
+            if (i == this.d.size() - 1) {
+                d(true);
+            }
+            return view2;
         }
-        return invokeV.booleanValue;
+        return (View) invokeILL.objValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public final void h(ImageView imageView, View view2, ss9 ss9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<pi> list = this.c;
-            if (list == null || list.size() <= 0) {
-                return false;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, view2, ss9Var) == null) {
+            if (ss9Var.e()) {
+                SkinManager.setImageResource(imageView, R.drawable.icon_interest_checked);
+                TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0608).into(view2);
+                return;
             }
-            for (pi piVar : this.c) {
-                if (piVar != null && (piVar instanceof qs9) && !((qs9) piVar).h()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            js9 js9Var = this.d;
-            if (js9Var != null) {
-                js9Var.notifyDataSetChanged();
-            }
-            hs9 hs9Var = this.e;
-            if (hs9Var != null) {
-                hs9Var.notifyDataSetChanged();
-            }
-            is9 is9Var = this.f;
-            if (is9Var != null) {
-                is9Var.notifyDataSetChanged();
-            }
-        }
-    }
-
-    public final void h(qs9 qs9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, qs9Var) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13682");
-            statisticItem.param("obj_type", 2);
-            statisticItem.param("obj_locate", 3);
-            statisticItem.param("fid", qs9Var.c());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public void i(xs9 xs9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, xs9Var) == null) {
-            this.f.A(xs9Var);
-        }
-    }
-
-    public void k(ys9 ys9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ys9Var) == null) {
-            this.g = ys9Var;
-            this.e.C(ys9Var);
-            this.f.B(ys9Var);
+            SkinManager.setImageResource(imageView, R.drawable.icon_interest_unchecked);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0601).into(view2);
         }
     }
 }

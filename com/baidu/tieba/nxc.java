@@ -1,31 +1,36 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedHeadIcon;
+import tbclient.FeedHeadImg;
 /* loaded from: classes7.dex */
-public class nxc extends ltc {
+public class nxc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedHeadIcon feedHeadIcon) {
+    public static JSONObject b(@NonNull FeedHeadImg feedHeadImg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadIcon)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadImg)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "url", feedHeadIcon.url);
-            ltc.a(jSONObject, "width", feedHeadIcon.width);
-            ltc.a(jSONObject, "height", feedHeadIcon.height);
-            ltc.a(jSONObject, "priority", feedHeadIcon.priority);
-            ltc.a(jSONObject, "can_degrade", feedHeadIcon.can_degrade);
-            ltc.a(jSONObject, "degrade_url", feedHeadIcon.degrade_url);
-            ltc.a(jSONObject, "degrade_width", feedHeadIcon.degrade_width);
-            ltc.a(jSONObject, "degrade_height", feedHeadIcon.degrade_height);
-            ltc.a(jSONObject, "degrade_priority", feedHeadIcon.degrade_priority);
+            ktc.a(jSONObject, BigdayActivityConfig.IMG_URL, feedHeadImg.img_url);
+            ktc.a(jSONObject, "shape_type", feedHeadImg.shape_type);
+            ktc.a(jSONObject, "pendant_url", feedHeadImg.pendant_url);
+            ktc.a(jSONObject, "corner_url", feedHeadImg.corner_url);
+            ktc.a(jSONObject, "schema", feedHeadImg.schema);
+            if (feedHeadImg.masks != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (String str : feedHeadImg.masks) {
+                    jSONArray.put(str);
+                }
+                ktc.a(jSONObject, "masks", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

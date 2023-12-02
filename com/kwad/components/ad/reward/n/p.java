@@ -40,7 +40,7 @@ public final class p extends s implements View.OnClickListener {
     }
 
     public final void h(ViewGroup viewGroup) {
-        super.a(viewGroup, R.id.obfuscated_res_0x7f091471, R.id.obfuscated_res_0x7f0913be);
+        super.a(viewGroup, R.id.obfuscated_res_0x7f091472, R.id.obfuscated_res_0x7f0913bf);
         initView();
     }
 
@@ -49,14 +49,14 @@ public final class p extends s implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        this.zR = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913bb);
-        this.zS = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091313);
-        this.zT = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913b9);
-        this.zU = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913b8);
-        this.zV = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913ba);
-        this.zW = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913b6);
-        this.zX = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913b3);
-        this.zY = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913b4);
+        this.zR = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913bc);
+        this.zS = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091314);
+        this.zT = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913ba);
+        this.zU = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913b9);
+        this.zV = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913bb);
+        this.zW = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913b7);
+        this.zX = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913b4);
+        this.zY = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913b5);
         this.zX.setOnClickListener(this);
         this.zY.setOnClickListener(this);
     }

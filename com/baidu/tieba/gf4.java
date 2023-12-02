@@ -5,11 +5,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gf4 extends ff4 {
+public abstract class gf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int o;
-    public String p;
+    public String a;
+    public long b;
+    public long c;
+    public long d;
+    public int e;
+    public long f;
 
     public gf4() {
         Interceptable interceptable = $ic;
@@ -21,7 +25,13 @@ public class gf4 extends ff4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0;
     }
 }

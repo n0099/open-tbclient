@@ -13,8 +13,8 @@ import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.tieba.aj0;
-import com.baidu.tieba.c01;
-import com.baidu.tieba.d21;
+import com.baidu.tieba.e01;
+import com.baidu.tieba.g21;
 import com.baidu.tieba.gi0;
 import com.baidu.tieba.hf0;
 import com.baidu.tieba.ig0;
@@ -22,7 +22,7 @@ import com.baidu.tieba.ij0;
 import com.baidu.tieba.jg0;
 import com.baidu.tieba.lg0;
 import com.baidu.tieba.ng0;
-import com.baidu.tieba.ny0;
+import com.baidu.tieba.py0;
 import com.baidu.tieba.qe0;
 import com.baidu.tieba.ti0;
 import com.baidu.tieba.wg0;
@@ -112,7 +112,7 @@ public class AdAppStateManager extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isInternalValid(int i) {
-        if (i > 0 && !d21.c(System.currentTimeMillis(), this.mBlockingTime, i)) {
+        if (i > 0 && !g21.c(System.currentTimeMillis(), this.mBlockingTime, i)) {
             return true;
         }
         return false;
@@ -134,7 +134,7 @@ public class AdAppStateManager extends BroadcastReceiver {
         if (TextUtils.isEmpty(wg0Var.d)) {
             return;
         }
-        ny0.e(this.mDatas, wg0Var.d, wg0Var);
+        py0.e(this.mDatas, wg0Var.d, wg0Var);
     }
 
     public void launch(wg0 wg0Var) {
@@ -169,7 +169,7 @@ public class AdAppStateManager extends BroadcastReceiver {
         } else {
             str = "";
         }
-        wg0 wg0Var = (wg0) ny0.b(this.mDatas, str);
+        wg0 wg0Var = (wg0) py0.b(this.mDatas, str);
         if (wg0Var == null) {
             return;
         }
@@ -193,7 +193,7 @@ public class AdAppStateManager extends BroadcastReceiver {
                 z = false;
             }
             if (z) {
-                c01.a(new a(wg0Var), "nad_uad_launch_immediate", 0, 1500L);
+                e01.a(new a(wg0Var), "nad_uad_launch_immediate", 0, 1500L);
             } else {
                 launchAfterInstall(wg0Var);
             }

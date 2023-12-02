@@ -33,10 +33,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.cw4;
-import com.baidu.tieba.i18;
-import com.baidu.tieba.i65;
+import com.baidu.tieba.fw4;
 import com.baidu.tieba.jt;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.m18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -119,7 +119,7 @@ public class CardItemRecommendLayout extends LinearLayout implements jt {
                     return;
                 }
             }
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d59);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d5a);
             this.a = barImageView;
             barImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
@@ -127,9 +127,9 @@ public class CardItemRecommendLayout extends LinearLayout implements jt {
             this.a.setShowOuterBorder(true);
             this.a.setPlaceHolder(3);
             this.a.setPageId(a5.a(view2.getContext()).getUniqueId());
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090d5a);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d5c);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d5b);
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090d5b);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d5d);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d5c);
             this.itemView.setOnClickListener(new a(this));
         }
 
@@ -247,7 +247,7 @@ public class CardItemRecommendLayout extends LinearLayout implements jt {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new i65(3, i + 1, 2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new l65(3, i + 1, 2)));
             }
         }
     }
@@ -296,7 +296,7 @@ public class CardItemRecommendLayout extends LinearLayout implements jt {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, i) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 dVar.b((ItemInfo) ListUtils.getItem(this.a.d, i));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new i65(3, i + 1, 1)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new l65(3, i + 1, 1)));
             }
         }
 
@@ -384,12 +384,12 @@ public class CardItemRecommendLayout extends LinearLayout implements jt {
         b();
     }
 
-    public void setData(cw4 cw4Var) {
+    public void setData(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, cw4Var) == null) && (cw4Var instanceof i18)) {
-            i18 i18Var = (i18) cw4Var;
-            if (i18Var.c() != null) {
-                this.d = i18Var.c();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, fw4Var) == null) && (fw4Var instanceof m18)) {
+            m18 m18Var = (m18) fw4Var;
+            if (m18Var.c() != null) {
+                this.d = m18Var.c();
                 this.c.notifyDataSetChanged();
             }
         }

@@ -35,13 +35,13 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c05;
+import com.baidu.tieba.f05;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.mr9;
 import com.baidu.tieba.newfaceshop.BarInformationModel;
 import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
-import com.baidu.tieba.nr9;
-import com.baidu.tieba.qu5;
+import com.baidu.tieba.qr9;
+import com.baidu.tieba.rr9;
+import com.baidu.tieba.uu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInformationModel.b {
+public class FaceGroupMakeActivity extends BaseActivity implements qr9.c, BarInformationModel.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -67,7 +67,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
     public TextView j;
     public TextView k;
     public ImageView l;
-    public mr9 m;
+    public qr9 m;
     public ArrayList<FaceData> n;
     public FaceData o;
     public Activity p;
@@ -150,14 +150,14 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
             } else if (this.a.n.size() - 1 > 24) {
                 this.a.showToast(R.string.obfuscated_res_0x7f0f070c);
             } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0e6f);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0e70);
             } else if (this.a.Z0() && this.a.u == null) {
                 this.a.showToast(R.string.obfuscated_res_0x7f0f0acb);
             } else {
                 ArrayList arrayList = new ArrayList();
                 arrayList.addAll(this.a.n);
                 arrayList.remove(this.a.o);
-                nr9 l = nr9.l();
+                rr9 l = rr9.l();
                 if (this.a.u != null) {
                     i = this.a.u.forum_id;
                 } else {
@@ -233,13 +233,13 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.k.setMaxWidth(((this.a.i.getWidth() - this.a.j.getWidth()) - this.a.l.getWidth()) - BdUtilHelper.getDimens(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703b6));
+                this.a.k.setMaxWidth(((this.a.i.getWidth() - this.a.j.getWidth()) - this.a.l.getWidth()) - BdUtilHelper.getDimens(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703b7));
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class e implements c05.e {
+    public class e implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceGroupMakeActivity a;
@@ -262,19 +262,19 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
             this.a = faceGroupMakeActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
-                nr9.l().i();
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
+                f05Var.dismiss();
+                rr9.l().i();
                 this.a.finish();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class f implements c05.e {
+    public class f implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceGroupMakeActivity a;
@@ -297,11 +297,11 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
             this.a = faceGroupMakeActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
+                f05Var.dismiss();
             }
         }
     }
@@ -337,8 +337,8 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null && (qu5.c(spanned.toString()) - (i4 - i3)) + qu5.c(charSequence.toString()) > this.a) {
-                    this.b.showToast(R.string.obfuscated_res_0x7f0f0f66);
+                if (spanned != null && charSequence != null && (uu5.c(spanned.toString()) - (i4 - i3)) + uu5.c(charSequence.toString()) > this.a) {
+                    this.b.showToast(R.string.obfuscated_res_0x7f0f0f67);
                     return "";
                 }
                 return charSequence;
@@ -414,7 +414,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
         }
     }
 
-    @Override // com.baidu.tieba.mr9.c
+    @Override // com.baidu.tieba.qr9.c
     public void e0(FaceData faceData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, faceData) != null) || faceData == null) {
@@ -425,7 +425,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
         f1();
     }
 
-    @Override // com.baidu.tieba.mr9.c
+    @Override // com.baidu.tieba.qr9.c
     public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -447,7 +447,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
     public final void b1() {
         FaceGroupDraft k;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (k = nr9.l().k()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (k = rr9.l().k()) != null) {
             if (!TextUtils.isEmpty(k.getName())) {
                 this.f.setText(k.getName());
             }
@@ -464,11 +464,11 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             ArrayList<FaceData> arrayList = this.n;
             if ((arrayList != null && arrayList.size() > 1) || !TextUtils.isEmpty(this.f.getText())) {
-                c05 c05Var = new c05(this.p);
-                c05Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f0712));
-                c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04d2, new e(this));
-                c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new f(this));
-                c05Var.create(getPageContext()).show();
+                f05 f05Var = new f05(this.p);
+                f05Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f0712));
+                f05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04d2, new e(this));
+                f05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new f(this));
+                f05Var.create(getPageContext()).show();
                 return;
             }
             finish();
@@ -516,7 +516,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
             this.o = faceData;
             faceData.type = 4;
             this.n.add(faceData);
-            if (this.q && ((k = nr9.l().k()) == null || k.getForumId() != 0)) {
+            if (this.q && ((k = rr9.l().k()) == null || k.getForumId() != 0)) {
                 this.r = true;
             }
             initView();
@@ -538,7 +538,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.g = (LinearLayout) findViewById(R.id.layout_root);
-            this.h = (FaceImageLayout) findViewById(R.id.obfuscated_res_0x7f09156e);
+            this.h = (FaceImageLayout) findViewById(R.id.obfuscated_res_0x7f09156f);
             this.a = (NavigationBar) findViewById(R.id.navigation_bar);
             this.b = new FaceGroupMakeTitleBar(this.p);
             this.b.setLayoutParams(new RelativeLayout.LayoutParams(BdUtilHelper.getEquipmentWidth(getPageContext().getPageActivity()), -1));
@@ -553,24 +553,24 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
             }
             this.b.setRightText(this.p.getText(R.string.obfuscated_res_0x7f0f05bc).toString());
             this.b.setRightListener(new b(this));
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f0909cf);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f0909d0);
             this.f = editText;
             editText.setFilters(new InputFilter[]{new g(this, 20)});
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0927cb);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0927ce);
             f1();
-            this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090ef4);
-            mr9 mr9Var = new mr9(this.n);
-            this.m = mr9Var;
-            mr9Var.f(this);
+            this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090ef5);
+            qr9 qr9Var = new qr9(this.n);
+            this.m = qr9Var;
+            qr9Var.f(this);
             this.e.setAdapter((ListAdapter) this.m);
             this.h.setListener(new c(this));
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090388);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092868);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092867);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09286b);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09286a);
             this.k = textView;
             textView.setOnClickListener(this);
             this.i.setVisibility(8);
-            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912b6);
+            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912b7);
             this.i.getViewTreeObserver().addOnGlobalLayoutListener(new d(this));
         }
     }
@@ -662,7 +662,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements mr9.c, BarInf
             this.k.setClickable(true);
             this.k.setText(R.string.obfuscated_res_0x7f0f071c);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0304);
-            FaceGroupDraft k = nr9.l().k();
+            FaceGroupDraft k = rr9.l().k();
             if (k != null && k.getForumId() != 0) {
                 Iterator<BazhuInfoData.BaInfo> it = this.t.iterator();
                 while (it.hasNext()) {

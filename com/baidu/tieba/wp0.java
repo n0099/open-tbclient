@@ -1,15 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface wp0 {
-    void mute(boolean z);
+    int b();
 
-    void pause();
+    boolean isPause();
 
-    void resume();
-
-    void setLooping(boolean z);
-
-    void setVideoScalingMode(int i);
-
-    void start();
+    boolean isPlaying();
 }

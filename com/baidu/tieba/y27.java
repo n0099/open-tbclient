@@ -1,141 +1,133 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class y27 {
+public final class y27 implements g77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final kwa a;
+    public final View.OnClickListener b;
+    public boolean c;
+    public int d;
 
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "frs_empty_advert" : (String) invokeV.objValue;
-    }
-
-    public static ICardInfo a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("card_type", i);
-                return nf9.h().b(jSONObject, i);
-            } catch (CardParseException | JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (ICardInfo) invokeI.objValue;
-    }
-
-    public static String d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            return e(i, 0);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static boolean h(AdvertAppInfo advertAppInfo) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
                 return true;
             }
-            return advertAppInfo.b();
+            if (obj instanceof y27) {
+                y27 y27Var = (y27) obj;
+                return Intrinsics.areEqual(this.a, y27Var.a) && Intrinsics.areEqual(this.b, y27Var.b) && this.c == y27Var.c;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static ICardInfo b(int i, int i2) {
-        InterceptResult invokeII;
+    /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("goods_style", i2);
-                jSONObject2.put("card_type", i);
-                jSONObject.put("ad_common", jSONObject2);
-                jSONObject.put("card_type", i);
-                return nf9.h().b(jSONObject, i);
-            } catch (CardParseException | JSONException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            View.OnClickListener onClickListener = this.b;
+            int hashCode2 = (hashCode + (onClickListener == null ? 0 : onClickListener.hashCode())) * 31;
+            boolean z = this.c;
+            int i = z;
+            if (z != 0) {
+                i = 1;
             }
+            return hashCode2 + i;
         }
-        return (ICardInfo) invokeII.objValue;
+        return invokeV.intValue;
     }
 
-    public static String e(int i, int i2) {
-        InterceptResult invokeII;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
-            return "ad_card_" + i + "_" + i2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "DelegateFunAdUiState(funAdData=" + this.a + ", feedbackClickListener=" + this.b + ", isInEditMode=" + this.c + ')';
         }
-        return (String) invokeII.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int f(@NonNull List<nb7<?>> list) {
-        InterceptResult invokeL;
+    @JvmOverloads
+    public y27(kwa funAdData, View.OnClickListener onClickListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
-            int i = 0;
-            if (zf9.e(list)) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdData, onClickListener, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            for (int i2 = zf9.i(list) - 1; i2 >= 0; i2--) {
-                nb7 nb7Var = (nb7) zf9.d(list, i2);
-                if (nb7Var != null) {
-                    if (nb7Var.b() instanceof vx4) {
-                        break;
-                    }
-                    i++;
-                }
-            }
-            return i;
         }
-        return invokeL.intValue;
+        Intrinsics.checkNotNullParameter(funAdData, "funAdData");
+        this.a = funAdData;
+        this.b = onClickListener;
+        this.c = z;
     }
 
-    public static String g(List<nb7<?>> list, boolean z) {
-        InterceptResult invokeLZ;
+    public /* synthetic */ y27(kwa kwaVar, View.OnClickListener onClickListener, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(kwaVar, (i & 2) != 0 ? z27.d() : onClickListener, (i & 4) != 0 ? false : z);
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, list, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!z && !zf9.e(list)) {
-                int i = 0;
-                for (int i2 = zf9.i(list) - 1; i2 >= 0 && i < 6; i2--) {
-                    nb7 nb7Var = (nb7) zf9.d(list, i2);
-                    if (nb7Var != null && (nb7Var.b() instanceof vx4)) {
-                        vx4 vx4Var = (vx4) nb7Var.b();
-                        if (!h(vx4Var.w())) {
-                            sb.append(vx4Var.m() + 1);
-                            sb.append(",");
-                            i++;
-                        }
-                    }
-                }
-                if (sb.length() <= 1) {
-                    return sb.toString();
-                }
-                sb.deleteCharAt(sb.length() - 1);
-                return sb.toString();
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (String) invokeLZ.objValue;
+        return invokeV.intValue;
+    }
+
+    public final View.OnClickListener b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (View.OnClickListener) invokeV.objValue;
+    }
+
+    public final kwa c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (kwa) invokeV.objValue;
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.g77
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
+        }
     }
 }

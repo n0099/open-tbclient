@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.PathUtils;
 import com.baidu.searchbox.download.callback.IDownloadListener;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.download.model.Downloads;
@@ -22,14 +23,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.cv6;
-import com.baidu.tieba.dv6;
 import com.baidu.tieba.filedownloader.logs.DownloaderLog;
-import com.baidu.tieba.je7;
-import com.baidu.tieba.ju5;
-import com.baidu.tieba.ke7;
+import com.baidu.tieba.gv6;
+import com.baidu.tieba.hv6;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.ne7;
 import com.baidu.tieba.nu5;
+import com.baidu.tieba.oe7;
+import com.baidu.tieba.ru5;
 import com.baidu.tieba.util.AdApkInstallHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -55,13 +56,13 @@ import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\b\u0018\u0000 \"2\u00020\u0001:\u0003\"#$B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0006\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\u0005H\u0016J\u0010\u0010\t\u001a\u00020\u00072\u0006\u0010\n\u001a\u00020\u000bH\u0016J\u000e\u0010\f\u001a\u00020\u00072\u0006\u0010\n\u001a\u00020\u000bJ \u0010\r\u001a\u00020\u000e2\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0010\u001a\u00020\u0011H\u0002J\u0010\u0010\u0012\u001a\u00020\u00132\u0006\u0010\n\u001a\u00020\u000bH\u0016J\u0010\u0010\u0014\u001a\u00020\u000e2\u0006\u0010\n\u001a\u00020\u000bH\u0016J\u0010\u0010\u0015\u001a\u00020\u000e2\u0006\u0010\n\u001a\u00020\u000bH\u0016J\u0012\u0010\u0016\u001a\u0004\u0018\u00010\u00112\u0006\u0010\n\u001a\u00020\u000bH\u0002J\u0010\u0010\u0017\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u000bH\u0002J\u0012\u0010\u001a\u001a\u00020\u00072\b\u0010\u001b\u001a\u0004\u0018\u00010\u0013H\u0002J\u0010\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\n\u001a\u00020\u000bH\u0002J\u0010\u0010\u001e\u001a\u00020\u00072\u0006\u0010\n\u001a\u00020\u000bH\u0016J\u0010\u0010\u001f\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\u0005H\u0016J\u0018\u0010 \u001a\u00020\u00072\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\u0005H\u0016J\u0018\u0010!\u001a\u00020\u001d2\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\u0005H\u0016R\u0014\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006%"}, d2 = {"Lcom/baidu/tieba/filedownloader/SearchBoxDownloaderImpl;", "Lcom/baidu/tieba/filedownloader/interfaces/IFileDownloader;", "()V", "mCallbackList", "", "Lcom/baidu/tieba/filedownloader/interfaces/IStatusCallback;", "addGlobalCallback", "", WebChromeClient.KEY_ARG_CALLBACK, "cancel", "data", "Lcom/baidu/tbadk/download/DownloadData;", "cancelAction", "getConvertStatus", "", "originalStatus", "uri", "Landroid/net/Uri;", "getFilePath", "", "getProgress", "getStatus", "getUriById", "initDownloadParams", "Lcom/baidu/searchbox/download/unified/DownloadParams;", "download", "installApp", "path", "isSearchBoxContainTask", "", DownloadStatisticConstants.UBC_TYPE_PAUSE, "removeGlobalCallback", DownloadStatisticConstants.UBC_TYPE_RESUME, "start", "Companion", "DownloadEventCallback", "ListenerFacade", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class SearchBoxDownloaderImpl implements je7 {
+public final class SearchBoxDownloaderImpl implements ne7 {
     public static /* synthetic */ Interceptable $ic;
     public static final a b;
     public static final Lazy<SearchBoxDownloaderImpl> c;
-    public static final cv6 d;
+    public static final gv6 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ke7> a;
+    public List<oe7> a;
 
     public /* synthetic */ SearchBoxDownloaderImpl(DefaultConstructorMarker defaultConstructorMarker) {
         this();
@@ -72,7 +73,7 @@ public final class SearchBoxDownloaderImpl implements je7 {
     public final class ListenerFacade implements IDownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ke7 mCallback;
+        public oe7 mCallback;
         public final DownloadData mData;
         public final /* synthetic */ SearchBoxDownloaderImpl this$0;
 
@@ -83,7 +84,7 @@ public final class SearchBoxDownloaderImpl implements je7 {
             }
         }
 
-        public ListenerFacade(SearchBoxDownloaderImpl searchBoxDownloaderImpl, DownloadData mData, ke7 mCallback) {
+        public ListenerFacade(SearchBoxDownloaderImpl searchBoxDownloaderImpl, DownloadData mData, oe7 mCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,13 +106,13 @@ public final class SearchBoxDownloaderImpl implements je7 {
             this.mCallback = mCallback;
         }
 
-        public final ke7 getMCallback() {
+        public final oe7 getMCallback() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return this.mCallback;
             }
-            return (ke7) invokeV.objValue;
+            return (oe7) invokeV.objValue;
         }
 
         @Override // com.baidu.searchbox.download.callback.IDownloadListener
@@ -120,8 +121,8 @@ public final class SearchBoxDownloaderImpl implements je7 {
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, i) == null) {
                 this.mData.setStatus(4);
                 this.mCallback.c(this.mData);
-                for (ke7 ke7Var : this.this$0.a) {
-                    ke7Var.c(this.mData);
+                for (oe7 oe7Var : this.this$0.a) {
+                    oe7Var.c(this.mData);
                 }
             }
         }
@@ -133,8 +134,8 @@ public final class SearchBoxDownloaderImpl implements je7 {
                 this.mData.setLength(j);
                 this.mData.setSize(j2);
                 this.mCallback.e(this.mData);
-                for (ke7 ke7Var : this.this$0.a) {
-                    ke7Var.e(this.mData);
+                for (oe7 oe7Var : this.this$0.a) {
+                    oe7Var.e(this.mData);
                 }
             }
         }
@@ -148,8 +149,8 @@ public final class SearchBoxDownloaderImpl implements je7 {
                 this.mData.setStatus(2);
                 this.mData.setStatusMsg((stopStatus == null || (r5 = stopStatus.name()) == null) ? "" : "");
                 this.mCallback.a(this.mData);
-                for (ke7 ke7Var : this.this$0.a) {
-                    ke7Var.a(this.mData);
+                for (oe7 oe7Var : this.this$0.a) {
+                    oe7Var.a(this.mData);
                 }
             }
         }
@@ -160,18 +161,18 @@ public final class SearchBoxDownloaderImpl implements je7 {
             if (interceptable == null || interceptable.invokeL(1048581, this, uri) == null) {
                 this.mData.setStatus(0);
                 this.mCallback.b(this.mData);
-                for (ke7 ke7Var : this.this$0.a) {
-                    ke7Var.b(this.mData);
+                for (oe7 oe7Var : this.this$0.a) {
+                    oe7Var.b(this.mData);
                 }
                 AdApkInstallHelper.a.c(this.this$0.h(this.mData), this.mData);
             }
         }
 
-        public final void setMCallback(ke7 ke7Var) {
+        public final void setMCallback(oe7 oe7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, ke7Var) == null) {
-                Intrinsics.checkNotNullParameter(ke7Var, "<set-?>");
-                this.mCallback = ke7Var;
+            if (interceptable == null || interceptable.invokeL(1048582, this, oe7Var) == null) {
+                Intrinsics.checkNotNullParameter(oe7Var, "<set-?>");
+                this.mCallback = oe7Var;
             }
         }
     }
@@ -199,11 +200,11 @@ public final class SearchBoxDownloaderImpl implements je7 {
             }
         }
 
-        public final cv6 a() {
+        public final gv6 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-                return (cv6) invokeV.objValue;
+                return (gv6) invokeV.objValue;
             }
             return SearchBoxDownloaderImpl.d;
         }
@@ -223,10 +224,10 @@ public final class SearchBoxDownloaderImpl implements je7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DownloadData a;
-        public ke7 b;
+        public oe7 b;
         public final /* synthetic */ SearchBoxDownloaderImpl c;
 
-        public b(SearchBoxDownloaderImpl searchBoxDownloaderImpl, DownloadData mData, ke7 mCallback) {
+        public b(SearchBoxDownloaderImpl searchBoxDownloaderImpl, DownloadData mData, oe7 mCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -279,8 +280,8 @@ public final class SearchBoxDownloaderImpl implements je7 {
                     if (i == 2) {
                         this.a.setStatus(2);
                         this.b.a(this.a);
-                        for (ke7 ke7Var : this.c.a) {
-                            ke7Var.a(this.a);
+                        for (oe7 oe7Var : this.c.a) {
+                            oe7Var.a(this.a);
                         }
                         return;
                     }
@@ -294,15 +295,15 @@ public final class SearchBoxDownloaderImpl implements je7 {
                 if (eventBackInfo != null && (uri = eventBackInfo.uri) != null) {
                     this.a.setUri(uri);
                 }
-                for (ke7 ke7Var2 : this.c.a) {
-                    ke7Var2.f(this.a, i2);
+                for (oe7 oe7Var2 : this.c.a) {
+                    oe7Var2.f(this.a, i2);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static final class c extends ju5<Unit> {
+    public static final class c extends nu5<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchBoxDownloaderImpl a;
@@ -335,7 +336,7 @@ public final class SearchBoxDownloaderImpl implements je7 {
         }
 
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.ju5
+        @Override // com.baidu.tieba.nu5
         public /* bridge */ /* synthetic */ Unit doInBackground() {
             a();
             return Unit.INSTANCE;
@@ -343,19 +344,19 @@ public final class SearchBoxDownloaderImpl implements je7 {
     }
 
     /* loaded from: classes5.dex */
-    public static final class d extends ju5<Unit> {
+    public static final class d extends nu5<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchBoxDownloaderImpl a;
         public final /* synthetic */ DownloadData b;
-        public final /* synthetic */ ke7 c;
+        public final /* synthetic */ oe7 c;
 
-        public d(SearchBoxDownloaderImpl searchBoxDownloaderImpl, DownloadData downloadData, ke7 ke7Var) {
+        public d(SearchBoxDownloaderImpl searchBoxDownloaderImpl, DownloadData downloadData, oe7 oe7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {searchBoxDownloaderImpl, downloadData, ke7Var};
+                Object[] objArr = {searchBoxDownloaderImpl, downloadData, oe7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -367,7 +368,7 @@ public final class SearchBoxDownloaderImpl implements je7 {
             }
             this.a = searchBoxDownloaderImpl;
             this.b = downloadData;
-            this.c = ke7Var;
+            this.c = oe7Var;
         }
 
         public void a() {
@@ -406,7 +407,7 @@ public final class SearchBoxDownloaderImpl implements je7 {
         }
 
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.ju5
+        @Override // com.baidu.tieba.nu5
         public /* bridge */ /* synthetic */ Unit doInBackground() {
             a();
             return Unit.INSTANCE;
@@ -427,8 +428,9 @@ public final class SearchBoxDownloaderImpl implements je7 {
             }
         }
         b = new a(null);
+        PathUtils.getCacheDirectory(TbadkCoreApplication.getInst());
         c = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) SearchBoxDownloaderImpl$Companion$sInstance$2.INSTANCE);
-        cv6 b2 = cv6.b();
+        gv6 b2 = gv6.b();
         Intrinsics.checkNotNullExpressionValue(b2, "getInstance()");
         d = b2;
     }
@@ -449,8 +451,8 @@ public final class SearchBoxDownloaderImpl implements je7 {
         this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.je7
-    public void a(ke7 callback) {
+    @Override // com.baidu.tieba.ne7
+    public void a(oe7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -458,16 +460,16 @@ public final class SearchBoxDownloaderImpl implements je7 {
         }
     }
 
-    @Override // com.baidu.tieba.je7
+    @Override // com.baidu.tieba.ne7
     public void d(DownloadData data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            nu5.b(new c(this, data), null);
+            ru5.b(new c(this, data), null);
         }
     }
 
-    @Override // com.baidu.tieba.je7
+    @Override // com.baidu.tieba.ne7
     public int e(DownloadData data) {
         InterceptResult invokeL;
         DownloadInfoData d2;
@@ -483,7 +485,7 @@ public final class SearchBoxDownloaderImpl implements je7 {
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.je7
+    @Override // com.baidu.tieba.ne7
     public void f(DownloadData data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
@@ -495,7 +497,7 @@ public final class SearchBoxDownloaderImpl implements je7 {
         }
     }
 
-    @Override // com.baidu.tieba.je7
+    @Override // com.baidu.tieba.ne7
     public String h(DownloadData data) {
         InterceptResult invokeL;
         DownloadInfoData d2;
@@ -513,8 +515,8 @@ public final class SearchBoxDownloaderImpl implements je7 {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.je7
-    public void i(ke7 callback) {
+    @Override // com.baidu.tieba.ne7
+    public void i(oe7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -522,21 +524,21 @@ public final class SearchBoxDownloaderImpl implements je7 {
         }
     }
 
-    @Override // com.baidu.tieba.je7
-    public boolean c(DownloadData data, ke7 callback) {
+    @Override // com.baidu.tieba.ne7
+    public boolean c(DownloadData data, oe7 callback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, data, callback)) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             Intrinsics.checkNotNullParameter(callback, "callback");
-            nu5.b(new d(this, data, callback), null);
+            ru5.b(new d(this, data, callback), null);
             return true;
         }
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.je7
-    public void b(DownloadData data, ke7 callback) {
+    @Override // com.baidu.tieba.ne7
+    public void b(DownloadData data, oe7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data, callback) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -551,7 +553,7 @@ public final class SearchBoxDownloaderImpl implements je7 {
         }
     }
 
-    @Override // com.baidu.tieba.je7
+    @Override // com.baidu.tieba.ne7
     public int g(DownloadData data) {
         InterceptResult invokeL;
         DownloadInfoData d2;
@@ -580,8 +582,8 @@ public final class SearchBoxDownloaderImpl implements je7 {
             if (r != null) {
                 data.setStatus(6);
                 d.a(r);
-                for (ke7 ke7Var : this.a) {
-                    ke7Var.d(data);
+                for (oe7 oe7Var : this.a) {
+                    oe7Var.d(data);
                 }
             }
         }
@@ -597,7 +599,7 @@ public final class SearchBoxDownloaderImpl implements je7 {
             Intrinsics.checkNotNullExpressionValue(context, "getInst().context");
             String id = downloadData.getId();
             Intrinsics.checkNotNullExpressionValue(id, "data.id");
-            long a2 = dv6.a(downloadUnifiedManager, context, id);
+            long a2 = hv6.a(downloadUnifiedManager, context, id);
             if (a2 > 0) {
                 return ContentUris.withAppendedId(Downloads.Impl.CONTENT_URI, a2);
             }
@@ -634,7 +636,7 @@ public final class SearchBoxDownloaderImpl implements je7 {
             Intrinsics.checkNotNullExpressionValue(context, "getInst().context");
             String id = downloadData.getId();
             Intrinsics.checkNotNullExpressionValue(id, "data.id");
-            if (dv6.a(downloadUnifiedManager, context, id) > 0) {
+            if (hv6.a(downloadUnifiedManager, context, id) > 0) {
                 return true;
             }
             return false;

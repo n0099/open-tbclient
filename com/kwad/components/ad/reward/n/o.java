@@ -74,17 +74,17 @@ public final class o extends s implements View.OnClickListener {
         Context context = this.sy.getContext();
         if (!ai.Kx()) {
             if (!this.zN) {
-                this.sy.findViewById(R.id.obfuscated_res_0x7f09146f).setVisibility(0);
+                this.sy.findViewById(R.id.obfuscated_res_0x7f091470).setVisibility(0);
                 ViewGroup.LayoutParams layoutParams = this.zM.getLayoutParams();
-                layoutParams.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e5);
+                layoutParams.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e6);
                 this.zM.setLayoutParams(layoutParams);
                 ViewGroup.LayoutParams layoutParams2 = this.zk.getLayoutParams();
-                layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e5);
+                layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e6);
                 this.zk.setLayoutParams(layoutParams2);
                 return;
             }
             ViewGroup.LayoutParams layoutParams3 = this.sy.getLayoutParams();
-            layoutParams3.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e5);
+            layoutParams3.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e6);
             this.sy.setLayoutParams(layoutParams3);
             h(this.sy, 85);
         }
@@ -120,10 +120,10 @@ public final class o extends s implements View.OnClickListener {
 
     public final void a(ViewGroup viewGroup, int i) {
         if (i == 8) {
-            super.a(viewGroup, R.id.obfuscated_res_0x7f091474, R.id.obfuscated_res_0x7f091473);
+            super.a(viewGroup, R.id.obfuscated_res_0x7f091475, R.id.obfuscated_res_0x7f091474);
             this.zN = true;
         } else {
-            super.a(viewGroup, R.id.obfuscated_res_0x7f091470, R.id.obfuscated_res_0x7f091473);
+            super.a(viewGroup, R.id.obfuscated_res_0x7f091471, R.id.obfuscated_res_0x7f091474);
             this.zN = false;
         }
         initView();
@@ -134,13 +134,13 @@ public final class o extends s implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        this.zL = (KsAuthorIconView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913af);
-        this.zj = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091523);
-        this.lv = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091522);
-        this.zk = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913ae);
-        this.zK = (KsLogoView) this.sy.findViewById(R.id.obfuscated_res_0x7f091449);
+        this.zL = (KsAuthorIconView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913b0);
+        this.zj = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091524);
+        this.lv = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091523);
+        this.zk = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913af);
+        this.zK = (KsLogoView) this.sy.findViewById(R.id.obfuscated_res_0x7f09144a);
         if (!this.zN) {
-            this.zM = (RelativeLayout) this.sy.findViewById(R.id.obfuscated_res_0x7f091472);
+            this.zM = (RelativeLayout) this.sy.findViewById(R.id.obfuscated_res_0x7f091473);
         }
         this.sy.setOnClickListener(this);
         this.zk.setOnClickListener(this);

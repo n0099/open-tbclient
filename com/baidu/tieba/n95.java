@@ -1,91 +1,50 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.FrsPage.DataRes;
 /* loaded from: classes7.dex */
 public class n95 {
     public static /* synthetic */ Interceptable $ic;
-    public static final n95 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957311, "Lcom/baidu/tieba/n95;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947957311, "Lcom/baidu/tieba/n95;");
-                return;
-            }
-        }
-        a = new n95(false);
-    }
-
-    public n95(boolean z) {
+    public n95() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @NonNull
-    public static n95 a(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int i;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            boolean z = false;
-            if (jSONObject != null) {
-                i = jSONObject.optInt("voice_room_config");
-            } else {
-                i = 0;
-            }
-            if (i == 1) {
-                z = true;
-            }
-            return new n95(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (n95) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public static n95 b(@Nullable DataRes dataRes) {
-        InterceptResult invokeL;
-        int i;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dataRes)) == null) {
-            boolean z = false;
-            if (dataRes != null) {
-                i = dataRes.voice_room_config.intValue();
-            } else {
-                i = 0;
-            }
-            if (i == 1) {
-                z = true;
-            }
-            return new n95(z);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (n95) invokeL.objValue;
+        try {
+            this.a = jSONObject.optString("checkurl", null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

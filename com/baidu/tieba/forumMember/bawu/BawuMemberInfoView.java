@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay9;
+import com.baidu.tieba.dy9;
+import com.baidu.tieba.ey9;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.zx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,7 +73,7 @@ public class BawuMemberInfoView extends RelativeLayout {
                 return;
             }
             String str = this.a.h.target_scheme;
-            if (ay9.a(str)) {
+            if (ey9.a(str)) {
                 TbLog defaultLog = DefaultLog.getInstance();
                 defaultLog.i("TargetSchemeInterceptHelper", "jump targetScheme: " + str);
                 return;
@@ -163,7 +163,7 @@ public class BawuMemberInfoView extends RelativeLayout {
             return;
         }
         this.h = bawuRoleInfoPub;
-        zx9.a(this.c, bawuRoleInfoPub.avatar_url, bawuRoleInfoPub.portrait, 12);
+        dy9.a(this.c, bawuRoleInfoPub.avatar_url, bawuRoleInfoPub.portrait, 12);
         TextView textView = this.d;
         if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
             str = bawuRoleInfoPub.user_name;
@@ -198,16 +198,16 @@ public class BawuMemberInfoView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d015d, this);
             this.b = inflate;
-            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09112b);
+            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09112c);
             this.c = headImageView;
             headImageView.setIsRound(true);
             this.c.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
             this.c.setBorderWidth(BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070198));
             this.b.setOnClickListener(new a(this));
-            this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09112c);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925db);
+            this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09112d);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925dd);
             this.e = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090383);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925da);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925dc);
         }
     }
 

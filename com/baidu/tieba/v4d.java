@@ -4,30 +4,21 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.LinkThreadContent;
-import tbclient.LinkThreadInfo;
+import tbclient.LiveCoverStatus;
 /* loaded from: classes8.dex */
-public class v4d extends ltc {
+public class v4d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull LinkThreadInfo linkThreadInfo) {
+    public static JSONObject b(@NonNull LiveCoverStatus liveCoverStatus) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, linkThreadInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, liveCoverStatus)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "link_url", linkThreadInfo.link_url);
-            ltc.a(jSONObject, "link_url_code", linkThreadInfo.link_url_code);
-            if (linkThreadInfo.link_content != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (LinkThreadContent linkThreadContent : linkThreadInfo.link_content) {
-                    jSONArray.put(u4d.b(linkThreadContent));
-                }
-                ltc.a(jSONObject, "link_content", jSONArray);
-            }
+            ktc.a(jSONObject, "status_num", liveCoverStatus.status_num);
+            ktc.a(jSONObject, "status", liveCoverStatus.status);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

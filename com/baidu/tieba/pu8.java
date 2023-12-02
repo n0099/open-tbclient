@@ -1,67 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BroadcastInfo;
+import tbclient.GetForumBroadcastList.DataRes;
+import tbclient.Page;
 /* loaded from: classes7.dex */
 public class pu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<qu8> a;
+    public Page b;
+    public boolean c;
+    public boolean d;
 
-    public static short b(int i) {
-        InterceptResult invokeI;
+    public pu8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case -100000306:
-                    return (short) 6;
-                case -100000303:
-                    return (short) 2;
-                case 3160010:
-                    return (short) 5;
-                case 3160011:
-                    return (short) 4;
-                default:
-                    return (short) 9;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeI.shortValue;
+        this.a = new ArrayList();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
-        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(int i, String str) {
-        InterceptResult invokeIL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
-            short b = b(i);
-            int i2 = R.string.message_text_error_because_network;
-            if (b != 2) {
-                if (b != 9) {
-                    if (b != 4) {
-                        if (b != 5) {
-                            if (b == 6) {
-                                i2 = R.string.message_text_error_because_refuse;
-                            }
-                            i2 = -1;
-                        } else {
-                            i2 = R.string.message_text_error_because_refuse_stranger;
-                        }
-                    } else {
-                        i2 = R.string.message_text_error_because_refuse_friend;
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public List<qu8> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        Page page = dataRes.page;
+        this.b = page;
+        if (page != null) {
+            boolean z = true;
+            if (page.has_more.intValue() != 1) {
+                z = false;
+            }
+            this.c = z;
+        }
+        List<BroadcastInfo> list = dataRes.bcast_infos;
+        if (list != null) {
+            for (int i = 0; i < list.size(); i++) {
+                qu8 qu8Var = new qu8();
+                qu8Var.l(list.get(i));
+                this.a.add(qu8Var);
+            }
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void f() {
+        List<qu8> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (qu8 qu8Var : this.a) {
+                if (qu8Var != null) {
+                    ju8.w().A(qu8Var.e().forum_id.longValue(), qu8Var.b() * 100, qu8Var.i());
                 }
             }
-            if (i2 != -1) {
-                return TbadkCoreApplication.getInst().getResources().getString(i2);
-            }
-            return str;
         }
-        return (String) invokeIL.objValue;
     }
 }

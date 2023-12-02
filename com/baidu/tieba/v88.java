@@ -1,90 +1,32 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.funad.adapter.FunAdNativeNewAdapter;
-import com.baidu.tieba.funad.adapter.FunAdNativeViewHolder;
-import com.baidu.tieba.funad.view.FunAbsAdView;
-import com.baidu.tieba.funad.view.FunAdNativeCommentView;
-import com.baidu.tieba.funad.view.FunAdNativeFrsView;
-import com.baidu.tieba.funad.view.FunAdNativePbView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
+import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class v88 implements o88 {
+public class v88 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile v88 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lwa a;
-        public final /* synthetic */ FunAdNativeViewHolder b;
-        public final /* synthetic */ BdUniqueId c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ View.OnClickListener e;
-        public final /* synthetic */ v88 f;
-
-        public a(v88 v88Var, lwa lwaVar, FunAdNativeViewHolder funAdNativeViewHolder, BdUniqueId bdUniqueId, String str, View.OnClickListener onClickListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v88Var, lwaVar, funAdNativeViewHolder, bdUniqueId, str, onClickListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = v88Var;
-            this.a = lwaVar;
-            this.b = funAdNativeViewHolder;
-            this.c = bdUniqueId;
-            this.d = str;
-            this.e = onClickListener;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.p(true);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016331, "delFunAd"));
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.b.e()).param("resource_id", this.f.i(this.c, this.d)).param("obj_locate", 0);
-                if ("a006".equals(this.b.e())) {
-                    param.param(TiebaStatic.Params.OBJ_TO, this.b.c());
-                    param.param(TiebaStatic.Params.OBJ_PARAM2, this.b.b());
-                }
-                TiebaStatic.log(param);
-                View.OnClickListener onClickListener = this.e;
-                if (onClickListener != null) {
-                    onClickListener.onClick(view2);
-                }
-            }
-        }
-    }
+    public List<String> a;
 
     public v88() {
         Interceptable interceptable = $ic;
@@ -96,236 +38,227 @@ public class v88 implements o88 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.o88
-    public ci<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
-            }
-            if (bdUniqueId == AdvertAppInfo.H) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter.setSid(r88.e().d("pb_banner"));
-                funAdNativeNewAdapter.setPageType("pb");
-                funAdNativeNewAdapter.setSceneKey("pb_banner");
-                return funAdNativeNewAdapter;
-            } else if (bdUniqueId == AdvertAppInfo.K) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter2 = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter2.setSid(l88.f());
-                funAdNativeNewAdapter2.setPageType("pb");
-                return funAdNativeNewAdapter2;
-            } else if (bdUniqueId != AdvertAppInfo.I) {
-                return null;
-            } else {
-                return new w88(baseFragmentActivity, bdUniqueId);
-            }
-        }
-        return (ci) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.o88
-    public View b(@NonNull Context context, @NonNull BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bdUniqueId)) == null) {
-            if (bdUniqueId == AdvertAppInfo.I) {
-                return new View(context);
-            }
-            if (bdUniqueId == AdvertAppInfo.K) {
-                return new FunAdNativeCommentView(context);
-            }
-            if (bdUniqueId == AdvertAppInfo.J) {
-                return new FunAdNativeFrsView(context);
-            }
-            return new FunAdNativePbView(context);
-        }
-        return (View) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.o88
-    public ci<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
-            }
-            if (bdUniqueId == AdvertAppInfo.J) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter.setSid(l88.g());
-                funAdNativeNewAdapter.setPageType("personalize");
-                return funAdNativeNewAdapter;
-            } else if (bdUniqueId != AdvertAppInfo.I) {
-                return null;
-            } else {
-                return new w88(baseFragmentActivity, bdUniqueId);
-            }
-        }
-        return (ci) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.o88
-    public ci<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, baseFragmentActivity, bdUniqueId)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
-            }
-            if (bdUniqueId == AdvertAppInfo.J) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter.setSid(r88.e().d("frs_feed"));
-                funAdNativeNewAdapter.setPageType("frs");
-                funAdNativeNewAdapter.setSceneKey("frs_feed");
-                return funAdNativeNewAdapter;
-            } else if (bdUniqueId != AdvertAppInfo.I) {
-                return null;
-            } else {
-                return new w88(baseFragmentActivity, bdUniqueId);
-            }
-        }
-        return (ci) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.o88
-    public void e(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (view2 instanceof FunAbsAdView)) {
-            ((FunAbsAdView) view2).h();
-        }
-    }
-
-    @Override // com.baidu.tieba.o88
-    public void f(@NonNull View view2, @Nullable lwa lwaVar, @NonNull BdUniqueId bdUniqueId, String str, String str2, String str3, String str4, int i, View.OnClickListener onClickListener) {
-        Activity activity;
-        FunAdNativeViewHolder funAdNativeViewHolder;
-        String str5;
-        FunAdNativeViewHolder funAdNativeViewHolder2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{view2, lwaVar, bdUniqueId, str, str2, str3, str4, Integer.valueOf(i), onClickListener}) == null) {
-            Context context = view2.getContext();
-            if (context instanceof Activity) {
-                activity = (Activity) context;
-            } else {
-                if (context instanceof qr6) {
-                    qr6 qr6Var = (qr6) context;
-                    if (qr6Var.getPageContext() != null && qr6Var.getPageContext().getPageActivity() != null) {
-                        activity = qr6Var.getPageContext().getPageActivity();
-                    }
-                }
-                activity = null;
-            }
-            Activity activity2 = activity;
-            if (lwaVar != null && !lwaVar.i() && activity2 != null) {
-                j(view2, 0);
-                FunAbsAdView funAbsAdView = (FunAbsAdView) view2;
-                Object tag = funAbsAdView.getTag(R.id.obfuscated_res_0x7f090e29);
-                if (tag instanceof FunAdNativeViewHolder) {
-                    funAdNativeViewHolder = (FunAdNativeViewHolder) tag;
-                } else {
-                    funAdNativeViewHolder = new FunAdNativeViewHolder(funAbsAdView, activity2, bdUniqueId);
-                    funAbsAdView.setTag(R.id.obfuscated_res_0x7f090e29, funAdNativeViewHolder);
-                }
-                String str6 = str;
-                FunAdNativeViewHolder funAdNativeViewHolder3 = funAdNativeViewHolder;
-                funAdNativeViewHolder3.n(str6);
-                funAdNativeViewHolder3.l(str3);
-                if (!"personalize".equals(str2) && !AdvertAppInfo.K.equals(bdUniqueId)) {
-                    str6 = r88.e().d(str3);
-                }
-                String str7 = str6;
-                String str8 = "1";
-                if (bdUniqueId == AdvertAppInfo.J) {
-                    if ("frs".equals(str2)) {
-                        if (!UbsABTestHelper.isFrsFunAdSdkTest()) {
-                            str8 = "0";
-                        }
-                        l88.m().J(activity2, str7, l88.b(str2, str8), String.valueOf(lwaVar.d()), ss5.f());
-                    } else if ("personalize".equals(str2)) {
-                        if (!UbsABTestHelper.isPersonalizeFunAdABTest()) {
-                            str8 = "0";
-                        }
-                        l88.m().I(activity2, str7, l88.b(str2, str8));
-                    }
-                } else if (bdUniqueId == AdvertAppInfo.K) {
-                    l88 m = l88.m();
-                    if (!UbsABTestHelper.isPbCommentFunAdABTest()) {
-                        str8 = "0";
-                    }
-                    m.K(activity2, str7, l88.b(str2, str8), lwaVar.g(), lwaVar.d());
-                }
-                if (funAbsAdView.getFeedBackView() != null) {
-                    str5 = str7;
-                    funAdNativeViewHolder2 = funAdNativeViewHolder3;
-                    a aVar = new a(this, lwaVar, funAdNativeViewHolder3, bdUniqueId, str2, onClickListener);
-                    funAbsAdView.getFeedBackView().setOnClickListener(aVar);
-                    funAbsAdView.setFeedBackListener(aVar);
-                } else {
-                    str5 = str7;
-                    funAdNativeViewHolder2 = funAdNativeViewHolder3;
-                }
-                funAdNativeViewHolder2.d().h();
-                funAdNativeViewHolder2.k(str2);
-                funAdNativeViewHolder2.d().setCurpage(str2);
-                funAdNativeViewHolder2.n(str5);
-                funAdNativeViewHolder2.o(lwaVar, i);
                 return;
             }
-            j(view2, 8);
         }
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        arrayList.add("pb_banner");
+        this.a.add("frs_feed");
     }
 
-    @Override // com.baidu.tieba.o88
-    public ci<?, ?> g(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str) {
-        InterceptResult invokeLLL;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, baseFragmentActivity, bdUniqueId, str)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
-            }
-            if (bdUniqueId == AdvertAppInfo.J) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter.setSid(r88.e().d("frs_feed"));
-                funAdNativeNewAdapter.setPageType("frs");
-                funAdNativeNewAdapter.setPageTab(str);
-                funAdNativeNewAdapter.setSceneKey("frs_feed");
-                return funAdNativeNewAdapter;
-            } else if (bdUniqueId != AdvertAppInfo.I) {
-                return null;
-            } else {
-                return new w88(baseFragmentActivity, bdUniqueId);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            SharedPreferences.Editor edit = g().edit();
+            edit.clear();
+            return edit.commit();
         }
-        return (ci) invokeLLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final String i(@NonNull BdUniqueId bdUniqueId, String str) {
-        InterceptResult invokeLL;
+    public static v88 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bdUniqueId, str)) == null) {
-            if ("pb".equals(str)) {
-                if (bdUniqueId == AdvertAppInfo.K) {
-                    return "2";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (u88.class) {
+                    if (b == null) {
+                        b = new v88();
+                    }
                 }
-                return "1";
+            }
+            return b;
+        }
+        return (v88) invokeV.objValue;
+    }
+
+    public static SharedPreferences g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return TbadkCoreApplication.getInst().getSharedPreferences("fun_ad_sid_strategy_shaedpref_name", 0);
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public List<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void a(String str) {
+        FunAdSidConfigData b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            ArrayList<FunAdHistoryData> c = t88.f().c(str);
+            if (ListUtils.isEmpty(c) || (b2 = u88.e().b(str)) == null) {
+                return;
+            }
+            List<FunAdHistoryData> h = h(c, b2.getRecordNum(), b2.getExpiryTime());
+            SharedPreferences g = g();
+            if (i(h, b2.getThreshold(), b2.getSpace(), g.getLong(str + "_fun_ad_last_change_sid_time", 0L))) {
+                j(str, b2);
+            }
+        }
+    }
+
+    public String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if ("frs_feed".equals(str) && UbsABTestHelper.isFrsFunAdSdkTest()) {
+                return p88.b;
+            }
+            if (!UbsABTestHelper.isDuplicateRemovalFunAdABTest()) {
+                return f(str);
+            }
+            FunAdSidConfigData b2 = u88.e().b(str);
+            if (b2 == null) {
+                return f(str);
+            }
+            if (ListUtils.isEmpty(b2.getBearSidList())) {
+                return f(str);
+            }
+            SharedPreferences g = g();
+            return g.getString(str + "_fun_ad_current_sid_suffix", f(str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if ("pb_banner".equals(str)) {
+                return p88.o();
+            }
+            if ("frs_feed".equals(str)) {
+                return p88.e();
+            }
+            if ("pic".equals(str)) {
+                return p88.r();
             }
             return "";
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void j(@NonNull View view2, int i) {
+    public final List<FunAdHistoryData> h(List<FunAdHistoryData> list, int i, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i) == null) {
-            if (view2 instanceof FunAbsAdView) {
-                ((FunAbsAdView) view2).d(i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{list, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            int size = list.size();
+            if (size > i) {
+                list = ListUtils.subList(list, size - i, size);
             }
-            view2.setVisibility(i);
+            int size2 = list.size();
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            int i2 = 0;
+            Iterator<FunAdHistoryData> it = list.iterator();
+            while (it.hasNext() && currentTimeMillis - it.next().getShowTime() > j) {
+                i2++;
+            }
+            return ListUtils.subList(list, i2, size2);
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public final boolean i(List<FunAdHistoryData> list, int i, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{list, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if ((System.currentTimeMillis() / 1000) - j2 <= j) {
+                return false;
+            }
+            HashMap hashMap = new HashMap();
+            for (FunAdHistoryData funAdHistoryData : list) {
+                if (funAdHistoryData != null) {
+                    String funAdKey = funAdHistoryData.getFunAdKey();
+                    if (TextUtils.isEmpty(funAdKey)) {
+                        continue;
+                    } else {
+                        Integer num = (Integer) hashMap.get(funAdKey);
+                        if (num == null) {
+                            num = 0;
+                        }
+                        if (num.intValue() + 1 >= i) {
+                            return true;
+                        }
+                        hashMap.put(funAdKey, Integer.valueOf(num.intValue() + 1));
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void j(String str, FunAdSidConfigData funAdSidConfigData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, funAdSidConfigData) == null) {
+            SharedPreferences g = g();
+            int i = g.getInt(str + "_fun_ad_current_sid_index_suffix", -1);
+            List<String> bearSidList = funAdSidConfigData.getBearSidList();
+            if (ListUtils.isEmpty(bearSidList)) {
+                return;
+            }
+            int size = (i + 1) % bearSidList.size();
+            String str2 = (String) ListUtils.getItem(bearSidList, size);
+            SharedPreferences g2 = g();
+            EditorHelper.putInt(g2, str + "_fun_ad_current_sid_index_suffix", size);
+            if (TextUtils.isEmpty(str2)) {
+                return;
+            }
+            SharedPreferences g3 = g();
+            EditorHelper.putString(g3, str + "_fun_ad_current_sid_suffix", str2);
+            SharedPreferences g4 = g();
+            EditorHelper.putLong(g4, str + "_fun_ad_last_change_sid_time", System.currentTimeMillis() / 1000);
+        }
+    }
+
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
+            if (jSONObject != null && UbsABTestHelper.isDuplicateRemovalFunAdABTest()) {
+                for (String str : this.a) {
+                    if (!TextUtils.isEmpty(str)) {
+                        FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
+                        JSONObject jSONObject2 = null;
+                        if (jSONObject.has(str)) {
+                            try {
+                                jSONObject2 = jSONObject.getJSONObject(str);
+                            } catch (JSONException e) {
+                                BdLog.e(e.getMessage());
+                            }
+                        }
+                        if (jSONObject2 != null) {
+                            funAdSidConfigData.parserJson(jSONObject2);
+                            if (funAdSidConfigData.getForce() == 1) {
+                                u88.e().f(str, funAdSidConfigData);
+                                SharedPreferences g = g();
+                                EditorHelper.putInt(g, str + "_fun_ad_current_sid_index_suffix", -1);
+                                j(str, funAdSidConfigData);
+                            } else {
+                                SharedPreferences g2 = g();
+                                if ((System.currentTimeMillis() / 1000) - g2.getLong(str + "_fun_ad_last_change_sid_time", 0L) > funAdSidConfigData.getSpace()) {
+                                    u88.e().f(str, funAdSidConfigData);
+                                    SharedPreferences g3 = g();
+                                    EditorHelper.putInt(g3, str + "_fun_ad_current_sid_index_suffix", -1);
+                                    j(str, funAdSidConfigData);
+                                }
+                            }
+                        }
+                    }
+                }
+                return;
+            }
+            b();
         }
     }
 }

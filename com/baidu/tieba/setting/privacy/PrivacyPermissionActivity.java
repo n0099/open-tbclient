@@ -187,10 +187,10 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             }
             this.c = 3;
             this.d = new a(this);
-            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) view2.findViewById(R.id.obfuscated_res_0x7f091e2e);
+            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) view2.findViewById(R.id.obfuscated_res_0x7f091e30);
             this.a = tbSettingTextTipView;
             tbSettingTextTipView.setOnClickListener(this.d);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e2c);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e2e);
         }
 
         public void a(b bVar) {
@@ -200,9 +200,9 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                 this.a.setText(bVar.b);
                 TbSettingTextTipView tbSettingTextTipView = this.a;
                 if (bVar.d) {
-                    string = this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f118c);
+                    string = this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f118d);
                 } else {
-                    string = this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f118a);
+                    string = this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f118b);
                 }
                 tbSettingTextTipView.setTip(string);
                 this.b.setText(bVar.c);
@@ -293,7 +293,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                     return new PermissionViewHolder(LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d057e, viewGroup, false));
                 }
                 if (i == 1) {
-                    return new PermissionDetailHolder(LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d09bc, viewGroup, false));
+                    return new PermissionDetailHolder(LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d09bd, viewGroup, false));
                 }
                 return null;
             }
@@ -343,7 +343,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         this.d = new ArrayList();
         this.f = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE", PermissionRequest.RESOURCE_AUDIO_CAPTURE, g.g};
         this.g = new String[]{getString(R.string.obfuscated_res_0x7f0f02b4), getString(R.string.obfuscated_res_0x7f0f02b7), getString(R.string.obfuscated_res_0x7f0f02b6), getString(R.string.obfuscated_res_0x7f0f02b5)};
-        this.h = new String[]{getString(R.string.obfuscated_res_0x7f0f1180), getString(R.string.obfuscated_res_0x7f0f1193), getString(R.string.obfuscated_res_0x7f0f1192), getString(R.string.obfuscated_res_0x7f0f1187)};
+        this.h = new String[]{getString(R.string.obfuscated_res_0x7f0f1181), getString(R.string.obfuscated_res_0x7f0f1194), getString(R.string.obfuscated_res_0x7f0f1193), getString(R.string.obfuscated_res_0x7f0f1188)};
         this.i = new a(this);
     }
 
@@ -363,13 +363,13 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0854);
-            this.e = findViewById(R.id.obfuscated_res_0x7f092081);
+            setContentView(R.layout.obfuscated_res_0x7f0d0855);
+            this.e = findViewById(R.id.obfuscated_res_0x7f092083);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.a = navigationBar;
             navigationBar.showBottomLine();
             this.b = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f1189));
+            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f118a));
             RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
             this.c = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(this));

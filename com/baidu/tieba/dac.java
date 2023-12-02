@@ -1,24 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.gac;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public final class dac<TResult> implements wac<TResult> {
+public class dac implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zac<TResult> a;
-    public Executor b;
-    public final Object c;
+    public final /* synthetic */ gac.a a;
 
-    public dac(Executor executor, zac<TResult> zacVar) {
+    public dac(gac.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, zacVar};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,17 +26,14 @@ public final class dac<TResult> implements wac<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = zacVar;
-        this.b = executor;
+        this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.wac
-    public final void a(iac<TResult> iacVar) {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, iacVar) == null) && iacVar.f()) {
-            iacVar.e();
-            this.b.execute(new bac(this, iacVar));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.d();
         }
     }
 }

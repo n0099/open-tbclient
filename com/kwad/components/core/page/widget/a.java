@@ -56,30 +56,30 @@ public final class a extends Dialog {
 
     private View pQ() {
         View inflate = l.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0532, null);
-        inflate.findViewById(R.id.obfuscated_res_0x7f091364).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.1
+        inflate.findViewById(R.id.obfuscated_res_0x7f091365).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 a.this.Qk.c(a.this);
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f091363).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.2
+        inflate.findViewById(R.id.obfuscated_res_0x7f091364).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f09151b).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.3
+        inflate.findViewById(R.id.obfuscated_res_0x7f09151c).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.3
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 a.this.Qk.a(a.this);
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f09151a).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.4
+        inflate.findViewById(R.id.obfuscated_res_0x7f09151b).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.4
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 a.this.Qk.b(a.this);
             }
         });
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091362);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091363);
         if (!TextUtils.isEmpty(this.Ql)) {
             textView.setText(this.Ql);
         }

@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,62 +9,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.ThreadFactory;
+import rx.internal.util.RxThreadFactory;
 /* loaded from: classes9.dex */
 public class xsc {
     public static /* synthetic */ Interceptable $ic;
-    public static final xsc f;
-    public static final tsc g;
+    public static final xsc a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<tsc> a;
-    public final AtomicReference<vsc> b;
-    public final AtomicReference<zsc> c;
-    public final AtomicReference<ssc> d;
-    public final AtomicReference<ysc> e;
 
-    /* loaded from: classes9.dex */
-    public static class a extends tsc {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public goc g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
+        return (goc) invokeV.objValue;
     }
 
-    /* loaded from: classes9.dex */
-    public class b extends ssc {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(xsc xscVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xscVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public goc i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
+        return (goc) invokeV.objValue;
+    }
+
+    public goc j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (goc) invokeV.objValue;
+    }
+
+    @Deprecated
+    public qoc k(qoc qocVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, qocVar)) == null) ? qocVar : (qoc) invokeL.objValue;
     }
 
     static {
@@ -79,18 +64,7 @@ public class xsc {
                 return;
             }
         }
-        f = new xsc();
-        g = new a();
-    }
-
-    @Deprecated
-    public static xsc c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f;
-        }
-        return (xsc) invokeV.objValue;
+        a = new xsc();
     }
 
     public xsc() {
@@ -103,142 +77,79 @@ public class xsc {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new AtomicReference<>();
-        this.b = new AtomicReference<>();
-        this.c = new AtomicReference<>();
-        this.d = new AtomicReference<>();
-        this.e = new AtomicReference<>();
     }
 
-    public ssc a() {
+    public static goc a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d.get() == null) {
-                Object e = e(ssc.class, System.getProperties());
-                if (e == null) {
-                    this.d.compareAndSet(null, new b(this));
-                } else {
-                    this.d.compareAndSet(null, (ssc) e);
-                }
-            }
-            return this.d.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b(new RxThreadFactory("RxComputationScheduler-"));
         }
-        return (ssc) invokeV.objValue;
+        return (goc) invokeV.objValue;
     }
 
-    public tsc b() {
+    public static goc c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.get() == null) {
-                Object e = e(tsc.class, System.getProperties());
-                if (e == null) {
-                    this.a.compareAndSet(null, g);
-                } else {
-                    this.a.compareAndSet(null, (tsc) e);
-                }
-            }
-            return this.a.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return d(new RxThreadFactory("RxIoScheduler-"));
         }
-        return (tsc) invokeV.objValue;
+        return (goc) invokeV.objValue;
     }
 
-    public vsc d() {
+    public static goc e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b.get() == null) {
-                Object e = e(vsc.class, System.getProperties());
-                if (e == null) {
-                    this.b.compareAndSet(null, wsc.f());
-                } else {
-                    this.b.compareAndSet(null, (vsc) e);
-                }
-            }
-            return this.b.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return f(new RxThreadFactory("RxNewThreadScheduler-"));
         }
-        return (vsc) invokeV.objValue;
+        return (goc) invokeV.objValue;
     }
 
-    public ysc f() {
+    public static xsc h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.e.get() == null) {
-                Object e = e(ysc.class, System.getProperties());
-                if (e == null) {
-                    this.e.compareAndSet(null, ysc.h());
-                } else {
-                    this.e.compareAndSet(null, (ysc) e);
-                }
-            }
-            return this.e.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return a;
         }
-        return (ysc) invokeV.objValue;
+        return (xsc) invokeV.objValue;
     }
 
-    public zsc g() {
-        InterceptResult invokeV;
+    public static goc b(ThreadFactory threadFactory) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c.get() == null) {
-                Object e = e(zsc.class, System.getProperties());
-                if (e == null) {
-                    this.c.compareAndSet(null, atc.e());
-                } else {
-                    this.c.compareAndSet(null, (zsc) e);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadFactory)) == null) {
+            if (threadFactory != null) {
+                return new hqc(threadFactory);
             }
-            return this.c.get();
+            throw new NullPointerException("threadFactory == null");
         }
-        return (zsc) invokeV.objValue;
+        return (goc) invokeL.objValue;
     }
 
-    public static Object e(Class<?> cls, Properties properties) {
-        InterceptResult invokeLL;
+    public static goc d(ThreadFactory threadFactory) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, properties)) == null) {
-            Properties properties2 = (Properties) properties.clone();
-            String simpleName = cls.getSimpleName();
-            String property = properties2.getProperty("rxjava.plugin." + simpleName + ".implementation");
-            if (property == null) {
-                Iterator it = properties2.entrySet().iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    Map.Entry entry = (Map.Entry) it.next();
-                    String obj = entry.getKey().toString();
-                    if (obj.startsWith("rxjava.plugin.") && obj.endsWith(".class") && simpleName.equals(entry.getValue().toString())) {
-                        String str = "rxjava.plugin." + obj.substring(0, obj.length() - 6).substring(14) + ".impl";
-                        String property2 = properties2.getProperty(str);
-                        if (property2 != null) {
-                            property = property2;
-                        } else {
-                            throw new IllegalStateException("Implementing class declaration for " + simpleName + " missing: " + str);
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadFactory)) == null) {
+            if (threadFactory != null) {
+                return new gqc(threadFactory);
             }
-            if (property != null) {
-                try {
-                    return Class.forName(property).asSubclass(cls).newInstance();
-                } catch (ClassCastException e) {
-                    throw new IllegalStateException(simpleName + " implementation is not an instance of " + simpleName + ": " + property, e);
-                } catch (ClassNotFoundException e2) {
-                    throw new IllegalStateException(simpleName + " implementation class not found: " + property, e2);
-                } catch (IllegalAccessException e3) {
-                    throw new IllegalStateException(simpleName + " implementation not able to be accessed: " + property, e3);
-                } catch (InstantiationException e4) {
-                    throw new IllegalStateException(simpleName + " implementation not able to be instantiated: " + property, e4);
-                }
-            }
-            return null;
+            throw new NullPointerException("threadFactory == null");
         }
-        return invokeLL.objValue;
+        return (goc) invokeL.objValue;
+    }
+
+    public static goc f(ThreadFactory threadFactory) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, threadFactory)) == null) {
+            if (threadFactory != null) {
+                return new lqc(threadFactory);
+            }
+            throw new NullPointerException("threadFactory == null");
+        }
+        return (goc) invokeL.objValue;
     }
 }

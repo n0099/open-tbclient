@@ -1,24 +1,24 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.dpc;
-import com.baidu.tieba.goc;
-import com.baidu.tieba.qpc;
+import com.baidu.tieba.cpc;
+import com.baidu.tieba.foc;
+import com.baidu.tieba.ppc;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements goc {
+public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements foc {
     public static final long serialVersionUID = -657299606803478389L;
-    public final qpc<?, ?> parent;
+    public final ppc<?, ?> parent;
 
-    public OperatorEagerConcatMap$EagerOuterProducer(qpc<?, ?> qpcVar) {
-        this.parent = qpcVar;
+    public OperatorEagerConcatMap$EagerOuterProducer(ppc<?, ?> ppcVar) {
+        this.parent = ppcVar;
     }
 
-    @Override // com.baidu.tieba.goc
+    @Override // com.baidu.tieba.foc
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                dpc.b(this, j);
+                cpc.b(this, j);
                 this.parent.g();
                 return;
             }

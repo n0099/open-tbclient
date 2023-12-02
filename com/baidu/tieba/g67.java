@@ -1,84 +1,105 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class g67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final r57 b;
+    public final String b;
+    public final String c;
+    public final String d;
+    public final List<i67> e;
+    public final int f;
+    public final int g;
+    public final int h;
+    public final String i;
+    public final int j;
+    public final int k;
+    public final String l;
 
-    public g67(String type, String icon, String guideText, String buttonText, String schema, r57 businessInfo) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof g67) {
+                g67 g67Var = (g67) obj;
+                return Intrinsics.areEqual(this.a, g67Var.a) && Intrinsics.areEqual(this.b, g67Var.b) && Intrinsics.areEqual(this.c, g67Var.c) && Intrinsics.areEqual(this.d, g67Var.d) && Intrinsics.areEqual(this.e, g67Var.e) && this.f == g67Var.f && this.g == g67Var.g && this.h == g67Var.h && Intrinsics.areEqual(this.i, g67Var.i) && this.j == g67Var.j && this.k == g67Var.k && Intrinsics.areEqual(this.l, g67Var.l);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (((((((((((((((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f) * 31) + this.g) * 31) + this.h) * 31) + this.i.hashCode()) * 31) + this.j) * 31) + this.k) * 31) + this.l.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return "DeleteThreadItemData(forumId=" + this.a + ", forumName=" + this.b + ", threadId=" + this.c + ", uid=" + this.d + ", reasonList=" + this.e + ", isGraysCaleForum=" + this.f + ", isBoomGrow=" + this.g + ", hasForumRule=" + this.h + ", forumHeadUrl=" + this.i + ", userLevel=" + this.j + ", isManager=" + this.k + ", maskDelete=" + this.l + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public g67(String forumId, String forumName, String threadId, String uid, List<i67> reasonList, int i, int i2, int i3, String forumHeadUrl, int i4, int i5, String maskDelete) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type, icon, guideText, buttonText, schema, businessInfo};
+            newInitContext.initArgs = r3;
+            Object[] objArr = {forumId, forumName, threadId, uid, reasonList, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), forumHeadUrl, Integer.valueOf(i4), Integer.valueOf(i5), maskDelete};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        Intrinsics.checkNotNullParameter(icon, "icon");
-        Intrinsics.checkNotNullParameter(guideText, "guideText");
-        Intrinsics.checkNotNullParameter(buttonText, "buttonText");
-        Intrinsics.checkNotNullParameter(schema, "schema");
-        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-        this.a = type;
-        this.b = businessInfo;
+        Intrinsics.checkNotNullParameter(forumId, "forumId");
+        Intrinsics.checkNotNullParameter(forumName, "forumName");
+        Intrinsics.checkNotNullParameter(threadId, "threadId");
+        Intrinsics.checkNotNullParameter(uid, "uid");
+        Intrinsics.checkNotNullParameter(reasonList, "reasonList");
+        Intrinsics.checkNotNullParameter(forumHeadUrl, "forumHeadUrl");
+        Intrinsics.checkNotNullParameter(maskDelete, "maskDelete");
+        this.a = forumId;
+        this.b = forumName;
+        this.c = threadId;
+        this.d = uid;
+        this.e = reasonList;
+        this.f = i;
+        this.g = i2;
+        this.h = i3;
+        this.i = forumHeadUrl;
+        this.j = i4;
+        this.k = i5;
+        this.l = maskDelete;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ g67(String str, String str2, String str3, String str4, String str5, r57 r57Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r12, r1, r2, r3, (i & 16) == 0 ? str5 : "", (i & 32) != 0 ? new r57() : r57Var);
-        String str6;
-        String str7;
-        String str8;
-        String str9;
-        if ((i & 1) != 0) {
-            str6 = "";
-        } else {
-            str6 = str;
-        }
-        if ((i & 2) != 0) {
-            str7 = "";
-        } else {
-            str7 = str2;
-        }
-        if ((i & 4) != 0) {
-            str8 = "";
-        } else {
-            str8 = str3;
-        }
-        if ((i & 8) != 0) {
-            str9 = "";
-        } else {
-            str9 = str4;
-        }
-    }
-
-    public final r57 a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.i;
         }
-        return (r57) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
     public final String b() {
@@ -88,5 +109,95 @@ public final class g67 {
             return this.a;
         }
         return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.l;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final List<i67> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
     }
 }

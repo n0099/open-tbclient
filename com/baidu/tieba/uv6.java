@@ -1,38 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.data.INetRequestData;
+import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ApkDetail;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import tbclient.ItemManage.DataReq;
+import tbclient.ItemManage.ItemManageReqIdl;
 /* loaded from: classes8.dex */
-public class uv6 {
+public class uv6 implements INetRequestData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final int b;
 
-    public static void a(iv6 iv6Var) {
-        ItemData itemData;
+    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
+    public HashMap<String, String> getHttpHeader() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, iv6Var) == null) && iv6Var != null && (itemData = iv6Var.a) != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
-            httpMessage.addParam("item_id", itemData.itemId);
-            httpMessage.addParam("app_name", itemData.mTitle);
-            httpMessage.addParam("source_type", iv6Var.b);
-            httpMessage.addParam("icon_url", itemData.mIconUrl);
-            httpMessage.addParam("score", Double.valueOf(itemData.mScore));
-            httpMessage.addParam("tags", itemData.mTags);
-            httpMessage.addParam("apk_name", itemData.pkgName);
-            ApkDetail apkDetail = itemData.apkDetail;
-            if (apkDetail != null) {
-                httpMessage.addParam("developer", apkDetail.developer);
-                httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
-                httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
-                httpMessage.addParam("version", itemData.apkDetail.version);
-                httpMessage.addParam("version_code", itemData.apkDetail.version_code);
-            }
-            MessageManager.getInstance().sendMessageFromBackground(httpMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
         }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
+    public HashMap<String, Object> makeHttpParam() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public uv6(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = i2;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = 1;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a++;
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.ISocketProtobufRequestData
+    public Object encodeSocketRequestData(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.pn = Integer.valueOf(this.a);
+            builder.rn = 15;
+            builder.tab_id = Integer.valueOf(this.b);
+            ItemManageReqIdl.Builder builder2 = new ItemManageReqIdl.Builder();
+            DataReq build = builder.build(false);
+            builder2.data = build;
+            NetMessageHelper.bindCommonParamsToProtobufData(build, false);
+            return builder2.build(false);
+        }
+        return invokeZ.objValue;
     }
 }

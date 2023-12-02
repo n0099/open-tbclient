@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewSingleClickCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gq8;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.impersonal.databinding.ImSugItemLayoutBinding;
-import com.baidu.tieba.uua;
+import com.baidu.tieba.kq8;
+import com.baidu.tieba.tua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-    public final gq8 b;
+    public final kq8 b;
     public List<AbilityItem> c;
 
     public abstract SugSourceType A();
@@ -88,7 +88,7 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
         }
     }
 
-    public ImSugAdapter(Context context, gq8 processor) {
+    public ImSugAdapter(Context context, kq8 processor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -226,7 +226,7 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
                 }
             }
             if (!n(view2)) {
-                corner.setBackGroundRealColor(uua.a(SkinManager.getColor(R.color.CAM_X0611), 0.5f));
+                corner.setBackGroundRealColor(tua.a(SkinManager.getColor(R.color.CAM_X0611), 0.5f));
             }
         }
     }
@@ -288,10 +288,10 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
         if ((interceptable != null && interceptable.invokeL(1048583, this, view2) != null) || view2 == null) {
             return;
         }
-        Object tag = view2.getTag(R.id.obfuscated_res_0x7f092400);
+        Object tag = view2.getTag(R.id.obfuscated_res_0x7f092402);
         if (tag != null) {
             AbilityItem abilityItem = (AbilityItem) tag;
-            Object tag2 = view2.getTag(R.id.obfuscated_res_0x7f092402);
+            Object tag2 = view2.getTag(R.id.obfuscated_res_0x7f092404);
             if (tag2 != null) {
                 int intValue = ((Integer) tag2).intValue();
                 z(abilityItem);
@@ -383,8 +383,8 @@ public abstract class ImSugAdapter extends RecyclerView.Adapter<SugViewHolder> i
                 return;
             }
             ViewSingleClickCompat.setOnClickListener(holder.itemView, this);
-            holder.itemView.setTag(R.id.obfuscated_res_0x7f092402, Integer.valueOf(i));
-            holder.itemView.setTag(R.id.obfuscated_res_0x7f092400, item);
+            holder.itemView.setTag(R.id.obfuscated_res_0x7f092404, Integer.valueOf(i));
+            holder.itemView.setTag(R.id.obfuscated_res_0x7f092402, item);
             AbilityItem.StyleConf styleConf2 = item.getStyleConf();
             ImageView a = holder.a();
             Intrinsics.checkNotNull(styleConf2);

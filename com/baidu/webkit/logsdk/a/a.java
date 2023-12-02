@@ -347,69 +347,63 @@ public final class a {
         return jSONObject.toString();
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(44:4|(1:6)(1:113)|7|(5:8|9|10|11|(1:13))|(2:15|16)|(3:18|19|(1:21))|23|24|(1:26)|28|29|(1:31)|33|34|(1:36)|38|39|(1:41)|43|(3:44|45|(1:47))|49|50|51|(1:53)|54|55|56|(1:58)|60|61|(1:63)|65|66|(1:68)|70|(1:72)|73|(1:75)|76|(1:78)|79|(1:81)|82|83) */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x0078, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(42:4|(1:6)(1:113)|7|(5:8|9|10|11|(1:13))|(2:15|16)|(3:18|19|(1:21))|23|24|(1:26)|28|29|(1:31)|33|34|(1:36)|(3:38|39|(1:41))|43|(3:44|45|(1:47))|49|50|51|(1:53)|54|55|56|(1:58)|60|61|(1:63)|65|66|(1:68)|70|(1:72)|73|(1:75)|76|(1:78)|79|(1:81)|82|83) */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x0077, code lost:
         r5 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x0079, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x0078, code lost:
         com.baidu.webkit.logsdk.d.c.a(r5);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0093, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0092, code lost:
         r9 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x0094, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x0093, code lost:
         com.baidu.webkit.logsdk.d.c.a(r9);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x00ae, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x00ad, code lost:
         r9 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00ae, code lost:
         com.baidu.webkit.logsdk.d.c.a(r9);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x00c9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x00f5, code lost:
         r9 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x00ca, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x00f6, code lost:
         com.baidu.webkit.logsdk.d.c.a(r9);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x00f6, code lost:
-        r9 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:65:0x00f7, code lost:
-        com.baidu.webkit.logsdk.d.c.a(r9);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:74:0x011c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:74:0x011b, code lost:
         r5 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:75:0x011d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:75:0x011c, code lost:
         com.baidu.webkit.logsdk.d.c.a(r5);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:80:0x0133, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x0132, code lost:
         r1 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:81:0x0134, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x0133, code lost:
         com.baidu.webkit.logsdk.d.c.a(r1);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:86:0x014a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:86:0x0149, code lost:
         r8 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:87:0x014b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:87:0x014a, code lost:
         com.baidu.webkit.logsdk.d.c.a(r8);
      */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0051 A[Catch: Exception -> 0x005a, TRY_LEAVE, TryCatch #10 {Exception -> 0x005a, blocks: (B:22:0x004b, B:24:0x0051), top: B:123:0x004b }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x006f A[Catch: Exception -> 0x0078, TRY_LEAVE, TryCatch #3 {Exception -> 0x0078, blocks: (B:31:0x0061, B:33:0x006f), top: B:109:0x0061 }] */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x008a A[Catch: Exception -> 0x0093, TRY_LEAVE, TryCatch #6 {Exception -> 0x0093, blocks: (B:37:0x007c, B:39:0x008a), top: B:115:0x007c }] */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00a5 A[Catch: Exception -> 0x00ae, TRY_LEAVE, TryCatch #0 {Exception -> 0x00ae, blocks: (B:43:0x0097, B:45:0x00a5), top: B:103:0x0097 }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00c0 A[Catch: Exception -> 0x00c9, TRY_LEAVE, TryCatch #2 {Exception -> 0x00c9, blocks: (B:49:0x00b2, B:51:0x00c0), top: B:107:0x00b2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00dc A[Catch: Exception -> 0x00e5, TRY_LEAVE, TryCatch #11 {Exception -> 0x00e5, blocks: (B:56:0x00d2, B:58:0x00dc), top: B:125:0x00d2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0104  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0113 A[Catch: Exception -> 0x011c, TRY_LEAVE, TryCatch #8 {Exception -> 0x011c, blocks: (B:70:0x010d, B:72:0x0113), top: B:119:0x010d }] */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x0126 A[Catch: Exception -> 0x0133, TRY_LEAVE, TryCatch #5 {Exception -> 0x0133, blocks: (B:76:0x0120, B:78:0x0126), top: B:113:0x0120 }] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x0141 A[Catch: Exception -> 0x014a, TRY_LEAVE, TryCatch #1 {Exception -> 0x014a, blocks: (B:82:0x0137, B:84:0x0141), top: B:105:0x0137 }] */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x0154  */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x016c  */
-    /* JADX WARN: Removed duplicated region for block: B:96:0x0183  */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x019a  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0050 A[Catch: Exception -> 0x0059, TRY_LEAVE, TryCatch #9 {Exception -> 0x0059, blocks: (B:22:0x004a, B:24:0x0050), top: B:121:0x004a }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x006e A[Catch: Exception -> 0x0077, TRY_LEAVE, TryCatch #2 {Exception -> 0x0077, blocks: (B:31:0x0060, B:33:0x006e), top: B:107:0x0060 }] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0089 A[Catch: Exception -> 0x0092, TRY_LEAVE, TryCatch #5 {Exception -> 0x0092, blocks: (B:37:0x007b, B:39:0x0089), top: B:113:0x007b }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00a4 A[Catch: Exception -> 0x00ad, TRY_LEAVE, TryCatch #0 {Exception -> 0x00ad, blocks: (B:43:0x0096, B:45:0x00a4), top: B:103:0x0096 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00bf A[Catch: Exception -> 0x00c8, TRY_LEAVE, TryCatch #10 {Exception -> 0x00c8, blocks: (B:49:0x00b1, B:51:0x00bf), top: B:123:0x00b1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00db A[Catch: Exception -> 0x00e4, TRY_LEAVE, TryCatch #11 {Exception -> 0x00e4, blocks: (B:56:0x00d1, B:58:0x00db), top: B:125:0x00d1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0103  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0112 A[Catch: Exception -> 0x011b, TRY_LEAVE, TryCatch #7 {Exception -> 0x011b, blocks: (B:70:0x010c, B:72:0x0112), top: B:117:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0125 A[Catch: Exception -> 0x0132, TRY_LEAVE, TryCatch #4 {Exception -> 0x0132, blocks: (B:76:0x011f, B:78:0x0125), top: B:111:0x011f }] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0140 A[Catch: Exception -> 0x0149, TRY_LEAVE, TryCatch #1 {Exception -> 0x0149, blocks: (B:82:0x0136, B:84:0x0140), top: B:105:0x0136 }] */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x0153  */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x016a  */
+    /* JADX WARN: Removed duplicated region for block: B:96:0x0181  */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x0198  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -558,10 +552,14 @@ public final class a {
             sb.append("&crp=");
             sb.append(encode2);
         }
-        encode = URLEncoder.encode(b(), "UTF-8");
-        if (!TextUtils.isEmpty(encode)) {
-            sb.append("&it=");
-            sb.append(encode);
+        try {
+            encode = URLEncoder.encode(b(), "UTF-8");
+            if (!TextUtils.isEmpty(encode)) {
+                sb.append("&it=");
+                sb.append(encode);
+            }
+        } catch (Exception e5) {
+            c.a(e5);
         }
         sb.append("ctv=2");
         try {
@@ -570,8 +568,8 @@ public final class a {
                 sb.append("&seid=");
                 sb.append(c);
             }
-        } catch (Exception e5) {
-            c.a(e5);
+        } catch (Exception e6) {
+            c.a(e6);
         }
         String f22 = f();
         sb.append("&st=");

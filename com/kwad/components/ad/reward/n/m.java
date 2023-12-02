@@ -39,14 +39,14 @@ public final class m extends d implements View.OnClickListener {
     }
 
     private void s(boolean z) {
-        this.zt = this.zs.findViewById(R.id.obfuscated_res_0x7f0913c2);
-        this.hz = (TextView) this.zs.findViewById(R.id.obfuscated_res_0x7f0913c8);
-        this.fq = (ImageView) this.zs.findViewById(R.id.obfuscated_res_0x7f0913c7);
-        this.zv = (TextView) this.zs.findViewById(R.id.obfuscated_res_0x7f0913c6);
-        this.zu = (TextView) this.zs.findViewById(R.id.obfuscated_res_0x7f0913c5);
-        this.zd = this.zs.findViewById(R.id.obfuscated_res_0x7f0913c3);
-        this.zx = this.zs.findViewById(R.id.obfuscated_res_0x7f0913c4);
-        this.zw = (TextView) this.zs.findViewById(R.id.obfuscated_res_0x7f0913c9);
+        this.zt = this.zs.findViewById(R.id.obfuscated_res_0x7f0913c3);
+        this.hz = (TextView) this.zs.findViewById(R.id.obfuscated_res_0x7f0913c9);
+        this.fq = (ImageView) this.zs.findViewById(R.id.obfuscated_res_0x7f0913c8);
+        this.zv = (TextView) this.zs.findViewById(R.id.obfuscated_res_0x7f0913c7);
+        this.zu = (TextView) this.zs.findViewById(R.id.obfuscated_res_0x7f0913c6);
+        this.zd = this.zs.findViewById(R.id.obfuscated_res_0x7f0913c4);
+        this.zx = this.zs.findViewById(R.id.obfuscated_res_0x7f0913c5);
+        this.zw = (TextView) this.zs.findViewById(R.id.obfuscated_res_0x7f0913ca);
         if (z) {
             this.zt.setVisibility(8);
         }

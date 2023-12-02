@@ -3,7 +3,7 @@ package com.baidu.tbadk.abtest.group;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-import com.baidu.tieba.cw4;
+import com.baidu.tieba.fw4;
 import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,10 +47,10 @@ public abstract class AbsGroupUbsABTest {
         }
         HashMap hashMap = new HashMap(UbsABTestHelper.getUbsABTestMap());
         for (pi piVar : list) {
-            if (piVar instanceof cw4) {
-                cw4 cw4Var = (cw4) piVar;
+            if (piVar instanceof fw4) {
+                fw4 fw4Var = (fw4) piVar;
                 for (Map.Entry entry : hashMap.entrySet()) {
-                    cw4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
+                    fw4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
                 }
             }
         }

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ik implements iya {
+public class ik implements hya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ge a;
@@ -69,7 +69,7 @@ public class ik implements iya {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     ik ikVar = this.a.c;
-                    ikVar.a.onShowErr(4, ikVar.g.getString(R.string.obfuscated_res_0x7f0f1880));
+                    ikVar.a.onShowErr(4, ikVar.g.getString(R.string.obfuscated_res_0x7f0f1881));
                     ie.a = 1;
                 }
             }
@@ -77,13 +77,13 @@ public class ik implements iya {
 
         /* renamed from: com.baidu.tieba.ik$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0352b implements Runnable {
+        public class RunnableC0331b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0352b(b bVar, String str) {
+            public RunnableC0331b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,13 +137,13 @@ public class ik implements iya {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String d = m75.c(k75.d(this.a)).d();
+                String d = p75.c(n75.d(this.a)).d();
                 if (this.c.b != null) {
                     this.c.b.removeCallbacks(this.c.f);
                     if (StringUtils.isNull(d)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0352b(this, d));
+                        this.c.b.post(new RunnableC0331b(this, d));
                     }
                 }
             }
@@ -273,7 +273,7 @@ public class ik implements iya {
                         return;
                     }
                     if (i <= 1000) {
-                        geVar.onShowErr(2, ie.a(R.string.obfuscated_res_0x7f0f1885));
+                        geVar.onShowErr(2, ie.a(R.string.obfuscated_res_0x7f0f1886));
                         FieldBuilder fieldBuilder = new FieldBuilder();
                         fieldBuilder.append("file", str);
                         fieldBuilder.append("dur", Integer.valueOf(i));
@@ -319,7 +319,7 @@ public class ik implements iya {
                     if (ikVar.c == null) {
                         TiebaStatic.voiceError(i, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
                     } else if (this.a.a.isOnCancle()) {
-                        nd.k(k75.c(this.a.c));
+                        nd.k(n75.c(this.a.c));
                         this.a.c = null;
                         this.a.a.onStopingRecorder();
                         ie.a = 1;
@@ -329,13 +329,13 @@ public class ik implements iya {
                         this.a.c = null;
                         if (this.a.d == ee.b) {
                             ik ikVar3 = this.a;
-                            ikVar3.a.onShowErr(3, ikVar3.g.getString(R.string.obfuscated_res_0x7f0f1887));
+                            ikVar3.a.onShowErr(3, ikVar3.g.getString(R.string.obfuscated_res_0x7f0f1888));
                         } else if (this.a.d == ee.c) {
                             ik ikVar4 = this.a;
-                            ikVar4.a.onShowErr(3, ikVar4.g.getString(R.string.obfuscated_res_0x7f0f1886));
+                            ikVar4.a.onShowErr(3, ikVar4.g.getString(R.string.obfuscated_res_0x7f0f1887));
                         } else {
                             ik ikVar5 = this.a;
-                            ikVar5.a.onShowErr(3, ikVar5.g.getString(R.string.obfuscated_res_0x7f0f1888));
+                            ikVar5.a.onShowErr(3, ikVar5.g.getString(R.string.obfuscated_res_0x7f0f1889));
                         }
                     }
                 } else {
@@ -375,7 +375,7 @@ public class ik implements iya {
         return (ik) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.iya
+    @Override // com.baidu.tieba.hya
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -383,7 +383,7 @@ public class ik implements iya {
         }
     }
 
-    @Override // com.baidu.tieba.iya
+    @Override // com.baidu.tieba.hya
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -396,7 +396,7 @@ public class ik implements iya {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.iya
+    @Override // com.baidu.tieba.hya
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -428,7 +428,7 @@ public class ik implements iya {
         this.b = new Handler();
     }
 
-    @Override // com.baidu.tieba.iya
+    @Override // com.baidu.tieba.hya
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -447,7 +447,7 @@ public class ik implements iya {
         }
     }
 
-    @Override // com.baidu.tieba.iya
+    @Override // com.baidu.tieba.hya
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -455,7 +455,7 @@ public class ik implements iya {
         }
     }
 
-    @Override // com.baidu.tieba.iya
+    @Override // com.baidu.tieba.hya
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -473,7 +473,7 @@ public class ik implements iya {
         }
     }
 
-    @Override // com.baidu.tieba.iya
+    @Override // com.baidu.tieba.hya
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -486,7 +486,7 @@ public class ik implements iya {
         }
     }
 
-    @Override // com.baidu.tieba.iya
+    @Override // com.baidu.tieba.hya
     public void e(ge geVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, geVar) == null) {
@@ -505,11 +505,11 @@ public class ik implements iya {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) && str != null && i >= 1) {
             ie.a = 3;
-            lr6.a(new b(this, str, i), "RecorderManager", 1);
+            pr6.a(new b(this, str, i), "RecorderManager", 1);
         }
     }
 
-    @Override // com.baidu.tieba.iya
+    @Override // com.baidu.tieba.hya
     public boolean c(ge geVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;
@@ -528,9 +528,9 @@ public class ik implements iya {
                 return false;
             }
             o(true);
-            String e = k75.e();
+            String e = n75.e();
             this.c = e;
-            String c2 = k75.c(e);
+            String c2 = n75.c(e);
             if (this.e == null) {
                 this.e = new d(this, null);
             }

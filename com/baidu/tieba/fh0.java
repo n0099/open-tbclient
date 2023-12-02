@@ -199,7 +199,7 @@ public class fh0 {
                 intent.putExtra("key_notify_type", wg0Var.q.m);
                 intent.putExtra("key_notification_id", wg0Var.e().hashCode());
                 intent.putExtra("key_extra_param", wg0Var.p.a);
-                return e21.a(b2, wg0Var.e().hashCode(), intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+                return h21.a(b2, wg0Var.e().hashCode(), intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
             }
             return null;
         }
@@ -254,7 +254,7 @@ public class fh0 {
             if (!TextUtils.isEmpty(str4)) {
                 clogBuilder.k(str4);
             }
-            bz0.e(clogBuilder);
+            dz0.e(clogBuilder);
         }
     }
 

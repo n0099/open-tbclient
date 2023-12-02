@@ -15,7 +15,7 @@ import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.searchbox.logsystem.util.AppExtraUtil;
 import com.baidu.searchbox.track.Track;
 import com.baidu.tieba.jx;
-import com.baidu.tieba.rf1;
+import com.baidu.tieba.uf1;
 /* loaded from: classes4.dex */
 public class Loki {
     public static final String CRASHPAD_DUMPER_PROCESS_NAME = ":dumper";
@@ -24,7 +24,7 @@ public class Loki {
     public static volatile boolean sIsStartTrack;
 
     public static void initService() {
-        if (isLokiService(rf1.b())) {
+        if (isLokiService(uf1.b())) {
             LokiService.mProcessor = new LogSystemProcessor();
         }
     }
@@ -51,7 +51,7 @@ public class Loki {
     }
 
     public static void initService(@Nullable LogSystemProcessor logSystemProcessor) {
-        if (isLokiService(rf1.b())) {
+        if (isLokiService(uf1.b())) {
             LokiService.mProcessor = logSystemProcessor;
         }
     }
@@ -74,7 +74,7 @@ public class Loki {
     }
 
     public static void retryUpload(Context context) {
-        if (rf1.f() && LogSystemUploaderStrategy.checkFlag()) {
+        if (uf1.f() && LogSystemUploaderStrategy.checkFlag()) {
             LogSystemServiceUtil.startLogHandlerService(context);
         }
     }
@@ -90,7 +90,7 @@ public class Loki {
     @DebugTrace
     @TimeSpendTrace(tag = "AppInit")
     public static void init(@NonNull Context context, @NonNull BaseUncaughtExceptionHandler baseUncaughtExceptionHandler) {
-        if (isLokiService(rf1.b())) {
+        if (isLokiService(uf1.b())) {
             return;
         }
         retryUpload(context);
@@ -106,14 +106,14 @@ public class Loki {
     }
 
     public static void initNative(@NonNull Context context, @NonNull jx jxVar, boolean z) {
-        if (isLokiService(rf1.b())) {
+        if (isLokiService(uf1.b())) {
             return;
         }
         NativeCrashCapture.init(context, jxVar, z);
     }
 
     public static void initNative(@NonNull Context context, boolean z) {
-        if (isLokiService(rf1.b())) {
+        if (isLokiService(uf1.b())) {
             return;
         }
         NativeCrashCapture.init(context, new jx(context), z);

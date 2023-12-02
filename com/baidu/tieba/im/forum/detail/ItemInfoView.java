@@ -79,7 +79,7 @@ public class ItemInfoView extends LinearLayout {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d030d, (ViewGroup) this, true);
             setVisibility(8);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0911a4);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0911a5);
         }
     }
 

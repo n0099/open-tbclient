@@ -18,10 +18,10 @@ public class LiveSearchDeleteStatusViewHolder extends RecyclerView.ViewHolder {
     public LiveSearchDeleteStatusViewHolder(View view2) {
         super(view2);
         this.a = view2;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f09167a);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908c2);
-        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091679);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0916b3);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f09167b);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908c3);
+        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09167a);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0916b4);
     }
 
     public void a(int i) {

@@ -1,20 +1,76 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.MultiForumPerm;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import tbclient.FrsPage.CoverImageColor;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.VideoImageColor;
 /* loaded from: classes7.dex */
-public class kx4 {
+public class kx4 implements c35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public boolean c;
+    public String a;
+    public String b;
+    public CoverImageColor c;
+    public List<VideoImageColor> d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public boolean l;
+    public String m;
+    public float n;
+    public List<String> o;
+    public ova p;
+
+    /* loaded from: classes7.dex */
+    public class a implements Comparator<VideoImageColor> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(kx4 kx4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kx4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(VideoImageColor videoImageColor, VideoImageColor videoImageColor2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, videoImageColor, videoImageColor2)) == null) {
+                return videoImageColor.time.intValue() - videoImageColor2.time.intValue();
+            }
+            return invokeLL.intValue;
+        }
+    }
 
     public kx4() {
         Interceptable interceptable = $ic;
@@ -30,59 +86,262 @@ public class kx4 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        boolean z;
-        int i;
+    public CoverImageColor b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        boolean z2 = false;
-        if (jSONObject.optInt("is_bawu") == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.a = z;
-        if ("manager".equals(jSONObject.optString("bawu_type"))) {
-            i = 1;
-        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type"))) {
-            i = 2;
-        } else {
-            i = 0;
-        }
-        this.b = i;
-        if (jSONObject.optInt("is_deleted") == 1) {
-            z2 = true;
-        }
-        this.c = z2;
+        return (CoverImageColor) invokeV.objValue;
     }
 
-    public void b(MultiForumPerm multiForumPerm) {
-        boolean z;
-        int i;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiForumPerm) != null) || multiForumPerm == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ova f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.p;
+        }
+        return (ova) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c35
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c35
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public float k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.n;
+        }
+        return invokeV.floatValue;
+    }
+
+    public List<String> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.o;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<VideoImageColor> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public kx4(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = str;
+        this.f = str2;
+        this.i = str3;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public kx4 clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            kx4 kx4Var = new kx4();
+            kx4Var.a = this.a;
+            kx4Var.b = this.b;
+            kx4Var.c = this.c;
+            kx4Var.d = this.d;
+            kx4Var.e = this.e;
+            kx4Var.f = this.f;
+            kx4Var.g = this.g;
+            kx4Var.i = this.i;
+            kx4Var.j = this.j;
+            kx4Var.k = this.k;
+            kx4Var.m = this.m;
+            kx4Var.n = this.n;
+            kx4Var.o = this.o;
+            kx4Var.h = this.h;
+            return kx4Var;
+        }
+        return (kx4) invokeV.objValue;
+    }
+
+    public void o(HeadImgs headImgs) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048593, this, headImgs) != null) || headImgs == null) {
             return;
         }
-        boolean z2 = false;
-        if (multiForumPerm.is_bawu.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
+        this.a = headImgs.cover_url;
+        this.b = headImgs.play_url;
+        this.c = headImgs.cover_image_color;
+        s(headImgs.video_image_color);
+        this.e = headImgs.img_url;
+        this.f = headImgs.pc_url;
+        this.g = headImgs.schema;
+        this.m = headImgs.tag_name_url;
+        this.h = headImgs.package_name;
+        String str = headImgs.tag_name_wh;
+        if (str != null) {
+            try {
+                String[] split = str.split(",");
+                int i = JavaTypesHelper.toInt(split[0], 1);
+                int i2 = JavaTypesHelper.toInt(split[1], 1);
+                if (i2 != 0) {
+                    this.n = i / i2;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        this.a = z;
-        if ("manager".equals(multiForumPerm.bawu_type)) {
-            i = 1;
-        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type)) {
-            i = 2;
-        } else {
-            i = 0;
+        String str2 = headImgs.title;
+        if (str2 != null) {
+            this.i = str2.trim();
         }
-        this.b = i;
-        if (multiForumPerm.is_deleted.intValue() == 1) {
-            z2 = true;
+        String str3 = headImgs.subtitle;
+        if (str3 != null) {
+            this.j = str3.trim();
         }
-        this.c = z2;
+        String str4 = headImgs.btn_text;
+        if (str4 != null) {
+            this.k = str4.trim();
+        }
+        this.o = headImgs.third_statistics_url;
+        ova ovaVar = new ova();
+        this.p = ovaVar;
+        ovaVar.d(headImgs);
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void s(List<VideoImageColor> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048597, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList(list);
+        Collections.sort(arrayList, new a(this));
+        this.d = arrayList;
     }
 }

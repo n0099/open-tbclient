@@ -13,11 +13,11 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sm1;
-import com.baidu.tieba.yj3;
+import com.baidu.tieba.bk3;
+import com.baidu.tieba.vm1;
 /* loaded from: classes4.dex */
 public class FullScreenFloatView extends FrameLayout {
-    public static final boolean n = sm1.a;
+    public static final boolean n = vm1.a;
     public View a;
     public int b;
     public int c;
@@ -187,9 +187,9 @@ public class FullScreenFloatView extends FrameLayout {
 
     public void e() {
         if (this.a != null) {
-            int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707fa);
-            int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707fb);
-            this.a.animate().x((yj3.o(getContext()) - dimensionPixelOffset) - this.b).y((yj3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+            int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707fe);
+            int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707ff);
+            this.a.animate().x((bk3.o(getContext()) - dimensionPixelOffset) - this.b).y((bk3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
         }
     }
 

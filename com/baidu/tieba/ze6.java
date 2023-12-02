@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ElectionInfo.Basic;
-import tbclient.ElectionInfo.NoticeContent;
+import tbclient.Search.DataRes;
 /* loaded from: classes9.dex */
 public class ze6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public long b;
-    public long c;
-    public long d;
-    public int e;
-    public long f;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
     public int g;
-    public boolean h;
-    public NoticeContent i;
+    public int h;
+    public int i;
+    public String j;
+    public boolean k;
+    public long l;
 
     public ze6() {
         Interceptable interceptable = $ic;
@@ -33,189 +32,76 @@ public class ze6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = 0;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
+        long longValue;
+        long longValue2;
+        int intValue;
+        int intValue2;
+        int intValue3;
+        int intValue4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return invokeV.longValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
+        Long l = dataRes.uid;
+        long j = 0;
+        if (l == null) {
+            longValue = 0;
+        } else {
+            longValue = l.longValue();
         }
-        return invokeV.booleanValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
+        this.b = longValue;
+        this.c = dataRes.portrait;
+        this.d = dataRes.name_show;
+        Long l2 = dataRes.apply_id;
+        if (l2 == null) {
+            longValue2 = 0;
+        } else {
+            longValue2 = l2.longValue();
         }
-        return invokeV.intValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        this.e = longValue2;
+        Integer num = dataRes.vote_num;
+        boolean z = false;
+        if (num == null) {
+            intValue = 0;
+        } else {
+            intValue = num.intValue();
         }
-        return invokeV.longValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+        this.f = intValue;
+        Integer num2 = dataRes.agree_num;
+        if (num2 == null) {
+            intValue2 = 0;
+        } else {
+            intValue2 = num2.intValue();
         }
-        return invokeV.longValue;
-    }
-
-    public NoticeContent f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
+        this.g = intValue2;
+        Integer num3 = dataRes.thread_num;
+        if (num3 == null) {
+            intValue3 = 0;
+        } else {
+            intValue3 = num3.intValue();
         }
-        return (NoticeContent) invokeV.objValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
+        this.h = intValue3;
+        Integer num4 = dataRes.post_num;
+        if (num4 == null) {
+            intValue4 = 0;
+        } else {
+            intValue4 = num4.intValue();
         }
-        return invokeV.longValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
+        this.i = intValue4;
+        Boolean bool = dataRes.is_vote;
+        if (bool != null) {
+            z = bool.booleanValue();
         }
-        return invokeV.intValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.c;
+        this.k = z;
+        Long l3 = dataRes.tid;
+        if (l3 != null) {
+            j = l3.longValue();
         }
-        return invokeV.longValue;
-    }
-
-    public static ze6 j(Basic basic) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, basic)) == null) {
-            if (basic == null) {
-                return null;
-            }
-            ze6 ze6Var = new ze6();
-            ze6Var.r(k(basic.remind_time));
-            ze6Var.s(basic.status.intValue());
-            ze6Var.n(basic.candidate_num.intValue());
-            ze6Var.o(k(basic.begin_apply_time));
-            ze6Var.l(k(basic.begin_audit_time));
-            ze6Var.t(k(basic.begin_vote_time));
-            ze6Var.p(k(basic.begin_public_time));
-            ze6Var.m(basic.is_voted.booleanValue());
-            ze6Var.q(basic.notice);
-            return ze6Var;
-        }
-        return (ze6) invokeL.objValue;
-    }
-
-    public static long k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                return Long.parseLong(str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0L;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void o(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public void p(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void q(NoticeContent noticeContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, noticeContent) == null) {
-            this.i = noticeContent;
-        }
-    }
-
-    public void r(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.f = j;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void t(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.c = j;
-        }
+        this.l = j;
     }
 }

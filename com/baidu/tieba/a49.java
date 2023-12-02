@@ -1,411 +1,344 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.im.lib.socket.msg.TbAtUserInfo;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.base.core.inputtool.InputDelegate;
+import com.baidu.tieba.im.base.core.inputtool.InputToolFragment;
+import com.baidu.tieba.im.base.core.inputtool.robotfloor.data.PicCreateInfoData;
+import com.baidu.tieba.im.base.core.inputtool.robotfloor.data.PicQueryInfoData;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbReMsgInfo;
-import com.baidu.tieba.im.lib.socket.msg.TbSingleTextImageMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
+import com.baidu.tieba.ku5;
+import com.baidu.tieba.to8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.util.concurrent.TimeUnit;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class a49 {
+public final class a49 extends lq8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ChatPage b;
+    public FastRequest c;
+    public FastRequest d;
+    public GroupChatFragment e;
+    public final ku5 f;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947565347, "Lcom/baidu/tieba/a49;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947565347, "Lcom/baidu/tieba/a49;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947565347, "Lcom/baidu/tieba/a49;");
+        }
+    }
+
+    @Override // com.baidu.tieba.lq8
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pic_gen_commit" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b extends FastRequest.b<PicQueryInfoData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a49 d;
+        public final /* synthetic */ to8.e e;
+        public final /* synthetic */ boolean f;
+        public final /* synthetic */ ku5.c<Void> g;
+
+        /* loaded from: classes5.dex */
+        public static final class a extends TypeToken<AbilityItem> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947565347, "Lcom/baidu/tieba/a49;");
+        }
+
+        public b(a49 a49Var, to8.e eVar, boolean z, ku5.c<Void> cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a49Var, eVar, Boolean.valueOf(z), cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = a49Var;
+            this.e = eVar;
+            this.f = z;
+            this.g = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        /* renamed from: l */
+        public void f(int i, String errMsg, PicQueryInfoData picQueryInfoData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, errMsg, picQueryInfoData) == null) {
+                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
+                super.f(i, errMsg, picQueryInfoData);
+                this.d.l(R.string.obfuscated_res_0x7f0f0520);
+                this.e.onFail();
+                this.d.i().h();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        /* renamed from: m */
+        public void i(PicQueryInfoData result) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
+                Intrinsics.checkNotNullParameter(result, "result");
+                super.i(result);
+                Integer status = result.getStatus();
+                if (status != null) {
+                    i = status.intValue();
+                } else {
+                    i = 2;
+                }
+                String str = null;
+                if (i != 1) {
+                    if (i == 2) {
+                        this.d.l(R.string.obfuscated_res_0x7f0f0520);
+                        this.e.onFail();
+                        this.d.i().h();
+                    } else if (i == 3) {
+                        Object abilityItem = result.getAbilityItem();
+                        if (abilityItem != null) {
+                            str = DataExt.toJson(abilityItem);
+                        }
+                        Object fromJson = new Gson().fromJson(str, new a().getType());
+                        Intrinsics.checkNotNullExpressionValue(fromJson, "Gson().fromJson(str, type)");
+                        this.e.a((AbilityItem) fromJson);
+                        this.e.onFinish();
+                        this.d.i().h();
+                    }
+                } else if (this.f) {
+                    this.d.l(R.string.obfuscated_res_0x7f0f0521);
+                    this.e.onFail();
+                    this.d.i().h();
+                } else {
+                    this.g.a(false, null);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a extends FastRequest.b<PicCreateInfoData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ to8.e d;
+        public final /* synthetic */ a49 e;
+
+        public a(to8.e eVar, a49 a49Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, a49Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = eVar;
+            this.e = a49Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        /* renamed from: l */
+        public void f(int i, String errMsg, PicCreateInfoData picCreateInfoData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048579, this, i, errMsg, picCreateInfoData) == null) {
+                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
+                super.f(i, errMsg, picCreateInfoData);
+                this.e.l(R.string.obfuscated_res_0x7f0f0520);
+                this.d.onFail();
+            }
+        }
+
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        public void h() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                super.h();
+                this.d.onStart();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        /* renamed from: m */
+        public void i(PicCreateInfoData result) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, result) == null) {
+                Intrinsics.checkNotNullParameter(result, "result");
+                super.i(result);
+                if (result.getRequestId() == null) {
+                    this.e.l(R.string.obfuscated_res_0x7f0f0520);
+                    this.d.onFail();
+                    return;
+                }
+                a49 a49Var = this.e;
+                String requestId = result.getRequestId();
+                Intrinsics.checkNotNull(requestId);
+                a49Var.j(requestId, this.d);
+            }
+        }
+    }
+
+    public a49(ChatPage chatPage) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {chatPage};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0959);
-        b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f095a);
+        Intrinsics.checkNotNullParameter(chatPage, "chatPage");
+        this.b = chatPage;
+        GroupChatFragment K0 = chatPage.K0();
+        Intrinsics.checkNotNullExpressionValue(K0, "chatPage.groupChatFragment");
+        this.e = K0;
+        this.f = new ku5(15, 2000, TimeUnit.MILLISECONDS);
     }
 
-    public static String a(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
+    public final void h(to8.e eVar) {
+        InputDelegate b3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
+            if (this.c == null) {
+                this.c = new FastRequest(this.e.getPageContext(), CmdConfigHttp.CMD_REQUEST_CREATE_MEME, TbConfig.REQUEST_SPRITE_CREATE_MEME);
             }
-            if (TextUtils.isEmpty(str2)) {
-                return String.format(b, str);
+            InputToolFragment q3 = this.e.q3();
+            String str = (q3 == null || (b3 = q3.b3()) == null || (str = b3.t()) == null) ? "" : "";
+            FastRequest fastRequest = this.c;
+            Intrinsics.checkNotNull(fastRequest);
+            fastRequest.U(HttpMessageTask.HTTP_METHOD.POST);
+            fastRequest.P("prompt", str);
+            fastRequest.R(new a(eVar, this));
+            fastRequest.Q();
+        }
+    }
+
+    @Override // com.baidu.tieba.lq8
+    public void b(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseItem, obj) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            if (obj instanceof to8.e) {
+                h((to8.e) obj);
             }
-            return String.format(a, str, str2);
         }
-        return (String) invokeLL.objValue;
     }
 
-    @NonNull
-    public static TbAtUserInfo j(@NonNull BotsDTO.BotListDTO.UserDTO userDTO, @NonNull String str) {
-        InterceptResult invokeLL;
+    public final void j(final String str, final to8.e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, userDTO, str)) == null) {
-            cu5.d(i(userDTO));
-            return TbAtUserInfo.create(TbAtUserInfo.AtType.USER, Long.parseLong(BIMManager.getBdUidFromBdUK(userDTO.getUk())), str, userDTO.getPortrait(), 0);
-        }
-        return (TbAtUserInfo) invokeLL.objValue;
-    }
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, eVar) == null) {
+            this.f.i(new ku5.c() { // from class: com.baidu.tieba.y39
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public static String b(@NonNull List<AtSelectData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (AtSelectData atSelectData : list) {
-                sb.append("@");
-                sb.append(atSelectData.getNameShow());
-                sb.append(" ");
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(@NonNull String str, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list, @NonNull List<AtSelectData> list2) {
-        InterceptResult invokeLLLL;
-        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts;
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
-        List<AtSelectData> atUserInfos;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, skillDTO, list, list2)) == null) {
-            StringBuilder sb = new StringBuilder();
-            StringBuilder sb2 = new StringBuilder();
-            if (list != null && !list.isEmpty()) {
-                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                    if (itemsDTO != null && (opts = itemsDTO.getOpts()) != null && !opts.isEmpty()) {
-                        if (itemsDTO.isNormalType()) {
-                            sb.append(a(itemsDTO.getName(), opts.get(0).getName()));
-                            sb.append("\n");
-                        } else if (itemsDTO.isFileType()) {
-                            sb2.append(a(itemsDTO.getName(), null));
-                            sb2.append("\n");
-                        } else if (itemsDTO.isAtType() && (ext = opts.get(0).getExt()) != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
-                            list2.addAll(atUserInfos);
-                            sb.append(a(itemsDTO.getName(), b(atUserInfos)));
-                            sb.append("\n");
-                        }
+                @Override // com.baidu.tieba.ku5.c
+                public final void a(boolean z, Object obj) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeZL(1048576, this, z, obj) == null) {
+                        a49.k(a49.this, str, eVar, z, (ku5.c) obj);
                     }
                 }
-            }
-            if (!TextUtils.isEmpty(skillDTO.getAlias()) && !TextUtils.isEmpty(str)) {
-                sb.append(a(skillDTO.getAlias(), str));
-                sb.append("\n");
-            }
-            sb.append((CharSequence) sb2);
-            return sb.toString();
-        }
-        return (String) invokeLLLL.objValue;
-    }
-
-    public static String d(@NonNull String str, @NonNull String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("@");
-            sb.append(str);
-            if (z) {
-                str3 = " ";
-            } else {
-                str3 = "\n";
-            }
-            sb.append(str3);
-            sb.append(str2);
-            return sb.toString();
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    @NonNull
-    public static String f(@NonNull BotsDTO.BotListDTO.UserDTO userDTO, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, userDTO, skillDTO, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(userDTO.getNameShow());
-            if (!z) {
-                sb.append("/");
-                sb.append(skillDTO.getName());
-            }
-            return sb.toString();
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    public static HashMap<String, Object> g(@NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list, @Nullable String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, skillDTO, list, str)) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("type", Integer.valueOf(skillDTO.getType()));
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("promot", str);
-            hashMap.put("scene", "tieba_group_chat");
-            e(hashMap, list);
-            return hashMap;
-        }
-        return (HashMap) invokeLLL.objValue;
-    }
-
-    public static void e(@NonNull Map<String, Object> map, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, map, list) == null) && list != null && list.size() > 0) {
-            for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                if (itemsDTO != null) {
-                    xv8.a(map, itemsDTO);
-                }
-            }
+            });
         }
     }
 
-    @NonNull
-    public static String h(@NonNull String str, @NonNull String str2, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list, @NonNull List<AtSelectData> list2) {
-        InterceptResult invokeLLLLL;
-        String str3;
-        List<AtSelectData> atUserInfos;
+    public static final void k(a49 this$0, String requestId, to8.e callback, boolean z, ku5.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65544, null, str, str2, skillDTO, list, list2)) == null) {
-            cu5.b(str);
-            String replaceAll = str.replaceAll(skillDTO.getAliasHolder(), skillDTO.getAlias()).replaceAll(skillDTO.getKeyboardHolder(), str2);
-            if (list != null && !list.isEmpty()) {
-                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                    if (itemsDTO != null) {
-                        String value = itemsDTO.getValue();
-                        replaceAll = replaceAll.replaceAll(itemsDTO.getNameHolder(), itemsDTO.getName()).replaceAll(itemsDTO.getAliasHolder(), itemsDTO.getAlias());
-                        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts = itemsDTO.getOpts();
-                        if (opts != null && !opts.isEmpty() && !TextUtils.isEmpty(value)) {
-                            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = opts.get(0);
-                            if (itemsDTO.isNormalType()) {
-                                replaceAll = replaceAll.replaceAll(optsDTO.getNameHolder(value), optsDTO.getName()).replaceAll(optsDTO.getAliasHolder(value), optsDTO.getAlias());
-                            } else if (itemsDTO.isAtType()) {
-                                BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = optsDTO.getExt();
-                                if (ext != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
-                                    list2.addAll(atUserInfos);
-                                    str3 = b(atUserInfos);
-                                } else {
-                                    str3 = "";
-                                }
-                                replaceAll = replaceAll.replaceAll(optsDTO.getNameHolder(value), str3).replaceAll(optsDTO.getAliasHolder(value), str3);
-                            }
-                        }
-                    }
-                }
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{this$0, requestId, callback, Boolean.valueOf(z), cVar}) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(requestId, "$requestId");
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            if (this$0.d == null) {
+                this$0.d = new FastRequest(this$0.e.getPageContext(), CmdConfigHttp.CMD_REQUEST_QUERY_MEME, TbConfig.REQUEST_SPRITE_QUERY_MEME);
             }
-            return replaceAll;
+            FastRequest fastRequest = this$0.d;
+            Intrinsics.checkNotNull(fastRequest);
+            fastRequest.U(HttpMessageTask.HTTP_METHOD.POST);
+            fastRequest.P(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, requestId);
+            fastRequest.R(new b(this$0, callback, z, cVar));
+            fastRequest.Q();
         }
-        return (String) invokeLLLLL.objValue;
     }
 
-    public static TbTextMsg l(@NonNull String str, @Nullable TbBaseMsg tbBaseMsg, @NonNull bo8 bo8Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
-        InterceptResult invokeLLLLL;
-        boolean z;
-        String c;
+    public final ku5 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, null, str, tbBaseMsg, bo8Var, list, map)) == null) {
-            BotsDTO.BotListDTO.UserDTO userDTO = bo8Var.a;
-            BotsDTO.BotListDTO.SkillDTO skillDTO = bo8Var.b;
-            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list2 = bo8Var.c;
-            if (userDTO != null && skillDTO != null && i(userDTO)) {
-                ArrayList arrayList = new ArrayList();
-                if (list != null) {
-                    arrayList.addAll(list);
-                }
-                String showTemplate = skillDTO.getShowTemplate(list2);
-                if (showTemplate != null && !TextUtils.isEmpty(showTemplate)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    c = h(showTemplate, str, skillDTO, list2, arrayList);
-                } else {
-                    c = c(str, skillDTO, list2, arrayList);
-                }
-                String f = f(userDTO, skillDTO, z);
-                String p = p(d(f, c, z));
-                TbTextMsg create = TbTextMsg.create(p);
-                create.addAtUserInfo(j(userDTO, f));
-                create.addAtUserInfo(n(p, arrayList));
-                HashMap<String, Object> g = g(skillDTO, list2, str);
-                if (tbBaseMsg == null) {
-                    create.setRobotParams(g);
-                    return create;
-                }
-                if (bo8Var.c()) {
-                    create.setReMsgInfo(TbReMsgInfo.create(tbBaseMsg, tbBaseMsg.getThumbnailText().toString()));
-                }
-                if (tbBaseMsg.getReMsgInfo() != null) {
-                    if (tbBaseMsg instanceof TbTextGenImageMsg) {
-                        g.put("last_promot", ((TbTextGenImageMsg) tbBaseMsg).getLastPrompt());
-                    }
-                    g.put("user_msg_id", Long.valueOf(tbBaseMsg.getReMsgInfo().getMsgId()));
-                    g.put("user_msg_key", tbBaseMsg.getReMsgInfo().getMsgKey());
-                }
-                if (tbBaseMsg.getTaskInfo() != null) {
-                    g.put("robot_msg_id", Long.valueOf(tbBaseMsg.getTaskInfo().getOriginMsgId()));
-                    g.put("robot_msg_key", tbBaseMsg.getTaskInfo().getOriginMsgKey());
-                }
-                create.setRobotParams(g);
-                return create;
-            }
-            return k(str, list, map);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
         }
-        return (TbTextMsg) invokeLLLLL.objValue;
+        return (ku5) invokeV.objValue;
     }
 
-    public static boolean i(@NonNull BotsDTO.BotListDTO.UserDTO userDTO) {
-        InterceptResult invokeL;
+    public final void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, userDTO)) == null) {
-            try {
-                String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(userDTO.getUk());
-                if (TextUtils.isEmpty(bdUidFromBdUK)) {
-                    return false;
-                }
-                Long.parseLong(bdUidFromBdUK);
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b.w1(i);
         }
-        return invokeL.booleanValue;
-    }
-
-    public static String p(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            if (str.endsWith("\n")) {
-                return str.substring(0, str.length() - 1);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public static TbTextMsg k(@NonNull String str, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, str, list, map)) == null) {
-            TbTextMsg create = TbTextMsg.create(str);
-            create.addAtUserInfo(o(list, map));
-            return create;
-        }
-        return (TbTextMsg) invokeLLL.objValue;
-    }
-
-    public static TbTextMsg m(@NonNull String str, @Nullable TbBaseMsg tbBaseMsg, @Nullable bo8 bo8Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65549, null, str, tbBaseMsg, bo8Var, list, map)) == null) {
-            if (bo8Var == null) {
-                return k(str, list, map);
-            }
-            return l(str, tbBaseMsg, bo8Var, list, map);
-        }
-        return (TbTextMsg) invokeLLLLL.objValue;
-    }
-
-    @NonNull
-    public static List<TbAtUserInfo> n(@NonNull String str, @NonNull List<AtSelectData> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, list)) == null) {
-            HashMap hashMap = new HashMap();
-            for (AtSelectData atSelectData : list) {
-                int i = 0;
-                String str2 = "@" + atSelectData.getNameShow();
-                while (true) {
-                    int indexOf = str.indexOf(str2, i);
-                    if (indexOf == -1) {
-                        break;
-                    }
-                    i = indexOf + 1;
-                    if (hashMap.get(Integer.valueOf(indexOf)) == null) {
-                        TbAtUserInfo.AtType atType = TbAtUserInfo.AtType.USER;
-                        if (AtSelectData.AT_ALL_FAKE_UID.equals(atSelectData.getUid())) {
-                            atType = TbAtUserInfo.AtType.ALL;
-                        }
-                        hashMap.put(Integer.valueOf(indexOf), TbAtUserInfo.create(atType, JavaTypesHelper.toLong(atSelectData.getUid(), 0L), atSelectData.getNameShow(), atSelectData.getPortrait(), indexOf));
-                    }
-                }
-            }
-            return new ArrayList(hashMap.values());
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static List<TbAtUserInfo> o(@Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, list, map)) == null) {
-            if (list != null && !list.isEmpty() && map != null && !map.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                for (AtSelectData atSelectData : list) {
-                    TbAtUserInfo.AtType atType = TbAtUserInfo.AtType.USER;
-                    if (AtSelectData.AT_ALL_FAKE_UID.equals(atSelectData.getUid())) {
-                        atType = TbAtUserInfo.AtType.ALL;
-                    }
-                    arrayList.add(TbAtUserInfo.create(atType, JavaTypesHelper.toLong(atSelectData.getUid(), 0L), atSelectData.getNameShow(), atSelectData.getPortrait(), map.get(atSelectData.getUid()).intValue()));
-                }
-                return arrayList;
-            }
-            return Collections.emptyList();
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static TbBaseMsg q(@NonNull TbTextMsg tbTextMsg, @Nullable bo8 bo8Var) {
-        InterceptResult invokeLL;
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO b2;
-        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts;
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, tbTextMsg, bo8Var)) == null) {
-            if (bo8Var != null && (b2 = bo8Var.b()) != null && (opts = b2.getOpts()) != null && !opts.isEmpty() && (ext = opts.get(0).getExt()) != null) {
-                TbSingleTextImageMsg create = TbSingleTextImageMsg.create(tbTextMsg.getText(), ext.getPicPath(), ext.getPicSize());
-                create.fillMsg4Base(tbTextMsg);
-                create.setRobotParams(tbTextMsg.getRobotParams());
-                create.setFileItem(b2);
-                return create;
-            }
-            return tbTextMsg;
-        }
-        return (TbBaseMsg) invokeLL.objValue;
     }
 }

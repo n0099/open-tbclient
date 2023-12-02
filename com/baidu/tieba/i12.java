@@ -1,80 +1,93 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.appframework.AppFrameworkConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class i12 extends f12 {
+public class i12 extends b22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String k;
-    public String l;
-    public float m;
-    public boolean n;
-    public boolean o;
+    public boolean j;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947800575, "Lcom/baidu/tieba/i12;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947800575, "Lcom/baidu/tieba/i12;");
+                return;
+            }
+        }
+        boolean z = vm1.a;
+    }
+
+    @Override // com.baidu.tieba.b22, com.baidu.tieba.jw2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i12(String str) {
-        super(str);
-        String[] split;
+        super("canvas", "canvasId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = "sans-serif";
-        this.m = yj3.g(10.0f);
-        this.n = false;
-        this.o = false;
+        this.j = false;
         try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.k = jSONObject.optString("text");
-            String optString = jSONObject.optString("font");
-            if (optString != null && optString.length() > 0) {
-                for (String str2 : optString.split(" ")) {
-                    if (str2.contains("italic")) {
-                        this.o = true;
-                    } else if (str2.contains("oblique")) {
-                        this.o = true;
-                    } else if (str2.contains("bold")) {
-                        this.n = true;
-                    } else if (!str2.contains("normal")) {
-                        if (Character.isDigit(str2.charAt(0))) {
-                            int length = str2.length();
-                            int i3 = 0;
-                            while (true) {
-                                if (i3 >= str2.length()) {
-                                    break;
-                                } else if (!Character.isDigit(str2.charAt(i3))) {
-                                    length = i3;
-                                    break;
-                                } else {
-                                    i3++;
-                                }
-                            }
-                            this.m = yj3.g(Float.parseFloat(str2.substring(0, length)));
-                        } else {
-                            this.l = str2;
-                        }
-                    }
-                }
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            k32.d("Canvas", "parsing CanvasBasicthis occurs exception", e);
+        }
+    }
+
+    @Override // com.baidu.tieba.b22, com.baidu.tieba.jw2
+    public void a(JSONObject jSONObject) throws JSONException {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
+            if (!TextUtils.equals(jSONObject.optString("hide"), "1") && !jSONObject.optBoolean("hide")) {
+                z = false;
+            } else {
+                z = true;
             }
-        } catch (Exception e) {
-            if (sm1.a) {
-                e.printStackTrace();
-            }
+            this.f = z;
+            this.j = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
+            this.g = !TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK), "0");
         }
     }
 }

@@ -1,30 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes9.dex */
-public class wy7 {
+/* loaded from: classes8.dex */
+public class wy7 extends yy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdPageContext a;
-    public BdTypeListView b;
-    public final List<ci> c;
-    public vy7 d;
+    public LabelDataList c;
+    public Context d;
+    public int e;
+    public final int f;
 
-    public wy7(BdPageContext bdPageContext, BdTypeListView bdTypeListView) {
+    @Override // com.baidu.tieba.yy7
+    public long e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    public wy7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext, bdTypeListView};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,45 +45,109 @@ public class wy7 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = bdPageContext;
-        this.b = bdTypeListView;
-        a();
+        this.e = 0;
+        this.d = context;
+        this.f = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070258);
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.yy7
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vy7 vy7Var = new vy7((TbPageContext) this.a, ky7.b);
-            this.d = vy7Var;
-            this.c.add(vy7Var);
-            this.b.addAdapters(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ListUtils.getCount(this.c);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.yy7
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.yy7
+    public Object c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return ListUtils.getItem(this.c, i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.yy7
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.e = i;
+            this.c.setSelectedIndex(i);
+            notifyDataSetChanged();
         }
     }
 
-    public void b() {
+    public void n(LabelDataList labelDataList) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof gi)) {
-            this.b.getAdapter2().notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, labelDataList) == null) {
+            this.c = labelDataList;
+            notifyDataSetChanged();
         }
     }
 
-    public void c(zi ziVar) {
+    @Override // com.baidu.tieba.yy7
+    public View g(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        TextView m;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ziVar) == null) {
-            for (ci ciVar : this.c) {
-                if (ciVar != null) {
-                    ciVar.setOnAdapterItemClickListener(ziVar);
-                }
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 instanceof TextView) {
+                m = (TextView) view2;
+            } else {
+                m = m();
             }
+            ny7 ny7Var = (ny7) ListUtils.getItem(this.c, i);
+            if (ny7Var != null) {
+                m.setText(ny7Var.b);
+            }
+            if (this.e == i) {
+                z = true;
+            } else {
+                z = false;
+            }
+            l(m, z);
+            return m;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    public void l(TextView textView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, textView, z) == null) {
+            if (z) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
+                SkinManager.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_s);
+                return;
+            }
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
+            SkinManager.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_n);
         }
     }
 
-    public void d(List<pi> list) {
-        BdTypeListView bdTypeListView;
+    public final TextView m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (bdTypeListView = this.b) != null) {
-            bdTypeListView.setData(list);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            TextView textView = new TextView(this.d);
+            textView.setTextSize(0, this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070459));
+            textView.setGravity(17);
+            textView.setHeight(d());
+            return textView;
         }
+        return (TextView) invokeV.objValue;
     }
 }

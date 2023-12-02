@@ -1,45 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-@Service
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class jf7 implements eb7 {
+public final class jf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jf7() {
+    public static final String a(int i, String fid) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, fid)) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            return "key_bubble_guide_count_" + i + '_' + fid;
         }
-    }
-
-    @Override // com.baidu.tieba.eb7
-    @NonNull
-    public List<mb7<?, ?>> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new xn7());
-            arrayList.add(new yn7());
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
+        return (String) invokeIL.objValue;
     }
 }

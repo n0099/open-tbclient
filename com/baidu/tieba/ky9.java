@@ -1,135 +1,497 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.pb.adapter.PbRecomChildTitleAdapter;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.PbPageRequestMessage;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import org.apache.commons.codec.language.bm.ResourceConstants;
 /* loaded from: classes7.dex */
 public class ky9 {
     public static /* synthetic */ Interceptable $ic;
+    public static TbHttpMessageTask g;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public d6a b;
-    public TbPageContext<?> c;
-    public List<ci> d;
-    public vi e;
-    public ly9 f;
-    public my9 g;
-    public ny9 h;
-    public oy9 i;
-    public py9 j;
-    public qy9 k;
-    public PbRecomChildTitleAdapter l;
-    public m0a m;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public final BdUniDispatchSchemeController.OnSchemeParsedCallback f;
 
-    public ky9(d6a d6aVar, BdUniqueId bdUniqueId, vi viVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947929566, "Lcom/baidu/tieba/ky9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947929566, "Lcom/baidu/tieba/ky9;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements BdUniDispatchSchemeController.OnSchemeParsedCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky9 a;
+
+        public a(ky9 ky9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ky9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ky9Var;
+        }
+
+        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.OnSchemeParsedCallback
+        public void onCallBack(HashMap<String, Object> hashMap) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, hashMap) != null) || hashMap == null) {
+                return;
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_TID) instanceof String) {
+                this.a.a = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_TID);
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID) instanceof String) {
+                this.a.b = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID) instanceof String) {
+                this.a.c = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE) instanceof String) {
+                this.a.d = JavaTypesHelper.toInt((String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE), 0);
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID) instanceof String) {
+                this.a.e = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID);
+            }
+        }
+    }
+
+    public ky9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d6aVar, bdUniqueId, viVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new ArrayList();
-        this.e = viVar;
-        this.a = bdUniqueId;
-        this.b = d6aVar;
-        this.c = d6aVar.getPageContext();
-        c();
-        f(viVar);
-        viVar.addAdapters(this.d);
+        this.f = new a(this);
     }
 
-    public List<ci> a() {
-        InterceptResult invokeV;
+    public final String f(String str, boolean z, int i, String str2, String str3, int i2, String str4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            PbRecomChildTitleAdapter pbRecomChildTitleAdapter = this.l;
-            if (pbRecomChildTitleAdapter != null && pbRecomChildTitleAdapter.x() != null) {
-                return this.l.x().itemView;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), str2, str3, Integer.valueOf(i2), str4})) == null) {
+            if (str == null || str.equals("0")) {
+                str = g(str2, str3, i2, str4);
             }
-            return null;
+            if (z) {
+                str = str + "_host";
+            }
+            if (i == 1) {
+                str = str + "_rev";
+            } else if (i == 2) {
+                str = str + "_hot";
+            }
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                return str + TbadkCoreApplication.getCurrentAccount();
+            }
+            return str;
         }
-        return (View) invokeV.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public void d() {
-        vi viVar;
+    public final String g(String str, String str2, int i, String str3) {
+        InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (viVar = this.e) != null && viVar.getListAdapter() != null) {
-            this.e.getListAdapter().notifyDataSetChanged();
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, str3)) == null) {
+            String str4 = "";
+            if (str != null) {
+                str4 = "" + str;
+            }
+            if (str2 != null) {
+                str4 = str4 + str2;
+            }
+            String str5 = str4 + i;
+            if (str3 != null) {
+                return str5 + str3;
+            }
+            return str5;
         }
+        return (String) invokeLLIL.objValue;
     }
 
-    public void e() {
+    public HashMap<String, Object> h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            if (str.startsWith(ResourceConstants.CMT)) {
+                str = str.substring(2);
+            }
+            HashMap<String, Object> hashMap = new HashMap<>();
+            String[] split = str.split("[&]");
+            if (split.length == 0) {
+                return null;
+            }
+            for (String str2 : split) {
+                String[] split2 = str2.split("[=]");
+                if (split2.length > 1) {
+                    hashMap.put(split2[0], split2[1]);
+                }
+            }
+            return hashMap;
         }
+        return (HashMap) invokeL.objValue;
     }
 
-    public final void c() {
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00f0  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0182  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0184  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x01b5 A[Catch: Exception -> 0x028f, TryCatch #0 {Exception -> 0x028f, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:88:0x027f, B:89:0x0284, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:98:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x01bd A[Catch: Exception -> 0x028f, TryCatch #0 {Exception -> 0x028f, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:88:0x027f, B:89:0x0284, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:98:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x01fd A[Catch: Exception -> 0x028f, TryCatch #0 {Exception -> 0x028f, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:88:0x027f, B:89:0x0284, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:98:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0205 A[Catch: Exception -> 0x028f, TryCatch #0 {Exception -> 0x028f, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:88:0x027f, B:89:0x0284, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:98:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x022c A[Catch: Exception -> 0x028f, TryCatch #0 {Exception -> 0x028f, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:88:0x027f, B:89:0x0284, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:98:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x027f A[Catch: Exception -> 0x028f, TryCatch #0 {Exception -> 0x028f, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:88:0x027f, B:89:0x0284, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:98:0x010c }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void i(String str) {
+        int i;
+        int i2;
+        PbPageRequestMessage pbPageRequestMessage;
+        int i3;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h = new ny9(this.c, zm6.G0);
-            this.g = new my9(this.c, zm6.H0);
-            this.f = new ly9(this.c, zm6.I0);
-            this.i = new oy9(this.c, zm6.F0);
-            this.j = new py9(this.c, zm6.L0);
-            this.k = new qy9(this.c, an6.U);
-            this.l = new PbRecomChildTitleAdapter(this.b, kn6.b);
-            this.m = new m0a(this.b, dw9.c, this.a);
-            this.d.add(this.h);
-            this.d.add(this.g);
-            this.d.add(this.f);
-            this.d.add(this.i);
-            this.d.add(this.j);
-            this.d.add(this.k);
-            this.d.add(this.l);
-            this.d.add(this.m);
-        }
-    }
-
-    public final void f(vi viVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, viVar) == null) {
-            this.h.A(viVar);
-            this.g.A(viVar);
-            this.f.A(viVar);
-            this.i.A(viVar);
-            this.j.A(viVar);
-            this.k.D(viVar);
-        }
-    }
-
-    public void g(List<pi> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.e.setData(list);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !TextUtils.isEmpty(str)) {
+            if ((str.contains("tbpb") || str.contains(PbModel.UNIDISPATCH_PB)) && !"tbpb://tieba.baidu.com".equals(str)) {
+                Uri parse = Uri.parse(str);
+                if (BdUniDispatchSchemeController.isUniScheme(parse)) {
+                    BdUniDispatchSchemeController.getInstance().parsePbScheme(parse, this.f);
+                } else if (StringUtils.isNull(this.a)) {
+                    if (!StringUtils.isNull(str) && str.startsWith("tbpb://")) {
+                        String decode = Uri.decode(parse.getEncodedPath());
+                        if (StringUtils.isNull(decode)) {
+                            return;
+                        }
+                        h(decode);
+                        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SCHEMA_UPLOAD);
+                        httpMessage.addParam("call_url", str);
+                        MessageManager.getInstance().sendMessage(httpMessage);
+                    }
+                    if (StringUtils.isNull(this.a)) {
+                        this.a = parse.getQueryParameter("thread_id");
+                    }
+                    if (StringUtils.isNull(this.b)) {
+                        this.b = parse.getQueryParameter("key_ori_ugc_nid");
+                    }
+                    if (StringUtils.isNull(this.c)) {
+                        this.c = parse.getQueryParameter("key_ori_ugc_tid");
+                    }
+                    if (this.d == 0) {
+                        this.d = JavaTypesHelper.toInt(parse.getQueryParameter("key_ori_ugc_type"), 0);
+                    }
+                    if (StringUtils.isNull(this.e)) {
+                        this.e = parse.getQueryParameter("key_ori_ugc_vid");
+                    }
+                }
+                String queryParameter = parse.getQueryParameter("comment_sort_type");
+                int i4 = -1;
+                try {
+                    if (!TextUtils.isEmpty(queryParameter)) {
+                        if ("0".equals(queryParameter)) {
+                            i = 0;
+                        } else if ("2".equals(queryParameter)) {
+                            i = 2;
+                        }
+                        if (i < 0) {
+                            i = SharedPrefHelper.getInstance().getInt("key_pb_current_sort_type", 2);
+                        }
+                        i2 = i;
+                        pbPageRequestMessage = new PbPageRequestMessage();
+                        pbPageRequestMessage.setUpdateType(3);
+                        pbPageRequestMessage.setIsReqAd(1);
+                        pbPageRequestMessage.setLastids(qd5.l);
+                        if (this.a != null && this.a.length() != 0) {
+                            pbPageRequestMessage.set_kz(JavaTypesHelper.toLong(this.a, 0L));
+                            pbPageRequestMessage.setFloorSortType(1);
+                            pbPageRequestMessage.setFloor_rn(4);
+                            pbPageRequestMessage.set_rn(15);
+                            pbPageRequestMessage.set_with_floor(1);
+                            pbPageRequestMessage.set_scr_w(Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
+                            pbPageRequestMessage.set_scr_h(Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
+                            pbPageRequestMessage.set_scr_dip(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
+                            if (!TbImageHelper.getInstance().isShowBigImage()) {
+                                i3 = 2;
+                            } else {
+                                i3 = 1;
+                            }
+                            pbPageRequestMessage.set_q_type(Integer.valueOf(i3));
+                            pbPageRequestMessage.setSchemeUrl(str);
+                            pbPageRequestMessage.set_r(Integer.valueOf(i2));
+                            pbPageRequestMessage.setNeedIsTopAndIsGood(0);
+                            pbPageRequestMessage.set_banner(1);
+                            pbPageRequestMessage.set_back(0);
+                            if (i2 != 0 && i2 != 2) {
+                                z = false;
+                                if (!z) {
+                                    pbPageRequestMessage.set_pn(1);
+                                } else {
+                                    pbPageRequestMessage.set_last(1);
+                                    pbPageRequestMessage.set_pn(1);
+                                }
+                                pbPageRequestMessage.setIsFromMark(Boolean.FALSE);
+                                pbPageRequestMessage.setCacheKey(f(this.a, false, i2, this.b, this.c, this.d, this.e));
+                                pbPageRequestMessage.setObjParam1(String.valueOf(25));
+                                pbPageRequestMessage.setIsSubPostDataReverse(false);
+                                pbPageRequestMessage.setFromSmartFrs(0);
+                                if (!UtilHelper.isUgcThreadType(this.d)) {
+                                    pbPageRequestMessage.setForumId(String.valueOf(0));
+                                } else {
+                                    pbPageRequestMessage.setForumId(null);
+                                }
+                                pbPageRequestMessage.setNeedRepostRecommendForum(false);
+                                pbPageRequestMessage.setFrom_push(0);
+                                pbPageRequestMessage.setSourceType(1);
+                                pbPageRequestMessage.setOriUgcNid(this.b);
+                                pbPageRequestMessage.setOriUgcTid(this.c);
+                                pbPageRequestMessage.setOriUgcType(this.d);
+                                pbPageRequestMessage.setOriUgcVid(this.e);
+                                if (pbPageRequestMessage.getPn() != null) {
+                                    if (pbPageRequestMessage.getR().intValue() == 1) {
+                                        if (pbPageRequestMessage.getPn().intValue() == 1) {
+                                            pbPageRequestMessage.setAfterAdThreadCount(i4);
+                                            pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                                            pbPageRequestMessage.setReqFoldComment(false);
+                                            pbPageRequestMessage.setTag(z30.d);
+                                            pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                                            pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                                            pbPageRequestMessage.setFromPbOptimize(true);
+                                            int i5 = PbPageRequestMessage.requestTimes;
+                                            PbPageRequestMessage.requestTimes = i5 + 1;
+                                            pbPageRequestMessage.setRequestTimes(i5);
+                                            if (!UbsABTestHelper.isPbReplyOptimize()) {
+                                                pbPageRequestMessage.setLastPid(-1L);
+                                            }
+                                            z30.e(pbPageRequestMessage.getHttpMessage(), g);
+                                            return;
+                                        }
+                                    } else if (pbPageRequestMessage.getPn().intValue() == 1) {
+                                        pbPageRequestMessage.setAfterAdThreadCount(i4);
+                                        pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                                        pbPageRequestMessage.setReqFoldComment(false);
+                                        pbPageRequestMessage.setTag(z30.d);
+                                        pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                                        pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                                        pbPageRequestMessage.setFromPbOptimize(true);
+                                        int i52 = PbPageRequestMessage.requestTimes;
+                                        PbPageRequestMessage.requestTimes = i52 + 1;
+                                        pbPageRequestMessage.setRequestTimes(i52);
+                                        if (!UbsABTestHelper.isPbReplyOptimize()) {
+                                        }
+                                        z30.e(pbPageRequestMessage.getHttpMessage(), g);
+                                        return;
+                                    }
+                                }
+                                i4 = 0;
+                                pbPageRequestMessage.setAfterAdThreadCount(i4);
+                                pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                                pbPageRequestMessage.setReqFoldComment(false);
+                                pbPageRequestMessage.setTag(z30.d);
+                                pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                                pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                                pbPageRequestMessage.setFromPbOptimize(true);
+                                int i522 = PbPageRequestMessage.requestTimes;
+                                PbPageRequestMessage.requestTimes = i522 + 1;
+                                pbPageRequestMessage.setRequestTimes(i522);
+                                if (!UbsABTestHelper.isPbReplyOptimize()) {
+                                }
+                                z30.e(pbPageRequestMessage.getHttpMessage(), g);
+                                return;
+                            }
+                            z = true;
+                            if (!z) {
+                            }
+                            pbPageRequestMessage.setIsFromMark(Boolean.FALSE);
+                            pbPageRequestMessage.setCacheKey(f(this.a, false, i2, this.b, this.c, this.d, this.e));
+                            pbPageRequestMessage.setObjParam1(String.valueOf(25));
+                            pbPageRequestMessage.setIsSubPostDataReverse(false);
+                            pbPageRequestMessage.setFromSmartFrs(0);
+                            if (!UtilHelper.isUgcThreadType(this.d)) {
+                            }
+                            pbPageRequestMessage.setNeedRepostRecommendForum(false);
+                            pbPageRequestMessage.setFrom_push(0);
+                            pbPageRequestMessage.setSourceType(1);
+                            pbPageRequestMessage.setOriUgcNid(this.b);
+                            pbPageRequestMessage.setOriUgcTid(this.c);
+                            pbPageRequestMessage.setOriUgcType(this.d);
+                            pbPageRequestMessage.setOriUgcVid(this.e);
+                            if (pbPageRequestMessage.getPn() != null) {
+                            }
+                            i4 = 0;
+                            pbPageRequestMessage.setAfterAdThreadCount(i4);
+                            pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                            pbPageRequestMessage.setReqFoldComment(false);
+                            pbPageRequestMessage.setTag(z30.d);
+                            pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                            pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                            pbPageRequestMessage.setFromPbOptimize(true);
+                            int i5222 = PbPageRequestMessage.requestTimes;
+                            PbPageRequestMessage.requestTimes = i5222 + 1;
+                            pbPageRequestMessage.setRequestTimes(i5222);
+                            if (!UbsABTestHelper.isPbReplyOptimize()) {
+                            }
+                            z30.e(pbPageRequestMessage.getHttpMessage(), g);
+                            return;
+                        }
+                        return;
+                    }
+                    if (this.a != null) {
+                        pbPageRequestMessage.set_kz(JavaTypesHelper.toLong(this.a, 0L));
+                        pbPageRequestMessage.setFloorSortType(1);
+                        pbPageRequestMessage.setFloor_rn(4);
+                        pbPageRequestMessage.set_rn(15);
+                        pbPageRequestMessage.set_with_floor(1);
+                        pbPageRequestMessage.set_scr_w(Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
+                        pbPageRequestMessage.set_scr_h(Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
+                        pbPageRequestMessage.set_scr_dip(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
+                        if (!TbImageHelper.getInstance().isShowBigImage()) {
+                        }
+                        pbPageRequestMessage.set_q_type(Integer.valueOf(i3));
+                        pbPageRequestMessage.setSchemeUrl(str);
+                        pbPageRequestMessage.set_r(Integer.valueOf(i2));
+                        pbPageRequestMessage.setNeedIsTopAndIsGood(0);
+                        pbPageRequestMessage.set_banner(1);
+                        pbPageRequestMessage.set_back(0);
+                        if (i2 != 0) {
+                            z = false;
+                            if (!z) {
+                            }
+                            pbPageRequestMessage.setIsFromMark(Boolean.FALSE);
+                            pbPageRequestMessage.setCacheKey(f(this.a, false, i2, this.b, this.c, this.d, this.e));
+                            pbPageRequestMessage.setObjParam1(String.valueOf(25));
+                            pbPageRequestMessage.setIsSubPostDataReverse(false);
+                            pbPageRequestMessage.setFromSmartFrs(0);
+                            if (!UtilHelper.isUgcThreadType(this.d)) {
+                            }
+                            pbPageRequestMessage.setNeedRepostRecommendForum(false);
+                            pbPageRequestMessage.setFrom_push(0);
+                            pbPageRequestMessage.setSourceType(1);
+                            pbPageRequestMessage.setOriUgcNid(this.b);
+                            pbPageRequestMessage.setOriUgcTid(this.c);
+                            pbPageRequestMessage.setOriUgcType(this.d);
+                            pbPageRequestMessage.setOriUgcVid(this.e);
+                            if (pbPageRequestMessage.getPn() != null) {
+                            }
+                            i4 = 0;
+                            pbPageRequestMessage.setAfterAdThreadCount(i4);
+                            pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                            pbPageRequestMessage.setReqFoldComment(false);
+                            pbPageRequestMessage.setTag(z30.d);
+                            pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                            pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                            pbPageRequestMessage.setFromPbOptimize(true);
+                            int i52222 = PbPageRequestMessage.requestTimes;
+                            PbPageRequestMessage.requestTimes = i52222 + 1;
+                            pbPageRequestMessage.setRequestTimes(i52222);
+                            if (!UbsABTestHelper.isPbReplyOptimize()) {
+                            }
+                            z30.e(pbPageRequestMessage.getHttpMessage(), g);
+                            return;
+                        }
+                        z = true;
+                        if (!z) {
+                        }
+                        pbPageRequestMessage.setIsFromMark(Boolean.FALSE);
+                        pbPageRequestMessage.setCacheKey(f(this.a, false, i2, this.b, this.c, this.d, this.e));
+                        pbPageRequestMessage.setObjParam1(String.valueOf(25));
+                        pbPageRequestMessage.setIsSubPostDataReverse(false);
+                        pbPageRequestMessage.setFromSmartFrs(0);
+                        if (!UtilHelper.isUgcThreadType(this.d)) {
+                        }
+                        pbPageRequestMessage.setNeedRepostRecommendForum(false);
+                        pbPageRequestMessage.setFrom_push(0);
+                        pbPageRequestMessage.setSourceType(1);
+                        pbPageRequestMessage.setOriUgcNid(this.b);
+                        pbPageRequestMessage.setOriUgcTid(this.c);
+                        pbPageRequestMessage.setOriUgcType(this.d);
+                        pbPageRequestMessage.setOriUgcVid(this.e);
+                        if (pbPageRequestMessage.getPn() != null) {
+                        }
+                        i4 = 0;
+                        pbPageRequestMessage.setAfterAdThreadCount(i4);
+                        pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                        pbPageRequestMessage.setReqFoldComment(false);
+                        pbPageRequestMessage.setTag(z30.d);
+                        pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                        pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                        pbPageRequestMessage.setFromPbOptimize(true);
+                        int i522222 = PbPageRequestMessage.requestTimes;
+                        PbPageRequestMessage.requestTimes = i522222 + 1;
+                        pbPageRequestMessage.setRequestTimes(i522222);
+                        if (!UbsABTestHelper.isPbReplyOptimize()) {
+                        }
+                        z30.e(pbPageRequestMessage.getHttpMessage(), g);
+                        return;
+                    }
+                    return;
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return;
+                }
+                i = -1;
+                if (i < 0) {
+                }
+                i2 = i;
+                pbPageRequestMessage = new PbPageRequestMessage();
+                pbPageRequestMessage.setUpdateType(3);
+                pbPageRequestMessage.setIsReqAd(1);
+                pbPageRequestMessage.setLastids(qd5.l);
+            }
         }
     }
 }

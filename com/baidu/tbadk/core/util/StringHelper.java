@@ -1371,7 +1371,7 @@ public class StringHelper extends rd {
                 if (i != 2) {
                     return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f09de);
                 }
-                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1426);
+                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1427);
             }
             return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f09de);
         }

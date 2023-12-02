@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class va5 {
+public final class va5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public qf1<wa5> a;
+    public final tf1<wa5> a;
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            of1 b = of1.b();
+            rf1 b = rf1.b();
             this.a = b;
             b.a(new xa5());
         }
@@ -41,15 +41,16 @@ public class va5 {
         a();
     }
 
-    public void b(@NonNull JSONObject jSONObject) {
-        qf1<wa5> qf1Var;
+    public final void b(JSONObject json) {
+        List<wa5> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || (qf1Var = this.a) == null || ListUtils.isEmpty(qf1Var.getList())) {
-            return;
-        }
-        for (wa5 wa5Var : this.a.getList()) {
-            if (wa5Var != null) {
-                wa5Var.parseJson(jSONObject);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            tf1<wa5> tf1Var = this.a;
+            if (tf1Var != null && (list = tf1Var.getList()) != null) {
+                for (wa5 wa5Var : list) {
+                    wa5Var.parseJson(json);
+                }
             }
         }
     }

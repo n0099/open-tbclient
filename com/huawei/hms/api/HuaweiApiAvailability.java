@@ -8,7 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.icc;
+import com.baidu.tieba.hcc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,9 +64,9 @@ public abstract class HuaweiApiAvailability {
     public static int SERVICES_VERSION_CODE = 30000100;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract icc<Void> checkApiAccessible(HuaweiApi<?> huaweiApi, HuaweiApi<?>... huaweiApiArr);
+    public abstract hcc<Void> checkApiAccessible(HuaweiApi<?> huaweiApi, HuaweiApi<?>... huaweiApiArr);
 
-    public abstract icc<Void> checkApiAccessible(HuaweiApiCallable huaweiApiCallable, HuaweiApiCallable... huaweiApiCallableArr);
+    public abstract hcc<Void> checkApiAccessible(HuaweiApiCallable huaweiApiCallable, HuaweiApiCallable... huaweiApiCallableArr);
 
     public abstract PendingIntent getErrPendingIntent(Context context, int i, int i2);
 
@@ -78,7 +78,7 @@ public abstract class HuaweiApiAvailability {
 
     public abstract String getErrorString(int i);
 
-    public abstract icc<Void> getHuaweiServicesReady(Activity activity);
+    public abstract hcc<Void> getHuaweiServicesReady(Activity activity);
 
     public abstract Intent getResolveErrorIntent(Activity activity, int i);
 

@@ -12,12 +12,12 @@ import java.net.URISyntaxException;
 import java.net.URLDecoder;
 /* loaded from: classes9.dex */
 public final class d extends g {
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x006f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x006e, code lost:
         if (r4.versionCode < r6) goto L36;
      */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0045  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0074  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x007a  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0044  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0073  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0079  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -39,22 +39,22 @@ public final class d extends g {
         } else {
             try {
                 intent = Intent.parseUri(queryParameter2, 1);
-            } catch (URISyntaxException e) {
-                e = e;
-                intent = null;
-            }
-            try {
-                intent.addCategory("android.intent.category.BROWSABLE");
-                intent.setComponent(null);
-                intent.setSelector(null);
+                try {
+                    intent.addCategory("android.intent.category.BROWSABLE");
+                    intent.setComponent(null);
+                    intent.setSelector(null);
+                } catch (URISyntaxException e) {
+                    e = e;
+                    e.printStackTrace();
+                    if (intent != null) {
+                    }
+                    z = false;
+                    if (!z) {
+                    }
+                }
             } catch (URISyntaxException e2) {
                 e = e2;
-                e.printStackTrace();
-                if (intent != null) {
-                }
-                z = false;
-                if (!z) {
-                }
+                intent = null;
             }
         }
         if (intent != null) {

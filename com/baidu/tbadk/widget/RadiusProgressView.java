@@ -16,8 +16,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uua;
-import com.baidu.tieba.wya;
+import com.baidu.tieba.tua;
+import com.baidu.tieba.vya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -66,7 +66,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = uua.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = tua.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -107,7 +107,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = uua.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = tua.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -148,7 +148,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = uua.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = tua.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -167,7 +167,7 @@ public class RadiusProgressView extends View {
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wya.RadiusProgressView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vya.RadiusProgressView);
             this.b = obtainStyledAttributes.getDimensionPixelSize(2, this.b);
             this.c = obtainStyledAttributes.getInt(1, this.c);
             this.e = obtainStyledAttributes.getColor(4, this.e);

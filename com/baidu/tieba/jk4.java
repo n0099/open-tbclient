@@ -1,64 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.os.Process;
-import androidx.annotation.NonNull;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jk4 {
+public abstract class jk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (str != null) {
-                return context.checkPermission(str, Process.myPid(), Process.myUid());
-            }
-            throw new IllegalArgumentException("permission is null");
-        }
-        return invokeLL.intValue;
+    /* loaded from: classes6.dex */
+    public interface a<D> {
+        void a(pk4<D> pk4Var);
+
+        void b(pk4<D> pk4Var, D d);
+
+        pk4<D> onCreateLoader(int i, Bundle bundle);
     }
 
-    public static final int b(Context context, int i) {
-        InterceptResult invokeLI;
+    public jk4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return lk4.a(context, i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return context.getResources().getColor(i);
         }
-        return invokeLI.intValue;
-    }
-
-    public static final ColorStateList c(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return lk4.b(context, i);
-            }
-            return context.getResources().getColorStateList(i);
-        }
-        return (ColorStateList) invokeLI.objValue;
-    }
-
-    public static final Drawable d(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return kk4.a(context, i);
-            }
-            return context.getResources().getDrawable(i);
-        }
-        return (Drawable) invokeLI.objValue;
     }
 }

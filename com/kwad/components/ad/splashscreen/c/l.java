@@ -146,15 +146,15 @@ public final class l extends i implements View.OnClickListener, com.kwad.compone
     @Override // com.kwad.components.ad.splashscreen.c.i
     public final void initView() {
         this.mStartTime = SystemClock.elapsedRealtime();
-        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091491);
+        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091492);
         if (viewStub != null) {
             this.Dv = viewStub.inflate();
         } else {
-            this.Dv = findViewById(R.id.obfuscated_res_0x7f091492);
+            this.Dv = findViewById(R.id.obfuscated_res_0x7f091493);
         }
-        this.Dx = (TextView) findViewById(R.id.obfuscated_res_0x7f091493);
-        this.Dy = (TextView) findViewById(R.id.obfuscated_res_0x7f091490);
-        KsRotateView ksRotateView = (KsRotateView) findViewById(R.id.obfuscated_res_0x7f091494);
+        this.Dx = (TextView) findViewById(R.id.obfuscated_res_0x7f091494);
+        this.Dy = (TextView) findViewById(R.id.obfuscated_res_0x7f091491);
+        KsRotateView ksRotateView = (KsRotateView) findViewById(R.id.obfuscated_res_0x7f091495);
         this.Dw = ksRotateView;
         ksRotateView.setOnClickListener(this);
     }

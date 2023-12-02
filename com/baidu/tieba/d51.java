@@ -1,107 +1,42 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
+import android.os.Build;
+import android.webkit.CookieSyncManager;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.activity.NadWebViewActivity;
-import com.baidu.nadcore.webview.activity.NadWebViewActivityStandard;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.i61;
+import com.baidu.nadcore.webview.NadNativeBrowserView;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.c51;
+import com.baidu.tieba.k61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-@Service
 /* loaded from: classes5.dex */
-public final class d51 extends te0 {
+public final class d51 implements c51.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    @Override // com.baidu.tieba.te0
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.c51.a
+    public void a(Context context, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "easybrowse" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+        }
     }
 
-    @Override // com.baidu.tieba.te0
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.c51.a
+    public boolean b(HashMap<String, String> hashMap, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interceptorEasybrowse" : (String) invokeV.objValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, i)) == null) {
             return true;
         }
-        return invokeV.booleanValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a implements i61.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d51 a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ HashMap c;
-        public final /* synthetic */ ze0 d;
-        public final /* synthetic */ ve0 e;
-
-        public a(d51 d51Var, Context context, HashMap hashMap, ze0 ze0Var, ve0 ve0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d51Var, context, hashMap, ze0Var, ve0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d51Var;
-            this.b = context;
-            this.c = hashMap;
-            this.d = ze0Var;
-            this.e = ve0Var;
-        }
-
-        @Override // com.baidu.tieba.i61.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = 0;
-                boolean i2 = this.a.i(this.b, this.c, false);
-                String str = this.a.a;
-                n61.a(str, "调起SDK落地页, 结果 " + i2);
-                d51 d51Var = this.a;
-                ze0 ze0Var = this.d;
-                ve0 ve0Var = this.e;
-                if (!i2) {
-                    i = 1001;
-                }
-                d51Var.c(ze0Var, ve0Var, i, i2);
-            }
-        }
-
-        @Override // com.baidu.tieba.i61.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                n61.c(this.b, "初始化失败，降级为原生打开");
-            }
-        }
+        return invokeLI.booleanValue;
     }
 
     public d51() {
@@ -114,101 +49,37 @@ public final class d51 extends te0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "EasyBrowseInterceptor";
     }
 
-    @Override // com.baidu.tieba.te0
-    public boolean d(Context context, ve0 schemeModel, Map<String, Object> map, ze0 ze0Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.c51.a
+    public AbsNadBrowserView c(Context context, m61 m61Var, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, schemeModel, map, ze0Var)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, m61Var, i)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
-            int i = 0;
-            if (!j()) {
-                n61.c(context, "未命中新架构");
-                return false;
-            }
-            HashMap<String, String> d = schemeModel.d();
-            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
-            cz0.b((String) ny0.b(d, "charge_url"));
-            int b = e51.b(context.getApplicationContext(), new a(this, context, d, ze0Var, schemeModel));
-            if (b == 0) {
-                c(ze0Var, schemeModel, 1001, false);
-                n61.d(new IllegalStateException("web app init failed, state=" + b));
-                return false;
-            } else if (2 != b && 1 != b) {
-                if (4 == b) {
-                    n61.c(context, "初始化失败，降级为原生打开");
-                    h(context, schemeModel, ze0Var);
-                    return true;
-                } else if (5 == b) {
-                    n61.c(context, "低版本不支持t7，降级为原生打开");
-                    h(context, schemeModel, ze0Var);
-                    return true;
-                } else {
-                    boolean i2 = i(context, d, false);
-                    String str = this.a;
-                    n61.a(str, "调起SDK落地页, 结果 " + i2);
-                    if (!i2) {
-                        i = 1001;
-                    }
-                    c(ze0Var, schemeModel, i, i2);
-                    return true;
+            p61.c(context, "创建native内核browserView");
+            return new NadNativeBrowserView(context);
+        }
+        return (AbsNadBrowserView) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.c51.a
+    public void d(Context context, boolean z, int i, k61.b listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i), listener}) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            try {
+                if (Build.VERSION.SDK_INT >= 28) {
+                    WebView.setDataDirectorySuffix(p11.a());
                 }
-            } else {
-                n61.c(context, "正在初始化，降级为原生打开");
-                h(context, schemeModel, ze0Var);
-                return true;
+                CookieSyncManager.createInstance(context);
+                listener.a();
+            } catch (Exception e) {
+                listener.b();
+                p61.d(e);
             }
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void h(Context context, ve0 ve0Var, ze0 ze0Var) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, ve0Var, ze0Var) == null) {
-            HashMap<String, String> d = ve0Var.d();
-            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
-            d.put("downgrade_to_native", "1");
-            boolean i2 = i(context, ve0Var.d(), true);
-            if (i2) {
-                i = 0;
-            } else {
-                i = 1001;
-            }
-            c(ze0Var, ve0Var, i, i2);
-        }
-    }
-
-    public final boolean i(Context context, HashMap<String, String> hashMap, boolean z) {
-        InterceptResult invokeLLZ;
-        String str;
-        Class cls;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, context, hashMap, z)) == null) {
-            if (!z && !a51.a().b(hashMap, a51.b())) {
-                n61.a(this.a, "调起SDK落地页, Activity 调起失败, 内核未成功初始化");
-                return false;
-            }
-            if (hashMap != null) {
-                str = hashMap.remove("newbrowser");
-            } else {
-                str = null;
-            }
-            if (Intrinsics.areEqual("1", str)) {
-                cls = NadWebViewActivityStandard.class;
-            } else {
-                cls = NadWebViewActivity.class;
-            }
-            Intent intent = new Intent(context, cls);
-            intent.putExtra("map", hashMap);
-            return m11.d(context, intent);
-        }
-        return invokeLLZ.booleanValue;
     }
 }

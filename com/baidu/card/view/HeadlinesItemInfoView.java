@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz4;
+import com.baidu.tieba.ez4;
 import com.baidu.tieba.view.HeadlinesItemCountDownView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -110,15 +110,15 @@ public class HeadlinesItemInfoView extends FrameLayout {
         }
     }
 
-    public void b(bz4 bz4Var) {
+    public void b(ez4 ez4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bz4Var) != null) || bz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ez4Var) != null) || ez4Var == null) {
             return;
         }
-        this.b.startLoad(bz4Var.f(), 10, false);
-        this.c.setText(bz4Var.l());
-        this.e.setText(bz4Var.b());
-        this.d.setData(JavaTypesHelper.toLong(bz4Var.d(), 0L), bz4Var.c(), bz4Var.k());
+        this.b.startLoad(ez4Var.f(), 10, false);
+        this.c.setText(ez4Var.l());
+        this.e.setText(ez4Var.b());
+        this.d.setData(JavaTypesHelper.toLong(ez4Var.d(), 0L), ez4Var.c(), ez4Var.k());
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 

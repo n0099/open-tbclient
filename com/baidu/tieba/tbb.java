@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,8 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
@@ -20,7 +17,7 @@ public final class tbb implements pi {
     @JvmField
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<nbb> a;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
@@ -53,16 +50,16 @@ public final class tbb implements pi {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = "";
     }
 
-    public final List<nbb> a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.pi
@@ -75,29 +72,11 @@ public final class tbb implements pi {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void b(mbb mbbVar, int i, String fid, String fname) {
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mbbVar, i, fid, fname) == null) {
-            Intrinsics.checkNotNullParameter(fid, "fid");
-            Intrinsics.checkNotNullParameter(fname, "fname");
-            if (mbbVar == null) {
-                return;
-            }
-            this.a.clear();
-            if (!ListUtils.isEmpty(mbbVar.l())) {
-                List<nbb> list = this.a;
-                ArrayList<nbb> l = mbbVar.l();
-                Intrinsics.checkNotNull(l);
-                list.addAll(l);
-                for (nbb nbbVar : this.a) {
-                    nbbVar.v(i);
-                    nbbVar.t(fid);
-                    nbbVar.u(fname);
-                    Integer g = mbbVar.g();
-                    Intrinsics.checkNotNull(g);
-                    nbbVar.z(g.intValue());
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.a = str;
         }
     }
 }

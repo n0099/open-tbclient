@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ps extends os<cw4> {
+public class ps extends os<fw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BjhArticleLayout f;
-    public cw4 g;
+    public fw4 g;
     public View.OnClickListener h;
 
     /* loaded from: classes7.dex */
@@ -86,8 +86,8 @@ public class ps extends os<cw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    tl6.a(this.a.g.getThreadData().getId());
-                    tl6.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
+                    xl6.a(this.a.g.getThreadData().getId());
+                    xl6.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -120,22 +120,22 @@ public class ps extends os<cw4> {
     }
 
     @Override // com.baidu.tieba.os
-    public void n(im6<cw4> im6Var) {
+    public void n(mm6<fw4> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, im6Var) == null) {
-            super.n(im6Var);
-            this.f.setSubClickListener(im6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mm6Var) == null) {
+            super.n(mm6Var);
+            this.f.setSubClickListener(mm6Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: x */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cw4Var) == null) {
-            this.g = cw4Var;
-            this.f.onBindDataToView(cw4Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, fw4Var) == null) {
+            this.g = fw4Var;
+            this.f.onBindDataToView(fw4Var);
         }
     }
 
@@ -170,26 +170,26 @@ public class ps extends os<cw4> {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, piVar) == null) {
-            cw4 cw4Var = this.g;
-            if ((!(cw4Var instanceof tm6) && !(cw4Var instanceof ThreadData)) || !(view2.getTag() instanceof ThreadCardViewHolder)) {
+            fw4 fw4Var = this.g;
+            if ((!(fw4Var instanceof xm6) && !(fw4Var instanceof ThreadData)) || !(view2.getTag() instanceof ThreadCardViewHolder)) {
                 return;
             }
             ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-            if (piVar instanceof tm6) {
-                tm6 tm6Var = (tm6) this.g;
-                tm6Var.f = 1;
+            if (piVar instanceof xm6) {
+                xm6 xm6Var = (xm6) this.g;
+                xm6Var.f = 1;
                 Context context = view2.getContext();
-                if (tm6Var.a.isFromHomPage) {
+                if (xm6Var.a.isFromHomPage) {
                     i = 2;
                 } else {
                     i = 1;
                 }
-                ThreadCardUtils.jumpToPB((cw4) tm6Var, context, i, false);
+                ThreadCardUtils.jumpToPB((fw4) xm6Var, context, i, false);
                 threadCardViewHolder.a().q(new nu.a(1));
             } else if (piVar instanceof ThreadData) {
                 ThreadData threadData = (ThreadData) this.g;
                 threadData.objType = 1;
-                ThreadCardUtils.jumpToPB((cw4) threadData, view2.getContext(), 3, false);
+                ThreadCardUtils.jumpToPB((fw4) threadData, view2.getContext(), 3, false);
                 threadCardViewHolder.a().q(new nu.a(1));
             }
         }

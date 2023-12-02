@@ -1,30 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public final class fla extends kla implements rb7 {
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes5.dex */
+public abstract class fla implements yb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.rb7
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TiebaStatic.Params.OBJ_FLOOR : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ub7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c11824" : (String) invokeV.objValue;
-    }
 
     public fla() {
         Interceptable interceptable = $ic;
@@ -38,5 +28,85 @@ public final class fla extends kla implements rb7 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.yb7
+    public Map<String, String> a(v57 businessInfo) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("page_type", "a002");
+            String str3 = a.get("thread_id");
+            String str4 = "";
+            if (str3 == null) {
+                str3 = "";
+            }
+            hashMap.put("obj_id", str3);
+            String str5 = a.get("recom_source");
+            if (str5 == null) {
+                str5 = "";
+            }
+            hashMap.put("list_strategy", str5);
+            a85 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+            boolean z2 = false;
+            if (adAdSense != null && (str2 = adAdSense.k) != null) {
+                if (str2.length() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    hashMap.put("ab_tag", str2);
+                }
+            }
+            CharSequence charSequence = (CharSequence) hashMap.get("ab_tag");
+            if ((charSequence == null || charSequence.length() == 0) ? true : true) {
+                String str6 = a.get("abtest_tag");
+                if (str6 == null) {
+                    str6 = "";
+                }
+                hashMap.put("ab_tag", str6);
+            }
+            String str7 = a.get("is_video_work");
+            String str8 = "0";
+            if (str7 == null) {
+                str7 = "0";
+            }
+            hashMap.put(TiebaStatic.Params.IS_ZP, str7);
+            String str9 = a.get(TiebaStatic.Params.GUA_TYPE);
+            if (str9 == null) {
+                str9 = "0";
+            }
+            hashMap.put(TiebaStatic.Params.GUA_TYPE, str9);
+            String str10 = a.get(TiebaStatic.Params.IS_SPECIAL_THREAD);
+            if (str10 == null) {
+                str10 = "0";
+            }
+            hashMap.put(TiebaStatic.Params.IS_SPECIAL_THREAD, str10);
+            String str11 = a.get(TiebaStatic.Params.RECOM_TYPE);
+            if (str11 != null) {
+                str4 = str11;
+            }
+            hashMap.put(TiebaStatic.Params.RECOM_TYPE, str4);
+            if (!PermissionUtil.isBrowseMode()) {
+                str = "0";
+            } else {
+                str = "1";
+            }
+            hashMap.put(TiebaStatic.Params.PURE_BROWSING, str);
+            String str12 = a.get("has_forum_head_pendants");
+            if (str12 != null) {
+                str8 = str12;
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str8);
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

@@ -14,8 +14,8 @@ import com.baidu.tieba.interestlabel.message.RequestGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.RequestSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpSubLabelMessage;
-import com.baidu.tieba.je9;
-import com.baidu.tieba.ke9;
+import com.baidu.tieba.ne9;
+import com.baidu.tieba.oe9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,8 +27,8 @@ public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public ke9 b;
-    public je9 c;
+    public oe9 b;
+    public ne9 c;
     public NetMessageListener d;
     public NetMessageListener e;
 
@@ -72,17 +72,17 @@ public class LabelSettingModel extends BdBaseModel {
 
         @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            je9 je9Var;
+            ne9 ne9Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null && (responsedMessage instanceof ResponseHttpGetLabelMessage) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag() && this.a.b != null) {
-                ke9 ke9Var = this.a.b;
+                oe9 oe9Var = this.a.b;
                 LabelRequestEnum labelRequestEnum = LabelRequestEnum.GET_LABEL;
                 if (responsedMessage.getError() == 0) {
-                    je9Var = this.a.c;
+                    ne9Var = this.a.c;
                 } else {
-                    je9Var = null;
+                    ne9Var = null;
                 }
-                ke9Var.a(labelRequestEnum, je9Var, responsedMessage.getError());
+                oe9Var.a(labelRequestEnum, ne9Var, responsedMessage.getError());
             }
         }
     }
@@ -152,7 +152,7 @@ public class LabelSettingModel extends BdBaseModel {
         this.d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
         this.e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
         this.a = tbPageContext;
-        this.c = new je9();
+        this.c = new ne9();
         registerListener(this.d);
         registerListener(this.e);
     }
@@ -161,7 +161,7 @@ public class LabelSettingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0e6f);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0e70);
                 return;
             }
             RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();
@@ -171,10 +171,10 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void V(ke9 ke9Var) {
+    public void V(oe9 oe9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ke9Var) == null) {
-            this.b = ke9Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oe9Var) == null) {
+            this.b = oe9Var;
         }
     }
 
@@ -182,9 +182,9 @@ public class LabelSettingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                ke9 ke9Var = this.b;
-                if (ke9Var != null) {
-                    ke9Var.a(LabelRequestEnum.GET_LABEL, null, -1);
+                oe9 oe9Var = this.b;
+                if (oe9Var != null) {
+                    oe9Var.a(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
                 }
                 return;

@@ -16,8 +16,8 @@ import kotlin.jvm.internal.Intrinsics;
 public final class gt extends vs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cw4 h;
-    public im6<cw4> i;
+    public fw4 h;
+    public mm6<fw4> i;
     public CustomFitFrameCard j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -42,11 +42,11 @@ public final class gt extends vs {
         u(UtilHelper.getDimenPixelSize(R.dimen.tbds17));
     }
 
-    public final boolean y(cw4 cw4Var) {
+    public final boolean y(fw4 fw4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cw4Var)) == null) {
-            if (cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().getTaskInfoData() != null && cw4Var.getThreadData().getTaskInfoData().f() != null && cw4Var.getThreadData().getTaskInfoData().j() == 4) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fw4Var)) == null) {
+            if (fw4Var != null && fw4Var.getThreadData() != null && fw4Var.getThreadData().getTaskInfoData() != null && fw4Var.getThreadData().getTaskInfoData().f() != null && fw4Var.getThreadData().getTaskInfoData().j() == 4) {
                 return true;
             }
             return false;
@@ -57,14 +57,14 @@ public final class gt extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: z */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cw4Var) == null) {
-            this.h = cw4Var;
-            if (y(cw4Var)) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, fw4Var) == null) {
+            this.h = fw4Var;
+            if (y(fw4Var)) {
                 CustomFitFrameCard customFitFrameCard = this.j;
                 if (customFitFrameCard != null) {
-                    customFitFrameCard.setData(cw4Var);
+                    customFitFrameCard.setData(fw4Var);
                 }
                 CustomFitFrameCard customFitFrameCard2 = this.j;
                 if (customFitFrameCard2 != null) {
@@ -84,9 +84,9 @@ public final class gt extends vs {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            im6<cw4> im6Var = this$0.i;
-            if (im6Var != null) {
-                im6Var.a(view2, this$0.h);
+            mm6<fw4> mm6Var = this$0.i;
+            if (mm6Var != null) {
+                mm6Var.a(view2, this$0.h);
             }
         }
     }
@@ -130,10 +130,10 @@ public final class gt extends vs {
     }
 
     @Override // com.baidu.tieba.os
-    public void n(im6<cw4> im6Var) {
+    public void n(mm6<fw4> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, im6Var) == null) {
-            this.i = im6Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mm6Var) == null) {
+            this.i = mm6Var;
         }
     }
 }

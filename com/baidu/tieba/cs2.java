@@ -1,29 +1,27 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cs2 implements yr2 {
+public class cs2 implements bs2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final al3<f52> a;
-    public static final al3<f52> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements al3<f52> {
+    public class a implements tq3<ts1> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
+        public a(cs2 cs2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cs2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -35,25 +33,27 @@ public class cs2 implements yr2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.al3
-        /* renamed from: b */
-        public void a(f52 f52Var) {
+        @Override // com.baidu.tieba.tq3
+        /* renamed from: a */
+        public void run(@NonNull ts1 ts1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f52Var) == null) {
-                f52Var.suspendTimer();
+            if (interceptable == null || interceptable.invokeL(1048576, this, ts1Var) == null) {
+                ts1Var.L();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements al3<f52> {
+    public class b implements tq3<ts1> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public b() {
+        public b(cs2 cs2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cs2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -65,69 +65,54 @@ public class cs2 implements yr2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.al3
-        /* renamed from: b */
-        public void a(f52 f52Var) {
+        @Override // com.baidu.tieba.tq3
+        /* renamed from: a */
+        public void run(@NonNull ts1 ts1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f52Var) == null) {
-                f52Var.continueTimer();
+            if (interceptable == null || interceptable.invokeL(1048576, this, ts1Var) == null) {
+                ts1Var.p();
             }
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685255, "Lcom/baidu/tieba/cs2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947685255, "Lcom/baidu/tieba/cs2;");
-                return;
-            }
-        }
-        a = new a();
-        b = new b();
     }
 
     public cs2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.yr2
+    @Override // com.baidu.tieba.bs2
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(a);
+            a(new a(this));
         }
     }
 
-    @Override // com.baidu.tieba.yr2
+    @Override // com.baidu.tieba.bs2
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(b);
+            a(new b(this));
         }
     }
 
-    public void a(al3<f52> al3Var) {
-        d82 X;
-        f52 e;
+    public final void a(@NonNull tq3<ts1> tq3Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, al3Var) == null) && (X = bd2.V().X()) != null && (e = X.e()) != null && e.isWebView()) {
-            al3Var.a(e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, tq3Var) == null) {
+            for (ts1 ts1Var : ed2.V().W().values()) {
+                if (ts1Var != null) {
+                    tq3Var.run(ts1Var);
+                }
+            }
         }
     }
 }

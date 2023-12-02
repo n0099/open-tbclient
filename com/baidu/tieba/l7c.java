@@ -1,12 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.GuardedBy;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,26 +13,67 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.http.GetRequest;
-import com.fun.ad.sdk.internal.api.http.RequestParams;
-import com.fun.ad.sdk.internal.api.http.Response;
-import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
+import com.fun.ad.sdk.CacheStatistic;
+import com.fun.ad.sdk.FunAdFactory;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdLoadListener;
+import com.fun.ad.sdk.FunAdLoader;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.ReadyCacheStatistic;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.io.IOException;
-import java.util.Calendar;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
-import java.util.Random;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class l7c {
+public final class l7c implements FunAdFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static final s7c a;
+    public static final /* synthetic */ boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, LinkedHashMap<x1c, FunAdLoader>> a;
+    public final Object b;
+    @GuardedBy("mInitializeLock")
+    public final LinkedList<a> c;
+    @GuardedBy("mInitializeLock")
+    public int d;
+    @GuardedBy("mInitializeLock")
+    public q7c e;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Context a;
+        public final FunAdSlot b;
+        public final FunAdLoadListener c;
+
+        public a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, funAdSlot, funAdLoadListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = funAdSlot;
+            this.c = funAdLoadListener;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -48,249 +88,249 @@ public class l7c {
                 return;
             }
         }
-        a = new s7c();
-        HandlerThread handlerThread = new HandlerThread("pull_pid_cpm");
-        handlerThread.start();
-        new a(handlerThread.getLooper());
+        f = !l7c.class.desiredAssertionStatus();
     }
 
-    /* loaded from: classes7.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:53:0x011d  */
-        /* JADX WARN: Removed duplicated region for block: B:61:0x014c  */
-        @Override // android.os.Handler
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void handleMessage(@NonNull Message message) {
-            boolean z;
-            long j;
-            double d;
-            int i;
-            Response perform;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i2 = message.what;
-                long j2 = 0;
-                boolean z2 = false;
-                if (i2 != 100) {
-                    if (i2 == 101) {
-                        s7c s7cVar = l7c.a;
-                        synchronized (s7cVar) {
-                            LogPrinter.d("new dey", new Object[0]);
-                            double a = z1c.a();
-                            z1c.b.clear().apply();
-                            s7cVar.a.clear();
-                            if (a > 0.0d) {
-                                x1c.d(x1c.n() + a);
-                            }
-                        }
-                        Calendar calendar = Calendar.getInstance();
-                        long timeInMillis = calendar.getTimeInMillis();
-                        calendar.add(6, 1);
-                        calendar.set(11, 0);
-                        calendar.set(12, 0);
-                        calendar.set(13, 0);
-                        long timeInMillis2 = calendar.getTimeInMillis() - timeInMillis;
-                        if (timeInMillis2 >= 0) {
-                            j2 = timeInMillis2;
-                        }
-                        sendEmptyMessageDelayed(101, j2);
-                        return;
-                    }
-                    return;
-                }
-                HashMap hashMap = new HashMap();
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    HostAppInfo.fillReqParams(jSONObject);
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        hashMap.put(next, jSONObject.get(next));
-                    }
-                } catch (JSONException unused) {
-                }
-                try {
-                    perform = new GetRequest("https://cd.xdplt.com/v2/pr", new RequestParams(hashMap)).perform();
-                } catch (IOException | JSONException e) {
-                    LogPrinter.d("cpm exception:" + e, new Object[0]);
-                    LogPrinter.e(e);
-                }
-                if (perform != null && perform.getResponseCode() == 200) {
-                    JSONObject jSONObject2 = new JSONObject(perform.getContent());
-                    if (jSONObject2.getInt("ret") == 200) {
-                        z1c.a.edit().putLong("key_cpm_update_date", Calendar.getInstance().getTimeInMillis()).putString("key_ad_cpmcfg", jSONObject2.getJSONObject("data").getJSONArray("cpm").toString()).apply();
-                        z = true;
-                        if (!z) {
-                        }
-                    } else {
-                        z = false;
-                        if (!z) {
-                            int i3 = message.arg1;
-                            LogPrinter.d("ad cpm config pull times = %1s", Integer.valueOf(i3));
-                            if (i3 == 0) {
-                                i = 10;
-                            } else if (i3 <= 2) {
-                                i = i3 * 5 * 60;
-                            } else {
-                                i = 3600;
-                            }
-                            Message obtainMessage = obtainMessage(100);
-                            obtainMessage.arg1 = i3 + 1;
-                            sendMessageDelayed(obtainMessage, i * 1000);
-                            return;
-                        }
-                        s7c s7cVar2 = l7c.a;
-                        synchronized (s7cVar2) {
-                            s7cVar2.a.clear();
-                            try {
-                                JSONArray jSONArray = new JSONArray(z1c.a.getString("key_ad_cpmcfg", ""));
-                                if (jSONArray.length() >= 1) {
-                                    double n = x1c.n();
-                                    double a2 = z1c.a();
-                                    HashMap hashMap2 = new HashMap();
-                                    boolean z3 = false;
-                                    for (int i4 = 0; i4 < jSONArray.length(); i4++) {
-                                        JSONObject jSONObject3 = jSONArray.getJSONObject(i4);
-                                        String string = jSONObject3.getString("aid");
-                                        double d2 = jSONObject3.getDouble("cpm");
-                                        LogPrinter.d("update Cpm:" + string, new Object[0]);
-                                        hashMap2.put(string, Double.valueOf(d2));
-                                        int i5 = z1c.a.getInt(string, 0);
-                                        LogPrinter.d("need adjust aid count:" + i5, new Object[0]);
-                                        if (i5 != 0) {
-                                            a2 -= z1c.b(string);
-                                            n += i5 * d2;
-                                            z1c.b.remove(string).remove(string + "_");
-                                            z3 = true;
-                                        }
-                                    }
-                                    s7cVar2.a.putAll(hashMap2);
-                                    if (z3) {
-                                        LogPrinter.d("update totalPrice&totalPriceByBasePrice", new Object[0]);
-                                        if (a2 < 0.0d) {
-                                            d = 0.0d;
-                                        } else {
-                                            d = a2;
-                                        }
-                                        SharedPreferences.Editor editor = z1c.b;
-                                        editor.putLong("key_price_by_baseprice", Double.doubleToRawLongBits(d));
-                                        editor.apply();
-                                        x1c.d(n);
-                                    }
-                                }
-                            } catch (JSONException unused2) {
-                                s7cVar2.a.clear();
-                            }
-                        }
-                        Calendar calendar2 = Calendar.getInstance();
-                        Random random = new Random();
-                        long timeInMillis3 = calendar2.getTimeInMillis();
-                        int nextInt = random.nextInt(30);
-                        calendar2.set(11, 1);
-                        calendar2.set(12, nextInt);
-                        Calendar calendar3 = Calendar.getInstance();
-                        int i6 = calendar3.get(6);
-                        int i7 = calendar3.get(1);
-                        calendar3.setTimeInMillis(z1c.a.getLong("key_cpm_update_date", 0L));
-                        int i8 = calendar3.get(6);
-                        if (i7 == calendar3.get(1) && i6 == i8) {
-                            z2 = true;
-                        }
-                        if (z2) {
-                            calendar2.add(6, 1);
-                        }
-                        long timeInMillis4 = calendar2.getTimeInMillis() - timeInMillis3;
-                        if (timeInMillis4 < 0) {
-                            j = 0;
-                        } else {
-                            j = timeInMillis4;
-                        }
-                        sendEmptyMessageDelayed(100, j);
-                        return;
-                    }
-                }
-                LogPrinter.d("cpm fail:", new Object[0]);
-                z = false;
-                if (!z) {
-                }
-            }
-        }
-    }
-
-    public static double a(String str) {
-        InterceptResult invokeL;
-        double d;
-        h1c h1cVar;
+    public l7c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Double d2 = a.a.get(str);
-            if (d2 != null) {
-                d = d2.doubleValue();
-            } else {
-                d = -2.0d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (d == -2.0d) {
-                Map<String, Double> map = p1c.a;
-                Double d3 = null;
-                if (!TextUtils.isEmpty(str)) {
-                    Map<String, Double> map2 = p1c.a;
-                    Double d4 = map2.get(str);
-                    if (d4 == null) {
-                        map2.clear();
-                        a2c a2cVar = p1c.f;
-                        synchronized (a2cVar) {
-                            h1cVar = a2cVar.a;
-                        }
-                        if (h1cVar == null) {
-                            LogPrinter.d("No adConfig found now.", new Object[0]);
-                        } else {
-                            HashMap hashMap = new HashMap();
-                            for (Ssp ssp : h1cVar.a) {
-                                for (Ssp.Pid pid : ssp.pids) {
-                                    hashMap.put(pid.pid, Double.valueOf(pid.basePrice));
-                                    if (pid.pid.equals(str)) {
-                                        d4 = Double.valueOf(pid.basePrice);
-                                    }
-                                }
-                            }
-                            p1c.a.putAll(hashMap);
-                            LogPrinter.d("No target basePrice found for pid:%s", str);
-                        }
-                    }
-                    d3 = d4;
-                }
-                if (d3 == null) {
-                    return -1.0d;
-                }
-                return d3.doubleValue() / 1000.0d;
-            }
-            return d;
         }
-        return invokeL.doubleValue;
+        this.a = new HashMap();
+        this.b = new Object();
+        this.c = new LinkedList<>();
+        this.d = 0;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void destroyAd(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            synchronized (this.b) {
+                this.c.clear();
+            }
+            synchronized (this.a) {
+                x1c b = o1c.b(str);
+                if (b == null) {
+                    LogPrinter.e("No SlotId found for sid:%s when destroyAd", str);
+                    return;
+                }
+                LinkedHashMap<x1c, FunAdLoader> linkedHashMap = this.a.get(str);
+                if (linkedHashMap == null) {
+                    LogPrinter.e("No slotIdLoaderMap found for sid:%s when destroyAd", str);
+                    return;
+                }
+                HashSet hashSet = new HashSet();
+                for (Map.Entry<x1c, FunAdLoader> entry : linkedHashMap.entrySet()) {
+                    x1c key = entry.getKey();
+                    entry.getValue().destroy();
+                    if (!b.equals(key)) {
+                        LogPrinter.d("Remove redundant loader for sid:%s", str);
+                        hashSet.add(key);
+                    }
+                }
+                Iterator it = hashSet.iterator();
+                while (it.hasNext()) {
+                    linkedHashMap.remove((x1c) it.next());
+                }
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public List<CacheStatistic> getCacheStatistics(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 != null) {
+                for (FunAdLoader funAdLoader : a2) {
+                    List<CacheStatistic> cacheStatistics = funAdLoader.getCacheStatistics(str);
+                    if (!cacheStatistics.isEmpty()) {
+                        return cacheStatistics;
+                    }
+                }
+            }
+            return new ArrayList();
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public FunNativeAd2 getNativeAd2(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                return null;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                FunNativeAd2 nativeAd2 = funAdLoader.getNativeAd2(context);
+                if (nativeAd2 != null) {
+                    return nativeAd2;
+                }
+            }
+            return null;
+        }
+        return (FunNativeAd2) invokeLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public ReadyCacheStatistic getReadyCacheStatistic(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 != null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                for (FunAdLoader funAdLoader : a2) {
+                    ReadyCacheStatistic cacheStatistic = funAdLoader.getCacheStatistic(str);
+                    if (cacheStatistic != null) {
+                        return cacheStatistic;
+                    }
+                }
+                return null;
+            }
+            return null;
+        }
+        return (ReadyCacheStatistic) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public boolean isAdReady(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                return false;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                if (funAdLoader.isReady()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void loadAd(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, context, funAdSlot, funAdLoadListener) == null) {
+            synchronized (this.b) {
+                i = this.d;
+            }
+            if (i == -1) {
+                LogPrinter.e("loadAd err because of AdSdks initialized failed", new Object[0]);
+                funAdLoadListener.onError(funAdSlot.getSid());
+            } else if (i == 0) {
+                synchronized (this.b) {
+                    this.c.add(new a(context, funAdSlot, funAdLoadListener));
+                }
+            } else if (i != 1) {
+                throw new RuntimeException("Unknown st:" + i);
+            } else {
+                List<FunAdLoader> a2 = a(funAdSlot.getSid());
+                if (a2 == null) {
+                    LogPrinter.d("No Loader found for sid:%s", funAdSlot.getSid());
+                    funAdLoadListener.onError(funAdSlot.getSid());
+                    return;
+                }
+                Iterator<FunAdLoader> it = a2.iterator();
+                FunAdLoader next = it.next();
+                while (it.hasNext()) {
+                    it.next().recycleListener();
+                }
+                next.load(context, funAdSlot, funAdLoadListener);
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void showAd(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048583, this, activity, viewGroup, str, funAdInteractionListener) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                funAdInteractionListener.onAdError(str);
+                return;
+            }
+            Iterator<FunAdLoader> it = a2.iterator();
+            while (it.hasNext()) {
+                FunAdLoader next = it.next();
+                if (!it.hasNext()) {
+                    next.show(activity, viewGroup, str, funAdInteractionListener);
+                    return;
+                } else if (next.isReady()) {
+                    next.show(activity, viewGroup, str, funAdInteractionListener);
+                    return;
+                }
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewGroup, str, funAdInteractionListener)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                funAdInteractionListener.onAdError(str);
+                return null;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                FunSplashAd showSplash = funAdLoader.showSplash(activity, viewGroup, str, funAdInteractionListener);
+                if (showSplash != null) {
+                    return showSplash;
+                }
+            }
+            return null;
+        }
+        return (FunSplashAd) invokeLLLL.objValue;
+    }
+
+    public final List<FunAdLoader> a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this.a) {
+                if (this.e == null) {
+                    return null;
+                }
+                x1c b = o1c.b(str);
+                if (b == null) {
+                    return null;
+                }
+                LinkedHashMap<x1c, FunAdLoader> linkedHashMap = this.a.get(str);
+                if (linkedHashMap == null) {
+                    linkedHashMap = new LinkedHashMap<>();
+                    this.a.put(str, linkedHashMap);
+                }
+                if (linkedHashMap.get(b) == null) {
+                    linkedHashMap.put(b, b.a.a(this.e));
+                }
+                ArrayList arrayList = new ArrayList(linkedHashMap.values());
+                Collections.reverse(arrayList);
+                return arrayList;
+            }
+        }
+        return (List) invokeL.objValue;
     }
 }

@@ -5,25 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.RecreationRankInfo;
+import tbclient.FrsPage.ShowIcon;
 /* loaded from: classes9.dex */
-public class x1d extends ltc {
+public class x1d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecreationRankInfo recreationRankInfo) {
+    public static JSONObject b(@NonNull ShowIcon showIcon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recreationRankInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, showIcon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "icon", recreationRankInfo.icon);
-            ltc.a(jSONObject, "rank_name", recreationRankInfo.rank_name);
-            ltc.a(jSONObject, "rank_score", recreationRankInfo.rank_score);
-            ltc.a(jSONObject, "rank_link", recreationRankInfo.rank_link);
-            ltc.a(jSONObject, "rank_icon", recreationRankInfo.rank_icon);
-            ltc.a(jSONObject, "rank_color", recreationRankInfo.rank_color);
-            ltc.a(jSONObject, "show_type", recreationRankInfo.show_type);
+            ktc.a(jSONObject, "icon", showIcon.icon);
+            ktc.a(jSONObject, "name", showIcon.name);
+            ktc.a(jSONObject, "url", showIcon.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

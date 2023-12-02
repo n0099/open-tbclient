@@ -129,7 +129,7 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02de, (ViewGroup) this, true);
             this.a = (TextView) findViewById(R.id.tv_title);
             this.b = (TextView) findViewById(R.id.tv_right);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091284);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091285);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.b, (int) R.color.common_color_10140);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0105, null);

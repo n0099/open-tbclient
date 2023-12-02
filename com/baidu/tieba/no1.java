@@ -1,25 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class no1 implements rq1 {
+public class no1 implements qq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.rq1
-    public float a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0.0f;
-        }
-        return invokeV.floatValue;
-    }
 
     public no1() {
         Interceptable interceptable = $ic;
@@ -35,13 +26,13 @@ public class no1 implements rq1 {
         }
     }
 
-    @Override // com.baidu.tieba.rq1
-    public String processUrl(String str) {
+    @Override // com.baidu.tieba.qq1
+    public InputStream a(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return d32.w(str, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
+            return new llc(inputStream);
         }
-        return (String) invokeL.objValue;
+        return (InputStream) invokeL.objValue;
     }
 }

@@ -1,46 +1,40 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q77 {
+public final class q77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public Object a;
 
-    public q77() {
+    public static final r77 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int optInt;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject == null || (optInt = jSONObject.optInt("id", -1)) < 0) {
+                return null;
             }
-        }
-    }
-
-    public q77(@Nullable Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            String name = jSONObject.optString("name");
+            boolean z2 = false;
+            if (name != null && name.length() != 0) {
+                z = false;
+            } else {
+                z = true;
             }
+            if (z) {
+                return null;
+            }
+            if (jSONObject.optInt("enable", 0) == 1) {
+                z2 = true;
+            }
+            Intrinsics.checkNotNullExpressionValue(name, "name");
+            return new r77(optInt, name, z2);
         }
-        this.a = obj;
+        return (r77) invokeL.objValue;
     }
 }

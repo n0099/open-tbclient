@@ -1,37 +1,33 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Level;
-import tbclient.ParrProps;
-import tbclient.Props;
+import tbclient.ParrScores;
 /* loaded from: classes9.dex */
-public class x5d extends ltc {
+public class x5d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ParrProps parrProps) {
+    public static JSONObject b(@NonNull ParrScores parrScores) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, parrProps)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, parrScores)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "portrait_time", parrProps.portrait_time);
-            Level level = parrProps.level;
-            if (level != null) {
-                ltc.a(jSONObject, "level", q4d.b(level));
-            }
-            if (parrProps.props != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (Props props : parrProps.props) {
-                    jSONArray.put(y6d.b(props));
-                }
-                ltc.a(jSONObject, "props", jSONArray);
-            }
+            ktc.a(jSONObject, "scores_total", parrScores.scores_total);
+            ktc.a(jSONObject, "scores_fetch", parrScores.scores_fetch);
+            ktc.a(jSONObject, "scores_money", parrScores.scores_money);
+            ktc.a(jSONObject, "scores_other", parrScores.scores_other);
+            ktc.a(jSONObject, "update_time", parrScores.update_time);
+            ktc.a(jSONObject, "level", parrScores.level);
+            ktc.a(jSONObject, Constants.EXTRA_CONFIG_LIMIT, parrScores.limit);
+            ktc.a(jSONObject, "i_total", parrScores.i_total);
+            ktc.a(jSONObject, "i_money", parrScores.i_money);
+            ktc.a(jSONObject, "i_other", parrScores.i_other);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

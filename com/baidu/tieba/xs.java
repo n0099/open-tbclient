@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.m05;
+import com.baidu.tieba.p05;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
-import com.baidu.tieba.yva;
+import com.baidu.tieba.xva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,10 +35,10 @@ public class xs extends qs implements it<ThreadData>, jt {
     public transient /* synthetic */ FieldHolder $fh;
     public FollowForumDecorView a;
     public LikeModel b;
-    public yva c;
+    public xva c;
     public ThreadData d;
     public TbPageContext e;
-    public k05 f;
+    public n05 f;
     public float g;
     public int h;
     public int i;
@@ -199,7 +199,7 @@ public class xs extends qs implements it<ThreadData>, jt {
     }
 
     /* loaded from: classes9.dex */
-    public class d implements yva.a {
+    public class d implements xva.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xs a;
@@ -222,7 +222,7 @@ public class xs extends qs implements it<ThreadData>, jt {
             this.a = xsVar;
         }
 
-        @Override // com.baidu.tieba.yva.a
+        @Override // com.baidu.tieba.xva.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -230,7 +230,7 @@ public class xs extends qs implements it<ThreadData>, jt {
             }
         }
 
-        @Override // com.baidu.tieba.yva.a
+        @Override // com.baidu.tieba.xva.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -247,7 +247,7 @@ public class xs extends qs implements it<ThreadData>, jt {
     }
 
     /* loaded from: classes9.dex */
-    public class e implements m05.e {
+    public class e implements p05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xs a;
@@ -270,7 +270,7 @@ public class xs extends qs implements it<ThreadData>, jt {
             this.a = xsVar;
         }
 
-        @Override // com.baidu.tieba.m05.e
+        @Override // com.baidu.tieba.p05.e
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -282,7 +282,7 @@ public class xs extends qs implements it<ThreadData>, jt {
     }
 
     /* loaded from: classes9.dex */
-    public class f implements m05.c {
+    public class f implements p05.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xs a;
@@ -305,7 +305,7 @@ public class xs extends qs implements it<ThreadData>, jt {
             this.a = xsVar;
         }
 
-        @Override // com.baidu.tieba.m05.c
+        @Override // com.baidu.tieba.p05.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.f == null) {
@@ -398,7 +398,7 @@ public class xs extends qs implements it<ThreadData>, jt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!BdUtilHelper.isNetOk()) {
-                BdUtilHelper.showToast(this.e.getContext(), this.e.getString(R.string.obfuscated_res_0x7f0f0e6f));
+                BdUtilHelper.showToast(this.e.getContext(), this.e.getString(R.string.obfuscated_res_0x7f0f0e70));
                 return;
             }
             ThreadData threadData = this.d;
@@ -421,7 +421,7 @@ public class xs extends qs implements it<ThreadData>, jt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!BdUtilHelper.isNetOk()) {
-                BdUtilHelper.showToast(this.e.getContext(), this.e.getString(R.string.obfuscated_res_0x7f0f0e6f));
+                BdUtilHelper.showToast(this.e.getContext(), this.e.getString(R.string.obfuscated_res_0x7f0f0e70));
                 return;
             }
             ThreadData threadData = this.d;
@@ -429,9 +429,9 @@ public class xs extends qs implements it<ThreadData>, jt {
                 return;
             }
             if (this.c == null) {
-                yva yvaVar = new yva();
-                this.c = yvaVar;
-                yvaVar.b(new d(this));
+                xva xvaVar = new xva();
+                this.c = xvaVar;
+                xvaVar.b(new d(this));
             }
             this.c.c(this.d.getForumData().d(), Integer.parseInt(this.d.getForumData().b()));
         }
@@ -441,17 +441,17 @@ public class xs extends qs implements it<ThreadData>, jt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (this.f == null) {
-                m05 m05Var = new m05(this.e.getContext());
-                m05Var.u(this.e.getString(R.string.confirm_unlike_forum));
+                p05 p05Var = new p05(this.e.getContext());
+                p05Var.u(this.e.getString(R.string.confirm_unlike_forum));
                 ArrayList arrayList = new ArrayList();
-                i05 i05Var = new i05(this.e.getContext().getString(R.string.obfuscated_res_0x7f0f04d2), m05Var);
-                i05Var.n(new e(this));
-                arrayList.add(i05Var);
-                m05Var.p(new f(this));
-                m05Var.m(arrayList);
-                k05 k05Var = new k05(this.e, m05Var);
-                this.f = k05Var;
-                k05Var.k(this.g);
+                l05 l05Var = new l05(this.e.getContext().getString(R.string.obfuscated_res_0x7f0f04d2), p05Var);
+                l05Var.n(new e(this));
+                arrayList.add(l05Var);
+                p05Var.p(new f(this));
+                p05Var.m(arrayList);
+                n05 n05Var = new n05(this.e, p05Var);
+                this.f = n05Var;
+                n05Var.k(this.g);
             }
             yb.i(this.f, this.e.getPageActivity());
             n(this.d.getTid(), this.d.getFid(), false);
@@ -514,10 +514,10 @@ public class xs extends qs implements it<ThreadData>, jt {
     public final void s(boolean z, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            pm6 pm6Var = new pm6();
-            pm6Var.d(z);
-            pm6Var.c(j);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921806, pm6Var));
+            tm6 tm6Var = new tm6();
+            tm6Var.d(z);
+            tm6Var.c(j);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921806, tm6Var));
         }
     }
 }

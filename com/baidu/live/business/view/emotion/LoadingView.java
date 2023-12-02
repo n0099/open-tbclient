@@ -57,7 +57,7 @@ public class LoadingView extends LinearLayout {
         setGravity(17);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0602, (ViewGroup) this, true);
-        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091704);
+        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091705);
         this.b = lottieAnimationView;
         if (lottieAnimationView != null && lottieAnimationView.isAnimating()) {
             this.b.cancelAnimation();

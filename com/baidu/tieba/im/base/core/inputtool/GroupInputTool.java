@@ -22,24 +22,24 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.df5;
 import com.baidu.tieba.ee;
-import com.baidu.tieba.ee5;
 import com.baidu.tieba.ge;
-import com.baidu.tieba.hh5;
+import com.baidu.tieba.gf5;
+import com.baidu.tieba.he5;
 import com.baidu.tieba.im.base.core.inputtool.callback.uistate.ViewState;
 import com.baidu.tieba.im.base.core.inputtool.robotfloor.GroupChatRobotTopHeadView;
 import com.baidu.tieba.im.base.core.inputtool.robotfloor.GroupChatUserReplyView;
 import com.baidu.tieba.im.chat.ISendVoiceView;
 import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
-import com.baidu.tieba.lo8;
-import com.baidu.tieba.mo8;
-import com.baidu.tieba.on8;
+import com.baidu.tieba.kh5;
+import com.baidu.tieba.po8;
 import com.baidu.tieba.qo8;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.tn8;
-import com.baidu.tieba.un8;
-import com.baidu.tieba.we5;
+import com.baidu.tieba.sn8;
+import com.baidu.tieba.uo8;
+import com.baidu.tieba.xn8;
+import com.baidu.tieba.yn8;
+import com.baidu.tieba.ze5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,17 +47,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class GroupInputTool implements LifecycleObserver, ge, mo8 {
+public class GroupInputTool implements LifecycleObserver, ge, qo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public final InputToolFragment a;
     @Nullable
-    public tn8 b;
+    public xn8 b;
     @Nullable
-    public on8 c;
+    public sn8 c;
     @Nullable
-    public un8 d;
+    public yn8 d;
     public boolean e;
     public boolean f;
     public long g;
@@ -198,7 +198,7 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements qo8.e {
+    public class d implements uo8.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupInputTool a;
@@ -221,7 +221,7 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
             this.a = groupInputTool;
         }
 
-        @Override // com.baidu.tieba.qo8.e
+        @Override // com.baidu.tieba.uo8.e
         public void a(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), animatorListenerAdapter, Boolean.valueOf(z)}) == null) {
@@ -234,7 +234,7 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
             }
         }
 
-        @Override // com.baidu.tieba.qo8.e
+        @Override // com.baidu.tieba.uo8.e
         public void b(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), animatorListenerAdapter, Boolean.valueOf(z)}) == null) {
@@ -284,15 +284,15 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
         }
     }
 
-    @Override // com.baidu.tieba.mo8
+    @Override // com.baidu.tieba.qo8
     public void b(int i) {
-        un8 un8Var;
+        yn8 yn8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             f0(true);
             InputToolFragment inputToolFragment = this.a;
-            if ((inputToolFragment == null || inputToolFragment.N() != 8) && (un8Var = this.d) != null && !this.f) {
-                un8Var.a(ViewState.INVISIBLE);
+            if ((inputToolFragment == null || inputToolFragment.N() != 8) && (yn8Var = this.d) != null && !this.f) {
+                yn8Var.a(ViewState.INVISIBLE);
             }
         }
     }
@@ -320,10 +320,10 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
         }
     }
 
-    public void j0(un8 un8Var) {
+    public void j0(yn8 yn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, un8Var) == null) {
-            this.d = un8Var;
+        if (interceptable == null || interceptable.invokeL(1048610, this, yn8Var) == null) {
+            this.d = yn8Var;
         }
     }
 
@@ -372,10 +372,10 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
 
     @Override // com.baidu.tieba.ge
     public void onDeletedVoice(String str) {
-        tn8 tn8Var;
+        xn8 xn8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048616, this, str) == null) && (tn8Var = this.b) != null) {
-            tn8Var.a();
+        if ((interceptable == null || interceptable.invokeL(1048616, this, str) == null) && (xn8Var = this.b) != null) {
+            xn8Var.a();
         }
     }
 
@@ -397,17 +397,17 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
         }
     }
 
-    public void p0(on8 on8Var) {
+    public void p0(sn8 sn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, on8Var) == null) {
-            this.c = on8Var;
+        if (interceptable == null || interceptable.invokeL(1048623, this, sn8Var) == null) {
+            this.c = sn8Var;
         }
     }
 
-    public void q0(tn8 tn8Var) {
+    public void q0(xn8 xn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, tn8Var) == null) {
-            this.b = tn8Var;
+        if (interceptable == null || interceptable.invokeL(1048624, this, xn8Var) == null) {
+            this.b = xn8Var;
         }
     }
 
@@ -419,9 +419,9 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
             voiceModel.setDuration(i);
             voiceModel.setVoiceId(str);
             voiceModel.voice_status = 1;
-            tn8 tn8Var = this.b;
-            if (tn8Var != null) {
-                tn8Var.b(voiceModel);
+            xn8 xn8Var = this.b;
+            if (xn8Var != null) {
+                xn8Var.b(voiceModel);
             }
         }
     }
@@ -460,13 +460,13 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
     }
 
     @Nullable
-    public un8 I() {
+    public yn8 I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.d;
         }
-        return (un8) invokeV.objValue;
+        return (yn8) invokeV.objValue;
     }
 
     @Nullable
@@ -484,7 +484,7 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
     }
 
     @Nullable
-    public we5 K() {
+    public ze5 K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -494,7 +494,7 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
             }
             return inputToolFragment.X2();
         }
-        return (we5) invokeV.objValue;
+        return (ze5) invokeV.objValue;
     }
 
     @Nullable
@@ -512,7 +512,7 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
     }
 
     @Nullable
-    public df5 N() {
+    public gf5 N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -522,7 +522,7 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
             }
             return inputToolFragment.c3();
         }
-        return (df5) invokeV.objValue;
+        return (gf5) invokeV.objValue;
     }
 
     @Nullable
@@ -552,7 +552,7 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
         return invokeV.booleanValue;
     }
 
-    public qo8 Q() {
+    public uo8 Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -562,7 +562,7 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
             }
             return inputToolFragment.g3();
         }
-        return (qo8) invokeV.objValue;
+        return (uo8) invokeV.objValue;
     }
 
     public boolean R() {
@@ -570,7 +570,7 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
         View findViewById;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (O() == null || (findViewById = O().findViewById(R.id.obfuscated_res_0x7f090f04)) == null || findViewById.getVisibility() != 0) {
+            if (O() == null || (findViewById = O().findViewById(R.id.obfuscated_res_0x7f090f05)) == null || findViewById.getVisibility() != 0) {
                 return false;
             }
             return true;
@@ -579,7 +579,7 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
     }
 
     @Nullable
-    public hh5 S() {
+    public kh5 S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -589,7 +589,7 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
             }
             return inputToolFragment.j3();
         }
-        return (hh5) invokeV.objValue;
+        return (kh5) invokeV.objValue;
     }
 
     @Nullable
@@ -697,15 +697,15 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.mo8
+    @Override // com.baidu.tieba.qo8
     public void d() {
-        un8 un8Var;
+        yn8 yn8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            lo8.a(this);
+            po8.a(this);
             InputToolFragment inputToolFragment = this.a;
-            if ((inputToolFragment == null || inputToolFragment.N() != 8) && (un8Var = this.d) != null) {
-                un8Var.a(ViewState.INVISIBLE);
+            if ((inputToolFragment == null || inputToolFragment.N() != 8) && (yn8Var = this.d) != null) {
+                yn8Var.a(ViewState.INVISIBLE);
             }
         }
     }
@@ -762,11 +762,11 @@ public class GroupInputTool implements LifecycleObserver, ge, mo8 {
             this.f = false;
             this.a.m3().w();
             this.a.m3().y();
-            this.a.m3().K(new ee5(5, -1, null));
+            this.a.m3().K(new he5(5, -1, null));
         }
     }
 
-    @Override // com.baidu.tieba.mo8
+    @Override // com.baidu.tieba.qo8
     public void f() {
         InputToolFragment inputToolFragment;
         InputToolFragment inputToolFragment2;

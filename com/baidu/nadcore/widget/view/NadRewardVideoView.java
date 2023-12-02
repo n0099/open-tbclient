@@ -6,16 +6,16 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.nadcore.widget.uitemplate.NadRewardVolumeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nn0;
-import com.baidu.tieba.yp0;
+import com.baidu.tieba.aq0;
+import com.baidu.tieba.on0;
 /* loaded from: classes3.dex */
 public abstract class NadRewardVideoView extends NadRewardBaseView {
-    public yp0 l;
+    public aq0 l;
     public ViewGroup m;
     public NadRewardVolumeView n;
 
     @Override // com.baidu.nadcore.widget.view.NadRewardBaseView
-    public void h(LayoutInflater layoutInflater, nn0 nn0Var) {
+    public void h(LayoutInflater layoutInflater, on0 on0Var) {
     }
 
     /* loaded from: classes3.dex */
@@ -25,9 +25,9 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
 
         @Override // com.baidu.nadcore.widget.uitemplate.NadRewardVolumeView.b
         public void a(boolean z) {
-            yp0 yp0Var = NadRewardVideoView.this.l;
-            if (yp0Var != null) {
-                yp0Var.mute(z);
+            aq0 aq0Var = NadRewardVideoView.this.l;
+            if (aq0Var != null) {
+                aq0Var.mute(z);
             }
         }
     }
@@ -69,8 +69,8 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public NadRewardVideoView(Context context, AttributeSet attributeSet, int i, nn0 nn0Var) {
-        super(context, attributeSet, i, nn0Var);
+    public NadRewardVideoView(Context context, AttributeSet attributeSet, int i, on0 on0Var) {
+        super(context, attributeSet, i, on0Var);
         NadRewardVolumeView nadRewardVolumeView = (NadRewardVolumeView) findViewById(R.id.nad_reward_volumn_icon);
         this.n = nadRewardVolumeView;
         nadRewardVolumeView.setVolumeListener(new a());

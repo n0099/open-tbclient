@@ -1,13 +1,7 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface hy1 {
-    @NonNull
-    public static final hy1 a = new iy1(202, "params parsed as JSONObject is null");
+    void a(String str);
 
-    @NonNull
-    String a();
-
-    boolean isSuccess();
+    void b(String str);
 }

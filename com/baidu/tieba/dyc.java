@@ -6,34 +6,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Agree;
-import tbclient.FeedSocialComponent;
-import tbclient.LayoutManageInfo;
+import tbclient.FeedKV;
+import tbclient.FeedToutiao;
 /* loaded from: classes5.dex */
-public class dyc extends ltc {
+public class dyc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedSocialComponent feedSocialComponent) {
+    public static JSONObject b(@NonNull FeedToutiao feedToutiao) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedSocialComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedToutiao)) == null) {
             JSONObject jSONObject = new JSONObject();
-            Agree agree = feedSocialComponent.agree;
-            if (agree != null) {
-                ltc.a(jSONObject, "agree", cuc.b(agree));
-            }
-            ltc.a(jSONObject, "comment_num", feedSocialComponent.comment_num);
-            ltc.a(jSONObject, "share_num", feedSocialComponent.share_num);
-            ltc.a(jSONObject, "tid", feedSocialComponent.tid);
-            ltc.a(jSONObject, "fid", feedSocialComponent.fid);
-            if (feedSocialComponent.manage_list != null) {
+            if (feedToutiao.business_info != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (LayoutManageInfo layoutManageInfo : feedSocialComponent.manage_list) {
-                    jSONArray.put(o4d.b(layoutManageInfo));
+                for (FeedKV feedKV : feedToutiao.business_info) {
+                    jSONArray.put(rxc.b(feedKV));
                 }
-                ltc.a(jSONObject, "manage_list", jSONArray);
+                ktc.a(jSONObject, "business_info", jSONArray);
             }
             return jSONObject;
         }

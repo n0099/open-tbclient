@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface a61 {
-    void onHideLoading();
+    boolean X0();
 
-    void onLoadFailure();
+    boolean Y0();
 
-    void onLoadSuccess();
+    boolean g0();
 }

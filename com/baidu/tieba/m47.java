@@ -12,11 +12,11 @@ import kotlin.jvm.internal.Intrinsics;
 public final class m47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k77 a;
-    public final ja7 b;
+    public final p57 a;
+    public final ma7 b;
     public boolean c;
 
-    public m47(k77 data, ja7 statData, boolean z) {
+    public m47(p57 data, ma7 statData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,17 +38,17 @@ public final class m47 {
         this.c = z;
     }
 
-    public /* synthetic */ m47(k77 k77Var, ja7 ja7Var, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(k77Var, ja7Var, (i & 4) != 0 ? true : z);
+    public /* synthetic */ m47(p57 p57Var, ma7 ma7Var, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(p57Var, ma7Var, (i & 4) != 0 ? true : z);
     }
 
-    public final k77 a() {
+    public final p57 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (k77) invokeV.objValue;
+        return (p57) invokeV.objValue;
     }
 
     public final boolean b() {
@@ -60,13 +60,13 @@ public final class m47 {
         return invokeV.booleanValue;
     }
 
-    public final ja7 c() {
+    public final ma7 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (ja7) invokeV.objValue;
+        return (ma7) invokeV.objValue;
     }
 
     public final void d(boolean z) {

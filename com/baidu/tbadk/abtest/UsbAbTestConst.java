@@ -25,7 +25,6 @@ public class UsbAbTestConst {
     public static final String KEY_FUN_AD_SDK_PICPAGE_BEAR = "12_2_picpage_bear_a";
     public static final String KEY_FUN_AD_SDK_PICPAGE_INSERT_BEAR = "12_11_picpage_ahead_bear_a";
     public static final String KEY_HOME_MAX_THREAD_COUNT_DISABLE = "home_page_max_thread_count_disable";
-    public static final String KEY_HOME_WRITE_TEST = "12.46_home_write_test";
     public static final String KEY_HOT_RANK_SHOW = "12_15_live_cell_style_a";
     public static final String KEY_HOT_SPLASH_FIX = "12_25_splash_req_ad_rule";
     public static final String KEY_IJK_IPV6_UPGRADE = "12_47_ijk_ipv6_upgrade_a";
@@ -39,6 +38,7 @@ public class UsbAbTestConst {
     public static final String KEY_NICK_NAME = "12_11_nick_name_a";
     public static final String KEY_NON_ECOM_AD_DOWNLOADER_A = "12_46_non_ecom_ad_downloader_a";
     public static final String KEY_NON_ECOM_AD_DOWNLOADER_B = "12_46_non_ecom_ad_downloader_b";
+    public static final String KEY_OLD_WRITE_PAGE = "12.51_old_write_test";
     public static final String KEY_PB_NO_CACHE_TEST = "12.45_pb_no_cache_abtest";
     public static final String KEY_PB_REPLY_OPTIMIZE = "12.33_pb_reply_optimize_a";
     public static final String KEY_PERSONAL_VIDEO_TAB_FLOW = "12_10_zhuye_feed_b";

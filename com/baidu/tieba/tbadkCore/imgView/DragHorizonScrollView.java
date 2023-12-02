@@ -15,7 +15,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zwa;
+import com.baidu.tieba.ywa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     public Runnable D;
     public BaseAdapter a;
     public View b;
-    public zwa c;
+    public ywa c;
     public int d;
     public int e;
     public int f;
@@ -206,7 +206,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
             this.n = viewConfiguration.getScaledMaximumFlingVelocity();
             this.j = new Scroller(context, new LinearInterpolator());
             this.k = new Scroller(context);
-            this.q = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070408);
+            this.q = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070409);
             this.r = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
         }
     }
@@ -316,10 +316,10 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    public void setDragController(zwa zwaVar) {
+    public void setDragController(ywa ywaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, zwaVar) == null) {
-            this.c = zwaVar;
+        if (interceptable == null || interceptable.invokeL(1048598, this, ywaVar) == null) {
+            this.c = ywaVar;
         }
     }
 
@@ -366,14 +366,14 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     @Override // android.view.View
     public void computeScroll() {
-        zwa zwaVar;
+        ywa ywaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.j.computeScrollOffset()) {
                 scrollTo(this.j.getCurrX(), 0);
                 postInvalidateDelayed(16L);
-                if ((this.o || this.p) && (zwaVar = this.c) != null) {
-                    zwaVar.d();
+                if ((this.o || this.p) && (ywaVar = this.c) != null) {
+                    ywaVar.d();
                     return;
                 }
                 return;

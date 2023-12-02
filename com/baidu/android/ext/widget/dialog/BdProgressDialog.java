@@ -46,7 +46,7 @@ public class BdProgressDialog extends ProgressDialog {
         }
         this.mMsgText = "";
         this.mDetached = false;
-        this.mMsgText = context.getString(R.string.obfuscated_res_0x7f0f11aa);
+        this.mMsgText = context.getString(R.string.obfuscated_res_0x7f0f11ab);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,7 +70,7 @@ public class BdProgressDialog extends ProgressDialog {
         }
         this.mMsgText = "";
         this.mDetached = false;
-        this.mMsgText = context.getString(R.string.obfuscated_res_0x7f0f11aa);
+        this.mMsgText = context.getString(R.string.obfuscated_res_0x7f0f11ab);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -121,10 +121,10 @@ public class BdProgressDialog extends ProgressDialog {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             setCancelable(false);
             setCanceledOnTouchOutside(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d085b);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f092072);
-            this.mProgressBar = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091705);
-            this.mMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f09181a);
+            setContentView(R.layout.obfuscated_res_0x7f0d085c);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f092074);
+            this.mProgressBar = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091706);
+            this.mMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f09181b);
             setMessage(this.mMsgText);
             setPageResources();
             getWindow().setBackgroundDrawableResource(R.color.transparent);
@@ -241,7 +241,7 @@ public class BdProgressDialog extends ProgressDialog {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             View view2 = this.mRootView;
             if (view2 != null) {
-                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081153));
+                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081156));
             }
             SmoothProgressBar smoothProgressBar = this.mProgressBar;
             if (smoothProgressBar != null) {

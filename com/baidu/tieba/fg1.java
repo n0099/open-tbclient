@@ -1,58 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fg1 {
+public abstract class fg1<T> implements gg1<T> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
+    public T mCachedInstance;
+
+    public abstract T createService() throws ServiceNotFoundException;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947763065, "Lcom/baidu/tieba/fg1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947763065, "Lcom/baidu/tieba/fg1;");
+                return;
+            }
+        }
+        DEBUG = AppConfig.isDebug();
+    }
 
     public fg1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public xg1 a(Context context, gg1 gg1Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.gg1
+    public final T getService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, gg1Var)) == null) {
-            if (gg1Var != null && context != null) {
-                try {
-                    JSONObject a = gg1Var.a();
-                    if (a != null) {
-                        String optString = a.optString("material_type");
-                        if ("image".equals(optString)) {
-                            return new og1(context, a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.mCachedInstance == null) {
+                    try {
+                        this.mCachedInstance = createService();
+                    } catch (ServiceNotFoundException e) {
+                        if (DEBUG) {
+                            e.printStackTrace();
+                            throw e;
                         }
-                        if ("gif".equals(optString)) {
-                            return new ng1(context, a);
-                        }
-                        if ("video".equals(optString)) {
-                            return new pg1(context, a);
-                        }
-                        return null;
                     }
-                    return null;
-                } catch (Exception unused) {
-                    return null;
                 }
             }
-            return null;
+            return this.mCachedInstance;
         }
-        return (xg1) invokeLL.objValue;
+        return (T) invokeV.objValue;
     }
 }

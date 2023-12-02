@@ -4,8 +4,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.nb6;
 import com.baidu.tieba.pi;
+import com.baidu.tieba.rb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,11 +66,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        nb6 nb6Var = new nb6();
+                        rb6 rb6Var = new rb6();
                         ThreadData threadData = new ThreadData();
                         threadData.parserJson(optJSONObject2);
-                        nb6Var.a = threadData;
-                        this.liveList.add(nb6Var);
+                        rb6Var.a = threadData;
+                        this.liveList.add(rb6Var);
                     }
                 }
             }
@@ -80,11 +80,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        nb6 nb6Var2 = new nb6();
+                        rb6 rb6Var2 = new rb6();
                         ThreadData threadData2 = new ThreadData();
                         threadData2.parserJson(optJSONObject3);
-                        nb6Var2.a = threadData2;
-                        this.recommandList.add(nb6Var2);
+                        rb6Var2.a = threadData2;
+                        this.recommandList.add(rb6Var2);
                     }
                 }
             }

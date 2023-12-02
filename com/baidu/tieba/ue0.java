@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class ue0 implements mf1 {
+public class ue0 implements pf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,13 +25,13 @@ public class ue0 implements mf1 {
         }
     }
 
-    @Override // com.baidu.tieba.mf1
+    @Override // com.baidu.tieba.pf1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new d51());
+            arrayList.add(new f51());
             return arrayList;
         }
         return invokeV.objValue;

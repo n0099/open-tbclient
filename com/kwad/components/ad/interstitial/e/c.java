@@ -112,7 +112,7 @@ public final class c extends com.kwad.sdk.mvp.a {
                     com.kwad.sdk.core.e.c.d("InterstitialCallerContext", "onLoadingComplete before blur");
                     Bitmap stackBlur = BlurUtils.stackBlur(bitmap, 50, false);
                     com.kwad.sdk.core.e.c.d("InterstitialCallerContext", "onLoadingComplete after blur");
-                    float dimension = AnonymousClass3.this.gq.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704d1);
+                    float dimension = AnonymousClass3.this.gq.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704d2);
                     final RoundedBitmapDrawable create = RoundedBitmapDrawableFactory.create(AnonymousClass3.this.gq.getResources(), stackBlur);
                     create.setCornerRadius(dimension);
                     AnonymousClass3.this.fo.post(new Runnable() { // from class: com.kwad.components.ad.interstitial.e.c.3.1.1

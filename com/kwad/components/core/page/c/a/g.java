@@ -167,7 +167,7 @@ public final class g extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091512);
+        this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091513);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

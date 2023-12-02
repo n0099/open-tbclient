@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rba;
 import com.baidu.tieba.rd;
+import com.baidu.tieba.vba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public TextView e;
     public int f;
     public Context g;
-    public rba h;
+    public vba h;
     public View.OnClickListener i;
 
     /* loaded from: classes7.dex */
@@ -95,7 +95,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
         this.f = 3;
         this.g = context;
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0815, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0816, (ViewGroup) this, true);
         c();
         d();
     }
@@ -105,9 +105,9 @@ public class PersonCommonForumItemView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = (BarImageView) findViewById(R.id.forum_avatar);
             this.b = (TextView) findViewById(R.id.forum_name);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c61);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090c86);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090c87);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c62);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090c87);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090c88);
         }
     }
 
@@ -132,15 +132,15 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
     }
 
-    public void setData(rba rbaVar) {
+    public void setData(vba vbaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rbaVar) == null) {
-            this.h = rbaVar;
-            this.a.startLoad(rbaVar.c, 10, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, vbaVar) == null) {
+            this.h = vbaVar;
+            this.a.startLoad(vbaVar.c, 10, false);
             TextView textView = this.b;
-            textView.setText(StringHelper.cutForumNameWithSuffix(rbaVar.b, 7, "...") + this.g.getString(R.string.obfuscated_res_0x7f0f078f));
-            this.d.setText(StringHelper.numberUniformFormat((long) rbaVar.d));
-            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f10c4), StringHelper.getUserDescByGender(rbaVar.e)));
+            textView.setText(StringHelper.cutForumNameWithSuffix(vbaVar.b, 7, "...") + this.g.getString(R.string.obfuscated_res_0x7f0f078f));
+            this.d.setText(StringHelper.numberUniformFormat((long) vbaVar.d));
+            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f10c5), StringHelper.getUserDescByGender(vbaVar.e)));
             if (getRootView() != null) {
                 getRootView().setOnClickListener(this.i);
             }

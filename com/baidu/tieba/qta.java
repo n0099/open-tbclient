@@ -1,5 +1,4 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
-public interface qta<T> {
-    void a(T t);
+/* loaded from: classes7.dex */
+public interface qta {
 }

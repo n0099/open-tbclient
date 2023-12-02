@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class rs extends os<cw4> implements jdb {
+public class rs extends os<fw4> implements idb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardUserInfoLayout f;
     public int g;
-    public cw4 h;
+    public fw4 h;
     public b i;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(cw4 cw4Var, View view2);
+        void a(fw4 fw4Var, View view2);
     }
 
     /* loaded from: classes8.dex */
@@ -139,11 +139,11 @@ public class rs extends os<cw4> implements jdb {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: t */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cw4Var) == null) {
-            this.h = cw4Var;
-            this.f.setData(cw4Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048586, this, fw4Var) == null) {
+            this.h = fw4Var;
+            this.f.setData(fw4Var.getThreadData());
         }
     }
 
@@ -177,7 +177,7 @@ public class rs extends os<cw4> implements jdb {
         }
     }
 
-    @Override // com.baidu.tieba.jdb
+    @Override // com.baidu.tieba.idb
     public void a() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class rs extends os<cw4> implements jdb {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jdb
+    @Override // com.baidu.tieba.idb
     public void play() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;

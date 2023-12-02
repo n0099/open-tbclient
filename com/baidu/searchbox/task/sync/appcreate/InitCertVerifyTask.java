@@ -4,9 +4,9 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CertVerifyHelper;
-import com.baidu.tieba.ju5;
 import com.baidu.tieba.nu5;
-import com.baidu.tieba.ot5;
+import com.baidu.tieba.ru5;
+import com.baidu.tieba.st5;
 /* loaded from: classes4.dex */
 public class InitCertVerifyTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -22,16 +22,16 @@ public class InitCertVerifyTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         if (!TbadkCoreApplication.getInst().isDebugMode() && TbConfig.IS_CHECK_OFFICAL_APPLICATION) {
-            nu5.b(new ju5<Boolean>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.1
+            ru5.b(new nu5<Boolean>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.ju5
+                @Override // com.baidu.tieba.nu5
                 public Boolean doInBackground() {
                     return Boolean.valueOf(CertVerifyHelper.isOfficial(TbadkCoreApplication.getInst()));
                 }
-            }, new ot5<Boolean>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.2
+            }, new st5<Boolean>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.2
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.ot5
+                @Override // com.baidu.tieba.st5
                 public void onReturnDataInUI(Boolean bool) {
                     if (bool != null) {
                         TbadkCoreApplication.getInst().mIsOfficial = bool.booleanValue();

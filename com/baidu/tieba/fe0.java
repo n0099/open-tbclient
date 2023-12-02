@@ -251,7 +251,7 @@ public class fe0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (str.length() >= 160) {
-                return z11.b(str, false);
+                return c21.b(str, false);
             }
             return d.matcher(str).replaceAll("").trim();
         }

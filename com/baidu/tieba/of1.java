@@ -1,73 +1,219 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.regex.Pattern;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class of1<T> implements qf1<T> {
+public final class of1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
-    public mf1<List<T>> b;
-    public mf1<List<T>> c;
 
-    public of1() {
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0) {
+                if (i != 101) {
+                    if (i != 201) {
+                        if (i != 202) {
+                            if (i != 301) {
+                                if (i != 302) {
+                                    switch (i) {
+                                        case 401:
+                                            return hf1.a().getString(R.string.prologue_united_scheme_err_message_action_sec_check_fail);
+                                        case 402:
+                                            return hf1.a().getString(R.string.prologue_united_scheme_err_message_action_acl_check_fail);
+                                        case 403:
+                                            return hf1.a().getString(R.string.prologue_united_scheme_err_message_action_allow_close);
+                                        default:
+                                            return hf1.a().getString(R.string.prologue_united_scheme_err_message_parse_fail);
+                                    }
+                                }
+                                return hf1.a().getString(R.string.prologue_united_scheme_err_message_action_notfound);
+                            }
+                            return hf1.a().getString(R.string.prologue_united_scheme_err_message_module_notfound);
+                        }
+                        return hf1.a().getString(R.string.prologue_united_scheme_err_message_params_parse_fail);
+                    }
+                    return hf1.a().getString(R.string.prologue_united_scheme_err_message_parse_fail);
+                }
+                return hf1.a().getString(R.string.prologue_united_scheme_err_message_not_support);
             }
+            return hf1.a().getString(R.string.prologue_united_scheme_err_message_ok);
         }
+        return (String) invokeI.objValue;
     }
 
-    public static of1 b() {
-        InterceptResult invokeV;
+    public static HashMap<String, String> b(String str) {
+        InterceptResult invokeL;
+        String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new of1();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            if (TextUtils.isEmpty(str)) {
+                return hashMap;
+            }
+            int indexOf = str.indexOf("?");
+            int indexOf2 = str.indexOf("#");
+            if (indexOf < 0) {
+                return hashMap;
+            }
+            if (indexOf2 < 0) {
+                substring = str.substring(indexOf + 1);
+            } else {
+                substring = str.substring(indexOf + 1, indexOf2);
+            }
+            String[] split = substring.split("&");
+            if (split == null) {
+                return hashMap;
+            }
+            for (String str2 : split) {
+                int indexOf3 = str2.indexOf("=");
+                if (indexOf3 > 0) {
+                    try {
+                        hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
+                    } catch (IllegalArgumentException unused) {
+                    }
+                }
+            }
+            return hashMap;
         }
-        return (of1) invokeV.objValue;
+        return (HashMap) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.qf1
-    public List<T> getList() {
-        InterceptResult invokeV;
+    public static String[] c(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<T> list = this.a;
-            if (list != null) {
-                return list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
+            if (uri == null) {
+                return null;
             }
-            mf1<List<T>> mf1Var = this.b;
-            if (mf1Var != null) {
-                List<T> list2 = mf1Var.get();
-                this.a = list2;
-                return list2;
+            ArrayList arrayList = new ArrayList(uri.getPathSegments());
+            if (!d(uri)) {
+                arrayList.add(0, uri.getHost());
             }
-            mf1<List<T>> mf1Var2 = this.c;
-            if (mf1Var2 != null) {
-                return mf1Var2.get();
+            if (arrayList.size() <= 0) {
+                return null;
             }
-            return null;
+            return (String[]) arrayList.toArray(new String[0]);
         }
-        return (List) invokeV.objValue;
+        return (String[]) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.qf1
-    public void a(mf1<List<T>> mf1Var) {
+    public static boolean d(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mf1Var) == null) {
-            this.b = mf1Var;
-            this.a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            String host = uri.getHost();
+            if (TextUtils.isEmpty(host) || !host.startsWith("v") || !e(host)) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (Pattern.compile("[0-9]").matcher(str).find()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            String scheme = uri.getScheme();
+            String host = uri.getHost();
+            if (!TextUtils.equals(kf1.a, scheme) || TextUtils.isEmpty(host)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return f(Uri.parse(str));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static JSONObject h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return j(null, i);
+        }
+        return (JSONObject) invokeI.objValue;
+    }
+
+    public static JSONObject i(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("status", String.valueOf(i));
+                jSONObject.put("message", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeIL.objValue;
+    }
+
+    public static JSONObject j(JSONObject jSONObject, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, jSONObject, i)) == null) {
+            return k(jSONObject, i, a(i));
+        }
+        return (JSONObject) invokeLI.objValue;
+    }
+
+    public static JSONObject k(JSONObject jSONObject, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, jSONObject, i, str)) == null) {
+            JSONObject i2 = i(i, str);
+            if (jSONObject != null) {
+                try {
+                    i2.put("data", jSONObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return i2;
+        }
+        return (JSONObject) invokeLIL.objValue;
     }
 }

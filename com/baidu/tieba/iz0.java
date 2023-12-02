@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,6 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class iz0 extends gz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
 
     public iz0() {
         Interceptable interceptable = $ic;
@@ -26,40 +28,85 @@ public class iz0 extends gz0 {
                 return;
             }
         }
-        d(TiePlusStat.RichTextType.STAT_KEY, "every");
+        this.b = null;
     }
 
-    @Override // com.baidu.tieba.gz0, com.baidu.tieba.hz0
+    @Override // com.baidu.tieba.jz0
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String sb = this.a.toString();
-            if (!TextUtils.isEmpty(sb) && sb.contains("c_id")) {
-                return super.isValid();
+            if (TextUtils.isEmpty(this.b)) {
+                return f();
             }
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public iz0 g(String str) {
-        InterceptResult invokeL;
+    public final void e(StringBuilder sb, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d("c_id", str);
-            return this;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, sb, str, str2) == null) {
+            if (sb.length() > 0) {
+                sb.append('&');
+            }
+            sb.append(str);
+            sb.append('=');
+            sb.append(str2);
         }
-        return (iz0) invokeL.objValue;
     }
 
-    public iz0 h(String str) {
-        InterceptResult invokeL;
+    public final boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            d("extra_param", str);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            pf0 d = hf0.d();
+            StringBuilder sb = new StringBuilder();
+            e(sb, "productId", d.t());
+            e(sb, HttpRequest.CLIENT_TYPE, "2");
+            e(sb, "_os_type", "2");
+            String h = zf0.c().h(false);
+            if (!TextUtils.isEmpty(h)) {
+                e(sb, HttpRequest.OS_VERSION, h);
+            }
+            e(sb, "_client_version", d.x());
+            e(sb, "_sdk_version", "6.1.0.1");
+            String e = zf0.c().e(false);
+            if (!TextUtils.isEmpty(e)) {
+                e(sb, "model", e);
+            }
+            e(sb, "cuid", d.g());
+            e(sb, "net_type", String.valueOf(new zo0().c()));
+            if (qc0.a) {
+                e(sb, "rd", d.y());
+                e(sb, "qa", d.z());
+                e(sb, "story_id", d.v());
+            }
+            String sb2 = sb.toString();
+            this.b = sb2;
+            return !TextUtils.isEmpty(sb2);
         }
-        return (iz0) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gz0, com.baidu.tieba.jz0
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                f();
+            }
+            if (this.a.toString().contains(this.b)) {
+                return this.a.toString();
+            }
+            if (this.a.length() > 0) {
+                this.a.append('&');
+            }
+            this.a.append(this.b);
+            return this.a.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

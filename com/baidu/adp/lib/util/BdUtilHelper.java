@@ -24,6 +24,7 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.view.TouchDelegate;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.URLUtil;
@@ -373,6 +374,15 @@ public class BdUtilHelper {
         return invokeL.intValue;
     }
 
+    public static int getStatusBarHeight(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, activity)) == null) {
+            return AndroidUtils.getStatusBarHeight(activity);
+        }
+        return invokeL.intValue;
+    }
+
     public static boolean isGif(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -549,7 +559,7 @@ public class BdUtilHelper {
                     intent.putExtra("android.intent.extra.STREAM", Uri.fromFile(file));
                     intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
                 }
-                context.startActivity(Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f1413)));
+                context.startActivity(Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f1414)));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -802,45 +812,6 @@ public class BdUtilHelper {
         return invokeL.booleanValue;
     }
 
-    public static int getStatusBarHeight(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, activity)) == null) {
-            Rect rect = new Rect();
-            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-            int i = rect.top;
-            if (i == 0) {
-                try {
-                    Class<?> cls = Class.forName("com.android.internal.R$dimen");
-                    return activity.getResources().getDimensionPixelSize(Integer.parseInt(cls.getField("status_bar_height").get(cls.newInstance()).toString()));
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                    return i;
-                } catch (IllegalAccessException e2) {
-                    e2.printStackTrace();
-                    return i;
-                } catch (IllegalArgumentException e3) {
-                    e3.printStackTrace();
-                    return i;
-                } catch (InstantiationException e4) {
-                    e4.printStackTrace();
-                    return i;
-                } catch (NoSuchFieldException e5) {
-                    e5.printStackTrace();
-                    return i;
-                } catch (NumberFormatException e6) {
-                    e6.printStackTrace();
-                    return i;
-                } catch (SecurityException e7) {
-                    e7.printStackTrace();
-                    return i;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
     public static String getTextOmit(TextPaint textPaint, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -873,21 +844,6 @@ public class BdUtilHelper {
         return invokeLL.intValue;
     }
 
-    public static void hideSoftKeyPad(Context context, View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65566, null, context, view2) != null) || view2 == null) {
-            return;
-        }
-        try {
-            if (view2.getWindowToken() == null) {
-                return;
-            }
-            ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 2);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-        }
-    }
-
     public static ProgressDialog showLoadingDialog(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -899,6 +855,27 @@ public class BdUtilHelper {
             return ProgressDialog.show(context, "", context.getResources().getString(R.string.obfuscated_res_0x7f0f003b), true, false, bVar);
         }
         return (ProgressDialog) invokeLL.objValue;
+    }
+
+    public static void hideSoftKeyPad(Context context, View view2) {
+        Window window;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65566, null, context, view2) == null) {
+            if (view2 == null) {
+                try {
+                    if ((context instanceof Activity) && (window = ((Activity) context).getWindow()) != null) {
+                        view2 = window.getDecorView();
+                    }
+                } catch (Throwable th) {
+                    BdLog.e(th.getMessage());
+                    return;
+                }
+            }
+            if (view2 == null || view2.getWindowToken() == null) {
+                return;
+            }
+            ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 2);
+        }
     }
 
     public static void initDeviceData(Context context) {

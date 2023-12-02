@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,8 +12,8 @@ public class wia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public double b;
-    public double c;
+    public String b;
+    public String c;
 
     public wia() {
         Interceptable interceptable = $ic;
@@ -29,28 +29,14 @@ public class wia {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static wia b(JSONObject jSONObject) {
+    public static wia a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
             wia wiaVar = new wia();
-            wiaVar.a = jSONObject.optString("bottom_picture", "");
-            jSONObject.optInt("cover_shadow_switch", 0);
-            wiaVar.b = jSONObject.optDouble("player_width_ratio", 0.0d);
-            wiaVar.c = jSONObject.optDouble("right_margin_ratio", 0.0d);
-            jSONObject.optDouble("player_height_clipping_ratio", 0.0d);
+            wiaVar.a = jSONObject.optString("lottie");
+            wiaVar.b = jSONObject.optString("text");
+            wiaVar.c = jSONObject.optString("cmd");
             return wiaVar;
         }
         return (wia) invokeL.objValue;

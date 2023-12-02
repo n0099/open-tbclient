@@ -1,92 +1,66 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.BubbleListActivityConfig;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupActivity;
+import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes9.dex */
-public class y2b {
+public class y2b extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BubbleGroupActivity a;
-    public View b;
-    public View c;
-    public NavigationBar d;
-    public MemberRecommendView e;
-    public BdListView f;
-    public TextView g;
-    public TextView h;
-    public int i;
-    public w2b j;
+    public List<List<DressItemData>> a;
+    public TbPageContext<?> b;
+    public u2b c;
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
 
     /* loaded from: classes9.dex */
-    public class a implements View.OnClickListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y2b a;
+        public View a;
+        public BubbleItemView b;
+        public BubbleItemView c;
 
-        public a(y2b y2bVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y2bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.a = y2bVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TiebaStatic.log("c10283");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BubbleListActivityConfig(this.a.a.getActivity())));
             }
         }
     }
 
-    public y2b(BubbleGroupActivity bubbleGroupActivity, v2b v2bVar) {
+    public y2b(TbPageContext<?> tbPageContext, u2b u2bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bubbleGroupActivity, v2bVar};
+            Object[] objArr = {tbPageContext, u2bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -96,174 +70,84 @@ public class y2b {
                 return;
             }
         }
-        this.i = 0;
-        this.a = bubbleGroupActivity;
-        this.i = BdUtilHelper.getDimens(bubbleGroupActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703bc);
-        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0195, (ViewGroup) null);
-        this.b = inflate;
-        this.a.setContentView(inflate);
-        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090444);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-        this.d = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.editor_privilege);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f092a5b);
-        this.e = memberRecommendView;
-        memberRecommendView.setFromType(6);
-        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091622);
-        TextView textView = new TextView(this.a.getActivity());
-        this.g = textView;
-        textView.setHeight(BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        TextView textView2 = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d062a, (ViewGroup) null);
-        this.h = textView2;
-        textView2.setText(R.string.obfuscated_res_0x7f0f0ce1);
-        this.h.setOnClickListener(new a(this));
-        this.j = new w2b(this.a.getPageContext(), v2bVar);
-        TextView textView3 = new TextView(this.a.getActivity());
-        textView3.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070282)));
-        this.f.w(textView3, 0);
-        this.f.addFooterView(this.h);
-        this.f.setAdapter((ListAdapter) this.j);
+        this.b = tbPageContext;
+        this.c = u2bVar;
     }
 
-    public final void g(List<Object> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public List<DressItemData> getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.f.setVisibility(0);
-                this.j.a(list);
-                this.j.notifyDataSetChanged();
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<List<DressItemData>> list = this.a;
+            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
             }
-            this.f.setVisibility(8);
+            return null;
         }
+        return (List) invokeI.objValue;
     }
 
-    public final List<Object> b(List<x2b> list) {
-        InterceptResult invokeL;
+    public void b(List<List<DressItemData>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (x2b x2bVar : list) {
-                List<DressItemData> a2 = x2bVar.a();
-                int size = a2.size();
-                if (size != 0) {
-                    arrayList.add(x2bVar.b());
-                    if (size > 4) {
-                        size = 4;
-                    }
-                    for (int i = 0; i < size; i = i + 1 + 1) {
-                        ArrayList arrayList2 = new ArrayList();
-                        for (int i2 = 0; i2 < 2; i2++) {
-                            int i3 = i + i2;
-                            if (i3 < size) {
-                                arrayList2.add(a2.get(i3));
-                            }
-                        }
-                        arrayList.add(arrayList2);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
-            this.a.hideNetRefreshView(this.b);
-            this.c.setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
         }
     }
 
-    public View d() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.setVisibility(8);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.setVisibility(0);
-        }
-    }
-
-    public void f() {
-        w2b w2bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            fq5.a(this.a.getPageContext(), this.b);
-            if (this.a.getLayoutMode() != null) {
-                this.a.getLayoutMode().onModeChanged(this.h);
-                EMManager.from(this.h).setTextColor(R.color.CAM_X0108);
+            List<List<DressItemData>> list = this.a;
+            if (list != null) {
+                return list.size();
             }
-            NavigationBar navigationBar = this.d;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
-            }
-            BdListView bdListView = this.f;
-            if (bdListView != null && bdListView.getVisibility() == 0 && (w2bVar = this.j) != null) {
-                w2bVar.notifyDataSetChanged();
-            }
-            this.e.d();
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public final boolean h(j3b j3bVar) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, j3bVar)) == null) {
-            if (j3bVar != null && !StringUtils.isNull(j3bVar.c())) {
-                this.e.setVisibility(0);
-                this.e.e(j3bVar);
-                return true;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            List<DressItemData> item = getItem(i);
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0198, viewGroup, false);
+                aVar = new a();
+                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f092740);
+                aVar.b = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f090410);
+                aVar.c = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f090411);
+                view2.setTag(aVar);
             }
-            this.e.setVisibility(8);
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.c.setVisibility(8);
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
-            this.a.setNetRefreshViewTopMargin(this.i);
-            this.a.showNetRefreshView(this.b, string, false);
-        }
-    }
-
-    public void k(j3b j3bVar, List<x2b> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048585, this, j3bVar, list, z) == null) {
-            if (list != null && list.size() > 0) {
-                c();
-                if (h(j3bVar)) {
-                    this.f.removeHeaderView(this.g);
-                    this.f.addHeaderView(this.g);
+            if (item != null) {
+                if (i == 0) {
+                    aVar.a.setVisibility(0);
                 } else {
-                    this.f.removeHeaderView(this.g);
+                    aVar.a.setVisibility(8);
                 }
-                g(b(list));
-                return;
+                aVar.b.d(item.get(0));
+                aVar.b.setController(this.c);
+                aVar.b.setFromBubbleGroup(false);
+                if (item.size() > 1) {
+                    aVar.c.d(item.get(1));
+                    aVar.c.setController(this.c);
+                    aVar.c.setFromBubbleGroup(false);
+                } else {
+                    aVar.c.e();
+                }
             }
-            j();
+            this.b.getLayoutMode().onModeChanged(view2);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

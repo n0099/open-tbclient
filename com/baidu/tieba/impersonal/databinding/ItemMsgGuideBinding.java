@@ -57,17 +57,17 @@ public final class ItemMsgGuideBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090f40;
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f40);
+            int i = R.id.obfuscated_res_0x7f090f41;
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f41);
             if (linearLayout != null) {
                 i = R.id.guide_content;
                 TextView textView = (TextView) view2.findViewById(R.id.guide_content);
                 if (textView != null) {
-                    i = R.id.obfuscated_res_0x7f090f42;
-                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f42);
+                    i = R.id.obfuscated_res_0x7f090f43;
+                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f43);
                     if (textView2 != null) {
-                        i = R.id.obfuscated_res_0x7f090f47;
-                        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f47);
+                        i = R.id.obfuscated_res_0x7f090f48;
+                        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f48);
                         if (imageView != null) {
                             return new ItemMsgGuideBinding((LinearLayout) view2, linearLayout, textView, textView2, imageView);
                         }

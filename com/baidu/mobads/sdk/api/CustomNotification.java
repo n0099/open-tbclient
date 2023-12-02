@@ -116,23 +116,23 @@ public class CustomNotification {
             }
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), (int) R.layout.obfuscated_res_0x7f0d0659);
             if (bitmap != null) {
-                remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f0915af, bitmap);
+                remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f0915b0, bitmap);
             } else {
-                remoteViews.setImageViewResource(R.id.obfuscated_res_0x7f0915af, R.drawable.obfuscated_res_0x7f080805);
+                remoteViews.setImageViewResource(R.id.obfuscated_res_0x7f0915b0, R.drawable.obfuscated_res_0x7f080805);
             }
-            setRemoteViewText(remoteViews, R.id.obfuscated_res_0x7f091aa1, str3);
+            setRemoteViewText(remoteViews, R.id.obfuscated_res_0x7f091aa3, str3);
             if (TextUtils.isEmpty(str4) && TextUtils.isEmpty(str5)) {
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090819, 8);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09081a, 8);
             } else {
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090819, 0);
-                setRemoteViewText(remoteViews, R.id.obfuscated_res_0x7f09081f, str4);
-                setRemoteViewText(remoteViews, R.id.obfuscated_res_0x7f09081e, str5);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09081a, 0);
+                setRemoteViewText(remoteViews, R.id.obfuscated_res_0x7f090820, str4);
+                setRemoteViewText(remoteViews, R.id.obfuscated_res_0x7f09081f, str5);
             }
             if (i >= 0 && i <= 100) {
-                remoteViews.setProgressBar(R.id.obfuscated_res_0x7f091e61, 100, i, false);
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091e61, 0);
+                remoteViews.setProgressBar(R.id.obfuscated_res_0x7f091e63, 100, i, false);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091e63, 0);
             } else {
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091e61, 8);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091e63, 8);
             }
             remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0904e3, str6);
             remoteViews.setOnClickPendingIntent(R.id.obfuscated_res_0x7f0904e3, pendingIntent);
@@ -158,17 +158,17 @@ public class CustomNotification {
             }
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), (int) R.layout.obfuscated_res_0x7f0d0146);
             if (bitmap != null) {
-                remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f09106a, bitmap);
+                remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f09106b, bitmap);
             } else {
-                remoteViews.setImageViewResource(R.id.obfuscated_res_0x7f09106a, R.drawable.obfuscated_res_0x7f080805);
+                remoteViews.setImageViewResource(R.id.obfuscated_res_0x7f09106b, R.drawable.obfuscated_res_0x7f080805);
             }
-            setRemoteViewText(remoteViews, R.id.obfuscated_res_0x7f092683, str2);
-            setRemoteViewText(remoteViews, R.id.obfuscated_res_0x7f0908cc, str3);
+            setRemoteViewText(remoteViews, R.id.obfuscated_res_0x7f092685, str2);
+            setRemoteViewText(remoteViews, R.id.obfuscated_res_0x7f0908cd, str3);
             if (i >= 0 && i <= 100) {
-                remoteViews.setProgressBar(R.id.obfuscated_res_0x7f091e5a, 100, i, z2);
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091e5a, 0);
+                remoteViews.setProgressBar(R.id.obfuscated_res_0x7f091e5c, 100, i, z2);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091e5c, 0);
             } else {
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091e5a, 8);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091e5c, 8);
             }
             remoteViews.setTextViewText(R.id.obfuscated_res_0x7f09055e, str4);
             remoteViews.setOnClickPendingIntent(R.id.obfuscated_res_0x7f09055e, pendingIntent);

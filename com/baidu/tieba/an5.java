@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.fluency.BdTracesManager;
+import android.app.Activity;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.mutiprocess.fps.ImageFpsEvent;
+import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class an5 implements lm5<ImageFpsEvent> {
+public class an5 implements om5<CompeteTaskEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,17 +29,21 @@ public class an5 implements lm5<ImageFpsEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm5
+    @Override // com.baidu.tieba.om5
     /* renamed from: a */
-    public boolean onEvent(ImageFpsEvent imageFpsEvent) {
+    public boolean onEvent(CompeteTaskEvent competeTaskEvent) {
         InterceptResult invokeL;
+        CompleteTaskToastData completeTaskToastData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFpsEvent)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, competeTaskEvent)) == null) {
+            if (competeTaskEvent != null && (completeTaskToastData = competeTaskEvent.taskToastData) != null) {
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                if (currentActivity instanceof bp4) {
+                    ((bp4) currentActivity).onMissionCompleted(completeTaskToastData);
+                    return true;
+                }
             }
-            BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(ImageViewerConfig.KEY_FPS_IMAGE);
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }

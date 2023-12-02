@@ -114,7 +114,7 @@ public class SkinProgressView extends View {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.k = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070400);
+            this.k = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070401);
             this.g = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f0702b3);
             this.e = R.color.CAM_X0302;
             this.h = R.color.CAM_X0108;
@@ -146,7 +146,7 @@ public class SkinProgressView extends View {
                         } else if (i4 == 2) {
                             setText(R.string.obfuscated_res_0x7f0f0318);
                         } else {
-                            setText(R.string.obfuscated_res_0x7f0f1688);
+                            setText(R.string.obfuscated_res_0x7f0f1689);
                             setEnabled(false);
                         }
                         setTextColor(R.color.CAM_X0105);
@@ -222,7 +222,7 @@ public class SkinProgressView extends View {
                     setText(R.string.use_immediately);
                     setTextColor(R.color.CAM_X0105);
                 } else if (i2 == 0) {
-                    setText(R.string.obfuscated_res_0x7f0f17e2);
+                    setText(R.string.obfuscated_res_0x7f0f17e3);
                     setTextColor(R.color.CAM_X0105);
                 } else {
                     setTextColor(R.color.CAM_X0101);
@@ -258,7 +258,7 @@ public class SkinProgressView extends View {
             setEnabled(true);
             switch (i) {
                 case 0:
-                    setText(R.string.obfuscated_res_0x7f0f1688);
+                    setText(R.string.obfuscated_res_0x7f0f1689);
                     setTextColor(R.color.CAM_X0105);
                     setEnabled(false);
                     break;
@@ -280,7 +280,7 @@ public class SkinProgressView extends View {
                     setTextColor(R.color.CAM_X0105);
                     break;
                 case 4:
-                    setText(R.string.obfuscated_res_0x7f0f168b);
+                    setText(R.string.obfuscated_res_0x7f0f168c);
                     setTextColor(R.color.CAM_X0105);
                     break;
                 case 5:

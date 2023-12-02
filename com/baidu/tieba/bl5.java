@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.request.IMEmojiReplyDetailListener;
+import androidx.annotation.WorkerThread;
 import java.util.List;
 /* loaded from: classes5.dex */
 public interface bl5 {
-    void a(int i, List<? extends IMEmojiReplyDetailListener.IMEmojiReplyReactionDetail> list);
-
-    void onFailure(int i, String str);
+    @WorkerThread
+    void a(int i, long j, List<Long> list, int i2, String str);
 }

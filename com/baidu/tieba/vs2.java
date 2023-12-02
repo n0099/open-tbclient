@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,12 +13,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vs2 extends ts2 {
+public class vs2 extends ws2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public ArrayList<String> B;
-    public String z;
+    public int[] A;
+    public ArrayList<dt2> z;
 
     public vs2() {
         Interceptable interceptable = $ic;
@@ -32,50 +32,51 @@ public class vs2 extends ts2 {
                 return;
             }
         }
-        this.z = "";
-        this.A = "";
+        this.A = new int[]{0, 0, 0, 0};
     }
 
-    @Override // com.baidu.tieba.y12, com.baidu.tieba.gw2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        at2 at2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && (at2Var = this.j) != null && at2Var.isValid()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ts2, com.baidu.tieba.y12, com.baidu.tieba.gw2
+    @Override // com.baidu.tieba.ws2, com.baidu.tieba.b22, com.baidu.tieba.jw2
     public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
+        JSONArray jSONArray;
+        JSONArray jSONArray2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         super.a(jSONObject);
-        if (jSONObject.has("scale")) {
-            this.k = jSONObject.optDouble("scale", 18.0d);
-        }
-        if (jSONObject.has("name")) {
-            this.z = jSONObject.optString("name");
-        }
-        if (jSONObject.has("address")) {
-            this.A = jSONObject.optString("address");
-        }
-        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
-            int length = optJSONArray.length();
-            this.B = new ArrayList<>();
+        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
+            int length = jSONArray2.length();
+            this.z = new ArrayList<>(length);
             for (int i = 0; i < length; i++) {
-                this.B.add(optJSONArray.optString(i));
+                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    dt2 dt2Var = new dt2();
+                    dt2Var.a(jSONObject2);
+                    if (dt2Var.isValid()) {
+                        this.z.add(dt2Var);
+                    }
+                }
             }
         }
-        if (jSONObject.has("naviPreference")) {
-            jSONObject.optInt("naviPreference", -1);
+        if (jSONObject.has(CriusAttrConstants.PADDING) && (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) != null && jSONArray.length() > 0) {
+            int min = Math.min(jSONArray.length(), 4);
+            for (int i2 = 0; i2 < min; i2++) {
+                this.A[i2] = bk3.g(jSONArray.optInt(i2));
+            }
         }
+    }
+
+    @Override // com.baidu.tieba.b22, com.baidu.tieba.jw2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        ArrayList<dt2> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && (arrayList = this.z) != null && arrayList.size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

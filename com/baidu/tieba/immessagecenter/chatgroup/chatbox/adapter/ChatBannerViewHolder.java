@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn8;
+import com.baidu.tieba.b39;
+import com.baidu.tieba.fn8;
 import com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.x29;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView e;
     public View f;
-    public x29 g;
+    public b39 g;
     public FrameLayout h;
     public String i;
     public String j;
@@ -116,9 +116,9 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ef7);
-        this.f = view2.findViewById(R.id.obfuscated_res_0x7f090ef9);
-        this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ef8);
+        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ef8);
+        this.f = view2.findViewById(R.id.obfuscated_res_0x7f090efa);
+        this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ef9);
         this.k = str;
     }
 
@@ -134,13 +134,13 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull bn8 bn8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull fn8 fn8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, bn8Var, tbPageContext, i) == null) {
-            if (bn8Var instanceof x29) {
-                x29 x29Var = (x29) bn8Var;
-                this.g = x29Var;
-                this.i = x29Var.b();
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, fn8Var, tbPageContext, i) == null) {
+            if (fn8Var instanceof b39) {
+                b39 b39Var = (b39) fn8Var;
+                this.g = b39Var;
+                this.i = b39Var.b();
                 this.j = this.g.c();
                 if (!TextUtils.isEmpty(this.i) && !TextUtils.isEmpty(this.j)) {
                     this.h.setVisibility(0);

@@ -28,6 +28,24 @@ public class UbsABTestHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static boolean isNonEcomAdDownloaderTestA() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isNonEcomAdDownloaderTestB() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public UbsABTestHelper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -382,24 +400,6 @@ public class UbsABTestHelper {
         return invokeV.booleanValue;
     }
 
-    public static boolean isNonEcomAdDownloaderTestA() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
-            return isExistSid(UsbAbTestConst.KEY_NON_ECOM_AD_DOWNLOADER_A);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isNonEcomAdDownloaderTestB() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
-            return isExistSid(UsbAbTestConst.KEY_NON_ECOM_AD_DOWNLOADER_B);
-        }
-        return invokeV.booleanValue;
-    }
-
     @Modify(description = "广告-小熊-PB评论区小熊广告sdk小流量", type = 33)
     public static boolean isPbCommentFunAdABTest() {
         InterceptResult invokeV;
@@ -697,13 +697,13 @@ public class UbsABTestHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) {
             if (ABTestStaticData.Companion.isNewWrite() == -1) {
-                if (isExistSid(UsbAbTestConst.KEY_HOME_WRITE_TEST)) {
+                if (isExistSid(UsbAbTestConst.KEY_OLD_WRITE_PAGE)) {
                     ABTestStaticData.Companion.setNewWrite(1);
                 } else {
                     ABTestStaticData.Companion.setNewWrite(0);
                 }
             }
-            if (ABTestStaticData.Companion.isNewWrite() != 1) {
+            if (ABTestStaticData.Companion.isNewWrite() == 1) {
                 return false;
             }
             return true;

@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class yq5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
+public class yq5 extends vq5<mz4, ThreadCardViewHolder<mz4>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public im6<jz4> g;
+    public mm6<mz4> g;
 
     /* loaded from: classes9.dex */
-    public class a extends im6<jz4> {
+    public class a extends mm6<mz4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yq5 b;
@@ -48,12 +48,12 @@ public class yq5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.im6
+        @Override // com.baidu.tieba.mm6
         /* renamed from: d */
-        public void a(View view2, jz4 jz4Var) {
+        public void a(View view2, mz4 mz4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, jz4Var) == null) {
-                this.b.x(view2, jz4Var);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, mz4Var) == null) {
+                this.b.x(view2, mz4Var);
             }
         }
     }
@@ -85,14 +85,14 @@ public class yq5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
         @Override // com.baidu.tieba.zi
         public void b(View view2, pi piVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (piVar instanceof jz4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (piVar instanceof mz4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                jz4 jz4Var = (jz4) piVar;
-                jz4Var.objType = 1;
+                mz4 mz4Var = (mz4) piVar;
+                mz4Var.objType = 1;
                 if (this.a.g != null) {
-                    this.a.g.a(threadCardViewHolder.getView(), jz4Var);
+                    this.a.g.a(threadCardViewHolder.getView(), mz4Var);
                 }
-                ThreadCardUtils.jumpToPB((cw4) jz4Var, view2.getContext(), this.a.D(), false);
+                ThreadCardUtils.jumpToPB((fw4) mz4Var, view2.getContext(), this.a.D(), false);
                 threadCardViewHolder.a().q(new nu.a(1));
             }
         }
@@ -100,7 +100,7 @@ public class yq5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public yq5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_ENTER_FORUM);
+        super(tbPageContext, ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,8 +128,8 @@ public class yq5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.c.getPageActivity(), false);
-            bVar.h(new zs(this.c.getPageActivity()));
-            cu k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
+            bVar.n(qt.s(this.c.getPageActivity(), A(), H()));
+            cu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
             k.t(D());
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.mPageId);
@@ -142,17 +142,19 @@ public class yq5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: Q */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jz4 jz4Var, ThreadCardViewHolder<jz4> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mz4 mz4Var, ThreadCardViewHolder<mz4> threadCardViewHolder) {
         InterceptResult invokeCommon;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jz4Var, threadCardViewHolder})) == null) {
-            if (jz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = jz4Var.t) != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mz4Var, threadCardViewHolder})) == null) {
+            if (mz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = mz4Var.t) != null) {
                 threadData.statFloor = getPositionByType(i) + 1;
                 threadCardViewHolder.a().s(i);
-                threadCardViewHolder.e(jz4Var);
+                threadCardViewHolder.e(mz4Var);
                 threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().r(this.g);
+                gm6.a(threadCardViewHolder.a().g(), mz4Var.u, mz4Var.v);
+                N(threadCardViewHolder.getView(), mz4Var, i, i);
                 return threadCardViewHolder.getView();
             }
             return null;

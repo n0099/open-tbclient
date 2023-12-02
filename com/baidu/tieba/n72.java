@@ -1,77 +1,43 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class n72 {
+public class n72 extends l72<JSONObject, ly1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized m72 a(@NonNull String str) {
-        InterceptResult invokeL;
-        m72 r72Var;
+    public n72() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            synchronized (n72.class) {
-                char c = 65535;
-                switch (str.hashCode()) {
-                    case 48:
-                        if (str.equals("0")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                    case 49:
-                        if (str.equals("1")) {
-                            c = 1;
-                            break;
-                        }
-                        break;
-                    case 50:
-                        if (str.equals("2")) {
-                            c = 2;
-                            break;
-                        }
-                        break;
-                    case 51:
-                        if (str.equals("3")) {
-                            c = 3;
-                            break;
-                        }
-                        break;
-                    case 52:
-                        if (str.equals("4")) {
-                            c = 4;
-                            break;
-                        }
-                        break;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c != 2) {
-                            if (c != 3) {
-                                if (c != 4) {
-                                    r72Var = new l72();
-                                } else {
-                                    r72Var = new p72();
-                                }
-                            } else {
-                                r72Var = new o72();
-                            }
-                        } else {
-                            r72Var = new q72();
-                        }
-                    } else {
-                        r72Var = new k72();
-                    }
-                } else {
-                    r72Var = new r72();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return r72Var;
         }
-        return (m72) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p72
+    @NonNull
+    /* renamed from: c */
+    public ly1 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            new g72().c();
+            return new ly1(0);
+        }
+        return (ly1) invokeL.objValue;
     }
 }

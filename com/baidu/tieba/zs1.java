@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.BdSailor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,16 +12,40 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zs1 {
+public class zs1 implements ys1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public volatile long c;
-    public long d;
-    public long e;
-    public long f;
-    public String g;
+    public ws1 a;
+
+    /* loaded from: classes9.dex */
+    public class a implements ws1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(zs1 zs1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zs1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ws1
+        public void onActivityResult(Activity activity, int i, int i2, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
+                BdSailor.getInstance().onActivityResult(activity, i, i2, intent);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +60,7 @@ public class zs1 {
                 return;
             }
         }
-        boolean z = sm1.a;
+        boolean z = vm1.a;
     }
 
     public zs1() {
@@ -50,115 +76,26 @@ public class zs1 {
                 return;
             }
         }
-        this.g = "1";
+        this.a = new a(this);
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @NonNull
-    public String a() {
+    @Override // com.baidu.tieba.ys1
+    public xs1 a() {
         InterceptResult invokeV;
-        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.g;
-            switch (str.hashCode()) {
-                case 48:
-                    if (str.equals("0")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 49:
-                    if (str.equals("1")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 50:
-                    if (str.equals("2")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 51:
-                    if (str.equals("3")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            return "unknown";
-                        }
-                        return "fip";
-                    }
-                    return "ftp";
-                }
-                return "fcp";
-            }
-            return "fmp";
+            return l52.k();
         }
-        return (String) invokeV.objValue;
+        return (xs1) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "WebViewPaintTiming{fp=" + this.a + ", fcp=" + this.b + ", fmp=" + this.c + ", ftp=" + this.d + ", fip=" + this.e + ", mMinCache=" + this.f + ", fmpType='" + this.g + "', fmpTypeName='" + a() + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long b() {
+    @Override // com.baidu.tieba.ys1
+    public ws1 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.f;
-            if (j > 0) {
-                return j;
-            }
-            long[] jArr = {this.d, this.e, this.b};
-            long j2 = Long.MAX_VALUE;
-            for (int i = 0; i < 3; i++) {
-                long j3 = jArr[i];
-                if (j3 > 0 && j3 < j2) {
-                    j2 = j3;
-                }
-            }
-            if (j2 != Long.MAX_VALUE) {
-                this.f = j2;
-            }
-            return this.f;
+            return this.a;
         }
-        return invokeV.longValue;
-    }
-
-    public String c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            if (j == this.d) {
-                return "2";
-            }
-            if (j == this.e) {
-                return "3";
-            }
-            if (j == this.b || j != this.c) {
-                return "1";
-            }
-            return "0";
-        }
-        return (String) invokeJ.objValue;
+        return (ws1) invokeV.objValue;
     }
 }

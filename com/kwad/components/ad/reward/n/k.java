@@ -42,7 +42,7 @@ public final class k extends d implements com.kwad.sdk.widget.c {
         KSImageLoader.loadAppIcon(this.lu, aVar.gd(), adTemplate, 8);
         this.hz.setText(aVar.getTitle());
         this.lv.setText(aVar.ge());
-        int dimensionPixelSize = this.zf.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070525);
+        int dimensionPixelSize = this.zf.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070526);
         this.yG.getConfig().ae(dimensionPixelSize).ag(dimensionPixelSize).af(this.zf.getResources().getColor(R.color.obfuscated_res_0x7f0607a0));
         this.yG.d(aVar.getPrice(), aVar.getOriginPrice(), true);
         String gU = aVar.gU();

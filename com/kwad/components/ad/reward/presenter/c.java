@@ -20,7 +20,7 @@ public class c extends b {
     public AdInfo sc;
 
     public int hp() {
-        return R.id.obfuscated_res_0x7f091318;
+        return R.id.obfuscated_res_0x7f091319;
     }
 
     public c(AdInfo adInfo) {

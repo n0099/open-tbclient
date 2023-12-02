@@ -1,18 +1,25 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.content.Intent;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
-import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.group.BIMValueCallBack;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.AsyncChatTask;
-import com.baidu.android.imsdk.upload.AsyncUploadTask;
-import com.baidu.android.imsdk.upload.IUploadTransferListener;
-import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.editortools.sendtool.SendNoLaunchView;
+import com.baidu.tieba.im.base.core.inputtool.GroupInputTool;
+import com.baidu.tieba.im.base.core.inputtool.InputToolFragment;
+import com.baidu.tieba.im.base.core.inputtool.keyboardtool.PanelType;
+import com.baidu.tieba.im.chat.ISendVoiceView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,182 +27,437 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.util.cipher.Base64Util;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Map;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes7.dex */
-public class mn8 implements IGenBosObjectUrlListener, IUploadTransferListener, BIMValueCallBack<String>, ISendMessageListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String d = "mn8";
+public class mn8 implements VoiceManager.j {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public sn8 c;
+    public VoiceManager a;
+    public GroupInputTool b;
+    public Context c;
+    public TbPageContext d;
+    public boolean e;
+    public final InputToolFragment f;
+    public ISendVoiceView g;
+    public PermissionJudgePolicy h;
+    public ie5 i;
+    public EditorTools j;
+    public PanelType k;
+    public PanelType l;
+    public float m;
+    public toc<PanelType, PanelType, Float, Float> n;
+    public yz8 o;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947978546, "Lcom/baidu/tieba/mn8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947978546, "Lcom/baidu/tieba/mn8;");
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onProgress(int i) {
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager.IPlayView V1(VoiceData.VoiceModel voiceModel) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voiceModel)) == null) {
+            return null;
         }
+        return (VoiceManager.IPlayView) invokeL.objValue;
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
-    public void onSendMessageResult(int i, ChatMsg chatMsg) {
+    public void k(int i, int i2, @Nullable Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, chatMsg) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) {
         }
     }
 
-    public mn8(Context context, String str, String str2) {
+    /* loaded from: classes7.dex */
+    public class a implements yz8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mn8 a;
+
+        @Override // com.baidu.tieba.yz8
+        public void setRecoding(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            }
+        }
+
+        public a(mn8 mn8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mn8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mn8Var;
+        }
+
+        @Override // com.baidu.tieba.yz8
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a.a != null && this.a.h().f()) {
+                    if (this.a.f == null) {
+                        return true;
+                    }
+                    FragmentActivity fragmentActivity = this.a.f.getFragmentActivity();
+                    if (this.a.h == null) {
+                        this.a.h = new PermissionJudgePolicy();
+                    }
+                    this.a.h.clearRequestPermissionList();
+                    this.a.h.appendRequestPermission(fragmentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                    this.a.h.appendRequestPermission(fragmentActivity, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+                    return !this.a.h.startRequestPermission(fragmentActivity);
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.yz8
+        public void b() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.h() != null) {
+                this.a.h().cancelRecord();
+            }
+        }
+
+        @Override // com.baidu.tieba.yz8
+        public boolean isForeground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.e;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.yz8
+        public void stopRecord() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a.h() != null) {
+                this.a.h().stopRecord();
+            }
+        }
+
+        @Override // com.baidu.tieba.yz8
+        public void startRecord() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a.h() != null) {
+                this.a.h().c(this.a.b, -1);
+                this.a.h().d(ee.c);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-598377356, "Lcom/baidu/tieba/mn8$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-598377356, "Lcom/baidu/tieba/mn8$b;");
+                    return;
+                }
+            }
+            int[] iArr = new int[PanelType.values().length];
+            a = iArr;
+            try {
+                iArr[PanelType.INPUT_KEYBOARD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[PanelType.VOICE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[PanelType.EXPRESSION.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[PanelType.NONE.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[PanelType.INPUTCHANGE.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+        }
+    }
+
+    public mn8(@NonNull InputToolFragment inputToolFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {inputToolFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = str;
+        this.g = null;
+        this.j = null;
+        PanelType panelType = PanelType.NONE;
+        this.k = panelType;
+        this.l = panelType;
+        this.m = 0.0f;
+        this.o = new a(this);
+        this.c = inputToolFragment.getContext();
+        this.d = inputToolFragment.getPageContext();
+        this.f = inputToolFragment;
+        j();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0079 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-    /* renamed from: a */
+    public void o(ie5 ie5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, ie5Var) == null) {
+            this.i = ie5Var;
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void r(toc<PanelType, PanelType, Float, Float> tocVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, tocVar) == null) {
+            this.n = tocVar;
+        }
+    }
+
+    public void s(PermissionJudgePolicy permissionJudgePolicy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, permissionJudgePolicy) == null) {
+            this.h = permissionJudgePolicy;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    @NonNull
+    public VoiceManager d1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (VoiceManager) invokeV.objValue;
+    }
+
+    @Nullable
+    public PermissionJudgePolicy g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return (PermissionJudgePolicy) invokeV.objValue;
+    }
+
+    public hya h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            VoiceManager voiceManager = this.a;
+            if (voiceManager != null && voiceManager.getRecorderManager() != null) {
+                return this.a.getRecorderManager();
+            }
+            return null;
+        }
+        return (hya) invokeV.objValue;
+    }
+
+    public void i() {
+        ISendVoiceView iSendVoiceView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (iSendVoiceView = this.g) != null) {
+            iSendVoiceView.setTouchCallBack(this.o);
+        }
+    }
+
+    public void l() {
+        VoiceManager voiceManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (voiceManager = this.a) != null) {
+            voiceManager.onDestory(this.d);
+        }
+    }
+
+    public void m() {
+        VoiceManager voiceManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (voiceManager = this.a) != null) {
+            voiceManager.onPause();
+        }
+    }
+
+    public void n() {
+        VoiceManager voiceManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (voiceManager = this.a) != null) {
+            voiceManager.onResume(this.d);
+            this.a.setSpeakerphoneOn(!TbadkCoreApplication.getInst().isHeadsetModeOn());
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.a == null) {
+                this.a = new VoiceManager();
+                d1().setIsUseMediaPlayer(true);
+                this.a.onCreate(this.d);
+            }
+            this.a.setSpeakerphoneOn(!TbadkCoreApplication.getInst().isHeadsetModeOn());
+            VoiceManager.setIsNeedBlackScreen(false);
+        }
+    }
+
+    public void q(GroupInputTool groupInputTool) {
+        ie5 ie5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, groupInputTool) == null) {
+            this.b = groupInputTool;
+            EditorTools V = groupInputTool.V();
+            this.j = V;
+            if (V != null && this.b != null && (ie5Var = this.i) != null) {
+                V.setActionListener(24, ie5Var);
+                this.j.setActionListener(8, this.i);
+                this.j.setActionListener(4, this.i);
+                this.j.setActionListener(14, this.i);
+                this.j.setActionListener(5, this.i);
+                this.j.setActionListener(17, this.i);
+                this.j.setActionListener(16, this.i);
+                this.j.setActionListener(62, this.i);
+                this.j.setActionListener(64, this.i);
+                this.j.setActionListener(63, this.i);
+                this.j.setActionListener(80, this.i);
+                this.g = this.b.T();
+                v(SharedPrefHelper.getInstance().getBoolean("key_group_chat_chatroom_audio_switch", true));
+                t(SharedPrefHelper.getInstance().getBoolean("key_group_chat_chatroom_picture_switch", true), this.c.getString(R.string.function_can_not_use));
+                this.j.K(new he5(73, 3, 200));
+                this.j.K(new he5(79, 3, Boolean.TRUE));
+            }
+        }
+    }
+
+    public void t(boolean z, String str) {
+        EditorTools editorTools;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(1048591, this, z, str) == null) && (editorTools = this.j) != null && editorTools.u(38) != null && (this.j.u(38).m instanceof SendNoLaunchView)) {
+            ((SendNoLaunchView) this.j.u(38).m).setPicIconEnable(z);
+            ((SendNoLaunchView) this.j.u(38).m).setSendInterceptToastText(str, z);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:61:0x00c4  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onResult(int i, String str, String str2) {
-        FileOutputStream fileOutputStream;
-        Throwable th;
-        Exception e;
+    public void u(PanelType panelType, int i) {
+        GroupInputTool groupInputTool;
+        float f;
+        toc<PanelType, PanelType, Float, Float> tocVar;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
-            if (i == 0 && !TextUtils.isEmpty(str2)) {
-                FileOutputStream fileOutputStream2 = null;
-                try {
-                    try {
-                        byte[] decode = Base64Util.decode(str2);
-                        File file = new File(this.b);
-                        if (file.exists()) {
-                            fileOutputStream = new FileOutputStream(file);
-                            try {
-                                try {
-                                    fileOutputStream.write(decode);
-                                    fileOutputStream.flush();
-                                    fileOutputStream2 = fileOutputStream;
-                                } catch (Exception e2) {
-                                    e = e2;
-                                    if (this.c != null) {
-                                        this.c.isFailed();
-                                    }
-                                    LogUtils.e(d, e.getMessage());
-                                    if (fileOutputStream != null) {
-                                        fileOutputStream.close();
-                                    }
-                                    BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
-                                    return;
+        if (interceptable == null || interceptable.invokeLI(1048592, this, panelType, i) == null) {
+            if ((((mo8.l != 0 || panelType != PanelType.INPUT_KEYBOARD) && this.k != panelType) || panelType == PanelType.INPUTCHANGE) && (groupInputTool = this.b) != null && groupInputTool.N() != null && this.b.N().i() != null) {
+                this.l = panelType;
+                this.b.N().i().getLineCount();
+                int i3 = b.a[panelType.ordinal()];
+                float f2 = 0.0f;
+                if (i3 != 1) {
+                    if (i3 != 2) {
+                        if (i3 != 3) {
+                            if (i3 != 4) {
+                                if (i3 != 5) {
+                                    i = mo8.l;
+                                } else if (this.k != PanelType.EXPRESSION) {
+                                    f2 = this.m;
                                 }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (Exception e3) {
-                                        LogUtils.e(d, e3.getMessage());
+                            } else {
+                                PanelType panelType2 = this.k;
+                                if (panelType2 == PanelType.EXPRESSION) {
+                                    i2 = TbSingleton.getInstance().getEmotionBoardHeight();
+                                } else {
+                                    if (panelType2 != PanelType.VOICE) {
+                                        i2 = mo8.l;
                                     }
+                                    f = 0.0f;
                                 }
-                                throw th;
+                                f2 = -i2;
+                                f = 0.0f;
                             }
-                        } else if (this.c != null) {
-                            this.c.isFailed();
+                        } else if (this.k == PanelType.INPUT_KEYBOARD) {
+                            if (TbSingleton.getInstance().getEmotionBoardHeight() != 0) {
+                                f2 = -mo8.l;
+                                i = TbSingleton.getInstance().getEmotionBoardHeight();
+                            }
+                            f = 0.0f;
+                        } else {
+                            if (TbSingleton.getInstance().getEmotionBoardHeight() != 0) {
+                                i = TbSingleton.getInstance().getEmotionBoardHeight();
+                            }
+                            f = 0.0f;
                         }
-                    } catch (Exception e4) {
-                        LogUtils.e(d, e4.getMessage());
+                    } else {
+                        PanelType panelType3 = this.k;
+                        if (panelType3 != PanelType.NONE && panelType3 == PanelType.INPUT_KEYBOARD) {
+                            i2 = mo8.l;
+                            f2 = -i2;
+                        }
+                        f = 0.0f;
                     }
-                } catch (Exception e5) {
-                    fileOutputStream = null;
-                    e = e5;
-                } catch (Throwable th3) {
-                    fileOutputStream = null;
-                    th = th3;
-                    if (fileOutputStream != null) {
+                    tocVar = this.n;
+                    if (tocVar != null) {
+                        tocVar.b(this.l, this.k, Float.valueOf(f2), Float.valueOf(f));
                     }
-                    throw th;
+                    this.m = f;
+                    this.k = panelType;
                 }
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
+                i = mo8.l;
+                f = -i;
+                tocVar = this.n;
+                if (tocVar != null) {
                 }
-                BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
+                this.m = f;
+                this.k = panelType;
+            }
+        }
+    }
+
+    public void v(boolean z) {
+        EditorTools editorTools;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048593, this, z) == null) && (editorTools = this.j) != null) {
+            if (editorTools.u(6) != null && !z) {
+                this.j.u(6).f = R.color.CAM_X0109;
+                this.j.u(6).k = false;
                 return;
             }
-            sn8 sn8Var = this.c;
-            if (sn8Var != null) {
-                sn8Var.isFailed();
-            }
-        }
-    }
-
-    public void b(@NonNull sn8 sn8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sn8Var) == null) {
-            this.c = sn8Var;
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onFailed(int i, int i2, String str) {
-        sn8 sn8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) && (sn8Var = this.c) != null) {
-            sn8Var.isFailed();
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onFinished(int i, String str) {
-        sn8 sn8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (sn8Var = this.c) != null) {
-            sn8Var.a(str);
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
-    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
-            if (i == 0) {
-                new AsyncUploadTask(this.a, 2, map.get(AsyncChatTask.PUT_URL), map.get(AsyncChatTask.GET_URL), this.b, "mp3", str2, str3, this).execute(new Void[0]);
-                return;
-            }
-            sn8 sn8Var = this.c;
-            if (sn8Var != null) {
-                sn8Var.isFailed();
-            }
+            this.j.u(6).f = R.color.CAM_X0105;
+            this.j.u(6).k = true;
         }
     }
 }

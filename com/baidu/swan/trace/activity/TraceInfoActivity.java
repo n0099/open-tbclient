@@ -9,10 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.el4;
-import com.baidu.tieba.fl4;
-import com.baidu.tieba.gl4;
 import com.baidu.tieba.hl4;
+import com.baidu.tieba.il4;
+import com.baidu.tieba.jl4;
+import com.baidu.tieba.kl4;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.Set;
 public class TraceInfoActivity extends Activity implements View.OnClickListener {
     public TextView a;
     public Button b;
-    public List<el4> c;
+    public List<hl4> c;
     public Set<String> d;
     public int e;
 
@@ -58,14 +58,14 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     }
 
     public final void e() {
-        for (el4 el4Var : this.c) {
-            this.d.add(el4Var.f());
+        for (hl4 hl4Var : this.c) {
+            this.d.add(hl4Var.f());
         }
     }
 
     public final void g() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092798);
-        Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092455);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09279a);
+        Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092457);
         this.b = button;
         button.setOnClickListener(this);
         this.d = new HashSet();
@@ -77,8 +77,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        List<el4> list;
-        if (view2.getId() == R.id.obfuscated_res_0x7f092455 && (list = this.c) != null && list.size() > 0) {
+        List<hl4> list;
+        if (view2.getId() == R.id.obfuscated_res_0x7f092457 && (list = this.c) != null && list.size() > 0) {
             d();
         }
     }
@@ -97,21 +97,21 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         this.e = i + 1;
         String str = (String) arrayList.get(i % arrayList.size());
         ArrayList arrayList2 = new ArrayList();
-        for (el4 el4Var : this.c) {
-            if (TextUtils.equals(el4Var.f(), str)) {
-                arrayList2.add(el4Var);
+        for (hl4 hl4Var : this.c) {
+            if (TextUtils.equals(hl4Var.f(), str)) {
+                arrayList2.add(hl4Var);
             }
         }
-        return hl4.c(arrayList2, null);
+        return kl4.c(arrayList2, null);
     }
 
     public final void i() {
-        gl4<List<el4>> c = fl4.b().c();
+        jl4<List<hl4>> c = il4.b().c();
         if (c == null) {
             this.a.setText("NO DATA");
             return;
         }
-        List<el4> a2 = c.a();
+        List<hl4> a2 = c.a();
         if (a2 != null && a2.size() > 0) {
             this.c = a2;
             this.e = 0;

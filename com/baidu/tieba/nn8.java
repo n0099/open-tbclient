@@ -1,30 +1,27 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.util.orderlist.OrderLinkList;
 import com.baidu.tieba.im.base.core.inputtool.GroupInputViewController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class nn8 implements dp8 {
+public class nn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    @NonNull
-    public final OrderLinkList<sv8> b;
-    @NonNull
-    public final GroupInputViewController c;
+    public HashMap<String, eo8> a;
+    public GroupInputViewController b;
 
-    public nn8(@NonNull GroupInputViewController groupInputViewController) {
+    public final void c(eo8 eo8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eo8Var) == null) {
+        }
+    }
+
+    public nn8(GroupInputViewController groupInputViewController) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,197 +36,93 @@ public class nn8 implements dp8 {
                 return;
             }
         }
-        this.c = groupInputViewController;
-        this.b = new OrderLinkList<>();
+        this.a = new HashMap<>();
+        this.b = groupInputViewController;
     }
 
-    @Override // com.baidu.tieba.dp8
-    public boolean a(@NonNull List<Integer> list) {
-        InterceptResult invokeL;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final void a(@NonNull String str, @NonNull eo8 eo8Var) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (list.isEmpty()) {
-                return false;
-            }
-            for (Integer num : list) {
-                if (i(num.intValue()) != null) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dp8
-    public void f(@NonNull List<sv8> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list.size() > 0) {
-            for (sv8 sv8Var : list) {
-                sv8Var.b(k(sv8Var.d()));
-                sv8Var.h(false);
-                this.b.c(sv8Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.dp8
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b.d(k(i));
-        }
-    }
-
-    @Override // com.baidu.tieba.dp8
-    public void c(@NonNull sv8 sv8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sv8Var) == null) {
-            sv8Var.b(k(sv8Var.d()));
-            sv8Var.h(false);
-            this.b.c(sv8Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.dp8
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    @Nullable
-    public sv8 i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return this.b.a(k(i));
-        }
-        return (sv8) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.dp8
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            sv8 h = h();
-            if (h == null) {
-                return false;
-            }
-            this.c.Q1(h.c());
-            this.c.i2(false);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dp8
-    @Nullable
-    public sv8 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b.b();
-        }
-        return (sv8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.dp8
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            int k = k(i);
-            sv8 a = this.b.a(k);
-            if (i == 7011 && a != null && a.e()) {
-                a.f(j(i));
-            }
-            if (a == null) {
-                sv8 sv8Var = new sv8();
-                sv8Var.g(i);
-                sv8Var.b(k);
-                sv8Var.f(j(i));
-                sv8Var.h(true);
-                this.b.c(sv8Var);
-            }
-        }
-    }
-
-    @SuppressLint({"StringFormatMatches"})
-    public final String j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (i != 102) {
-                if (i != 7003) {
-                    if (i != 7005) {
-                        if (i != 7007) {
-                            switch (i) {
-                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
-                                    return String.format(xn8.g, Integer.valueOf(this.a));
-                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
-                                    return xn8.b;
-                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
-                                    return xn8.e;
-                                default:
-                                    return "";
-                            }
-                        }
-                        return xn8.c;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, eo8Var) == null) {
+            switch (str.hashCode()) {
+                case -1885552185:
+                    if (str.equals("key_keyboard")) {
+                        c = 1;
+                        break;
                     }
-                    return xn8.d;
-                }
-                return xn8.f;
+                    c = 65535;
+                    break;
+                case -1209909286:
+                    if (str.equals("key_input_view")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -711264803:
+                    if (str.equals("key_emotion_desk")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -710778660:
+                    if (str.equals("key_emotion_tool")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 183469669:
+                    if (str.equals("key_voice_tool")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            return xn8.a;
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        d(eo8Var);
+                        return;
+                    }
+                    return;
+                }
+                e(eo8Var);
+                return;
+            }
+            c(eo8Var);
         }
-        return (String) invokeI.objValue;
     }
 
-    public final int k(int i) {
-        InterceptResult invokeI;
-        int i2;
+    public void b(@NonNull String str, @NonNull eo8 eo8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            if (i != 102) {
-                switch (i) {
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE /* 7003 */:
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE /* 7004 */:
-                        i2 = 5;
-                        break;
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL /* 7005 */:
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL /* 7006 */:
-                        i2 = 7;
-                        break;
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN /* 7007 */:
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_FROZEN /* 7008 */:
-                        i2 = 8;
-                        break;
-                    default:
-                        switch (i) {
-                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
-                                i2 = 4;
-                                break;
-                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
-                                i2 = 9;
-                                break;
-                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
-                                i2 = 6;
-                                break;
-                            default:
-                                i2 = 0;
-                                break;
-                        }
-                }
-            } else {
-                i2 = 10;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, eo8Var) == null) {
+            if (this.a.containsKey(str)) {
+                this.a.put(str, eo8Var);
             }
-            if (i2 != 0) {
-                return i2;
-            }
-            throw new IllegalArgumentException("The type of the banned msg is unknown!");
+            a(str, eo8Var);
         }
-        return invokeI.intValue;
+    }
+
+    public final void d(eo8 eo8Var) {
+        GroupInputViewController groupInputViewController;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, eo8Var) == null) && (groupInputViewController = this.b) != null && groupInputViewController.J0() != null && !eo8Var.a()) {
+            this.b.J0().l();
+        }
+    }
+
+    public final void e(eo8 eo8Var) {
+        GroupInputViewController groupInputViewController;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, eo8Var) == null) && (groupInputViewController = this.b) != null && groupInputViewController.P0() != null && !eo8Var.a()) {
+            this.b.P0().Y();
+        }
     }
 }

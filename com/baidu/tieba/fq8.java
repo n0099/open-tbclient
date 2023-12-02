@@ -1,26 +1,38 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class fq8 {
+public abstract class fq8 implements cq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public long c;
-    public String d;
+    public final List<bq8> a;
+    public eq8 b;
+    public cq8 c;
+    public int d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public abstract List<bq8> j(List list);
+
     public fq8() {
-        this(0L, null, 0L, null, 15, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,159 +40,98 @@ public final class fq8 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Long) objArr[0]).longValue(), (String) objArr[1], ((Long) objArr[2]).longValue(), (String) objArr[3], ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList();
+        this.d = -1;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof fq8) {
-                fq8 fq8Var = (fq8) obj;
-                return this.a == fq8Var.a && Intrinsics.areEqual(this.b, fq8Var.b) && this.c == fq8Var.c && Intrinsics.areEqual(this.d, fq8Var.d);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (((((c.a(this.a) * 31) + this.b.hashCode()) * 31) + c.a(this.c)) * 31) + this.d.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "AbilityPayload(roomId=" + this.a + ", forumName=" + this.b + ", forumId=" + this.c + ", roomName=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public fq8(long j, String forumName, long j2, String roomName) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), forumName, Long.valueOf(j2), roomName};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(forumName, "forumName");
-        Intrinsics.checkNotNullParameter(roomName, "roomName");
-        this.a = j;
-        this.b = forumName;
-        this.c = j2;
-        this.d = roomName;
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ fq8(long j, String str, long j2, String str2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r2, r12, r0, r11);
-        long j3;
-        String str3;
-        String str4;
-        if ((i & 1) != 0) {
-            j3 = 0;
-        } else {
-            j3 = j;
-        }
-        if ((i & 2) != 0) {
-            str3 = "";
-        } else {
-            str3 = str;
-        }
-        long j4 = (i & 4) == 0 ? j2 : 0L;
-        if ((i & 8) != 0) {
-            str4 = "";
-        } else {
-            str4 = str2;
-        }
-    }
-
-    public final long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public final String d() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+            if (this.a.size() > 0) {
+                return this.a.size();
+            }
+            return -1;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void e(long j) {
+    public List<bq8> f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.c = j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Collections.unmodifiableList(this.a);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public bq8 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i >= 0 && i < e()) {
+                return f().get(i);
+            }
+            return null;
+        }
+        return (bq8) invokeI.objValue;
+    }
+
+    public void i(int i) {
+        eq8 eq8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && i >= 0 && (eq8Var = this.b) != null) {
+            eq8Var.c(i, 1);
         }
     }
 
-    public final void f(String str) {
+    public void k(cq8 cq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(1048585, this, cq8Var) == null) {
+            this.c = cq8Var;
         }
     }
 
-    public final void g(long j) {
+    public void l(eq8 eq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.a = j;
+        if (interceptable == null || interceptable.invokeL(1048586, this, eq8Var) == null) {
+            this.b = eq8Var;
         }
     }
 
-    public final void h(String str) {
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.d = str;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void g(List list) {
+        List<bq8> j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty()) {
+            this.a.addAll(j);
+            eq8 eq8Var = this.b;
+            if (eq8Var != null) {
+                eq8Var.b(0, e());
+            }
+        }
+    }
+
+    public void h(List list) {
+        List<bq8> j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty() && this.b != null) {
+            int e = e();
+            this.a.clear();
+            this.b.a(0, e);
+            this.a.addAll(j);
+            this.b.c(0, e());
         }
     }
 }

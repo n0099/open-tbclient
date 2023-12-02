@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.searchbox.player.event.StateEvent;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class fs0 extends ks0 {
+public class fs0 extends ms0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ks0 x(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        InterceptResult invokeLL;
+    public static ms0 x(@NonNull String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, playerStatus, playerStatus2)) == null) {
-            ks0 n = ks0.n(StateEvent.ACTION_STATE_CHANGED, 5);
-            n.o(1, playerStatus);
-            n.o(2, playerStatus2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            ms0 n = ms0.n(str, 7);
+            n.v(1);
+            n.t(i);
             return n;
         }
-        return (ks0) invokeLL.objValue;
+        return (ms0) invokeLI.objValue;
     }
 }

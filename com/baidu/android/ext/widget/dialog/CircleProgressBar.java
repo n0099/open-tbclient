@@ -154,18 +154,18 @@ public final class CircleProgressBar extends View implements LoadingDialog.IProg
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.circle_progressbar);
                 Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "context.obtainStyledAttr…eable.circle_progressbar)");
-                this.mCircleWidth = obtainStyledAttributes.getDimension(4, getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070223));
+                this.mCircleWidth = obtainStyledAttributes.getDimension(4, getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070226));
                 this.mCircleColor = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603bb));
                 this.mProgressColor = obtainStyledAttributes.getColor(5, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603bc));
                 this.mText = obtainStyledAttributes.getString(1);
-                this.mTextSize = obtainStyledAttributes.getDimension(3, getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070226));
+                this.mTextSize = obtainStyledAttributes.getDimension(3, getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070227));
                 this.mTextColor = obtainStyledAttributes.getColor(2, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603bc));
                 obtainStyledAttributes.recycle();
             } else {
-                this.mCircleWidth = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070223);
+                this.mCircleWidth = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070226);
                 this.mCircleColor = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603bb);
                 this.mProgressColor = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603bc);
-                this.mTextSize = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070226);
+                this.mTextSize = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070227);
                 this.mTextColor = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603bc);
             }
             this.mPaint.setStrokeWidth(this.mCircleWidth);

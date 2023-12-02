@@ -118,11 +118,11 @@ public final class n extends e {
     public final void onCreate() {
         super.onCreate();
         this.mStartTime = SystemClock.elapsedRealtime();
-        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0914ac)).inflate();
-        this.hz = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ce);
-        this.DJ = (TextView) findViewById(R.id.obfuscated_res_0x7f0914cd);
-        this.DK = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914cc);
-        KsSplashSlidePathView ksSplashSlidePathView = (KsSplashSlidePathView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0914cb)).inflate();
+        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0914ad)).inflate();
+        this.hz = (TextView) findViewById(R.id.obfuscated_res_0x7f0914cf);
+        this.DJ = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ce);
+        this.DK = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914cd);
+        KsSplashSlidePathView ksSplashSlidePathView = (KsSplashSlidePathView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0914cc)).inflate();
         this.DM = ksSplashSlidePathView;
         ksSplashSlidePathView.setOnSlideTouchListener(new KsSplashSlidePathView.a() { // from class: com.kwad.components.ad.splashscreen.c.n.1
             @Override // com.kwad.components.ad.splashscreen.widget.KsSplashSlidePathView.a

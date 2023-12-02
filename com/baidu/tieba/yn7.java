@@ -1,42 +1,88 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.forum.component.CardStaggeredVideoView;
+import com.baidu.tieba.forum.data.ForumTabItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class yn7 extends wa7<CardStaggeredVideoView, xf7> {
+public final class yn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ForumTabItem a;
+    public final Fragment b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yn7() {
-        super("staggered_video");
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof yn7) {
+                yn7 yn7Var = (yn7) obj;
+                return Intrinsics.areEqual(this.a, yn7Var.a) && Intrinsics.areEqual(this.b, yn7Var.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "FrsTabFragmentData(tabItem=" + this.a + ", fragment=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public yn7(ForumTabItem tabItem, Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tabItem, fragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(tabItem, "tabItem");
+        Intrinsics.checkNotNullParameter(fragment, "fragment");
+        this.a = tabItem;
+        this.b = fragment;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mb7
-    /* renamed from: e */
-    public void b(@NonNull CardStaggeredVideoView cardStaggeredVideoView, @NonNull xf7 xf7Var) {
+    public final Fragment a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardStaggeredVideoView, xf7Var) == null) {
-            cardStaggeredVideoView.b(xf7Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (Fragment) invokeV.objValue;
+    }
+
+    public final ForumTabItem b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ForumTabItem) invokeV.objValue;
     }
 }

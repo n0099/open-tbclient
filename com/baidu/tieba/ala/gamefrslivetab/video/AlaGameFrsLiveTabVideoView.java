@@ -38,11 +38,10 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ck5;
-import com.baidu.tieba.pic;
+import com.baidu.tieba.du5;
+import com.baidu.tieba.fk5;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.util.TopicListUtil;
-import com.baidu.tieba.zt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +61,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     public NavigationBar c;
     public ScrollBridgeWebview d;
     public LoadingView e;
-    public ck5 f;
+    public fk5 f;
     public boolean g;
     public String h;
     public int i;
@@ -627,7 +626,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                     if (StringHelper.equals(matchStringFromURL3, "1")) {
                         new HotTopicActivityConfig(this.a.getActivity()).createNormalConfig(matchStringFromURL, matchStringFromURL2, matchStringFromURL3, null).start();
                     } else {
-                        zt5.f(this.a.getPageContext(), matchStringFromURL, matchStringFromURL2);
+                        du5.f(this.a.getPageContext(), matchStringFromURL, matchStringFromURL2);
                     }
                 } else {
                     BrowserHelper.startWebActivity(this.a.getActivity(), matchStringFromURL2, str);
@@ -648,7 +647,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             String substring = str.substring(str.indexOf("data=") + 5);
             ArrayList<String> arrayList = new ArrayList<>();
             try {
-                JSONArray optJSONArray = new JSONObject(substring).optJSONArray(pic.f);
+                JSONArray optJSONArray = new JSONObject(substring).optJSONArray("pic");
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     arrayList.add(optJSONArray.getString(i2));
                 }
@@ -688,7 +687,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                 this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
                 this.c.setmBackImageViewBg(R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
             }
-            ScrollBridgeWebview scrollBridgeWebview = (ScrollBridgeWebview) this.b.findViewById(R.id.obfuscated_res_0x7f092af5);
+            ScrollBridgeWebview scrollBridgeWebview = (ScrollBridgeWebview) this.b.findViewById(R.id.obfuscated_res_0x7f092af8);
             this.d = scrollBridgeWebview;
             scrollBridgeWebview.setOnScrollChangeListener(new d(this));
             r();
@@ -711,7 +710,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                     String optString3 = jSONObject.optString("link_url");
                     String optString4 = jSONObject.optString("thread_id");
                     String optString5 = jSONObject.optString("forum_name");
-                    String optString6 = jSONObject.optString(pic.f);
+                    String optString6 = jSONObject.optString("pic");
                     if (TextUtils.isEmpty(optString3)) {
                         return false;
                     }
@@ -824,10 +823,10 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     public void q() {
-        ck5 ck5Var;
+        fk5 fk5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (ck5Var = this.f) != null) {
-            ck5Var.dettachView(this.b);
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (fk5Var = this.f) != null) {
+            fk5Var.dettachView(this.b);
             this.f = null;
         }
     }
@@ -866,7 +865,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (baseFragment = this.a) != null && this.b != null && baseFragment.isAdded()) {
             this.j = true;
-            LoadingView loadingView = new LoadingView(this.a.getActivity(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ac));
+            LoadingView loadingView = new LoadingView(this.a.getActivity(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ad));
             this.e = loadingView;
             loadingView.attachView(this.b, false);
             this.e.onChangeSkinType();
@@ -877,11 +876,11 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         BaseFragment baseFragment;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (baseFragment = this.a) != null && baseFragment.isAdded()) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e6f);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e70);
             if (this.f == null) {
-                ck5 ck5Var = new ck5(this.a.getActivity(), new e(this));
-                this.f = ck5Var;
-                ck5Var.onChangeSkinType();
+                fk5 fk5Var = new fk5(this.a.getActivity(), new e(this));
+                this.f = fk5Var;
+                fk5Var.onChangeSkinType();
             }
             this.d.setVisibility(8);
             this.f.m(string);

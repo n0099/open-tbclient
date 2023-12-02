@@ -1,27 +1,36 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes9.dex */
-public interface zo9 {
-    void a(String str);
+public class zo9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, int i, int i2, String str2);
-
-    void c(String str, int i, String str2);
-
-    boolean d(String str);
-
-    boolean e(String str);
-
-    void f(String str, int i, String str2);
-
-    void g(String str, int i, String str2);
-
-    void h(String str, String str2);
-
-    void i(String str, String str2);
-
-    void j(String str);
-
-    void k(String str);
-
-    void l(String str, int i, String str2);
+    public static String a(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, th)) == null) {
+            if (th == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder(th.toString());
+            StackTraceElement[] stackTrace = th.getStackTrace();
+            if (stackTrace != null) {
+                for (int i = 0; i < stackTrace.length; i++) {
+                    StackTraceElement stackTraceElement = stackTrace[i];
+                    if (stackTraceElement != null && i < 7) {
+                        sb.append(" ----> ");
+                        sb.append(stackTraceElement.getClassName());
+                        sb.append(".");
+                        sb.append(stackTraceElement.getMethodName());
+                        sb.append("()");
+                    }
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
 }

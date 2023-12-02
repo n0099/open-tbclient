@@ -112,10 +112,10 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                 this.a.f = true;
                 if (this.a.a != null && this.a.c != null) {
                     if (responsedMessage == null) {
-                        this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e6f));
+                        this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e70));
                     } else if (responsedMessage.getError() != 0) {
                         if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                            this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e6f));
+                            this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e70));
                         } else {
                             this.a.c.onFailed(responsedMessage.getErrorString());
                         }
@@ -184,7 +184,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             if (requestUpdateMaskInfoMessage.getMaskType() == 6 && this.a.a != null && this.a.c != null) {
                 if (responseUpdateMaskInfoMessage.getError() != 0) {
                     if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e6f);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e70);
                     } else {
                         this.a.a.showToast(responseUpdateMaskInfoMessage.getErrorString());
                     }

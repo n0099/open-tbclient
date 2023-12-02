@@ -3,13 +3,13 @@ package com.baidu.tieba.sprite.homepage.userstrategy;
 import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.n3b;
-import com.baidu.tieba.oq6;
-import com.baidu.tieba.s05;
+import com.baidu.tieba.m3b;
 import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
 import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
 import com.baidu.tieba.sprite.homepage.userstrategy.NewUserSpriteShowStrategy$dispatchSpriteTip$1;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
+import com.baidu.tieba.sq6;
+import com.baidu.tieba.v05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,7 +52,7 @@ public final class NewUserSpriteShowStrategy$dispatchSpriteTip$1 extends Lambda 
     }
 
     /* renamed from: invoke$lambda-0  reason: not valid java name */
-    public static final void m148invoke$lambda0() {
+    public static final void m147invoke$lambda0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             HomeSpriteEdgeFloatManager.l.c().O();
@@ -71,15 +71,15 @@ public final class NewUserSpriteShowStrategy$dispatchSpriteTip$1 extends Lambda 
     public final void invoke2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            s05.g(CollectionsKt__CollectionsJVMKt.listOf(new n3b(this.$context, this.$response, this.$spriteTipView, new oq6.e() { // from class: com.baidu.tieba.yra
+            v05.g(CollectionsKt__CollectionsJVMKt.listOf(new m3b(this.$context, this.$response, this.$spriteTipView, new sq6.e() { // from class: com.baidu.tieba.xra
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.oq6.e
+                @Override // com.baidu.tieba.sq6.e
                 public final void onDismiss() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        NewUserSpriteShowStrategy$dispatchSpriteTip$1.m148invoke$lambda0();
+                        NewUserSpriteShowStrategy$dispatchSpriteTip$1.m147invoke$lambda0();
                     }
                 }
             })));

@@ -10,8 +10,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.bnb;
-import com.baidu.tieba.lm8;
+import com.baidu.tieba.anb;
+import com.baidu.tieba.pm8;
 import com.baidu.tieba.write.write.work.topic.model.GetRecommendTopicReqMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,18 +21,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetRecommendTopic.TopicList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final NetMessageListener a;
     public b b;
     public boolean c;
-    public List<lm8> d;
+    public List<pm8> d;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface b {
-        void a(@NonNull List<lm8> list);
+        void a(@NonNull List<pm8> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -55,7 +55,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,8 +88,8 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (responsedMessage != null && (responsedMessage instanceof bnb)) {
-                    this.a.S(((bnb) responsedMessage).getTopicList());
+                if (responsedMessage != null && (responsedMessage instanceof anb)) {
+                    this.a.S(((anb) responsedMessage).getTopicList());
                 }
             }
         }
@@ -122,7 +122,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.d = new ArrayList();
             for (TopicList topicList : list) {
-                this.d.add(new lm8(topicList));
+                this.d.add(new pm8(topicList));
             }
             b bVar = this.b;
             if (bVar != null) {

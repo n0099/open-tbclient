@@ -1,73 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b5b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<String> a;
+    public final String b;
 
-    public static byte[] a(List<String> list) {
-        InterceptResult invokeL;
+    public b5b(List<String> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                sb.append(list.get(i));
-                sb.append("\n");
-            }
-            return sb.toString().getBytes();
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return jSONObject.toString().getBytes();
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static boolean c(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            if (bArr == null) {
-                return false;
-            }
-            cb cbVar = new cb();
-            cbVar.b().s(str);
-            cbVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
-            cbVar.b().c("", bArr);
-            new ab(cbVar).m(3, -1, -1);
-            int i = cbVar.c().b;
-            byte[] bArr2 = cbVar.c().i;
-            if (bArr2 == null || i != 200) {
-                return false;
-            }
-            try {
-                if (new JSONObject(new String(bArr2, "utf-8")).optJSONObject("error").optInt("errno") != 0) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLL.booleanValue;
+        if (list != null) {
+            this.a = new ArrayList(list);
+        } else {
+            this.a = new ArrayList();
+        }
+        this.b = str;
     }
 }

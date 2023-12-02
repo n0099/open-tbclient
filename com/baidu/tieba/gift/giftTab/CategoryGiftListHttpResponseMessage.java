@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.qx4;
+import com.baidu.tieba.tx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int categoryId;
-    public ArrayList<qx4> giftList;
+    public ArrayList<tx4> giftList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CategoryGiftListHttpResponseMessage(int i) {
@@ -61,25 +61,25 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
             this.giftList = new ArrayList<>();
             for (PresentGiftListByCategoryId1 presentGiftListByCategoryId1 : getGiftListByCategoryIdResIdl.data.gift_list) {
                 if (presentGiftListByCategoryId1 != null) {
-                    qx4 qx4Var = new qx4();
-                    qx4Var.a = presentGiftListByCategoryId1.gift_id.intValue();
-                    qx4Var.b = presentGiftListByCategoryId1.gift_name;
-                    qx4Var.c = presentGiftListByCategoryId1.price.intValue();
-                    qx4Var.d = presentGiftListByCategoryId1.thumbnail_url;
+                    tx4 tx4Var = new tx4();
+                    tx4Var.a = presentGiftListByCategoryId1.gift_id.intValue();
+                    tx4Var.b = presentGiftListByCategoryId1.gift_name;
+                    tx4Var.c = presentGiftListByCategoryId1.price.intValue();
+                    tx4Var.d = presentGiftListByCategoryId1.thumbnail_url;
                     presentGiftListByCategoryId1.ios_price.intValue();
-                    qx4Var.e = presentGiftListByCategoryId1.gift_desc;
-                    qx4Var.f = presentGiftListByCategoryId1.activity_type.intValue();
-                    qx4Var.g = presentGiftListByCategoryId1.mark_url;
-                    qx4Var.h = presentGiftListByCategoryId1.begin_time.intValue();
-                    qx4Var.i = presentGiftListByCategoryId1.end_time.intValue();
-                    qx4Var.j = presentGiftListByCategoryId1.discount.intValue();
+                    tx4Var.e = presentGiftListByCategoryId1.gift_desc;
+                    tx4Var.f = presentGiftListByCategoryId1.activity_type.intValue();
+                    tx4Var.g = presentGiftListByCategoryId1.mark_url;
+                    tx4Var.h = presentGiftListByCategoryId1.begin_time.intValue();
+                    tx4Var.i = presentGiftListByCategoryId1.end_time.intValue();
+                    tx4Var.j = presentGiftListByCategoryId1.discount.intValue();
                     presentGiftListByCategoryId1.ios_discount.intValue();
                     presentGiftListByCategoryId1.proportion.intValue();
                     presentGiftListByCategoryId1.pitch_on.intValue();
-                    qx4Var.k = presentGiftListByCategoryId1.gift_count.intValue();
-                    qx4Var.q = presentGiftListByCategoryId1.currency_unit.intValue();
-                    qx4Var.s = presentGiftListByCategoryId1.currency.intValue();
-                    this.giftList.add(qx4Var);
+                    tx4Var.k = presentGiftListByCategoryId1.gift_count.intValue();
+                    tx4Var.q = presentGiftListByCategoryId1.currency_unit.intValue();
+                    tx4Var.s = presentGiftListByCategoryId1.currency.intValue();
+                    this.giftList.add(tx4Var);
                 }
             }
         }
@@ -97,7 +97,7 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
         return invokeV.intValue;
     }
 
-    public ArrayList<qx4> getGiftList() {
+    public ArrayList<tx4> getGiftList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

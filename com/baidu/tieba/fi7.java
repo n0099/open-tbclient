@@ -1,22 +1,15 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.forum.databinding.ActivityForumBinding;
-import com.baidu.tieba.forum.viewmodel.BottomViewModel;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FrsPage.ForumInfo;
 /* loaded from: classes5.dex */
-public final class fi7 extends sh7 {
+public final class fi7 extends wh7 implements bn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity b;
@@ -40,48 +33,70 @@ public final class fi7 extends sh7 {
         this.b = activity;
     }
 
-    public static final void p(fi7 this$0, ki7 ki7Var) {
-        String str;
-        ForumInfo d;
-        Long l;
+    @Override // com.baidu.tieba.bn7
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, ki7Var) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            FragmentActivity fragmentActivity = this$0.b;
-            if (fragmentActivity instanceof BaseFragmentActivity) {
-                PageStayDurationItem pageStayDurationItem = ((BaseFragmentActivity) fragmentActivity).getPageStayDurationItem();
-                if (ki7Var != null && (d = ki7Var.d()) != null && (l = d.id) != null) {
-                    pageStayDurationItem.setFid(l.longValue());
-                }
-                x75 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-                if (adAdSense != null) {
-                    str = adAdSense.k;
-                } else {
-                    str = null;
-                }
-                pageStayDurationItem.setAbTag(str);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            jk7.b(this.b, 3);
         }
     }
 
-    @Override // com.baidu.tieba.sh7
-    public void k(Bundle bundle, ActivityForumBinding binding) {
+    @Override // com.baidu.tieba.bn7
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, binding) == null) {
-            Intrinsics.checkNotNullParameter(binding, "binding");
-            super.k(bundle, binding);
-            ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a().observe(this.b, new Observer() { // from class: com.baidu.tieba.cg7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            jk7.b(this.b, 1);
+        }
+    }
 
-                @Override // androidx.lifecycle.Observer
-                public final void onChanged(Object obj) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        fi7.p(fi7.this, (ki7) obj);
-                    }
-                }
-            });
+    @Override // com.baidu.tieba.bn7
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            jk7.b(this.b, 2);
+        }
+    }
+
+    @Override // com.baidu.tieba.bn7
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            jk7.a(this.b, 1);
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            jk7.a(this.b, 3);
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            jk7.a(this.b, 4);
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            jk7.a(this.b, 5);
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            jk7.a(this.b, 2);
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            jk7.b(this.b, 2);
         }
     }
 }

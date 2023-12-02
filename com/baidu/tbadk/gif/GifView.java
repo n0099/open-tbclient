@@ -30,14 +30,14 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
+import com.baidu.tieba.ci5;
 import com.baidu.tieba.d7;
 import com.baidu.tieba.e7;
-import com.baidu.tieba.pt5;
-import com.baidu.tieba.vu4;
-import com.baidu.tieba.w25;
+import com.baidu.tieba.tt5;
 import com.baidu.tieba.yf;
+import com.baidu.tieba.yu4;
+import com.baidu.tieba.z25;
 import com.baidu.tieba.z4;
-import com.baidu.tieba.zh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
     public static Bitmap L;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
-    public zh5 B;
+    public ci5 B;
     public int C;
     public Handler D;
     public boolean E;
@@ -80,7 +80,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
     public final Rect q;
     public final Rect r;
     public boolean s;
-    public vu4 t;
+    public yu4 t;
     public View.OnClickListener u;
     public boolean v;
     public boolean w;
@@ -374,10 +374,10 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         }
     }
 
-    public void setLoadCallback(zh5 zh5Var) {
+    public void setLoadCallback(ci5 ci5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, zh5Var) == null) {
-            this.B = zh5Var;
+        if (interceptable == null || interceptable.invokeL(1048620, this, ci5Var) == null) {
+            this.B = ci5Var;
         }
     }
 
@@ -390,11 +390,11 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         }
     }
 
-    public void setOnInterceptClickListener(vu4 vu4Var) {
+    public void setOnInterceptClickListener(yu4 yu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, vu4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048622, this, yu4Var) == null) {
             super.setOnClickListener(this);
-            this.t = vu4Var;
+            this.t = yu4Var;
         }
     }
 
@@ -560,7 +560,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return w25.b(this.A);
+            return z25.b(this.A);
         }
         return (float[]) invokeV.objValue;
     }
@@ -648,9 +648,9 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
             if (this.h) {
                 SkinManager.setImageResource(this, this.C);
             }
-            zh5 zh5Var = this.B;
-            if (zh5Var != null) {
-                zh5Var.d();
+            ci5 ci5Var = this.B;
+            if (ci5Var != null) {
+                ci5Var.d();
             }
         }
     }
@@ -830,12 +830,12 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, view2) == null) {
-            vu4 vu4Var = this.t;
-            if (vu4Var != null && vu4Var.a(view2)) {
+            yu4 yu4Var = this.t;
+            if (yu4Var != null && yu4Var.a(view2)) {
                 return;
             }
             if (this.F != null) {
-                boolean c2 = pt5.c();
+                boolean c2 = tt5.c();
                 GifInfo gifInfo = this.F;
                 if (c2) {
                     str = gifInfo.mDynamicUrl;
@@ -927,11 +927,11 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 o();
                 return;
             }
-            zh5 zh5Var = this.B;
-            if (zh5Var != null) {
-                zh5Var.a();
+            ci5 ci5Var = this.B;
+            if (ci5Var != null) {
+                ci5Var.a();
             }
-            boolean c2 = pt5.c();
+            boolean c2 = tt5.c();
             z4 c3 = a5.c(getContext());
             if (c3 != null) {
                 bdUniqueId = c3.getUniqueId();
@@ -1009,9 +1009,9 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 }
                 return;
             }
-            zh5 zh5Var = this.B;
-            if (zh5Var != null) {
-                zh5Var.onLoadSuccess();
+            ci5 ci5Var = this.B;
+            if (ci5Var != null) {
+                ci5Var.onLoadSuccess();
             }
             if (bdImage.getGif() == null) {
                 if (!bdImage.isEmotionGif()) {
@@ -1103,9 +1103,9 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 o();
                 return;
             }
-            zh5 zh5Var = this.B;
-            if (zh5Var != null) {
-                zh5Var.a();
+            ci5 ci5Var = this.B;
+            if (ci5Var != null) {
+                ci5Var.a();
             }
             z4 c2 = a5.c(getContext());
             if (c2 != null) {

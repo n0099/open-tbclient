@@ -1,29 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nv4 {
+public class nv4 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
-    public static nv4 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public boolean d;
-    public int e;
 
-    public void j(boolean z) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
         }
     }
 
@@ -37,128 +72,30 @@ public class nv4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && !PermissionUtil.isAgreePrivacyPolicy() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba") && !PermissionUtil.isBrowseMode()) {
+            if (activity.getIntent() != null && activity.getIntent().getBooleanExtra(ImageViewerConfig.KEY_IS_BROWSE_MODE, false)) {
+                PermissionUtil.doBrowseModeInit();
                 return;
             }
-        }
-        this.a = 0;
-        this.b = 0;
-        this.c = null;
-        this.d = true;
-        this.e = 0;
-    }
-
-    public static nv4 c() {
-        InterceptResult invokeV;
-        nv4 nv4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            nv4 nv4Var2 = f;
-            if (nv4Var2 == null) {
-                synchronized (nv4.class) {
-                    if (f == null) {
-                        f = new nv4();
-                    }
-                    nv4Var = f;
-                }
-                return nv4Var;
+            Class<?> cls = null;
+            try {
+                cls = Class.forName(SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return nv4Var2;
-        }
-        return (nv4) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            int i = sharedPrefHelper.getInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
-            this.b = i;
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = SharedPrefHelper.getInstance().getInt("image_quality", 0);
-            this.a = i;
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = SharedPrefHelper.getInstance().getInt("image_quality", 0);
-            SharedPrefHelper.getInstance().getInt("new_abstract_state", 0);
-            this.e = SharedPrefHelper.getInstance().getInt("view_image_quality", 0);
-            boolean z = SharedPrefHelper.getInstance().getBoolean("show_images", true);
-            this.d = z;
-            if (!z) {
-                this.d = true;
-                SharedPrefHelper.getInstance().remove("show_images");
-                SharedPrefHelper.getInstance().putInt("view_image_quality", 0);
-                this.e = 0;
+            if (cls != null) {
+                Intent intent = new Intent(activity, cls);
+                intent.putExtra(LogoActivityConfig.EXTRAINTENT, activity.getIntent());
+                activity.startActivity(intent);
+                activity.finish();
             }
         }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || this.e == i) {
-            return;
-        }
-        this.e = i;
-        SharedPrefHelper.getInstance().putInt("view_image_quality", i);
-        TbImageHelper.getInstance().updateFrsShowBigImage();
-        TbImageHelper.getInstance().updateUrlQuality();
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.b == i) {
-            return;
-        }
-        this.b = i;
-        SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-        sharedPrefHelper.putInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
     }
 }

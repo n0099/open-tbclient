@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.FrsPage.Yule;
+import tbclient.VoteSchema;
 /* loaded from: classes9.dex */
 public class xz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public wz4 b;
+    public String a;
+    public String b;
+    public String c;
 
     public xz4() {
         Interceptable interceptable = $ic;
@@ -26,53 +26,39 @@ public class xz4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = new wz4();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static xz4 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            return true;
+            xz4 xz4Var = new xz4();
+            xz4Var.a = jSONObject.optString("text_before_vote");
+            xz4Var.b = jSONObject.optString("text_after_vote");
+            xz4Var.c = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            return xz4Var;
         }
-        return invokeV.booleanValue;
+        return (xz4) invokeL.objValue;
     }
 
-    public wz4 b() {
-        InterceptResult invokeV;
+    public static xz4 b(VoteSchema voteSchema) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, voteSchema)) == null) {
+            if (voteSchema == null) {
+                return null;
+            }
+            xz4 xz4Var = new xz4();
+            xz4Var.a = voteSchema.text_before_vote;
+            xz4Var.b = voteSchema.text_after_vote;
+            xz4Var.c = voteSchema.jump_url;
+            return xz4Var;
         }
-        return (wz4) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("activity_show");
-            this.b.d(jSONObject.optJSONObject("yule_activity"));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void d(Yule yule) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, yule) != null) || yule == null) {
-            return;
-        }
-        this.a = yule.activity_show.intValue();
-        this.b.e(yule.yule_activity);
+        return (xz4) invokeL.objValue;
     }
 }

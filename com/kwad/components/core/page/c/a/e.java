@@ -39,13 +39,13 @@ public final class e extends a {
     }
 
     private void pp() {
-        this.NR = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09151e);
+        this.NR = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09151f);
         if (!TextUtils.isEmpty(this.Oy.mPageTitle)) {
             this.NR.setVisibility(8);
             return;
         }
-        this.NS = (TextView) findViewById(R.id.obfuscated_res_0x7f09151f);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091520);
+        this.NS = (TextView) findViewById(R.id.obfuscated_res_0x7f091520);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091521);
         this.NT = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.c.a.e.1
             @Override // android.view.View.OnClickListener

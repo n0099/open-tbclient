@@ -1,27 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class aq2 {
+public class aq2 implements cf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zp2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized zp2 a() {
-        InterceptResult invokeV;
-        zp2 zp2Var;
+    public aq2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (aq2.class) {
-                if (a == null) {
-                    a = new zp2();
-                }
-                zp2Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return zp2Var;
         }
-        return (zp2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cf4
+    public lm4 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return new bf3(str);
+        }
+        return (lm4) invokeL.objValue;
     }
 }

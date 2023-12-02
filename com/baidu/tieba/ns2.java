@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ps2;
+import com.baidu.tieba.qs2;
+import com.baidu.tieba.rs2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,171 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class ns2 {
+public class ns2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static final Set<String> g;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
-    public final Object e;
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public int c;
-        public String d;
-        public Object e;
-        public RuntimeException f;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public Exception d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.f;
-            }
-            return (Exception) invokeV.objValue;
-        }
-
-        @Nullable
-        @SuppressLint({"BDThrowableCheck"})
-        public ns2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f != null) {
-                    if (!ns2.f) {
-                        return null;
-                    }
-                    throw this.f;
-                } else if (this.a == null) {
-                    this.f = new IllegalStateException("sid == null");
-                    if (!ns2.f) {
-                        return null;
-                    }
-                    throw this.f;
-                } else {
-                    synchronized (a.class) {
-                        if (ns2.g.contains(this.a)) {
-                            this.f = new IllegalStateException("sid has been occupied");
-                            if (!ns2.f) {
-                                return null;
-                            }
-                            throw this.f;
-                        } else if (this.e == null) {
-                            this.f = new IllegalStateException("switchValue == null");
-                            if (!ns2.f) {
-                                return null;
-                            }
-                            throw this.f;
-                        } else {
-                            ns2.g.add(this.a);
-                            return new ns2(this);
-                        }
-                    }
-                }
-            }
-            return (ns2) invokeV.objValue;
-        }
-
-        public a b(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a f(@NonNull Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                this.e = obj;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                this.b = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a c(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                if (i >= 0 && i <= 100) {
-                    this.c = i;
-                    return this;
-                }
-                this.f = new IllegalArgumentException("flow must in [0, 100]");
-                if (!ns2.f) {
-                    this.c = 0;
-                    return this;
-                }
-                throw this.f;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a e(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    this.f = new IllegalArgumentException("sid must not be empty");
-                    if (!ns2.f) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.f;
-                } else if (str.contains("-")) {
-                    this.f = new IllegalArgumentException("sid must not contain '-'");
-                    if (!ns2.f) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.f;
-                } else {
-                    this.a = str;
-                    return this;
-                }
-            }
-            return (a) invokeL.objValue;
-        }
-    }
+    public final List<ps2> a;
 
     static {
         InterceptResult invokeClinit;
@@ -191,44 +37,13 @@ public final class ns2 {
                 return;
             }
         }
-        f = sm1.a;
-        g = new HashSet();
+        b = vm1.a;
     }
 
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public Object e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.objValue;
-    }
-
-    public ns2(a aVar) {
+    public ns2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -238,23 +53,95 @@ public final class ns2 {
                 return;
             }
         }
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = aVar.d;
-        this.e = aVar.e;
+        this.a = new ArrayList();
+        e();
     }
 
     @NonNull
-    public String toString() {
+    public List<ps2> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Collections.unmodifiableList(this.a);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && d()) {
+            k32.c("SwanLocalABTestAutoRegister", "test 'first install updateCore delay' register failed'");
+        }
+    }
+
+    @Nullable
+    public final qs2 a(@NonNull String str, int i, int i2, @NonNull String str2, @NonNull Object obj) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, obj})) == null) {
+            qs2.a aVar = new qs2.a();
+            aVar.e(str);
+            aVar.g(i);
+            aVar.c(i2);
+            aVar.b(str2);
+            aVar.f(obj);
+            qs2 a = aVar.a();
+            if (a == null) {
+                if (b) {
+                    Log.e("SwanLocalABTestAutoRegister", "build branch(" + str + ") fail: " + aVar.d().getMessage());
+                    return null;
+                }
+                return null;
+            }
+            return a;
+        }
+        return (qs2) invokeCommon.objValue;
+    }
+
+    @Nullable
+    public final rs2 b(int i, @NonNull String str, @NonNull Object obj) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, obj)) == null) {
+            rs2.a aVar = new rs2.a();
+            aVar.e(i);
+            aVar.d(str);
+            aVar.b(obj);
+            rs2 a = aVar.a();
+            if (a == null) {
+                if (b) {
+                    Log.e("SwanLocalABTestAutoRegister", "build switch(" + str + ") fail: " + aVar.c().getMessage());
+                }
+                return null;
+            }
+            return a;
+        }
+        return (rs2) invokeILL.objValue;
+    }
+
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (f) {
-                return "SwanLocalABTestBranch{mGroupType=" + this.b + ", mFlow=" + this.c + ", mBranchDescription='" + this.d + "', mSwitchValue=" + this.e + '}';
+            rs2 b2 = b(3, "swan_local_first_installation_update_core_delay", 0L);
+            if (b2 == null) {
+                return false;
             }
-            return super.toString();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(a("local_1000", 0, 20, "control group", 0L));
+            arrayList.add(a("local_1001", 1, 20, "test group 1", 100L));
+            arrayList.add(a("local_1002", 1, 20, "test group 2", 500L));
+            arrayList.add(a("local_1003", 1, 20, "test group 3", 1000L));
+            arrayList.add(a("local_1004", 1, 20, "test group 4", 2000L));
+            ps2.a aVar = new ps2.a();
+            aVar.c(b2);
+            aVar.a(arrayList);
+            ps2 b3 = aVar.b();
+            if (b3 == null) {
+                return false;
+            }
+            return this.a.add(b3);
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

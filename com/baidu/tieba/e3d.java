@@ -5,23 +5,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
+import tbclient.FrsPage.Yule;
 import tbclient.FrsPage.YuleActivity;
 /* loaded from: classes5.dex */
-public class e3d extends ltc {
+public class e3d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull YuleActivity yuleActivity) {
+    public static JSONObject b(@NonNull Yule yule) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, yuleActivity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, yule)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "activity_id", yuleActivity.activity_id);
-            ltc.a(jSONObject, "activity_type", yuleActivity.activity_type);
-            ltc.a(jSONObject, "activity_url", yuleActivity.activity_url);
-            ltc.a(jSONObject, "activity_all_icon", yuleActivity.activity_all_icon);
-            ltc.a(jSONObject, "activity_half_icon", yuleActivity.activity_half_icon);
+            YuleActivity yuleActivity = yule.yule_activity;
+            if (yuleActivity != null) {
+                ktc.a(jSONObject, "yule_activity", d3d.b(yuleActivity));
+            }
+            ktc.a(jSONObject, "activity_show", yule.activity_show);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

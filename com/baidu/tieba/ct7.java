@@ -1,37 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.mainTab.FragmentDelegate;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import tbclient.FrsTabInfo;
 /* loaded from: classes5.dex */
-public class ct7 {
+public class ct7 extends SparseArray<nt7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FrsTabInfo> a;
-    public final List<FragmentDelegate> b;
-    public Context c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
+    public BdUniqueId a;
 
-    public ct7(Context context, List<FrsTabInfo> list) {
+    public ct7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,160 +27,64 @@ public class ct7 {
                 return;
             }
         }
-        this.a = list;
-        this.b = new LinkedList();
-        this.c = context;
+        this.a = null;
     }
 
-    public void a(FragmentDelegate fragmentDelegate) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, fragmentDelegate) == null) && fragmentDelegate != null && fragmentDelegate.getFragmentTabStructure() != null) {
-            for (FragmentDelegate fragmentDelegate2 : this.b) {
-                if (fragmentDelegate2 != null && fragmentDelegate2.getFragmentTabStructure() != null && fragmentDelegate2.getFragmentTabStructure().type == fragmentDelegate.getFragmentTabStructure().type) {
-                    return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                nt7 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.N(null);
+                    valueAt.n();
                 }
             }
-            this.b.add(fragmentDelegate);
         }
     }
 
-    public Context b() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                nt7 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+            }
         }
-        return (Context) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void a(int i, nt7 nt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, nt7Var) == null) {
+            if (i > 100) {
+                i = 100;
+            }
+            put(i, nt7Var);
         }
-        return (String) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<FrsTabInfo> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<FragmentDelegate> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean i(int i) {
+    public nt7 c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (i >= 100 || ListUtils.isEmpty(this.a)) {
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i > 100) {
+                i = 100;
             }
-            for (FrsTabInfo frsTabInfo : this.a) {
-                if (frsTabInfo.tab_id.intValue() == i) {
-                    return true;
+            return get(i);
+        }
+        return (nt7) invokeI.objValue;
+    }
+
+    public void e(rt7 rt7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, rt7Var) == null) {
+            for (int i = 0; i < size(); i++) {
+                nt7 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.N(rt7Var);
                 }
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            LinkedList linkedList = new LinkedList();
-            LinkedList linkedList2 = new LinkedList();
-            for (FrsTabInfo frsTabInfo : this.a) {
-                boolean z = false;
-                Iterator<FragmentDelegate> it = this.b.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    FragmentDelegate next = it.next();
-                    if (next.getFragmentTabStructure() != null && frsTabInfo.tab_id.intValue() == next.getFragmentTabStructure().type) {
-                        linkedList.add(next);
-                        z = true;
-                        break;
-                    }
-                }
-                if (!z) {
-                    linkedList2.add(frsTabInfo);
-                }
-            }
-            if (!ListUtils.isEmpty(linkedList2)) {
-                this.a.removeAll(linkedList2);
-            }
-            this.b.clear();
-            if (!ListUtils.isEmpty(linkedList)) {
-                this.b.addAll(linkedList);
             }
         }
     }

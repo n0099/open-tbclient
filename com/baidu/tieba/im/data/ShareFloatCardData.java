@@ -6,7 +6,7 @@ import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.pb.data.PbPostShareData;
-import com.baidu.tieba.tz8;
+import com.baidu.tieba.xz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -418,7 +418,7 @@ public final class ShareFloatCardData implements Serializable {
             if (mainThread4 != null) {
                 str3 = mainThread4.getThreadShareUrl();
             }
-            pbPostShareData.m(tz8.a(str3));
+            pbPostShareData.m(xz8.a(str3));
             PostThread postThread = this.postThread;
             if (postThread != null) {
                 String username = postThread.getUsername();

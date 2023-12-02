@@ -1,94 +1,201 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
+import com.baidu.tbadk.core.atomData.AdBrowserActivityConfig;
+import com.baidu.tbadk.core.atomData.AdWebViewActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.PvThread;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 /* loaded from: classes8.dex */
-public class v26 extends jh0 {
+public class v26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w26 a;
-        public final /* synthetic */ v26 b;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (!rd.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str);
+                if (str.indexOf("?") > 0) {
+                    sb.append("&");
+                } else {
+                    sb.append("?");
+                }
+                if (!UtilHelper.isNativeAdURL(str)) {
+                    sb.append("cuid=");
+                    sb.append(TbadkCoreApplication.getInst().getCuid());
+                    sb.append("&cuid_galaxy2=");
+                    sb.append(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                    sb.append("&c3_aid=");
+                    sb.append(TbadkCoreApplication.getInst().getCuidGalaxy3());
+                    sb.append("&cuid_gid=");
+                    sb.append(TbadkCoreApplication.getInst().getCuidGid());
+                }
+                sb.append("&timestamp=");
+                sb.append(System.currentTimeMillis());
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
 
-        public a(v26 v26Var, w26 w26Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v26Var, w26Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!rd.isEmpty(str) && str.indexOf("_client_version=") > -1) {
+                return str;
+            }
+            return str + "&_client_version=" + TbConfig.getVersion();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(Context context) {
+        CookieManager cookieManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            AccountLoginCoreHelper.a parseBDUSS = AccountLoginCoreHelper.getInstance().parseBDUSS(TbadkCoreApplication.getCurrentBduss());
+            try {
+                CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
+                cookieManager = CookieManager.getInstance();
+            } catch (Throwable th) {
+                BdLog.e(th);
+                cookieManager = null;
+            }
+            if (cookieManager == null) {
+                return;
+            }
+            if (parseBDUSS != null) {
+                cookieManager.setAcceptCookie(true);
+                cookieManager.setCookie(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE, "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; c3_aid=" + TbadkCoreApplication.getInst().getCuidGalaxy3() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ParamableElem.DIVIDE_PARAM);
+                String a = tv4.a(TbadkCoreApplication.getCurrentAccountInfo());
+                StringBuilder sb = new StringBuilder();
+                if (!StringUtils.isNull(a)) {
+                    sb.append("STOKEN=");
+                    sb.append(a);
+                    sb.append("; domain=.tieba.baidu.com;");
+                    cookieManager.setCookie("tieba.baidu.com", sb.toString());
+                }
+            } else {
+                try {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        cookieManager.removeAllCookies(null);
+                        CookieManager.getInstance().flush();
+                    } else {
+                        cookieManager.removeAllCookie();
+                        CookieSyncManager.createInstance(context);
+                        CookieSyncManager.getInstance().sync();
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e);
                 }
             }
-            this.b = v26Var;
-            this.a = w26Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.a(view2)) {
-                return;
-            }
-            this.b.l();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    /* JADX WARN: Type inference failed for: r9v4, types: [android.view.View] */
-    public v26(@NonNull w26 w26Var, @NonNull wg0 wg0Var) {
-        super(wg0Var, w26Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {w26Var, wg0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((wg0) objArr2[0], (ph0) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            try {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    CookieManager.getInstance().flush();
+                } else {
+                    CookieSyncManager.getInstance().sync();
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2);
             }
         }
-        ?? realView = this.e.get().getRealView();
-        if (realView != 0) {
-            realView.setOnClickListener(new a(this, w26Var));
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                str = "http://".concat(str);
+            }
+            if (str.contains("?")) {
+                str3 = "&st_type=" + str2;
+            } else {
+                str3 = "?st_type=" + str2;
+            }
+            return str.concat(str3);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
+            return;
+        }
+        new PvThread("open_webview", true).start();
+    }
+
+    public static void f(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
+            String b = b(a(str));
+            try {
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
+                intent.setData(Uri.parse(b));
+                if (!(context instanceof Activity)) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                context.startActivity(intent);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 
-    @Override // com.baidu.tieba.jh0, com.baidu.tieba.gh0, com.baidu.tieba.oh0
-    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull wg0 wg0Var) {
+    public static void g(Context context, String str, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, wg0Var) == null) {
-            super.a(adDownloadAction, wg0Var);
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, context, str, str2, bundle) == null) {
+            h(context, str2, str, true, true, true, bundle);
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v5, types: [android.view.View] */
-    public void u() {
+    public static void h(Context context, String str, String str2, boolean z, boolean z2, boolean z3, Bundle bundle) {
+        AdWebViewActivityConfig adWebViewActivityConfig;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.get().getRealView().setVisibility(0);
-            l();
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), bundle}) == null) {
+            e();
+            try {
+                if (StringUtils.isNull(str2)) {
+                    return;
+                }
+                if (mj6.e("https://ad-tmp/")) {
+                    adWebViewActivityConfig = new AdBrowserActivityConfig(context, str, str2, z, z2, z3, bundle);
+                } else {
+                    adWebViewActivityConfig = new AdWebViewActivityConfig(context, str, str2, z, z2, z3, bundle);
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, adWebViewActivityConfig));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 }

@@ -1,41 +1,44 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONObject;
-import tbclient.FrsPage.VideoImageColor;
+import tbclient.FrsPage.WorldCup;
+import tbclient.FrsPage.WorldCupGame;
+import tbclient.FrsPage.WorldCupLottery;
+import tbclient.FrsPage.WorldCupNews;
+import tbclient.FrsPage.WorldCupPk;
 /* loaded from: classes8.dex */
-public class w2d extends ltc {
+public class w2d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static VideoImageColor b(@NonNull JSONObject jSONObject) {
+    public static JSONObject b(@NonNull WorldCup worldCup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            VideoImageColor.Builder builder = new VideoImageColor.Builder();
-            if (jSONObject.has("time")) {
-                builder.time = Integer.valueOf(jSONObject.optInt("time"));
-            }
-            if (jSONObject.has("color")) {
-                builder.color = jSONObject.optString("color");
-            }
-            return builder.build(true);
-        }
-        return (VideoImageColor) invokeL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject c(@NonNull VideoImageColor videoImageColor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoImageColor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldCup)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "time", videoImageColor.time);
-            ltc.a(jSONObject, "color", videoImageColor.color);
+            WorldCupNews worldCupNews = worldCup.news;
+            if (worldCupNews != null) {
+                ktc.a(jSONObject, CommonToolbarStatisticConstants.TOOLBAR_MENU_NEW_DETAIL_BROWSER, a3d.b(worldCupNews));
+            }
+            WorldCupPk worldCupPk = worldCup.pk;
+            if (worldCupPk != null) {
+                ktc.a(jSONObject, PushConstants.URI_PACKAGE_NAME, b3d.b(worldCupPk));
+            }
+            WorldCupLottery worldCupLottery = worldCup.lottery;
+            if (worldCupLottery != null) {
+                ktc.a(jSONObject, "lottery", z2d.b(worldCupLottery));
+            }
+            WorldCupGame worldCupGame = worldCup.game;
+            if (worldCupGame != null) {
+                ktc.a(jSONObject, "game", x2d.b(worldCupGame));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

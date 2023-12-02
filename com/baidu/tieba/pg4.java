@@ -1,115 +1,113 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Vector;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class pg4 implements fg4 {
+public class pg4 implements ig4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final jj4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vector<fg4> a;
-    public Object b;
+    public List<wf4> a;
+    public ce4 b;
+    public List<if4> c;
+    public List<if4> d;
+    public List<if4> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948061068, "Lcom/baidu/tieba/pg4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948061068, "Lcom/baidu/tieba/pg4;");
-                return;
-            }
+    @Override // com.baidu.tieba.ig4
+    public <T> void a(mg4<T> mg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mg4Var) == null) {
         }
-        c = jj4.e();
     }
 
-    public pg4(fg4 fg4Var) {
+    public pg4(ce4 ce4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fg4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {ce4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new Object();
-        this.a = new Vector<>();
-        c(fg4Var);
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = new ArrayList();
+        this.b = ce4Var;
+        this.a = new ArrayList();
+        kg4.b().e(this);
     }
 
-    @Override // com.baidu.tieba.fg4
-    public <T> void a(jg4<T> jg4Var) {
+    @Override // com.baidu.tieba.ig4
+    public <T> void b(mg4<T> mg4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jg4Var) == null) {
-            try {
-                synchronized (this.b) {
-                    Iterator<fg4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        it.next().a(jg4Var);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mg4Var) != null) || mg4Var.k()) {
+            return;
+        }
+        Iterator<wf4> it = this.a.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            wf4 next = it.next();
+            if (next.b(mg4Var)) {
+                int i = mg4Var.i();
+                this.a.remove(next);
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 10) {
+                            this.c.add(next.a().a.b);
+                        }
+                    } else {
+                        this.d.add(next.a().a.b);
                     }
+                } else {
+                    this.e.add(next.a().a.b);
                 }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
             }
+        }
+        d();
+    }
+
+    public void c(wf4 wf4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wf4Var) == null) && wf4Var != null) {
+            this.a.add(wf4Var);
         }
     }
 
-    @Override // com.baidu.tieba.fg4
-    public <T> void b(jg4<T> jg4Var) {
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jg4Var) == null) {
-            Vector vector = new Vector();
-            try {
-                synchronized (this.b) {
-                    Iterator<fg4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        vector.add(it.next());
-                    }
-                }
-                Iterator it2 = vector.iterator();
-                while (it2.hasNext()) {
-                    ((fg4) it2.next()).b(jg4Var);
-                }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a.isEmpty()) {
+                this.b.b();
+                kg4.b().g(this);
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void c(fg4 fg4Var) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fg4Var) == null) && fg4Var != null) {
-            synchronized (this.b) {
-                this.a.add(fg4Var);
-            }
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || d()) {
+            return;
         }
-    }
-
-    public void d(fg4 fg4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, fg4Var) == null) && fg4Var != null) {
-            synchronized (this.b) {
-                if (!this.a.remove(fg4Var)) {
-                    this.a.remove(this.a.indexOf(fg4Var));
-                }
-            }
+        for (wf4 wf4Var : this.a) {
+            wf4Var.c(false);
         }
     }
 }

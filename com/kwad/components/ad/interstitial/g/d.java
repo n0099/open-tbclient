@@ -360,31 +360,31 @@ public final class d extends KSFrameLayout implements com.kwad.sdk.widget.c {
 
     private void s(boolean z) {
         setClickable(true);
-        this.kq = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091392);
-        this.kK = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091393);
-        this.lF = findViewById(R.id.obfuscated_res_0x7f091387);
-        this.lG = (ImageView) findViewById(R.id.obfuscated_res_0x7f091397);
-        this.eM = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914f7);
-        this.mLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912f3);
-        this.lI = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091396);
-        this.lJ = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091394);
-        this.lH = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091386);
-        this.lL = findViewById(R.id.obfuscated_res_0x7f091383);
+        this.kq = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091393);
+        this.kK = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091394);
+        this.lF = findViewById(R.id.obfuscated_res_0x7f091388);
+        this.lG = (ImageView) findViewById(R.id.obfuscated_res_0x7f091398);
+        this.eM = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914f8);
+        this.mLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912f4);
+        this.lI = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091397);
+        this.lJ = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091395);
+        this.lH = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091387);
+        this.lL = findViewById(R.id.obfuscated_res_0x7f091384);
         TextProgressBar textProgressBar = this.lH;
         if (textProgressBar != null) {
             textProgressBar.setTextDimen(com.kwad.sdk.d.a.a.a(getContext(), 10.0f));
             this.lH.setTextColor(-1);
         }
-        this.lK = (ImageView) findViewById(R.id.obfuscated_res_0x7f09138f);
-        this.lN = (TextView) findViewById(R.id.obfuscated_res_0x7f091384);
-        this.lO = (ImageView) findViewById(R.id.obfuscated_res_0x7f09138e);
-        this.lQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091390);
-        this.lR = (TextView) findViewById(R.id.obfuscated_res_0x7f091385);
-        this.lS = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091304);
-        this.lM = findViewById(R.id.obfuscated_res_0x7f0912e4);
-        this.dE = (ImageView) findViewById(R.id.obfuscated_res_0x7f091306);
-        this.lP = (TextView) findViewById(R.id.obfuscated_res_0x7f09130a);
-        this.eF = (TextView) findViewById(R.id.obfuscated_res_0x7f091302);
+        this.lK = (ImageView) findViewById(R.id.obfuscated_res_0x7f091390);
+        this.lN = (TextView) findViewById(R.id.obfuscated_res_0x7f091385);
+        this.lO = (ImageView) findViewById(R.id.obfuscated_res_0x7f09138f);
+        this.lQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091391);
+        this.lR = (TextView) findViewById(R.id.obfuscated_res_0x7f091386);
+        this.lS = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091305);
+        this.lM = findViewById(R.id.obfuscated_res_0x7f0912e5);
+        this.dE = (ImageView) findViewById(R.id.obfuscated_res_0x7f091307);
+        this.lP = (TextView) findViewById(R.id.obfuscated_res_0x7f09130b);
+        this.eF = (TextView) findViewById(R.id.obfuscated_res_0x7f091303);
         new f(this, this);
         new f(this.eM, this);
         new f(this.lH, this);
@@ -408,7 +408,7 @@ public final class d extends KSFrameLayout implements com.kwad.sdk.widget.c {
                 }
             }
         });
-        this.lT = (TextView) findViewById(R.id.obfuscated_res_0x7f091395);
+        this.lT = (TextView) findViewById(R.id.obfuscated_res_0x7f091396);
         a(this.kK, z);
         if (!ai.isOrientationPortrait()) {
             ec();

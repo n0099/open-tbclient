@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class brb {
     public static /* synthetic */ Interceptable $ic;
@@ -26,34 +26,45 @@ public class brb {
                 return;
             }
         }
-        a = aqb.m();
+        a = zpb.m();
     }
 
-    public static void a(Cursor cursor) {
+    public static boolean a(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, cursor) == null) && cursor != null) {
-            try {
-                if (!cursor.isClosed()) {
-                    cursor.close();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (a) {
+                Log.d("UBCFileUtils", "delete file:" + file);
+            }
+            if (file == null) {
+                return false;
+            }
+            boolean z = true;
+            if (file.exists()) {
+                if (file.isFile()) {
+                    return true & file.delete();
                 }
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (File file2 : listFiles) {
+                            z &= a(file2);
+                        }
+                    }
+                    return z & file.delete();
+                } else if (!a) {
+                    return true;
+                } else {
+                    Log.d("UBCFileUtils", "a special file:" + file);
+                    return true;
                 }
+            } else if (!a) {
+                return true;
+            } else {
+                Log.d("UBCFileUtils", "not found the file to delete:" + file);
+                return true;
             }
         }
-    }
-
-    public static void b(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

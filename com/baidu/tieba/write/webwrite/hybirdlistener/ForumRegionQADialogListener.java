@@ -6,13 +6,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.agb;
-import com.baidu.tieba.bgb;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.es7;
+import com.baidu.tieba.is7;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.vgb;
+import com.baidu.tieba.ugb;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
+import com.baidu.tieba.zfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,28 +26,28 @@ public final class ForumRegionQADialogListener extends BizBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.dgb
-    public bgb[] b() {
+    @Override // com.baidu.tieba.cgb
+    public agb[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (bgb[]) invokeV.objValue;
+        return (agb[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dgb
-    public agb[] f() {
+    @Override // com.baidu.tieba.cgb
+    public zfb[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (agb[]) invokeV.objValue;
+        return (zfb[]) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumRegionQADialogListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, vgb writePageState) {
+    public ForumRegionQADialogListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, ugb writePageState) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,7 +59,7 @@ public final class ForumRegionQADialogListener extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (vgb) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (ugb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,7 +71,7 @@ public final class ForumRegionQADialogListener extends BizBase {
         Intrinsics.checkNotNullParameter(writePageState, "writePageState");
     }
 
-    @Override // com.baidu.tieba.dgb
+    @Override // com.baidu.tieba.cgb
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public final class ForumRegionQADialogListener extends BizBase {
             TbLog defaultLog = DefaultLog.getInstance();
             defaultLog.i("write", "收到H5通知，ForumRegionQADialogListener：" + str);
             BdUtilHelper.hideSoftKeyPad(i().getPageActivity(), j());
-            es7.a(i().getPageActivity(), i());
+            is7.a(i().getPageActivity(), i());
         }
     }
 }

@@ -1,13 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l13;
-import com.baidu.tieba.mb3;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.RectF;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.et2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
@@ -16,24 +23,18 @@ public class ib4 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public interface c {
-        void onFail();
-
-        void onSuccess();
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements al3<kb3<mb3.e>> {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
+        public final /* synthetic */ ub4 a;
+        public final /* synthetic */ et2 b;
 
-        public a(c cVar) {
+        public a(ub4 ub4Var, et2 et2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
+                Object[] objArr = {ub4Var, et2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,90 +44,73 @@ public class ib4 {
                     return;
                 }
             }
-            this.a = cVar;
+            this.a = ub4Var;
+            this.b = et2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.al3
-        /* renamed from: b */
-        public void a(kb3<mb3.e> kb3Var) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kb3Var) == null) {
-                if (fb3.h(kb3Var)) {
-                    ib4.c(this.a);
-                } else {
-                    this.a.onFail();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                pb4.a(this.a, this.b);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements l13.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        public b(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.l13.a
-        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
-                if (i != 0) {
-                    this.a.onFail();
-                    return;
-                }
-                for (int i2 : iArr) {
-                    if (i2 == -1) {
-                        this.a.onFail();
-                        return;
-                    }
-                }
-                this.a.onSuccess();
-            }
-        }
-    }
-
-    public static void b(Context context, c cVar) {
+    public static View a(ub4 ub4Var, et2 et2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, cVar) == null) {
-            if (!(context instanceof Activity)) {
-                cVar.onFail();
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ub4Var, et2Var)) == null) {
+            k32.i("map", "creatCallout start");
+            Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint.setColor(et2Var.i.b);
+            paint.setTextSize(et2Var.i.c);
+            et2.b bVar = et2Var.i;
+            float f = bVar.e;
+            float f2 = bVar.f;
+            Paint paint2 = new Paint();
+            paint2.setAntiAlias(true);
+            paint2.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint2.setColor(et2Var.i.h);
+            String str = et2Var.i.a;
+            int g = bk3.g(6.0f);
+            float f3 = f * 2.0f;
+            float measureText = paint.measureText(str) + f3;
+            float f4 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
+            float f5 = g + f4 + f3;
+            if (f5 > 0.0f && measureText > 0.0f) {
+                Bitmap createBitmap = Bitmap.createBitmap((int) measureText, (int) f5, Bitmap.Config.ARGB_8888);
+                createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
+                Canvas canvas = new Canvas(createBitmap);
+                canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+                RectF rectF = new RectF();
+                rectF.left = 0.0f;
+                rectF.top = 0.0f;
+                float f6 = f4 + f3;
+                rectF.bottom = f6;
+                rectF.right = measureText;
+                canvas.drawRoundRect(rectF, f2, f2, paint2);
+                Path path = new Path();
+                float f7 = measureText / 2.0f;
+                float f8 = g / 2;
+                path.moveTo(f7 - f8, f6);
+                path.lineTo(f7, f5);
+                path.lineTo(f7 + f8, f6);
+                path.close();
+                canvas.drawPath(path, paint2);
+                canvas.drawText(str, f, (-paint.getFontMetrics().top) + f, paint);
+                ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
+                imageView.setImageBitmap(createBitmap);
+                imageView.setOnClickListener(new a(ub4Var, et2Var));
+                k32.i("map", "creatCallout end");
+                return imageView;
             }
-            h63 M = h63.M();
-            if (M != null) {
-                M.f0().g((Activity) context, "mapp_location", new a(cVar));
-            }
+            k32.o("map", "callout height or wodth is 0");
+            return new ImageView(AppRuntime.getAppContext());
         }
-    }
-
-    public static void c(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
-            h63 c0 = h63.c0();
-            if (bk3.M() && c0 != null) {
-                cVar.onSuccess();
-            } else {
-                c0.w().A(0, new String[]{com.kuaishou.weapon.p0.g.g, com.kuaishou.weapon.p0.g.h}, new b(cVar));
-            }
-        }
+        return (View) invokeLL.objValue;
     }
 }

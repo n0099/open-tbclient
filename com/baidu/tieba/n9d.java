@@ -5,20 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.TbmallMonthIcon;
+import tbclient.TbreadDispatch;
 /* loaded from: classes7.dex */
-public class n9d extends ltc {
+public class n9d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TbmallMonthIcon tbmallMonthIcon) {
+    public static JSONObject b(@NonNull TbreadDispatch tbreadDispatch) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbmallMonthIcon)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbreadDispatch)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "mon", tbmallMonthIcon.mon);
-            ltc.a(jSONObject, "icon", tbmallMonthIcon.icon);
+            ktc.a(jSONObject, "floor_num", tbreadDispatch.floor_num);
+            ktc.a(jSONObject, "product_type", tbreadDispatch.product_type);
+            ktc.a(jSONObject, "product_id", tbreadDispatch.product_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

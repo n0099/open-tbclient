@@ -30,9 +30,9 @@ import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService;
 import com.baidu.searchbox.ui.state.StateManager;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.u91;
-import com.baidu.tieba.w91;
+import com.baidu.tieba.aa1;
 import com.baidu.tieba.x91;
+import com.baidu.tieba.z91;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.File;
 import java.io.FileInputStream;
@@ -79,8 +79,8 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
 
     @Override // com.baidu.searchbox.live.interfaces.service.MultiPluginManagerService
     public void downloadUpdatePackage(String str, final MultiPluginDownloadCallback multiPluginDownloadCallback) {
-        NPSPackageManager.getInstance().downloadUpdatePackage(str, new u91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$1
-            @Override // com.baidu.tieba.u91
+        NPSPackageManager.getInstance().downloadUpdatePackage(str, new x91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$1
+            @Override // com.baidu.tieba.x91
             public void onProgress(long j, long j2) {
                 MultiPluginDownloadCallback multiPluginDownloadCallback2 = MultiPluginDownloadCallback.this;
                 if (multiPluginDownloadCallback2 != null) {
@@ -88,18 +88,18 @@ public final class MultiPluginManagerServiceImpl implements MultiPluginManagerSe
                 }
             }
 
-            @Override // com.baidu.tieba.u91
+            @Override // com.baidu.tieba.x91
             public void onResult(int i, String str2) {
                 MultiPluginDownloadCallback multiPluginDownloadCallback2 = MultiPluginDownloadCallback.this;
                 if (multiPluginDownloadCallback2 != null) {
                     multiPluginDownloadCallback2.onResult(i, str2);
                 }
             }
-        }, new w91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$2
-            @Override // com.baidu.tieba.w91
-            public void checkAuthorization(IBundleInfo iBundleInfo, int i, x91 x91Var) {
-                if (x91Var != null) {
-                    x91Var.onResult(1);
+        }, new z91() { // from class: com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceImpl$downloadUpdatePackage$2
+            @Override // com.baidu.tieba.z91
+            public void checkAuthorization(IBundleInfo iBundleInfo, int i, aa1 aa1Var) {
+                if (aa1Var != null) {
+                    aa1Var.onResult(1);
                 }
             }
         }, 1, true);

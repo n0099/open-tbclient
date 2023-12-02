@@ -1,45 +1,148 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.ShareIMCommonCardData;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.im.base.core.inputtool.InputDelegate;
+import com.baidu.tieba.im.base.core.uilist.BaseItem;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
+import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class iz8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final int b;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull ShareIMCommonCardData shareIMCommonCardData, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65536, null, shareIMCommonCardData, i) == null) {
-            if (ShareIMCommonCardData.isValidTopic(shareIMCommonCardData)) {
-                c(shareIMCommonCardData, i);
-            } else if (ShareIMCommonCardData.isValidAlbum(shareIMCommonCardData)) {
-                b(shareIMCommonCardData, i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947870914, "Lcom/baidu/tieba/iz8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947870914, "Lcom/baidu/tieba/iz8;");
+                return;
             }
         }
+        a = UtilHelper.getDimenPixelSize(R.dimen.tbds28_5);
+        b = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
+        c = UtilHelper.getDimenPixelSize(R.dimen.tbds83);
     }
 
-    public static void b(@NonNull ShareIMCommonCardData shareIMCommonCardData, int i) {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65537, null, shareIMCommonCardData, i) != null) || !ShareIMCommonCardData.isValidAlbum(shareIMCommonCardData)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (BdUtilHelper.getEquipmentWidth(TbadkApplication.getInst()) - (a * 2)) / ((b * 2) + c);
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ALBUM_SHARE_TYPE);
-        statisticItem.addParam("obj_type", i);
-        TiebaStatic.log(statisticItem);
+        return invokeV.intValue;
     }
 
-    public static void c(@NonNull ShareIMCommonCardData shareIMCommonCardData, int i) {
+    @Nullable
+    public static EmojiData b(@NonNull String str, @NonNull List<EmojiData> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65538, null, shareIMCommonCardData, i) != null) || !ShareIMCommonCardData.isValidTopic(shareIMCommonCardData)) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            try {
+                URL url = new URL(str);
+                for (EmojiData emojiData : list) {
+                    URL url2 = new URL(emojiData.getContent());
+                    if (url.getHost().equals(url2.getHost()) && url.getPath().equals(url2.getPath())) {
+                        return emojiData;
+                    }
+                }
+                return null;
+            } catch (Exception unused) {
+                return null;
+            }
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TOPIC_SHARE_TYPE);
-        statisticItem.addParam("obj_type", i);
-        TiebaStatic.log(statisticItem);
+        return (EmojiData) invokeLL.objValue;
+    }
+
+    public static boolean c(@NonNull InputDelegate inputDelegate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputDelegate)) == null) {
+            return !inputDelegate.G(Arrays.asList(Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE)));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(@NonNull Reaction reaction, @NonNull List<EmojiData> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, reaction, list)) == null) {
+            EmojiData b2 = b(reaction.getContent(), list);
+            if (b2 != null) {
+                return b2.hasReplied();
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void e(@NonNull kq8 kq8Var, int i, @NonNull BaseItem<? extends TbBaseMsg> baseItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65541, null, kq8Var, i, baseItem) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("scene", Integer.valueOf(i));
+            kq8Var.d(new AbilityItem("open_emoji_panel", hashMap, null), baseItem, null);
+        }
+    }
+
+    public static void f(@NonNull kq8 kq8Var, @NonNull EmojiData emojiData, @NonNull BaseItem<? extends TbBaseMsg> baseItem, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65542, null, kq8Var, emojiData, baseItem, i) == null) {
+            g(kq8Var, new Reaction("", emojiData.getContent()), baseItem, i);
+        }
+    }
+
+    public static void g(@NonNull kq8 kq8Var, @NonNull Reaction reaction, @NonNull BaseItem<? extends TbBaseMsg> baseItem, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65543, null, kq8Var, reaction, baseItem, i) == null) {
+            List<EmojiData> emojiList = baseItem.getTbMsg().getEmojiList();
+            boolean z = true;
+            if (emojiList != null) {
+                boolean d = d(reaction, emojiList);
+                if (i != 1) {
+                    int i2 = 2;
+                    if (i == 2) {
+                        z = true ^ d;
+                        if (!z) {
+                            i2 = 3;
+                        }
+                        gz8.h(i2, baseItem);
+                    }
+                } else if (d) {
+                    return;
+                } else {
+                    gz8.h(1, baseItem);
+                }
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("content", reaction.getContent());
+            hashMap.put(SpeedStatsUtils.UBC_KEY_OPTION, Boolean.valueOf(z));
+            kq8Var.d(new AbilityItem("send_emoji_msg", hashMap, null), baseItem, null);
+        }
     }
 }

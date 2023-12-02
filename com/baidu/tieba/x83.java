@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.res.ui.FloatButton;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
+import com.baidu.tieba.hr2;
+import com.baidu.tieba.t52;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,19 +16,88 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class x83 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile x83 g;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String d = "SwanAppPageForbidden";
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public FloatButton b;
+    public boolean a;
+    public List<JSONObject> b;
     public String c;
-    public JSONObject d;
-    public String e;
+
+    /* loaded from: classes9.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t52 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ r52 c;
+        public final /* synthetic */ kw2 d;
+        public final /* synthetic */ ForbiddenInfo e;
+
+        public a(x83 x83Var, t52 t52Var, String str, r52 r52Var, kw2 kw2Var, ForbiddenInfo forbiddenInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x83Var, t52Var, str, r52Var, kw2Var, forbiddenInfo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t52Var;
+            this.b = str;
+            this.c = r52Var;
+            this.d = kw2Var;
+            this.e = forbiddenInfo;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                t52.b i = this.a.i(this.b);
+                i.n(t52.g, t52.i);
+                i.j(this.c);
+                i.b();
+                yc3.j(this.d, this.e.errCode);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final x83 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-333475784, "Lcom/baidu/tieba/x83$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-333475784, "Lcom/baidu/tieba/x83$b;");
+                    return;
+                }
+            }
+            a = new x83(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +112,7 @@ public class x83 {
                 return;
             }
         }
-        f = sm1.a;
+        e = vm1.a;
     }
 
     public x83() {
@@ -62,139 +128,320 @@ public class x83 {
                 return;
             }
         }
-        this.e = "";
+        this.a = false;
     }
 
-    public static x83 d() {
+    public static x83 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (x83.class) {
-                    if (g == null) {
-                        g = new x83();
-                    }
-                }
-            }
-            return g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
         return (x83) invokeV.objValue;
     }
 
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || g == null) {
-            return;
-        }
-        g = null;
-    }
-
-    public FloatButton c() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.c;
         }
-        return (FloatButton) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final FloatButton a(Context context, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, viewGroup)) == null) {
-            if (context != null && viewGroup != null) {
-                FloatButton e = e(context);
-                viewGroup.addView(e);
-                return e;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (e) {
+                Log.d(d, "releaseData");
             }
-            return null;
-        }
-        return (FloatButton) invokeLL.objValue;
-    }
-
-    public void b(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) && intent != null && this.b != null) {
-            String dataString = intent.getDataString();
-            if (TextUtils.isEmpty(dataString)) {
-                return;
-            }
-            String substring = dataString.substring(8);
-            if (!TextUtils.isEmpty(substring) && substring.equals(this.e)) {
-                if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-                    this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f021a);
-                } else if (TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction())) {
-                    this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1506);
-                }
-                this.b.setFloatButtonText(this.c);
+            this.a = false;
+            this.c = null;
+            List<JSONObject> list = this.b;
+            if (list != null) {
+                list.clear();
+                this.b = null;
             }
         }
     }
 
-    public final FloatButton e(Context context) {
+    public /* synthetic */ x83(a aVar) {
+        this();
+    }
+
+    public final String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            return (FloatButton) LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d094a, (ViewGroup) null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return str + "_forbidden_ban_page";
         }
-        return (FloatButton) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void i(String str) {
+    public final String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return str + "_forbidden_tips";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("ai_apps_key", str);
+            a33 e2 = a33.e();
+            c33 c33Var = new c33(131, bundle);
+            c33Var.d();
+            e2.h(c33Var);
         }
     }
 
-    public void j(FloatButton floatButton) {
+    public boolean a(kw2 kw2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, floatButton) == null) {
-            this.b = floatButton;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kw2Var)) == null) {
+            if (kw2Var == null || !ny1.e(j63.K().q().Z())) {
+                return false;
+            }
+            if (!this.a) {
+                j();
+            }
+            List<JSONObject> list = this.b;
+            if (list == null || list.isEmpty()) {
+                return false;
+            }
+            if (e) {
+                Log.d(d, "ForbiddenPage Check");
+            }
+            return g(kw2Var);
         }
+        return invokeL.booleanValue;
     }
 
-    public FloatButton f() {
-        InterceptResult invokeV;
+    public final boolean f(String[] strArr, List<String> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Activity activity = this.a;
-            if (!(activity instanceof SwanAppActivity)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, strArr, list)) == null) {
+            if (list == null || list.isEmpty() || strArr == null || strArr.length == 0) {
+                return false;
             }
-            if (this.b == null) {
-                this.b = a(activity, (ViewGroup) activity.findViewById(16908290));
+            List asList = Arrays.asList(strArr);
+            if (asList.isEmpty()) {
+                return false;
             }
-            this.b.setFloatButtonText(this.c);
-            this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081470));
-            this.b.setFloatButtonDefaultPosition();
-            this.b.setFloatButtonStyle(this.d);
-            this.b.setVisibility(0);
-            return this.b;
+            for (String str : list) {
+                if (!asList.contains(str)) {
+                    return false;
+                }
+            }
+            return true;
         }
-        return (FloatButton) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public void g(Activity activity, JSONObject jSONObject) {
-        String string;
+    public boolean g(kw2 kw2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, activity, jSONObject) == null) && jSONObject != null) {
-            if (f) {
-                Log.i("FloatButtonGuideManager", jSONObject.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, kw2Var)) == null) {
+            if (kw2Var == null) {
+                return false;
             }
-            this.a = activity;
-            String optString = jSONObject.optString("name");
-            this.e = optString;
-            if (bk3.F(activity, optString)) {
-                string = activity.getString(R.string.obfuscated_res_0x7f0f021a);
+            String str = kw2Var.a;
+            String str2 = kw2Var.d;
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (str.startsWith("/")) {
+                    str = str.substring(1);
+                }
+                if (str2.startsWith("/")) {
+                    str2 = str2.substring(1);
+                }
+                List<JSONObject> list = this.b;
+                if (list == null) {
+                    return false;
+                }
+                for (JSONObject jSONObject : list) {
+                    if (jSONObject != null && !jSONObject.isNull("type") && !jSONObject.isNull("path")) {
+                        int optInt = jSONObject.optInt("type");
+                        String optString = jSONObject.optString("path");
+                        if (TextUtils.equals(str, optString) || TextUtils.equals(str2, optString)) {
+                            if (optInt == 1) {
+                                return true;
+                            }
+                            if (optInt != 2) {
+                                if (optInt == 3 && !jSONObject.isNull("query")) {
+                                    String optString2 = jSONObject.optString("query");
+                                    if (TextUtils.isEmpty(kw2Var.b)) {
+                                        return false;
+                                    }
+                                    List<String> c = ck3.c(optString2);
+                                    String[] split = kw2Var.b.split("&");
+                                    if (split == null || split.length == 0 || c == null || c.isEmpty()) {
+                                        return false;
+                                    }
+                                    if (f(split, c)) {
+                                        return true;
+                                    }
+                                }
+                            } else if (jSONObject.isNull("query")) {
+                                continue;
+                            } else {
+                                String optString3 = jSONObject.optString("query");
+                                if (TextUtils.isEmpty(kw2Var.b)) {
+                                    return false;
+                                }
+                                List<String> c2 = ck3.c(optString3);
+                                String[] split2 = kw2Var.b.split("&");
+                                if (split2 == null || split2.length == 0 || c2 == null || c2.isEmpty() || split2.length != c2.size()) {
+                                    return false;
+                                }
+                                if (f(split2, c2)) {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean h(kw2 kw2Var) {
+        InterceptResult invokeL;
+        List<JSONObject> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, kw2Var)) == null) {
+            if (kw2Var == null) {
+                return false;
+            }
+            String str = kw2Var.d;
+            if (TextUtils.isEmpty(str) || (list = this.b) == null) {
+                return false;
+            }
+            for (JSONObject jSONObject : list) {
+                if (jSONObject != null && TextUtils.equals(str, jSONObject.optString("path"))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void i(String str, kw2 kw2Var) {
+        t52 W;
+        String b2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, kw2Var) != null) || kw2Var == null || (W = xr2.V().W()) == null || (W.m() instanceof r52)) {
+            return;
+        }
+        if (h(kw2Var)) {
+            b2 = kw2.c(kw2Var);
+        } else {
+            b2 = kw2.b(kw2Var);
+        }
+        if (e) {
+            String str2 = d;
+            Log.d(str2, "jump from " + str + " ; path = " + b2);
+        }
+        k63 q = j63.K().q();
+        hr2.a X = q.X();
+        ForbiddenInfo forbiddenInfo = new ForbiddenInfo();
+        forbiddenInfo.appId = q.getAppId();
+        forbiddenInfo.appKey = q.P();
+        forbiddenInfo.appTitle = X.L();
+        forbiddenInfo.forbiddenReason = d();
+        forbiddenInfo.forbiddenInformation = this.c;
+        forbiddenInfo.launchSource = X.U();
+        forbiddenInfo.launchPath = b2;
+        forbiddenInfo.enableSlidingFlag = 0;
+        l(forbiddenInfo);
+        ek3.e0(new a(this, W, str, r52.m3(String.valueOf(forbiddenInfo.errCode.a()), "type_path_forbidden", "", -1, forbiddenInfo, 0, 0), kw2Var, forbiddenInfo));
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            se3 a2 = ye3.a();
+            String P = j63.K().q().P();
+            if (a2 == null) {
+                return;
+            }
+            String string = a2.getString(c(P), null);
+            if (e) {
+                String str = d;
+                Log.d(str, "readData, appKey = " + P + " ; tips = " + this.c + " ; page = " + string);
+            }
+            if (TextUtils.isEmpty(string)) {
+                this.b = null;
             } else {
-                string = activity.getString(R.string.obfuscated_res_0x7f0f1506);
+                JSONArray e2 = kj3.e(string);
+                if (e2 == null) {
+                    return;
+                }
+                int length = e2.length();
+                this.b = new ArrayList();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = e2.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        this.b.add(optJSONObject);
+                    }
+                }
+                this.c = a2.getString(e(P), null);
             }
-            this.c = string;
-            this.d = jSONObject.optJSONObject("style");
+            this.a = true;
+        }
+    }
+
+    public final void l(ForbiddenInfo forbiddenInfo) {
+        k63 c0;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, forbiddenInfo) != null) || (c0 = k63.c0()) == null) {
+            return;
+        }
+        c0.q();
+        SwanAppActivity w = c0.w();
+        if (w == null) {
+            return;
+        }
+        String i = pf3.i(xr2.V().getCoreVersion(), c0.Z().H());
+        di3 di3Var = new di3();
+        di3Var.k(5L);
+        di3Var.i(48L);
+        di3Var.d("page forbidden");
+        forbiddenInfo.errCode = di3Var;
+        forbiddenInfo.forbiddenDetail = w.getString(R.string.obfuscated_res_0x7f0f01dc, ek3.D(), i, String.valueOf(di3Var.a()));
+    }
+
+    public void n(JSONArray jSONArray, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048588, this, jSONArray, str, str2) != null) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        String c = c(str2);
+        String e2 = e(str2);
+        if (jSONArray != null && jSONArray.length() != 0) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(0);
+            String jSONArray2 = jSONArray.toString();
+            if (optJSONObject != null) {
+                ye3.a().edit().putString(c, jSONArray2).putString(e2, str).apply();
+                if (e) {
+                    String str3 = d;
+                    Log.d(str3, "writeDataSwanKv, appKey = " + str2 + " ; tips = " + str);
+                }
+                m(str2);
+                return;
+            }
+            return;
+        }
+        ye3.a().edit().remove(c).remove(e2).apply();
+        if (e) {
+            String str4 = d;
+            Log.d(str4, "writeDataSwanKv, but list is null, appKey = " + str2 + " ; tips = " + str);
         }
     }
 }

@@ -5,22 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.StarTaskInfo;
+import tbclient.FrsPage.TabSkin;
 /* loaded from: classes6.dex */
-public class i2d extends ltc {
+public class i2d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull StarTaskInfo starTaskInfo) {
+    public static JSONObject b(@NonNull TabSkin tabSkin) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, starTaskInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tabSkin)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "task_title", starTaskInfo.task_title);
-            ltc.a(jSONObject, "task_desc", starTaskInfo.task_desc);
-            ltc.a(jSONObject, "task_score_desc", starTaskInfo.task_score_desc);
-            ltc.a(jSONObject, "task_status", starTaskInfo.task_status);
+            ktc.a(jSONObject, "tab_id", tabSkin.tab_id);
+            ktc.a(jSONObject, "icon", tabSkin.icon);
+            ktc.a(jSONObject, "icon_night", tabSkin.icon_night);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,129 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.pb.account.forbid.ForbidTplData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class eu9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(ForbidTplData forbidTplData);
-
-        void b(ForbidTplData forbidTplData);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public b c;
-
-        public a(String str, String str2, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-            this.c = bVar;
-            setPriority(3);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ForbidTplData doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                NetWork netWork = new NetWork(eu9.a);
-                netWork.addPostData("forum_id", this.a);
-                netWork.addPostData("user_id", this.b);
-                String postNetData = netWork.postNetData();
-                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                    try {
-                        return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
-                    } catch (Exception e) {
-                        BdLog.detailException(e);
-                        ForbidTplData forbidTplData = new ForbidTplData();
-                        forbidTplData.error.errno = -1000;
-                        return forbidTplData;
-                    }
-                }
-                ForbidTplData forbidTplData2 = new ForbidTplData();
-                forbidTplData2.error.errno = netWork.getServerErrorCode();
-                forbidTplData2.error.errMsg = netWork.getErrorString();
-                return forbidTplData2;
-            }
-            return (ForbidTplData) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ForbidTplData forbidTplData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
-                super.onPostExecute(forbidTplData);
-                if (this.c != null) {
-                    ForbidTplData.ErrorInfo errorInfo = forbidTplData.error;
-                    if (errorInfo.errno == 0 && rd.isEmpty(errorInfo.errMsg)) {
-                        this.c.b(forbidTplData);
-                    } else {
-                        this.c.a(forbidTplData);
-                    }
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746976, "Lcom/baidu/tieba/eu9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947746976, "Lcom/baidu/tieba/eu9;");
-                return;
-            }
-        }
-        a = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
-    }
-
-    public static void b(String str, String str2, b bVar) {
+    public static SpannableString a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, bVar) == null) {
-            new a(str, str2, bVar).execute(new String[0]);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            if (i <= 0) {
+                i = R.color.CAM_X0101;
+            }
+            spannableString.setSpan(new ForegroundColorSpan(TbadkCoreApplication.getInst().getResources().getColor(i)), 0, str.length(), 17);
+            return spannableString;
+        }
+        return (SpannableString) invokeLI.objValue;
+    }
+
+    public static void b(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
+    }
+
+    public static void c(String str, int i, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) a(str2, i2));
+        }
+        BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
+    }
+
+    public static void d(String str, int i, String str2, int i2, String str3, int i3, String str4, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, Integer.valueOf(i3), str4, Integer.valueOf(i4)}) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) a(str2, i2));
+        }
+        if (!TextUtils.isEmpty(str3)) {
+            spannableStringBuilder.append((CharSequence) "\n");
+            spannableStringBuilder.append((CharSequence) a(str3, i3));
+            if (!TextUtils.isEmpty(str4)) {
+                spannableStringBuilder.append((CharSequence) a(str4, i4));
+            }
+        }
+        BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            b(str, R.color.CAM_X0101);
+        }
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c(str, R.color.CAM_X0101, str2, R.color.CAM_X0305);
+        }
+    }
+
+    public static void g(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, str, str2, str3, str4) == null) {
+            d(str, R.color.CAM_X0101, str2, R.color.CAM_X0305, str3, R.color.CAM_X0109, str4, R.color.CAM_X0305);
         }
     }
 }

@@ -1,40 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.webkit.ValueCallback;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class le2 implements me2 {
+public class le2 implements V8FileSystemDelegatePolicy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.me2
-    @Nullable
-    public V8EngineConfiguration.CodeCacheSetting b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
+    public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.me2
-    public void c(pd2 pd2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pd2Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.me2
-    public void d(pd2 pd2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pd2Var) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
@@ -49,6 +30,14 @@ public abstract class le2 implements me2 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
+    public void loadFileFromUrl(String str, ValueCallback<String> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
+            je2.f().h(str, valueCallback);
         }
     }
 }

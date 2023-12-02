@@ -28,7 +28,7 @@ public class jj0 extends bk0 {
     @Override // com.baidu.tieba.bk0, com.baidu.tieba.ek0
     public void onBackgroundToForeground(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, activity) != null) || !h21.b()) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, activity) != null) || !j21.b()) {
             return;
         }
         ij0.b().request().a(true);

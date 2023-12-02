@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.aq9;
-import com.baidu.tieba.bq9;
-import com.baidu.tieba.cq9;
+import com.baidu.tieba.eq9;
+import com.baidu.tieba.fq9;
+import com.baidu.tieba.gq9;
 import com.baidu.tieba.nearby.message.NearbyFriendsHttpResponseMessage;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implements bq9 {
+public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implements fq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cq9 a;
+    public gq9 a;
     public int b;
     public List<pi> c;
     public boolean d;
@@ -100,7 +100,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
             if (this.a.b == 1) {
                 this.a.c.clear();
             }
-            aq9 nearbyFriendData = ((NearbyFriendsHttpResponseMessage) httpResponsedMessage).getNearbyFriendData();
+            eq9 nearbyFriendData = ((NearbyFriendsHttpResponseMessage) httpResponsedMessage).getNearbyFriendData();
             if (!ListUtils.isEmpty(nearbyFriendData.a)) {
                 this.a.c.addAll(nearbyFriendData.a);
             }
@@ -116,12 +116,12 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         }
     }
 
-    public NearbyFriendsModel(cq9 cq9Var, BdUniqueId bdUniqueId) {
+    public NearbyFriendsModel(gq9 gq9Var, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cq9Var, bdUniqueId};
+            Object[] objArr = {gq9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -134,7 +134,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         this.b = 1;
         a aVar = new a(this, CmdConfigHttp.CMD_GET_NEARBY_FRIENDS);
         this.f = aVar;
-        this.a = cq9Var;
+        this.a = gq9Var;
         aVar.setTag(bdUniqueId);
         registerListener(this.f);
     }
@@ -152,7 +152,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         }
     }
 
-    @Override // com.baidu.tieba.bq9
+    @Override // com.baidu.tieba.fq9
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -160,7 +160,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         }
     }
 
-    @Override // com.baidu.tieba.bq9
+    @Override // com.baidu.tieba.fq9
     public boolean hasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -177,27 +177,27 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         }
     }
 
-    @Override // com.baidu.tieba.bq9
+    @Override // com.baidu.tieba.fq9
     public void refresh() {
-        cq9 cq9Var;
+        gq9 gq9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (cq9Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (gq9Var = this.a) == null) {
             return;
         }
-        cq9Var.n();
+        gq9Var.n();
         this.a.hideLoadingView();
         this.b = 1;
         loadData();
     }
 
-    @Override // com.baidu.tieba.bq9
+    @Override // com.baidu.tieba.fq9
     public void reload() {
-        cq9 cq9Var;
+        gq9 gq9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (cq9Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (gq9Var = this.a) == null) {
             return;
         }
-        cq9Var.n();
+        gq9Var.n();
         this.a.a();
         this.b = 1;
         loadData();

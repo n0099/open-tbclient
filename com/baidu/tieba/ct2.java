@@ -1,51 +1,66 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ct2 implements gw2 {
+public class ct2 implements jw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<at2> a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
+    public String a;
+    public String b;
+    public boolean c;
+    public ht2 d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686216, "Lcom/baidu/tieba/ct2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947686216, "Lcom/baidu/tieba/ct2;");
+                return;
+            }
+        }
+        boolean z = vm1.a;
+    }
 
     public ct2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = 1;
-        this.c = -16777216;
-        this.d = 0;
-        this.e = 0;
+        this.b = "";
+        this.c = false;
     }
 
-    @Override // com.baidu.tieba.gw2
+    @Override // com.baidu.tieba.jw2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<at2> arrayList = this.a;
-            if (arrayList != null && !arrayList.isEmpty()) {
+            ht2 ht2Var = this.d;
+            if (ht2Var != null && ht2Var.isValid() && !TextUtils.isEmpty(this.b)) {
                 return true;
             }
             return false;
@@ -53,38 +68,20 @@ public class ct2 implements gw2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gw2
+    @Override // com.baidu.tieba.jw2
     public void a(JSONObject jSONObject) throws JSONException {
-        int length;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("points")) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("points");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        if (length > 0) {
-            this.a = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    at2 at2Var = new at2();
-                    at2Var.a(optJSONObject);
-                    if (at2Var.isValid()) {
-                        this.a.add(at2Var);
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has(CriusAttrConstants.POSITION) && jSONObject.has("iconPath")) {
+            String optString = jSONObject.optString("controlId");
+            this.a = optString;
+            if (TextUtils.isEmpty(optString)) {
+                this.a = jSONObject.optString("id");
             }
-        }
-        ArrayList<at2> arrayList = this.a;
-        if (arrayList != null && arrayList.size() > 0) {
-            this.b = (int) Math.abs(us2.b(jSONObject.optInt("strokeWidth", 1)));
-            this.c = us2.a(jSONObject.optString("strokeColor"), -16777216);
-            this.d = us2.a(jSONObject.optString("fillColor"), 0);
-            this.e = jSONObject.optInt("zIndex", 0);
+            ht2 ht2Var = new ht2();
+            this.d = ht2Var;
+            ht2Var.a(jSONObject.optJSONObject(CriusAttrConstants.POSITION));
+            this.b = jSONObject.optString("iconPath");
+            this.c = jSONObject.optBoolean("clickable");
         }
     }
 }

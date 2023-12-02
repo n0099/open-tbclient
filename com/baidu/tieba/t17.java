@@ -4,36 +4,32 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.faceshop.CollectEmotionData;
-import com.baidu.tieba.faceshop.EmotionGroupData;
-import com.baidu.tieba.ve5;
+import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
+import com.baidu.tieba.s17;
+import com.baidu.tieba.ye5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class t17 extends ve5 {
+public class t17 extends ye5 {
     public static /* synthetic */ Interceptable $ic;
-    public static t17 c;
+    public static t17 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<ye5> a;
-    public final CustomMessageListener b;
+    public LinkedList<bf5> a;
 
-    @Override // com.baidu.tieba.ve5
+    @Override // com.baidu.tieba.ye5
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 3;
+            return 2;
         }
         return invokeV.intValue;
     }
@@ -43,40 +39,6 @@ public class t17 extends ve5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ t17 a;
-
-        /* renamed from: com.baidu.tieba.t17$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC0483a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0483a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g();
-                }
-            }
-        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(t17 t17Var, int i) {
@@ -103,9 +65,50 @@ public class t17 extends ve5 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.d();
-                lr6.a(new RunnableC0483a(this), "UpdateUserCollect", 1);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001444) {
+                Object data = customResponsedMessage.getData();
+                if (data == null || !(data instanceof SingleBarEmotionRecommendData)) {
+                    this.a.g(null);
+                    return;
+                }
+                SingleBarEmotionRecommendData singleBarEmotionRecommendData = (SingleBarEmotionRecommendData) data;
+                LinkedList linkedList = new LinkedList();
+                if (singleBarEmotionRecommendData == null || TextUtils.isEmpty(singleBarEmotionRecommendData.pkg_id) || TextUtils.isEmpty(singleBarEmotionRecommendData.cover)) {
+                    this.a.g(null);
+                    return;
+                }
+                linkedList.add(singleBarEmotionRecommendData);
+                this.a.g(linkedList);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements s17.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(t17 t17Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t17Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.s17.b
+        public void a(s17 s17Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, s17Var) == null) {
+                MessageManager.getInstance().runTask(2004603, (Class) null);
             }
         }
     }
@@ -120,125 +123,76 @@ public class t17 extends ve5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.b);
-    }
-
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    return;
-                }
-                Iterator<ye5> it = this.a.iterator();
-                while (it.hasNext()) {
-                    ye5 next = it.next();
-                    if (next instanceof r17) {
-                        ((r17) next).x();
-                    }
-                }
             }
         }
     }
 
-    public static t17 e() {
+    public static t17 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
                 synchronized (t17.class) {
-                    if (c == null) {
-                        c = new t17();
+                    if (b == null) {
+                        b = new t17();
                     }
                 }
             }
-            return c;
+            return b;
         }
         return (t17) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ve5
-    public void b(ve5.a aVar) {
+    @Override // com.baidu.tieba.ye5
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
-            LinkedList<ye5> linkedList = this.a;
-            if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<ye5> it = this.a.iterator();
-                while (it.hasNext()) {
-                    ye5 next = it.next();
-                    if (aVar != null) {
-                        aVar.a(next);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(new a(this, 2001444));
+        }
+    }
+
+    @Override // com.baidu.tieba.ye5
+    public void b(ye5.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && this.a != null) {
+            for (int i = 0; i < this.a.size(); i++) {
+                s17 s17Var = (s17) this.a.get(i);
+                if (s17Var.u() && hr9.i().g(s17Var.f()) == null && aVar != null) {
+                    aVar.a(s17Var);
+                }
+            }
+        }
+    }
+
+    public final synchronized void g(List<c17> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            synchronized (this) {
+                if (list != null) {
+                    if (!list.isEmpty()) {
+                        if (this.a != null) {
+                            this.a = null;
+                        }
+                        LinkedList<bf5> linkedList = new LinkedList<>();
+                        boolean z = false;
+                        for (c17 c17Var : list) {
+                            if (c17Var != null && !StringUtils.isNull(c17Var.getGroupId()) && c17Var.IsValid()) {
+                                s17 s17Var = new s17(c17Var);
+                                linkedList.add(s17Var);
+                                z = s17Var.v(c17Var, new b(this));
+                            }
+                        }
+                        this.a = linkedList;
+                        if (z) {
+                            MessageManager.getInstance().runTask(2004603, (Class) null);
+                        }
                     }
                 }
-                return;
-            }
-            this.a = new LinkedList<>();
-            r17 r17Var = new r17();
-            this.a.add(r17Var);
-            if (aVar != null) {
-                aVar.a(r17Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ve5
-    public void d() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            return;
-        }
-        List<CollectEmotionData> q = i17.o().q(TbadkCoreApplication.getCurrentAccount());
-        if (q != null && q.size() != 0) {
-            if (q != null && q.size() != 0) {
-                i = q.size() - 1;
-            } else {
-                i = 0;
-            }
-            StatisticItem statisticItem = new StatisticItem("c12224");
-            statisticItem.param("obj_param1", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-            return;
-        }
-        CollectEmotionData collectEmotionData = new CollectEmotionData();
-        collectEmotionData.pid = "setting_icon";
-        collectEmotionData.setOrderId(301);
-        collectEmotionData.setSharpText(ej5.f);
-        collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
-        i17.o().a(collectEmotionData);
-        EmotionGroupData emotionGroupData = new EmotionGroupData();
-        emotionGroupData.groupId = ej5.a();
-        emotionGroupData.groupName = "用户收藏表情";
-        emotionGroupData.groupDesc = "用户收藏表情";
-        emotionGroupData.emotionsCount = 301;
-        emotionGroupData.status = 1;
-        emotionGroupData.downloadUrl = "";
-        i17.o().h(TbadkCoreApplication.getCurrentAccount(), emotionGroupData);
-        i17.o().g(emotionGroupData);
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList<ye5> linkedList = this.a;
-            if (linkedList == null) {
-                return false;
-            }
-            Iterator<ye5> it = linkedList.iterator();
-            while (it.hasNext()) {
-                ye5 next = it.next();
-                if (next instanceof r17) {
-                    return ((r17) next).v(str);
+                if (this.a != null) {
+                    this.a = null;
+                    MessageManager.getInstance().runTask(2004603, (Class) null);
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 }

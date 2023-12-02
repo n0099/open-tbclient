@@ -24,7 +24,7 @@ public final class v {
         }
         HD = true;
         View inflate = com.kwad.sdk.m.l.inflate(context, i, null);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913d6)).setText(str);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913d7)).setText(str);
         Toast toast = new Toast(context.getApplicationContext());
         toast.setGravity(17, 0, 0);
         toast.setDuration(0);
@@ -60,7 +60,7 @@ public final class v {
             return;
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b8, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913d6)).setText(str);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913d7)).setText(str);
         Toast toast = new Toast(context);
         toast.setGravity(17, 0, 0);
         toast.setDuration(0);

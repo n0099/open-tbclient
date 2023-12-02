@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.coreExtra.model.CloudControlData;
 import com.baidu.tbadk.coreExtra.model.ResponseToastLogic;
-import com.baidu.tieba.gr4;
-import com.baidu.tieba.tp9;
-import com.baidu.tieba.vp9;
+import com.baidu.tieba.jr4;
+import com.baidu.tieba.xp9;
+import com.baidu.tieba.zp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class MarkModel extends BdBaseModel {
     public boolean a;
     public MarkData b;
     public a c;
-    public gr4.a d;
+    public jr4.a d;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -96,7 +96,7 @@ public class MarkModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
         public boolean b;
-        public vp9 c;
+        public zp9 c;
         public final /* synthetic */ MarkModel d;
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -126,7 +126,7 @@ public class MarkModel extends BdBaseModel {
             this.b = true;
             this.c = null;
             this.b = z;
-            this.c = new vp9();
+            this.c = new zp9();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -138,16 +138,18 @@ public class MarkModel extends BdBaseModel {
             String toastConf;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
-                boolean z2 = false;
+                boolean z2 = true;
                 if (this.b) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    tp9 tp9Var = new tp9();
-                    tp9Var.j(this.d.b);
-                    this.a.addPostData("data", tp9Var.E(0, 1));
+                    xp9 xp9Var = new xp9();
+                    this.a.setNeedShowSeverToast(false);
+                    xp9Var.j(this.d.b);
+                    this.a.addPostData("data", xp9Var.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
                     this.a = netWork;
-                    netWork.addPostData("user_id", this.d.b.getAccount());
+                    netWork.setNeedShowSeverToast(false);
+                    this.a.addPostData("user_id", this.d.b.getAccount());
                     this.a.addPostData("tid", this.d.b.getId());
                     this.a.addPostData("fid", this.d.b.getForumId());
                 }
@@ -164,11 +166,7 @@ public class MarkModel extends BdBaseModel {
                 } else {
                     toastConf = parse.getCommonConfig().getToastConf();
                 }
-                String a = ResponseToastLogic.a(ResponseToastLogic.Conf.SCENE_MARK, toastConf);
-                if (this.a.getNetContext().getResponse().isRequestSuccess() && z) {
-                    z2 = true;
-                }
-                return new Result(z2, a);
+                return new Result((this.a.getNetContext().getResponse().isRequestSuccess() && z) ? false : false, ResponseToastLogic.a(ResponseToastLogic.Conf.SCENE_MARK, toastConf));
             }
             return (Result) invokeL.objValue;
         }
@@ -190,7 +188,7 @@ public class MarkModel extends BdBaseModel {
                         }
                     } else if (this.d.d != null) {
                         if (this.a == null || this.a.getNetContext().getResponse().isRequestSuccess()) {
-                            gr4.a aVar = this.d.d;
+                            jr4.a aVar = this.d.d;
                             boolean z = this.b;
                             if (this.c != null) {
                                 str = this.c.b();
@@ -287,7 +285,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public void Y(gr4.a aVar) {
+    public void Y(jr4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.d = aVar;

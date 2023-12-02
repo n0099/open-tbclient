@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import com.baidu.nadcore.business.uitemplate.PortraitVideoTailView;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nn0;
-import com.baidu.tieba.ny0;
+import com.baidu.tieba.on0;
+import com.baidu.tieba.py0;
 /* loaded from: classes3.dex */
 public class NadRewardPortraitVideoView extends NadRewardVideoView {
     public PortraitVideoTailView o;
@@ -21,10 +21,10 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView, com.baidu.nadcore.widget.view.NadRewardBaseView
-    public void h(LayoutInflater layoutInflater, nn0 nn0Var) {
+    public void h(LayoutInflater layoutInflater, on0 on0Var) {
         int i;
         Integer num;
-        if (nn0Var != null && (num = (Integer) ny0.b(nn0Var.a, AdBaseModel.STYLE.VIDEO)) != null) {
+        if (on0Var != null && (num = (Integer) py0.b(on0Var.a, AdBaseModel.STYLE.VIDEO)) != null) {
             i = num.intValue();
         } else {
             i = R.layout.nad_reward_video_view;
@@ -36,8 +36,8 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
         this(context, attributeSet, i, null);
     }
 
-    public NadRewardPortraitVideoView(Context context, AttributeSet attributeSet, int i, nn0 nn0Var) {
-        super(context, attributeSet, i, nn0Var);
+    public NadRewardPortraitVideoView(Context context, AttributeSet attributeSet, int i, on0 on0Var) {
+        super(context, attributeSet, i, on0Var);
         this.o = (PortraitVideoTailView) findViewById(R.id.nad_portrait_video_tail_frame_view);
     }
 }

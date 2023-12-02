@@ -1,33 +1,26 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
-import android.view.View;
+import android.text.TextUtils;
+import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStatistic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c14 extends e52 {
+public class c14 extends h83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean A;
     public transient /* synthetic */ FieldHolder $fh;
-    public View z;
-
-    @Override // com.baidu.tieba.e52, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.qs1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "console" : (String) invokeV.objValue;
-    }
 
     /* loaded from: classes5.dex */
-    public class a extends v42 {
+    public class a implements dl3<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,132 +40,64 @@ public class c14 extends e52 {
             }
         }
 
-        @Override // com.baidu.tieba.v42
-        public void a(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.dl3
+        /* renamed from: b */
+        public void a(Boolean bool) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                super.a(str);
-                if (c14.A) {
-                    Log.e("SwanGameConsoleManager", "onPageFinished");
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+                Context appContext = AppRuntime.getAppContext();
+                if (bool.booleanValue()) {
+                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f0170, 1).show();
+                } else {
+                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f016f, 1).show();
                 }
-                d14.a();
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947621891, "Lcom/baidu/tieba/c14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947621891, "Lcom/baidu/tieba/c14;");
-                return;
-            }
-        }
-        A = sm1.a;
-    }
-
-    @Override // com.baidu.tieba.e52, com.baidu.tieba.ns1
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d14.h(false);
-            this.z = null;
-            super.C();
-        }
-    }
-
-    public final void f1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b(new a(this));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c14(Context context) {
-        super(context);
+    public c14(h73 h73Var) {
+        super(h73Var, "/swanAPI/debugGameSconsole");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {h73Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.e52, com.baidu.tieba.ns1
-    public void E(View view2) {
+    @Override // com.baidu.tieba.h83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k63 k63Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.z = view2;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, k63Var)) == null) {
+            if (!h83.b) {
+                return false;
+            }
+            JSONObject a2 = h83.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f016a, 1).show();
+                return false;
+            }
+            String optString = a2.optString("downloadurl");
+            if (TextUtils.isEmpty(optString)) {
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f016b, 1).show();
+                return false;
+            }
+            b14.m().c(optString, new a(this));
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.e52, com.baidu.tieba.ns1
-    public void N(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            int visibility = getWebView().getVisibility();
-            int i2 = 0;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            if (visibility == i) {
-                return;
-            }
-            if (A) {
-                Log.i("SwanGameConsoleManager", "setConsoleVisible:" + z);
-            }
-            if (z) {
-                ur2.V().n("console", x04.u(true));
-            }
-            if (this.z != null) {
-                if (z) {
-                    i2 = 4;
-                }
-                this.z.setVisibility(i2);
-            }
-            super.N(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.e52, com.baidu.tieba.ns1
-    public void d0(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            d14.g(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.e52
-    public void d1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            getWebView().setVisibility(8);
-            getWebView().setBackgroundColor(0);
-            d14.c();
-            f1();
-            String i = y04.m().i();
-            if (A) {
-                Log.d("SwanGameConsoleManager", HttpRetryStatistic.RETRY_URL + i);
-            }
-            loadUrl(i);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

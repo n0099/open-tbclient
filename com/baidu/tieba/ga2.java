@@ -1,12 +1,16 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.da2;
+import com.baidu.tieba.j33;
+import com.baidu.tieba.l33;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,29 +18,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public final class ga2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static f b;
+    public static g c;
     public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public da2 a;
-    public ea2 b;
-    public ConcurrentHashMap<String, PrefetchEvent> c;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public interface d {
+        void a(j33 j33Var);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a(@NonNull j33 j33Var, @Nullable PMSAppInfo pMSAppInfo);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PrefetchEvent a;
-        public final /* synthetic */ ga2 b;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ PrefetchEvent b;
+        public final /* synthetic */ ga2 c;
 
-        public a(ga2 ga2Var, PrefetchEvent prefetchEvent) {
+        public a(ga2 ga2Var, e eVar, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ga2Var, prefetchEvent};
+                Object[] objArr = {ga2Var, eVar, prefetchEvent};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,33 +60,37 @@ public final class ga2 {
                     return;
                 }
             }
-            this.b = ga2Var;
-            this.a = prefetchEvent;
+            this.c = ga2Var;
+            this.a = eVar;
+            this.b = prefetchEvent;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.ga2.d
+        public void a(j33 j33Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, j33Var) != null) || j33Var == null) {
                 return;
             }
-            this.b.e(this.a);
+            if (!ga2.d && j33Var.E()) {
+                this.a.a(j33Var, null);
+            } else {
+                this.c.f(j33Var, this.b, this.a);
+            }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements da2.e {
+    public class b implements j33.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PrefetchEvent a;
-        public final /* synthetic */ ga2 b;
+        public final /* synthetic */ d a;
 
-        public b(ga2 ga2Var, PrefetchEvent prefetchEvent) {
+        public b(ga2 ga2Var, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ga2Var, prefetchEvent};
+                Object[] objArr = {ga2Var, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -82,39 +100,138 @@ public final class ga2 {
                     return;
                 }
             }
-            this.b = ga2Var;
-            this.a = prefetchEvent;
+            this.a = dVar;
         }
 
-        @Override // com.baidu.tieba.da2.e
-        public void a(g33 g33Var, PMSAppInfo pMSAppInfo) {
+        @Override // com.baidu.tieba.j33.b
+        public void a(j33 j33Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, g33Var, pMSAppInfo) == null) {
-                this.b.b.b(this.a, g33Var, pMSAppInfo);
+            if (interceptable == null || interceptable.invokeL(1048576, this, j33Var) == null) {
+                this.a.a(j33Var);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c {
+    public class c extends z42 {
         public static /* synthetic */ Interceptable $ic;
-        public static final ga2 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j33 b;
+        public final /* synthetic */ e c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-782336750, "Lcom/baidu/tieba/ga2$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-782336750, "Lcom/baidu/tieba/ga2$c;");
+        public c(ga2 ga2Var, j33 j33Var, e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ga2Var, j33Var, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new ga2(null);
+            this.b = j33Var;
+            this.c = eVar;
+        }
+
+        @Override // com.baidu.tieba.z42, com.baidu.tieba.a52.b
+        public void a() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                super.a();
+                if (ga2.d && this.b.E()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (this.b.S() || z) {
+                    this.c.a(this.b, null);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class f implements l33.c<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ f(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.l33.c
+        /* renamed from: b */
+        public boolean a(String str, j33 j33Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j33Var)) == null) {
+                PrefetchEvent prefetchEvent = j33Var.f;
+                if (prefetchEvent == null) {
+                    return false;
+                }
+                return TextUtils.equals(str, prefetchEvent.appId);
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class g implements l33.c<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ g(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.l33.c
+        /* renamed from: b */
+        public boolean a(String str, j33 j33Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j33Var)) == null) {
+                if (j33Var.E() && TextUtils.equals(str, j33Var.c)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
         }
     }
 
@@ -131,23 +248,10 @@ public final class ga2 {
                 return;
             }
         }
-        d = sm1.a;
-    }
-
-    public static ga2 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return c.a;
-        }
-        return (ga2) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.clear();
-        }
+        a = vm1.a;
+        b = new f(null);
+        c = new g(null);
+        d = ka2.p();
     }
 
     public ga2() {
@@ -160,58 +264,80 @@ public final class ga2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.c = new ConcurrentHashMap<>();
-        this.a = new da2();
-        this.b = new ea2();
     }
 
-    public /* synthetic */ ga2(a aVar) {
-        this();
-    }
-
-    public void c(PrefetchEvent prefetchEvent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, prefetchEvent) != null) || prefetchEvent == null) {
-            return;
-        }
-        this.c.put(ky1.a(prefetchEvent.appId), prefetchEvent);
-    }
-
-    public final void e(PrefetchEvent prefetchEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, prefetchEvent) == null) {
-            this.a.g(prefetchEvent, new b(this, prefetchEvent));
-        }
-    }
-
-    public final boolean h(PrefetchEvent prefetchEvent) {
+    public static j33 c(@NonNull PrefetchEvent prefetchEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, prefetchEvent)) == null) {
-            if (!ha2.h() || prefetchEvent == null || !prefetchEvent.isValid() || !TextUtils.equals(prefetchEvent.state, "show")) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, prefetchEvent)) == null) {
+            return l33.k().p(prefetchEvent.appId, b);
         }
-        return invokeL.booleanValue;
+        return (j33) invokeL.objValue;
     }
 
-    public void f(PrefetchEvent prefetchEvent) {
+    public static j33 d(@NonNull PrefetchEvent prefetchEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, prefetchEvent) == null) {
-            if (d) {
-                Log.d("SwanAppPrefetchManager", "fire preloadEvent abSwitch: " + ha2.h());
-            }
-            if (h(prefetchEvent)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, prefetchEvent)) == null) {
+            return l33.k().p(prefetchEvent.appId, c);
+        }
+        return (j33) invokeL.objValue;
+    }
+
+    public final void e(@NonNull j33 j33Var, @NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, j33Var, prefetchEvent, eVar) == null) {
+            a52.g(prefetchEvent.appId, "swan", prefetchEvent.scene, false, prefetchEvent.schema, new c(this, j33Var, eVar));
+        }
+    }
+
+    public final void f(@NonNull j33 j33Var, @NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j33Var, prefetchEvent, eVar) == null) {
+            e(j33Var, prefetchEvent, eVar);
+        }
+    }
+
+    public void g(@NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, prefetchEvent, eVar) == null) {
+            h(prefetchEvent, new a(this, eVar, prefetchEvent));
+        }
+    }
+
+    @Nullable
+    public final void h(@NonNull PrefetchEvent prefetchEvent, @NonNull d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, prefetchEvent, dVar) == null) {
+            j33 d2 = d(prefetchEvent);
+            if (d2 != null) {
+                dVar.a(d2);
                 return;
             }
-            if (d) {
-                Log.d("SwanAppPrefetchManager", "firePrefetchEvent event: " + prefetchEvent);
+            j33 c2 = c(prefetchEvent);
+            if (c2 != null && c2.S()) {
+                dVar.a(c2);
+                return;
             }
-            ExecutorUtilsExt.postOnSerial(new a(this, prefetchEvent), "prefetch-event-thread");
+            j33 e2 = l33.k().e();
+            if (e2.E()) {
+                if (a) {
+                    Log.e("PrefetchEnv", "prepareEnv isSwanAppLoaded.");
+                }
+                dVar.a(null);
+            } else if (e2.S()) {
+                if (a) {
+                    Log.d("PrefetchEnv", "prepareEnv isPreloaded.");
+                }
+                dVar.a(e2);
+            } else {
+                e2.k0(new b(this, dVar));
+                Bundle bundle = new Bundle();
+                bundle.putString("bundle_key_preload_preload_scene", "8");
+                i33.m(rp2.c(), e2, bundle);
+            }
         }
     }
 }

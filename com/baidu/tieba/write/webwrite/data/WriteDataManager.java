@@ -11,14 +11,16 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.JSONLikeSerializable;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tieba.br6;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.ee5;
-import com.baidu.tieba.hhb;
+import com.baidu.tieba.ghb;
+import com.baidu.tieba.he5;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.tieba.ogb;
-import com.baidu.tieba.oya;
-import com.baidu.tieba.qhb;
-import com.baidu.tieba.vgb;
+import com.baidu.tieba.ngb;
+import com.baidu.tieba.nya;
+import com.baidu.tieba.phb;
+import com.baidu.tieba.ugb;
+import com.baidu.tieba.wfb;
 import com.baidu.tieba.write.webwrite.hybirdlistener.AddVoiceListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.AddVoteListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.AtSelectListener;
@@ -33,8 +35,6 @@ import com.baidu.tieba.write.webwrite.hybirdlistener.SwanAppGoodsListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.TopicSelectListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.UpdateWriteDataBiz;
 import com.baidu.tieba.write.webwrite.hybirdlistener.VideoBizListener;
-import com.baidu.tieba.xfb;
-import com.baidu.tieba.xq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ import org.json.JSONObject;
 public abstract class WriteDataManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vgb a;
+    public ugb a;
     public final HashMap<String, String> b;
     public TbWebView c;
     public UpdateWriteDataBiz d;
@@ -62,7 +62,7 @@ public abstract class WriteDataManager {
 
     public abstract void e();
 
-    public abstract void o(TbPageContext<?> tbPageContext, xfb xfbVar, EditorTools editorTools);
+    public abstract void o(TbPageContext<?> tbPageContext, wfb wfbVar, EditorTools editorTools);
 
     public WriteDataManager() {
         Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public abstract class WriteDataManager {
                         throw new RuntimeException("write page must init isFromErrorDialog before use WriteData");
                     }
                     if (Intrinsics.areEqual(this.this$0.d().p(), Boolean.TRUE)) {
-                        return oya.f;
+                        return nya.f;
                     }
                     return new WriteData();
                 }
@@ -159,18 +159,18 @@ public abstract class WriteDataManager {
         return (TbWebView) invokeV.objValue;
     }
 
-    public final vgb d() {
+    public final ugb d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            vgb vgbVar = this.a;
-            if (vgbVar != null) {
-                return vgbVar;
+            ugb ugbVar = this.a;
+            if (ugbVar != null) {
+                return ugbVar;
             }
             Intrinsics.throwUninitializedPropertyAccessException("mWritePageState");
             return null;
         }
-        return (vgb) invokeV.objValue;
+        return (ugb) invokeV.objValue;
     }
 
     public final void j() {
@@ -180,7 +180,7 @@ public abstract class WriteDataManager {
         }
     }
 
-    public final void f(vgb writePageState, Bundle bundle, Intent intent) {
+    public final void f(ugb writePageState, Bundle bundle, Intent intent) {
         Boolean bool;
         String str;
         boolean z;
@@ -189,11 +189,11 @@ public abstract class WriteDataManager {
         if (interceptable == null || interceptable.invokeLLL(1048581, this, writePageState, bundle, intent) == null) {
             Intrinsics.checkNotNullParameter(writePageState, "writePageState");
             q(writePageState);
-            vgb d = d();
+            ugb d = d();
             boolean z3 = false;
             if (bundle == null && intent != null) {
                 if (intent.getBooleanExtra(WriteActivityConfig.IS_FROM_ERROR_DIALOG, false)) {
-                    WriteData writeData = oya.f;
+                    WriteData writeData = nya.f;
                     if (writeData != null && d().F() == writeData.getType()) {
                         z2 = true;
                     } else {
@@ -210,7 +210,7 @@ public abstract class WriteDataManager {
                 bool = Boolean.FALSE;
             }
             d.w(bool);
-            vgb d2 = d();
+            ugb d2 = d();
             if (intent != null) {
                 str = intent.getStringExtra(WriteActivityConfig.SHOW_NOT_SAVE_POPUP);
             } else {
@@ -221,7 +221,7 @@ public abstract class WriteDataManager {
             }
             d2.z(str);
             if (bundle != null) {
-                qhb.a.b(bundle, b());
+                phb.a.b(bundle, b());
             } else if (intent != null) {
                 WriteData b = b();
                 Boolean p = d().p();
@@ -229,7 +229,7 @@ public abstract class WriteDataManager {
                     z3 = p.booleanValue();
                 }
                 b.setFromErrorDialog(z3);
-                qhb.a.c(intent, b());
+                phb.a.c(intent, b());
                 Serializable serializableExtra = intent.getSerializableExtra(WriteActivityConfig.KEY_WEBVIEW_DATA);
                 if (serializableExtra instanceof JSONLikeSerializable) {
                     d().C(((JSONLikeSerializable) serializableExtra).toJsonObject());
@@ -287,22 +287,22 @@ public abstract class WriteDataManager {
         }
     }
 
-    public final void q(vgb vgbVar) {
+    public final void q(ugb ugbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, vgbVar) == null) {
-            Intrinsics.checkNotNullParameter(vgbVar, "<set-?>");
-            this.a = vgbVar;
+        if (interceptable == null || interceptable.invokeL(1048592, this, ugbVar) == null) {
+            Intrinsics.checkNotNullParameter(ugbVar, "<set-?>");
+            this.a = ugbVar;
         }
     }
 
-    public final boolean k(ee5 action) {
+    public final boolean k(he5 action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, action)) == null) {
             Intrinsics.checkNotNullParameter(action, "action");
             if (!d().q()) {
                 d().A(true);
-                xq6.b().c(new ogb());
+                br6.b().c(new ngb());
             }
             if (a().i(action)) {
                 return true;
@@ -312,16 +312,16 @@ public abstract class WriteDataManager {
         return invokeL.booleanValue;
     }
 
-    public final void n(vgb mWritePageState, TbWebView webView, EditorTools editor, TbPageContext<?> pageContext) {
+    public final void n(ugb mWritePageState, TbWebView webView, EditorTools editor, TbPageContext<?> pageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048589, this, mWritePageState, webView, editor, pageContext) == null) {
             Intrinsics.checkNotNullParameter(mWritePageState, "mWritePageState");
             Intrinsics.checkNotNullParameter(webView, "webView");
             Intrinsics.checkNotNullParameter(editor, "editor");
             Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-            xfb xfbVar = new xfb(this.b, b());
+            wfb wfbVar = new wfb(this.b, b());
             p(webView);
-            c().setTargetInterceptor(xfbVar);
+            c().setTargetInterceptor(wfbVar);
             this.d = new UpdateWriteDataBiz(pageContext, c(), b(), mWritePageState, new WriteDataManager$registerBizListener$1(this));
             BizBus a = a();
             UpdateWriteDataBiz updateWriteDataBiz = this.d;
@@ -340,11 +340,11 @@ public abstract class WriteDataManager {
             a().l(new SwanAppGoodsListener(pageContext, c(), b(), mWritePageState));
             a().l(new ForumRegionQADialogListener(pageContext, c(), b(), mWritePageState));
             a().l(new AddVoiceListener(pageContext, c(), b(), mWritePageState, editor));
-            a().l(new hhb(pageContext, c(), b(), mWritePageState, editor));
+            a().l(new ghb(pageContext, c(), b(), mWritePageState, editor));
             a().l(new LinkBizListener(pageContext, c(), b(), mWritePageState));
             a().l(new VideoBizListener(pageContext, c(), b(), mWritePageState, editor));
             a().l(new BubbleBizListener(pageContext, c(), b(), mWritePageState));
-            o(pageContext, xfbVar, editor);
+            o(pageContext, wfbVar, editor);
         }
     }
 }

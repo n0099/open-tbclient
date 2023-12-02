@@ -1,78 +1,165 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigHTTPResMsg;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigReqMsg;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class lp4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int A = 3;
-    public static int B = 4;
-    public static int C = 1;
-    public static int D = 2;
-    public static int y = 1;
-    public static int z = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public int i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public double n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public long t;
-    public long u;
-    public ArrayList<String> v;
-    public ArrayList<String> w;
-    public int x;
+    public jp4<kp4> a;
+    public boolean b;
+    public BdUniqueId c;
+    public NetMessageListener d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947950553, "Lcom/baidu/tieba/lp4;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a extends NetMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lp4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(lp4 lp4Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lp4Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lp4Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947950553, "Lcom/baidu/tieba/lp4;");
+
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.b = false;
+                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.d() != responsedMessage.getOrginalMessage().getTag()) {
+                    return;
+                }
+                if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
+                    kp4 kp4Var = null;
+                    if (responsedMessage instanceof ActiveConfigHTTPResMsg) {
+                        kp4Var = ((ActiveConfigHTTPResMsg) responsedMessage).getData();
+                    }
+                    if ((responsedMessage.getOrginalMessage().getExtra() instanceof ActiveConfigReqMsg) && ((ActiveConfigReqMsg) responsedMessage.getOrginalMessage().getExtra()).launtchType == 0) {
+                        SharedPrefHelper.getInstance().putLong("pref_key_active_config_info", System.currentTimeMillis());
+                    }
+                    if (kp4Var != null && kp4Var.g != null && this.a.a != null) {
+                        this.a.a.a(kp4Var);
+                    }
+                    if (kp4Var != null && this.a.c()) {
+                        SharedPrefHelper.getInstance().putLong("pref_key_last_register_mission", System.currentTimeMillis());
+                        ap4.b().i(kp4Var);
+                        if (this.a.a != null) {
+                            this.a.a.onSuccess(kp4Var);
+                        }
+                    }
+                    w45.e().j(kp4Var);
+                } else if (this.a.a != null) {
+                    this.a.a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                }
+            }
         }
     }
 
-    public lp4() {
+    public lp4(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.v = new ArrayList<>();
-        this.w = new ArrayList<>();
-        this.x = 0;
+        this.b = false;
+        this.d = new a(this, CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637);
+        this.c = bdUniqueId;
+        e();
+        this.d.setTag(d());
+        MessageManager.getInstance().registerListener(this.d);
+    }
+
+    public void g(jp4<kp4> jp4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jp4Var) == null) {
+            this.a = jp4Var;
+        }
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !UtilHelper.isSameDay(SharedPrefHelper.getInstance().getLong("pref_key_last_register_mission", 0L), System.currentTimeMillis());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public BdUniqueId d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, vva.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
+            tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void f(boolean z, boolean z2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) != null) || this.b) {
+            return;
+        }
+        if (!z) {
+            this.b = true;
+        }
+        SharedPrefHelper.getInstance().putLong("pref_key_last_active_config", System.currentTimeMillis());
+        ActiveConfigReqMsg activeConfigReqMsg = new ActiveConfigReqMsg();
+        activeConfigReqMsg.setFirstUp(z);
+        activeConfigReqMsg.setSchemaUp(z2);
+        activeConfigReqMsg.launtchType = i;
+        activeConfigReqMsg.setTag(d());
+        MessageManager.getInstance().sendMessage(activeConfigReqMsg);
     }
 }

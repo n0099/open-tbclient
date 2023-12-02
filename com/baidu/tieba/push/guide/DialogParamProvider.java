@@ -3,7 +3,7 @@ package com.baidu.tieba.push.guide;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
-import com.baidu.tieba.aga;
+import com.baidu.tieba.ega;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,49 +18,49 @@ public interface DialogParamProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @aga(paramKey = "forum_icon")
+        @ega(paramKey = "forum_icon")
         public static String a(DialogParamProvider dialogParamProvider) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dialogParamProvider)) == null) ? "" : (String) invokeL.objValue;
         }
 
-        @aga(paramKey = "forum_id")
+        @ega(paramKey = "forum_id")
         public static String b(DialogParamProvider dialogParamProvider) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dialogParamProvider)) == null) ? "" : (String) invokeL.objValue;
         }
 
-        @aga(paramKey = "forum_name")
+        @ega(paramKey = "forum_name")
         public static String c(DialogParamProvider dialogParamProvider) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dialogParamProvider)) == null) ? "" : (String) invokeL.objValue;
         }
 
-        @aga(paramKey = "forum_slogan")
+        @ega(paramKey = "forum_slogan")
         public static String d(DialogParamProvider dialogParamProvider) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dialogParamProvider)) == null) ? "" : (String) invokeL.objValue;
         }
 
-        @aga(paramKey = "thread_abstract")
+        @ega(paramKey = "thread_abstract")
         public static String e(DialogParamProvider dialogParamProvider) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, dialogParamProvider)) == null) ? "" : (String) invokeL.objValue;
         }
 
-        @aga(paramKey = "thread_id")
+        @ega(paramKey = "thread_id")
         public static String f(DialogParamProvider dialogParamProvider) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, dialogParamProvider)) == null) ? "" : (String) invokeL.objValue;
         }
 
-        @aga(paramKey = MissonDetailsActivityConfig.THREAD_TITLE)
+        @ega(paramKey = MissonDetailsActivityConfig.THREAD_TITLE)
         public static String g(DialogParamProvider dialogParamProvider) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -68,33 +68,33 @@ public interface DialogParamProvider {
         }
     }
 
-    @aga(paramKey = "forum_icon")
+    @ega(paramKey = "forum_icon")
     String provideForumIcon();
 
-    @aga(paramKey = "forum_id")
+    @ega(paramKey = "forum_id")
     String provideForumId();
 
-    @aga(paramKey = "forum_name")
+    @ega(paramKey = "forum_name")
     String provideForumName();
 
-    @aga(paramKey = "forum_slogan")
+    @ega(paramKey = "forum_slogan")
     String provideForumSlogan();
 
-    @aga(paramKey = "nickname")
+    @ega(paramKey = "nickname")
     String provideNickname();
 
-    @aga(paramKey = "portrait")
+    @ega(paramKey = "portrait")
     String providePortrait();
 
-    @aga(paramKey = "thread_abstract")
+    @ega(paramKey = "thread_abstract")
     String provideThreadAbstract();
 
-    @aga(paramKey = "thread_id")
+    @ega(paramKey = "thread_id")
     String provideThreadId();
 
-    @aga(paramKey = MissonDetailsActivityConfig.THREAD_TITLE)
+    @ega(paramKey = MissonDetailsActivityConfig.THREAD_TITLE)
     String provideThreadTitle();
 
-    @aga(paramKey = "user_id")
+    @ega(paramKey = "user_id")
     String provideUserId();
 }

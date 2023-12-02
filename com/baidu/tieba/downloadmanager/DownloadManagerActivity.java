@@ -34,7 +34,7 @@ import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tieba.R;
 import com.baidu.tieba.downloadmanager.ui.DownloadManageButton;
 import com.baidu.tieba.downloadmanager.ui.DownloadManagerFragment;
-import com.baidu.tieba.hv6;
+import com.baidu.tieba.lv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,11 +87,11 @@ public class DownloadManagerActivity extends BaseFragmentActivity implements Dow
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hv6)) {
-                hv6 hv6Var = (hv6) customResponsedMessage.getData();
-                View a = hv6Var.a();
-                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) hv6Var.a()).getText())) {
-                    ItemCardHelper.f(hv6Var.e(), hv6Var.d(), ItemCardHelper.e(((TBSpecificationBtn) hv6Var.a()).getText()), hv6Var.c(), hv6Var.b(), true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof lv6)) {
+                lv6 lv6Var = (lv6) customResponsedMessage.getData();
+                View a = lv6Var.a();
+                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) lv6Var.a()).getText())) {
+                    ItemCardHelper.f(lv6Var.e(), lv6Var.d(), ItemCardHelper.e(((TBSpecificationBtn) lv6Var.a()).getText()), lv6Var.c(), lv6Var.b(), true);
                 }
                 DownloadManagerActivity downloadManagerActivity = this.a;
                 ItemCardHelper.l(downloadManagerActivity, downloadManagerActivity.getUniqueId(), a, (ViewGroup) this.a.findViewById(16908290));
@@ -526,15 +526,15 @@ public class DownloadManagerActivity extends BaseFragmentActivity implements Dow
     public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090992);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090993);
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f05ee));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             v1();
             this.a.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_RIGHT).addView(this.f);
-            this.c = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090994);
+            this.c = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090995);
             y1();
-            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f090993);
+            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f090994);
             w1();
         }
     }

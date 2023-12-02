@@ -1,156 +1,167 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Bundle;
+import android.graphics.Rect;
+import android.view.MotionEvent;
+import android.view.TouchDelegate;
 import android.view.View;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.view.ViewConfiguration;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.LoadingProgressBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class i71 extends Dialog {
+public class i71 extends TouchDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public LoadingProgressBar c;
-    public TextView d;
-    public String e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
+    public final Map<View, a> a;
+
+    /* loaded from: classes6.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Rect a;
+        public int b;
+        public int c;
+        public int d;
+        public int e;
+        public int f;
+        public Rect g;
+        public boolean h;
+
+        public a(i71 i71Var, Rect rect, int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i71Var, rect, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i;
+            this.a = rect;
+            this.d = i2;
+            this.c = i3;
+            this.e = i4;
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i71(@NonNull Context context) {
-        super(context, R.style.obfuscated_res_0x7f100141);
+    public i71(View view2, int i, int i2, int i3, int i4) {
+        super(new Rect(), view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                super((Rect) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = "";
-        this.g = false;
-        this.h = false;
-        this.a = context;
-        this.f = a(context);
+        this.a = new HashMap();
+        a(view2, i, i2, i3, i4);
     }
 
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
+    public void a(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context instanceof Activity) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public i71 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.g = z;
-            return this;
-        }
-        return (i71) invokeZ.objValue;
-    }
-
-    public i71 d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.h = z;
-            return this;
-        }
-        return (i71) invokeZ.objValue;
-    }
-
-    public i71 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.e = str;
-            return this;
-        }
-        return (i71) invokeL.objValue;
-    }
-
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.nad_call_action_loading_dialog);
-            b();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.a.put(view2, new a(this, new Rect(), i, i2, i3, i4));
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f092072);
-            this.c = (LoadingProgressBar) findViewById(R.id.obfuscated_res_0x7f091705);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09181a);
-            this.d = textView;
-            textView.setText(this.e);
-            setCancelable(this.g);
-            setCanceledOnTouchOutside(this.h);
-            f();
+            for (Map.Entry<View, a> entry : this.a.entrySet()) {
+                View key = entry.getKey();
+                int[] iArr = new int[2];
+                key.getLocationOnScreen(iArr);
+                int measuredWidth = key.getMeasuredWidth();
+                int measuredHeight = key.getMeasuredHeight();
+                a value = entry.getValue();
+                Rect rect = value.a;
+                rect.left = iArr[0] - value.b;
+                rect.right = iArr[0] + measuredWidth + value.c;
+                rect.top = iArr[1] - value.d;
+                rect.bottom = iArr[1] + measuredHeight + value.e;
+                value.f = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
+                Rect rect2 = new Rect(value.a);
+                value.g = rect2;
+                int i = value.f;
+                rect2.inset(-i, -i);
+            }
         }
     }
 
-    public final void f() {
-        Context context;
+    @Override // android.view.TouchDelegate
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (context = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            b();
+            int rawX = (int) motionEvent.getRawX();
+            int rawY = (int) motionEvent.getRawY();
+            boolean z = false;
+            boolean z2 = false;
+            boolean z3 = true;
+            for (Map.Entry<View, a> entry : this.a.entrySet()) {
+                View key = entry.getKey();
+                if (key.getVisibility() != 0) {
+                    break;
+                }
+                a value = entry.getValue();
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action != 1 && action != 2) {
+                        if (action == 3) {
+                            z2 = value.h;
+                            value.h = false;
+                        }
+                    } else {
+                        z2 = value.h;
+                        if (z2 && !value.g.contains(rawX, rawY)) {
+                            z3 = false;
+                        }
+                    }
+                } else if (value.a.contains(rawX, rawY)) {
+                    value.h = true;
+                    z2 = true;
+                } else {
+                    value.h = false;
+                    z2 = false;
+                }
+                if (z2) {
+                    if (z3) {
+                        motionEvent.setLocation(key.getWidth() / 2, key.getHeight() / 2);
+                    } else {
+                        float f = -(value.f * 2);
+                        motionEvent.setLocation(f, f);
+                    }
+                    z = key.dispatchTouchEvent(motionEvent);
+                    continue;
+                }
+                if (z) {
+                    break;
+                }
+            }
+            return z;
         }
-        Resources resources = context.getResources();
-        View view2 = this.b;
-        if (view2 != null) {
-            view2.setBackground(resources.getDrawable(R.drawable.nad_icon_loading_dialog_bg));
-        }
-        LoadingProgressBar loadingProgressBar = this.c;
-        if (loadingProgressBar != null) {
-            loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.nad_loading_animation));
-        }
-        TextView textView = this.d;
-        if (textView != null) {
-            textView.setTextColor(resources.getColor(R.color.nad_color_white));
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !this.f) {
-            return;
-        }
-        try {
-            super.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return invokeL.booleanValue;
     }
 }

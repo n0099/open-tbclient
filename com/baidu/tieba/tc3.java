@@ -1,24 +1,51 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.er2;
-import com.baidu.tieba.pc3;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tc3 {
+public final class tc3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ md3 a;
+
+        public a(md3 md3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {md3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = md3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                rc3.k("934", this.a.f());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,76 +60,49 @@ public class tc3 {
                 return;
             }
         }
-        a = sm1.a;
-        b = op2.g0().u() * 1024;
+        a = vm1.a;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public static void a(md3 md3Var, hr2 hr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b > 0) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, md3Var, hr2Var) == null) && md3Var != null && hr2Var != null) {
+            md3Var.a = dd3.n(hr2Var.H());
+            md3Var.f = hr2Var.I();
+            md3Var.c = hr2Var.U();
+            md3Var.a("swan", pf3.h(hr2Var.H()));
+            md3Var.a("appversion", hr2Var.x1());
+            md3Var.a("thirdversion", hr2Var.y1());
+            md3Var.b(dd3.k(hr2Var.X()));
+            md3Var.d(hr2Var.t0().getString("ubc"));
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean a(@NonNull String str) {
-        InterceptResult invokeL;
+    public static void b(nd3 nd3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.getBytes().length <= b) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(65538, null, nd3Var) == null) {
+            if (nd3Var == null) {
+                if (a) {
+                    Log.w("SwanAppFuncUbc", "event is null");
+                    return;
+                }
+                return;
             }
-            return true;
+            md3 md3Var = new md3();
+            md3Var.f = nd3Var.f;
+            md3Var.a = nd3Var.a;
+            md3Var.g = nd3Var.g;
+            md3Var.c = nd3Var.c;
+            md3Var.b = nd3Var.b;
+            md3Var.e = nd3Var.e;
+            md3Var.e(nd3Var.c());
+            c(md3Var);
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean b(@NonNull String str) {
-        InterceptResult invokeL;
+    public static void c(md3 md3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!c()) {
-                return false;
-            }
-            boolean a2 = a(str);
-            if (a2) {
-                d(str);
-            }
-            return a2;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(@NonNull String str) {
-        h63 c0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || (c0 = h63.c0()) == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            er2.a X = c0.X();
-            SwanCoreVersion coreVersion = ur2.V().getCoreVersion();
-            int k = c0.k();
-            jSONObject.putOpt("scheme", X.X());
-            jSONObject.putOpt("swanjs", mf3.i(coreVersion, k));
-            if (str != null && str.length() > 1024) {
-                jSONObject.putOpt("params", str.substring(0, 1024));
-            }
-            pc3.b bVar = new pc3.b(10020);
-            bVar.j(bk3.n().e());
-            bVar.i(jSONObject.toString());
-            bVar.h(c0.getAppId());
-            bVar.m();
-            h32.k("SwanAppParamChecker", "10020, params: " + str);
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(65539, null, md3Var) == null) {
+            ej3.j(new a(md3Var), "SwanAppFuncClickUBC");
         }
     }
 }

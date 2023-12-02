@@ -1,76 +1,34 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapController;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.gg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hg3 extends e83 {
+public class hg3 extends h83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements gg3.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ ax1 c;
-        public final /* synthetic */ hg3 d;
-
-        public a(hg3 hg3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ax1 ax1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hg3Var, unitedSchemeEntity, callbackHandler, ax1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = hg3Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = ax1Var;
-        }
-
-        @Override // com.baidu.tieba.gg3.c
-        public void a(float f, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
-                h32.i(MapController.COMPASS_LAYER_TAG, "handle compass change, angle:" + f + ",accuracy: " + i);
-                this.d.k(this.a, this.b, this.c, f, i);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hg3(e73 e73Var) {
-        super(e73Var, "/swanAPI/startCompass");
+    public hg3(h73 h73Var) {
+        super(h73Var, "/swanAPI/brightness");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e73Var};
+            Object[] objArr = {h73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,74 +42,122 @@ public class hg3 extends e83 {
         }
     }
 
-    @Override // com.baidu.tieba.e83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h63 h63Var) {
+    @Override // com.baidu.tieba.h83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k63 k63Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h63Var)) == null) {
-            if (h63Var == null) {
-                h32.c(MapController.COMPASS_LAYER_TAG, "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (e83.b) {
-                    Log.d("SwanAppAction", "startCompass --- illegal swanApp");
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, k63Var)) == null) {
+            if (h83.b) {
+                Log.d("Brightness", "handle entity: " + unitedSchemeEntity.toString());
                 return false;
-            } else if (context == null) {
-                h32.c(MapController.COMPASS_LAYER_TAG, "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (e83.b) {
-                    Log.d("SwanAppAction", "startCompass --- illegal context");
-                }
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    if (e83.b) {
-                        Log.d("SwanAppAction", "startCompass --- params is empty");
-                    }
-                    h32.c(MapController.COMPASS_LAYER_TAG, "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    if (e83.b) {
-                        Log.d("SwanAppAction", "startCompass --- cb is empty");
-                    }
-                    h32.c(MapController.COMPASS_LAYER_TAG, "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                h32.i(MapController.COMPASS_LAYER_TAG, "init");
-                ax1 ax1Var = new ax1("compassChange", optParamsAsJo, optString);
-                gg3 i = gg3.i();
-                i.l(context);
-                i.o(new a(this, unitedSchemeEntity, callbackHandler, ax1Var));
-                h32.i(MapController.COMPASS_LAYER_TAG, "start listen compass");
-                i.p();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                ax1Var.a(unitedSchemeEntity, callbackHandler);
-                return true;
             }
+            return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ax1 ax1Var, float f, int i) {
+    /* JADX WARN: Removed duplicated region for block: B:65:0x010c  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x011a  */
+    @Override // com.baidu.tieba.h83
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, k63 k63Var) {
+        InterceptResult invokeLLLLL;
+        Activity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{unitedSchemeEntity, callbackHandler, ax1Var, Float.valueOf(f), Integer.valueOf(i)}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, f);
-                jSONObject.put("accuracy", gg3.h(i));
-                if (e83.b) {
-                    Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, k63Var)) == null) {
+            if (h83.b) {
+                Log.d("Brightness", "handleSubAction: " + unitedSchemeEntity.toString());
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (h83.b) {
+                Log.i("Brightness", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
+            }
+            JSONObject jSONObject = null;
+            if (context instanceof Activity) {
+                activity = (Activity) context;
+            } else {
+                activity = null;
+            }
+            if (activity == null) {
+                k32.c("brightness", "activity is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            int i = 1001;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            boolean z = true;
+            if (hashCode != -1634890823) {
+                if (hashCode != 1913219981) {
+                    if (hashCode == 1913231513 && str.equals("/swanAPI/brightness/set")) {
+                        c = 0;
+                    }
+                } else if (str.equals("/swanAPI/brightness/get")) {
+                    c = 1;
                 }
-                ax1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
-            } catch (JSONException e) {
-                h32.c(MapController.COMPASS_LAYER_TAG, "handle compass,json error，" + e.toString());
-                ax1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+            } else if (str.equals("/swanAPI/brightness/keepScreenOn")) {
+                c = 2;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        if (optParamsAsJo == null) {
+                            k32.c("brightness", "paramsJson is null");
+                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                            return false;
+                        }
+                        try {
+                            ig3.c().f(activity, optParamsAsJo.getBoolean("keepScreenOn"));
+                        } catch (JSONException unused) {
+                        }
+                    }
+                    z = false;
+                } else {
+                    jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("value", ig3.c().a(activity));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (z) {
+                    if (jSONObject != null) {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    } else {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    }
+                } else {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
+                }
+                return z;
+            } else if (optParamsAsJo == null) {
+                k32.c("brightness", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            } else {
+                String optString = optParamsAsJo.optString("value");
+                float f = -1.0f;
+                if (!TextUtils.isEmpty(optString)) {
+                    try {
+                        f = Float.parseFloat(optString);
+                    } catch (Exception unused2) {
+                    }
+                }
+                if (f >= 0.0f && f <= 1.0f) {
+                    ig3.c().e(activity, f);
+                    if (z) {
+                    }
+                    return z;
+                }
+                i = 202;
+                z = false;
+                if (z) {
+                }
+                return z;
             }
         }
+        return invokeLLLLL.booleanValue;
     }
 }

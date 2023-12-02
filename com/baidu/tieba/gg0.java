@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gg0 extends cg1<n81> {
+public class gg0 extends fg1<p81> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements n81 {
+    public class a implements p81 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,7 +38,7 @@ public class gg0 extends cg1<n81> {
             }
         }
 
-        @Override // com.baidu.tieba.n81
+        @Override // com.baidu.tieba.p81
         public Object a(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -48,14 +48,14 @@ public class gg0 extends cg1<n81> {
             return invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.n81
-        public y81<View> b(@NonNull Context context) {
+        @Override // com.baidu.tieba.p81
+        public c91<View> b(@NonNull Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
                 return new AdCriusPopView(context);
             }
-            return (y81) invokeL.objValue;
+            return (c91) invokeL.objValue;
         }
     }
 
@@ -74,14 +74,14 @@ public class gg0 extends cg1<n81> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cg1
+    @Override // com.baidu.tieba.fg1
     /* renamed from: a */
-    public n81 createService() throws ServiceNotFoundException {
+    public p81 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new a(this);
         }
-        return (n81) invokeV.objValue;
+        return (p81) invokeV.objValue;
     }
 }

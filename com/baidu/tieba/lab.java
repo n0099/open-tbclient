@@ -1,206 +1,178 @@
 package com.baidu.tieba;
 
-import android.media.CamcorderProfile;
-import androidx.annotation.NonNull;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.hardware.Camera;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
 /* loaded from: classes7.dex */
-public class lab implements Comparable<lab> {
+public class lab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public int c;
 
-    public lab(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947937564, "Lcom/baidu/tieba/lab;")) == null) {
+            return;
         }
-        this.c = 30;
-        this.a = i;
-        this.b = i2;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947937564, "Lcom/baidu/tieba/lab;");
+        }
     }
 
-    public lab(int i, int i2, int i3) {
+    public static int a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = 30;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(@NonNull lab labVar) {
+    public static int b(TbPageContext tbPageContext, int i) {
+        InterceptResult invokeLI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, tbPageContext, i)) == null) {
+            int i3 = 0;
+            try {
+                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+                Camera.getCameraInfo(i, cameraInfo);
+                int d = d(tbPageContext);
+                if (cameraInfo.facing == 1) {
+                    i3 = (cameraInfo.orientation + d) % 360;
+                    i2 = (360 - i3) % 360;
+                } else {
+                    i2 = ((cameraInfo.orientation - d) + 360) % 360;
+                }
+                return i2;
+            } catch (RuntimeException e) {
+                swb.g(e);
+                return i3;
+            }
+        }
+        return invokeLI.intValue;
+    }
+
+    public static int c(Camera.Parameters parameters) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, labVar)) == null) {
-            int i = this.a;
-            int i2 = this.b;
-            int i3 = i * i2;
-            int i4 = labVar.a;
-            int i5 = labVar.b;
-            if (i3 == i4 * i5) {
-                return this.c - labVar.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parameters)) == null) {
+            if (parameters == null) {
+                return -1;
             }
-            return (i * i2) - (i4 * i5);
+            try {
+                if (!parameters.isZoomSupported()) {
+                    return -1;
+                }
+                return Math.min(parameters.getMaxZoom(), 40);
+            } catch (Exception e) {
+                swb.g(e);
+                return -1;
+            }
         }
         return invokeL.intValue;
     }
 
-    public boolean f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return g(this, i);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public CamcorderProfile b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == 720 && this.b == 480) {
-                return CamcorderProfile.get(4);
-            }
-            if (this.a == 1280 && this.b == 720) {
-                return CamcorderProfile.get(5);
-            }
-            if (this.a == 1920 && this.b == 1080) {
-                return CamcorderProfile.get(6);
-            }
-            if (this.a == 3840 && this.b == 2160) {
-                return CamcorderProfile.get(8);
-            }
-            return CamcorderProfile.get(5);
-        }
-        return (CamcorderProfile) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
+    public static int d(TbPageContext tbPageContext) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if (obj == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
+            int rotation = tbPageContext.getPageActivity().getWindowManager().getDefaultDisplay().getRotation();
+            if (rotation == 0) {
+                return 0;
             }
-            if (this == obj) {
-                return true;
+            if (rotation != 1) {
+                if (rotation != 2) {
+                    if (rotation != 3) {
+                        return 0;
+                    }
+                    return 270;
+                }
+                return 180;
             }
-            if (!(obj instanceof lab)) {
-                return false;
-            }
-            lab labVar = (lab) obj;
-            if (this.a != labVar.a || this.b != labVar.b || this.c != labVar.c) {
-                return false;
-            }
-            return true;
+            return 90;
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public boolean g(lab labVar, int i) {
-        InterceptResult invokeLI;
+    public static void e(TbPageContext tbPageContext, int i, Matrix matrix) {
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, labVar, i)) == null) {
-            if (labVar.e() == 720 && labVar.d() == 480) {
-                return CamcorderProfile.hasProfile(i, 2002);
-            }
-            if (labVar.e() == 1280 && labVar.d() == 720) {
-                return CamcorderProfile.hasProfile(i, 2003);
-            }
-            if (labVar.e() == 1920 && labVar.d() == 1080) {
-                return CamcorderProfile.hasProfile(i, 2004);
-            }
-            if (labVar.e() == 3840 && labVar.d() == 2160) {
-                return CamcorderProfile.hasProfile(i, 2005);
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeLIL(65541, null, tbPageContext, i, matrix) != null) || matrix == null) {
+            return;
         }
-        return invokeLI.booleanValue;
+        if (1 == i) {
+            f = -1.0f;
+        } else {
+            f = 1.0f;
+        }
+        matrix.setScale(f, 1.0f);
+        matrix.postRotate(b(tbPageContext, i));
+        matrix.postScale(lxb.e() / 2000.0f, lxb.d() / 2000.0f);
+        matrix.postTranslate(lxb.e() / 2.0f, lxb.d() / 2.0f);
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static void g(int i, int i2, Camera camera) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return Objects.hash(Integer.valueOf(e()), Integer.valueOf(d()), Integer.valueOf(c()));
+        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, camera) == null) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            Camera.getCameraInfo(i2, cameraInfo);
+            int i4 = 0;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            i4 = 270;
+                        }
+                    } else {
+                        i4 = 180;
+                    }
+                } else {
+                    i4 = 90;
+                }
+            }
+            if (cameraInfo.facing == 1) {
+                i3 = (360 - ((cameraInfo.orientation + i4) % 360)) % 360;
+            } else {
+                i3 = ((cameraInfo.orientation - i4) + 360) % 360;
+            }
+            camera.setDisplayOrientation(i3);
         }
-        return invokeV.intValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void f(RectF rectF, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a + "x" + this.b + " " + this.c + "p";
+        if (interceptable == null || interceptable.invokeLL(65542, null, rectF, rect) == null) {
+            rect.left = Math.round(rectF.left);
+            rect.top = Math.round(rectF.top);
+            rect.right = Math.round(rectF.right);
+            rect.bottom = Math.round(rectF.bottom);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void h(TbPageContext tbPageContext, int i, Camera camera) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65544, null, tbPageContext, i, camera) == null) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            Camera.getCameraInfo(i, cameraInfo);
+            int d = d(tbPageContext);
+            if (cameraInfo.facing == 1) {
+                i2 = (360 - ((cameraInfo.orientation + d) % 360)) % 360;
+            } else {
+                i2 = ((cameraInfo.orientation - d) + 360) % 360;
+            }
+            camera.setDisplayOrientation(i2);
+        }
     }
 }

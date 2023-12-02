@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.agb;
-import com.baidu.tieba.bgb;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.ee5;
-import com.baidu.tieba.igb;
-import com.baidu.tieba.iib;
+import com.baidu.tieba.he5;
+import com.baidu.tieba.hgb;
+import com.baidu.tieba.hib;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.vgb;
+import com.baidu.tieba.ugb;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
+import com.baidu.tieba.zfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public final class TopicSelectListener extends BizBase {
     public final EditorTools g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TopicSelectListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, vgb writePageState, EditorTools editor) {
+    public TopicSelectListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, ugb writePageState, EditorTools editor) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,7 +50,7 @@ public final class TopicSelectListener extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (vgb) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (ugb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,25 +64,25 @@ public final class TopicSelectListener extends BizBase {
         this.g = editor;
     }
 
-    @Override // com.baidu.tieba.dgb
+    @Override // com.baidu.tieba.cgb
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new WrapListener[]{h().invoke("writePage.topicSelect", new TopicSelectListener$keyListeners$1(this))} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dgb
-    public bgb[] b() {
+    @Override // com.baidu.tieba.cgb
+    public agb[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new bgb[]{o(25004, new TopicSelectListener$requestCodeHandlers$1(this))} : (bgb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new agb[]{o(25004, new TopicSelectListener$requestCodeHandlers$1(this))} : (agb[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dgb
-    public agb[] f() {
+    @Override // com.baidu.tieba.cgb
+    public zfb[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new agb[]{new igb(new Integer[]{43}, new TopicSelectListener$editorActionHandlers$1(this))} : (agb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new zfb[]{new hgb(new Integer[]{43}, new TopicSelectListener$editorActionHandlers$1(this))} : (zfb[]) invokeV.objValue;
     }
 
     public final void u(Intent intent) {
@@ -114,18 +114,18 @@ public final class TopicSelectListener extends BizBase {
         }
     }
 
-    public final void v(ee5 ee5Var) {
+    public final void v(he5 he5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ee5Var) == null) {
-            if (ee5Var.a == 43) {
-                iib.b(i().getPageActivity(), 4);
+        if (interceptable == null || interceptable.invokeL(1048580, this, he5Var) == null) {
+            if (he5Var.a == 43) {
+                hib.b(i().getPageActivity(), 4);
                 SharedPrefHelper.getInstance().putBoolean("hot_topic_has_click", true);
-                this.g.K(new ee5(2, 26, null));
+                this.g.K(new he5(2, 26, null));
                 this.g.w();
                 x(Long.valueOf(JavaTypesHelper.toLong(k().getForumId(), 0L)), k().getFirstDir(), k().getSecondDir(), "");
                 return;
             }
-            throw new IllegalStateException("TopicSelectListener有没处理的action code:" + ee5Var.a);
+            throw new IllegalStateException("TopicSelectListener有没处理的action code:" + he5Var.a);
         }
     }
 

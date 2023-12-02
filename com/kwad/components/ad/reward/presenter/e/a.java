@@ -34,7 +34,7 @@ public final class a extends g implements com.kwad.components.ad.reward.k.a {
 
     @Override // com.kwad.components.ad.reward.presenter.f.g
     public final int hK() {
-        return R.id.obfuscated_res_0x7f091401;
+        return R.id.obfuscated_res_0x7f091402;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

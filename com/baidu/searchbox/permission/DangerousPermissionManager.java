@@ -188,19 +188,19 @@ public class DangerousPermissionManager {
         }
         switch (c) {
             case 0:
-                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f106a);
-            case 1:
-                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f106d);
-            case 2:
                 return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f106b);
-            case 3:
-                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f106c);
-            case 4:
+            case 1:
                 return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f106e);
-            case 5:
+            case 2:
+                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f106c);
+            case 3:
+                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f106d);
+            case 4:
                 return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f106f);
-            case 6:
+            case 5:
                 return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1070);
+            case 6:
+                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1071);
             default:
                 return null;
         }
@@ -267,31 +267,31 @@ public class DangerousPermissionManager {
         }
         switch (c) {
             case 0:
-                string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1067);
+                string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1068);
                 break;
             case 1:
-                string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1083);
-                break;
-            case 2:
-                string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1073);
-                break;
-            case 3:
-                string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1082);
-                break;
-            case 4:
                 string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1084);
                 break;
+            case 2:
+                string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1074);
+                break;
+            case 3:
+                string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1083);
+                break;
+            case 4:
+                string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1085);
+                break;
             case 5:
-                string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1086);
+                string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1087);
                 break;
             case 6:
-                string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1089);
+                string = resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f108a);
                 break;
             default:
                 string = null;
                 break;
         }
-        return context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1071) + string;
+        return context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1072) + string;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:49:0x00c5, code lost:
@@ -423,19 +423,19 @@ public class DangerousPermissionManager {
         }
         switch (c) {
             case 0:
-                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1067);
+                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1068);
             case 1:
-                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1083);
-            case 2:
-                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1073);
-            case 3:
-                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1082);
-            case 4:
                 return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1084);
+            case 2:
+                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1074);
+            case 3:
+                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1083);
+            case 4:
+                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1085);
             case 5:
-                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1086);
+                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1087);
             case 6:
-                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1089);
+                return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f108a);
             default:
                 return null;
         }
@@ -524,43 +524,43 @@ public class DangerousPermissionManager {
             case 0:
                 String string = DangerousPermissionSpUtils.getInstance().getString("camera", "");
                 if (TextUtils.isEmpty(string)) {
-                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1075);
+                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1076);
                 }
                 return string;
             case 1:
                 String string2 = DangerousPermissionSpUtils.getInstance().getString(DangerousPermissionConstants.DANGEROUS_PERMISSION_CONTACT, "");
                 if (TextUtils.isEmpty(string2)) {
-                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f107b);
+                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f107c);
                 }
                 return string2;
             case 2:
                 String string3 = DangerousPermissionSpUtils.getInstance().getString("location", "");
                 if (TextUtils.isEmpty(string3)) {
-                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1077);
+                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1078);
                 }
                 return string3;
             case 3:
                 String string4 = DangerousPermissionSpUtils.getInstance().getString(DangerousPermissionConstants.DANGEROUS_PERMISSION_MIC, "");
                 if (TextUtils.isEmpty(string4)) {
-                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1079);
+                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f107a);
                 }
                 return string4;
             case 4:
                 String string5 = DangerousPermissionSpUtils.getInstance().getString("phone", "");
                 if (TextUtils.isEmpty(string5)) {
-                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f107d);
+                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f107e);
                 }
                 return string5;
             case 5:
                 String string6 = DangerousPermissionSpUtils.getInstance().getString("message", "");
                 if (TextUtils.isEmpty(string6)) {
-                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f107f);
+                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1080);
                 }
                 return string6;
             case 6:
                 String string7 = DangerousPermissionSpUtils.getInstance().getString("storage", "");
                 if (TextUtils.isEmpty(string7)) {
-                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1080);
+                    return resources.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1081);
                 }
                 return string7;
             default:
@@ -678,7 +678,7 @@ public class DangerousPermissionManager {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1088));
+        sb.append(context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1089));
         String permissionTitle = getPermissionTitle(context, str);
         if (permissionTitle == null) {
             return null;
@@ -739,7 +739,7 @@ public class DangerousPermissionManager {
             return;
         }
         final String str3 = "grant_" + str2;
-        new BdDialog.Builder().setTitle(grantPermissionTitle).setMessage(grantPermissionMessage).setContext(context).setButton(new BdDialog.BottomItem(AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1069), new BdDialog.OnItemClickListener() { // from class: com.baidu.searchbox.permission.DangerousPermissionManager.2
+        new BdDialog.Builder().setTitle(grantPermissionTitle).setMessage(grantPermissionMessage).setContext(context).setButton(new BdDialog.BottomItem(AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f106a), new BdDialog.OnItemClickListener() { // from class: com.baidu.searchbox.permission.DangerousPermissionManager.2
             @Override // com.baidu.android.ext.widget.dialog.BdDialog.OnItemClickListener
             public void onItemClick(View view2) {
                 DangerousPermissionUtils.sendPermissionUBCEvent(str, "click", str3, "close");
@@ -748,7 +748,7 @@ public class DangerousPermissionManager {
                     requestGrantPermissionCallBack2.isClosed();
                 }
             }
-        })).setButton(new BdDialog.BottomItem(AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1068), new BdDialog.OnItemClickListener() { // from class: com.baidu.searchbox.permission.DangerousPermissionManager.1
+        })).setButton(new BdDialog.BottomItem(AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1069), new BdDialog.OnItemClickListener() { // from class: com.baidu.searchbox.permission.DangerousPermissionManager.1
             @Override // com.baidu.android.ext.widget.dialog.BdDialog.OnItemClickListener
             public void onItemClick(View view2) {
                 DangerousPermissionUtils.sendPermissionUBCEvent(str, "click", str3, DangerousPermissionStatistic.UBC_DANGEROUS_PERMISSION_CLICK_JUMP_SETTINGS);

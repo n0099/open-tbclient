@@ -1,102 +1,68 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fz2 implements al3<HybridUbcFlow> {
+public class fz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947781355, "Lcom/baidu/tieba/fz2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947781355, "Lcom/baidu/tieba/fz2;");
-                return;
-            }
-        }
-        a = sm1.a;
-    }
-
-    public fz2() {
+    public static boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, callbackHandler, unitedSchemeEntity)) == null) {
+            String b = b(unitedSchemeEntity);
+            if (TextUtils.isEmpty(b)) {
+                k32.i("WxWebViewPayment", "wxPay: url is empty");
+                k32.k("WxWebViewPayment", "param check error - src" + b);
+                dd3.H(false, "wechatH5Action", dd3.m(b, "param check error - src"));
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            } else if (!bb1.a().b(context)) {
+                c63.g(context, context.getText(R.string.obfuscated_res_0x7f0f0221)).G();
+                k32.k("WxWebViewPayment", "Error: wechat not install. " + b);
+                dd3.H(false, "wechatH5Action", dd3.m(b, "Error: wechat not install. "));
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
+                return false;
+            } else {
+                kw2 d = kw2.d(b, b);
+                k32.k("WxWebViewPayment", "Info: open wechat pay webview, pageParam =" + d);
+                if (!y52.k3("wxPay", d)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    k32.k("WxWebViewPayment", "Error: webview fragment not opened.");
+                    return false;
+                }
+                k32.k("WxWebViewPayment", "Success:open wxPay page success");
+                k32.k("WxWebViewPayment", "Info: end WeChat H5 redirect " + b);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(yy2.c(b), 0));
+                return true;
             }
         }
+        return invokeLLL.booleanValue;
     }
 
-    public final JSONObject b(HybridUbcFlow hybridUbcFlow) throws JSONException {
+    public static String b(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty()) {
-                jSONObject.put("flowId", hybridUbcFlow.l());
-                JSONArray jSONArray = new JSONArray();
-                for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f) {
-                    if (!ubcFlowEvent.b() && !TextUtils.isEmpty(ubcFlowEvent.a)) {
-                        if (a) {
-                            Log.i("FlowJarToH5Reporter", "buildJoMsg: event=" + ubcFlowEvent);
-                        }
-                        jSONArray.put(new JSONObject().put("actionId", ubcFlowEvent.a).put("timestamp", ubcFlowEvent.g()));
-                    }
-                }
-                jSONObject.put("data", jSONArray);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeEntity)) == null) {
+            String str = unitedSchemeEntity.getParams().get("params");
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            if (a) {
-                Log.i("FlowJarToH5Reporter", "buildJoMsg: joMsg=" + jSONObject);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.al3
-    /* renamed from: c */
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
-            if (a) {
-                Log.i("FlowJarToH5Reporter", "report: flow=" + hybridUbcFlow);
-            }
-            if (ur2.V().Z()) {
-                if (a || ur2.V().O()) {
-                    try {
-                        oz2.e().c(b(hybridUbcFlow));
-                    } catch (JSONException e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
+            try {
+                return new JSONObject(str).optString("src");
+            } catch (JSONException unused) {
+                return null;
             }
         }
+        return (String) invokeL.objValue;
     }
 }

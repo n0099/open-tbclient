@@ -1,35 +1,28 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.plugin.capture.bean.FaceItem;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tj5 extends oj5 {
+public class tj5 extends rj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
+    public int b;
 
-    @Override // com.baidu.tieba.oj5
+    @Override // com.baidu.tieba.rj5
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FaceItem.DIR_STICKER : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.oj5
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "resize" : (String) invokeV.objValue;
     }
 
     public tj5() {
@@ -42,13 +35,41 @@ public class tj5 extends oj5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
     }
 
-    @Override // com.baidu.tieba.oj5
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public static ImageOperation g(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            ImageOperation imageOperation = new ImageOperation();
+            imageOperation.actionName = "resize";
+            imageOperation.actionParam = i + "," + i2;
+            return imageOperation;
+        }
+        return (ImageOperation) invokeII.objValue;
+    }
+
+    @Override // com.baidu.tieba.rj5
     public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -57,25 +78,32 @@ public class tj5 extends oj5 {
                 return null;
             }
             TbImageMemoryCache.w().u(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.loadResizedBitmap(this.a, BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()), BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
+            return BitmapHelper.resizeBitmap(bitmap, this.a, this.b, z);
         }
         return (Bitmap) invokeLZ.objValue;
     }
 
-    @Override // com.baidu.tieba.oj5
+    @Override // com.baidu.tieba.rj5
     public Bitmap c(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return b(BitmapHelper.loadResizedBitmap(str, BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()), BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst())), true);
+            return b(BitmapHelper.loadResizedBitmap(str, this.a, this.b), true);
         }
         return (Bitmap) invokeL.objValue;
     }
 
-    public void e(String str) {
+    @Override // com.baidu.tieba.rj5
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || str == null) {
+            return;
         }
+        String[] split = str.split(",");
+        if (split.length != 2) {
+            return;
+        }
+        this.a = JavaTypesHelper.toInt(split[0], 0);
+        this.b = JavaTypesHelper.toInt(split[1], 0);
     }
 }

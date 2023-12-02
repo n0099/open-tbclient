@@ -1,11 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.nadcore.model.AdBaseModel;
 /* loaded from: classes7.dex */
 public interface o81 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "crius.runtime");
+    void a(AdBaseModel adBaseModel);
 
-    int a();
+    void b(AdBaseModel adBaseModel);
 
-    boolean b();
+    void c(AdBaseModel adBaseModel);
+
+    void d(AdBaseModel adBaseModel);
+
+    void e(AdBaseModel adBaseModel, String str);
+
+    void f(AdBaseModel adBaseModel);
 }

@@ -33,7 +33,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.TreeMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class MaterialButtonToggleGroup extends LinearLayout {
     @IdRes
     public int checkedId;
@@ -49,12 +49,12 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     public static final String LOG_TAG = MaterialButtonToggleGroup.class.getSimpleName();
     public static final int DEF_STYLE_RES = R.style.obfuscated_res_0x7f10037e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface OnButtonCheckedListener {
         void onButtonChecked(MaterialButtonToggleGroup materialButtonToggleGroup, @IdRes int i, boolean z);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class CheckedStateTracker implements MaterialButton.OnCheckedChangeListener {
         public CheckedStateTracker() {
         }
@@ -81,7 +81,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class PressedStateTracker implements MaterialButton.OnPressedChangeListener {
         public PressedStateTracker() {
         }
@@ -188,7 +188,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class CornerData {
         public static final CornerSize noCorner = new AbsoluteCornerSize(0.0f);
         public CornerSize bottomLeft;

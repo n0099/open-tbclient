@@ -1,153 +1,153 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Build;
+import android.content.Context;
+import android.content.MutableContextWrapper;
+import android.webkit.URLUtil;
+import android.webkit.WebView;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.util.WebviewHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.browser.data.PreRenderMode;
+import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wg6 {
+public class wg6 extends fg1<xk6> {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948269667, "Lcom/baidu/tieba/wg6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948269667, "Lcom/baidu/tieba/wg6;");
-                return;
-            }
-        }
-        a = new HashMap<>();
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @NonNull
-    public static Map<String, String> a(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
-            HashMap hashMap = new HashMap();
-            Set<String> queryParameterNames = uri.getQueryParameterNames();
-            if (!fk6.a(queryParameterNames)) {
-                for (String str : queryParameterNames) {
-                    hashMap.put("{" + str + "}", uri.getQueryParameter(str));
-                }
-            }
-            hashMap.putAll(b());
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public static final class b implements xk6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static Map<String, String> b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (fk6.b(a)) {
-                TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                a.put("{device.cuid}", inst.getCuid());
-                a.put("{device.imei}", inst.getImei());
-                a.put("{device.shoubaiCuid}", inst.getCuidGalaxy2());
-                a.put("{device.brand}", Build.BRAND);
-                a.put("{device.platform}", "Android");
-                a.put("{device.clientVersion}", TbConfig.getVersion());
-                a.put("{device.zid}", inst.getZid());
-                a.put("{device.sign}", "tiebaclient!!!");
-                a.put("{device.clientType}", "2");
-                HashMap<String, String> hashMap = a;
-                String str2 = "1";
-                if (TbSingleton.getInstance().getSyncYYSwitch()) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                hashMap.put("{device.is_yy_user}", str);
-                a.put("{device.androidId}", inst.getAndroidId());
-                a.put("{device.imsi}", inst.getIMsi());
-                a.put("{device.model}", DeviceInfoHelper.getModel());
-                a.put("{device.pkgName}", inst.getPackageName());
-                HashMap<String, String> hashMap2 = a;
-                hashMap2.put("{device.network}", BdNetTypeUtil.netType() + "");
-                HashMap<String, String> hashMap3 = a;
-                hashMap3.put("{device.carrier}", BdNetTypeUtil.curOperatorType() + "");
-                a.put("{device.manufacturer}", DeviceInfoUtil.getDevicesManufacturer());
-                a.put("{device.hardware}", Build.HARDWARE);
-                a.put("{device.board}", Build.BOARD);
-                HashMap<String, String> hashMap4 = a;
-                if (!DeviceInfoUtil.isSupportGyroScope(inst)) {
-                    str2 = "0";
-                }
-                hashMap4.put("{device.imu}", str2);
-                a.put("{baiduId}", TbSingleton.getInstance().getBaiduIdForAnti());
-                a.put("{user.tbs}", inst.getTbs());
-                a.put("{client_version}", TbConfig.getVersion());
-                a.put("{client_type}", "2");
-                a.put("{User-Agent}", WebviewHelper.getGlobalUserAgent());
-            }
-            return a;
-        }
-        return (Map) invokeV.objValue;
-    }
+        /* loaded from: classes8.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ WebView a;
 
-    public static String c(Map<String, String> map, String str) {
-        InterceptResult invokeLL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, str)) == null) {
-            String str3 = "";
-            if (map != null) {
-                try {
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        str2 = map.getOrDefault(str, "");
-                    } else if (map.containsKey(str)) {
-                        str2 = map.get(str);
+            public a(b bVar, WebView webView) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, webView};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
-                    str3 = str2;
-                } catch (Exception unused) {
-                    return str3;
+                }
+                this.a = webView;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    vg6.f().k(this.a);
                 }
             }
-            return Uri.encode(str3);
         }
-        return (String) invokeLL.objValue;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.xk6
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                vg6.f().b();
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.xk6
+        @NonNull
+        public WebView b(Context context, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+                if (!URLUtil.isNetworkUrl(str) && !URLUtil.isAssetUrl(str) && !URLUtil.isFileUrl(str)) {
+                    return vg6.f().j(context);
+                }
+                return ch6.b().b(context, str);
+            }
+            return (WebView) invokeLL.objValue;
+        }
+
+        @Override // com.baidu.tieba.xk6
+        public void c(String str, WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, webView) == null) {
+                MonitorWebView monitorWebView = (MonitorWebView) webView;
+                if (URLUtil.isValidUrl(str) && (monitorWebView.getPreRenderMode() == PreRenderMode.MULTI || monitorWebView.getPreRenderMode() == PreRenderMode.MULTI_AUTO_REMOVE)) {
+                    ch6.b().c(str, monitorWebView);
+                } else if (vg6.f().d() == 1) {
+                    webView.loadUrl("about:blank");
+                    Context context = monitorWebView.getContext();
+                    if (context instanceof MutableContextWrapper) {
+                        ((MutableContextWrapper) context).setBaseContext(fj6.b());
+                    }
+                    SafeHandler.getInst().postDelayed(new a(this, webView), 200L);
+                } else {
+                    vg6.f().k(webView);
+                }
+            }
+        }
     }
 
-    public static String d(Map<String, String> map, String str) {
-        InterceptResult invokeLL;
+    public wg6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, str)) == null) {
-            if (map == null) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (Build.VERSION.SDK_INT >= 24) {
-                return map.getOrDefault(str, "");
-            }
-            if (!map.containsKey(str)) {
-                return "";
-            }
-            return map.get(str);
         }
-        return (String) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fg1
+    /* renamed from: a */
+    public xk6 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(null);
+        }
+        return (xk6) invokeV.objValue;
     }
 }

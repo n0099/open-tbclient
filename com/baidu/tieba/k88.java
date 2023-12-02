@@ -1,50 +1,103 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.data.IResponseData;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class k88 {
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.ThreadInfo;
+import tbclient.VoiceRoom;
+import tbclient.VoiceRoomListPage.VoiceRoomListPageResIdl;
+/* loaded from: classes6.dex */
+public class k88 implements IResponseData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final int d;
-    public final int e;
-    public final double f;
+    @NonNull
+    public List<ThreadInfo> a;
 
-    public k88(String str, String str2, String str3, int i, int i2, double d) {
+    public k88() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.d = i;
-        this.c = str3;
-        this.e = i2;
-        this.f = d;
+        this.a = new ArrayList();
     }
 
-    public String toString() {
+    @NonNull
+    public List<VoiceRoomWrapper> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "FunAdCacheInfo{adType='" + this.a + "', platform='" + this.b + "', pid='" + this.c + "', adHashCode=" + this.d + ", count=" + this.e + ", basePrice=" + this.f + '}';
+            ArrayList arrayList = new ArrayList();
+            for (ThreadInfo threadInfo : this.a) {
+                VoiceRoom voiceRoom = threadInfo.voice_room;
+                if (voiceRoom != null && b(voiceRoom)) {
+                    String str = threadInfo.fname;
+                    if (str == null) {
+                        str = "";
+                    }
+                    arrayList.add(new VoiceRoomWrapper(voiceRoom, str));
+                }
+            }
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean b(@NonNull VoiceRoom voiceRoom) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceRoom)) == null) {
+            Long l = voiceRoom.room_id;
+            if (l != null && l.longValue() != 0 && !TextUtils.isEmpty(voiceRoom.room_name)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("voice_room_list");
+                if (optJSONArray != null) {
+                    this.a = DataExt.toEntityList(optJSONArray.toString(), ThreadInfo.class);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByProtobuf(Message message) {
+        List<ThreadInfo> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof VoiceRoomListPageResIdl) && (list = ((VoiceRoomListPageResIdl) message).data.voice_room_list) != null) {
+            this.a = list;
+        }
     }
 }

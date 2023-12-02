@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dva;
+import com.baidu.tieba.cva;
 import com.baidu.tieba.view.SymbolEMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,13 +45,13 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d61);
+        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d62);
         this.a = linearLayout;
         this.b = (BarImageView) linearLayout.findViewById(R.id.forum_head_image);
-        this.c = (SymbolEMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c5e);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c59);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c58);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c4c);
+        this.c = (SymbolEMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c5f);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c5a);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c59);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c4d);
         BarImageView barImageView = this.b;
         if (barImageView != null) {
             barImageView.setContentDescription(barImageView.getResources().getString(R.string.obfuscated_res_0x7f0f032c));
@@ -64,28 +64,28 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
     }
 
     @SuppressLint({"SetTextI18n"})
-    public void a(dva dvaVar) {
+    public void a(cva cvaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dvaVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, cvaVar) == null) {
             BarImageView barImageView = this.b;
             if (barImageView != null) {
-                barImageView.startLoad(dvaVar.b, 10, false);
+                barImageView.startLoad(cvaVar.b, 10, false);
             }
             SymbolEMTextView symbolEMTextView = this.c;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(dvaVar.c + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f078f));
+                symbolEMTextView.setText(cvaVar.c + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f078f));
             }
             TextView textView = this.e;
             if (textView != null) {
-                textView.setText(dvaVar.e);
+                textView.setText(cvaVar.e);
             }
             TextView textView2 = this.d;
             if (textView2 != null) {
-                textView2.setText(dvaVar.d);
+                textView2.setText(cvaVar.d);
             }
             TextView textView3 = this.f;
             if (textView3 != null) {
-                if (dvaVar.f) {
+                if (cvaVar.f) {
                     textView3.setText(textView3.getContext().getString(R.string.obfuscated_res_0x7f0f077a));
                 } else {
                     textView3.setText(textView3.getContext().getString(R.string.obfuscated_res_0x7f0f085f));

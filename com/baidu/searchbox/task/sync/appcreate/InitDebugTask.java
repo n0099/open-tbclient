@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.BuildPackageInfo;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.h35;
+import com.baidu.tieba.j35;
+import com.baidu.tieba.k35;
 import com.baidu.tieba.l5;
 import com.baidu.tieba.q50;
 import java.util.ArrayList;
@@ -27,8 +27,8 @@ public class InitDebugTask extends LaunchTask {
     private void initCmdConvertManager() {
         if (TbadkCoreApplication.getInst().isDebugMode()) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(h35.class.getName());
-            arrayList.add(g35.class.getName());
+            arrayList.add(k35.class.getName());
+            arrayList.add(j35.class.getName());
             arrayList.add(CmdConfigHttp.class.getName());
             l5.a().c(arrayList);
         }

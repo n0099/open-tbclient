@@ -1,50 +1,57 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedHeadButton;
-import tbclient.FeedHeadComponent;
-import tbclient.FeedHeadImg;
+import tbclient.CustomState;
+import tbclient.FeedHeadFigure;
+import tbclient.FeedHeadFigureComponent;
 import tbclient.FeedHeadSymbol;
+import tbclient.FeedKV;
 /* loaded from: classes7.dex */
-public class kxc extends ltc {
+public class kxc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedHeadComponent feedHeadComponent) {
+    public static JSONObject b(@NonNull FeedHeadFigureComponent feedHeadFigureComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadFigureComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            FeedHeadImg feedHeadImg = feedHeadComponent.image_data;
-            if (feedHeadImg != null) {
-                ltc.a(jSONObject, "image_data", oxc.b(feedHeadImg));
+            FeedHeadFigure feedHeadFigure = feedHeadFigureComponent.image_data;
+            if (feedHeadFigure != null) {
+                ktc.a(jSONObject, "image_data", lxc.b(feedHeadFigure));
             }
-            if (feedHeadComponent.main_data != null) {
+            if (feedHeadFigureComponent.main_data != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (FeedHeadSymbol feedHeadSymbol : feedHeadComponent.main_data) {
-                    jSONArray.put(pxc.b(feedHeadSymbol));
+                for (FeedHeadSymbol feedHeadSymbol : feedHeadFigureComponent.main_data) {
+                    jSONArray.put(oxc.b(feedHeadSymbol));
                 }
-                ltc.a(jSONObject, "main_data", jSONArray);
+                ktc.a(jSONObject, "main_data", jSONArray);
             }
-            if (feedHeadComponent.extra_data != null) {
+            if (feedHeadFigureComponent.extra_data != null) {
                 JSONArray jSONArray2 = new JSONArray();
-                for (FeedHeadSymbol feedHeadSymbol2 : feedHeadComponent.extra_data) {
-                    jSONArray2.put(pxc.b(feedHeadSymbol2));
+                for (FeedHeadSymbol feedHeadSymbol2 : feedHeadFigureComponent.extra_data) {
+                    jSONArray2.put(oxc.b(feedHeadSymbol2));
                 }
-                ltc.a(jSONObject, WriteVoteActivityConfig.EXTRA_DATA_KEY, jSONArray2);
+                ktc.a(jSONObject, WriteVoteActivityConfig.EXTRA_DATA_KEY, jSONArray2);
             }
-            ltc.a(jSONObject, "schema", feedHeadComponent.schema);
-            FeedHeadButton feedHeadButton = feedHeadComponent.button;
-            if (feedHeadButton != null) {
-                ltc.a(jSONObject, NativeConstants.ID_BUTTON, jxc.b(feedHeadButton));
+            ktc.a(jSONObject, "schema", feedHeadFigureComponent.schema);
+            CustomState customState = feedHeadFigureComponent.custom_state;
+            if (customState != null) {
+                ktc.a(jSONObject, "custom_state", fwc.b(customState));
+            }
+            if (feedHeadFigureComponent.business_info != null) {
+                JSONArray jSONArray3 = new JSONArray();
+                for (FeedKV feedKV : feedHeadFigureComponent.business_info) {
+                    jSONArray3.put(rxc.b(feedKV));
+                }
+                ktc.a(jSONObject, "business_info", jSONArray3);
             }
             return jSONObject;
         }

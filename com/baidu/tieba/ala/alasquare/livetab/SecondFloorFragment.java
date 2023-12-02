@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
-import com.baidu.tieba.h45;
-import com.baidu.tieba.ll5;
-import com.baidu.tieba.lm6;
-import com.baidu.tieba.mm6;
+import com.baidu.tieba.k45;
+import com.baidu.tieba.ol5;
+import com.baidu.tieba.pm6;
+import com.baidu.tieba.qm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class SecondFloorFragment extends BaseFragment {
     public boolean e;
     public String f;
     @Nullable
-    public ll5.a g;
+    public ol5.a g;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -118,7 +118,7 @@ public class SecondFloorFragment extends BaseFragment {
 
         @Override // com.baidu.tbadk.core.leveiconlivepolling.PollingModel.d
         public /* synthetic */ void onFail() {
-            h45.a(this);
+            k45.a(this);
         }
 
         public c(SecondFloorFragment secondFloorFragment) {
@@ -180,8 +180,8 @@ public class SecondFloorFragment extends BaseFragment {
                 d dVar = new d();
                 dVar.a = view2;
                 dVar.b = (AlaRecommendLayout) view2.findViewById(R.id.recommend_layout);
-                dVar.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091f6b);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f6d);
+                dVar.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091f6d);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f6f);
                 return dVar;
             }
             return (d) invokeL.objValue;
@@ -230,7 +230,7 @@ public class SecondFloorFragment extends BaseFragment {
         }
         this.a.c.setVisibility(8);
         this.a.b.setVisibility(8);
-        ll5.a aVar = this.g;
+        ol5.a aVar = this.g;
         if (aVar != null) {
             aVar.a(false, this.e);
         }
@@ -249,7 +249,7 @@ public class SecondFloorFragment extends BaseFragment {
         }
     }
 
-    public void Q2(@Nullable ll5.a aVar) {
+    public void Q2(@Nullable ol5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.g = aVar;
@@ -289,7 +289,7 @@ public class SecondFloorFragment extends BaseFragment {
             this.e = false;
             this.a.c.setVisibility(0);
             this.a.b.setVisibility(8);
-            ll5.a aVar = this.g;
+            ol5.a aVar = this.g;
             if (aVar != null) {
                 aVar.b(false);
             }
@@ -302,8 +302,8 @@ public class SecondFloorFragment extends BaseFragment {
             this.e = true;
             this.a.c.setVisibility(8);
             this.a.b.setVisibility(0);
-            TiebaStatic.log(lm6.c("c13620", 7));
-            ll5.a aVar = this.g;
+            TiebaStatic.log(pm6.c("c13620", 7));
+            ol5.a aVar = this.g;
             if (aVar != null) {
                 aVar.b(true);
             }
@@ -329,7 +329,7 @@ public class SecondFloorFragment extends BaseFragment {
         } else {
             this.a.c.setVisibility(0);
         }
-        ll5.a aVar = this.g;
+        ol5.a aVar = this.g;
         if (aVar != null) {
             aVar.a(true, this.e);
         }
@@ -338,8 +338,8 @@ public class SecondFloorFragment extends BaseFragment {
     public final void T2(@Nullable List<AlaLiveInfo> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && list != null && !list.isEmpty()) {
-            this.a.d.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f124f), Integer.valueOf(list.size())));
-            this.a.b.setData(new mm6(getUniqueId(), list, this.f));
+            this.a.d.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1250), Integer.valueOf(list.size())));
+            this.a.b.setData(new qm6(getUniqueId(), list, this.f));
             TbSingleton tbSingleton = TbSingleton.getInstance();
             if (tbSingleton.isFirstEnterBigPicPage()) {
                 tbSingleton.setFirstEnterBigPicPage(false);

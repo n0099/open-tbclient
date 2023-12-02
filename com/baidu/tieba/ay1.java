@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ay1 extends vx1 {
+public class ay1 extends yx1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class ay1 extends vx1 {
                 return;
             }
         }
-        b = sm1.a;
+        b = vm1.a;
     }
 
     public ay1() {
@@ -45,15 +45,15 @@ public class ay1 extends vx1 {
         }
     }
 
-    @Override // com.baidu.tieba.wx1
+    @Override // com.baidu.tieba.zx1
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             for (BasePendingOperation basePendingOperation : this.a) {
                 if (b) {
-                    Log.d("WorkThreadOperation", "  *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
+                    Log.d("MainThreadOperation", "  *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
                 }
-                bj3.j(basePendingOperation, "operation_work");
+                ek3.e0(basePendingOperation);
             }
             this.a.clear();
         }

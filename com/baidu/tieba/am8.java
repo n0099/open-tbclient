@@ -9,13 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.MediaTopic;
-import tbclient.VideoInfo;
+import tbclient.Hottopic.PkModule;
+import tbclient.Hottopic.PkView;
 /* loaded from: classes5.dex */
 public class am8 implements pi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public long c;
+    public String d;
+    public long e;
+    public int f;
+    public long g;
+    public long h;
+    public long i;
+    public long j;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +40,7 @@ public class am8 implements pi {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        k = BdUniqueId.gen();
     }
 
     public am8() {
@@ -51,39 +61,52 @@ public class am8 implements pi {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return k;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void a(MediaTopic mediaTopic) {
+    public void a(PkModule pkModule) {
+        int i;
+        long j;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, mediaTopic) != null) || mediaTopic == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, pkModule) != null) || pkModule == null) {
             return;
         }
-        mediaTopic.topic_id.longValue();
-        String str = mediaTopic.topic_name;
-        String str2 = mediaTopic.pic_url;
-        VideoInfo videoInfo = mediaTopic.video_info;
-        if (videoInfo != null && videoInfo.video_duration.intValue() > 0) {
-            b(mediaTopic.video_info);
+        String str = pkModule.module_name;
+        this.a = pkModule.ques_desc;
+        PkView pkView = pkModule.pk_1;
+        this.b = pkView.pk_desc;
+        this.c = pkView.pk_num.longValue();
+        pkModule.pk_1.pk_index.intValue();
+        PkView pkView2 = pkModule.pk_2;
+        this.d = pkView2.pk_desc;
+        this.e = pkView2.pk_num.longValue();
+        pkModule.pk_2.pk_index.intValue();
+        if (pkModule.pk_1.has_clicked.intValue() == 1) {
+            i = 1;
+        } else if (pkModule.pk_2.has_clicked.intValue() == 1) {
+            i = 2;
+        } else {
+            i = 0;
         }
-    }
-
-    public void b(VideoInfo videoInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) {
-            String str = videoInfo.video_md5;
-            String str2 = videoInfo.video_url;
-            videoInfo.video_duration.intValue();
-            videoInfo.video_width.intValue();
-            videoInfo.video_height.intValue();
-            String str3 = videoInfo.thumbnail_url;
-            videoInfo.thumbnail_width.intValue();
-            videoInfo.thumbnail_height.intValue();
-            videoInfo.video_length.intValue();
-            videoInfo.play_count.intValue();
+        this.f = i;
+        pkModule.pk_type.intValue();
+        pkModule.user_pk_index.intValue();
+        this.g = pkModule.pk_id.longValue();
+        this.h = pkModule.user_pk_id.longValue();
+        int i2 = this.f;
+        long j2 = this.c;
+        if (i2 == 1) {
+            j2--;
         }
+        this.i = j2;
+        if (this.f == 2) {
+            j = this.e - 1;
+        } else {
+            j = this.e;
+        }
+        this.j = j;
     }
 }

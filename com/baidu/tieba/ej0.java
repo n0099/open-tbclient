@@ -16,11 +16,11 @@ public class ej0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a extends bp0<String> {
+    public class a extends dp0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.zo0
+        @Override // com.baidu.tieba.bp0
         public void a(Exception exc, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
@@ -28,7 +28,7 @@ public class ej0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ap0
+        @Override // com.baidu.tieba.cp0
         /* renamed from: e */
         public void b(Headers headers, String str, int i) {
             Interceptable interceptable = $ic;
@@ -56,29 +56,29 @@ public class ej0 {
             }
         }
 
-        @Override // com.baidu.tieba.ap0
+        @Override // com.baidu.tieba.cp0
         public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
             f(headers, str, i);
             return str;
         }
     }
 
-    public static iz0 a(ADConfigError aDConfigError, int i, boolean z) {
+    public static kz0 a(ADConfigError aDConfigError, int i, boolean z) {
         InterceptResult invokeCommon;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{aDConfigError, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            iz0 iz0Var = new iz0();
-            hz0 b = iz0Var.g("1042").b("f1", b(aDConfigError.code)).b("f2", b(String.valueOf(i)));
+            kz0 kz0Var = new kz0();
+            jz0 b = kz0Var.g("1042").b("f1", b(aDConfigError.code)).b("f2", b(String.valueOf(i)));
             if (z) {
                 str = "0";
             } else {
                 str = "1";
             }
             b.b("f3", b(str));
-            return iz0Var;
+            return kz0Var;
         }
-        return (iz0) invokeCommon.objValue;
+        return (kz0) invokeCommon.objValue;
     }
 
     public static String b(String str) {
@@ -102,6 +102,6 @@ public class ej0 {
         if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{aDConfigError, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || aDConfigError == null) {
             return;
         }
-        bz0.f(a(aDConfigError, i, z), new a());
+        dz0.f(a(aDConfigError, i, z), new a());
     }
 }

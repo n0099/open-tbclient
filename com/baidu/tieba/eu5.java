@@ -1,45 +1,41 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
 import androidx.annotation.NonNull;
-import androidx.collection.ArrayMap;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
 public class eu5<KEY> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayMap<KEY, Long> a;
-    public final long b;
+    public final Set<KEY> a;
 
-    public eu5(int i, @NonNull TimeUnit timeUnit) {
+    public eu5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), timeUnit};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayMap<>();
-        this.b = timeUnit.toMillis(i);
+        this.a = new HashSet();
     }
 
-    public static <T> eu5<T> b() {
+    public static <T> eu5<T> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new eu5<>(1000, TimeUnit.MILLISECONDS);
+            return new eu5<>();
         }
         return (eu5) invokeV.objValue;
     }
@@ -49,19 +45,35 @@ public class eu5<KEY> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
             synchronized (this) {
-                Long l = this.a.get(key);
-                long uptimeMillis = SystemClock.uptimeMillis();
-                if (l == null) {
-                    this.a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else if (uptimeMillis - l.longValue() > this.b) {
-                    this.a.put(key, Long.valueOf(uptimeMillis));
-                    return true;
-                } else {
+                if (this.a.contains(key)) {
                     return false;
                 }
+                this.a.add(key);
+                return true;
             }
         }
         return invokeL.booleanValue;
+    }
+
+    public synchronized boolean b(@NonNull KEY key) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key)) == null) {
+            synchronized (this) {
+                z = !this.a.contains(key);
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void d(@NonNull KEY key) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, key) == null) {
+            synchronized (this) {
+                this.a.remove(key);
+            }
+        }
     }
 }

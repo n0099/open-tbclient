@@ -1,51 +1,67 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class kh6 extends jh6 {
+public abstract class kh6 implements ih6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kh6(WebView webView) {
-        super(webView);
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public kh6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((WebView) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static void e(WebView webView) {
+    public boolean c(Class<?> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
-            webView.setHorizontalScrollBarEnabled(false);
-            webView.setHorizontalScrollbarOverlay(false);
-            webView.setVerticalScrollBarEnabled(true);
-            webView.setVerticalScrollbarOverlay(true);
-            new kh6(webView).a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            boolean z = false;
+            for (Method method : cls.getMethods()) {
+                Annotation[] annotations = method.getAnnotations();
+                int length = annotations.length;
+                int i = 0;
+                while (true) {
+                    if (i >= length) {
+                        break;
+                    } else if (annotations[i] instanceof JavascriptInterface) {
+                        z = true;
+                        break;
+                    } else {
+                        i++;
+                    }
+                }
+                if (z) {
+                    break;
+                }
+            }
+            return z;
         }
-    }
-
-    @Override // com.baidu.tieba.jh6
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-        }
+        return invokeL.booleanValue;
     }
 }

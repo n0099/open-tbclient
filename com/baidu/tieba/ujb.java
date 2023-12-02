@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,8 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ujb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsTabInfoData a;
-    public FrsTabItemData b;
+    public boolean a;
 
     public ujb() {
         Interceptable interceptable = $ic;

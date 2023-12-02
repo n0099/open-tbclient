@@ -1,95 +1,57 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class au9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SpannableString a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            if (i <= 0) {
-                i = R.color.CAM_X0101;
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static String a = "c12585";
+        public static String b = "c12586";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-935432761, "Lcom/baidu/tieba/au9$a;")) == null) {
+                return;
             }
-            spannableString.setSpan(new ForegroundColorSpan(TbadkCoreApplication.getInst().getResources().getColor(i)), 0, str.length(), 17);
-            return spannableString;
-        }
-        return (SpannableString) invokeLI.objValue;
-    }
-
-    public static void b(String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) a(str, i));
-        BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
-    }
-
-    public static void c(String str, int i, String str2, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) a(str, i));
-        if (!TextUtils.isEmpty(str2)) {
-            spannableStringBuilder.append((CharSequence) a(str2, i2));
-        }
-        BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
-    }
-
-    public static void d(String str, int i, String str2, int i2, String str3, int i3, String str4, int i4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, Integer.valueOf(i3), str4, Integer.valueOf(i4)}) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) a(str, i));
-        if (!TextUtils.isEmpty(str2)) {
-            spannableStringBuilder.append((CharSequence) a(str2, i2));
-        }
-        if (!TextUtils.isEmpty(str3)) {
-            spannableStringBuilder.append((CharSequence) "\n");
-            spannableStringBuilder.append((CharSequence) a(str3, i3));
-            if (!TextUtils.isEmpty(str4)) {
-                spannableStringBuilder.append((CharSequence) a(str4, i4));
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-935432761, "Lcom/baidu/tieba/au9$a;");
             }
         }
-        BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
     }
 
-    public static void e(String str) {
+    public static CustomDialogData a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            b(str, R.color.CAM_X0101);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("tb_hudong")) != null && !TextUtils.isEmpty(optJSONObject.optString("content"))) {
+                try {
+                    return CustomDialogData.praseJSON(new JSONObject(Uri.decode(optJSONObject.optString("content"))));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
         }
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            c(str, R.color.CAM_X0101, str2, R.color.CAM_X0305);
-        }
-    }
-
-    public static void g(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65542, null, str, str2, str3, str4) == null) {
-            d(str, R.color.CAM_X0101, str2, R.color.CAM_X0305, str3, R.color.CAM_X0109, str4, R.color.CAM_X0305);
-        }
+        return (CustomDialogData) invokeL.objValue;
     }
 }

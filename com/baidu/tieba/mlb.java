@@ -1,13 +1,8 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.write.data.QuestionTagListData;
 /* loaded from: classes7.dex */
 public interface mlb {
-    void a();
-
-    void b();
-
-    boolean c(Bitmap bitmap);
-
-    void d();
+    void a(@NonNull QuestionTagListData.QuestionTag questionTag);
 }

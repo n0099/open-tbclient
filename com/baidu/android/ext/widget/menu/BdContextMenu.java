@@ -37,7 +37,7 @@ public class BdContextMenu extends BdMenu {
                 return;
             }
         }
-        setPopupWindowWidth(view2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070284));
+        setPopupWindowWidth(view2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070285));
         setBackgroundDarken(true);
         setHaveAnimation(true);
     }

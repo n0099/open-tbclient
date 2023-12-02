@@ -1,75 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipBasicList;
-import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipThemeItem;
+import tbclient.GetVipInfo.VipThemeList;
 /* loaded from: classes7.dex */
-public class mm9 {
+public class mm9 implements pi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public zl9 b;
-    public LinkedHashMap<String, cm9> c;
+    public hm9 a;
+    public List<nm9> b;
+    public List<nm9> c;
 
-    public mm9(DataRes dataRes) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947977616, "Lcom/baidu/tieba/mm9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947977616, "Lcom/baidu/tieba/mm9;");
+                return;
+            }
+        }
+        d = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return d;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public mm9(VipThemeList vipThemeList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vipThemeList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (dataRes == null) {
+        if (vipThemeList == null) {
             return;
         }
-        String str = dataRes.grade_intro_title;
-        String str2 = dataRes.grade_intro_link;
-        new lm9(dataRes);
-        new nm9(dataRes.special_list);
-        new em9(dataRes.cooperate_list);
-        new im9(dataRes.theme_list);
-        new am9(dataRes.banner_list);
-        new qm9(dataRes.task_list);
-        new pm9(dataRes.rank, dataRes.user);
-        new gm9(dataRes.daily_list);
-        zl9 zl9Var = new zl9();
-        this.b = zl9Var;
-        zl9Var.a(dataRes);
-        List<VipBasicList> list = dataRes.basic_list;
-        if (list != null && list.size() > 0) {
-            this.c = new LinkedHashMap<>();
-            for (VipBasicList vipBasicList : dataRes.basic_list) {
-                List<VipSpecialItem> list2 = vipBasicList.item;
-                if (list2 != null && list2.size() > 0) {
-                    cm9 cm9Var = new cm9(vipBasicList);
-                    if (cm9Var.c != 3 || cm9Var.a().size() >= 2) {
-                        this.c.put(cm9Var.d, cm9Var);
-                    }
-                }
+        String str = vipThemeList.card_id;
+        hm9 hm9Var = new hm9();
+        this.a = hm9Var;
+        hm9Var.e(2);
+        this.a.d(vipThemeList.class_name);
+        this.a.f(vipThemeList.class_url_name);
+        this.a.g(vipThemeList.class_url);
+        if (vipThemeList.item != null) {
+            this.b = new ArrayList();
+            for (VipThemeItem vipThemeItem : vipThemeList.item) {
+                this.b.add(new nm9(vipThemeItem));
             }
         }
-        List<String> list3 = dataRes.card_order;
-        if (list3 != null && list3.size() > 0) {
-            this.a = new ArrayList<>();
-            for (String str3 : dataRes.card_order) {
-                if (!StringUtils.isNull(str3)) {
-                    this.a.add(str3);
-                }
+        if (vipThemeList.item_card != null) {
+            this.c = new ArrayList();
+            for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
+                this.c.add(new nm9(vipThemeItem2));
             }
         }
     }

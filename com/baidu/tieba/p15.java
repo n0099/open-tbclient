@@ -1,19 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class p15 extends j15 {
+public class p15 implements pf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,16 +25,29 @@ public class p15 extends j15 {
         }
     }
 
-    @Override // com.baidu.tieba.j15
-    public void a(@NonNull Context context, @NonNull x05 x05Var) {
+    @Override // com.baidu.tieba.pf1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, x05Var) == null) {
-            TbWebViewActivityConfig activityConfig = BrowserHelper.getActivityConfig(context, "", "https://tieba.baidu.com/mo/q/hybrid/popups?page=god-invite", false, true, true);
-            activityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            activityConfig.setWebDialogName("newGod");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, activityConfig));
-            SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("key_new_god_pop_is_show"), false);
-            YunDialogManager.markShowingDialogName("newGod");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new iw6());
+            arrayList.add(new pj7());
+            arrayList.add(new kn7());
+            arrayList.add(new c48());
+            arrayList.add(new g48());
+            arrayList.add(new k48());
+            arrayList.add(new o48());
+            arrayList.add(new s48());
+            arrayList.add(new w48());
+            arrayList.add(new a58());
+            arrayList.add(new e58());
+            arrayList.add(new ou9());
+            arrayList.add(new tu9());
+            arrayList.add(new yu9());
+            arrayList.add(new i0b());
+            return arrayList;
         }
+        return invokeV.objValue;
     }
 }

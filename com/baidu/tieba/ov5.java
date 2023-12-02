@@ -1,125 +1,195 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import android.app.Activity;
+import android.content.Context;
+import android.content.MutableContextWrapper;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.hybrid.BridgeWebView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class ov5 extends ImageSpan {
+public class ov5 {
     public static /* synthetic */ Interceptable $ic;
+    public static ov5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Drawable> a;
-    public int b;
-    public int c;
+    public final HashMap<String, nv5> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ov5(Drawable drawable, int i) {
-        super(drawable);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948045723, "Lcom/baidu/tieba/ov5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948045723, "Lcom/baidu/tieba/ov5;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements cxa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ axa a;
+        public final /* synthetic */ WebView b;
+
+        public a(ov5 ov5Var, axa axaVar, WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ov5Var, axaVar, webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = axaVar;
+            this.b = webView;
+        }
+
+        @Override // com.baidu.tieba.cxa
+        public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
+                axa axaVar = this.a;
+                if (axaVar != null) {
+                    return axaVar.c(this.b, str, jsPromptResult);
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public ov5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Drawable) newInitContext.callArgs[0]);
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.c = 1;
-        this.c = i;
+        this.a = new HashMap<>();
     }
 
-    public final Drawable a() {
+    public static ov5 b() {
         InterceptResult invokeV;
-        Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.a;
-            if (weakReference != null) {
-                drawable = weakReference.get();
-            } else {
-                drawable = null;
-            }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.a = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable a;
-        float f2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) != null) || (a = a()) == null) {
-            return;
-        }
-        int i6 = this.c;
-        float f3 = 0.0f;
-        if (i6 != 0) {
-            if (i6 != 1) {
-                if (i6 != 2) {
-                    f2 = 0.0f;
-                } else {
-                    f2 = 0.2f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (ov5.class) {
+                    if (b == null) {
+                        b = new ov5();
+                    }
                 }
-            } else {
-                f2 = 0.15f;
             }
-        } else {
-            f2 = 0.1f;
+            return b;
         }
-        if (f2 != 0.0f) {
-            f3 = ((i4 - i5) + (a.getBounds().height() * f2)) - this.b;
-        }
-        canvas.save();
-        canvas.translate(a.getBounds().width() * 0.15f, f3);
-        super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
-        canvas.restore();
+        return (ov5) invokeV.objValue;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public nv5 a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Drawable a = a();
-            if (a == null) {
-                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            if (this.a.size() >= 8) {
+                f();
             }
-            Rect bounds = a.getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right;
+            nv5 nv5Var = new nv5();
+            BridgeWebView bridgeWebView = new BridgeWebView(new MutableContextWrapper(context));
+            bridgeWebView.setBackgroundColor(R.color.transparent);
+            pv5.b(bridgeWebView);
+            axa axaVar = new axa();
+            axaVar.a(new CommonTbJsBridge(context, bridgeWebView));
+            fs4 fs4Var = new fs4();
+            fs4Var.b(new a(this, axaVar, bridgeWebView));
+            bridgeWebView.setWebChromeClient(fs4Var);
+            nv5Var.a = bridgeWebView;
+            nv5Var.b = str;
+            nv5Var.c = 0;
+            this.a.put(str, nv5Var);
+            return nv5Var;
         }
-        return invokeCommon.intValue;
+        return (nv5) invokeLL.objValue;
+    }
+
+    public nv5 c(Activity activity, String str) {
+        InterceptResult invokeLL;
+        WebView webView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str)) == null) {
+            nv5 nv5Var = this.a.get(str);
+            if (nv5Var != null && (webView = nv5Var.a) != null) {
+                ((MutableContextWrapper) webView.getContext()).setBaseContext(activity);
+                this.a.remove(str);
+                return nv5Var;
+            }
+            return null;
+        }
+        return (nv5) invokeLL.objValue;
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.a.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.a.containsKey(str) && this.a.get(str) != null && this.a.get(str).a()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            long j = 0;
+            String str = null;
+            for (String str2 : this.a.keySet()) {
+                nv5 nv5Var = this.a.get(str2);
+                if (nv5Var != null) {
+                    if (nv5Var.d < j) {
+                        str = nv5Var.b;
+                    }
+                    j = nv5Var.d;
+                }
+            }
+            if (str != null) {
+                this.a.remove(str);
+            }
+        }
     }
 }

@@ -43,7 +43,7 @@ public final class pm0 {
         NadBrowserContainer nadBrowserContainer;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (nadBrowserContainer = this.a) != null) {
-            nadBrowserContainer.y0(false);
+            nadBrowserContainer.E0(false);
         }
     }
 
@@ -53,7 +53,7 @@ public final class pm0 {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             NadBrowserContainer nadBrowserContainer = this.a;
             if (nadBrowserContainer != null) {
-                return Integer.valueOf(nadBrowserContainer.a0());
+                return Integer.valueOf(nadBrowserContainer.b0());
             }
             return null;
         }

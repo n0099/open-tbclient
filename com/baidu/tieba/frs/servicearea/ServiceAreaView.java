@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s28;
-import com.baidu.tieba.t28;
+import com.baidu.tieba.sva;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tva;
-import com.baidu.tieba.u28;
-import com.baidu.tieba.uva;
+import com.baidu.tieba.w28;
+import com.baidu.tieba.x28;
+import com.baidu.tieba.y28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class ServiceAreaView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t28 a;
+    public x28 a;
     public int b;
     public boolean c;
 
@@ -106,10 +106,10 @@ public class ServiceAreaView extends FrameLayout {
     }
 
     public void b(int i) {
-        t28 t28Var;
+        x28 x28Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (t28Var = this.a) != null) {
-            t28Var.onChangeSkinType(i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (x28Var = this.a) != null) {
+            x28Var.onChangeSkinType(i);
         }
     }
 
@@ -124,52 +124,52 @@ public class ServiceAreaView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.b = i;
-            t28 t28Var = this.a;
-            if (t28Var instanceof s28) {
-                ((s28) t28Var).b(i);
+            x28 x28Var = this.a;
+            if (x28Var instanceof w28) {
+                ((w28) x28Var).b(i);
             }
         }
     }
 
-    public void setData(tva tvaVar, FrsViewData frsViewData) {
-        uva uvaVar;
+    public void setData(sva svaVar, FrsViewData frsViewData) {
+        tva tvaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tvaVar, frsViewData) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, svaVar, frsViewData) == null) {
             if (this.c) {
-                if (tvaVar == null) {
-                    tvaVar = new tva();
-                    tvaVar.b = new ArrayList();
+                if (svaVar == null) {
+                    svaVar = new sva();
+                    svaVar.b = new ArrayList();
                 }
-                if (!ListUtils.isEmpty(tvaVar.b) && (uvaVar = tvaVar.b.get(0)) != null && getResources().getString(R.string.obfuscated_res_0x7f0f0a54).equals(uvaVar.c) && getResources().getString(R.string.obfuscated_res_0x7f0f0a54).equals(uvaVar.b)) {
-                    tvaVar.a--;
-                    tvaVar.b.remove(0);
+                if (!ListUtils.isEmpty(svaVar.b) && (tvaVar = svaVar.b.get(0)) != null && getResources().getString(R.string.obfuscated_res_0x7f0f0a54).equals(tvaVar.c) && getResources().getString(R.string.obfuscated_res_0x7f0f0a54).equals(tvaVar.b)) {
+                    svaVar.a--;
+                    svaVar.b.remove(0);
                 }
-                tvaVar.a++;
-                uva uvaVar2 = new uva();
-                uvaVar2.c = getResources().getString(R.string.obfuscated_res_0x7f0f0a54);
-                uvaVar2.b = getResources().getString(R.string.obfuscated_res_0x7f0f0a54);
-                tvaVar.b.add(0, uvaVar2);
+                svaVar.a++;
+                tva tvaVar2 = new tva();
+                tvaVar2.c = getResources().getString(R.string.obfuscated_res_0x7f0f0a54);
+                tvaVar2.b = getResources().getString(R.string.obfuscated_res_0x7f0f0a54);
+                svaVar.b.add(0, tvaVar2);
             }
-            if (tvaVar == null) {
+            if (svaVar == null) {
                 return;
             }
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X001);
             int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X001);
-            int i = tvaVar.a;
+            int i = svaVar.a;
             if (i >= 2) {
                 this.a = new MultiServiceViewController(getContext());
             } else if (i == 1) {
-                this.a = new u28(getContext());
+                this.a = new y28(getContext());
                 dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds12);
                 dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds5);
             }
             setPadding(0, dimens, 0, dimens2);
             removeAllViews();
             addView(this.a.getView(), -1, -2);
-            this.a.a(tvaVar, frsViewData);
-            t28 t28Var = this.a;
-            if (t28Var instanceof s28) {
-                ((s28) t28Var).b(this.b);
+            this.a.a(svaVar, frsViewData);
+            x28 x28Var = this.a;
+            if (x28Var instanceof w28) {
+                ((w28) x28Var).b(this.b);
             }
             b(TbadkCoreApplication.getInst().getSkinType());
         }

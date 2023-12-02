@@ -140,7 +140,7 @@ public class BottomSheetDialog extends AppCompatDialog {
         if (this.container == null) {
             FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d025d, null);
             this.container = frameLayout;
-            BottomSheetBehavior<FrameLayout> from = BottomSheetBehavior.from((FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f0908d9));
+            BottomSheetBehavior<FrameLayout> from = BottomSheetBehavior.from((FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f0908da));
             this.behavior = from;
             from.addBottomSheetCallback(this.bottomSheetCallback);
             this.behavior.setHideable(this.cancelable);
@@ -195,18 +195,18 @@ public class BottomSheetDialog extends AppCompatDialog {
 
     private View wrapInBottomSheet(int i, @Nullable View view2, @Nullable ViewGroup.LayoutParams layoutParams) {
         ensureContainerAndBehavior();
-        CoordinatorLayout coordinatorLayout = (CoordinatorLayout) this.container.findViewById(R.id.obfuscated_res_0x7f09082e);
+        CoordinatorLayout coordinatorLayout = (CoordinatorLayout) this.container.findViewById(R.id.obfuscated_res_0x7f09082f);
         if (i != 0 && view2 == null) {
             view2 = getLayoutInflater().inflate(i, (ViewGroup) coordinatorLayout, false);
         }
-        FrameLayout frameLayout = (FrameLayout) this.container.findViewById(R.id.obfuscated_res_0x7f0908d9);
+        FrameLayout frameLayout = (FrameLayout) this.container.findViewById(R.id.obfuscated_res_0x7f0908da);
         frameLayout.removeAllViews();
         if (layoutParams == null) {
             frameLayout.addView(view2);
         } else {
             frameLayout.addView(view2, layoutParams);
         }
-        coordinatorLayout.findViewById(R.id.obfuscated_res_0x7f092797).setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
+        coordinatorLayout.findViewById(R.id.obfuscated_res_0x7f092799).setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view3) {
                 BottomSheetDialog bottomSheetDialog = BottomSheetDialog.this;

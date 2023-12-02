@@ -25,12 +25,12 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.r68;
+import com.baidu.tieba.f05;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.ss7;
 import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.v68;
 import com.baidu.tieba.view.ImageOverlayView;
+import com.baidu.tieba.ws7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,11 +63,11 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     public TextView q;
     public FrsViewData r;
     public TbPageContext s;
-    public c05 t;
+    public f05 t;
     public ForumActiveInfo u;
     public String v;
-    public ss7 w;
-    public ss7.e x;
+    public ws7 w;
+    public ws7.e x;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -103,7 +103,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ss7.e {
+    public class b implements ws7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPrivateShareDialogView a;
@@ -126,7 +126,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.a = frsPrivateShareDialogView;
         }
 
-        @Override // com.baidu.tieba.ss7.e
+        @Override // com.baidu.tieba.ws7.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -216,7 +216,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.q.setVisibility(8);
         }
         if (frsViewData.getForum() != null) {
-            e(r68.c(frsViewData.getForum()));
+            e(v68.c(frsViewData.getForum()));
         }
         if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 3) {
             TextView textView2 = this.k;
@@ -264,52 +264,52 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_private_share);
             this.b = linearLayout;
             SkinManager.setBackgroundResource(linearLayout, R.drawable.bg_frs_private_dialog);
-            RelativeLayout relativeLayout = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090dc3);
+            RelativeLayout relativeLayout = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090dc4);
             this.m = relativeLayout;
             SkinManager.setBackgroundResource(relativeLayout, R.drawable.bg_frs_private_dialog);
-            LinearGradientView linearGradientView = (LinearGradientView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc7);
+            LinearGradientView linearGradientView = (LinearGradientView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc8);
             this.c = linearGradientView;
             linearGradientView.setCornerRadius(BdUtilHelper.getDimens(context, R.dimen.tbds30));
             this.c.setRoundMode(3);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc6);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc7);
             this.d = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f08122d);
+            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f081230);
             this.d.setRadius(BdUtilHelper.getDimens(this.s.getPageActivity(), R.dimen.tbds30));
             this.d.setConrers(3);
             h();
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dbd);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dbe);
             this.e = textView;
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dba);
+            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dbb);
             this.f = textView2;
             SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0106);
             ImageView imageView = (ImageView) this.b.findViewById(R.id.close_button);
             this.j = imageView;
             imageView.setOnClickListener(new a(this));
             SkinManager.setImageResource(this.j, R.drawable.icon_popup_shut_n);
-            this.l = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc0);
-            BarImageView barImageView = (BarImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090dbe);
+            this.l = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc1);
+            BarImageView barImageView = (BarImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090dbf);
             this.g = barImageView;
             barImageView.setShowOval(true);
             this.g.setStrokeWith(BdUtilHelper.getDimens(this.s.getPageActivity(), R.dimen.tbds3));
             this.g.setStrokeColorResId(R.color.CAM_X0201);
-            this.h = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d56);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dff);
+            this.h = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d58);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e00);
             this.h.setDefaultBgResource(R.color.CAM_X0205);
             this.h.setIsRound(true);
             this.h.setTag(null);
             SkinManager.setBackgroundResource(this.i, R.drawable.username_text_bg);
-            TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc2);
+            TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc3);
             this.k = textView3;
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0106);
             if (this.w == null) {
-                ss7 ss7Var = new ss7(this.s);
-                this.w = ss7Var;
-                ss7Var.o(this.b, this.m, null);
+                ws7 ws7Var = new ws7(this.s);
+                this.w = ws7Var;
+                ws7Var.o(this.b, this.m, null);
                 this.w.s(this.x);
             }
-            this.n = (ImageOverlayView) this.b.findViewById(R.id.obfuscated_res_0x7f090db8);
+            this.n = (ImageOverlayView) this.b.findViewById(R.id.obfuscated_res_0x7f090db9);
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds68);
             this.n.a(5, dimens, dimens, 0, 0, BdUtilHelper.getDimens(getContext(), R.dimen.tbds16));
             this.n.setOrientation(true);
@@ -319,22 +319,22 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.o = headImageView;
             headImageView.setDefaultBgResource(R.color.CAM_X0205);
             this.o.setIsRound(true);
-            TextView textView4 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dfe);
+            TextView textView4 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dff);
             this.p = textView4;
             SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0105);
-            TextView textView5 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dff);
+            TextView textView5 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e00);
             this.q = textView5;
             SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0101);
         }
     }
 
-    public boolean d(FrsViewData frsViewData, TbPageContext tbPageContext, c05 c05Var) {
+    public boolean d(FrsViewData frsViewData, TbPageContext tbPageContext, f05 f05Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsViewData, tbPageContext, c05Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsViewData, tbPageContext, f05Var)) == null) {
             this.r = frsViewData;
             this.s = tbPageContext;
-            this.t = c05Var;
+            this.t = f05Var;
             this.u = frsViewData.getForumActiveInfo();
             f(this.a);
             c(frsViewData);

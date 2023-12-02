@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k05;
-import com.baidu.tieba.m05;
+import com.baidu.tieba.n05;
+import com.baidu.tieba.p05;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 import com.baidu.tieba.view.BdTopToast;
@@ -49,30 +49,30 @@ public class ReplyLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public final List<RelativeLayout> a;
     public TbPageContext<?> b;
-    public k05 c;
+    public n05 c;
     public ForumManageModel d;
     public TBAlertBuilder e;
     public PersonPostModel.PostInfoList f;
     public String g;
     public View h;
-    public m05.f i;
+    public p05.f i;
     public w4 j;
     public final View.OnClickListener k;
 
     /* loaded from: classes7.dex */
-    public class a implements m05.f {
+    public class a implements p05.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplyLinearLayout a;
 
         /* renamed from: com.baidu.tieba.post.ReplyLinearLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0453a implements View.OnClickListener {
+        public class View$OnClickListenerC0442a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0453a(a aVar) {
+            public View$OnClickListenerC0442a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,22 +154,22 @@ public class ReplyLinearLayout extends LinearLayout {
             this.a = replyLinearLayout;
         }
 
-        @Override // com.baidu.tieba.m05.f
-        public void E0(m05 m05Var, int i, View view2) {
+        @Override // com.baidu.tieba.p05.f
+        public void E0(p05 p05Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLIL(1048576, this, m05Var, i, view2) != null) || this.a.b == null) {
+            if ((interceptable != null && interceptable.invokeLIL(1048576, this, p05Var, i, view2) != null) || this.a.b == null) {
                 return;
             }
             if (this.a.c != null) {
                 this.a.c.dismiss();
             }
-            Map map = (Map) m05Var.f().getTag();
-            PersonPostModel.PostInfoContent postInfoContent = (PersonPostModel.PostInfoContent) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091fc5));
+            Map map = (Map) p05Var.f().getTag();
+            PersonPostModel.PostInfoContent postInfoContent = (PersonPostModel.PostInfoContent) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091fc7));
             if (postInfoContent == null) {
                 return;
             }
             this.a.g = postInfoContent.getPostId();
-            this.a.h = (View) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091fca));
+            this.a.h = (View) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091fcc));
             ReplyLinearLayout replyLinearLayout = this.a;
             replyLinearLayout.p("c14538", replyLinearLayout.g);
             if (this.a.e == null) {
@@ -179,7 +179,7 @@ public class ReplyLinearLayout extends LinearLayout {
             this.a.e.setTitleStr(this.a.b.getString(R.string.del_post_confirm));
             this.a.e.setDescStr(this.a.b.getString(R.string.obfuscated_res_0x7f0f0558));
             this.a.e.setDescLightStyle(true);
-            this.a.e.setOperateBtn(new TBAlertConfig.OperateBtnConfig(this.a.b.getString(R.string.obfuscated_res_0x7f0f03db), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0453a(this)), new TBAlertConfig.OperateBtnConfig(this.a.b.getString(R.string.obfuscated_res_0x7f0f055b), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
+            this.a.e.setOperateBtn(new TBAlertConfig.OperateBtnConfig(this.a.b.getString(R.string.obfuscated_res_0x7f0f03db), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0442a(this)), new TBAlertConfig.OperateBtnConfig(this.a.b.getString(R.string.obfuscated_res_0x7f0f055b), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
             this.a.e.create().setCanceledOnTouchOutside(false);
             this.a.e.show();
         }
@@ -247,10 +247,10 @@ public class ReplyLinearLayout extends LinearLayout {
             Map map;
             PersonPostModel.PostInfoContent postInfoContent;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (map = (Map) view2.getTag()) == null || (postInfoContent = (PersonPostModel.PostInfoContent) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091fc5))) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (map = (Map) view2.getTag()) == null || (postInfoContent = (PersonPostModel.PostInfoContent) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091fc7))) == null) {
                 return;
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f091fcd) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f091fcf) {
                 if (StringUtils.isNotNull(postInfoContent.targetScheme)) {
                     UrlManager.getInstance().dealOneLink(this.a.b, new String[]{postInfoContent.targetScheme});
                     return;
@@ -269,7 +269,7 @@ public class ReplyLinearLayout extends LinearLayout {
             }
             this.a.p("c14537", postInfoContent.threadId);
             if (this.a.c == null) {
-                this.a.c = new k05(this.a.b);
+                this.a.c = new n05(this.a.b);
                 this.a.c.i(null, new String[]{this.a.b.getString(R.string.obfuscated_res_0x7f0f055b)}, this.a.i);
             }
             this.a.c.g().f().setTag(map);
@@ -299,9 +299,9 @@ public class ReplyLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             for (int i = 0; i < getChildCount(); i++) {
                 if (i == getChildCount() - 1) {
-                    getChildAt(i).findViewById(R.id.obfuscated_res_0x7f091fcb).setVisibility(4);
+                    getChildAt(i).findViewById(R.id.obfuscated_res_0x7f091fcd).setVisibility(4);
                 } else {
-                    getChildAt(i).findViewById(R.id.obfuscated_res_0x7f091fcb).setVisibility(0);
+                    getChildAt(i).findViewById(R.id.obfuscated_res_0x7f091fcd).setVisibility(0);
                 }
             }
         }
@@ -394,10 +394,10 @@ public class ReplyLinearLayout extends LinearLayout {
         if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || viewGroup == null) {
             return;
         }
-        EMManager.from(viewGroup.findViewById(R.id.obfuscated_res_0x7f091fc4)).setTextSize(R.dimen.T_X05).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X01);
-        WebPManager.setPureDrawable((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091fcd), R.drawable.icon_pure_pb_more18, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
-        EMManager.from(viewGroup.findViewById(R.id.obfuscated_res_0x7f091fd1)).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0109).setTextStyle(R.string.F_X01);
-        EMManager.from(viewGroup.findViewById(R.id.obfuscated_res_0x7f091fcb)).setBackGroundColor(R.color.CAM_X0203);
+        EMManager.from(viewGroup.findViewById(R.id.obfuscated_res_0x7f091fc6)).setTextSize(R.dimen.T_X05).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X01);
+        WebPManager.setPureDrawable((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091fcf), R.drawable.icon_pure_pb_more18, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
+        EMManager.from(viewGroup.findViewById(R.id.obfuscated_res_0x7f091fd3)).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0109).setTextStyle(R.string.F_X01);
+        EMManager.from(viewGroup.findViewById(R.id.obfuscated_res_0x7f091fcd)).setBackGroundColor(R.color.CAM_X0203);
     }
 
     public final void p(String str, String str2) {
@@ -428,30 +428,30 @@ public class ReplyLinearLayout extends LinearLayout {
                 layoutParams2.topMargin = m;
                 ImageView imageView = new ImageView(getContext());
                 imageView.setLayoutParams(layoutParams2);
-                imageView.setId(R.id.obfuscated_res_0x7f091fcd);
+                imageView.setId(R.id.obfuscated_res_0x7f091fcf);
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_pb_more18, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
                 relativeLayout.addView(imageView);
                 RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
-                layoutParams3.addRule(0, R.id.obfuscated_res_0x7f091fcd);
+                layoutParams3.addRule(0, R.id.obfuscated_res_0x7f091fcf);
                 layoutParams3.topMargin = m;
                 layoutParams3.rightMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds78);
                 TextView textView = new TextView(getContext());
                 textView.setLayoutParams(layoutParams3);
-                textView.setId(R.id.obfuscated_res_0x7f091fc4);
+                textView.setId(R.id.obfuscated_res_0x7f091fc6);
                 relativeLayout.addView(textView);
                 RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams4.addRule(3, R.id.obfuscated_res_0x7f091fc4);
+                layoutParams4.addRule(3, R.id.obfuscated_res_0x7f091fc6);
                 layoutParams4.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X003);
                 TextView textView2 = new TextView(getContext());
                 textView2.setLayoutParams(layoutParams4);
-                textView2.setId(R.id.obfuscated_res_0x7f091fd1);
+                textView2.setId(R.id.obfuscated_res_0x7f091fd3);
                 relativeLayout.addView(textView2);
                 RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-1, BdUtilHelper.getDimens(getContext(), R.dimen.tbds1));
                 layoutParams5.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds26);
-                layoutParams5.addRule(3, R.id.obfuscated_res_0x7f091fd1);
+                layoutParams5.addRule(3, R.id.obfuscated_res_0x7f091fd3);
                 TextView textView3 = new TextView(getContext());
                 textView3.setLayoutParams(layoutParams5);
-                textView3.setId(R.id.obfuscated_res_0x7f091fcb);
+                textView3.setId(R.id.obfuscated_res_0x7f091fcd);
                 relativeLayout.addView(textView3);
                 this.a.add(relativeLayout);
                 addView(relativeLayout);
@@ -462,12 +462,12 @@ public class ReplyLinearLayout extends LinearLayout {
                 if (i3 < list.size()) {
                     PersonPostModel.PostInfoContent postInfoContent = list.get(i3);
                     m(relativeLayout2);
-                    ImageView imageView2 = (ImageView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091fcd);
-                    ((TextView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091fc4)).setText(postInfoContent.contentStr);
-                    ((TextView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091fd1)).setText(postInfoContent.timeStr);
+                    ImageView imageView2 = (ImageView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091fcf);
+                    ((TextView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091fc6)).setText(postInfoContent.contentStr);
+                    ((TextView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091fd3)).setText(postInfoContent.timeStr);
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf((int) R.id.obfuscated_res_0x7f091fc5), postInfoContent);
-                    hashMap.put(Integer.valueOf((int) R.id.obfuscated_res_0x7f091fca), relativeLayout2);
+                    hashMap.put(Integer.valueOf((int) R.id.obfuscated_res_0x7f091fc7), postInfoContent);
+                    hashMap.put(Integer.valueOf((int) R.id.obfuscated_res_0x7f091fcc), relativeLayout2);
                     imageView2.setTag(hashMap);
                     imageView2.setOnClickListener(this.k);
                     relativeLayout2.setVisibility(0);

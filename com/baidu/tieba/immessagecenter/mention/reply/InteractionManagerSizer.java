@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a79;
 import com.baidu.tieba.d79;
+import com.baidu.tieba.e79;
+import com.baidu.tieba.h79;
 import com.baidu.tieba.immessagecenter.mention.reply.InteractionManagerSizer;
-import com.baidu.tieba.z69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000n\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u000f\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003B\u0017\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bJ\"\u0010!\u001a\u00020\"2\f\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u00120\u00112\f\u0010 \u001a\b\u0012\u0004\u0012\u00020\u00120\u0011J\u001e\u0010#\u001a\u00020\"2\f\u0010\u0004\u001a\b\u0012\u0002\b\u0003\u0018\u00010$2\u0006\u0010%\u001a\u00020\u0016H\u0016J\u0012\u0010&\u001a\u00020\"2\b\u0010'\u001a\u0004\u0018\u00010\nH\u0016J\b\u0010(\u001a\u00020\"H\u0016J\b\u0010)\u001a\u00020\nH\u0017J\u0018\u0010*\u001a\u00020\"2\u0006\u0010+\u001a\u00020\u00122\u0006\u0010,\u001a\u00020\u0016H\u0016J\b\u0010-\u001a\u00020\"H\u0016J\u000e\u0010.\u001a\u00020\"2\u0006\u0010/\u001a\u00020\u0019J\u0010\u00100\u001a\u00020\"2\u0006\u00101\u001a\u00020\fH\u0002J\u0010\u00102\u001a\u00020\"2\u0006\u00101\u001a\u00020\fH\u0002R\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082.¢\u0006\u0002\n\u0000R\u0016\u0010\u0010\u001a\n\u0012\u0004\u0012\u00020\u0012\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0018\u001a\u0004\u0018\u00010\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u001dX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001e\u001a\u00020\u001bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020\u001dX\u0082.¢\u0006\u0002\n\u0000R\u0016\u0010 \u001a\n\u0012\u0004\u0012\u00020\u0012\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000¨\u00063"}, d2 = {"Lcom/baidu/tieba/immessagecenter/mention/reply/InteractionManagerSizer;", "Lcom/baidu/tieba/immessagecenter/mention/reply/AbsSizerView;", "Landroid/view/View$OnClickListener;", "Lcom/baidu/tieba/immessagecenter/mention/reply/OptionClickCallback;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "divideLine", "Landroid/view/View;", "isCheckedThread", "", "isCheckedTime", "optionAdapter", "Lcom/baidu/tieba/immessagecenter/mention/reply/OptionAdapter;", "options", "", "Lcom/baidu/tieba/immessagecenter/mention/reply/OptionData;", "optionsView", "Lcom/baidu/tieba/immessagecenter/mention/reply/MaxHeightRecycleView;", "selectedThreadAnchor", "", "selectedTimeAnchor", "sizerCallback", "Lcom/baidu/tieba/immessagecenter/mention/reply/SizerCallback;", "threadDes", "Landroid/widget/TextView;", "threadIcon", "Landroid/widget/ImageView;", "timeDes", "timeIcon", "times", "onBindViewData", "", "onChangeSkinType", "Lcom/baidu/tbadk/TbPageContext;", WriteMulitImageActivityConfig.SKIN_TYPE, "onClick", "v", "onCreateMenuView", "onCreateOptionsView", "onOptionClick", "data", "anchor", "optionsDismiss", "setSizerCallback", WebChromeClient.KEY_ARG_CALLBACK, "updateThreadMenu", "isChecked", "updateTimeMenu", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class InteractionManagerSizer extends AbsSizerView implements View.OnClickListener, z69 {
+public final class InteractionManagerSizer extends AbsSizerView implements View.OnClickListener, d79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView b;
@@ -45,9 +45,9 @@ public final class InteractionManagerSizer extends AbsSizerView implements View.
     public boolean h;
     public boolean i;
     public OptionAdapter j;
-    public List<a79> k;
-    public List<a79> l;
-    public d79 m;
+    public List<e79> k;
+    public List<e79> l;
+    public h79 m;
     public int n;
     public int o;
 
@@ -81,7 +81,7 @@ public final class InteractionManagerSizer extends AbsSizerView implements View.
         }
     }
 
-    public final void g(List<a79> options, List<a79> times) {
+    public final void g(List<e79> options, List<e79> times) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, options, times) == null) {
             Intrinsics.checkNotNullParameter(options, "options");
@@ -91,8 +91,8 @@ public final class InteractionManagerSizer extends AbsSizerView implements View.
         }
     }
 
-    @Override // com.baidu.tieba.z69
-    public void a(a79 data, int i) {
+    @Override // com.baidu.tieba.d79
+    public void a(e79 data, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -119,9 +119,9 @@ public final class InteractionManagerSizer extends AbsSizerView implements View.
                 }
                 textView.setText(data.a());
             }
-            d79 d79Var = this.m;
-            if (d79Var != null) {
-                d79Var.a(data);
+            h79 h79Var = this.m;
+            if (h79Var != null) {
+                h79Var.a(data);
             }
             b();
         }
@@ -156,9 +156,9 @@ public final class InteractionManagerSizer extends AbsSizerView implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05c6, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091817);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091818);
             findViewById.setOnClickListener(this);
-            View findViewById2 = findViewById.findViewById(R.id.obfuscated_res_0x7f09180a);
+            View findViewById2 = findViewById.findViewById(R.id.obfuscated_res_0x7f09180b);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "threadContainer.findViewById(R.id.menu_item_des)");
             TextView textView = (TextView) findViewById2;
             this.b = textView;
@@ -167,13 +167,13 @@ public final class InteractionManagerSizer extends AbsSizerView implements View.
                 Intrinsics.throwUninitializedPropertyAccessException("threadDes");
                 textView = null;
             }
-            textView.setText(R.string.obfuscated_res_0x7f0f1457);
-            View findViewById3 = findViewById.findViewById(R.id.obfuscated_res_0x7f09180b);
+            textView.setText(R.string.obfuscated_res_0x7f0f1458);
+            View findViewById3 = findViewById.findViewById(R.id.obfuscated_res_0x7f09180c);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "threadContainer.findViewById(R.id.menu_item_icon)");
             this.c = (ImageView) findViewById3;
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f091818);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f091819);
             findViewById4.setOnClickListener(this);
-            View findViewById5 = findViewById4.findViewById(R.id.obfuscated_res_0x7f09180a);
+            View findViewById5 = findViewById4.findViewById(R.id.obfuscated_res_0x7f09180b);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "timeContainer.findViewById(R.id.menu_item_des)");
             TextView textView3 = (TextView) findViewById5;
             this.d = textView3;
@@ -182,11 +182,11 @@ public final class InteractionManagerSizer extends AbsSizerView implements View.
             } else {
                 textView2 = textView3;
             }
-            textView2.setText(R.string.obfuscated_res_0x7f0f1458);
-            View findViewById6 = findViewById4.findViewById(R.id.obfuscated_res_0x7f09180b);
+            textView2.setText(R.string.obfuscated_res_0x7f0f1459);
+            View findViewById6 = findViewById4.findViewById(R.id.obfuscated_res_0x7f09180c);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "timeContainer.findViewById(R.id.menu_item_icon)");
             this.e = (ImageView) findViewById6;
-            View findViewById7 = findViewById(R.id.obfuscated_res_0x7f090939);
+            View findViewById7 = findViewById(R.id.obfuscated_res_0x7f09093a);
             Intrinsics.checkNotNullExpressionValue(findViewById7, "findViewById(R.id.divide_line)");
             this.f = findViewById7;
         }
@@ -200,7 +200,7 @@ public final class InteractionManagerSizer extends AbsSizerView implements View.
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             OptionAdapter optionAdapter = null;
             View optionsContainer = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05c7, (ViewGroup) null);
-            optionsContainer.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y69
+            optionsContainer.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.c79
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -212,7 +212,7 @@ public final class InteractionManagerSizer extends AbsSizerView implements View.
                     }
                 }
             });
-            View findViewById = optionsContainer.findViewById(R.id.obfuscated_res_0x7f09231c);
+            View findViewById = optionsContainer.findViewById(R.id.obfuscated_res_0x7f09231e);
             Intrinsics.checkNotNullExpressionValue(findViewById, "optionsContainer.findVie….sizer_options_container)");
             MaxHeightRecycleView maxHeightRecycleView = (MaxHeightRecycleView) findViewById;
             this.g = maxHeightRecycleView;
@@ -359,8 +359,8 @@ public final class InteractionManagerSizer extends AbsSizerView implements View.
                 i = 0;
             }
             OptionAdapter optionAdapter = null;
-            if (i == R.id.obfuscated_res_0x7f091818) {
-                List<a79> list = this.l;
+            if (i == R.id.obfuscated_res_0x7f091819) {
+                List<e79> list = this.l;
                 if (list != null) {
                     OptionAdapter optionAdapter2 = this.j;
                     if (optionAdapter2 == null) {
@@ -386,8 +386,8 @@ public final class InteractionManagerSizer extends AbsSizerView implements View.
                 }
                 j(this.h);
                 i(this.i);
-            } else if (i == R.id.obfuscated_res_0x7f091817) {
-                List<a79> list2 = this.k;
+            } else if (i == R.id.obfuscated_res_0x7f091818) {
+                List<e79> list2 = this.k;
                 if (list2 != null) {
                     OptionAdapter optionAdapter4 = this.j;
                     if (optionAdapter4 == null) {
@@ -417,7 +417,7 @@ public final class InteractionManagerSizer extends AbsSizerView implements View.
         }
     }
 
-    public final void setSizerCallback(d79 callback) {
+    public final void setSizerCallback(h79 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");

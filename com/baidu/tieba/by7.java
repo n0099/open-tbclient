@@ -1,85 +1,229 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.BawuRoleInfoPub;
+import tbclient.ForumInfo;
+import tbclient.ForumRule;
+import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes5.dex */
-public class by7 {
+public class by7 implements pi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId m;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public EMTextView c;
+    public ForumInfo a;
+    public String b;
+    public String c;
+    public List<ForumRule> d;
+    public int e;
+    public String f;
+    public boolean g;
+    public String h;
+    public BawuRoleInfoPub i;
+    public String j;
+    public dy7 k;
+    public ay7 l;
 
-    public by7(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947661385, "Lcom/baidu/tieba/by7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947661385, "Lcom/baidu/tieba/by7;");
+                return;
+            }
+        }
+        m = BdUniqueId.gen();
+    }
+
+    public by7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = context;
-        b(context);
     }
 
-    public void a(BdTypeRecyclerView bdTypeRecyclerView) {
-        View view2;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (view2 = this.b) != null) {
-            view2.setVisibility(0);
-            bdTypeRecyclerView.addHeaderView(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public BawuRoleInfoPub c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
+        }
+        return (BawuRoleInfoPub) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ForumInfo e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (ForumInfo) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return m;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<ForumRule> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ay7 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.l;
+        }
+        return (ay7) invokeV.objValue;
+    }
+
+    public void o(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, dataRes) == null) && dataRes != null) {
+            this.a = dataRes.forum;
+            this.b = dataRes.title;
+            this.c = dataRes.preface;
+            this.d = dataRes.rules;
+            this.e = dataRes.audit_status.intValue();
+            this.f = dataRes.audit_opinion;
+            boolean z = true;
+            if (dataRes.is_manager.intValue() != 1) {
+                z = false;
+            }
+            this.g = z;
+            Long l = dataRes.forum_rule_id;
+            this.h = dataRes.publish_time;
+            this.i = dataRes.bazhu;
+            this.j = dataRes.cur_time;
+            dy7 dy7Var = new dy7();
+            this.k = dy7Var;
+            dy7Var.a(dataRes);
+            ay7 ay7Var = new ay7();
+            this.l = ay7Var;
+            ay7Var.f(dataRes);
         }
     }
 
-    public void c(int i) {
+    public void p(BawuRoleInfoPub bawuRoleInfoPub) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            EMManager.from(this.c).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0105);
+        if (interceptable == null || interceptable.invokeL(1048589, this, bawuRoleInfoPub) == null) {
+            this.i = bawuRoleInfoPub;
         }
     }
 
-    public void d(BdTypeRecyclerView bdTypeRecyclerView) {
-        View view2;
+    public void q(ForumInfo forumInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) && bdTypeRecyclerView != null && (view2 = this.b) != null) {
-            view2.setVisibility(8);
-            bdTypeRecyclerView.removeHeaderView(this.b);
+        if (interceptable == null || interceptable.invokeL(1048590, this, forumInfo) == null) {
+            this.a = forumInfo;
         }
     }
 
-    public void e(String str) {
+    public void s(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c.setText(str);
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.g = z;
         }
     }
 
-    public final void b(Context context) {
+    public void t(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) != null) || this.b != null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.c = str;
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0329, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c7d);
-        c(TbadkCoreApplication.getInst().getSkinType());
     }
 }

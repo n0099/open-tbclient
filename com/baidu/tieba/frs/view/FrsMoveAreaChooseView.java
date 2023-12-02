@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sr7;
-import com.baidu.tieba.v78;
+import com.baidu.tieba.wr7;
+import com.baidu.tieba.z78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -66,11 +66,11 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
             setOrientation(1);
             setGravity(80);
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ae, this);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d94);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d98);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d96);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d95);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090d97);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d95);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d99);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d97);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d96);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090d98);
             this.e = recyclerView;
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
             this.e.addItemDecoration(new GridSpacingItemDecoration(3, BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004), BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X003), false));
@@ -117,14 +117,14 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
             } else if (view2 == this.d) {
                 if (this.a != null && getParent() != null && this.f.n() >= 0) {
                     boolean z = SharedPrefHelper.getInstance().getBoolean("key_frs_move_area_tip", true);
-                    List<FrsTabInfo> g = sr7.h().g();
+                    List<FrsTabInfo> g = wr7.h().g();
                     FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(g, this.f.l());
                     FrsTabInfo frsTabInfo2 = (FrsTabInfo) ListUtils.getItem(g, this.f.n());
                     if (frsTabInfo != null && frsTabInfo2 != null) {
                         if (z) {
-                            v78.a(this.a, frsTabInfo, frsTabInfo2);
+                            z78.a(this.a, frsTabInfo, frsTabInfo2);
                         } else {
-                            sr7.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                            wr7.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                         }
                         if (this.h != null) {
                             view2.setTag("choose_done");

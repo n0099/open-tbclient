@@ -5,23 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.RecmForumInfo;
+import tbclient.FrsPage.RecomPostTopic;
 /* loaded from: classes8.dex */
-public class s1d extends ltc {
+public class s1d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecmForumInfo recmForumInfo) {
+    public static JSONObject b(@NonNull RecomPostTopic recomPostTopic) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recmForumInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recomPostTopic)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "forum_name", recmForumInfo.forum_name);
-            ltc.a(jSONObject, "forum_id", recmForumInfo.forum_id);
-            ltc.a(jSONObject, "member_count", recmForumInfo.member_count);
-            ltc.a(jSONObject, "post_num", recmForumInfo.post_num);
-            ltc.a(jSONObject, "avatar", recmForumInfo.avatar);
+            ktc.a(jSONObject, "recom_title", recomPostTopic.recom_title);
+            ktc.a(jSONObject, "recom_topic", recomPostTopic.recom_topic);
+            ktc.a(jSONObject, "uniq_topicid", recomPostTopic.uniq_topicid);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

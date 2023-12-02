@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+/* loaded from: classes8.dex */
+public interface wu4 {
+    void a();
 
-import android.view.View;
-/* loaded from: classes9.dex */
-public interface wu4<T> {
-    void b(View view2, T t, int i, long j);
+    void onCancelClick();
 }

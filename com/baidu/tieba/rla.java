@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,15 +11,86 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class rla implements ub7 {
+public final class rla implements yb7, f77, vb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    @Override // com.baidu.tieba.ub7
+    @Override // com.baidu.tieba.vb7
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "position_from_1" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_RECOMMEND_REASON : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class a implements d87 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rla a;
+
+        public a(rla rlaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rlaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rlaVar;
+        }
+
+        @Override // com.baidu.tieba.d87
+        public void a(Map<String, String> map) {
+            String str;
+            String str2;
+            String str3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+                Intrinsics.checkNotNullParameter(map, "map");
+                String str4 = map.get("thread_id");
+                if (str4 == null) {
+                    str4 = "";
+                }
+                String str5 = map.get("weight");
+                if (str5 == null) {
+                    str = "";
+                } else {
+                    str = str5;
+                }
+                String str6 = map.get("source");
+                if (str6 == null) {
+                    str2 = "";
+                } else {
+                    str2 = str6;
+                }
+                String str7 = map.get("position_from_1");
+                if (str7 == null) {
+                    str7 = "0";
+                }
+                String str8 = map.get("abtest_tag");
+                if (str8 == null) {
+                    str3 = "";
+                } else {
+                    str3 = str8;
+                }
+                br6.b().c(new cka(JavaTypesHelper.toLong(str4, 0L), str, str2, JavaTypesHelper.toInt(str7, 0), str3, JavaTypesHelper.toInt(this.a.a, 0)));
+            }
+        }
     }
 
     public rla() {
@@ -32,33 +103,43 @@ public final class rla implements ub7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
     }
 
-    @Override // com.baidu.tieba.ub7
-    public Map<String, String> a(r57 businessInfo) {
+    @Override // com.baidu.tieba.f77
+    public d87 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new a(this);
+        }
+        return (d87) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb7
+    public Map<String, String> a(v57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_type", "1");
-            hashMap.put("obj_locate", "1");
-            String str = a.get("thread_id");
-            String str2 = "";
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("tid", str);
-            String str3 = a.get("recommend_info_business_id");
-            if (str3 != null) {
-                str2 = str3;
-            }
-            hashMap.put("obj_param1", str2);
+            hashMap.putAll(businessInfo.a());
             return hashMap;
         }
         return (Map) invokeL.objValue;
+    }
+
+    public final rla f(String type) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, type)) == null) {
+            Intrinsics.checkNotNullParameter(type, "type");
+            this.a = type;
+            return this;
+        }
+        return (rla) invokeL.objValue;
     }
 }

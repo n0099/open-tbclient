@@ -151,7 +151,7 @@ public class BDEmotionDynamicAdapter extends RecyclerView.Adapter<BaseEmotionHol
                 }
             }
             this.image = (SimpleDraweeView) view2.findViewById(R.id.item_img);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091261);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091262);
             this.name = textView;
             textView.setTextColor(ContextCompat.getColor(AppRuntime.getAppContext(), R.color.obfuscated_res_0x7f06024e));
             this.image.getHierarchy().setPlaceholderImage(R.drawable.emotion_preview_placeholder);

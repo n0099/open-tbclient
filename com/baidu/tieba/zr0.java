@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.InternalSyncControlEvent;
+import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zr0 extends es0 {
+public class zr0 extends gs0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,29 +25,59 @@ public class zr0 extends es0 {
         }
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ks0 x = wr0.x(InternalSyncControlEvent.INTERNAL_ACTION_PAUSE);
-            x.t(1);
-            c(x);
-        }
-    }
-
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ks0 x = wr0.x(InternalSyncControlEvent.INTERNAL_ACTION_RESUME);
-            x.t(1);
+            c(yr0.x(ControlEvent.ACTION_RESUME));
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(yr0.x(ControlEvent.ACTION_SHOW_TIP));
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c(yr0.x(ControlEvent.ACTION_START));
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            ms0 x = yr0.x(ControlEvent.ACTION_PAUSE);
+            x.o(11, Integer.valueOf(i));
+            boolean z = true;
+            if (i != 1) {
+                z = false;
+            }
+            x.o(7, Boolean.valueOf(z));
             c(x);
         }
     }
 
-    public void f() {
+    public void f(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ks0 x = wr0.x(InternalSyncControlEvent.INTERNAL_ACTION_START);
-            x.t(1);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            ms0 x = yr0.x(ControlEvent.ACTION_SEEK_MS);
+            x.o(5, Integer.valueOf(i));
+            x.o(12, Integer.valueOf(i2));
+            c(x);
+        }
+    }
+
+    public void i(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048581, this, i, i2, i3) == null) {
+            ms0 x = yr0.x(ControlEvent.ACTION_SYNC_PROGRESS);
+            x.o(1, Integer.valueOf(i));
+            x.o(2, Integer.valueOf(i2));
+            x.o(3, Integer.valueOf(i3));
+            x.s(1);
             c(x);
         }
     }

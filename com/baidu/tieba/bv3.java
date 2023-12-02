@@ -1,50 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import java.io.File;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface bv3 {
-    String a();
+    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
 
-    boolean b(Context context, Intent intent, String str, String str2, String str3);
+    void b(String str, JSONObject jSONObject, ResponseCallback<tu3> responseCallback);
 
-    String c();
+    void c(String str, ResponseCallback<cu3> responseCallback);
 
-    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull iu3 iu3Var);
+    void d(String str);
 
-    String e();
+    void e(String str);
 
-    String f(String str);
-
-    String g();
-
-    String getAppId();
-
-    String getAppKey();
-
-    String getScene();
-
-    String getSdkVersion();
-
-    int h();
-
-    String i(String str);
-
-    int j();
-
-    int k();
-
-    Uri l(@NonNull Context context, @NonNull File file);
-
-    String m();
-
-    JSONObject n();
-
-    boolean o(View view2);
+    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
 }

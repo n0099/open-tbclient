@@ -1,59 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.AccountToolsCallback;
-import com.baidu.sapi2.dto.AccountToolsDTO;
-import com.baidu.sapi2.result.SapiResult;
-import com.baidu.sapi2.utils.ToastUtil;
-import com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
+import com.sina.weibo.sdk.utils.ResourceManager;
 /* loaded from: classes6.dex */
-public class h98 implements LoginModifyPwdServices {
+public class h98 implements HostBasicInfoService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements AccountToolsCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Function1 a;
-
-        public a(h98 h98Var, Function1 function1) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h98Var, function1};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = function1;
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiWebCallback
-        public void onFinish(SapiResult sapiResult) {
-            Function1 function1;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) && (function1 = this.a) != null) {
-                function1.invoke(sapiResult.getResultMsg());
-            }
-        }
-    }
 
     public h98() {
         Interceptable interceptable = $ic;
@@ -69,18 +28,23 @@ public class h98 implements LoginModifyPwdServices {
         }
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices
-    public void openModifyPwd(@NonNull Context context, @Nullable Function1<? super String, Unit> function1) {
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService
+    public String getCuid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, function1) == null) {
-            AccountToolsDTO accountToolsDTO = new AccountToolsDTO();
-            accountToolsDTO.context = context;
-            accountToolsDTO.toolsType = 5;
-            if (!SapiAccountManager.getInstance().isLogin()) {
-                ToastUtil.show(R.string.obfuscated_res_0x7f0f1132 + "");
-                return;
-            }
-            PassportSDK.getInstance().loadAccountTools(accountToolsDTO, new a(this, function1));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbadkCoreApplication.getInst().getCuidGalaxy2();
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.HostBasicInfoService
+    public int getHostIconResId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TbadkCoreApplication.getInst().getResources().getIdentifier("tb_launcher_icon", ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
+        }
+        return invokeV.intValue;
     }
 }

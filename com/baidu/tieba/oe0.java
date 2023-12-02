@@ -141,9 +141,9 @@ public class oe0 {
                     if (path == null) {
                         return false;
                     }
-                    m11.a(context, new File(path), parseUri);
+                    o11.a(context, new File(path), parseUri);
                 }
-                return m11.d(context, parseUri);
+                return o11.d(context, parseUri);
             } catch (IllegalArgumentException | URISyntaxException unused) {
                 return false;
             }
@@ -156,7 +156,7 @@ public class oe0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             if (context != null && str != null) {
-                return m11.d(context, new Intent("android.intent.action.SENDTO", Uri.parse(str)));
+                return o11.d(context, new Intent("android.intent.action.SENDTO", Uri.parse(str)));
             }
             return false;
         }
@@ -169,7 +169,7 @@ public class oe0 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
             Intent intent = new Intent("android.intent.action.DIAL", Uri.parse(str));
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            return m11.d(context, intent);
+            return o11.d(context, intent);
         }
         return invokeLL.booleanValue;
     }
@@ -198,7 +198,7 @@ public class oe0 {
                 }
                 Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str2 + a2));
                 intent.putExtra("sms_body", str3);
-                m11.d(context, intent);
+                o11.d(context, intent);
                 return true;
             } catch (Exception unused) {
                 return false;

@@ -1,187 +1,230 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.nadcore.rotation.NadSensorAbsHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class iy0 {
+public final class iy0 extends NadSensorAbsHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public float d;
-    public boolean e;
-    public int f;
-    public float g;
-    public int h;
+    public Float[] g;
+    public Boolean[] h;
+    public Integer[] i;
+    public Float[] j;
+    public float k;
+    public float l;
+    public float m;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public iy0() {
-        this(0, 0, 0, 0.0f, false, 0, 0.0f, 0, 255, null);
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 9;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iy0(Context context, jy0 listener) {
+        super(context, listener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, listener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue(), ((Integer) objArr[2]).intValue(), ((Float) objArr[3]).floatValue(), ((Boolean) objArr[4]).booleanValue(), ((Integer) objArr[5]).intValue(), ((Float) objArr[6]).floatValue(), ((Integer) objArr[7]).intValue(), ((Integer) objArr[8]).intValue(), (DefaultConstructorMarker) objArr[9]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (jy0) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(listener, "listener");
+        Float valueOf = Float.valueOf(-1.0f);
+        this.g = new Float[]{valueOf, valueOf, valueOf};
+        Boolean bool = Boolean.FALSE;
+        this.h = new Boolean[]{bool, bool, bool};
+        this.i = new Integer[]{45, 45, 45, 45, 45, 45};
+        Float valueOf2 = Float.valueOf(0.0f);
+        this.j = new Float[]{valueOf2, valueOf2, valueOf2};
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public final float r(int i, float f) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof iy0) {
-                    iy0 iy0Var = (iy0) obj;
-                    return this.a == iy0Var.a && this.b == iy0Var.b && this.c == iy0Var.c && Float.compare(this.d, iy0Var.d) == 0 && this.e == iy0Var.e && this.f == iy0Var.f && Float.compare(this.g, iy0Var.g) == 0 && this.h == iy0Var.h;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            float floatValue = this.g[i].floatValue();
+            if (this.h[i].booleanValue()) {
+                if (floatValue == -1.0f) {
+                    this.g[i] = Float.valueOf(f);
+                    floatValue = f;
                 }
-                return false;
+            } else {
+                floatValue = 180.0f;
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int floatToIntBits = ((((((this.a * 31) + this.b) * 31) + this.c) * 31) + Float.floatToIntBits(this.d)) * 31;
-            boolean z = this.e;
-            int i = z;
-            if (z != 0) {
-                i = 1;
+            int i2 = i * 2;
+            int intValue = this.i[i2].intValue();
+            float intValue2 = this.i[i2 + 1].intValue() + floatValue;
+            float f2 = floatValue - intValue;
+            if (f > intValue2) {
+                f = intValue2;
             }
-            return ((((((floatToIntBits + i) * 31) + this.f) * 31) + Float.floatToIntBits(this.g)) * 31) + this.h;
+            if (f < f2) {
+                f = f2;
+            }
+            if (intValue2 == f2) {
+                return 0.0f;
+            }
+            return (f - f2) / (intValue2 - f2);
         }
-        return invokeV.intValue;
+        return invokeCommon.floatValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public void i(SensorEvent sensorEvent) {
+        Sensor sensor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "NadSensorHelperParams(planeType=" + this.a + ", leftThreshold=" + this.b + ", rightThreshold=" + this.c + ", thirdAxisLimit=" + this.d + ", isSaveStartAngle=" + this.e + ", updateInterval=" + this.f + ", shakeSensitivity=" + this.g + ", shakeCounts=" + this.h + SmallTailInfo.EMOTION_SUFFIX;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 9) {
+            float[] fArr = sensorEvent.values;
+            float f = fArr[0];
+            float f2 = fArr[1];
+            float f3 = fArr[2];
+            float abs = Math.abs(this.k - f);
+            float abs2 = Math.abs(this.l - f2);
+            float abs3 = Math.abs(this.m - f3);
+            if (abs > 0.01d || abs2 > 0.01d || abs3 > 0.01d) {
+                p(f, f2, f3);
+            }
+            this.k = f;
+            this.l = f2;
+            this.m = f3;
         }
-        return (String) invokeV.objValue;
     }
 
-    public iy0(int i, int i2, int i3, float f, boolean z, int i4, float f2, int i5) {
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f), Boolean.valueOf(z), Integer.valueOf(i4), Float.valueOf(f2), Integer.valueOf(i5)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.o();
+            Float valueOf = Float.valueOf(-1.0f);
+            this.g = new Float[]{valueOf, valueOf, valueOf};
+        }
+    }
+
+    public final void p(float f, float f2, float f3) {
+        jy0 b;
+        jy0 b2;
+        jy0 b3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            float floatValue = this.j[0].floatValue() * 9.80665f;
+            float abs = Math.abs(f3);
+            if (abs >= 0.0f && abs <= floatValue) {
+                float r = r(0, q(0, f, f2, f3));
+                jy0 b4 = b();
+                if (b4 != null) {
+                    b4.b(r);
+                }
+                if (r == 0.0f) {
+                    jy0 b5 = b();
+                    if (b5 != null) {
+                        b5.e(0);
+                    }
+                } else if (r == 1.0f && (b3 = b()) != null) {
+                    b3.e(1);
+                }
+            }
+            float floatValue2 = this.j[1].floatValue() * 9.80665f;
+            float abs2 = Math.abs(f2);
+            if (abs2 >= 0.0f && abs2 <= floatValue2) {
+                float r2 = r(1, q(1, f, f2, f3));
+                jy0 b6 = b();
+                if (b6 != null) {
+                    b6.c(r2);
+                }
+                if (r2 == 0.0f) {
+                    jy0 b7 = b();
+                    if (b7 != null) {
+                        b7.f(0);
+                    }
+                } else if (r2 == 1.0f && (b2 = b()) != null) {
+                    b2.f(1);
+                }
+            }
+            float floatValue3 = this.j[2].floatValue() * 9.80665f;
+            float abs3 = Math.abs(f);
+            if (abs3 >= 0.0f && abs3 <= floatValue3) {
+                float r3 = r(2, q(2, f, f2, f3));
+                jy0 b8 = b();
+                if (b8 != null) {
+                    b8.d(r3);
+                }
+                if (r3 == 0.0f) {
+                    jy0 b9 = b();
+                    if (b9 != null) {
+                        b9.g(0);
+                    }
+                } else if (r3 == 1.0f && (b = b()) != null) {
+                    b.g(1);
+                }
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = f;
-        this.e = z;
-        this.f = i4;
-        this.g = f2;
-        this.h = i5;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ iy0(int i, int i2, int i3, float f, boolean z, int i4, float f2, int i5, int i6, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r1, r2, r3, r4, r5, r6, r7, r0);
-        int i7;
-        int i8;
-        float f3;
-        boolean z2;
-        int i9;
-        float f4;
-        int i10;
-        if ((i6 & 1) != 0) {
-            i7 = 0;
-        } else {
-            i7 = i;
-        }
-        if ((i6 & 2) != 0) {
-            i8 = 90;
-        } else {
-            i8 = i2;
-        }
-        int i11 = (i6 & 4) == 0 ? i3 : 90;
-        if ((i6 & 8) != 0) {
-            f3 = 0.5f;
-        } else {
-            f3 = f;
-        }
-        if ((i6 & 16) != 0) {
-            z2 = true;
-        } else {
-            z2 = z;
-        }
-        if ((i6 & 32) != 0) {
-            i9 = 67;
-        } else {
-            i9 = i4;
-        }
-        if ((i6 & 64) != 0) {
-            f4 = 12.0f;
-        } else {
-            f4 = f2;
-        }
-        if ((i6 & 128) != 0) {
-            i10 = 2;
-        } else {
-            i10 = i5;
-        }
-    }
-
-    public final int a() {
-        InterceptResult invokeV;
+    public final float q(int i, float f, float f2, float f3) {
+        InterceptResult invokeCommon;
+        double degrees;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        return 180.0f;
+                    }
+                    degrees = Math.toDegrees(Math.atan2(f, f3));
+                } else {
+                    degrees = Math.toDegrees(Math.atan2(f2, f3));
+                }
+            } else {
+                degrees = Math.toDegrees(Math.atan2(f, f2));
+            }
+            return 180.0f - ((float) degrees);
         }
-        return invokeV.intValue;
+        return invokeCommon.floatValue;
     }
 
-    public final float b() {
-        InterceptResult invokeV;
+    public final void s(int i, int i2, int i3, float f, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f), Boolean.valueOf(z)}) == null) {
+            int i4 = i * 2;
+            this.i[i4] = Integer.valueOf(i2);
+            this.i[i4 + 1] = Integer.valueOf(i3);
+            this.j[i] = Float.valueOf(f);
+            this.h[i] = Boolean.valueOf(z);
         }
-        return invokeV.floatValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
     }
 }

@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public final class pk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public un0 A;
+    public wn0 A;
     public String B;
     public String C;
     public boolean D;
@@ -354,13 +354,13 @@ public final class pk0 {
         return (String) invokeV.objValue;
     }
 
-    public final un0 r() {
+    public final wn0 r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             return this.A;
         }
-        return (un0) invokeV.objValue;
+        return (wn0) invokeV.objValue;
     }
 
     public final ok0 s() {
@@ -449,10 +449,10 @@ public final class pk0 {
         }
     }
 
-    public final void H(un0 un0Var) {
+    public final void H(wn0 wn0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, un0Var) == null) {
-            this.A = un0Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, wn0Var) == null) {
+            this.A = wn0Var;
         }
     }
 

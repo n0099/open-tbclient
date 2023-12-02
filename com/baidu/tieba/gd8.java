@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gd8 {
+public abstract class gd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public boolean b;
-    public boolean c;
+
+    public abstract void b();
+
+    public abstract void c();
 
     public gd8() {
         Interceptable interceptable = $ic;
@@ -23,32 +25,23 @@ public class gd8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = -1;
-        this.b = false;
-        this.c = false;
-    }
-
-    public void a(bd8 bd8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bd8Var) == null) {
-            this.b = true;
-            int i = this.a;
-            if (i != -1 && this.c) {
-                bd8Var.a(i);
             }
         }
     }
 
-    public void b(int i, bd8 bd8Var) {
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bd8Var) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.a = i;
-            if (this.b && this.c) {
-                bd8Var.a(i);
-            }
         }
     }
 }

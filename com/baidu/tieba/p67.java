@@ -11,60 +11,16 @@ import kotlin.jvm.internal.Intrinsics;
 public final class p67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final Object e;
+    public final long a;
+    public final boolean b;
+    public final v57 c;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof p67) {
-                p67 p67Var = (p67) obj;
-                return Intrinsics.areEqual(this.a, p67Var.a) && Intrinsics.areEqual(this.b, p67Var.b) && Intrinsics.areEqual(this.c, p67Var.c) && Intrinsics.areEqual(this.d, p67Var.d) && Intrinsics.areEqual(this.e, p67Var.e);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            String str = this.b;
-            int hashCode2 = (hashCode + (str == null ? 0 : str.hashCode())) * 31;
-            String str2 = this.c;
-            int hashCode3 = (hashCode2 + (str2 == null ? 0 : str2.hashCode())) * 31;
-            String str3 = this.d;
-            int hashCode4 = (hashCode3 + (str3 == null ? 0 : str3.hashCode())) * 31;
-            Object obj = this.e;
-            return hashCode4 + (obj != null ? obj.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "FeedFeedbackData(type=" + this.a + ", title=" + this.b + ", buttonText=" + this.c + ", commonId=" + this.d + ", businessData=" + this.e + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public p67(String type, String str, String str2, String str3, Object obj) {
+    public p67(long j, boolean z, v57 businessInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type, str, str2, str3, obj};
+            Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z), businessInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -74,47 +30,36 @@ public final class p67 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
-        this.e = obj;
+        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+        this.a = j;
+        this.b = z;
+        this.c = businessInfo;
     }
 
-    public final Object a() {
+    public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            return this.a;
         }
-        return invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public final String b() {
+    public final v57 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return (String) invokeV.objValue;
+        return (v57) invokeV.objValue;
     }
 
-    public final String c() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

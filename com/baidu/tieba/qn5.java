@@ -1,48 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.data.TopNotifyData;
-import com.baidu.tbadk.mutiprocess.toptip.TopNotifyEvent;
-import com.baidu.tieba.oq6;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.showreplyinpb.ShowReplyInPbEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class qn5 implements lm5<TopNotifyEvent> {
+/* loaded from: classes7.dex */
+public class qn5 implements om5<ShowReplyInPbEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public class a implements oq6.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(qn5 qn5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qn5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.oq6.e
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                YunDialogManager.unMarkShowingDialogName("topNotify");
-            }
-        }
-    }
 
     public qn5() {
         Interceptable interceptable = $ic;
@@ -59,18 +28,21 @@ public class qn5 implements lm5<TopNotifyEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm5
+    @Override // com.baidu.tieba.om5
     /* renamed from: a */
-    public boolean onEvent(TopNotifyEvent topNotifyEvent) {
+    public boolean onEvent(ShowReplyInPbEvent showReplyInPbEvent) {
         InterceptResult invokeL;
-        TopNotifyData topNotifyData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topNotifyEvent)) == null) {
-            if (topNotifyEvent != null && (topNotifyData = topNotifyEvent.topNotifyData) != null) {
-                xb5.a.i(topNotifyData, new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, showReplyInPbEvent)) == null) {
+            if (showReplyInPbEvent == null) {
+                return false;
+            }
+            if (showReplyInPbEvent.isSubPbReply) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921481, showReplyInPbEvent.writeData));
                 return true;
             }
-            return false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921480, showReplyInPbEvent.writeData));
+            return true;
         }
         return invokeL.booleanValue;
     }

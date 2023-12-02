@@ -1,30 +1,50 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class l59 extends rx8 {
+public class l59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l59() {
-        super(gu8.w(), 2001146);
+    public static boolean a(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((tt8) objArr[0], ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterShowItemData)) == null) {
+            if (imMessageCenterShowItemData == null) {
+                return false;
             }
+            if (!String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName()) && !"".equals(imMessageCenterShowItemData.getOwnerName())) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imMessageCenterShowItemData)) == null) {
+            if (imMessageCenterShowItemData == null) {
+                return false;
+            }
+            return String.valueOf(9).equals(imMessageCenterShowItemData.getOwnerName());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imMessageCenterShowItemData)) == null) {
+            if (imMessageCenterShowItemData == null || !String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName()) || "3222425470".equals(imMessageCenterShowItemData.getFriendId()) || "801001117".equals(imMessageCenterShowItemData.getFriendId()) || "5044059141".equals(imMessageCenterShowItemData.getFriendId())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

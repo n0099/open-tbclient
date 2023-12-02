@@ -1,148 +1,272 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.account.IConnectListener;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.nh9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class oh9 {
-    public static /* synthetic */ Interceptable $ic;
+public class oh9 implements IConnectListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String e = "imlog";
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public c b;
+    public CustomMessageListener c;
+    public boolean d;
 
-    public static void a(@NonNull StringBuilder sb, long j, boolean z, int i, @NonNull String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{sb, Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
-            if (z) {
-                str2 = "groupId";
-            } else {
-                str2 = "roomId";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948032393, "Lcom/baidu/tieba/oh9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948032393, "Lcom/baidu/tieba/oh9;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oh9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(oh9 oh9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oh9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            sb.append(str2);
-            sb.append("=");
-            sb.append(j);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_CODE);
-            sb.append("=");
-            sb.append(i);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_MSG);
-            sb.append("=");
-            sb.append(str);
-            sb.append(",");
+            this.a = oh9Var;
         }
-    }
 
-    public static void b(@NonNull StringBuilder sb, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65537, null, sb, z) == null) {
-            if (z) {
-                str = "success";
-            } else {
-                str = "fail";
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+                this.a.c();
             }
-            sb.append(str);
-            sb.append(",");
         }
     }
 
-    public static void d(@NonNull String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65539, null, str, j) == null) {
-            ov4.d(str + j);
+    /* loaded from: classes7.dex */
+    public class b implements nh9.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oh9 a;
+
+        public b(oh9 oh9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oh9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oh9Var;
+        }
+
+        @Override // com.baidu.tieba.nh9.c
+        public void a(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.loginToIm -> loginResult errno=" + i + ", errMsg=" + str);
+                StringBuilder sb = new StringBuilder();
+                sb.append(oh9.e);
+                sb.append("LiveIMManager");
+                String sb2 = sb.toString();
+                LogUtils.d(sb2, "LiveIMManager onLoginResult errno = " + i + ", errMsg = " + str + ", isConnected = " + this.a.a);
+                if (i == 0 && !this.a.a) {
+                    this.a.onResult(0);
+                }
+            }
         }
     }
 
-    public static void n(@NonNull String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65549, null, str, j) == null) {
-            ov4.e(str + j);
+    /* loaded from: classes7.dex */
+    public class c extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean mIsDestroy;
+        public boolean mIsInit;
+        public final /* synthetic */ oh9 this$0;
+
+        public c(oh9 oh9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oh9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = oh9Var;
+        }
+
+        public /* synthetic */ c(oh9 oh9Var, a aVar) {
+            this(oh9Var);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && NetworkMonitor.NET_CHANGE_ACTION.equals(intent.getAction())) {
+                if (this.mIsInit) {
+                    this.mIsInit = false;
+                } else if (BdNetTypeUtil.isNetWorkAvailable() && !this.mIsDestroy) {
+                    BIMManager.tryConnection(context);
+                }
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void destroy() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+                this.mIsDestroy = true;
+                try {
+                    TbadkCoreApplication.getInst().unregisterReceiver(this);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        private void init() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+                this.mIsInit = true;
+                this.mIsDestroy = false;
+            }
+        }
+
+        public void register() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                init();
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
+                TbadkCoreApplication.getInst().registerReceiver(this, intentFilter);
+            }
         }
     }
 
-    public static void c(@NonNull String str) {
+    public oh9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            ov4.d(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.c = new a(this, 2005016);
+        this.d = false;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            nh9.c().f(new b(this));
         }
     }
 
-    public static void l(boolean z) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            StringBuilder sb = new StringBuilder();
-            b(sb, z);
-            ov4.b("login_lcp", sb.toString());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogUtils.d(e + "LiveIMManager", "registerIMConnectListener");
+            this.a = false;
+            BIMManager.unregisterConnectListener();
+            BIMManager.registerConnectListener(this);
         }
     }
 
-    public static void m(@NonNull String str) {
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
-            ov4.e(str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.init id =" + str);
+            if (this.d) {
+                return;
+            }
+            this.d = true;
+            nh9.c().d(TbadkCoreApplication.getInst());
+            d();
+            c();
+            if (this.b == null) {
+                this.b = new c(this, null);
+            }
+            this.b.register();
+            MessageManager.getInstance().registerListener(this.c);
         }
     }
 
-    public static void e(long j, long j2, int i, boolean z, boolean z2, int i2, @NonNull String str, int i3) {
+    @Override // com.baidu.android.imsdk.account.IConnectListener
+    public void onResult(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
-            ov4.b("fetch_chat_room_msg_request", "roomId=" + j + ",beginMsgId=" + j2 + ",count=" + i + ",isFirstFetch=" + z + ",isFetchHistory=" + z2 + ",errCode=" + i2 + ",errMsg=" + str + ",resultCount=" + i3 + ",");
-        }
-    }
-
-    public static void f(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, false, i, str);
-            ov4.b("im_enter_auto_retry_" + j, sb.toString());
-        }
-    }
-
-    public static void g(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, false, i, str);
-            ov4.b("im_exit_auto_retry_" + j, sb.toString());
-        }
-    }
-
-    public static void h(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, true, i, str);
-            ov4.b("im_group_enter_auto_retry_" + j, sb.toString());
-        }
-    }
-
-    public static void i(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, false, i, str);
-            ov4.b("im_group_exit_auto_retry_" + j, sb.toString());
-        }
-    }
-
-    public static void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65545, null, j) == null) {
-            ov4.d("key_im_on_enter_lose");
-            ov4.b("key_im_on_enter_lose", "roomId=" + j + ",");
-            ov4.e("key_im_on_enter_lose");
-        }
-    }
-
-    public static void k(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, false, i, str);
-            ov4.b("login_im", sb.toString());
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk LiveIMManager.onResult statuscode=" + i);
+            LogUtils.d(e + "LiveIMManager", "IConnectListener onResult statusCode=" + i);
+            this.a = true;
+            if (i == 0) {
+                LogUtils.d(e + "LiveIMManager", "IConnectListener net connect");
+            } else if (i == 1) {
+                LogUtils.d(e + "LiveIMManager", "IConnectListener net disconnect");
+            }
         }
     }
 }

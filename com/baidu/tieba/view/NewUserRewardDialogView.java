@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ih;
-import com.baidu.tieba.u25;
+import com.baidu.tieba.x25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -161,7 +161,7 @@ public class NewUserRewardDialogView extends LinearLayout {
             this.g = (TextView) findViewById(R.id.new_user_dialog_share);
             this.a.setKeepLastFrame(true);
             MessageManager.getInstance().registerListener(this.h);
-            this.b.setRoundLayoutRadius(u25.B(R.string.J_X06));
+            this.b.setRoundLayoutRadius(x25.B(R.string.J_X06));
         }
     }
 

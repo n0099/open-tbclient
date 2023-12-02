@@ -134,10 +134,10 @@ public final class b extends KSFrameLayout {
 
     private void initView() {
         com.kwad.sdk.m.l.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d04c3, this);
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09148f);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091490);
         this.mRootContainer = adBaseFrameLayout;
-        this.bS = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f0914e8);
-        DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0914ff);
+        this.bS = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f0914e9);
+        DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091500);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.g(true, com.kwad.sdk.core.config.d.Bs());
         this.mDetailVideoView.setOnClickListener(this.bU);

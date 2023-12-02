@@ -1,48 +1,32 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.HeadcardLayout;
-import tbclient.PubHeadCardCover;
-import tbclient.QuizCard;
-import tbclient.ThemeColorInfo;
-import tbclient.ThreadInfo;
+import tbclient.HotTWThreadInfo;
+import tbclient.User;
 /* loaded from: classes8.dex */
-public class w3d extends ltc {
+public class w3d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull HeadcardLayout headcardLayout) {
+    public static JSONObject b(@NonNull HotTWThreadInfo hotTWThreadInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, headcardLayout)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hotTWThreadInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "card_title", headcardLayout.card_title);
-            if (headcardLayout.thread_list != null) {
+            if (hotTWThreadInfo.user_list != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (ThreadInfo threadInfo : headcardLayout.thread_list) {
-                    jSONArray.put(y9d.b(threadInfo));
+                for (User user : hotTWThreadInfo.user_list) {
+                    jSONArray.put(pad.b(user));
                 }
-                ltc.a(jSONObject, "thread_list", jSONArray);
+                ktc.a(jSONObject, "user_list", jSONArray);
             }
-            ThemeColorInfo themeColorInfo = headcardLayout.card_background;
-            if (themeColorInfo != null) {
-                ltc.a(jSONObject, "card_background", t9d.b(themeColorInfo));
-            }
-            PubHeadCardCover pubHeadCardCover = headcardLayout.cover;
-            if (pubHeadCardCover != null) {
-                ltc.a(jSONObject, AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, b7d.b(pubHeadCardCover));
-            }
-            QuizCard quizCard = headcardLayout.quiz_card;
-            if (quizCard != null) {
-                ltc.a(jSONObject, "quiz_card", e7d.b(quizCard));
-            }
+            ktc.a(jSONObject, "fans_count", hotTWThreadInfo.fans_count);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

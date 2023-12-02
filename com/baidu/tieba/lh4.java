@@ -1,31 +1,37 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.PMSConstants;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.ih4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class lh4 extends ih4 {
+public class lh4 extends qh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Set<a> d;
 
     /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public String b;
+        public String a;
+        public int b;
         public long c;
+        public long d;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -42,191 +48,225 @@ public class lh4 extends ih4 {
                     return;
                 }
             }
+            this.b = -1;
             this.c = 0L;
+            this.d = 0L;
             this.a = str;
         }
 
-        @NonNull
-        public static List<a> f(@Nullable List<hf4> list) {
+        public boolean equals(Object obj) {
             InterceptResult invokeL;
-            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-                ArrayList arrayList = new ArrayList();
-                if (list != null && !list.isEmpty()) {
-                    for (hf4 hf4Var : list) {
-                        if (hf4Var != null) {
-                            a aVar = new a(hf4Var.g);
-                            if (hf4Var.r) {
-                                str = "independent";
-                            } else {
-                                str = "normal";
-                            }
-                            aVar.d(str);
-                            aVar.e(hf4Var.i);
-                            arrayList.add(aVar);
-                        }
-                    }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+                if (super.equals(obj)) {
+                    return true;
                 }
-                return arrayList;
+                if (!(obj instanceof a)) {
+                    return false;
+                }
+                a aVar = (a) obj;
+                if (TextUtils.equals(aVar.b(), this.a) && aVar.c() == this.b) {
+                    return true;
+                }
+                return false;
             }
-            return (List) invokeL.objValue;
+            return invokeL.booleanValue;
         }
 
-        public String a() {
+        public a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.b = -1;
+            this.c = 0L;
+            this.d = 0L;
+            this.a = str;
+            this.b = i;
+        }
+
+        public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
+                return this.d;
             }
-            return (String) invokeV.objValue;
+            return invokeV.longValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.b;
+                return this.a;
             }
             return (String) invokeV.objValue;
         }
 
-        public long c() {
+        public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.b;
+            }
+            return invokeV.intValue;
+        }
+
+        public long d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return this.c;
             }
             return invokeV.longValue;
         }
 
-        public void d(String str) {
+        public int hashCode() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.b = str;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return Objects.hash(this.a, Integer.valueOf(this.b));
             }
+            return invokeV.intValue;
         }
 
         public void e(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.d = j;
+            }
+        }
+
+        public void f(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                this.a = str;
+            }
+        }
+
+        public void g(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.b = i;
+            }
+        }
+
+        public void h(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
                 this.c = j;
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b extends ih4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public String[] e;
-        @Nullable
-        public List<a> f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(String str) {
-            super(str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Nullable
-        public String[] i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.e;
-            }
-            return (String[]) invokeV.objValue;
-        }
-
-        @Nullable
-        public List<a> j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.f;
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public boolean k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                String[] strArr = this.e;
-                if (strArr != null && strArr.length != 0) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void l(@Nullable String[] strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, strArr) == null) {
-                this.e = strArr;
-            }
-        }
-
-        public void m(@Nullable List<a> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-                this.f = list;
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @WorkerThread
-    public lh4(List<b> list, @Nullable kj4 kj4Var) {
-        super((List<? extends ih4.a>) list, kj4Var);
+    public lh4(Collection<String> collection, @Nullable nj4 nj4Var) {
+        super(-1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, kj4Var};
+            Object[] objArr = {collection, nj4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((List<? extends ih4.a>) objArr2[0], (kj4) objArr2[1]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        if (collection != null && !collection.isEmpty()) {
+            this.d = new LinkedHashSet();
+            Map<String, PMSAppInfo> v = he4.i().v();
+            Map<String, jf4> p = he4.i().p();
+            for (String str : collection) {
+                if (!TextUtils.isEmpty(str)) {
+                    a aVar = new a(str);
+                    g(v, p, aVar, nj4Var);
+                    this.d.add(aVar);
+                }
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.ih4
-    public void g(@NonNull Map<String, PMSAppInfo> map, @NonNull Map<String, gf4> map2, @NonNull ih4.a aVar, @Nullable kj4 kj4Var) {
-        int j;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lh4(List<? extends a> list, @Nullable nj4 nj4Var) {
+        super(-1);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, map, map2, aVar, kj4Var) == null) {
-            super.g(map, map2, aVar, kj4Var);
-            if (!(aVar instanceof b)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, nj4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            b bVar = (b) aVar;
-            if (bVar.i() != null && bVar.j() == null && (j = ee4.i().j(bVar.b())) >= 0) {
-                bVar.m(a.f(ee4.i().k(bVar.b(), j)));
+        }
+        if (list != null && !list.isEmpty()) {
+            this.d = new LinkedHashSet();
+            Map<String, PMSAppInfo> v = he4.i().v();
+            Map<String, jf4> p = he4.i().p();
+            for (a aVar : list) {
+                if (aVar != null && !TextUtils.isEmpty(aVar.b())) {
+                    g(v, p, aVar, nj4Var);
+                    this.d.add(aVar);
+                }
             }
+        }
+    }
+
+    @Nullable
+    public Set<a> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public void g(@NonNull Map<String, PMSAppInfo> map, @NonNull Map<String, jf4> map2, @NonNull a aVar, @Nullable nj4 nj4Var) {
+        PMSAppInfo pMSAppInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, map2, aVar, nj4Var) != null) || !map.containsKey(aVar.b()) || (pMSAppInfo = map.get(aVar.b())) == null) {
+            return;
+        }
+        if (aVar.c() == -1) {
+            aVar.g(pMSAppInfo.appCategory);
+        }
+        if (!map2.containsKey(aVar.b())) {
+            aVar.h(0L);
+        } else if (nj4Var != null && pMSAppInfo.versionCode != 0 && !nj4Var.a(aVar.b(), aVar.c())) {
+            aVar.h(0L);
+        } else {
+            jf4 jf4Var = map2.get(aVar.b());
+            if (jf4Var != null) {
+                aVar.h(jf4Var.i);
+            } else {
+                aVar.h(0L);
+            }
+        }
+        if (pMSAppInfo.csProtocolVersion >= PMSConstants.a.a()) {
+            aVar.e(pMSAppInfo.appSign);
+        } else {
+            aVar.e(0L);
         }
     }
 }

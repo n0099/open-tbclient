@@ -6,8 +6,8 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.tieba.hc0;
 import com.baidu.tieba.mc0;
-import com.baidu.tieba.wsb;
-import com.baidu.tieba.ywb;
+import com.baidu.tieba.vsb;
+import com.baidu.tieba.xwb;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,15 +27,15 @@ public class AEffectProcessor extends BaseEffectProcessor {
     public AEffectProcessor() {
         mc0 mc0Var = new mc0();
         this.mVlogEditCore = mc0Var;
-        mc0Var.a(wsb.d().b());
+        mc0Var.a(vsb.d().b());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkCamera() {
         MediaSegment mediaSegment;
         this.isCamera = false;
-        MediaTrack mediaTrack = (MediaTrack) ywb.c(this.mUpdateMediaTracks, 0);
-        if (mediaTrack != null && (mediaSegment = (MediaSegment) ywb.c(mediaTrack.mediaSegments, 0)) != null && TextUtils.equals(mediaSegment.type, "camera")) {
+        MediaTrack mediaTrack = (MediaTrack) xwb.c(this.mUpdateMediaTracks, 0);
+        if (mediaTrack != null && (mediaSegment = (MediaSegment) xwb.c(mediaTrack.mediaSegments, 0)) != null && TextUtils.equals(mediaSegment.type, "camera")) {
             this.isCamera = true;
         }
     }

@@ -1,7 +1,10 @@
 package com.baidu.tieba;
-/* loaded from: classes9.dex */
-public interface zd4 extends ae4 {
-    void b();
 
-    void n(String str, String str2);
+import androidx.annotation.Nullable;
+import java.util.Map;
+/* loaded from: classes9.dex */
+public interface zd4 {
+    void a(@Nullable Map<String, String> map);
+
+    void onFail(Exception exc);
 }

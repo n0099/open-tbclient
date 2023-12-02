@@ -1,52 +1,121 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.l13;
+import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public final class f13 implements l13.a {
+public class f13 implements or2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final k13 b;
+    public Map<Runnable, String> c;
 
-    public f13(int i, @NonNull k13 k13Var) {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final f13 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-855265149, "Lcom/baidu/tieba/f13$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-855265149, "Lcom/baidu/tieba/f13$b;");
+                    return;
+                }
+            }
+            a = new f13(null);
+        }
+    }
+
+    public f13() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), k13Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = k13Var;
+        this.c = new ConcurrentHashMap();
     }
 
-    @Override // com.baidu.tieba.l13.a
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public static f13 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
-            if (i != this.a) {
-                this.b.b(2, "request permission fail");
-                return;
-            }
-            for (int i2 : iArr) {
-                if (i2 == -1) {
-                    this.b.b(1, "user denied");
-                    return;
-                }
-            }
-            this.b.a("permission granted successful");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
+        return (f13) invokeV.objValue;
+    }
+
+    public /* synthetic */ f13(a aVar) {
+        this();
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (or2.a) {
+                Log.e("SwanPerformance", "main process launch start，appId = " + str);
+            }
+            System.currentTimeMillis();
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c.isEmpty()) {
+            return;
+        }
+        if (or2.a) {
+            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.c.size());
+        }
+        for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
+            if (entry != null) {
+                ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
+            }
+        }
+        this.c.clear();
+    }
+
+    public void c(Message message) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) != null) || message == null || (obj = message.obj) == null || !(obj instanceof Bundle)) {
+            return;
+        }
+        Bundle bundle = (Bundle) obj;
+        boolean z = bundle.getBoolean("is_timeout", false);
+        String string = bundle.getString("app_id", null);
+        if (or2.a) {
+            Log.e("SwanPerformance", "main process launch end，timeout = " + z + " ; appId = " + string);
+        }
+        a();
     }
 }

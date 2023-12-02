@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import android.content.Context;
+import android.view.View;
 /* loaded from: classes9.dex */
 public interface xq4 {
-    void a(List<vq4> list);
-
-    void onPreLoad();
+    View a(Context context);
 }

@@ -23,10 +23,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b65;
-import com.baidu.tieba.bdb;
-import com.baidu.tieba.kxb;
-import com.baidu.tieba.mxb;
+import com.baidu.tieba.adb;
+import com.baidu.tieba.e65;
+import com.baidu.tieba.jxb;
+import com.baidu.tieba.lxb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
     public View d;
     public View e;
     public TBSpecificationBtn f;
-    public bdb g;
+    public adb g;
     public TextPaint h;
     public int i;
     public boolean j;
@@ -192,9 +192,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (view2 == this.f) {
                 String obj = this.b.getText().toString();
                 j();
-                bdb bdbVar = this.g;
-                if (bdbVar != null) {
-                    bdbVar.g(obj);
+                adb adbVar = this.g;
+                if (adbVar != null) {
+                    adbVar.g(obj);
                 }
             } else if (view2 == this.c) {
                 this.b.setText("");
@@ -237,7 +237,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             setLayoutParams(layoutParams);
         }
         this.m = false;
-        if (!TextUtils.equals(str, kxb.l(R.string.obfuscated_res_0x7f0f1798))) {
+        if (!TextUtils.equals(str, jxb.l(R.string.obfuscated_res_0x7f0f1799))) {
             this.b.setText(str);
         }
         setVisibility(0);
@@ -268,18 +268,18 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         this.n = new a(this);
         this.a = context;
         FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d05cd, this);
-        this.e = findViewById(R.id.obfuscated_res_0x7f091564);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091570);
+        this.e = findViewById(R.id.obfuscated_res_0x7f091565);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091571);
         this.d = findViewById;
         EMManager.from(findViewById).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0106);
-        this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0925a6);
-        b65 b65Var = new b65();
-        b65Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
-        this.f.setConfig(b65Var);
+        this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0925a8);
+        e65 e65Var = new e65();
+        e65Var.s(R.color.CAM_X0302, R.color.CAM_X0101);
+        this.f.setConfig(e65Var);
         this.f.setTextSize(R.dimen.T_X08);
         this.f.setText(this.a.getResources().getString(R.string.pb_send_post));
-        this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f0909dd);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09114c);
+        this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f0909de);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09114d);
         this.f.setOnClickListener(this);
         if (getContext() instanceof Activity) {
             ((Activity) getContext()).getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.n);
@@ -295,10 +295,10 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         }
     }
 
-    public void setOnTextWordsEditListener(bdb bdbVar) {
+    public void setOnTextWordsEditListener(adb adbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bdbVar) == null) {
-            this.g = bdbVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, adbVar) == null) {
+            this.g = adbVar;
         }
     }
 
@@ -359,9 +359,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (this.h == null) {
                 TextPaint textPaint = new TextPaint();
                 this.h = textPaint;
-                textPaint.setTextSize(kxb.j(R.dimen.obfuscated_res_0x7f0702b7));
+                textPaint.setTextSize(jxb.j(R.dimen.obfuscated_res_0x7f0702b7));
             }
-            StaticLayout staticLayout = new StaticLayout(str, this.h, mxb.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+            StaticLayout staticLayout = new StaticLayout(str, this.h, lxb.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
             int i2 = 0;
             if (staticLayout.getLineCount() > i) {
                 str = str.substring(0, staticLayout.getLineStart(i) - 1);
@@ -371,9 +371,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
                 i2 = this.b.getText().length();
             }
             this.b.setSelection(i2);
-            bdb bdbVar = this.g;
-            if (bdbVar != null && this.m) {
-                bdbVar.k(str);
+            adb adbVar = this.g;
+            if (adbVar != null && this.m) {
+                adbVar.k(str);
             }
         }
     }

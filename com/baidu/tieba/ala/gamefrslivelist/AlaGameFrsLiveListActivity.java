@@ -33,7 +33,7 @@ import com.baidu.tbadk.pageStayDuration.PageStayDurationFilter;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dt7;
+import com.baidu.tieba.ht7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -227,11 +227,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof dt7)) {
-                dt7 dt7Var = (dt7) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ht7)) {
+                ht7 ht7Var = (ht7) customResponsedMessage.getData();
                 ArrayList arrayList = new ArrayList();
-                if (dt7Var.e() != null) {
-                    for (FragmentDelegate fragmentDelegate : dt7Var.e()) {
+                if (ht7Var.e() != null) {
+                    for (FragmentDelegate fragmentDelegate : ht7Var.e()) {
                         if (fragmentDelegate.getFragmentTabStructure().frag != null) {
                             arrayList.add(fragmentDelegate.getFragmentTabStructure().frag);
                         }
@@ -358,11 +358,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             d dVar = new d(this, 2001620);
             dVar.setPriority(Integer.MAX_VALUE);
             registerListener(dVar);
-            dt7 dt7Var = new dt7(getPageContext().getPageActivity());
-            dt7Var.g(this.g);
-            dt7Var.h(this.h);
-            dt7Var.f(this.i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, dt7Var));
+            ht7 ht7Var = new ht7(getPageContext().getPageActivity());
+            ht7Var.g(this.g);
+            ht7Var.h(this.h);
+            ht7Var.f(this.i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, ht7Var));
         }
     }
 
@@ -483,7 +483,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             this.d.setOnPageChangeListener(this);
             this.d.setTabWidgetViewHeight(0);
             this.d.s();
-            this.d.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070363));
+            this.d.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070364));
             this.d.getFragmentTabWidget().setDviderRectWidth(-2);
             this.d.getFragmentTabWidget().setDviderRectHeight(BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070224));
             linearLayout.addView(this.d);

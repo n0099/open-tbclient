@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
-import com.baidu.tieba.vt6;
+import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
+import com.baidu.tieba.zt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class rt6 extends mt6 {
+public final class rt6 extends qt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public rt6() {
-        super(new AkTopRetainer(0.0f, 0.0f, 3, null), new ut6());
+        super(new BottomRetainer(0.5f), new xt6());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,7 +22,7 @@ public final class rt6 extends mt6 {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((vt6) objArr[0], (vt6.a) objArr[1]);
+                super((zt6) objArr[0], (zt6.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

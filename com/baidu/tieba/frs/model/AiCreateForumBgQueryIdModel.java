@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.frs.model.AiCreateForumBgQueryIdModel;
 import com.baidu.tieba.frs.model.AiCreateForumBgQueryIdModel$submitTextForAIPicQueryListener$2;
-import com.baidu.tieba.g28;
+import com.baidu.tieba.k28;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +36,7 @@ public final class AiCreateForumBgQueryIdModel {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void a(g28 g28Var);
+        void a(k28 k28Var);
 
         void onError();
     }
@@ -126,7 +126,7 @@ public final class AiCreateForumBgQueryIdModel {
                                 }
                                 return;
                             }
-                            g28 queryIdData = aiCreateForumBgQueryIdRespondedMessage.getQueryIdData();
+                            k28 queryIdData = aiCreateForumBgQueryIdRespondedMessage.getQueryIdData();
                             if (queryIdData != null) {
                                 AiCreateForumBgQueryIdModel aiCreateForumBgQueryIdModel = this.a;
                                 DefaultLog.getInstance().i("AiCreateForumBgQueryIdModel", "请求结束，有返回数据");

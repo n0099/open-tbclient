@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o7a;
 import com.baidu.tieba.pi;
+import com.baidu.tieba.s7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,19 +47,19 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
         this.d = 3;
         this.a = view2.findViewById(R.id.obfuscated_res_0x7f09014e);
         this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090147);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092674);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092676);
     }
 
     public void a(pi piVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, piVar) != null) || !(piVar instanceof o7a)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, piVar) != null) || !(piVar instanceof s7a)) {
             return;
         }
         this.e = piVar;
-        o7a o7aVar = (o7a) piVar;
+        s7a s7aVar = (s7a) piVar;
         SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
-        if (o7aVar.a() > 0) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d9), Integer.valueOf(o7aVar.a())));
+        if (s7aVar.a() > 0) {
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d9), Integer.valueOf(s7aVar.a())));
         }
         getView().setOnClickListener(this.f);
         c(TbadkCoreApplication.getInst().getSkinType());

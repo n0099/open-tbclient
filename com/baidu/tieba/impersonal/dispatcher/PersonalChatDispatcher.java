@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.impersonal.PersonalChatActivity;
-import com.baidu.tieba.kma;
+import com.baidu.tieba.oma;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0007\u0018\u0000 \n2\u00020\u0001:\u0001\nB\u0005¢\u0006\u0002\u0010\u0002J\u001c\u0010\u0003\u001a\u00020\u00042\b\u0010\u0005\u001a\u0004\u0018\u00010\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\bH\u0016J\u0010\u0010\t\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0006H\u0002¨\u0006\u000b"}, d2 = {"Lcom/baidu/tieba/impersonal/dispatcher/PersonalChatDispatcher;", "Lcom/baidu/tieba/schema/SchemaDispatcher;", "()V", "dispatch", "", "params", "Lorg/json/JSONObject;", "context", "Landroid/content/Context;", "getPageParamsObj", "Companion", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class PersonalChatDispatcher implements kma {
+public final class PersonalChatDispatcher implements oma {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
     public static final String OPEN_PAGE_FROM = "scene_from";
@@ -106,7 +106,7 @@ public final class PersonalChatDispatcher implements kma {
         return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.kma
+    @Override // com.baidu.tieba.oma
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
@@ -129,7 +129,7 @@ public final class PersonalChatDispatcher implements kma {
                 PersonalChatActivity.c.a(context, optString2, optString, optString3, str, optString5);
                 return;
             }
-            BdToast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f0e6d)).show();
+            BdToast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f0e6e)).show();
         }
     }
 }

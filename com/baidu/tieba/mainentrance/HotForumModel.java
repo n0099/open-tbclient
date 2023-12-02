@@ -8,8 +8,8 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di9;
-import com.baidu.tieba.ei9;
+import com.baidu.tieba.hi9;
+import com.baidu.tieba.ii9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,14 +22,14 @@ public class HotForumModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public BdPageContext a;
     public b b;
-    public List<di9> c;
+    public List<hi9> c;
     public HotSearchInfoData d;
-    public List<ei9> e;
+    public List<ii9> e;
     public String f;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void j(List<di9> list, List<ei9> list2, HotSearchInfoData hotSearchInfoData, String str);
+        void j(List<hi9> list, List<ii9> list2, HotSearchInfoData hotSearchInfoData, String str);
 
         void q(String str);
     }
@@ -88,7 +88,7 @@ public class HotForumModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof HotForumSocketResponseMessage;
                 if (!z && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    this.a.b.q(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e6f));
+                    this.a.b.q(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e70));
                 } else if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
                     if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                         if (responsedMessage instanceof HotForumHttpResponseMessage) {
@@ -110,10 +110,10 @@ public class HotForumModel extends BdBaseModel {
                     } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                         this.a.b.q(responsedMessage.getErrorString());
                     } else {
-                        this.a.b.q(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e6f));
+                        this.a.b.q(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e70));
                     }
                 } else {
-                    this.a.b.q(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e6f));
+                    this.a.b.q(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e70));
                 }
             }
         }

@@ -1,91 +1,45 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.Fans;
-import tbclient.FrsPage.Focus;
-import tbclient.FrsPage.Good;
-import tbclient.FrsPage.Identify;
-import tbclient.FrsPage.Info;
-import tbclient.FrsPage.Music;
-import tbclient.FrsPage.PhotoInfo;
-import tbclient.FrsPage.Size;
-import tbclient.FrsPage.StarInfo;
-import tbclient.FrsPage.Ticket;
-import tbclient.FrsPage.Video;
+import tbclient.FrsPage.StarContriRecord;
+import tbclient.FrsPage.StarRank;
+import tbclient.FrsPage.StarTaskInfo;
 /* loaded from: classes5.dex */
-public class f2d extends ltc {
+public class f2d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull StarInfo starInfo) {
+    public static JSONObject b(@NonNull StarRank starRank) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, starInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, starRank)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "has_frs_star", starInfo.has_frs_star);
-            ltc.a(jSONObject, "top", starInfo.top);
-            ltc.a(jSONObject, "head", starInfo.head);
-            ltc.a(jSONObject, "gender", starInfo.gender);
-            Info info = starInfo.info;
-            if (info != null) {
-                ltc.a(jSONObject, "info", v0d.b(info));
-            }
-            Fans fans = starInfo.fans;
-            if (fans != null) {
-                ltc.a(jSONObject, "fans", yzc.b(fans));
-            }
-            if (starInfo.focus != null) {
+            ktc.a(jSONObject, "rank_name", starRank.rank_name);
+            ktc.a(jSONObject, "rank_ranking", starRank.rank_ranking);
+            if (starRank.contri_record_list != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (Focus focus : starInfo.focus) {
-                    jSONArray.put(a0d.b(focus));
+                for (StarContriRecord starContriRecord : starRank.contri_record_list) {
+                    jSONArray.put(c2d.b(starContriRecord));
                 }
-                ltc.a(jSONObject, AddFriendActivityConfig.TYPE_FOCUS, jSONArray);
+                ktc.a(jSONObject, "contri_record_list", jSONArray);
             }
-            PhotoInfo photoInfo = starInfo.photo;
-            if (photoInfo != null) {
-                ltc.a(jSONObject, "photo", j1d.b(photoInfo));
+            ktc.a(jSONObject, "user_contri_score", starRank.user_contri_score);
+            ktc.a(jSONObject, "user_task_notice", starRank.user_task_notice);
+            if (starRank.user_task_info != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (StarTaskInfo starTaskInfo : starRank.user_task_info) {
+                    jSONArray2.put(h2d.b(starTaskInfo));
+                }
+                ktc.a(jSONObject, "user_task_info", jSONArray2);
             }
-            Video video = starInfo.video;
-            if (video != null) {
-                ltc.a(jSONObject, "video", v2d.b(video));
-            }
-            Music music = starInfo.music;
-            if (music != null) {
-                ltc.a(jSONObject, "music", c1d.b(music));
-            }
-            Music music2 = starInfo.mv;
-            if (music2 != null) {
-                ltc.a(jSONObject, "mv", c1d.b(music2));
-            }
-            Good good = starInfo.good;
-            if (good != null) {
-                ltc.a(jSONObject, FrsActivityConfig.GOOD, n0d.b(good));
-            }
-            Identify identify = starInfo.identify;
-            if (identify != null) {
-                ltc.a(jSONObject, "identify", u0d.b(identify));
-            }
-            Size size = starInfo.top_size;
-            if (size != null) {
-                ltc.a(jSONObject, "top_size", c2d.c(size));
-            }
-            Size size2 = starInfo.head_size;
-            if (size2 != null) {
-                ltc.a(jSONObject, "head_size", c2d.c(size2));
-            }
-            Ticket ticket = starInfo.trade;
-            if (ticket != null) {
-                ltc.a(jSONObject, "trade", m2d.b(ticket));
-            }
-            ltc.a(jSONObject, "star_forum_headimg", starInfo.star_forum_headimg);
+            ktc.a(jSONObject, "user_current_score_notice", starRank.user_current_score_notice);
+            ktc.a(jSONObject, "url", starRank.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

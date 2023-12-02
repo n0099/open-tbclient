@@ -15,7 +15,7 @@ public class yi2 {
     @V8JavascriptField
     public String errMsg;
     @V8JavascriptField
-    public String savedFilePath;
+    public ki2[] fileList;
 
     public yi2() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class yi2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SaveFileCallBack" + this.b;
+            return "GetSavedFileListCallBack" + this.b;
         }
         return (String) invokeV.objValue;
     }

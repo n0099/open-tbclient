@@ -1,187 +1,287 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class hw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+    public boolean a;
+    public String b;
     public String c;
     public String d;
-    public String e;
+    public float e;
     public String f;
-    public String g;
-    public boolean h;
+    @Nullable
+    public c g;
+    @Nullable
+    public b h;
+    @Nullable
+    public a i;
+    public String j;
+    public String k;
+    public AdvertAppInfo l;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838116, "Lcom/baidu/tieba/hw4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947838116, "Lcom/baidu/tieba/hw4;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        i = new HashSet();
+
+        @Nullable
+        public static a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                a aVar = new a();
+                aVar.a = jSONObject.optString("desc", "功能");
+                String optString = jSONObject.optString("url");
+                aVar.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    aVar.b = jSONObject.optString("cmd");
+                }
+                aVar.c = jSONObject.optString("cmd");
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Nullable
+        public static b a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                b bVar = new b();
+                bVar.a = jSONObject.optString("desc", "权限");
+                String optString = jSONObject.optString("url");
+                bVar.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    bVar.b = jSONObject.optString("cmd");
+                }
+                bVar.c = jSONObject.optString("cmd");
+                return bVar;
+            }
+            return (b) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Nullable
+        public static c a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                c cVar = new c();
+                cVar.a = jSONObject.optString("desc", "隐私");
+                String optString = jSONObject.optString("url");
+                cVar.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    cVar.b = jSONObject.optString("cmd");
+                }
+                cVar.c = jSONObject.optString("cmd");
+                return cVar;
+            }
+            return (c) invokeL.objValue;
+        }
     }
 
     public hw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = -1.0f;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return i.contains(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (p16.a().b("ad_feature_strict_mode_check_switch", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a(hw4 hw4Var) {
+        InterceptResult invokeL;
+        c cVar;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hw4Var)) == null) {
+            if (hw4Var == null) {
+                return false;
+            }
+            if (TextUtils.isEmpty(hw4Var.f) && TextUtils.isEmpty(hw4Var.d) && (((cVar = hw4Var.g) == null || TextUtils.isEmpty(cVar.a)) && ((bVar = hw4Var.h) == null || TextUtils.isEmpty(bVar.a)))) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static void b(AdvertAppInfo advertAppInfo) {
-        hw4 hw4Var;
+    @Nullable
+    public static hw4 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, advertAppInfo) == null) && advertAppInfo != null && (hw4Var = advertAppInfo.i) != null && !hw4Var.h && !a(hw4Var.g)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).r(hw4Var.d).s(hw4Var.e).t(hw4Var.c).w(String.valueOf(hw4Var.b)).p(advertAppInfo.g);
-            bz0.e(clogBuilder);
-            uf9.b(uf9.a(advertAppInfo));
-            hw4Var.h = true;
-            i.add(hw4Var.g);
-        }
-    }
-
-    public static void d(AdvertAppInfo advertAppInfo) {
-        hw4 hw4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, advertAppInfo) == null) && advertAppInfo != null && (hw4Var = advertAppInfo.i) != null && !hw4Var.h && !a(hw4Var.g)) {
-            advertAppInfo.j = advertAppInfo.i.a;
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).v(advertAppInfo.j).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(advertAppInfo.i.b)).p(advertAppInfo.i.g);
-            bz0.e(clogBuilder);
-            uf9.b(uf9.a(advertAppInfo));
-            hw4 hw4Var2 = advertAppInfo.i;
-            hw4Var2.h = true;
-            i.add(hw4Var2.g);
-        }
-    }
-
-    public static void g(mwa mwaVar) {
-        hw4 hw4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, mwaVar) == null) && mwaVar != null && mwaVar.getAdvertAppInfo() != null && (hw4Var = mwaVar.getAdvertAppInfo().i) != null && !hw4Var.h && !a(hw4Var.g)) {
-            mwaVar.l1 = hw4Var.d;
-            mwaVar.m1 = hw4Var.e;
-            mwaVar.k1 = hw4Var.c;
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(mwaVar.q1 + 1)).w(String.valueOf(mwaVar.o1)).v(hw4Var.a).r(hw4Var.d).s(hw4Var.e).t(hw4Var.c).p(hw4Var.g);
-            bz0.e(clogBuilder);
-            hw4Var.h = true;
-            i.add(hw4Var.g);
-        }
-    }
-
-    public static void c(hw4 hw4Var, int i2, boolean z) {
-        ClogBuilder.LogType logType;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{hw4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && hw4Var != null && !hw4Var.h && !a(hw4Var.g)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            if (z) {
-                logType = ClogBuilder.LogType.STOCK;
-            } else {
-                logType = ClogBuilder.LogType.SHOW;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            clogBuilder.y(logType).v(hw4Var.a).q(String.valueOf(i2 + 1)).r(hw4Var.d).s(hw4Var.e).t(hw4Var.c).w(String.valueOf(hw4Var.b)).p(hw4Var.g);
-            bz0.e(clogBuilder);
-            hw4Var.h = true;
-            i.add(hw4Var.g);
+            hw4 hw4Var = new hw4();
+            hw4Var.a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
+            hw4Var.b = jSONObject.optString("app_icon");
+            hw4Var.c = jSONObject.optString("app_name");
+            hw4Var.d = jSONObject.optString("developer_name");
+            hw4Var.f = jSONObject.optString("version");
+            hw4Var.g = c.a(jSONObject.optJSONObject("privacy"));
+            hw4Var.h = b.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
+            hw4Var.i = a.a(jSONObject.optJSONObject("feature"));
+            hw4Var.j = jSONObject.optString("apk_size");
+            hw4Var.k = jSONObject.optString("apk_url");
+            try {
+                float parseFloat = Float.parseFloat(jSONObject.optString("score"));
+                if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
+                    hw4Var.e = parseFloat;
+                } else {
+                    hw4Var.e = -1.0f;
+                }
+            } catch (NumberFormatException unused) {
+                hw4Var.e = -1.0f;
+            }
+            return hw4Var;
+        }
+        return (hw4) invokeL.objValue;
+    }
+
+    public static boolean c(hw4 hw4Var) {
+        InterceptResult invokeL;
+        c cVar;
+        b bVar;
+        AdvertAppInfo advertAppInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, hw4Var)) == null) {
+            if (hw4Var == null || !hw4Var.a) {
+                return true;
+            }
+            if (!TextUtils.isEmpty(hw4Var.f) && !TextUtils.isEmpty(hw4Var.d) && (cVar = hw4Var.g) != null && !TextUtils.isEmpty(cVar.b) && (bVar = hw4Var.h) != null && !TextUtils.isEmpty(bVar.b)) {
+                a aVar = hw4Var.i;
+                if (aVar != null && !TextUtils.isEmpty(aVar.b)) {
+                    return true;
+                }
+                if (f() && (advertAppInfo = hw4Var.l) != null) {
+                    d(ClogBuilder.LogType.CHECK, advertAppInfo.g, PayUVEventType.PAY_WALLET_BANNER_SHOW, "20001");
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(@NonNull ClogBuilder.LogType logType, @NonNull String str, @NonNull String str2, @NonNull String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, logType, str, str2, str3) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType).p(str).k(str2).l(str3);
+            dz0.e(clogBuilder);
         }
     }
 
-    public static void f(hw4 hw4Var, int i2, boolean z) {
-        ClogBuilder.LogType logType;
+    public void e(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{hw4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && hw4Var != null && !hw4Var.h && !a(hw4Var.g)) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            if (z) {
-                logType = ClogBuilder.LogType.STOCK;
-            } else {
-                logType = ClogBuilder.LogType.SHOW;
-            }
-            clogBuilder.y(logType).v(hw4Var.a).q(String.valueOf(i2 + 1)).w(String.valueOf(hw4Var.b)).p(hw4Var.g);
-            bz0.e(clogBuilder);
-            hw4Var.h = true;
-            i.add(hw4Var.g);
-        }
-    }
-
-    public static void h(hw4 hw4Var, int i2, boolean z) {
-        ClogBuilder.LogType logType;
-        int i3;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{hw4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && hw4Var != null && !hw4Var.h && !a(hw4Var.g)) {
-            boolean equals = "PB_BANNER".equals(hw4Var.a);
-            ClogBuilder clogBuilder = new ClogBuilder();
-            if (z) {
-                logType = ClogBuilder.LogType.STOCK;
-            } else {
-                logType = ClogBuilder.LogType.SHOW;
-            }
-            ClogBuilder y = clogBuilder.y(logType);
-            int i4 = -1;
-            if (equals) {
-                i3 = -1;
-            } else {
-                i3 = i2 + 1;
-            }
-            ClogBuilder q = y.q(String.valueOf(i3));
-            if (!equals) {
-                i4 = hw4Var.b;
-            }
-            q.w(String.valueOf(i4)).v(hw4Var.a).r(hw4Var.d).s(hw4Var.e).t(hw4Var.c).p(hw4Var.g);
-            bz0.e(clogBuilder);
-            hw4Var.h = true;
-            i.add(hw4Var.g);
-        }
-    }
-
-    public static void e(sm6 sm6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, sm6Var) == null) && sm6Var != null && sm6Var.c() != null && sm6Var.c().i != null && !sm6Var.c().i.h && !a(sm6Var.c().i.g)) {
-            sm6Var.c().j = sm6Var.c().i.a;
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).v(sm6Var.c().j).q(String.valueOf(sm6Var.c().position + 1)).w(String.valueOf(sm6Var.c().i.b)).p(sm6Var.c().i.g);
-            bz0.e(clogBuilder);
-            uf9.b(uf9.a(sm6Var.c()));
-            sm6Var.c().i.h = true;
-            i.add(sm6Var.c().i.g);
+        if (interceptable == null || interceptable.invokeL(1048576, this, advertAppInfo) == null) {
+            this.l = advertAppInfo;
         }
     }
 }

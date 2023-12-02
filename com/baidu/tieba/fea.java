@@ -1,32 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.searchbox.player.constants.PlayerConstant;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public class fea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public ThreadData d;
-    public int e;
-    public cea f;
-    public String g;
-    public boolean h;
-    public ep9 i;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
 
     public fea() {
         Interceptable interceptable = $ic;
@@ -38,222 +30,231 @@ public class fea {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0L;
-        this.b = 0L;
-        this.e = 1;
-        this.g = "1";
-        this.i = new ep9();
     }
 
-    public void j() {
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.b > 0) {
-                this.a += System.currentTimeMillis() - this.b;
-                this.b = 0L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "Unknown";
             }
-            k();
-            this.a = 0L;
-            this.b = 0L;
-            this.h = false;
-            this.i.a();
-        }
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j = this.c;
-            float f = ((float) this.a) / ((float) j);
-            if (j <= 60000) {
-                if (f >= 0.9d) {
-                    return true;
-                }
-                return false;
-            } else if (j <= LiveFeedPageSdk.REFRESH_TIME) {
-                if (f >= 0.8d) {
-                    return true;
-                }
-                return false;
-            } else if (j <= 600000) {
-                if (f >= 0.7d) {
-                    return true;
-                }
-                return false;
-            } else if (f >= 0.6d) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public cea c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (cea) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b > 0) {
-            this.a += System.currentTimeMillis() - this.b;
-            this.b = 0L;
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.b > 0) {
-                this.a += System.currentTimeMillis() - this.b;
-                this.b = 0L;
-            }
-            this.h = false;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.i.e();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.b != 0) {
-                this.a += System.currentTimeMillis() - this.b;
-            }
-            this.b = System.currentTimeMillis();
-            this.h = true;
-            this.i.b();
-        }
-    }
-
-    public void f(nda ndaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ndaVar) == null) {
-            this.i.d(ndaVar);
-        }
-    }
-
-    public void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.c = j;
-            this.i.c();
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void n(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, threadData) == null) {
-            this.d = threadData;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void p(cea ceaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, ceaVar) == null) {
-            this.f = ceaVar;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public final void k() {
-        StatisticItem statisticItem;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            long j = this.a;
-            if (j >= 0 && j < 86400000) {
-                if (j > 0) {
-                    if (this.e == 2) {
-                        statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_STAY_TIME);
-                        statisticItem.param(TiebaStatic.Params.OBJ_DURATION, TimeUnit.MILLISECONDS.toSeconds(this.a));
-                    } else {
-                        statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
-                        statisticItem.param(TiebaStatic.Params.OBJ_DURATION, this.a);
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1679289728:
+                    if (str.equals("Concern")) {
+                        c = '\t';
+                        break;
                     }
-                    statisticItem.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-                    statisticItem.param("obj_type", this.g);
-                    statisticItem.param("playduration", this.c);
-                    statisticItem.param("player_type", 1);
-                    statisticItem.param("is_finish", a() ? 1 : 0);
-                    if (!rd.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-                        statisticItem.param("task_id", TbadkCoreApplication.getInst().getTaskId());
+                    break;
+                case -1152667590:
+                    if (str.equals("ad_feed")) {
+                        c = 1;
+                        break;
                     }
-                    cea ceaVar = this.f;
-                    if (ceaVar != null) {
-                        ceaVar.a(statisticItem);
+                    break;
+                case -654725321:
+                    if (str.equals("ad_video_landing")) {
+                        c = 0;
+                        break;
                     }
-                    if (!statisticItem.hasParam(TiebaStatic.Params.OBJ_PARAM5) && (threadData = this.d) != null) {
-                        if (threadData.getBaijiahaoData() != null) {
-                            if (this.d.getBaijiahaoData().oriUgcType == 2) {
-                                statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 3);
-                            } else if (this.d.getBaijiahaoData().oriUgcType == 4) {
-                                statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+                    break;
+                case -421681106:
+                    if (str.equals("HomePage")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case -181435716:
+                    if (str.equals("HomeVideo")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case 2546:
+                    if (str.equals("PB")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 70919:
+                    if (str.equals("Frs")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 175967569:
+                    if (str.equals(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 671041499:
+                    if (str.equals("ad_paster")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 1974553171:
+                    if (str.equals(PlayerConstant.PAGE_VIDEO_LANDING)) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                case 1:
+                case 2:
+                    return "ad";
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case '\b':
+                case '\t':
+                    return "tbc";
+                default:
+                    return "Unknown";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "Unknown";
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 1567) {
+                if (hashCode != 1568) {
+                    if (hashCode != 1570) {
+                        if (hashCode != 1576) {
+                            if (hashCode != 1599) {
+                                switch (hashCode) {
+                                    case 49:
+                                        if (str.equals("1")) {
+                                            c = 0;
+                                            break;
+                                        }
+                                        break;
+                                    case 50:
+                                        if (str.equals("2")) {
+                                            c = 2;
+                                            break;
+                                        }
+                                        break;
+                                    case 51:
+                                        if (str.equals("3")) {
+                                            c = 4;
+                                            break;
+                                        }
+                                        break;
+                                    case 52:
+                                        if (str.equals("4")) {
+                                            c = 3;
+                                            break;
+                                        }
+                                        break;
+                                    default:
+                                        switch (hashCode) {
+                                            case 54:
+                                                if (str.equals("6")) {
+                                                    c = 7;
+                                                    break;
+                                                }
+                                                break;
+                                            case 55:
+                                                if (str.equals("7")) {
+                                                    c = 1;
+                                                    break;
+                                                }
+                                                break;
+                                            case 56:
+                                                if (str.equals("8")) {
+                                                    c = '\b';
+                                                    break;
+                                                }
+                                                break;
+                                            case 57:
+                                                if (str.equals("9")) {
+                                                    c = '\t';
+                                                    break;
+                                                }
+                                                break;
+                                        }
+                                }
+                            } else if (str.equals("21")) {
+                                c = '\f';
                             }
-                        } else {
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+                        } else if (str.equals("19")) {
+                            c = '\n';
                         }
+                    } else if (str.equals("13")) {
+                        c = 11;
                     }
-                    ThreadData threadData2 = this.d;
-                    if (threadData2 != null) {
-                        statisticItem.param(TiebaStatic.Params.IS_ZP, threadData2.isWorksInfo() ? 1 : 0);
-                    }
-                    TiebaStatic.log(statisticItem);
-                    rda.d(this.a, this.g, this.f, "", this.c);
-                } else if (this.h) {
-                    rda.d(j, this.g, this.f, "", this.c);
+                } else if (str.equals("11")) {
+                    c = 6;
                 }
+            } else if (str.equals("10")) {
+                c = 5;
+            }
+            switch (c) {
+                case 0:
+                    return "HomePage";
+                case 1:
+                    return "Concern";
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    return "Frs";
+                case 7:
+                    return "PB";
+                case '\b':
+                case '\t':
+                case '\n':
+                    return "HomeVideo";
+                case 11:
+                    return FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE;
+                case '\f':
+                    return PlayerConstant.PAGE_VIDEO_LANDING;
+                default:
+                    return "Unknown";
             }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 1;
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 49) {
+                if (hashCode == 50 && str.equals("2")) {
+                    c = 1;
+                }
+            } else if (str.equals("1")) {
+                c = 0;
+            }
+            if (c == 0 || c != 1) {
+                return 1;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.model;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.f28;
+import com.baidu.tieba.j28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public final class AiCreateForumBgLoopRespondedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f28 aiCreateForumBgLoopData;
+    public j28 aiCreateForumBgLoopData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AiCreateForumBgLoopRespondedMessage() {
@@ -36,13 +36,13 @@ public final class AiCreateForumBgLoopRespondedMessage extends JsonHttpResponsed
         }
     }
 
-    public final f28 getAiCreateForumBgLoopData() {
+    public final j28 getAiCreateForumBgLoopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.aiCreateForumBgLoopData;
         }
-        return (f28) invokeV.objValue;
+        return (j28) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -52,15 +52,15 @@ public final class AiCreateForumBgLoopRespondedMessage extends JsonHttpResponsed
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.aiCreateForumBgLoopData = f28.b.a(optJSONObject);
+                this.aiCreateForumBgLoopData = j28.b.a(optJSONObject);
             }
         }
     }
 
-    public final void setAiCreateForumBgLoopData(f28 f28Var) {
+    public final void setAiCreateForumBgLoopData(j28 j28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f28Var) == null) {
-            this.aiCreateForumBgLoopData = f28Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j28Var) == null) {
+            this.aiCreateForumBgLoopData = j28Var;
         }
     }
 }

@@ -1,74 +1,155 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "FestivalTipViewHelper")
+import tbclient.FestivalTipData;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes5.dex */
 public final class abb {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ThemeColorInfo a;
+    public final ThemeColorInfo b;
 
-    public static final void a(String str, String str2, TbRichTextView.Position position) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, position) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FESTIVAL_TIP_VIEW_CLICK);
-            boolean z2 = false;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947610824, "Lcom/baidu/tieba/abb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (!z) {
-                statisticItem.addParam("tid", str);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947610824, "Lcom/baidu/tieba/abb;");
+                return;
             }
-            if (!((str2 == null || str2.length() == 0) ? true : true)) {
-                statisticItem.addParam("pid", str2);
-            }
-            if (position != null) {
-                statisticItem.addParam("obj_locate", position.getIndex());
-            }
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
         }
+        c = new a(null);
     }
 
-    public static final void b(nwa postData, TbRichTextView richTextView, boolean z) {
+    @JvmStatic
+    public static final abb a(FestivalTipData festivalTipData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, postData, richTextView, z) == null) {
-            Intrinsics.checkNotNullParameter(postData, "postData");
-            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
-            if (postData.G() != null) {
-                if (z) {
-                    richTextView.getLayoutStrategy().m(-1);
-                } else {
-                    richTextView.getLayoutStrategy().m(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004));
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, festivalTipData)) == null) ? c.a(festivalTipData) : (abb) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof abb) {
+                abb abbVar = (abb) obj;
+                return Intrinsics.areEqual(this.a, abbVar.a) && Intrinsics.areEqual(this.b, abbVar.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "FestivalTipViewStyle(backgroundColor=" + this.a + ", textColor=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
+
+        @JvmStatic
+        public final abb a(FestivalTipData festivalTipData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, festivalTipData)) == null) {
+                Intrinsics.checkNotNullParameter(festivalTipData, "festivalTipData");
+                ThemeColorInfo themeColorInfo = festivalTipData.background_color;
+                Intrinsics.checkNotNullExpressionValue(themeColorInfo, "festivalTipData.background_color");
+                ThemeColorInfo themeColorInfo2 = festivalTipData.font_color;
+                Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "festivalTipData.font_color");
+                return new abb(themeColorInfo, themeColorInfo2);
+            }
+            return (abb) invokeL.objValue;
+        }
     }
 
-    public static final void c(nwa postData, TbRichTextView richTextView) {
-        Rect rect;
+    public abb(ThemeColorInfo backgroundColor, ThemeColorInfo textColor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, postData, richTextView) == null) {
-            Intrinsics.checkNotNullParameter(postData, "postData");
-            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
-            ly5 layoutStrategy = richTextView.getLayoutStrategy();
-            if (postData.G() != null) {
-                rect = new Rect(-1, -1, -1, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds53));
-            } else {
-                rect = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {backgroundColor, textColor};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            layoutStrategy.s(rect);
         }
+        Intrinsics.checkNotNullParameter(backgroundColor, "backgroundColor");
+        Intrinsics.checkNotNullParameter(textColor, "textColor");
+        this.a = backgroundColor;
+        this.b = textColor;
+    }
+
+    public final ThemeColorInfo b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (ThemeColorInfo) invokeV.objValue;
+    }
+
+    public final ThemeColorInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (ThemeColorInfo) invokeV.objValue;
     }
 }

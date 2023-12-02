@@ -1,28 +1,19 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tieba.zb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class wka implements ub7 {
+public final class wka implements zb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ub7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
-    }
 
     public wka() {
         Interceptable interceptable = $ic;
@@ -38,33 +29,84 @@ public final class wka implements ub7 {
         }
     }
 
-    @Override // com.baidu.tieba.ub7
-    public Map<String, String> a(r57 businessInfo) {
-        InterceptResult invokeL;
-        String str;
+    @Override // com.baidu.tieba.yb7
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            String hdid = TbadkCoreApplication.getInst().getHdid();
-            String str2 = "";
-            if (hdid == null) {
-                hdid = "";
-            }
-            hashMap.put("hdid", hdid);
-            if (PermissionUtil.isBrowseMode()) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put(TiebaStatic.Params.PURE_BROWSING, str);
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null) {
-                str2 = currentAccount;
-            }
-            hashMap.put("uid", str2);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return zb7.a.b(this);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb7
+    public Map<String, String> a(v57 v57Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v57Var)) == null) {
+            return zb7.a.a(this, v57Var);
         }
         return (Map) invokeL.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0028, code lost:
+        if (r5.equals("video_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
+        if (r5.equals("live_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x003a, code lost:
+        if (r5.equals("live_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0043, code lost:
+        if (r5.equals("common_forum") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0046, code lost:
+        return "enter_forum_btn_click";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004f, code lost:
+        if (r5.equals("video_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
+        if (r5.equals("common_user") == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0059, code lost:
+        return "user_head_click";
+     */
+    @Override // com.baidu.tieba.zb7
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(v57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            String str = businessInfo.a().get("card_head_type");
+            if (str == null) {
+                str = "common_user";
+            }
+            switch (str.hashCode()) {
+                case -1924729441:
+                    break;
+                case -1617812209:
+                    break;
+                case 448970189:
+                    break;
+                case 1009035070:
+                    break;
+                case 1201356814:
+                    break;
+                case 1373469789:
+                    break;
+                default:
+                    if (!GlobalBuildConfig.isDebug()) {
+                        return "";
+                    }
+                    throw new IllegalStateException("unknown card_head_type :" + str);
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
     }
 }

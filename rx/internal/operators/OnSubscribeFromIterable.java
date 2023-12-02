@@ -1,105 +1,105 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.dpc;
-import com.baidu.tieba.eoc;
-import com.baidu.tieba.goc;
-import com.baidu.tieba.koc;
-import com.baidu.tieba.qoc;
+import com.baidu.tieba.cpc;
+import com.baidu.tieba.doc;
+import com.baidu.tieba.foc;
+import com.baidu.tieba.joc;
+import com.baidu.tieba.poc;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class OnSubscribeFromIterable<T> implements eoc.a<T> {
+public final class OnSubscribeFromIterable<T> implements doc.a<T> {
     public final Iterable<? extends T> a;
 
     /* loaded from: classes2.dex */
-    public static final class IterableProducer<T> extends AtomicLong implements goc {
+    public static final class IterableProducer<T> extends AtomicLong implements foc {
         public static final long serialVersionUID = -8730475647105475802L;
         public final Iterator<? extends T> it;
-        public final koc<? super T> o;
+        public final joc<? super T> o;
 
-        public IterableProducer(koc<? super T> kocVar, Iterator<? extends T> it) {
-            this.o = kocVar;
+        public IterableProducer(joc<? super T> jocVar, Iterator<? extends T> it) {
+            this.o = jocVar;
             this.it = it;
         }
 
         /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
         public void fastPath() {
-            koc<? super T> kocVar = this.o;
+            joc<? super T> jocVar = this.o;
             Iterator<? extends T> it = this.it;
-            while (!kocVar.isUnsubscribed()) {
+            while (!jocVar.isUnsubscribed()) {
                 try {
-                    kocVar.onNext((T) it.next());
-                    if (kocVar.isUnsubscribed()) {
+                    jocVar.onNext((T) it.next());
+                    if (jocVar.isUnsubscribed()) {
                         return;
                     }
                     try {
                         if (!it.hasNext()) {
-                            if (!kocVar.isUnsubscribed()) {
-                                kocVar.onCompleted();
+                            if (!jocVar.isUnsubscribed()) {
+                                jocVar.onCompleted();
                                 return;
                             }
                             return;
                         }
                     } catch (Throwable th) {
-                        qoc.f(th, kocVar);
+                        poc.f(th, jocVar);
                         return;
                     }
                 } catch (Throwable th2) {
-                    qoc.f(th2, kocVar);
+                    poc.f(th2, jocVar);
                     return;
                 }
             }
         }
 
-        @Override // com.baidu.tieba.goc
+        @Override // com.baidu.tieba.foc
         public void request(long j) {
             if (get() == Long.MAX_VALUE) {
                 return;
             }
             if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
                 fastPath();
-            } else if (j > 0 && dpc.b(this, j) == 0) {
+            } else if (j > 0 && cpc.b(this, j) == 0) {
                 slowPath(j);
             }
         }
 
         /* JADX DEBUG: Type inference failed for r6v2. Raw type applied. Possible types: T, ? super T */
         public void slowPath(long j) {
-            koc<? super T> kocVar = this.o;
+            joc<? super T> jocVar = this.o;
             Iterator<? extends T> it = this.it;
             do {
                 long j2 = 0;
                 while (true) {
                     if (j2 != j) {
-                        if (kocVar.isUnsubscribed()) {
+                        if (jocVar.isUnsubscribed()) {
                             return;
                         }
                         try {
-                            kocVar.onNext((T) it.next());
-                            if (kocVar.isUnsubscribed()) {
+                            jocVar.onNext((T) it.next());
+                            if (jocVar.isUnsubscribed()) {
                                 return;
                             }
                             try {
                                 if (!it.hasNext()) {
-                                    if (!kocVar.isUnsubscribed()) {
-                                        kocVar.onCompleted();
+                                    if (!jocVar.isUnsubscribed()) {
+                                        jocVar.onCompleted();
                                         return;
                                     }
                                     return;
                                 }
                                 j2++;
                             } catch (Throwable th) {
-                                qoc.f(th, kocVar);
+                                poc.f(th, jocVar);
                                 return;
                             }
                         } catch (Throwable th2) {
-                            qoc.f(th2, kocVar);
+                            poc.f(th2, jocVar);
                             return;
                         }
                     } else {
                         j = get();
                         if (j2 == j) {
-                            j = dpc.g(this, j2);
+                            j = cpc.g(this, j2);
                         }
                     }
                 }
@@ -116,21 +116,21 @@ public final class OnSubscribeFromIterable<T> implements eoc.a<T> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.soc
+    @Override // com.baidu.tieba.roc
     /* renamed from: a */
-    public void call(koc<? super T> kocVar) {
+    public void call(joc<? super T> jocVar) {
         try {
             Iterator<? extends T> it = this.a.iterator();
             boolean hasNext = it.hasNext();
-            if (!kocVar.isUnsubscribed()) {
+            if (!jocVar.isUnsubscribed()) {
                 if (!hasNext) {
-                    kocVar.onCompleted();
+                    jocVar.onCompleted();
                 } else {
-                    kocVar.f(new IterableProducer(kocVar, it));
+                    jocVar.f(new IterableProducer(jocVar, it));
                 }
             }
         } catch (Throwable th) {
-            qoc.f(th, kocVar);
+            poc.f(th, jocVar);
         }
     }
 }

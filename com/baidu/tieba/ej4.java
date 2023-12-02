@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface ej4 {
-    rh4<JSONArray> g();
+    void l(JSONObject jSONObject);
 
-    ce4 getCallback();
-
-    nh4 getRequest();
+    void o();
 }

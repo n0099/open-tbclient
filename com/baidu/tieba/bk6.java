@@ -1,74 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.browser.exception.TbWebViewException;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: OnWebScrollChangeListener.java */
 /* loaded from: classes5.dex */
-public class bk6 {
+public final /* synthetic */ class bk6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ek6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void c(Throwable th) {
+    public static void a(ck6 ck6Var, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, th) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{ck6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947647900, "Lcom/baidu/tieba/bk6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947647900, "Lcom/baidu/tieba/bk6;");
-                return;
-            }
-        }
-        a = new ek6() { // from class: com.baidu.tieba.ak6
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.ek6
-            public final void a(Throwable th) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, th) == null) {
-                    bk6.b(th);
-                }
-            }
-        };
-    }
-
-    public static void a(Throwable th) {
+    public static void b(ck6 ck6Var, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, th) == null) {
-            throw new RuntimeException(th);
-        }
-    }
-
-    public static /* synthetic */ void b(Throwable th) {
-        if (!cj6.a()) {
-            c(th);
-        } else {
-            a(th);
-            throw null;
-        }
-    }
-
-    public static void d(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
-            if (!(th instanceof TbWebViewException)) {
-                th = new TbWebViewException(th);
-            }
-            a.a(th);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{ck6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
     }
 }

@@ -53,9 +53,9 @@ public class CustomAlertDialog extends Dialog {
     private void init() {
         setContentView(R.layout.obfuscated_res_0x7f0d05ab);
         setCanceledOnTouchOutside(true);
-        this.titleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f092124);
-        this.contentTv = (TextView) findViewById(R.id.obfuscated_res_0x7f092121);
-        this.positiveBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f092123);
-        this.negativeBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f092122);
+        this.titleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f092126);
+        this.contentTv = (TextView) findViewById(R.id.obfuscated_res_0x7f092123);
+        this.positiveBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f092125);
+        this.negativeBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f092124);
     }
 }

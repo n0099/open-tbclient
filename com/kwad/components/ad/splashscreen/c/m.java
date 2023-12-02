@@ -167,14 +167,14 @@ public final class m extends i implements View.OnClickListener, com.kwad.compone
         if (context != null) {
             this.eh = (Vibrator) context.getSystemService("vibrator");
         }
-        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0914a2);
+        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0914a3);
         if (viewStub != null) {
             this.DD = (ViewGroup) viewStub.inflate();
         } else {
-            this.DD = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914a3);
+            this.DD = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914a4);
         }
-        this.DF = (TextView) this.DD.findViewById(R.id.obfuscated_res_0x7f09149b);
-        KsShakeView ksShakeView = (KsShakeView) this.DD.findViewById(R.id.obfuscated_res_0x7f0914a6);
+        this.DF = (TextView) this.DD.findViewById(R.id.obfuscated_res_0x7f09149c);
+        KsShakeView ksShakeView = (KsShakeView) this.DD.findViewById(R.id.obfuscated_res_0x7f0914a7);
         this.DE = ksShakeView;
         ksShakeView.setOnClickListener(this);
     }

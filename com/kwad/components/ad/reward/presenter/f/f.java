@@ -43,7 +43,7 @@ public class f extends a implements j, a.InterfaceC0649a {
 
     @IdRes
     public int ci() {
-        return R.id.obfuscated_res_0x7f09139e;
+        return R.id.obfuscated_res_0x7f09139f;
     }
 
     public String getTKReaderScene() {

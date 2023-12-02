@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.mutiprocess.write.NewWritePageStateEvent;
-import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class sn5 implements lm5<NewWritePageStateEvent> {
+public class sn5 implements om5<SoLoaderEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,17 +29,22 @@ public class sn5 implements lm5<NewWritePageStateEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm5
+    @Override // com.baidu.tieba.om5
     /* renamed from: a */
-    public boolean onEvent(NewWritePageStateEvent newWritePageStateEvent) {
+    public boolean onEvent(SoLoaderEvent soLoaderEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, newWritePageStateEvent)) == null) {
-            if (newWritePageStateEvent == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, soLoaderEvent)) == null) {
+            if (soLoaderEvent != null && !StringUtils.isNull(soLoaderEvent.name)) {
+                if (kh.a(BdBaseApplication.getInst().getContext(), ih.a(soLoaderEvent.name))) {
+                    ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                    String str = soLoaderEvent.name;
+                    resHashMap.put(str, ih.a(str));
+                    return true;
+                }
+                return true;
             }
-            WriteMsgHolder.isH5PageShowing = newWritePageStateEvent.isShowing;
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }

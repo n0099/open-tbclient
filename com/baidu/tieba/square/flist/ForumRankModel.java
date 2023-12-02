@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.b05;
 import com.baidu.tieba.da;
+import com.baidu.tieba.e05;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -96,8 +96,8 @@ public class ForumRankModel extends BdBaseModel {
             ForumRankData forumRankData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                b05.k();
-                da<String> l = b05.l("tb.forum_rank");
+                e05.k();
+                da<String> l = e05.l("tb.forum_rank");
                 if (l != null) {
                     str = l.get("forum_rank_cache_key_" + this.a.a);
                 } else {

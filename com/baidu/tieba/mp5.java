@@ -1,22 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.BdStatsItem;
+import android.annotation.TargetApi;
+import android.view.Choreographer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.tbadk.performanceLog.PerformanceLogger;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+@TargetApi(16)
 /* loaded from: classes7.dex */
-public class mp5 extends sp5 {
+public class mp5 implements Choreographer.FrameCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public long c;
+    public int d;
+    public int e;
+    public boolean f;
 
     public mp5() {
         Interceptable interceptable = $ic;
@@ -28,142 +30,83 @@ public class mp5 extends sp5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.sp5
-    public void a(pp5 pp5Var) {
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, pp5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", "time_t");
-        e(logItem, pp5Var);
-        String str2 = "1";
-        if (pp5Var.s) {
-            str = "1";
-        } else {
-            str = "0";
-        }
-        logItem.append("ishttp", str);
-        if (!pp5Var.b) {
-            str2 = "0";
-        }
-        logItem.append("issuccess", str2);
-        logItem.append(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-        logItem.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(pp5Var.e));
-        logItem.append("wt", String.valueOf(pp5Var.p));
-        logItem.append("qt", String.valueOf(pp5Var.f));
-        logItem.append("connt", String.valueOf(pp5Var.g));
-        logItem.append("rwt", String.valueOf(pp5Var.h));
-        logItem.append("dect", String.valueOf(pp5Var.k));
-        logItem.append("parset", String.valueOf(pp5Var.l));
-        logItem.append("rendert", String.valueOf(pp5Var.o));
-        logItem.append("ss", String.valueOf(pp5Var.q));
-        logItem.append("hs", String.valueOf(pp5Var.r));
-        if (pp5Var.s && (i = pp5Var.t) != 0) {
-            logItem.append("salno", String.valueOf(i));
-            long j = pp5Var.u;
-            if (j != 0) {
-                logItem.append("scosttime", String.valueOf(j));
-            }
-        }
-        int i2 = pp5Var.v;
-        if (i2 != 0) {
-            logItem.append(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, Integer.valueOf(i2));
-        }
-        if (pp5Var.s) {
-            logItem.append("c_logid", String.valueOf(pp5Var.A));
-        } else {
-            logItem.append(PushConstants.SEQ_ID, String.valueOf(pp5Var.z & 4294967295L));
-        }
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
-    }
-
-    @Override // com.baidu.tieba.sp5
-    public void b(pp5 pp5Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pp5Var, i) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow() || pp5Var.D <= 0) {
-            return;
-        }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", "time_t");
-        e(logItem, pp5Var);
-        logItem.append("pct", String.valueOf(pp5Var.D));
-        if (i != 0) {
-            if (i != 40) {
                 return;
             }
-            logItem.append("pct_type", String.valueOf(101));
-        } else {
-            logItem.append("pct_type", String.valueOf(100));
         }
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
+        this.a = 0L;
+        this.d = 0;
+        this.e = -1;
+        this.f = false;
     }
 
-    @Override // com.baidu.tieba.sp5
-    public void c(pp5 pp5Var, boolean z) {
-        String str;
-        int i;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, pp5Var, z) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
-        if (!z || pp5Var.B > 0) {
-            if (!z && pp5Var.C <= 0) {
+        return invokeV.intValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.c = currentTimeMillis;
+            this.b = currentTimeMillis + 1000;
+            this.a = 0L;
+            this.d = 0;
+            this.e = -1;
+            this.f = false;
+            Choreographer.getInstance().postFrameCallback(this);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f = true;
+            Choreographer.getInstance().removeFrameCallback(this);
+            a(System.currentTimeMillis());
+            this.d = 0;
+            this.c = 0L;
+        }
+    }
+
+    public final void a(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = this.c;
+            if (j2 <= 0) {
                 return;
             }
-            BdStatsItem logItem = PerformanceLogger.getLogItem();
-            logItem.append("action", "time_t");
-            e(logItem, pp5Var);
-            if (z) {
-                logItem.append("put", String.valueOf(pp5Var.B));
-            } else {
-                logItem.append("pdt", String.valueOf(pp5Var.C));
+            long j3 = j - j2;
+            if (j3 > 0 && this.e <= 0) {
+                this.e = (int) (60 - ((this.d * 1000) / j3));
             }
-            String str2 = "1";
-            if (pp5Var.s) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            logItem.append("ishttp", str);
-            if (!pp5Var.b) {
-                str2 = "0";
-            }
-            logItem.append("issuccess", str2);
-            logItem.append(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-            logItem.append("qt", String.valueOf(pp5Var.f));
-            logItem.append("connt", String.valueOf(pp5Var.g));
-            logItem.append("rwt", String.valueOf(pp5Var.h));
-            logItem.append("dect", String.valueOf(pp5Var.k));
-            logItem.append("parset", String.valueOf(pp5Var.l));
-            logItem.append("rendert", String.valueOf(pp5Var.o));
-            logItem.append("ss", String.valueOf(pp5Var.q));
-            logItem.append("hs", String.valueOf(pp5Var.r));
-            if (pp5Var.s && (i = pp5Var.t) != 0) {
-                logItem.append("salno", String.valueOf(i));
-                long j = pp5Var.u;
-                if (j != 0) {
-                    logItem.append("scosttime", String.valueOf(j));
+        }
+    }
+
+    @Override // android.view.Choreographer.FrameCallback
+    public void doFrame(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            long j2 = this.a;
+            if (j2 != 0) {
+                long j3 = (j - j2) / 1000000;
+                if (j3 > 16 && j3 < 960) {
+                    this.d = (int) (this.d + (j3 / 16));
                 }
             }
-            int i2 = pp5Var.v;
-            if (i2 != 0) {
-                logItem.append(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, Integer.valueOf(i2));
+            this.a = j;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis < this.b && !this.f) {
+                Choreographer.getInstance().postFrameCallback(this);
+                return;
             }
-            BdStatisticsManager.getInstance().performance(this.subType, logItem);
-        }
-    }
-
-    public final void e(BdStatsItem bdStatsItem, pp5 pp5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, bdStatsItem, pp5Var) == null) && (pp5Var instanceof lp5)) {
-            bdStatsItem.append("ptype", Integer.valueOf(((lp5) pp5Var).F));
+            a(currentTimeMillis);
+            this.d = 0;
+            this.c = 0L;
         }
     }
 }

@@ -1,218 +1,111 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Looper;
-import android.os.Message;
-import android.os.RemoteException;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
+import java.lang.reflect.Method;
 /* loaded from: classes9.dex */
 public class xdc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public Context b;
-    public c c;
-    public ServiceConnection d;
 
     /* loaded from: classes9.dex */
-    public interface c {
-        void a(int i, Exception exc);
-
-        void b(String str, boolean z);
-    }
-
-    /* loaded from: classes9.dex */
-    public class a implements ServiceConnection {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static Object a;
+        public static Class<?> b;
+        public static Method c;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xdc a;
 
-        @Override // android.content.ServiceConnection
-        public void onBindingDied(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, componentName) == null) {
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onNullBinding(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
-            }
-        }
-
-        public a(xdc xdcVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xdcVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-291410923, "Lcom/baidu/tieba/xdc$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-291410923, "Lcom/baidu/tieba/xdc$a;");
                     return;
                 }
             }
-            this.a = xdcVar;
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, componentName, iBinder) == null) {
-                this.a.a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
-                this.a.a.removeMessages(2);
+            try {
+                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+                b = cls;
+                a = cls.newInstance();
+                b.getMethod("getUDID", Context.class);
+                c = b.getMethod("getOAID", Context.class);
+                b.getMethod("getVAID", Context.class);
+                b.getMethod("getAAID", Context.class);
+            } catch (Throwable th) {
+                Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
-    }
 
-    /* loaded from: classes9.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xdc a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(xdc xdcVar, Looper looper) {
-            super(looper);
+        public static String a(Context context) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xdcVar, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                return b(context, c);
             }
-            this.a = xdcVar;
+            return (String) invokeL.objValue;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        public static String b(Context context, Method method) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i == 2) {
-                            this.a.c.a(-2, null);
-                            return;
-                        }
-                        return;
-                    }
-                    OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
+                Object obj = a;
+                if (obj != null && method != null) {
                     try {
-                        try {
-                            this.a.c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
-                            try {
-                                this.a.b.unbindService(this.a.d);
-                                return;
-                            } catch (Exception e) {
-                                this.a.c.a(-4, e);
-                                return;
-                            }
-                        } catch (RemoteException e2) {
-                            this.a.c.a(-3, e2);
-                            try {
-                                this.a.b.unbindService(this.a.d);
-                                return;
-                            } catch (Exception unused) {
-                                return;
-                            }
+                        Object invoke = method.invoke(obj, context);
+                        if (invoke != null) {
+                            return (String) invoke;
                         }
-                    } catch (Throwable th) {
-                        try {
-                            this.a.b.unbindService(this.a.d);
-                        } catch (Exception e3) {
-                            this.a.c.a(-4, e3);
-                        }
-                        throw th;
+                        return null;
+                    } catch (Exception e) {
+                        Log.e("XiaomiId", "invoke method error", e);
+                        return null;
                     }
                 }
-                this.a.c.a(-1, null);
+                return null;
             }
+            return (String) invokeLL.objValue;
         }
-    }
 
-    public xdc(Context context, c cVar, Handler handler) {
-        Looper looper;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, cVar, handler};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public static boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                if (b != null && a != null) {
+                    return true;
+                }
+                return false;
             }
-        }
-        this.d = new a(this);
-        this.b = context;
-        this.c = cVar;
-        if (handler == null) {
-            looper = Looper.getMainLooper();
-        } else {
-            looper = handler.getLooper();
-        }
-        this.a = new b(this, looper);
-    }
-
-    public static void d(Context context, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVar) == null) {
-            e(context, cVar, null);
+            return invokeV.booleanValue;
         }
     }
 
-    public static void e(Context context, c cVar, Handler handler) {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, context, cVar, handler) == null) {
-            new xdc(context.getApplicationContext(), cVar, handler).f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            return a.a(context.getApplicationContext());
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void f() {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
-            intent.setPackage("com.huawei.hwid");
-            if (this.b.bindService(intent, this.d, 1)) {
-                Handler handler = this.a;
-                handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
-                return;
-            }
-            this.a.sendEmptyMessage(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.c();
         }
+        return invokeV.booleanValue;
     }
 }

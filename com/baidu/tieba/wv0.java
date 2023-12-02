@@ -1,69 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes9.dex */
-public class wv0 {
+/* loaded from: classes8.dex */
+public final class wv0 {
     public static /* synthetic */ Interceptable $ic;
+    public static bw0 a;
+    public static final wv0 b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948283896, "Lcom/baidu/tieba/wv0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948283896, "Lcom/baidu/tieba/wv0;");
+                return;
+            }
+        }
+        b = new wv0();
+    }
 
     public wv0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static wv0 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final bw0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                wv0 wv0Var = new wv0();
-                jSONObject.optString("type_text");
-                jSONObject.optString("text");
-                jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
-                jSONObject.optString("cmd");
-                return wv0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (a == null) {
+                a = new bw0();
             }
-            return null;
+            return a;
         }
-        return (wv0) invokeL.objValue;
+        return (bw0) invokeV.objValue;
     }
 
-    public static List<wv0> b(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        wv0 a;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (jSONArray != null && jSONArray.length() != 0) {
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null && (a = a(optJSONObject)) != null) {
-                        arrayList.add(a);
-                    }
-                }
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a = null;
         }
-        return (List) invokeL.objValue;
+    }
+
+    public final void c(bw0 bw0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bw0Var) == null) && bw0Var != null && bw0Var.a()) {
+            a = bw0Var;
+        }
     }
 }

@@ -1,25 +1,24 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.WindowToast;
+import tbclient.WorkCreatorInfo;
 /* loaded from: classes7.dex */
-public class obd extends ltc {
+public class obd extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull WindowToast windowToast) {
+    public static JSONObject b(@NonNull WorkCreatorInfo workCreatorInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, windowToast)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, workCreatorInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "toast_type", windowToast.toast_type);
-            ltc.a(jSONObject, "toast_link", windowToast.toast_link);
-            ltc.a(jSONObject, "toast_content", windowToast.toast_content);
+            ktc.a(jSONObject, IMUserExtraData.KEY_AUTH_DESC, workCreatorInfo.auth_desc);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

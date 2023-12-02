@@ -64,7 +64,7 @@ public final class q extends b {
     public final void aj() {
         super.aj();
         if (this.sK == null) {
-            KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f0914dc);
+            KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f0914dd);
             this.sK = ksToastView;
             ksToastView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.presenter.q.2
                 @Override // android.view.View.OnClickListener

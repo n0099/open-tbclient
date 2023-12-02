@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.tieba.od4;
+import com.baidu.searchbox.http.request.DeleteRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ed4 extends od4.a {
+public class ed4 extends DeleteRequest.DeleteRequestBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,16 +33,15 @@ public class ed4 extends od4.a {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.od4.a, com.baidu.searchbox.http.request.HttpRequestBuilder
-    /* renamed from: a */
-    public od4 build() {
+    @Override // com.baidu.searchbox.http.request.DeleteRequest.DeleteRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
+    public DeleteRequest build() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            zc4.b().j(this.httpUrl.toString(), this);
+            cd4.b().j(this.httpUrl.toString(), this);
             requestFrom(6);
             return super.build();
         }
-        return (od4) invokeV.objValue;
+        return (DeleteRequest) invokeV.objValue;
     }
 }

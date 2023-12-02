@@ -23,8 +23,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.sdc;
 import com.baidu.tieba.tdc;
-import com.baidu.tieba.udc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -547,7 +547,7 @@ public class SafeWebView extends WebView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tdc.f(this);
+            sdc.f(this);
             setWebViewClient(null);
         }
     }
@@ -728,12 +728,12 @@ public class SafeWebView extends WebView {
                 String[] whitelistNotMatchSubDomain = getWhitelistNotMatchSubDomain();
                 String[] whitelist = getWhitelist();
                 if (whitelistWithPath != null && whitelistWithPath.length != 0) {
-                    return udc.c(str, whitelistWithPath);
+                    return tdc.c(str, whitelistWithPath);
                 }
                 if (whitelistNotMatchSubDomain != null && whitelistNotMatchSubDomain.length != 0) {
-                    return udc.h(str, whitelistNotMatchSubDomain);
+                    return tdc.h(str, whitelistNotMatchSubDomain);
                 }
-                return udc.e(str, whitelist);
+                return tdc.e(str, whitelist);
             }
         }
         return invokeL.booleanValue;

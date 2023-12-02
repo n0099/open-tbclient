@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.model;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.jx6;
+import com.baidu.tieba.nx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jx6 adData;
+    public nx6 adData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EnterForumAdResponsedMessage() {
@@ -34,13 +34,13 @@ public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public jx6 getAdData() {
+    public nx6 getAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.adData;
         }
-        return (jx6) invokeV.objValue;
+        return (nx6) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -48,9 +48,9 @@ public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            jx6 jx6Var = new jx6();
-            this.adData = jx6Var;
-            jx6Var.b(jSONObject);
+            nx6 nx6Var = new nx6();
+            this.adData = nx6Var;
+            nx6Var.b(jSONObject);
             if (!this.adData.a()) {
                 this.adData = null;
             }

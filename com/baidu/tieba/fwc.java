@@ -5,22 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.CustomFigure;
+import tbclient.CustomState;
 /* loaded from: classes6.dex */
-public class fwc extends ltc {
+public class fwc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull CustomFigure customFigure) {
+    public static JSONObject b(@NonNull CustomState customState) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, customFigure)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, customState)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "figure_url", customFigure.figure_url);
-            ltc.a(jSONObject, "background_type", customFigure.background_type);
-            ltc.a(jSONObject, "background_value", customFigure.background_value);
-            ltc.a(jSONObject, "dynamic_figure_url", customFigure.dynamic_figure_url);
+            ktc.a(jSONObject, "icon", customState.icon);
+            ktc.a(jSONObject, "content", customState.content);
+            ktc.a(jSONObject, "icon_type", customState.icon_type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

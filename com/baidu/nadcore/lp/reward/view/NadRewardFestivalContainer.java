@@ -12,9 +12,9 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bl0;
-import com.baidu.tieba.co0;
+import com.baidu.tieba.eo0;
 import com.baidu.tieba.hl0;
-import com.baidu.tieba.hn0;
+import com.baidu.tieba.in0;
 /* loaded from: classes3.dex */
 public class NadRewardFestivalContainer extends RelativeLayout {
     public View.OnClickListener a;
@@ -81,7 +81,7 @@ public class NadRewardFestivalContainer extends RelativeLayout {
     }
 
     private int getLayoutId() {
-        return bl0.a().o();
+        return bl0.a().r();
     }
 
     public void f() {
@@ -94,18 +94,18 @@ public class NadRewardFestivalContainer extends RelativeLayout {
     }
 
     public final void e(@NonNull AdBaseModel adBaseModel) {
-        co0 co0Var;
-        if (adBaseModel instanceof hn0) {
-            co0Var = ((hn0) adBaseModel).g().m();
+        eo0 eo0Var;
+        if (adBaseModel instanceof in0) {
+            eo0Var = ((in0) adBaseModel).h().m();
         } else {
-            co0Var = null;
+            eo0Var = null;
         }
-        if (co0Var == null) {
+        if (eo0Var == null) {
             this.b.setVisibility(8);
             return;
         }
-        hl0.a(getContext(), this.d, co0Var.b);
-        hl0.a(getContext(), this.c, co0Var.a);
+        hl0.a(getContext(), this.d, eo0Var.b);
+        hl0.a(getContext(), this.c, eo0Var.a);
         this.b.setVisibility(0);
         NadRewardVideoAdOverContainer nadRewardVideoAdOverContainer = this.e;
         if (nadRewardVideoAdOverContainer != null) {

@@ -1,404 +1,128 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Proxy;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.advert.sdk.data.WirelessNetworkType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes5.dex */
 public class d56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @NonNull
-    public String f() {
-        InterceptResult invokeV;
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final d56 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-908739994, "Lcom/baidu/tieba/d56$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-908739994, "Lcom/baidu/tieba/d56$b;");
-                    return;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            String imei = TbadkCoreApplication.getInst().getImei();
+            if (imei == null || "000000000000000".equals(imei)) {
+                return "-";
             }
-            a = new d56(null);
+            return imei;
         }
+        return (String) invokeL.objValue;
     }
 
-    public d56() {
+    public static Integer e(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return Integer.valueOf(context.getResources().getDisplayMetrics().heightPixels);
         }
-        try {
-            this.a = TbConfig.getVersion();
-            this.b = DeviceInfoHelper.getOsVersion();
-            this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            this.d = r();
-            this.e = s();
-            this.f = DeviceInfoHelper.getModel();
-            this.g = TbadkCoreApplication.getInst().getImei();
-            this.h = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            this.i = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
-            this.j = BdBaseApplication.getInst().getPackageName();
-            this.k = TbadkCoreApplication.getInst().getAndroidId();
-            this.l = "com.baidu.tieba.fileprovider";
-        } catch (Exception e) {
-            BdLog.e(e);
-        }
+        return (Integer) invokeL.objValue;
     }
 
-    @NonNull
-    public final String r() {
-        InterceptResult invokeV;
-        String sb;
-        String replace;
+    public static Integer f(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            String property = System.getProperty("http.agent");
-            if (TextUtils.isEmpty(property)) {
-                sb = "";
-            } else {
-                StringBuilder sb2 = new StringBuilder();
-                int length = property.length();
-                for (int i = 0; i < length; i++) {
-                    char charAt = property.charAt(i);
-                    if (charAt > 31 && charAt < 127) {
-                        sb2.append(charAt);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            return Integer.valueOf(context.getResources().getDisplayMetrics().widthPixels);
+        }
+        return (Integer) invokeL.objValue;
+    }
+
+    public static Integer b(Context context) {
+        InterceptResult invokeL;
+        int value;
+        WirelessNetworkType wirelessNetworkType;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                String typeName = activeNetworkInfo.getTypeName();
+                if (typeName.equalsIgnoreCase("WIFI")) {
+                    return Integer.valueOf(WirelessNetworkType.WIFI.getValue());
+                }
+                if (typeName.equalsIgnoreCase("MOBILE")) {
+                    if (TextUtils.isEmpty(Proxy.getDefaultHost())) {
+                        if (g(context)) {
+                            wirelessNetworkType = WirelessNetworkType.MOBILE_3G;
+                        } else {
+                            wirelessNetworkType = WirelessNetworkType.MOBILE_2G;
+                        }
+                        value = wirelessNetworkType.getValue();
                     } else {
-                        sb2.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                        value = WirelessNetworkType.NETWORKTYPE_WAP.getValue();
                     }
+                    return Integer.valueOf(value);
                 }
-                sb = sb2.toString();
+                return valueOf;
             }
-            String osVersion = DeviceInfoHelper.getOsVersion();
-            if (TextUtils.isEmpty(osVersion)) {
-                replace = com.baidu.mobads.sdk.internal.cj.d;
-            } else {
-                replace = osVersion.replace("_", "-");
-            }
-            return sb + " baiduboxapp/" + TbConfig.getVersion() + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
+            return Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
         }
-        return (String) invokeV.objValue;
+        return (Integer) invokeL.objValue;
     }
 
-    public /* synthetic */ d56(a aVar) {
-        this();
-    }
-
-    public static d56 h() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+            return DeviceInfoHelper.getModel();
         }
-        return (d56) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public String a() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (StringUtils.isNull(this.k)) {
-                try {
-                    this.k = TbadkCoreApplication.getInst().getAndroidId();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return DeviceInfoHelper.getOsVersion();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                    return true;
+                case 4:
+                case 7:
+                case 11:
+                default:
+                    return false;
             }
-            return this.k;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String baiduIdForAnti = TbSingleton.getInstance().getBaiduIdForAnti();
-            if (baiduIdForAnti == null) {
-                return "";
-            }
-            return baiduIdForAnti;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (StringUtils.isNull(this.a)) {
-                try {
-                    this.a = TbConfig.getVersion();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.c)) {
-                try {
-                    this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.l == null) {
-                this.l = "com.baidu.tieba.fileprovider";
-            }
-            return this.l;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (StringUtils.isNull(this.g)) {
-                try {
-                    this.g = TbadkCoreApplication.getInst().getImei();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (StringUtils.isNull(this.i)) {
-                try {
-                    this.i = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (StringUtils.isNull(this.f)) {
-                this.f = DeviceInfoHelper.getModel();
-            }
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (StringUtils.isNull(this.h)) {
-                try {
-                    this.h = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (StringUtils.isNull(this.b)) {
-                this.b = DeviceInfoHelper.getOsVersion();
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (StringUtils.isNull(this.j)) {
-                try {
-                    this.j = BdBaseApplication.getInst().getPackageName();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (StringUtils.isNull(this.e)) {
-                try {
-                    this.e = s();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            String sampleId = TbSingleton.getInstance().getSampleId();
-            if (sampleId == null) {
-                return "";
-            }
-            return sampleId.replace(SignatureImpl.SEP, ',');
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return TbadkCoreApplication.getCurrentAccount();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (StringUtils.isNull(this.d)) {
-                try {
-                    this.d = r();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return "";
-                }
-            }
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            DisplayMetrics displayMetrics = TbadkCoreApplication.getInst().getResources().getDisplayMetrics();
-            int i = 0;
-            String[] strArr = {String.valueOf(displayMetrics.widthPixels), String.valueOf(displayMetrics.heightPixels), "android", TbConfig.getVersion(), String.valueOf(displayMetrics.densityDpi)};
-            StringBuilder sb = new StringBuilder();
-            String str = "";
-            while (i < 5) {
-                String str2 = strArr[i];
-                sb.append(str);
-                sb.append(str2);
-                i++;
-                str = "_";
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

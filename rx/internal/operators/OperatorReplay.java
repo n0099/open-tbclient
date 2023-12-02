@@ -1,19 +1,19 @@
 package rx.internal.operators;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.btc;
-import com.baidu.tieba.eoc;
+import com.baidu.tieba.atc;
+import com.baidu.tieba.doc;
+import com.baidu.tieba.foc;
 import com.baidu.tieba.goc;
-import com.baidu.tieba.hoc;
+import com.baidu.tieba.joc;
+import com.baidu.tieba.jtc;
 import com.baidu.tieba.koc;
-import com.baidu.tieba.ktc;
-import com.baidu.tieba.loc;
-import com.baidu.tieba.lsc;
+import com.baidu.tieba.ksc;
+import com.baidu.tieba.poc;
 import com.baidu.tieba.qoc;
 import com.baidu.tieba.roc;
-import com.baidu.tieba.soc;
-import com.baidu.tieba.uqc;
-import com.baidu.tieba.woc;
+import com.baidu.tieba.tqc;
+import com.baidu.tieba.voc;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,11 +23,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes2.dex */
-public final class OperatorReplay<T> extends lsc<T> {
-    public static final woc e = new a();
-    public final eoc<? extends T> b;
+public final class OperatorReplay<T> extends ksc<T> {
+    public static final voc e = new a();
+    public final doc<? extends T> b;
     public final AtomicReference<f<T>> c;
-    public final woc<? extends e<T>> d;
+    public final voc<? extends e<T>> d;
 
     /* loaded from: classes2.dex */
     public interface e<T> {
@@ -41,7 +41,7 @@ public final class OperatorReplay<T> extends lsc<T> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class f<T> extends koc<T> implements loc {
+    public static final class f<T> extends joc<T> implements koc {
         public static final InnerProducer[] t = new InnerProducer[0];
         public final e<T> e;
         public boolean f;
@@ -52,19 +52,19 @@ public final class OperatorReplay<T> extends lsc<T> {
         public boolean n;
         public long o;
         public long p;
-        public volatile goc q;
+        public volatile foc q;
         public List<InnerProducer<T>> r;
         public boolean s;
-        public final uqc<InnerProducer<T>> h = new uqc<>();
+        public final tqc<InnerProducer<T>> h = new tqc<>();
         public InnerProducer<T>[] i = t;
         public final AtomicBoolean l = new AtomicBoolean();
 
         /* loaded from: classes2.dex */
-        public class a implements roc {
+        public class a implements qoc {
             public a() {
             }
 
-            @Override // com.baidu.tieba.roc
+            @Override // com.baidu.tieba.qoc
             public void call() {
                 if (!f.this.g) {
                     synchronized (f.this.h) {
@@ -90,10 +90,10 @@ public final class OperatorReplay<T> extends lsc<T> {
         }
 
         public void i() {
-            b(ktc.a(new a()));
+            b(jtc.a(new a()));
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.eoc
         public void onCompleted() {
             if (!this.f) {
                 this.f = true;
@@ -111,10 +111,10 @@ public final class OperatorReplay<T> extends lsc<T> {
             e(0L);
         }
 
-        @Override // com.baidu.tieba.koc
-        public void f(goc gocVar) {
+        @Override // com.baidu.tieba.joc
+        public void f(foc focVar) {
             if (this.q == null) {
-                this.q = gocVar;
+                this.q = focVar;
                 k(null);
                 m();
                 return;
@@ -155,7 +155,7 @@ public final class OperatorReplay<T> extends lsc<T> {
             }
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.eoc
         public void onError(Throwable th) {
             if (!this.f) {
                 this.f = true;
@@ -168,7 +168,7 @@ public final class OperatorReplay<T> extends lsc<T> {
             }
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.eoc
         public void onNext(T t2) {
             if (!this.f) {
                 this.e.next(t2);
@@ -178,17 +178,17 @@ public final class OperatorReplay<T> extends lsc<T> {
 
         public void j(long j, long j2) {
             long j3 = this.p;
-            goc gocVar = this.q;
+            foc focVar = this.q;
             long j4 = j - j2;
             if (j4 != 0) {
                 this.o = j;
-                if (gocVar != null) {
+                if (focVar != null) {
                     if (j3 != 0) {
                         this.p = 0L;
-                        gocVar.request(j3 + j4);
+                        focVar.request(j3 + j4);
                         return;
                     }
-                    gocVar.request(j4);
+                    focVar.request(j4);
                     return;
                 }
                 long j5 = j3 + j4;
@@ -196,9 +196,9 @@ public final class OperatorReplay<T> extends lsc<T> {
                     j5 = Long.MAX_VALUE;
                 }
                 this.p = j5;
-            } else if (j3 != 0 && gocVar != null) {
+            } else if (j3 != 0 && focVar != null) {
                 this.p = 0L;
-                gocVar.request(j3);
+                focVar.request(j3);
             }
         }
 
@@ -421,7 +421,7 @@ public final class OperatorReplay<T> extends lsc<T> {
 
         @Override // rx.internal.operators.OperatorReplay.e
         public final void replay(InnerProducer<T> innerProducer) {
-            koc<? super T> kocVar;
+            joc<? super T> jocVar;
             Node node;
             synchronized (innerProducer) {
                 if (innerProducer.emitting) {
@@ -436,7 +436,7 @@ public final class OperatorReplay<T> extends lsc<T> {
                         innerProducer.index = node2;
                         innerProducer.addTotalRequested(node2.index);
                     }
-                    if (innerProducer.isUnsubscribed() || (kocVar = innerProducer.child) == null) {
+                    if (innerProducer.isUnsubscribed() || (jocVar = innerProducer.child) == null) {
                         return;
                     }
                     long j = innerProducer.get();
@@ -444,7 +444,7 @@ public final class OperatorReplay<T> extends lsc<T> {
                     while (j2 != j && (node = node2.get()) != null) {
                         Object leaveTransform = leaveTransform(node.value);
                         try {
-                            if (NotificationLite.a(kocVar, leaveTransform)) {
+                            if (NotificationLite.a(jocVar, leaveTransform)) {
                                 innerProducer.index = null;
                                 return;
                             }
@@ -455,10 +455,10 @@ public final class OperatorReplay<T> extends lsc<T> {
                             node2 = node;
                         } catch (Throwable th) {
                             innerProducer.index = null;
-                            qoc.e(th);
+                            poc.e(th);
                             innerProducer.unsubscribe();
                             if (!NotificationLite.g(leaveTransform) && !NotificationLite.f(leaveTransform)) {
-                                kocVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(leaveTransform)));
+                                jocVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(leaveTransform)));
                                 return;
                             }
                             return;
@@ -483,19 +483,19 @@ public final class OperatorReplay<T> extends lsc<T> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class InnerProducer<T> extends AtomicLong implements goc, loc {
+    public static final class InnerProducer<T> extends AtomicLong implements foc, koc {
         public static final long UNSUBSCRIBED = Long.MIN_VALUE;
         public static final long serialVersionUID = -4453897557930727610L;
-        public koc<? super T> child;
+        public joc<? super T> child;
         public boolean emitting;
         public Object index;
         public boolean missed;
         public final f<T> parent;
         public final AtomicLong totalRequested = new AtomicLong();
 
-        public InnerProducer(f<T> fVar, koc<? super T> kocVar) {
+        public InnerProducer(f<T> fVar, joc<? super T> jocVar) {
             this.parent = fVar;
-            this.child = kocVar;
+            this.child = jocVar;
         }
 
         public void addTotalRequested(long j) {
@@ -514,7 +514,7 @@ public final class OperatorReplay<T> extends lsc<T> {
             return (U) this.index;
         }
 
-        @Override // com.baidu.tieba.loc
+        @Override // com.baidu.tieba.koc
         public boolean isUnsubscribed() {
             if (get() == Long.MIN_VALUE) {
                 return true;
@@ -522,7 +522,7 @@ public final class OperatorReplay<T> extends lsc<T> {
             return false;
         }
 
-        @Override // com.baidu.tieba.loc
+        @Override // com.baidu.tieba.koc
         public void unsubscribe() {
             if (get() != Long.MIN_VALUE && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE) {
                 this.parent.l(this);
@@ -550,7 +550,7 @@ public final class OperatorReplay<T> extends lsc<T> {
             throw new IllegalArgumentException("Cant produce zero or less");
         }
 
-        @Override // com.baidu.tieba.goc
+        @Override // com.baidu.tieba.foc
         public void request(long j) {
             long j2;
             long j3;
@@ -594,22 +594,22 @@ public final class OperatorReplay<T> extends lsc<T> {
         public static final long serialVersionUID = 3457957419649567404L;
         public final int limit;
         public final long maxAgeInMillis;
-        public final hoc scheduler;
+        public final goc scheduler;
 
-        public SizeAndTimeBoundReplayBuffer(int i, long j, hoc hocVar) {
-            this.scheduler = hocVar;
+        public SizeAndTimeBoundReplayBuffer(int i, long j, goc gocVar) {
+            this.scheduler = gocVar;
             this.limit = i;
             this.maxAgeInMillis = j;
         }
 
         @Override // rx.internal.operators.OperatorReplay.BoundedReplayBuffer
         public Object enterTransform(Object obj) {
-            return new btc(this.scheduler.now(), obj);
+            return new atc(this.scheduler.now(), obj);
         }
 
         @Override // rx.internal.operators.OperatorReplay.BoundedReplayBuffer
         public Object leaveTransform(Object obj) {
-            return ((btc) obj).b();
+            return ((atc) obj).b();
         }
 
         @Override // rx.internal.operators.OperatorReplay.BoundedReplayBuffer
@@ -622,7 +622,7 @@ public final class OperatorReplay<T> extends lsc<T> {
                 Node node4 = node3;
                 node = node2;
                 node2 = node4;
-                if (node2 == null || ((btc) node2.value).a() > now) {
+                if (node2 == null || ((atc) node2.value).a() > now) {
                     break;
                 }
                 node3 = node2.get();
@@ -647,7 +647,7 @@ public final class OperatorReplay<T> extends lsc<T> {
                         i++;
                         this.size = i2 - 1;
                         node3 = node2.get();
-                    } else if (((btc) node2.value).a() > now) {
+                    } else if (((atc) node2.value).a() > now) {
                         break;
                     } else {
                         i++;
@@ -682,7 +682,7 @@ public final class OperatorReplay<T> extends lsc<T> {
                 Node node3 = node2;
                 Node node4 = node;
                 node = node3;
-                if (node == null || this.size <= 1 || ((btc) node.value).a() > now) {
+                if (node == null || this.size <= 1 || ((atc) node.value).a() > now) {
                     break;
                 }
                 i++;
@@ -753,8 +753,8 @@ public final class OperatorReplay<T> extends lsc<T> {
                     } else {
                         i = 0;
                     }
-                    koc<? super T> kocVar = innerProducer.child;
-                    if (kocVar == null) {
+                    joc<? super T> jocVar = innerProducer.child;
+                    if (jocVar == null) {
                         return;
                     }
                     long j = innerProducer.get();
@@ -762,16 +762,16 @@ public final class OperatorReplay<T> extends lsc<T> {
                     while (j2 != j && i < i2) {
                         Object obj = get(i);
                         try {
-                            if (NotificationLite.a(kocVar, obj) || innerProducer.isUnsubscribed()) {
+                            if (NotificationLite.a(jocVar, obj) || innerProducer.isUnsubscribed()) {
                                 return;
                             }
                             i++;
                             j2++;
                         } catch (Throwable th) {
-                            qoc.e(th);
+                            poc.e(th);
                             innerProducer.unsubscribe();
                             if (!NotificationLite.g(obj) && !NotificationLite.f(obj)) {
-                                kocVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(obj)));
+                                jocVar.onError(OnErrorThrowable.addValueAsLastCause(th, NotificationLite.e(obj)));
                                 return;
                             }
                             return;
@@ -796,15 +796,15 @@ public final class OperatorReplay<T> extends lsc<T> {
     }
 
     /* loaded from: classes2.dex */
-    public static class a implements woc {
-        @Override // com.baidu.tieba.woc
+    public static class a implements voc {
+        @Override // com.baidu.tieba.voc
         public Object call() {
             return new UnboundedReplayBuffer(16);
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class b implements woc<e<T>> {
+    public static class b implements voc<e<T>> {
         public final /* synthetic */ int a;
 
         public b(int i) {
@@ -812,7 +812,7 @@ public final class OperatorReplay<T> extends lsc<T> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.woc
+        @Override // com.baidu.tieba.voc
         /* renamed from: a */
         public e<T> call() {
             return new SizeBoundReplayBuffer(this.a);
@@ -820,19 +820,19 @@ public final class OperatorReplay<T> extends lsc<T> {
     }
 
     /* loaded from: classes2.dex */
-    public static class c implements woc<e<T>> {
+    public static class c implements voc<e<T>> {
         public final /* synthetic */ int a;
         public final /* synthetic */ long b;
-        public final /* synthetic */ hoc c;
+        public final /* synthetic */ goc c;
 
-        public c(int i, long j, hoc hocVar) {
+        public c(int i, long j, goc gocVar) {
             this.a = i;
             this.b = j;
-            this.c = hocVar;
+            this.c = gocVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.woc
+        @Override // com.baidu.tieba.voc
         /* renamed from: a */
         public e<T> call() {
             return new SizeAndTimeBoundReplayBuffer(this.a, this.b, this.c);
@@ -840,19 +840,19 @@ public final class OperatorReplay<T> extends lsc<T> {
     }
 
     /* loaded from: classes2.dex */
-    public static class d implements eoc.a<T> {
+    public static class d implements doc.a<T> {
         public final /* synthetic */ AtomicReference a;
-        public final /* synthetic */ woc b;
+        public final /* synthetic */ voc b;
 
-        public d(AtomicReference atomicReference, woc wocVar) {
+        public d(AtomicReference atomicReference, voc vocVar) {
             this.a = atomicReference;
-            this.b = wocVar;
+            this.b = vocVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.soc
+        @Override // com.baidu.tieba.roc
         /* renamed from: a */
-        public void call(koc<? super T> kocVar) {
+        public void call(joc<? super T> jocVar) {
             f fVar;
             while (true) {
                 fVar = (f) this.a.get();
@@ -866,47 +866,47 @@ public final class OperatorReplay<T> extends lsc<T> {
                     break;
                 }
             }
-            InnerProducer<T> innerProducer = new InnerProducer<>(fVar, kocVar);
+            InnerProducer<T> innerProducer = new InnerProducer<>(fVar, jocVar);
             fVar.g(innerProducer);
-            kocVar.b(innerProducer);
+            jocVar.b(innerProducer);
             fVar.e.replay(innerProducer);
-            kocVar.f(innerProducer);
+            jocVar.f(innerProducer);
         }
     }
 
-    public OperatorReplay(eoc.a<T> aVar, eoc<? extends T> eocVar, AtomicReference<f<T>> atomicReference, woc<? extends e<T>> wocVar) {
+    public OperatorReplay(doc.a<T> aVar, doc<? extends T> docVar, AtomicReference<f<T>> atomicReference, voc<? extends e<T>> vocVar) {
         super(aVar);
-        this.b = eocVar;
+        this.b = docVar;
         this.c = atomicReference;
-        this.d = wocVar;
+        this.d = vocVar;
     }
 
-    public static <T> lsc<T> S(eoc<? extends T> eocVar, long j, TimeUnit timeUnit, hoc hocVar) {
-        return T(eocVar, j, timeUnit, hocVar, Integer.MAX_VALUE);
+    public static <T> ksc<T> S(doc<? extends T> docVar, long j, TimeUnit timeUnit, goc gocVar) {
+        return T(docVar, j, timeUnit, gocVar, Integer.MAX_VALUE);
     }
 
-    public static <T> lsc<T> Q(eoc<? extends T> eocVar) {
-        return U(eocVar, e);
+    public static <T> ksc<T> Q(doc<? extends T> docVar) {
+        return U(docVar, e);
     }
 
-    public static <T> lsc<T> R(eoc<? extends T> eocVar, int i) {
+    public static <T> ksc<T> R(doc<? extends T> docVar, int i) {
         if (i == Integer.MAX_VALUE) {
-            return Q(eocVar);
+            return Q(docVar);
         }
-        return U(eocVar, new b(i));
+        return U(docVar, new b(i));
     }
 
-    public static <T> lsc<T> U(eoc<? extends T> eocVar, woc<? extends e<T>> wocVar) {
+    public static <T> ksc<T> U(doc<? extends T> docVar, voc<? extends e<T>> vocVar) {
         AtomicReference atomicReference = new AtomicReference();
-        return new OperatorReplay(new d(atomicReference, wocVar), eocVar, atomicReference, wocVar);
+        return new OperatorReplay(new d(atomicReference, vocVar), docVar, atomicReference, vocVar);
     }
 
-    public static <T> lsc<T> T(eoc<? extends T> eocVar, long j, TimeUnit timeUnit, hoc hocVar, int i) {
-        return U(eocVar, new c(i, timeUnit.toMillis(j), hocVar));
+    public static <T> ksc<T> T(doc<? extends T> docVar, long j, TimeUnit timeUnit, goc gocVar, int i) {
+        return U(docVar, new c(i, timeUnit.toMillis(j), gocVar));
     }
 
-    @Override // com.baidu.tieba.lsc
-    public void P(soc<? super loc> socVar) {
+    @Override // com.baidu.tieba.ksc
+    public void P(roc<? super koc> rocVar) {
         f<T> fVar;
         while (true) {
             fVar = this.c.get();
@@ -922,7 +922,7 @@ public final class OperatorReplay<T> extends lsc<T> {
         }
         boolean z = true;
         z = (fVar.l.get() || !fVar.l.compareAndSet(false, true)) ? false : false;
-        socVar.call(fVar);
+        rocVar.call(fVar);
         if (z) {
             this.b.O(fVar);
         }

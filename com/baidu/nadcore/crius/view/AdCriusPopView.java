@@ -17,26 +17,26 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz0;
+import com.baidu.tieba.a91;
+import com.baidu.tieba.an0;
+import com.baidu.tieba.c91;
+import com.baidu.tieba.dz0;
 import com.baidu.tieba.eg0;
 import com.baidu.tieba.fg0;
 import com.baidu.tieba.jh0;
-import com.baidu.tieba.jn0;
+import com.baidu.tieba.kn0;
 import com.baidu.tieba.ph0;
 import com.baidu.tieba.tm0;
-import com.baidu.tieba.u11;
-import com.baidu.tieba.w81;
+import com.baidu.tieba.w11;
 import com.baidu.tieba.wg0;
 import com.baidu.tieba.wm0;
-import com.baidu.tieba.y81;
-import com.baidu.tieba.zm0;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.OnClickListener, y81<View> {
+public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.OnClickListener, c91<View> {
     public jh0 e;
     public Animation f;
     public Animation g;
-    public w81 h;
+    public a91 h;
 
     @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
     public int d() {
@@ -45,7 +45,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.y81
+    @Override // com.baidu.tieba.c91
     public View getRealView() {
         return this;
     }
@@ -91,7 +91,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         }
     }
 
-    @Override // com.baidu.tieba.y81
+    @Override // com.baidu.tieba.c91
     public void a() {
         Animation animation = this.f;
         if (animation != null) {
@@ -112,9 +112,9 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
             loadAnimation.setDuration(480L);
             setVisibility(0);
             startAnimation(this.f);
-            w81 w81Var = this.h;
-            if (w81Var != null) {
-                w81Var.c();
+            a91 a91Var = this.h;
+            if (a91Var != null) {
+                a91Var.c();
             }
         }
     }
@@ -123,7 +123,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         this(context, null);
     }
 
-    @Override // com.baidu.tieba.y81
+    @Override // com.baidu.tieba.c91
     public void c(boolean z) {
         if (getVisibility() == 0) {
             return;
@@ -133,9 +133,9 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
             return;
         }
         setVisibility(0);
-        w81 w81Var = this.h;
-        if (w81Var != null) {
-            w81Var.c();
+        a91 a91Var = this.h;
+        if (a91Var != null) {
+            a91Var.c();
         }
     }
 
@@ -146,16 +146,16 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         }
     }
 
-    @Override // com.baidu.tieba.y81
-    public void setCriusPopListener(@NonNull w81 w81Var) {
-        this.h = w81Var;
+    @Override // com.baidu.tieba.c91
+    public void setCriusPopListener(@NonNull a91 a91Var) {
+        this.h = a91Var;
     }
 
-    @Override // com.baidu.tieba.y81
-    public void setData(@NonNull zm0 zm0Var) {
+    @Override // com.baidu.tieba.c91
+    public void setData(@NonNull an0 an0Var) {
         CriusData criusData;
-        setTag(zm0Var);
-        Object obj = zm0Var.c;
+        setTag(an0Var);
+        Object obj = an0Var.c;
         if (!(obj instanceof eg0)) {
             return;
         }
@@ -177,7 +177,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         this(context, attributeSet, 0);
     }
 
-    @Override // com.baidu.tieba.y81
+    @Override // com.baidu.tieba.c91
     public void setContainer(@Nullable ViewGroup viewGroup, @Nullable ViewGroup.LayoutParams layoutParams) {
         if (viewGroup == null) {
             return;
@@ -208,16 +208,16 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         }
     }
 
-    @Override // com.baidu.tieba.y81
+    @Override // com.baidu.tieba.c91
     public void b(String str, boolean z) {
         wm0 wm0Var;
         this.f = null;
         if (z && this.g != null) {
             return;
         }
-        w81 w81Var = this.h;
-        if (w81Var != null) {
-            w81Var.a(z, 480L);
+        a91 a91Var = this.h;
+        if (a91Var != null) {
+            a91Var.a(z, 480L);
         }
         if (z) {
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.nad_pop_view_fade_out);
@@ -228,7 +228,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         } else {
             setVisibility(8);
         }
-        if (!(getTag() instanceof zm0) || (wm0Var = ((zm0) getTag()).e) == null) {
+        if (!(getTag() instanceof an0) || (wm0Var = ((an0) getTag()).e) == null) {
             return;
         }
         wm0Var.a();
@@ -248,14 +248,14 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
             str2 = ClogBuilder.Area.HOTAREA.type;
         }
         if (this.h != null) {
-            jn0 jn0Var = new jn0();
-            jn0Var.a = str;
-            jn0Var.b = str2;
-            jn0Var.c = true;
+            kn0 kn0Var = new kn0();
+            kn0Var.a = str;
+            kn0Var.b = str2;
+            kn0Var.c = true;
             if (map != null) {
                 TextUtils.equals("1", map.get(NativeConstants.CHARGE_TYPE));
             }
-            this.h.b(jn0Var);
+            this.h.b(kn0Var);
         }
     }
 
@@ -271,8 +271,8 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         View viewByComponent2 = this.d.getViewByComponent("download");
         if (viewByComponent2 instanceof ApkDownloadView) {
             fg0 realDownloadView = ((ApkDownloadView) viewByComponent2).getRealDownloadView();
-            if ((realDownloadView instanceof ph0) && (getTag() instanceof zm0)) {
-                o((zm0) getTag(), (ph0) realDownloadView);
+            if ((realDownloadView instanceof ph0) && (getTag() instanceof an0)) {
+                o((an0) getTag(), (ph0) realDownloadView);
                 return;
             } else {
                 this.e = null;
@@ -282,15 +282,15 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
         this.e = null;
     }
 
-    public final void o(@NonNull zm0 zm0Var, ph0 ph0Var) {
-        tm0 tm0Var = zm0Var.d;
-        wm0 wm0Var = zm0Var.e;
+    public final void o(@NonNull an0 an0Var, ph0 ph0Var) {
+        tm0 tm0Var = an0Var.d;
+        wm0 wm0Var = an0Var.e;
         if (tm0Var != null && wm0Var != null) {
-            zm0Var.a = 2;
+            an0Var.a = 2;
             this.e = new jh0(wg0.d(tm0Var, wm0Var.d, ""), ph0Var);
             if (ph0Var instanceof NadCriusMiniVideoDownloadView) {
                 NadCriusMiniVideoDownloadView nadCriusMiniVideoDownloadView = (NadCriusMiniVideoDownloadView) ph0Var;
-                int a2 = u11.c.a(getContext(), 12.0f);
+                int a2 = w11.c.a(getContext(), 12.0f);
                 nadCriusMiniVideoDownloadView.setImageViewLayout(new FrameLayout.LayoutParams(a2, a2));
                 nadCriusMiniVideoDownloadView.setVisibility(0);
                 nadCriusMiniVideoDownloadView.setOnClickListener(new b());
@@ -299,6 +299,6 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
     }
 
     public final void q(wm0 wm0Var) {
-        bz0.e(new ClogBuilder().z(wm0Var.c).v(wm0Var.a).j(wm0Var.b).p(wm0Var.d).k(wm0Var.e).l(wm0Var.f).m(wm0Var.g));
+        dz0.e(new ClogBuilder().z(wm0Var.c).v(wm0Var.a).j(wm0Var.b).p(wm0Var.d).k(wm0Var.e).l(wm0Var.f).m(wm0Var.g));
     }
 }

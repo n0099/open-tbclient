@@ -14,7 +14,7 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.si;
-import com.baidu.tieba.vz5;
+import com.baidu.tieba.zz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,9 +36,9 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1139T;
+    public boolean f1137T;
     @NonNull
-    public vz5 U;
+    public zz5 U;
     public boolean V;
     public boolean W;
     public boolean a0;
@@ -151,8 +151,8 @@ public class PbLandscapeListView extends BdTypeListView {
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
-        this.f1139T = false;
-        this.U = new vz5(this);
+        this.f1137T = false;
+        this.U = new zz5(this);
         H();
     }
 
@@ -175,7 +175,7 @@ public class PbLandscapeListView extends BdTypeListView {
                         int abs = Math.abs(i);
                         if (abs > this.J && abs > Math.abs(i2) && !this.V) {
                             L(i, i2, this.M, this.N, rawX, rawY);
-                            this.f1139T = true;
+                            this.f1137T = true;
                             return false;
                         }
                     }
@@ -186,7 +186,7 @@ public class PbLandscapeListView extends BdTypeListView {
                 this.M = motionEvent.getRawX();
                 this.N = motionEvent.getRawY();
                 this.S = false;
-                this.f1139T = false;
+                this.f1137T = false;
             }
             if (motionEvent.getAction() == 2 && !this.V) {
                 return true;
@@ -221,8 +221,8 @@ public class PbLandscapeListView extends BdTypeListView {
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
-        this.f1139T = false;
-        this.U = new vz5(this);
+        this.f1137T = false;
+        this.U = new zz5(this);
         H();
     }
 
@@ -251,8 +251,8 @@ public class PbLandscapeListView extends BdTypeListView {
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
-        this.f1139T = false;
-        this.U = new vz5(this);
+        this.f1137T = false;
+        this.U = new zz5(this);
         H();
     }
 
@@ -267,7 +267,7 @@ public class PbLandscapeListView extends BdTypeListView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f1139T;
+            return this.f1137T;
         }
         return invokeV.booleanValue;
     }

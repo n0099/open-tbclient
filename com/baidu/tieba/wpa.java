@@ -1,26 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+@Singleton
 @Service
 /* loaded from: classes8.dex */
-public class wpa implements ICloudCommandObserver {
+public class wpa implements ppb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver
-    public String getCommandType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "online_net_log_notice" : (String) invokeV.objValue;
-    }
 
     public wpa() {
         Interceptable interceptable = $ic;
@@ -36,19 +29,13 @@ public class wpa implements ICloudCommandObserver {
         }
     }
 
-    @Override // com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver
-    public void dispatch(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.ppb
+    public boolean isAgreePrivacy() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return PermissionUtil.isAgreePrivacyPolicy();
         }
-        try {
-            if (!"fulllog_network".equals(jSONObject.getString("type"))) {
-                return;
-            }
-            xpa.a().h(jSONObject, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return invokeV.booleanValue;
     }
 }

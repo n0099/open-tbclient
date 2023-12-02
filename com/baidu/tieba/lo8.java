@@ -1,16 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: OnKeyboardActionListener.java */
+import android.view.View;
+import com.baidu.tieba.im.base.core.inputtool.keyboardtool.PanelType;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class lo8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface lo8 extends jo8 {
+    View A2();
 
-    public static void a(mo8 mo8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, mo8Var) == null) {
-        }
-    }
+    View C();
+
+    void e();
+
+    void h();
+
+    void p2(oo8 oo8Var);
+
+    void w2(PanelType panelType);
+
+    void y(toc<PanelType, PanelType, Float, Float> tocVar);
 }

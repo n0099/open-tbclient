@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,21 +14,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Personalized.LiveAnswer;
+import tbclient.AlaLiveInfo;
+import tbclient.Personalized.UserFollowLive;
 /* loaded from: classes7.dex */
-public class nh8 extends BaseCardInfo {
+public class nh8 extends fw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
-    public String e;
-    public List<String> f;
-    public List<String> g;
+    public List<AlaLiveInfo> a;
+
+    @Override // com.baidu.tieba.fw4
+    public NegativeFeedBackData getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (NegativeFeedBackData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fw4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +56,7 @@ public class nh8 extends BaseCardInfo {
                 return;
             }
         }
-        h = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public nh8() {
@@ -59,55 +72,35 @@ public class nh8 extends BaseCardInfo {
                 return;
             }
         }
-        this.f = new ArrayList();
-        this.g = new ArrayList();
+        this.a = new ArrayList();
+    }
+
+    public List<AlaLiveInfo> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void c(LiveAnswer liveAnswer) {
+    public void d(UserFollowLive userFollowLive) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, liveAnswer) != null) || liveAnswer == null) {
-            return;
-        }
-        this.a = liveAnswer.activity_id.toString();
-        this.d = liveAnswer.banner_url;
-        this.b = liveAnswer.banner_high.intValue();
-        this.c = liveAnswer.banner_width.intValue();
-        this.e = liveAnswer.jump_url;
-        this.f.clear();
-        this.f.addAll(liveAnswer.show_statistics_urls);
-        this.g.clear();
-        this.g.addAll(liveAnswer.click_statistics_urls);
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("activity_id", this.a);
-                jSONObject.put("img_width", this.c);
-                jSONObject.put(BigdayActivityConfig.IMG_URL, this.d);
-                jSONObject.put("img_height", this.b);
-                jSONObject.put(BigdayActivityConfig.JUMP_URL, this.e);
-                jSONObject.put("show_statistics_urls", this.f);
-                jSONObject.put("click_statistics_urls", this.g);
-                return jSONObject.toString();
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return "";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userFollowLive) == null) {
+            this.a.clear();
+            if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !ListUtils.isEmpty(userFollowLive.user_follow_live)) {
+                this.a.addAll(userFollowLive.user_follow_live);
             }
         }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,44 +1,126 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.mobstat.Config;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hkb {
+public class hkb implements jkb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final ljb b;
 
-    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull fe5 fe5Var, String str) {
+    public hkb(@NonNull TbPageContext<?> tbPageContext, @NonNull ljb ljbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, editorTools, fe5Var, str) == null) {
-            if ("e1".equals(str)) {
-                pkb.h(tbPageContext, editorTools, fe5Var);
-            } else if (Config.SESSTION_TRACK_END_TIME.equals(str)) {
-                pkb.j(tbPageContext, editorTools, fe5Var);
-            } else if ("e3".equals(str)) {
-                pkb.k(tbPageContext, editorTools, fe5Var);
-            } else if ("e4".equals(str)) {
-                pkb.g(tbPageContext, editorTools, fe5Var);
-            } else if ("e5".equals(str)) {
-                pkb.d(editorTools, fe5Var);
-            } else if ("e6".equals(str)) {
-                pkb.a(tbPageContext, editorTools, fe5Var);
-            } else if ("e7".equals(str)) {
-                pkb.l(tbPageContext, editorTools, fe5Var);
-            } else if ("e8".equals(str)) {
-                pkb.b(tbPageContext, editorTools, fe5Var);
-            } else if ("e9".equals(str)) {
-                pkb.i(tbPageContext, editorTools);
-            } else if ("e10".equals(str)) {
-                pkb.c(tbPageContext, editorTools, fe5Var);
-            } else if ("e11".equals(str)) {
-                pkb.f(tbPageContext, editorTools, fe5Var);
-            } else if ("e12".equals(str)) {
-                pkb.e(tbPageContext, editorTools, fe5Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, ljbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = tbPageContext;
+        this.b = ljbVar;
+    }
+
+    @Override // com.baidu.tieba.ie5
+    public void U(he5 he5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, he5Var) == null) {
+            int i = he5Var.a;
+            if (i != 14 && i != 48) {
+                if (i == 60) {
+                    this.b.u();
+                    return;
+                } else if (i != 12 && i != 13 && i != 46 && i != 49) {
+                    if (i == 21) {
+                        this.b.i();
+                        hib.b(this.a.getPageActivity(), 5);
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.getPageActivity(), 25049, "", true, null)));
+                        return;
+                    } else if (i == 24) {
+                        this.b.z(he5Var);
+                        return;
+                    } else if (i == 3) {
+                        this.b.z(he5Var);
+                        return;
+                    } else if (i == 16) {
+                        this.b.z(he5Var);
+                        return;
+                    } else if (i == 43) {
+                        hib.b(this.a.getPageActivity(), 4);
+                        SharedPrefHelper.getInstance().putBoolean("hot_topic_has_click", true);
+                        this.b.C(new he5(2, 26, null));
+                        this.b.p(true);
+                        this.b.m();
+                        return;
+                    } else if (i == 10) {
+                        this.b.z(he5Var);
+                        return;
+                    } else if (i == 11) {
+                        this.b.z(he5Var);
+                        return;
+                    } else if (i == 25) {
+                        this.b.z(he5Var);
+                        return;
+                    } else if (i == 22) {
+                        this.b.z(he5Var);
+                        return;
+                    } else if (i == 59) {
+                        this.b.z(he5Var);
+                        return;
+                    } else if (i == 61) {
+                        this.b.z(he5Var);
+                        return;
+                    } else if (i == 69) {
+                        this.b.v();
+                        return;
+                    } else if (i == 55) {
+                        Object obj = he5Var.c;
+                        if (obj instanceof Boolean) {
+                            this.b.k(((Boolean) obj).booleanValue());
+                            return;
+                        }
+                        return;
+                    } else if (i == 66) {
+                        Object obj2 = he5Var.c;
+                        if (obj2 instanceof Boolean) {
+                            this.b.y(((Boolean) obj2).booleanValue());
+                            return;
+                        }
+                        return;
+                    } else if (i == 74) {
+                        this.b.z(he5Var);
+                        return;
+                    } else if (i == 77) {
+                        this.b.z(he5Var);
+                        return;
+                    } else {
+                        return;
+                    }
+                } else {
+                    this.b.x(new int[]{10, 34});
+                    this.b.j();
+                    return;
+                }
+            }
+            hib.b(this.a.getPageActivity(), 1);
+            this.b.r();
         }
     }
 }

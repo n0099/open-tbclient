@@ -7,23 +7,23 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dg9;
-import com.baidu.tieba.kda;
-import com.baidu.tieba.lda;
+import com.baidu.tieba.hg9;
 import com.baidu.tieba.lego.card.model.ImmersiveVideoCardEx;
-import com.baidu.tieba.lg9;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.pda;
+import com.baidu.tieba.pg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements lda, kda {
+public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements pda, oda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup m;
-    public lg9 n;
-    public dg9 o;
+    public pg9 n;
+    public hg9 o;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
@@ -34,7 +34,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         }
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,89 +65,89 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     }
 
     public void E() {
-        dg9 dg9Var;
+        hg9 hg9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (dg9Var = this.o) != null) {
-            dg9Var.n();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (hg9Var = this.o) != null) {
+            hg9Var.n();
         }
     }
 
-    @Override // com.baidu.tieba.kda
+    @Override // com.baidu.tieba.oda
     public void a() {
-        dg9 dg9Var;
+        hg9 hg9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (dg9Var = this.o) != null) {
-            dg9Var.j();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (hg9Var = this.o) != null) {
+            hg9Var.j();
         }
     }
 
-    @Override // com.baidu.tieba.kda
+    @Override // com.baidu.tieba.oda
     public void c() {
-        dg9 dg9Var;
+        hg9 hg9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (dg9Var = this.o) != null) {
-            dg9Var.k();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (hg9Var = this.o) != null) {
+            hg9Var.k();
         }
     }
 
-    @Override // com.baidu.tieba.kda
+    @Override // com.baidu.tieba.oda
     public void e() {
-        dg9 dg9Var;
+        hg9 hg9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (dg9Var = this.o) != null) {
-            dg9Var.m();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (hg9Var = this.o) != null) {
+            hg9Var.m();
         }
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            lg9 lg9Var = this.n;
-            if (lg9Var != null) {
-                return lg9Var.k();
+            pg9 pg9Var = this.n;
+            if (pg9Var != null) {
+                return pg9Var.k();
             }
             return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            lg9 lg9Var = this.n;
-            if (lg9Var != null) {
-                return lg9Var.m();
+            pg9 pg9Var = this.n;
+            if (pg9Var != null) {
+                return pg9Var.m();
             }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            lg9 lg9Var = this.n;
-            if (lg9Var != null) {
-                return lg9Var.n();
+            pg9 pg9Var = this.n;
+            if (pg9Var != null) {
+                return pg9Var.n();
             }
             return null;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            lg9 lg9Var = this.n;
-            if (lg9Var != null && lg9Var.p()) {
+            pg9 pg9Var = this.n;
+            if (pg9Var != null && pg9Var.p()) {
                 return true;
             }
             return false;
@@ -155,13 +155,13 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            lg9 lg9Var = this.n;
-            if (lg9Var != null && lg9Var.q()) {
+            pg9 pg9Var = this.n;
+            if (pg9Var != null && pg9Var.q()) {
                 return true;
             }
             return false;
@@ -169,21 +169,21 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public void startPlay() {
-        lg9 lg9Var;
+        pg9 pg9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (lg9Var = this.n) != null) {
-            lg9Var.v();
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (pg9Var = this.n) != null) {
+            pg9Var.v();
         }
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public void stopPlay() {
-        lg9 lg9Var;
+        pg9 pg9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (lg9Var = this.n) != null) {
-            lg9Var.w();
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (pg9Var = this.n) != null) {
+            pg9Var.w();
         }
     }
 
@@ -212,10 +212,10 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d7, (ViewGroup) null);
             this.m = viewGroup;
-            this.n = new lg9(this.i, viewGroup.findViewById(R.id.obfuscated_res_0x7f091589));
-            dg9 dg9Var = new dg9(this.i, this.m);
-            this.o = dg9Var;
-            this.n.s(dg9Var);
+            this.n = new pg9(this.i, viewGroup.findViewById(R.id.obfuscated_res_0x7f09158a));
+            hg9 hg9Var = new hg9(this.i, this.m);
+            this.o = hg9Var;
+            this.n.s(hg9Var);
             return this.m;
         }
         return (View) invokeV.objValue;

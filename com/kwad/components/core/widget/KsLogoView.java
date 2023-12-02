@@ -119,8 +119,8 @@ public class KsLogoView extends LinearLayout {
     private void init() {
         boolean z;
         l.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04ed, this);
-        this.abZ = (TextView) findViewById(R.id.obfuscated_res_0x7f0913d4);
-        this.aca = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913d3);
+        this.abZ = (TextView) findViewById(R.id.obfuscated_res_0x7f0913d5);
+        this.aca = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913d4);
         if (getBackground() == null) {
             z = true;
         } else {
@@ -158,7 +158,7 @@ public class KsLogoView extends LinearLayout {
 
     public final void aD(AdTemplate adTemplate) {
         String str;
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f0913d2);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0913d3);
         AdInfo dP = com.kwad.sdk.core.response.b.e.dP(adTemplate);
         if (this.abY) {
             str = dP.adBaseInfo.adGrayMarkIcon;

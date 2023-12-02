@@ -71,23 +71,23 @@ public final class FragmentInputToolBinding implements ViewBinding {
             int i = R.id.obfuscated_res_0x7f0904bf;
             GroupChatKeyboardLayout groupChatKeyboardLayout = (GroupChatKeyboardLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904bf);
             if (groupChatKeyboardLayout != null) {
-                i = R.id.obfuscated_res_0x7f0911ac;
-                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911ac);
+                i = R.id.obfuscated_res_0x7f0911ad;
+                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911ad);
                 if (relativeLayout != null) {
-                    i = R.id.obfuscated_res_0x7f0911b5;
-                    RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911b5);
+                    i = R.id.obfuscated_res_0x7f0911b6;
+                    RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911b6);
                     if (relativeLayout2 != null) {
-                        i = R.id.obfuscated_res_0x7f092051;
-                        GroupChatRobotFloorView groupChatRobotFloorView = (GroupChatRobotFloorView) view2.findViewById(R.id.obfuscated_res_0x7f092051);
+                        i = R.id.obfuscated_res_0x7f092053;
+                        GroupChatRobotFloorView groupChatRobotFloorView = (GroupChatRobotFloorView) view2.findViewById(R.id.obfuscated_res_0x7f092053);
                         if (groupChatRobotFloorView != null) {
-                            i = R.id.obfuscated_res_0x7f09232a;
-                            NoSlidingLinearLayout noSlidingLinearLayout = (NoSlidingLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09232a);
+                            i = R.id.obfuscated_res_0x7f09232c;
+                            NoSlidingLinearLayout noSlidingLinearLayout = (NoSlidingLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09232c);
                             if (noSlidingLinearLayout != null) {
-                                i = R.id.obfuscated_res_0x7f092924;
-                                GroupChatUserReplyView groupChatUserReplyView = (GroupChatUserReplyView) view2.findViewById(R.id.obfuscated_res_0x7f092924);
+                                i = R.id.obfuscated_res_0x7f092927;
+                                GroupChatUserReplyView groupChatUserReplyView = (GroupChatUserReplyView) view2.findViewById(R.id.obfuscated_res_0x7f092927);
                                 if (groupChatUserReplyView != null) {
-                                    i = R.id.obfuscated_res_0x7f092957;
-                                    GroupChatUserReplyView groupChatUserReplyView2 = (GroupChatUserReplyView) view2.findViewById(R.id.obfuscated_res_0x7f092957);
+                                    i = R.id.obfuscated_res_0x7f09295a;
+                                    GroupChatUserReplyView groupChatUserReplyView2 = (GroupChatUserReplyView) view2.findViewById(R.id.obfuscated_res_0x7f09295a);
                                     if (groupChatUserReplyView2 != null) {
                                         return new FragmentInputToolBinding((RelativeLayout) view2, groupChatKeyboardLayout, relativeLayout, relativeLayout2, groupChatRobotFloorView, noSlidingLinearLayout, groupChatUserReplyView, groupChatUserReplyView2);
                                     }

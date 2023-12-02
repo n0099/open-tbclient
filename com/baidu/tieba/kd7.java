@@ -1,37 +1,119 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmOverloads;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
 public final class kd7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @JvmOverloads
-    public static final boolean a(View view2, Object obj, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, view2, obj, z)) == null) {
-            Intrinsics.checkNotNullParameter(view2, "<this>");
-            if (Intrinsics.areEqual(view2.getTag(R.id.obfuscated_res_0x7f092a45), obj)) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947909323, "Lcom/baidu/tieba/kd7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (z) {
-                view2.setTag(R.id.obfuscated_res_0x7f092a45, obj);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947909323, "Lcom/baidu/tieba/kd7;");
+                return;
             }
-            return false;
         }
-        return invokeLLZ.booleanValue;
+        a = new a(null);
     }
 
-    public static /* synthetic */ boolean b(View view2, Object obj, boolean z, int i, Object obj2) {
-        if ((i & 2) != 0) {
-            z = true;
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        return a(view2, obj, z);
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final m77 a(String iconUrl) {
+            InterceptResult invokeL;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iconUrl)) == null) {
+                Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+                if (!TextUtils.isEmpty(iconUrl) && StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
+                    Uri parse = Uri.parse(iconUrl);
+                    List<String> pathSegments = parse.getPathSegments();
+                    if (pathSegments.size() > 0) {
+                        boolean z = true;
+                        int identifier = v27.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, v27.a.getPackageName());
+                        String queryParameter = parse.getQueryParameter("type");
+                        if (queryParameter == null) {
+                            queryParameter = "";
+                        }
+                        String str = queryParameter;
+                        String queryParameter2 = parse.getQueryParameter("color");
+                        if (queryParameter2 != null && queryParameter2.length() != 0) {
+                            z = false;
+                        }
+                        if (!z) {
+                            i = v27.a.getResources().getIdentifier(queryParameter2, "color", v27.a.getPackageName());
+                        } else {
+                            i = 0;
+                        }
+                        if (identifier > 0) {
+                            return new m77(identifier, str, i, ld7.a(parse.getQueryParameter(CriusAttrConstants.PADDING)), ld7.a(parse.getQueryParameter("left_margin")), ld7.a(parse.getQueryParameter("right_margin")), ld7.a(parse.getQueryParameter("width")), ld7.a(parse.getQueryParameter("height")), ld7.a(parse.getQueryParameter("offsetY")));
+                        }
+                    }
+                }
+                return null;
+            }
+            return (m77) invokeL.objValue;
+        }
+
+        public final String b(i77 iconData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconData)) == null) {
+                Intrinsics.checkNotNullParameter(iconData, "iconData");
+                String b = iconData.b();
+                int currentSkinType = SkinManager.getCurrentSkinType();
+                if (currentSkinType != 0) {
+                    if (currentSkinType == 4) {
+                        return iconData.a();
+                    }
+                    return b;
+                }
+                return iconData.b();
+            }
+            return (String) invokeL.objValue;
+        }
     }
 }

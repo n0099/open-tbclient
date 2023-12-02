@@ -1,9 +1,9 @@
 package com.huawei.hms.hatool;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tcc;
+import com.baidu.tieba.scc;
+import com.baidu.tieba.wcc;
 import com.baidu.tieba.xcc;
-import com.baidu.tieba.ycc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,13 +75,13 @@ public class c0 {
             String c = c();
             if (b()) {
                 y.c("hmsSdk", "refresh components");
-                b = xcc.d(128);
+                b = wcc.d(128);
                 a("aprpap", b);
-                b2 = xcc.d(128);
+                b2 = wcc.d(128);
                 a("febdoc", b2);
-                b3 = xcc.d(128);
+                b3 = wcc.d(128);
                 a("marfil", b3);
-                b4 = xcc.d(128);
+                b4 = wcc.d(128);
                 a("maywnj", b4);
                 g0.b(b.i(), "Privacy_MY", "assemblyFlash", System.currentTimeMillis());
             } else {
@@ -90,7 +90,7 @@ public class c0 {
                 b3 = b("marfil");
                 b4 = b("maywnj");
             }
-            return ycc.a(tcc.b(a(b, b2, b3, c), ycc.b(b4), 10000, 16));
+            return xcc.a(scc.b(a(b, b2, b3, c), xcc.b(b4), 10000, 16));
         }
         return (String) invokeV.objValue;
     }
@@ -142,10 +142,10 @@ public class c0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, str4)) == null) {
-            byte[] b = ycc.b(str);
-            byte[] b2 = ycc.b(str2);
-            byte[] b3 = ycc.b(str3);
-            byte[] b4 = ycc.b(str4);
+            byte[] b = xcc.b(str);
+            byte[] b2 = xcc.b(str2);
+            byte[] b3 = xcc.b(str3);
+            byte[] b4 = xcc.b(str4);
             int length = b.length;
             if (length > b2.length) {
                 length = b2.length;
@@ -174,7 +174,7 @@ public class c0 {
             if (a(file)) {
                 return t0.a(file);
             }
-            String d = xcc.d(128);
+            String d = wcc.d(128);
             t0.a(file, d);
             return d;
         }

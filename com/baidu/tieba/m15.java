@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class m15 implements mf1 {
+public abstract class m15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void a(@NonNull Context context, @NonNull a15 a15Var);
 
     public m15() {
         Interceptable interceptable = $ic;
@@ -23,31 +25,5 @@ public class m15 implements mf1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.mf1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new ew6());
-            arrayList.add(new lj7());
-            arrayList.add(new gn7());
-            arrayList.add(new y38());
-            arrayList.add(new c48());
-            arrayList.add(new g48());
-            arrayList.add(new k48());
-            arrayList.add(new o48());
-            arrayList.add(new s48());
-            arrayList.add(new w48());
-            arrayList.add(new a58());
-            arrayList.add(new ku9());
-            arrayList.add(new pu9());
-            arrayList.add(new uu9());
-            arrayList.add(new j0b());
-            return arrayList;
-        }
-        return invokeV.objValue;
     }
 }

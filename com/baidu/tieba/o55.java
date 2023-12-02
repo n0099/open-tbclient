@@ -1,117 +1,109 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.view.Window;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class o55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public Activity a;
+    public AlertDialog b;
+    public boolean c;
+    public boolean d;
+    public String e;
 
-    public static boolean a(ThreadData threadData) {
+    public o55(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = true;
+        this.d = true;
+        this.a = activity;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            AlertDialog create = new AlertDialog.Builder(this.a).create();
+            this.b = create;
+            GreyUtil.grey(create);
+            yb.i(this.b, this.a);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.small_blue_progress_dialog, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.custom_loading_text);
+            if (!TextUtils.isEmpty(this.e)) {
+                textView.setText(this.e);
+            }
+            this.b.setCancelable(this.d);
+            this.b.setCanceledOnTouchOutside(this.d);
+            Window window = this.b.getWindow();
+            window.setContentView(inflate);
+            if (!this.c) {
+                window.setDimAmount(0.0f);
+            }
+        }
+    }
+
+    public void b() {
+        AlertDialog alertDialog;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.b) != null) {
+            alertDialog.dismiss();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.b == null) {
+                a();
+            }
+            this.b.show();
+        }
+    }
+
+    public o55 c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.c = z;
+            return this;
+        }
+        return (o55) invokeZ.objValue;
+    }
+
+    public o55 d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, threadData)) == null) {
-            if (threadData != null && (threadData.getType() == ThreadData.TYPE_FAKE_VIDEO || threadData.isBusinessMixThread())) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.e = str;
+            return this;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static void c(ViewGroup viewGroup) {
-        ViewGroup.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, viewGroup) == null) && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
-            layoutParams.height = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds120);
-            viewGroup.setLayoutParams(layoutParams);
-        }
-    }
-
-    public static void d(TextView textView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, textView) == null) && textView != null) {
-            EMManager.from(textView).setTextColor(R.color.CAM_X0107);
-        }
-    }
-
-    public static void e(TextView textView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) && textView != null) {
-            EMManager.from(textView).setTextSize(R.dimen.tbds36);
-        }
-    }
-
-    public static void f(TextView textView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, textView) == null) && textView != null) {
-            EMManager.from(textView).setTextSize(R.dimen.tbds36).setTextColor(R.color.CAM_X0107);
-        }
-    }
-
-    public static void b(ImageView imageView, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65537, null, imageView, i) == null) && imageView != null) {
-            WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-            ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.width = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds52);
-                layoutParams.height = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds52);
-                imageView.setLayoutParams(layoutParams);
-            }
-        }
-    }
-
-    public static void g(TBLottieAnimationView tBLottieAnimationView, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65542, null, tBLottieAnimationView, i) == null) && tBLottieAnimationView != null) {
-            if (i == 4) {
-                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_night);
-            } else {
-                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_agree_day);
-            }
-            tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
-        }
-    }
-
-    public static void i(TextView textView, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65544, null, textView, z) != null) || textView == null) {
-            return;
-        }
-        if (z) {
-            i = R.color.CAM_X0110;
-        } else {
-            i = R.color.CAM_X0107;
-        }
-        textView.setTextColor(uua.a(SkinManager.getColor(i), SkinManager.RESOURCE_ALPHA_NORMAL));
-    }
-
-    public static void h(ImageView imageView, int i, boolean z) {
-        float f;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{imageView, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || imageView == null) {
-            return;
-        }
-        int color = SkinManager.getColor(R.color.CAM_X0107);
-        if (z) {
-            f = SkinManager.RESOURCE_ALPHA_DISABLE;
-        } else {
-            f = SkinManager.RESOURCE_ALPHA_NORMAL;
-        }
-        imageView.setImageDrawable(WebPManager.getPureDrawable(i, uua.a(color, f), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE));
+        return (o55) invokeL.objValue;
     }
 }

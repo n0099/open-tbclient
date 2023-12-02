@@ -1,8 +1,19 @@
 package com.baidu.tieba;
-
-import java.io.IOException;
-import java.io.InputStream;
 /* loaded from: classes7.dex */
 public interface nq1 {
-    InputStream a(InputStream inputStream) throws IOException;
+    void a(String str, rt2 rt2Var);
+
+    int getDuration();
+
+    boolean isPlaying();
+
+    void onRelease();
+
+    void pause();
+
+    void play();
+
+    void seek(int i);
+
+    void stop();
 }

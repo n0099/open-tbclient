@@ -51,15 +51,15 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an9;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.dp5;
-import com.baidu.tieba.ep5;
-import com.baidu.tieba.fp5;
-import com.baidu.tieba.g26;
-import com.baidu.tieba.gp5;
+import com.baidu.tieba.en9;
+import com.baidu.tieba.f05;
+import com.baidu.tieba.hp5;
+import com.baidu.tieba.ip5;
+import com.baidu.tieba.jp5;
+import com.baidu.tieba.k26;
+import com.baidu.tieba.kp5;
 import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
-import com.baidu.tieba.r85;
+import com.baidu.tieba.u85;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -244,12 +244,12 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                         TiebaStatic.log(this.a.J);
                         return;
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e6f);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e70);
                     return;
                 }
                 String errorString = responseMemberPayMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e6f);
+                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e70);
                 }
                 this.a.showToast(errorString);
             }
@@ -293,7 +293,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 for (int i = 0; i < count; i++) {
                     this.a.s.getItem(i).H2(bool);
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f16f4);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f16f5);
             }
         }
     }
@@ -401,7 +401,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     }
 
     /* loaded from: classes7.dex */
-    public class g implements ep5 {
+    public class g implements ip5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MemberPayFragmentActivity a;
@@ -424,7 +424,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             this.a = memberPayFragmentActivity;
         }
 
-        @Override // com.baidu.tieba.ep5
+        @Override // com.baidu.tieba.ip5
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) {
@@ -433,17 +433,17 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             this.a.Q1();
         }
 
-        @Override // com.baidu.tieba.ep5
+        @Override // com.baidu.tieba.ip5
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gp5 c = gp5.c();
-                c.b(fp5.a + "?refer_page=" + this.a.g + "&click_zone=" + this.a.h, this.a.getPageContext());
+                kp5 c = kp5.c();
+                c.b(jp5.a + "?refer_page=" + this.a.g + "&click_zone=" + this.a.h, this.a.getPageContext());
                 this.a.finish();
             }
         }
 
-        @Override // com.baidu.tieba.ep5
+        @Override // com.baidu.tieba.ip5
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -453,7 +453,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     }
 
     /* loaded from: classes7.dex */
-    public class h implements c05.e {
+    public class h implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MemberPayFragmentActivity a;
@@ -476,18 +476,18 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             this.a = memberPayFragmentActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
+                f05Var.dismiss();
                 TiebaStatic.log(new StatisticItem("c13202").param("obj_locate", 1));
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class i implements c05.e {
+    public class i implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MemberPayFragmentActivity a;
@@ -510,12 +510,12 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             this.a = memberPayFragmentActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
                 TiebaStatic.log(new StatisticItem("c13202").param("obj_locate", 0));
-                c05Var.dismiss();
+                f05Var.dismiss();
                 if (this.a.l != null) {
                     this.a.l.setBackgroundColor(this.a.getPageContext().getPageActivity().getResources().getColor(R.color.transparent));
                 }
@@ -641,9 +641,9 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             if (i2 != 2) {
-                return getResources().getString(R.string.obfuscated_res_0x7f0f1663);
+                return getResources().getString(R.string.obfuscated_res_0x7f0f1664);
             }
-            return getResources().getString(R.string.obfuscated_res_0x7f0f1666);
+            return getResources().getString(R.string.obfuscated_res_0x7f0f1667);
         }
         return (String) invokeI.objValue;
     }
@@ -893,16 +893,16 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     public final void S1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            c05 c05Var = new c05(getPageContext().getPageActivity());
-            c05Var.setAutoNight(true);
-            c05Var.setCancelable(true);
-            c05Var.setTitleShowCenter(true);
-            c05Var.setMessageShowCenter(true);
-            c05Var.setTitle(getString(R.string.obfuscated_res_0x7f0f165e));
-            c05Var.setMessage(getString(R.string.obfuscated_res_0x7f0f165c));
-            c05Var.setPositiveButton(getString(R.string.obfuscated_res_0x7f0f091e), new h(this));
-            c05Var.setNegativeButton(getString(R.string.obfuscated_res_0x7f0f165d), new i(this));
-            c05Var.create(getPageContext()).show();
+            f05 f05Var = new f05(getPageContext().getPageActivity());
+            f05Var.setAutoNight(true);
+            f05Var.setCancelable(true);
+            f05Var.setTitleShowCenter(true);
+            f05Var.setMessageShowCenter(true);
+            f05Var.setTitle(getString(R.string.obfuscated_res_0x7f0f165f));
+            f05Var.setMessage(getString(R.string.obfuscated_res_0x7f0f165d));
+            f05Var.setPositiveButton(getString(R.string.obfuscated_res_0x7f0f091e), new h(this));
+            f05Var.setNegativeButton(getString(R.string.obfuscated_res_0x7f0f165e), new i(this));
+            f05Var.create(getPageContext()).show();
         }
     }
 
@@ -911,56 +911,56 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d063d);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092735);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092737);
             this.l = findViewById;
             findViewById.setOnClickListener(new d(this));
-            this.j = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091773);
+            this.j = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091774);
             int dimens = BdUtilHelper.getDimens(getPageContext().getContext(), R.dimen.tbds43);
             this.z = dimens;
             this.j.setRoundLayoutRadius(new float[]{dimens, dimens, dimens, dimens, 0.0f, 0.0f, 0.0f, 0.0f});
             this.k = (RelativeLayout) findViewById(R.id.navigation_bar);
-            this.E = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0919e1);
-            this.H = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09271b);
+            this.E = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0919e3);
+            this.H = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09271d);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904db);
             this.m = imageView;
             imageView.setOnClickListener(new e(this));
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f0927b8);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0927c5);
-            this.B = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f092a7f);
-            this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911a1);
-            this.q = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f0917fc);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092469);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f0927bb);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0927c8);
+            this.B = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f092a82);
+            this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911a2);
+            this.q = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f0917fd);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09246b);
             this.r = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.r.setOnPageChangeListener(this);
             this.r.setTabWidgetViewHeight(0);
             this.r.s();
-            this.r.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070363));
+            this.r.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070364));
             this.r.getFragmentTabWidget().setDviderRectWidth(-2);
             this.r.getFragmentTabWidget().setDviderRectHeight(BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070224));
             this.E.setVisibility(0);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(3, R.id.obfuscated_res_0x7f09271b);
+            layoutParams2.addRule(3, R.id.obfuscated_res_0x7f09271d);
             this.r.setLayoutParams(layoutParams2);
             if (this.A) {
-                this.B.setGuideContent(g26.e().h(), g26.e().g());
+                this.B.setGuideContent(k26.e().h(), k26.e().g());
                 this.B.setVisibility(0);
                 this.k.setVisibility(8);
                 this.p.setVisibility(8);
                 this.B.setCloseClickListener(new f(this));
                 RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams3.addRule(3, R.id.obfuscated_res_0x7f092a7f);
+                layoutParams3.addRule(3, R.id.obfuscated_res_0x7f092a82);
                 this.r.setLayoutParams(layoutParams3);
             }
-            this.F = findViewById(R.id.obfuscated_res_0x7f0917e3);
-            this.G = findViewById(R.id.obfuscated_res_0x7f0917e4);
+            this.F = findViewById(R.id.obfuscated_res_0x7f0917e4);
+            this.G = findViewById(R.id.obfuscated_res_0x7f0917e5);
             if (StringHelper.equals(this.D, "1") && getActivity() != null) {
                 if (TbDimenManager.getInstance().needAdapt()) {
                     TbDimenManager.getInstance().adaptDimen(getActivity().getBaseContext());
                 }
                 layoutParams = new LinearLayout.LayoutParams(-2, (BdUtilHelper.getEquipmentHeight(getActivity().getBaseContext()) - this.k.getHeight()) - BdUtilHelper.getDimens(getActivity().getBaseContext(), R.dimen.tbds828));
             } else {
-                layoutParams = new LinearLayout.LayoutParams(-2, BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) - BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07092b));
+                layoutParams = new LinearLayout.LayoutParams(-2, BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) - BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07092f));
             }
             this.l.setLayoutParams(layoutParams);
             this.l.setVisibility(0);
@@ -974,8 +974,8 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             WebPManager.setPureDrawable(this.m, R.drawable.icon_pure_vip_ad_free_guide_del, R.color.CAM_X0626, null);
             EMManager.from(this.o).setTextColor(R.color.CAM_X0311).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X02);
             this.B.f();
-            SkinManager.setImageResource(this.E, R.drawable.obfuscated_res_0x7f08110c);
-            SkinManager.setImageResource(this.H, R.drawable.obfuscated_res_0x7f0815c4);
+            SkinManager.setImageResource(this.E, R.drawable.obfuscated_res_0x7f08110f);
+            SkinManager.setImageResource(this.H, R.drawable.obfuscated_res_0x7f0815c7);
             if (this.t == 2) {
                 SkinManager.setImageResource(this.n, R.drawable.obfuscated_res_0x7f080d08, i2);
             } else {
@@ -1010,7 +1010,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 return;
             }
             H1();
-            r85 consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
+            u85 consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
             if (consumePathData != null) {
                 this.x = Boolean.valueOf(consumePathData.b(1, this.e));
             }
@@ -1019,9 +1019,9 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             I1();
             z1();
             if (TbSingleton.getInstance().isUserBan()) {
-                dp5.a(this);
+                hp5.a(this);
             }
-            an9.a(this.g, this.h, this.C);
+            en9.a(this.g, this.h, this.C);
         }
     }
 }

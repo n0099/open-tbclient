@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class at extends vs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cw4 h;
+    public fw4 h;
     public ForumGoodsEnterLayout i;
     public int j;
     public final View.OnClickListener k;
@@ -92,13 +92,13 @@ public class at extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: z */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cw4Var) == null) {
-            this.h = cw4Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, fw4Var) == null) {
+            this.h = fw4Var;
             this.i.setSourceForPb(this.a.k());
             this.i.setFrstype(this.j);
-            this.i.setData(cw4Var);
+            this.i.setData(fw4Var);
         }
     }
 

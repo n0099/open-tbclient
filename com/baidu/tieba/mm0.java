@@ -1,4 +1,4 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
-public interface mm0 extends x51 {
+public interface mm0 extends z51 {
 }

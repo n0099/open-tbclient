@@ -330,7 +330,7 @@ public class InterestForumTagLayout extends LinearLayout implements jt {
             addView(relativeLayout, layoutParams);
             ImageView imageView = new ImageView(getContext());
             this.f = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f0911d1);
+            imageView.setId(R.id.obfuscated_res_0x7f0911d2);
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds42);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimens, dimens);
             layoutParams2.addRule(11, -1);
@@ -342,7 +342,7 @@ public class InterestForumTagLayout extends LinearLayout implements jt {
             this.d.setMinimumHeight(BdUtilHelper.getDimens(getContext(), R.dimen.tbds68));
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams3.addRule(15, -1);
-            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f0911d1);
+            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f0911d2);
             relativeLayout.addView(this.d, layoutParams3);
             onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
         }

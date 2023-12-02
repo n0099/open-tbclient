@@ -391,10 +391,10 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     heartSurfaceView.h = heartSurfaceView.getWidth();
                     HeartSurfaceView heartSurfaceView2 = this.a;
                     heartSurfaceView2.g = heartSurfaceView2.getHeight();
-                    float dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070584);
-                    float dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070585);
-                    float dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070580);
-                    float dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070583);
+                    float dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070585);
+                    float dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070586);
+                    float dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070581);
+                    float dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070584);
                     PointF pointF = new PointF(dimensionPixelSize, this.a.g - dimensionPixelSize3);
                     PointF pointF2 = new PointF(dimensionPixelSize, dimensionPixelSize4);
                     PointF pointF3 = new PointF(dimensionPixelSize2, this.a.g - dimensionPixelSize3);
@@ -403,7 +403,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                     this.a.i.add(Pair.create(pointF, pointF2));
                     this.a.i.add(Pair.create(pointF3, pointF4));
                     this.a.j = new PointF(0.0f, this.a.g * 0.5f);
-                    this.a.k = new PointF(this.a.h + this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070581), this.a.g * 0.5f);
+                    this.a.k = new PointF(this.a.h + this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070583), this.a.g * 0.5f);
                 }
             }
         }

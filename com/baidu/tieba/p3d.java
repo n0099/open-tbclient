@@ -5,25 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.GiftInfo;
+import tbclient.Global;
 /* loaded from: classes7.dex */
-public class p3d extends ltc {
+public class p3d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull GiftInfo giftInfo) {
+    public static JSONObject b(@NonNull Global global) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, giftInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, global)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "icon", giftInfo.icon);
-            ltc.a(jSONObject, "num", giftInfo.num);
-            ltc.a(jSONObject, "gift_id", giftInfo.gift_id);
-            ltc.a(jSONObject, "gift_name", giftInfo.gift_name);
-            ltc.a(jSONObject, "large_thumbnail_url", giftInfo.large_thumbnail_url);
-            ltc.a(jSONObject, "sender_id", giftInfo.sender_id);
-            ltc.a(jSONObject, "sender_name", giftInfo.sender_name);
+            ktc.a(jSONObject, "tbmall_newprops", global.tbmall_newprops);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

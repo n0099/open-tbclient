@@ -10,9 +10,9 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.jx6;
-import com.baidu.tieba.nua;
-import com.baidu.tieba.qua;
+import com.baidu.tieba.mua;
+import com.baidu.tieba.nx6;
+import com.baidu.tieba.pua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jx6 a;
+    public nx6 a;
     public boolean b;
     public HttpMessageListener c;
 
@@ -111,13 +111,13 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.c);
     }
 
-    public jx6 T() {
+    public nx6 T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (jx6) invokeV.objValue;
+        return (nx6) invokeV.objValue;
     }
 
     public void U() {
@@ -128,10 +128,10 @@ public class EnterForumAdModel extends BdBaseModel {
     }
 
     public void V(Context context) {
-        jx6 jx6Var;
+        nx6 nx6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (jx6Var = this.a) != null && jx6Var.a()) {
-            qua.g().c(a5.a(context).getUniqueId(), nua.h("a025", "common_fill", true, 1, 5));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (nx6Var = this.a) != null && nx6Var.a()) {
+            pua.g().c(a5.a(context).getUniqueId(), mua.h("a025", "common_fill", true, 1, 5));
             this.b = true;
         }
     }

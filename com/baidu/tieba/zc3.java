@@ -1,20 +1,51 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.er2;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
 public final class zc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes9.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ld3 a;
+
+        public a(ld3 ld3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ld3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ld3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                rc3.k("671", this.a.f());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,135 +60,47 @@ public final class zc3 {
                 return;
             }
         }
-        boolean z = sm1.a;
-        a = 0;
+        a = vm1.a;
     }
 
-    public static int c() {
-        InterceptResult invokeV;
+    public static void a(ce4 ce4Var, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        er2.a X = g63.K().q().X();
-        String i = mf3.i(X.k0(), X.H());
-        if (!jSONObject.has("appid")) {
-            hj3.f(jSONObject, "appid", X.I());
-        }
-        if (!jSONObject.has("swan")) {
-            hj3.f(jSONObject, "swan", i);
-        }
-        if (!jSONObject.has("appversion")) {
-            hj3.f(jSONObject, "appversion", X.x1());
-        }
-        if (!jSONObject.has("swanNativeVersion")) {
-            hj3.f(jSONObject, "swanNativeVersion", tm1.a());
-        }
-        if (!jSONObject.has("thirdversion")) {
-            hj3.f(jSONObject, "thirdversion", X.y1());
-        }
-        if (g63.K().q().z0() && !jSONObject.has("isWebDowngrade")) {
-            hj3.f(jSONObject, "isWebDowngrade", "1");
-        }
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{ce4Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (ce4Var == null) {
+                if (a) {
+                    Log.d("SwanStabilityUbc", "pms callback is null");
+                    return;
+                }
+                return;
             }
-            String o = zj3.o(str);
-            if (TextUtils.isEmpty(o)) {
-                return str;
+            di3 di3Var = new di3();
+            di3Var.k(11L);
+            di3Var.i(2331L);
+            di3Var.f("Retry=" + z + ", Scene=" + ce4Var.getClass().getName());
+            ld3 ld3Var = new ld3();
+            ld3Var.q(dd3.n(i));
+            ld3Var.p(di3Var);
+            if (ce4Var instanceof l92) {
+                ld3Var.r(((l92) ce4Var).I0());
             }
-            HashSet hashSet = new HashSet();
-            hashSet.add("bduss");
-            hashSet.add("bduss".toUpperCase());
-            String i = zj3.i(o, hashSet);
-            String f = zj3.f(str);
-            return f + "?" + i;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            a = i;
-        }
-    }
-
-    public static <EvenT extends jd3> EvenT f(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
-            e(event, "isDownloading", String.valueOf(g63.K().q().G0() ? 1 : 0));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends jd3> EvenT g(EvenT event) {
-        InterceptResult invokeL;
-        boolean z;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
-            if (c() == 2) {
-                z = true;
-            } else {
-                z = false;
+            b(ld3Var);
+            if (a) {
+                Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + ce4Var.getClass().getSimpleName());
             }
-            if (z) {
-                str = "2";
-            } else {
-                str = "1";
+        }
+    }
+
+    public static void b(ld3 ld3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, ld3Var) == null) {
+            if (ld3Var == null) {
+                if (a) {
+                    Log.d("SwanStabilityUbc", "event is null");
+                    return;
+                }
+                return;
             }
-            e(event, "launchType", str);
-            return event;
+            ej3.k(new a(ld3Var), "SwanStabilityUBC");
         }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends jd3> EvenT h(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
-            e(event, "packageState", String.valueOf(g63.K().q().F0()));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends jd3> EvenT i(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
-            e(event, "coreState", String.valueOf(bd2.C0()));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends jd3> EvenT e(EvenT event, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
-            if (event != null && !TextUtils.isEmpty(str)) {
-                event.a(str, obj);
-            }
-            return event;
-        }
-        return (EvenT) invokeLLL.objValue;
     }
 }

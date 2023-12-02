@@ -37,18 +37,17 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bk6;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.ck5;
-import com.baidu.tieba.pic;
+import com.baidu.tieba.ck6;
+import com.baidu.tieba.du5;
+import com.baidu.tieba.fk5;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.sj6;
-import com.baidu.tieba.tj6;
-import com.baidu.tieba.uj6;
 import com.baidu.tieba.util.TopicListUtil;
-import com.baidu.tieba.vj6;
+import com.baidu.tieba.wj6;
 import com.baidu.tieba.xj6;
 import com.baidu.tieba.yj6;
-import com.baidu.tieba.zt5;
+import com.baidu.tieba.zj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +67,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     public NavigationBar c;
     public TbWebView d;
     public LoadingView e;
-    public ck5 f;
+    public fk5 f;
     public boolean g;
     public String h;
     public int i;
@@ -186,19 +185,19 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements yj6 {
+    public class d implements ck6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
 
-        @Override // com.baidu.tieba.yj6
+        @Override // com.baidu.tieba.ck6
         public /* synthetic */ void b(int i, int i2, int i3, int i4) {
-            xj6.b(this, i, i2, i3, i4);
+            bk6.b(this, i, i2, i3, i4);
         }
 
-        @Override // com.baidu.tieba.yj6
+        @Override // com.baidu.tieba.ck6
         public /* synthetic */ void d(int i, int i2, int i3, int i4) {
-            xj6.a(this, i, i2, i3, i4);
+            bk6.a(this, i, i2, i3, i4);
         }
 
         public d(NewAlaGameFrsLiveTabVideoView newAlaGameFrsLiveTabVideoView) {
@@ -219,7 +218,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.yj6
+        @Override // com.baidu.tieba.ck6
         public void onScrollChanged(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) != null) || Math.abs(i2 - this.a.i) <= 50) {
@@ -268,7 +267,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements sj6 {
+    public class f implements wj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
@@ -291,7 +290,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.sj6
+        @Override // com.baidu.tieba.wj6
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -310,7 +309,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes5.dex */
-    public class g implements uj6 {
+    public class g implements yj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
@@ -333,7 +332,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.uj6
+        @Override // com.baidu.tieba.yj6
         public void a(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
@@ -343,7 +342,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes5.dex */
-    public class h implements tj6 {
+    public class h implements xj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
@@ -366,7 +365,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.tj6
+        @Override // com.baidu.tieba.xj6
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
@@ -380,7 +379,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     /* loaded from: classes5.dex */
-    public class i implements vj6 {
+    public class i implements zj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewAlaGameFrsLiveTabVideoView a;
@@ -403,7 +402,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             this.a = newAlaGameFrsLiveTabVideoView;
         }
 
-        @Override // com.baidu.tieba.vj6
+        @Override // com.baidu.tieba.zj6
         public void a(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(1048576, this, webView, webResourceRequest, i, charSequence) == null) {
@@ -615,7 +614,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                     if (StringHelper.equals(matchStringFromURL3, "1")) {
                         new HotTopicActivityConfig(this.a.getActivity()).createNormalConfig(matchStringFromURL, matchStringFromURL2, matchStringFromURL3, null).start();
                     } else {
-                        zt5.f(this.a.getPageContext(), matchStringFromURL, matchStringFromURL2);
+                        du5.f(this.a.getPageContext(), matchStringFromURL, matchStringFromURL2);
                     }
                 } else {
                     BrowserHelper.startWebActivity(this.a.getActivity(), matchStringFromURL2, str);
@@ -636,7 +635,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             String substring = str.substring(str.indexOf("data=") + 5);
             ArrayList<String> arrayList = new ArrayList<>();
             try {
-                JSONArray optJSONArray = new JSONObject(substring).optJSONArray(pic.f);
+                JSONArray optJSONArray = new JSONObject(substring).optJSONArray("pic");
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     arrayList.add(optJSONArray.getString(i2));
                 }
@@ -676,7 +675,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                 this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
                 this.c.setmBackImageViewBg(R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
             }
-            TbWebView tbWebView = (TbWebView) this.b.findViewById(R.id.obfuscated_res_0x7f092af5);
+            TbWebView tbWebView = (TbWebView) this.b.findViewById(R.id.obfuscated_res_0x7f092af8);
             this.d = tbWebView;
             tbWebView.setOnScrollChangeListener(new d(this));
             r();
@@ -699,7 +698,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                     String optString3 = jSONObject.optString("link_url");
                     String optString4 = jSONObject.optString("thread_id");
                     String optString5 = jSONObject.optString("forum_name");
-                    String optString6 = jSONObject.optString(pic.f);
+                    String optString6 = jSONObject.optString("pic");
                     if (TextUtils.isEmpty(optString3)) {
                         return false;
                     }
@@ -829,10 +828,10 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
     }
 
     public void q() {
-        ck5 ck5Var;
+        fk5 fk5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (ck5Var = this.f) != null) {
-            ck5Var.dettachView(this.b);
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (fk5Var = this.f) != null) {
+            fk5Var.dettachView(this.b);
             this.f = null;
         }
     }
@@ -871,7 +870,7 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (baseFragment = this.a) != null && this.b != null && baseFragment.isAdded()) {
             this.j = true;
-            LoadingView loadingView = new LoadingView(this.a.getActivity(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ac));
+            LoadingView loadingView = new LoadingView(this.a.getActivity(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ad));
             this.e = loadingView;
             loadingView.attachView(this.b, false);
             this.e.onChangeSkinType();
@@ -882,11 +881,11 @@ public class NewAlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
         BaseFragment baseFragment;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (baseFragment = this.a) != null && baseFragment.isAdded()) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e6f);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e70);
             if (this.f == null) {
-                ck5 ck5Var = new ck5(this.a.getActivity(), new e(this));
-                this.f = ck5Var;
-                ck5Var.onChangeSkinType();
+                fk5 fk5Var = new fk5(this.a.getActivity(), new e(this));
+                this.f = fk5Var;
+                fk5Var.onChangeSkinType();
             }
             this.d.setVisibility(8);
             this.f.m(string);

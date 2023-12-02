@@ -13,7 +13,7 @@ import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ci;
-import com.baidu.tieba.jw4;
+import com.baidu.tieba.mw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\u0018\u00002\u0014\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\b\u0012\u00060\u0003R\u00020\u00000\u0001:\u0001\u0013B\u0019\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bJ\u0016\u0010\t\u001a\u00060\u0003R\u00020\u00002\b\u0010\n\u001a\u0004\u0018\u00010\u000bH\u0014J6\u0010\f\u001a\u00020\r2\u0006\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\r2\u0006\u0010\n\u001a\u00020\u000b2\b\u0010\u0011\u001a\u0004\u0018\u00010\u00022\n\u0010\u0012\u001a\u00060\u0003R\u00020\u0000H\u0014¨\u0006\u0014"}, d2 = {"Lcom/baidu/tieba/pb/pb/main/adapter/AiBotChatAdapter;", "Lcom/baidu/adp/widget/ListView/AbsDelegateAdapter;", "Lcom/baidu/tbadk/core/data/AiBotChatData;", "Lcom/baidu/tieba/pb/pb/main/adapter/AiBotChatAdapter$PbFirstFloorAiBotChatViewHolder;", "context", "Landroid/content/Context;", "type", "Lcom/baidu/adp/BdUniqueId;", "(Landroid/content/Context;Lcom/baidu/adp/BdUniqueId;)V", "onCreateViewHolder", "parent", "Landroid/view/ViewGroup;", "onFillViewHolder", "Landroid/view/View;", CriusAttrConstants.POSITION, "", "convertView", "data", "viewHolder", "PbFirstFloorAiBotChatViewHolder", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
-public final class AiBotChatAdapter extends ci<jw4, PbFirstFloorAiBotChatViewHolder> {
+public final class AiBotChatAdapter extends ci<mw4, PbFirstFloorAiBotChatViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,12 +68,12 @@ public final class AiBotChatAdapter extends ci<jw4, PbFirstFloorAiBotChatViewHol
             }
         }
 
-        public final void b(jw4 jw4Var) {
+        public final void b(mw4 mw4Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jw4Var) != null) || jw4Var == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mw4Var) != null) || mw4Var == null) {
                 return;
             }
-            this.a.setData(jw4Var);
+            this.a.setData(mw4Var);
         }
     }
 
@@ -100,8 +100,8 @@ public final class AiBotChatAdapter extends ci<jw4, PbFirstFloorAiBotChatViewHol
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.ci
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jw4 jw4Var, PbFirstFloorAiBotChatViewHolder pbFirstFloorAiBotChatViewHolder) {
-        u(i, view2, viewGroup, jw4Var, pbFirstFloorAiBotChatViewHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mw4 mw4Var, PbFirstFloorAiBotChatViewHolder pbFirstFloorAiBotChatViewHolder) {
+        u(i, view2, viewGroup, mw4Var, pbFirstFloorAiBotChatViewHolder);
         return view2;
     }
 
@@ -129,15 +129,15 @@ public final class AiBotChatAdapter extends ci<jw4, PbFirstFloorAiBotChatViewHol
         return (PbFirstFloorAiBotChatViewHolder) invokeL.objValue;
     }
 
-    public View u(int i, View convertView, ViewGroup parent, jw4 jw4Var, PbFirstFloorAiBotChatViewHolder viewHolder) {
+    public View u(int i, View convertView, ViewGroup parent, mw4 mw4Var, PbFirstFloorAiBotChatViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, jw4Var, viewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, mw4Var, viewHolder})) == null) {
             Intrinsics.checkNotNullParameter(convertView, "convertView");
             Intrinsics.checkNotNullParameter(parent, "parent");
             Intrinsics.checkNotNullParameter(viewHolder, "viewHolder");
-            if (jw4Var != null) {
-                viewHolder.b(jw4Var);
+            if (mw4Var != null) {
+                viewHolder.b(mw4Var);
             }
             viewHolder.a();
             return convertView;

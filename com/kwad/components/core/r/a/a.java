@@ -174,14 +174,14 @@ public class a extends com.kwad.components.core.l.b<b> {
 
     @Override // com.kwad.components.core.proxy.c
     public void initView() {
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0914da);
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09139a);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0914db);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09139b);
         if (!this.Ss && frameLayout != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams.topMargin = 0;
             frameLayout.setLayoutParams(layoutParams);
         }
-        com.kwad.components.core.b.a aVar = new com.kwad.components.core.b.a((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913a7));
+        com.kwad.components.core.b.a aVar = new com.kwad.components.core.b.a((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913a8));
         this.mTitleBarHelper = aVar;
         aVar.a(new a.InterfaceC0632a() { // from class: com.kwad.components.core.r.a.a.1
             @Override // com.kwad.components.core.b.a.InterfaceC0632a

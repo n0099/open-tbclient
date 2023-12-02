@@ -1,56 +1,46 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
+@Service
 /* loaded from: classes8.dex */
-public final class w69 {
+public final class w69 extends cga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public final int b;
-    public boolean c;
 
-    public w69(Activity activity, int i) {
+    @Override // com.baidu.tieba.cga
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "fan_message_bar" : (String) invokeV.objValue;
+    }
+
+    public w69() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        this.a = activity;
-        this.b = i;
     }
 
-    public final void a(Function1<? super Intent, Boolean> condition) {
+    @Override // com.baidu.tieba.cga
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, condition) == null) {
-            Intrinsics.checkNotNullParameter(condition, "condition");
-            if (this.c) {
-                return;
-            }
-            this.c = true;
-            Intent intent = this.a.getIntent();
-            if (intent == null || !condition.invoke(intent).booleanValue()) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921700, new int[]{intent.getIntExtra("last_page_unique_id", 0), this.b}));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ia5.e().z();
         }
+        return invokeV.booleanValue;
     }
 }

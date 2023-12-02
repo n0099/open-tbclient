@@ -1,7 +1,43 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface w34 {
-    void a(v64 v64Var, u64 u64Var);
+    String a();
 
-    void b(m64 m64Var, l64 l64Var);
+    String b();
+
+    String c();
+
+    String d();
+
+    String e();
+
+    String f();
+
+    String g();
+
+    String h();
+
+    String i();
+
+    String j();
+
+    String k();
+
+    String l();
+
+    String m();
+
+    String n();
+
+    String o();
+
+    String p();
+
+    String q();
+
+    String r();
+
+    String s();
+
+    String t();
 }

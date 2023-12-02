@@ -1,8 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface uk5 {
-    void onReceiveMessage(int i, int i2, ArrayList<ChatMsg> arrayList);
+public class uk5 {
+    public static /* synthetic */ Interceptable $ic;
+    @NonNull
+    public static ServiceReference a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948213898, "Lcom/baidu/tieba/uk5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948213898, "Lcom/baidu/tieba/uk5;");
+                return;
+            }
+        }
+        a = new ServiceReference("AlaLiveSdk", "IMSdkServicePerson");
+    }
+
+    public static vk5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (vk5) ServiceManager.getService(a);
+        }
+        return (vk5) invokeV.objValue;
+    }
 }

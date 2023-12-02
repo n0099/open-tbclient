@@ -1,9 +1,14 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import androidx.annotation.AnyThread;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,185 +16,165 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes8.dex */
-public class u03 implements s03 {
+public class u03 implements or2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public t03 a;
-    public long b;
-    public long c;
+    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> c;
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnLongClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u03 a;
+    }
 
-        public a(u03 u03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final u03 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-426751405, "Lcom/baidu/tieba/u03$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-426751405, "Lcom/baidu/tieba/u03$b;");
                     return;
                 }
             }
-            this.a = u03Var;
+            a = new u03(null);
         }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (this.a.j()) {
-                    this.a.k();
-                    return true;
-                }
-                this.a.l();
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948157137, "Lcom/baidu/tieba/u03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948157137, "Lcom/baidu/tieba/u03;");
-                return;
-            }
-        }
-        d = sm1.a;
     }
 
     public u03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (j()) {
-            this.a = new t03();
-        }
+        this.c = new ConcurrentHashMap<>();
     }
 
-    public final boolean j() {
+    public static u03 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!d) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (u03) invokeV.objValue;
+    }
+
+    public /* synthetic */ u03(a aVar) {
+        this();
+    }
+
+    @Nullable
+    @UiThread
+    public View b(@LayoutRes int i, @Nullable ViewGroup viewGroup, boolean z) {
+        InterceptResult invokeCommon;
+        ViewGroup.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
+            View d = d(i);
+            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
+                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
+                if (layoutParams2 == null) {
+                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
+                } else {
+                    layoutParams2.width = layoutParams.width;
+                    layoutParams2.height = layoutParams.height;
+                }
+                d.setLayoutParams(layoutParams2);
             }
-            return AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).getBoolean("light_info_switch", false);
+            if (d == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                View inflate = LayoutInflater.from(rp2.c()).inflate(i, viewGroup, z);
+                long currentTimeMillis2 = System.currentTimeMillis();
+                if (or2.a) {
+                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + ms.c);
+                }
+                return inflate;
+            }
+            return d;
         }
-        return invokeV.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public final void k() {
+    @AnyThread
+    public void c(@LayoutRes int... iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
-            t03 t03Var = this.a;
-            if (t03Var != null) {
-                t03Var.c();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) && iArr != null && iArr.length != 0) {
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                int length = iArr.length;
+                LayoutInflater from = LayoutInflater.from(rp2.c());
+                for (int i : iArr) {
+                    View inflate = from.inflate(i, (ViewGroup) null);
+                    CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                    if (copyOnWriteArrayList == null) {
+                        copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+                    }
+                    copyOnWriteArrayList.add(inflate);
+                    this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
+                }
+                if (or2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + ms.c);
+                }
+            } catch (Exception e) {
+                if (or2.a) {
+                    Log.d("SwanPerformance", Log.getStackTraceString(e));
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.s03
-    public void a(long j) {
-        t03 t03Var;
+    @Nullable
+    @AnyThread
+    public View d(@LayoutRes int i) {
+        InterceptResult invokeI;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && j() && (t03Var = this.a) != null) {
-            t03Var.f(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.s03
-    public void c(long j) {
-        t03 t03Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && j() && (t03Var = this.a) != null) {
-            t03Var.h(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.s03
-    public void d(long j) {
-        t03 t03Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && j() && (t03Var = this.a) != null) {
-            t03Var.i(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.s03
-    public void e(long j) {
-        t03 t03Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048579, this, j) == null) && j() && (t03Var = this.a) != null) {
-            t03Var.g(j - this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.tz2
-    public void end(long j) {
-        t03 t03Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j() && (t03Var = this.a) != null) {
-            this.c = j;
-            t03Var.l(this.b, j);
-            this.a.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.s03
-    public void f(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && d && view2 != null) {
-            view2.setOnLongClickListener(new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.tz2
-    public void start(long j) {
-        t03 t03Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048585, this, j) == null) && j() && (t03Var = this.a) != null) {
-            this.b = j;
-            t03Var.e();
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", true).apply();
-            if (this.a == null) {
-                this.a = new t03();
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            View view2 = null;
+            try {
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
+                    view2 = copyOnWriteArrayList.remove(0);
+                }
+            } catch (Exception e) {
+                if (or2.a) {
+                    Log.d("SwanPerformance", Log.getStackTraceString(e));
+                }
             }
-            this.a.k();
+            if (or2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("tryObtainLayoutByResId resId = ");
+                sb.append(i);
+                if (view2 == null) {
+                    str = " cache view is null";
+                } else {
+                    str = " adopt cached view";
+                }
+                sb.append(str);
+                Log.d("SwanPerformance", sb.toString());
+            }
+            return view2;
         }
+        return (View) invokeI.objValue;
     }
 }

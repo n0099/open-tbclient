@@ -55,9 +55,9 @@ public class xd0 extends re0 {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 String b = yd0.a().b(str);
                 JSONObject jSONObject = new JSONObject();
-                my0.f(jSONObject, "key", str);
-                my0.f(jSONObject, "message", b);
-                my0.f(jSONObject, "ext", str3);
+                oy0.f(jSONObject, "key", str);
+                oy0.f(jSONObject, "message", b);
+                oy0.f(jSONObject, "ext", str3);
                 d(ze0Var, ve0Var, jSONObject.toString(), 0, true);
                 return true;
             }

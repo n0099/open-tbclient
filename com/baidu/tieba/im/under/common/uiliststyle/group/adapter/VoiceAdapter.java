@@ -22,10 +22,10 @@ import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbVoiceMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.VoiceItem;
 import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
-import com.baidu.tieba.k75;
-import com.baidu.tieba.nq8;
-import com.baidu.tieba.uy8;
-import com.baidu.tieba.vy8;
+import com.baidu.tieba.n75;
+import com.baidu.tieba.rq8;
+import com.baidu.tieba.yy8;
+import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,16 +83,16 @@ public class VoiceAdapter extends BaseStyleNormalAdapter<VoiceItem, ViewHolder, 
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
-        public void d(@NonNull nq8 nq8Var) {
+        public void d(@NonNull rq8 rq8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nq8Var) == null) {
-                super.d(nq8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rq8Var) == null) {
+                super.d(rq8Var);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class a implements vy8 {
+    public class a implements zy8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -123,7 +123,7 @@ public class VoiceAdapter extends BaseStyleNormalAdapter<VoiceItem, ViewHolder, 
             this.d = i;
         }
 
-        @Override // com.baidu.tieba.vy8
+        @Override // com.baidu.tieba.zy8
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
@@ -132,7 +132,7 @@ public class VoiceAdapter extends BaseStyleNormalAdapter<VoiceItem, ViewHolder, 
             }
         }
 
-        @Override // com.baidu.tieba.vy8
+        @Override // com.baidu.tieba.zy8
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -171,7 +171,7 @@ public class VoiceAdapter extends BaseStyleNormalAdapter<VoiceItem, ViewHolder, 
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 16;
             chatVoiceView.setLayoutParams(layoutParams);
-            chatVoiceView.setId(R.id.obfuscated_res_0x7f090f29);
+            chatVoiceView.setId(R.id.obfuscated_res_0x7f090f2a);
             chatVoiceView.setVoiceManager(this.m);
             chatVoiceView.setOnClickListener(chatVoiceView);
             chatVoiceView.d();
@@ -216,7 +216,7 @@ public class VoiceAdapter extends BaseStyleNormalAdapter<VoiceItem, ViewHolder, 
     public final void i0(ChatVoiceView chatVoiceView, VoiceItem voiceItem, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{chatVoiceView, voiceItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            int v = uy8.v(voiceItem, i);
+            int v = yy8.v(voiceItem, i);
             if (v != 0 && !z) {
                 chatVoiceView.setVoicePureColor(v);
             } else if (voiceItem.isLeft()) {
@@ -241,7 +241,7 @@ public class VoiceAdapter extends BaseStyleNormalAdapter<VoiceItem, ViewHolder, 
             VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
             tbMsg.setVoiceModel(voiceModel);
             voiceModel.setDuration(JavaTypesHelper.toInt(tbMsg.getDuring(), 0));
-            if (k75.b(tbMsg.getVid()) == null && tbMsg.getVoiceUrl() != null && (parse = Uri.parse(tbMsg.getVoiceUrl())) != null) {
+            if (n75.b(tbMsg.getVid()) == null && tbMsg.getVoiceUrl() != null && (parse = Uri.parse(tbMsg.getVoiceUrl())) != null) {
                 tbMsg.setVid(parse.getLastPathSegment());
             }
             voiceModel.setVoiceId(tbMsg.getVid());
@@ -261,7 +261,7 @@ public class VoiceAdapter extends BaseStyleNormalAdapter<VoiceItem, ViewHolder, 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), viewGroup, voiceItem, viewHolder, list, Integer.valueOf(i2)}) == null) {
             ChatVoiceView chatVoiceView = (ChatVoiceView) viewHolder.getView();
-            uy8.t(this.mType, voiceItem, viewGroup, new a(this, viewGroup, chatVoiceView, voiceItem, i2));
+            yy8.t(this.mType, voiceItem, viewGroup, new a(this, viewGroup, chatVoiceView, voiceItem, i2));
             chatVoiceView.setData(k0(voiceItem));
         }
     }

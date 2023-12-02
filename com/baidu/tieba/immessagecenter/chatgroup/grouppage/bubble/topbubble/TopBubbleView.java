@@ -78,15 +78,15 @@ public class TopBubbleView extends RelativeLayout implements View.OnClickListene
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 a aVar = new a();
                 aVar.a = view2;
-                aVar.b = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d7b);
-                aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091174);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d7a);
-                aVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d76);
-                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d75);
-                aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d79);
-                aVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d78);
-                aVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d77);
-                aVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091173);
+                aVar.b = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d7d);
+                aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091175);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d7c);
+                aVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d78);
+                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d77);
+                aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d7b);
+                aVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d7a);
+                aVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d79);
+                aVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091174);
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -177,7 +177,7 @@ public class TopBubbleView extends RelativeLayout implements View.OnClickListene
     public void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.a = a.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09d6, this));
+            this.a = a.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09d7, this));
             setOnClickListener(this);
             setOnLongClickListener(this);
             d();

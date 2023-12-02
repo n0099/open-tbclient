@@ -1,14 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.dp2;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,44 +11,193 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public final class xg2 {
+public class xg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final File a;
-    public static final byte[] b;
+    public static final boolean a;
+    public static volatile xg2 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
-    public static class a implements dp2.c {
+    public class a implements dl3<Exception> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ dl3 a;
+        public final /* synthetic */ int b;
 
-        @Override // com.baidu.tieba.dp2.c
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        /* renamed from: com.baidu.tieba.xg2$a$a  reason: collision with other inner class name */
+        /* loaded from: classes9.dex */
+        public class C0532a implements dl3<Exception> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0532a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.dl3
+            /* renamed from: b */
+            public void a(Exception exc) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                    k32.l("SwanAppCoresManager", "ensureSwanCore: update swan-js finish. ", exc);
+                    dl3 dl3Var = this.a.a;
+                    if (dl3Var != null) {
+                        dl3Var.a(exc);
+                    }
+                }
             }
         }
 
-        public a(CallbackHandler callbackHandler, String str, String str2) {
+        public a(xg2 xg2Var, dl3 dl3Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {callbackHandler, str, str2};
+                Object[] objArr = {xg2Var, dl3Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dl3Var;
+            this.b = i;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.dl3
+        /* renamed from: b */
+        public void a(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                if (exc == null) {
+                    k32.k("SwanAppCoresManager", "ensureSwanCore: done by update preset ");
+                    dl3 dl3Var = this.a;
+                    if (dl3Var != null) {
+                        dl3Var.a(null);
+                        return;
+                    }
+                    return;
+                }
+                k32.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
+                pf3.o(this.b, new C0532a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements dl3<Exception> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dl3 a;
+        public final /* synthetic */ int b;
+
+        /* loaded from: classes9.dex */
+        public class a implements dl3<Exception> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.dl3
+            /* renamed from: b */
+            public void a(Exception exc) {
+                dl3 dl3Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && (dl3Var = this.a.a) != null) {
+                    dl3Var.a(exc);
+                }
+            }
+        }
+
+        public b(xg2 xg2Var, dl3 dl3Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xg2Var, dl3Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dl3Var;
+            this.b = i;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.dl3
+        /* renamed from: b */
+        public void a(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                if (exc != null) {
+                    dl3 dl3Var = this.a;
+                    if (dl3Var != null) {
+                        dl3Var.a(exc);
+                        return;
+                    }
+                    return;
+                }
+                tg2.h(this.b, new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xg2 a;
+
+        public c(xg2 xg2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xg2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,45 +207,14 @@ public final class xg2 {
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
+            this.a = xg2Var;
         }
 
-        @Override // com.baidu.tieba.dp2.c
-        public void onFailed() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                h32.k("DebugDynamicLibControl", "debug动态库下载失败 url=" + this.c);
-                if (this.a != null && !TextUtils.isEmpty(this.b)) {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.dp2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a != null && !TextUtils.isEmpty(this.b)) {
-                    File j = xg2.j();
-                    h32.k("DebugDynamicLibControl", "debug动态库下载成功 file=" + j.getAbsolutePath());
-                    Pair g = xg2.g(j);
-                    if (!((Boolean) g.first).booleanValue()) {
-                        h32.k("DebugDynamicLibControl", "debug动态库解密失败 file=" + j.getAbsolutePath());
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解密失败").toString());
-                        return;
-                    } else if (((Boolean) xg2.s((File) g.second).first).booleanValue()) {
-                        xg2.r(true);
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                        return;
-                    } else {
-                        h32.k("DebugDynamicLibControl", "debug动态库解压失败 file=" + j.getAbsolutePath());
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解压失败").toString());
-                        return;
-                    }
-                }
-                h32.k("DebugDynamicLibControl", "debug动态库下载成功，但是 handler=" + this.a + " cb=" + this.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
             }
         }
     }
@@ -119,259 +232,79 @@ public final class xg2 {
                 return;
             }
         }
-        a = dp2.q();
-        b = "rMzurs3ur83vsM7vss/vtNHwt9LwuNPx".getBytes(StandardCharsets.UTF_8);
+        a = vm1.a;
     }
 
-    public static void f() {
+    public xg2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            r(false);
-            e();
-        }
-    }
-
-    public static File j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return new File(zq2.d().get(0).a, "debugDynamicLib.zip");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return new File(zq2.d().get(0).a, "aiapps_debug_dynamic_lib");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return ve3.a().getBoolean("KEY_SWAN_APP_DEBUG_DYNAMIC_LIB_MODE", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return l();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            r(true);
-        }
-    }
-
-    public static void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
-            ve3.a().putBoolean("KEY_SWAN_APP_DEBUG_DYNAMIC_LIB_MODE", z);
-        }
-    }
-
-    public static File d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return new File(a.getAbsolutePath() + File.separator + str + File.separator + "debug_dynamic");
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static Pair<Boolean, File> i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            File d = d(str);
-            if (d.exists() && d.isDirectory()) {
-                return new Pair<>(Boolean.TRUE, d);
-            }
-            return new Pair<>(Boolean.FALSE, null);
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            km4.j(j());
-            km4.j(k());
-            for (File file : n()) {
-                km4.j(file);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static Pair<Boolean, File> g(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
-            if (file != null && file.exists()) {
-                File file2 = new File(file.getAbsolutePath() + ".zip");
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                    try {
-                        byte[] bArr = new byte[16];
-                        fileInputStream.skip(10L);
-                        fileInputStream.read(bArr, 0, 10);
-                        fileInputStream.skip(5L);
-                        fileInputStream.read(bArr, 10, 6);
-                        fileInputStream.skip(3L);
-                        byte[] bArr2 = new byte[fileInputStream.available()];
-                        fileInputStream.read(bArr2);
-                        file2.deleteOnExit();
-                        file2.createNewFile();
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr);
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(b, "AES");
-                        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                        cipher.init(2, secretKeySpec, ivParameterSpec);
-                        fileOutputStream.write(cipher.doFinal(bArr2));
-                        fileOutputStream.flush();
-                        Pair<Boolean, File> pair = new Pair<>(Boolean.TRUE, file2);
-                        fileOutputStream.close();
-                        fileInputStream.close();
-                        return pair;
-                    } finally {
-                    }
-                } catch (Exception e) {
-                    h32.l("DebugDynamicLibControl", "debug动态库解密失败: ", e);
-                    return new Pair<>(Boolean.FALSE, null);
-                }
-            } else {
-                return new Pair<>(Boolean.FALSE, null);
-            }
-        } else {
-            return (Pair) invokeL.objValue;
-        }
-    }
-
-    public static synchronized void h(@NonNull String str, @Nullable CallbackHandler callbackHandler, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, callbackHandler, str2) == null) {
-            synchronized (xg2.class) {
-                if (TextUtils.isEmpty(str)) {
-                    h32.k("DebugDynamicLibControl", "download url is empty");
-                } else {
-                    dp2.H(str, new a(callbackHandler, str2, str));
-                }
-            }
-        }
-    }
-
-    public static List<File> n() {
+    public static xg2 d() {
         InterceptResult invokeV;
-        File[] C;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (File file : km4.C(a)) {
-                if (file.isDirectory()) {
-                    File[] C2 = km4.C(file);
-                    int length = C2.length;
-                    int i = 0;
-                    while (true) {
-                        if (i < length) {
-                            File file2 = C2[i];
-                            if (file2.isDirectory() && "debug_dynamic".equals(file2.getName())) {
-                                arrayList.add(file2);
-                                break;
-                            }
-                            i++;
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (xg2.class) {
+                    if (b == null) {
+                        b = new xg2();
                     }
                 }
             }
-            return arrayList;
+            return b;
         }
-        return (List) invokeV.objValue;
+        return (xg2) invokeV.objValue;
     }
 
-    @NonNull
-    public static List<String> o() {
-        InterceptResult invokeV;
-        File[] C;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (File file : km4.C(a)) {
-                if (file.isDirectory()) {
-                    File[] C2 = km4.C(file);
-                    int length = C2.length;
-                    int i = 0;
-                    while (true) {
-                        if (i < length) {
-                            File file2 = C2[i];
-                            if (file2.isDirectory() && "debug_dynamic".equals(file2.getName())) {
-                                arrayList.add(file.getName());
-                                break;
-                            }
-                            i++;
-                        }
-                    }
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            tf3.b().e(null, 0);
+            tf3.b().e(null, 1);
+            tg2.h(0, null);
+            tg2.h(1, null);
         }
-        return (List) invokeV.objValue;
     }
 
-    public static String q(File file) throws Exception {
-        InterceptResult invokeL;
-        File[] listFiles;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, file)) == null) {
-            if (file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length == 1 && listFiles[0].isDirectory()) {
-                km4.e(listFiles[0], file);
-                km4.j(listFiles[0]);
-            }
-            return (String) new JSONObject(km4.E(new File(file, "dynamicLib.json"))).get("name");
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ExecutorUtilsExt.postOnElastic(new c(this), "tryUpdateAllPresetCoresAsync", 2);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static Pair<Boolean, String> s(File file) {
-        InterceptResult invokeL;
+    public void c(@Nullable dl3<Exception> dl3Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, file)) == null) {
-            String str = "";
-            boolean z = false;
-            try {
-                File k = k();
-                km4.l(k);
-                if (file.exists() && km4.U(file.getAbsolutePath(), k.getAbsolutePath())) {
-                    str = q(k);
-                    File d = d(str);
-                    if (d.exists()) {
-                        km4.j(d);
-                    }
-                    d.mkdirs();
-                    km4.e(k, d);
-                    km4.j(k);
-                    km4.j(file);
-                    z = true;
-                }
-            } catch (Exception e) {
-                h32.k("DebugDynamicLibControl", "debug动态库解压异常: " + e.toString());
-            }
-            h32.k("DebugDynamicLibControl", "debug动态库解压结果: unzipSuccess=" + z + " dynamicLibName=" + str);
-            return new Pair<>(Boolean.valueOf(z), str);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dl3Var, i) == null) {
+            k32.k("SwanAppCoresManager", "ensureSwanCore: invoke frameType = " + i);
+            g(new a(this, dl3Var, i), i);
         }
-        return (Pair) invokeL.objValue;
+    }
+
+    public final void g(@Nullable dl3<Exception> dl3Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, dl3Var, i) == null) {
+            tf3.b().e(new b(this, dl3Var, i), i);
+        }
+    }
+
+    public void e(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            if (a) {
+                Log.d("SwanAppCoresManager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+            }
+            pf3.l(i, i2);
+            tg2.g(i, i2);
+        }
     }
 }

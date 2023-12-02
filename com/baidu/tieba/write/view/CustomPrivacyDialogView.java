@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c65;
+import com.baidu.tieba.f65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -100,17 +100,17 @@ public class CustomPrivacyDialogView extends LinearLayout {
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackgroundDrawable(gradientDrawable);
             LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d024e, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091e2d);
-            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090889);
-            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09088a);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091e2f);
+            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09088a);
+            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09088b);
             this.b.setTextSize(R.dimen.tbds34);
-            c65 c65Var = new c65();
-            c65Var.t(R.color.CAM_X0105);
-            this.b.setConfig(c65Var);
+            f65 f65Var = new f65();
+            f65Var.t(R.color.CAM_X0105);
+            this.b.setConfig(f65Var);
             this.c.setTextSize(R.dimen.tbds34);
-            c65 c65Var2 = new c65();
-            c65Var2.r(R.color.CAM_X0302);
-            this.c.setConfig(c65Var2);
+            f65 f65Var2 = new f65();
+            f65Var2.r(R.color.CAM_X0302);
+            this.c.setConfig(f65Var2);
         }
     }
 

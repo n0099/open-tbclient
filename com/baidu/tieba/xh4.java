@@ -1,120 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import com.baidu.swan.pms.node.Node;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class xh4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xh4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
 
-    /* loaded from: classes9.dex */
-    public static class a extends qm4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("updatecore_node_ceres");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
+    public static JSONObject a(@Nullable uh4<JSONArray> uh4Var, @Nullable uh4<JSONObject> uh4Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, uh4Var, uh4Var2)) == null) {
+            return b(Node.values(), uh4Var, uh4Var2);
         }
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public xh4() {
+    public static JSONObject b(Node[] nodeArr, @Nullable uh4<JSONArray> uh4Var, @Nullable uh4<JSONObject> uh4Var2) {
+        InterceptResult invokeLLL;
+        wh4 provider;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, nodeArr, uh4Var, uh4Var2)) == null) {
+            if (nodeArr == null) {
+                return null;
             }
-        }
-        this.a = new a();
-    }
-
-    public static xh4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (xh4.class) {
-                    if (b == null) {
-                        b = new xh4();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Node node : nodeArr) {
+                    if (node != null && (provider = Node.getProvider(node)) != null) {
+                        if (node.isDataArray()) {
+                            jSONObject.put(node.getName(), provider.b(uh4Var));
+                        } else {
+                            jSONObject.put(node.getName(), provider.a(uh4Var2));
+                        }
                     }
                 }
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
             }
-            return b;
         }
-        return (xh4) invokeV.objValue;
+        return (JSONObject) invokeLLL.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void c(JSONObject jSONObject, fe4 fe4Var, @Nullable fe4 fe4Var2, @Nullable fe4 fe4Var3) {
+        td4 b;
+        vh4 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString("ceres_info", "0");
+        if ((interceptable != null && interceptable.invokeLLLL(65538, null, jSONObject, fe4Var, fe4Var2, fe4Var3) != null) || jSONObject == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.getString("global_info", "0");
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            Node nodeByConfigName = Node.getNodeByConfigName(next);
+            if (nodeByConfigName != null && (a = yh4.a(nodeByConfigName)) != null) {
+                if (nodeByConfigName.isDataArray()) {
+                    a.a(jSONObject.optJSONArray(next), fe4Var, fe4Var2, fe4Var3);
+                } else {
+                    a.b(jSONObject.optJSONObject(next), fe4Var, fe4Var2, fe4Var3);
+                }
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public wh4 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("global_info");
-            if (optJSONObject == null || optJSONObject2 == null) {
-                return null;
-            }
-            String optString = optJSONObject.optString("version");
-            JSONArray optJSONArray = optJSONObject.optJSONArray("data");
-            if (TextUtils.isEmpty(optString) || optJSONArray == null) {
-                return null;
-            }
-            String optString2 = optJSONObject2.optString("version");
-            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
-            if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
-                return null;
-            }
-            this.a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
-            return new wh4(optJSONArray, optJSONObject3);
+        if (qi4.a && (b = vd4.b()) != null) {
+            b.C();
         }
-        return (wh4) invokeL.objValue;
     }
 }

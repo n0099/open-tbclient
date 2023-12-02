@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface foc<T> {
-    void onCompleted();
-
-    void onError(Throwable th);
-
-    void onNext(T t);
+/* loaded from: classes5.dex */
+public interface foc {
+    void request(long j);
 }

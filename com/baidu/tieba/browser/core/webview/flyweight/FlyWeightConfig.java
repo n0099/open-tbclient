@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.android.util.media.WebpUtils;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.tieba.kk6;
+import com.baidu.tieba.ok6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,7 +95,7 @@ public class FlyWeightConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String a2 = kk6.a(str);
+            String a2 = ok6.a(str);
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
@@ -126,7 +126,7 @@ public class FlyWeightConfig {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
-            String a2 = kk6.a(str);
+            String a2 = ok6.a(str);
             if (TextUtils.isEmpty(a2) && !TextUtils.isEmpty(map.get("Accept")) && map.get("Accept").contains(SapiWebView.DATA_MIME_TYPE)) {
                 a2 = "html";
             }

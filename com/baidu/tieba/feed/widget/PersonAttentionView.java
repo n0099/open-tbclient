@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b65;
-import com.baidu.tieba.de7;
+import com.baidu.tieba.e65;
 import com.baidu.tieba.feed.widget.PersonAttentionView;
-import com.baidu.tieba.kd7;
+import com.baidu.tieba.he7;
+import com.baidu.tieba.od7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -107,20 +107,20 @@ public final class PersonAttentionView extends TBSpecificationBtn {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public static /* synthetic */ void t(PersonAttentionView personAttentionView, de7 de7Var, boolean z, int i, Object obj) {
+    public static /* synthetic */ void t(PersonAttentionView personAttentionView, he7 he7Var, boolean z, int i, Object obj) {
         if ((i & 2) != 0) {
             z = false;
         }
-        personAttentionView.s(de7Var, z);
+        personAttentionView.s(he7Var, z);
     }
 
-    public static final void u(final PersonAttentionView this$0, final de7 state) {
+    public static final void u(final PersonAttentionView this$0, final he7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, state) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(state, "$state");
-            if (kd7.a(this$0, state, false)) {
-                this$0.post(new Runnable() { // from class: com.baidu.tieba.qd7
+            if (od7.a(this$0, state, false)) {
+                this$0.post(new Runnable() { // from class: com.baidu.tieba.ud7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -136,7 +136,7 @@ public final class PersonAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public static final void v(PersonAttentionView this$0, de7 state) {
+    public static final void v(PersonAttentionView this$0, he7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, this$0, state) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -145,11 +145,11 @@ public final class PersonAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public static final void w(de7 state, TbPageContext pageContext, View view2) {
+    public static final void w(he7 state, TbPageContext pageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, state, pageContext, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
-            Function2<de7, TbPageContext<?>, Unit> g = state.g();
+            Function2<he7, TbPageContext<?>, Unit> g = state.g();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
             g.invoke(state, pageContext);
         }
@@ -158,17 +158,17 @@ public final class PersonAttentionView extends TBSpecificationBtn {
     public final void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            b65 b65Var = new b65();
+            e65 e65Var = new e65();
             if (z) {
-                b65Var.v(R.color.CAM_X0109);
+                e65Var.v(R.color.CAM_X0109);
             } else {
-                b65Var.u(R.color.CAM_X0302);
-                b65Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                b65Var.i(R.color.CAM_X0304);
-                b65Var.h(BdUtilHelper.getDimens(getContext(), R.dimen.tbds26));
-                b65Var.g(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002));
+                e65Var.u(R.color.CAM_X0302);
+                e65Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                e65Var.i(R.color.CAM_X0304);
+                e65Var.h(BdUtilHelper.getDimens(getContext(), R.dimen.tbds26));
+                e65Var.g(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002));
             }
-            setConfig(b65Var);
+            setConfig(e65Var);
         }
     }
 
@@ -179,13 +179,13 @@ public final class PersonAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public final void s(final de7 state, boolean z) {
+    public final void s(final he7 state, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, state, z) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            kd7.b(this, state, false, 2, null);
+            od7.b(this, state, false, 2, null);
             if (!z) {
-                Runnable runnable = new Runnable() { // from class: com.baidu.tieba.pd7
+                Runnable runnable = new Runnable() { // from class: com.baidu.tieba.td7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -206,10 +206,10 @@ public final class PersonAttentionView extends TBSpecificationBtn {
                 Context context = getContext();
                 if (context != null) {
                     final TbPageContext pageContext = ((TbPageContextSupport) context).getPageContext();
-                    Function3<de7, TbPageContext<?>, Object, Unit> j = state.j();
+                    Function3<he7, TbPageContext<?>, Object, Unit> j = state.j();
                     Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
                     j.invoke(state, pageContext, this);
-                    setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rd7
+                    setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vd7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -217,7 +217,7 @@ public final class PersonAttentionView extends TBSpecificationBtn {
                         public final void onClick(View view2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                PersonAttentionView.w(de7.this, pageContext, view2);
+                                PersonAttentionView.w(he7.this, pageContext, view2);
                             }
                         }
                     });

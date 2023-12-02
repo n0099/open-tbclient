@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class g34 implements x34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.x34
-    public void a(iw2 iw2Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, iw2Var, context) == null) {
-        }
-    }
 
     public g34() {
         Interceptable interceptable = $ic;
@@ -29,5 +23,33 @@ public class g34 implements x34 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.x34
+    public byte[] a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
+            if (str != null && bArr != null) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 76158) {
+                    if (hashCode == 1952093519 && str.equals("BASE64")) {
+                        c = 1;
+                    }
+                } else if (str.equals("MD5")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        return bArr;
+                    }
+                    return Base64.encode(bArr, 2);
+                }
+                return pm4.d(bArr, false).getBytes();
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

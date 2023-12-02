@@ -1,93 +1,134 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
-import com.baidu.tieba.personCenter.view.PersonCreatorCenterDataView;
-import com.baidu.tieba.personCenter.view.PersonCreatorCenterFunView;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
+import com.baidu.tieba.personCenter.view.PersonCenterSmartAppPageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.CreationData;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class l9a extends jl6<s8a> {
+public class l9a extends nl6<b9a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public boolean j;
-    public a k;
+    public List<r8a> i;
+    public List<PersonCenterSmartAppPageView> j;
+    public BdBaseViewPager k;
+    public View l;
+    public a m;
+    public PersonCenterSmartAppPageView n;
+    public LinearLayout o;
+    public TextView p;
+    public LinearLayout q;
 
-    @Override // com.baidu.tieba.jl6
+    @Override // com.baidu.tieba.nl6
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0811 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0805 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
     }
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a extends PagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public View b;
-        public View c;
-        public TextView d;
-        public ImageView e;
-        public PersonCreatorCenterFunView f;
-        public PersonCreatorCenterFunView g;
-        public PersonCreatorCenterFunView h;
-        public PersonCreatorCenterDataView i;
-        public PersonCreatorCenterDataView j;
-        public PersonCreatorCenterDataView k;
+        public List<PersonCenterSmartAppPageView> a;
 
-        public a() {
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public boolean isViewFromObject(View view2, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+        }
+
+        public a(l9a l9aVar, List<PersonCenterSmartAppPageView> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l9aVar, list};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = list;
+        }
+
+        public void b(List<PersonCenterSmartAppPageView> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                this.a = list;
+                notifyDataSetChanged();
             }
         }
 
-        @NonNull
-        public static a a(View view2) {
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public int getItemPosition(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-                a aVar = new a();
-                aVar.a = view2;
-                aVar.b = view2.findViewById(R.id.card_container);
-                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09268c);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092683);
-                aVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09200a);
-                aVar.f = (PersonCreatorCenterFunView) view2.findViewById(R.id.obfuscated_res_0x7f090e36);
-                aVar.g = (PersonCreatorCenterFunView) view2.findViewById(R.id.obfuscated_res_0x7f090e33);
-                aVar.h = (PersonCreatorCenterFunView) view2.findViewById(R.id.obfuscated_res_0x7f090e34);
-                aVar.i = (PersonCreatorCenterDataView) view2.findViewById(R.id.obfuscated_res_0x7f092a43);
-                aVar.j = (PersonCreatorCenterDataView) view2.findViewById(R.id.obfuscated_res_0x7f090178);
-                aVar.k = (PersonCreatorCenterDataView) view2.findViewById(R.id.obfuscated_res_0x7f0907a2);
-                return aVar;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                int indexOf = this.a.indexOf(obj);
+                if (indexOf == -1) {
+                    return -2;
+                }
+                return indexOf;
             }
-            return (a) invokeL.objValue;
+            return invokeL.intValue;
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i, obj) == null) {
+                viewGroup.removeView((View) obj);
+            }
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.size();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public Object instantiateItem(ViewGroup viewGroup, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
+                PersonCenterSmartAppPageView personCenterSmartAppPageView = this.a.get(i);
+                viewGroup.addView(personCenterSmartAppPageView);
+                return personCenterSmartAppPageView;
+            }
+            return invokeLI.objValue;
         }
     }
 
@@ -109,81 +150,78 @@ public class l9a extends jl6<s8a> {
                 return;
             }
         }
-        this.i = tbPageContext;
-        this.k = a.a(i());
+        this.l = i();
         int dimens = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X003);
-        this.k.a.setPadding(dimens, 0, dimens, 0);
-        this.k.f.a(R.drawable.obfuscated_res_0x7f080a49, tbPageContext.getString(R.string.obfuscated_res_0x7f0f051f));
-        this.k.g.a(R.drawable.obfuscated_res_0x7f080a45, tbPageContext.getString(R.string.tieba_string_data_center));
-        this.k.h.a(R.drawable.obfuscated_res_0x7f080a1e, tbPageContext.getString(R.string.tieba_string_god_guide));
-        k(tbPageContext, this.a);
+        this.l.setPadding(dimens, 0, dimens, 0);
+        this.q = (LinearLayout) this.l.findViewById(R.id.obfuscated_res_0x7f091765);
+        this.p = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f092335);
+        this.k = (BdBaseViewPager) this.l.findViewById(R.id.obfuscated_res_0x7f092aea);
+        this.o = (LinearLayout) this.l.findViewById(R.id.obfuscated_res_0x7f092336);
+        ArrayList arrayList = new ArrayList();
+        this.j = arrayList;
+        a aVar = new a(this, arrayList);
+        this.m = aVar;
+        this.k.setAdapter(aVar);
+        k(h(), this.a);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09268c) {
-            this.k.f.c();
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.j = z;
-            p();
-        }
-    }
-
-    @Override // com.baidu.tieba.jl6
+    @Override // com.baidu.tieba.nl6
     public void k(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.k.a, R.color.CAM_X0204);
-            EMManager.from(this.k.b).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.k.d, (int) R.color.CAM_X0105);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k.e, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setViewTextColor(this.k.f.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.k.g.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.k.h.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.k.i.a, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.k.j.a, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.k.k.a, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.k.i.b, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.k.j.b, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.k.k.b, (int) R.color.CAM_X0109);
+            for (PersonCenterSmartAppPageView personCenterSmartAppPageView : this.j) {
+                if (personCenterSmartAppPageView != null) {
+                    personCenterSmartAppPageView.c();
+                }
+            }
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);
+            EMManager.from(this.k).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            EMManager.from(this.o).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
         }
     }
 
-    public final void p() {
+    public final void p(r8a r8aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.j) {
-            new StatisticItem("c15051").param("uid", TbadkCoreApplication.getCurrentAccountId()).eventStat();
+        if (interceptable == null || interceptable.invokeL(1048580, this, r8aVar) == null) {
+            if (this.n.b()) {
+                this.n.a(r8aVar);
+                return;
+            }
+            PersonCenterSmartAppPageView personCenterSmartAppPageView = new PersonCenterSmartAppPageView(c());
+            this.n = personCenterSmartAppPageView;
+            this.j.add(personCenterSmartAppPageView);
+            this.n.a(r8aVar);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jl6
+    @Override // com.baidu.tieba.nl6
     /* renamed from: r */
-    public void j(s8a s8aVar) {
+    public void j(b9a b9aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, s8aVar) == null) {
-            if (s8aVar == null) {
-                o(8);
+        if (interceptable == null || interceptable.invokeL(1048581, this, b9aVar) == null) {
+            if (b9aVar != null && b9aVar.c() != null && !ListUtils.isEmpty(b9aVar.c())) {
+                o(0);
+                this.j.clear();
+                this.i = b9aVar.c();
+                PersonCenterSmartAppPageView personCenterSmartAppPageView = new PersonCenterSmartAppPageView(c());
+                this.n = personCenterSmartAppPageView;
+                this.j.add(personCenterSmartAppPageView);
+                int min = Math.min(7, this.i.size());
+                for (int i = 0; i < min; i++) {
+                    p((r8a) ListUtils.getItem(this.i, i));
+                }
+                if (this.i.isEmpty()) {
+                    o(8);
+                } else {
+                    p(new c9a());
+                }
+                this.m.b(this.j);
+                k(h(), this.a);
                 return;
             }
-            this.k.c.setOnClickListener(this);
-            NewGodData newGodData = TbSingleton.getInstance().getNewGodData();
-            if (newGodData != null && !StringUtils.isNull(newGodData.getFieldName()) && newGodData.getStatus() == 3) {
-                this.k.h.a(R.drawable.obfuscated_res_0x7f080a1e, this.i.getString(R.string.tieba_string_god_examine));
-            } else {
-                this.k.h.a(R.drawable.obfuscated_res_0x7f080a1e, this.i.getString(R.string.tieba_string_god_guide));
-            }
-            CreationData c = s8aVar.c();
-            this.k.i.a(c.view_count.intValue(), this.i.getString(R.string.obfuscated_res_0x7f0f1929));
-            this.k.j.a(c.agree_count.intValue(), this.i.getString(R.string.obfuscated_res_0x7f0f192b));
-            this.k.k.a(c.comment_count.intValue(), this.i.getString(R.string.obfuscated_res_0x7f0f192a));
-            k(this.i, this.a);
+            o(8);
         }
     }
 }

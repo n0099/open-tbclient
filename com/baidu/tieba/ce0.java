@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.nadcore.model.MonitorUrl;
-import com.baidu.tieba.on0;
+import com.baidu.tieba.pn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,17 +20,17 @@ public class ce0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(on0 on0Var) {
+    public static boolean a(pn0 pn0Var) {
         InterceptResult invokeL;
-        on0.c cVar;
-        on0.b bVar;
-        on0.a aVar;
+        pn0.c cVar;
+        pn0.b bVar;
+        pn0.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, on0Var)) == null) {
-            if (on0Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pn0Var)) == null) {
+            if (pn0Var == null) {
                 return false;
             }
-            if (TextUtils.isEmpty(on0Var.f) && TextUtils.isEmpty(on0Var.d) && (((cVar = on0Var.g) == null || TextUtils.isEmpty(cVar.a)) && (((bVar = on0Var.h) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = on0Var.i) == null || TextUtils.isEmpty(aVar.a))))) {
+            if (TextUtils.isEmpty(pn0Var.f) && TextUtils.isEmpty(pn0Var.d) && (((cVar = pn0Var.g) == null || TextUtils.isEmpty(cVar.a)) && (((bVar = pn0Var.h) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = pn0Var.i) == null || TextUtils.isEmpty(aVar.a))))) {
                 return false;
             }
             return true;
@@ -45,7 +45,7 @@ public class ce0 {
         }
         for (MonitorUrl monitorUrl : list) {
             if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.clickUrl)) {
-                cz0.b(monitorUrl.clickUrl);
+                ez0.b(monitorUrl.clickUrl);
             }
         }
     }
@@ -57,7 +57,7 @@ public class ce0 {
         }
         for (MonitorUrl monitorUrl : list) {
             if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.showUrl)) {
-                cz0.b(monitorUrl.showUrl);
+                ez0.b(monitorUrl.showUrl);
             }
         }
     }

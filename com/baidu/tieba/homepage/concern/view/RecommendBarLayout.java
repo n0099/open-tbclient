@@ -33,9 +33,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fc8;
 import com.baidu.tieba.homepage.concern.adapter.RecommendBarPageAdapter;
 import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
+import com.baidu.tieba.jc8;
 import com.baidu.tieba.jt;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
@@ -106,16 +106,16 @@ public class RecommendBarLayout extends LinearLayout implements jt, View.OnClick
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
                 pi b = this.a.h.b(i);
-                if (b instanceof fc8) {
-                    fc8 fc8Var = (fc8) b;
+                if (b instanceof jc8) {
+                    jc8 jc8Var = (jc8) b;
                     StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.a.j).param("obj_param1", i);
-                    if (!StringUtils.isNull(fc8Var.a)) {
-                        param = param.param("obj_name", fc8Var.a);
+                    if (!StringUtils.isNull(jc8Var.a)) {
+                        param = param.param("obj_name", jc8Var.a);
                     }
                     TiebaStatic.log(param);
-                    StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", fc8Var.a()).param("obj_locate", (int) this.a.j);
-                    if (!StringUtils.isNull(fc8Var.a)) {
-                        param2 = param2.param("obj_name", fc8Var.a);
+                    StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", jc8Var.a()).param("obj_locate", (int) this.a.j);
+                    if (!StringUtils.isNull(jc8Var.a)) {
+                        param2 = param2.param("obj_name", jc8Var.a);
                     }
                     TiebaStatic.log(param2);
                     TiebaStatic.log(new StatisticItem("c15344").param("uid", TbadkCoreApplication.getCurrentAccount()));
@@ -247,8 +247,8 @@ public class RecommendBarLayout extends LinearLayout implements jt, View.OnClick
                 i = R.dimen.tbds728;
             }
             List<pi> h = recommendBarCardModel.h();
-            if (!ListUtils.isEmpty(h) && (h.get(0) instanceof fc8)) {
-                int b2 = ((fc8) h.get(0)).b();
+            if (!ListUtils.isEmpty(h) && (h.get(0) instanceof jc8)) {
+                int b2 = ((jc8) h.get(0)).b();
                 if (b2 != 1) {
                     if (b2 == 2) {
                         if (recommendBarCardModel.l()) {
@@ -271,17 +271,17 @@ public class RecommendBarLayout extends LinearLayout implements jt, View.OnClick
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091f51) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091f53) {
             return;
         }
         SharedPrefHelper.getInstance().putInt("key_home_show_card_not_click", 0);
         pi b2 = this.h.b(this.e.getCurrentItem());
-        if (b2 instanceof fc8) {
-            fc8 fc8Var = (fc8) b2;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a, fc8Var.c)));
+        if (b2 instanceof jc8) {
+            jc8 jc8Var = (jc8) b2;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a, jc8Var.c)));
             StatisticItem param = new StatisticItem("c13645").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.j);
-            if (!StringUtils.isNull(fc8Var.a)) {
-                param = param.param("obj_name", fc8Var.a);
+            if (!StringUtils.isNull(jc8Var.a)) {
+                param = param.param("obj_name", jc8Var.a);
             }
             TiebaStatic.log(param);
         }
@@ -290,13 +290,13 @@ public class RecommendBarLayout extends LinearLayout implements jt, View.OnClick
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0880, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0881, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091f51);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091f4f);
-            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091f52);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f4d);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091f53);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091f51);
+            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091f54);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f4f);
             this.e.setOffscreenPageLimit(2);
             RecommendBarPageAdapter recommendBarPageAdapter = new RecommendBarPageAdapter(this.i, this.j);
             this.h = recommendBarPageAdapter;
@@ -351,7 +351,7 @@ public class RecommendBarLayout extends LinearLayout implements jt, View.OnClick
                     this.f.setVisibility(8);
                     this.c.setOnClickListener(null);
                 } else {
-                    this.d.setText(this.i.getString(R.string.obfuscated_res_0x7f0f1236));
+                    this.d.setText(this.i.getString(R.string.obfuscated_res_0x7f0f1237));
                     this.f.setVisibility(0);
                     this.c.setOnClickListener(this);
                 }

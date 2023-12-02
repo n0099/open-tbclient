@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,19 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.CreationData;
 /* loaded from: classes8.dex */
-public class s8a extends BaseCardInfo implements pi {
+public class s8a extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public CreationData a;
-
-    public void e(CreationData creationData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, creationData) == null) {
-        }
-    }
+    public int a;
+    public int b;
+    public int c;
+    public boolean d;
+    public UserData e;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +34,7 @@ public class s8a extends BaseCardInfo implements pi {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        f = BdUniqueId.gen();
     }
 
     public s8a() {
@@ -54,29 +51,13 @@ public class s8a extends BaseCardInfo implements pi {
         }
     }
 
-    public CreationData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (CreationData) invokeV.objValue;
-    }
-
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f;
         }
         return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void d(CreationData creationData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, creationData) == null) {
-            this.a = creationData;
-        }
     }
 }

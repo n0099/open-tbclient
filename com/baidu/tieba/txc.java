@@ -6,53 +6,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ComponentFactory;
-import tbclient.FeedFeedback;
-import tbclient.FeedKV;
-import tbclient.FeedLayout;
+import tbclient.FeedLinkComponent;
+import tbclient.PbLinkInfo;
 /* loaded from: classes8.dex */
-public class txc extends ltc {
+public class txc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedLayout feedLayout) {
+    public static JSONObject b(@NonNull FeedLinkComponent feedLinkComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedLayout)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedLinkComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (feedLayout.components != null) {
+            if (feedLinkComponent.links != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (ComponentFactory componentFactory : feedLayout.components) {
-                    jSONArray.put(cwc.b(componentFactory));
+                for (PbLinkInfo pbLinkInfo : feedLinkComponent.links) {
+                    jSONArray.put(b6d.b(pbLinkInfo));
                 }
-                ltc.a(jSONObject, "components", jSONArray);
-            }
-            ltc.a(jSONObject, "schema", feedLayout.schema);
-            if (feedLayout.log_info != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (FeedKV feedKV : feedLayout.log_info) {
-                    jSONArray2.put(sxc.b(feedKV));
-                }
-                ltc.a(jSONObject, "log_info", jSONArray2);
-            }
-            FeedFeedback feedFeedback = feedLayout.feedback;
-            if (feedFeedback != null) {
-                ltc.a(jSONObject, "feedback", hxc.b(feedFeedback));
-            }
-            if (feedLayout.business_info != null) {
-                JSONArray jSONArray3 = new JSONArray();
-                for (FeedKV feedKV2 : feedLayout.business_info) {
-                    jSONArray3.put(sxc.b(feedKV2));
-                }
-                ltc.a(jSONObject, "business_info", jSONArray3);
-            }
-            if (feedLayout.appendix != null) {
-                JSONArray jSONArray4 = new JSONArray();
-                for (FeedKV feedKV3 : feedLayout.appendix) {
-                    jSONArray4.put(sxc.b(feedKV3));
-                }
-                ltc.a(jSONObject, "appendix", jSONArray4);
+                ktc.a(jSONObject, "links", jSONArray);
             }
             return jSONObject;
         }

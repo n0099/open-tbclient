@@ -1,33 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
+import android.graphics.Matrix;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.GetOpenBdussCallback;
-import com.baidu.sapi2.callback.GetUserInfoCallback;
-import com.baidu.sapi2.dto.GetOpenBdussDTO;
-import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
-import com.baidu.sapi2.ecommerce.callback.InvoiceBuildCallback;
-import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
-import com.baidu.sapi2.ecommerce.dto.InvoiceBuildDTO;
-import com.baidu.sapi2.ecommerce.result.AddressManageResult;
-import com.baidu.sapi2.ecommerce.result.InvoiceBuildResult;
-import com.baidu.sapi2.result.GetUserInfoResult;
-import com.baidu.sapi2.result.OpenBdussResult;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tieba.ap3;
-import com.baidu.tieba.ln3;
-import com.baidu.tieba.pn3;
+import com.baidu.tieba.advert.sdk.widget.scalablevideoview.PivotPoint;
+import com.baidu.tieba.advert.sdk.widget.scalablevideoview.ScalableType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,915 +12,415 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b66 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String d = "b66";
-    public static final boolean e;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c66 a;
-    public List<wm1> b;
-    public final CustomMessageListener c;
+    public c66 b;
 
     /* loaded from: classes5.dex */
-    public class c extends CustomMessageListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ um1 a;
-        public final /* synthetic */ b66 b;
-
-        /* loaded from: classes5.dex */
-        public class a extends GetUserInfoCallback {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onFinish() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                }
-            }
-
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onStart() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                }
-            }
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.sapi2.callback.LoginStatusAware
-            public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, getUserInfoResult) == null) {
-                    this.a.a.onResult(-1);
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onFailure(GetUserInfoResult getUserInfoResult) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) == null) {
-                    this.a.a.onResult(-1);
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onSuccess(GetUserInfoResult getUserInfoResult) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
-                    this.a.b.a.b = SapiAccountManager.getInstance().getSession().bduss;
-                    this.a.b.a.h = SapiAccountManager.getInstance().getSession().getPtoken();
-                    this.a.b.a.a = getUserInfoResult.displayname;
-                    this.a.b.a.g = getUserInfoResult.uid;
-                    this.a.b.a.f = getUserInfoResult.portraitHttps;
-                    ve3.a().putString("bd_box_display_name", this.a.b.a.a);
-                    ve3.a().putString("bd_box_uid", this.a.b.a.g);
-                    ve3.a().putString("bd_box_avatar_url", this.a.b.a.f);
-                    ve3.a().putString("bd_box_bduss", this.a.b.a.b);
-                    ve3.a().putString("bd_box_ptoken", this.a.b.a.h);
-                    this.a.a.onResult(0);
-                    this.a.b.t(true);
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(b66 b66Var, int i, um1 um1Var) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b66Var, Integer.valueOf(i), um1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = b66Var;
-            this.a = um1Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Integer)) {
-                if (((Integer) customResponsedMessage.getData()).intValue() == 0) {
-                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new a(this), SapiAccountManager.getInstance().getSession().bduss);
-                }
-                this.a.onResult(((Integer) customResponsedMessage.getData()).intValue());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b66 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(b66 b66Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b66Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b66Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                Integer num = (Integer) customResponsedMessage.getData();
-                if (num.intValue() != 1) {
-                    if (num.intValue() != 2) {
-                        return;
-                    }
-                    this.a.t(SapiAccountManager.getInstance().isLogin());
-                    return;
-                }
-                this.a.p(TbadkCoreApplication.getInst());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends GetUserInfoCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b66 a;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.LoginStatusAware
-        public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, getUserInfoResult) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
-        }
-
-        public b(b66 b66Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b66Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b66Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(GetUserInfoResult getUserInfoResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) != null) {
-                return;
-            }
-            this.a.t(false);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(GetUserInfoResult getUserInfoResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
-                if (getUserInfoResult != null) {
-                    this.a.a.f = getUserInfoResult.portraitHttps;
-                }
-                this.a.t(true);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d extends GetUserInfoCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ um1 a;
-        public final /* synthetic */ b66 b;
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
-        }
-
-        public d(b66 b66Var, um1 um1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b66Var, um1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = b66Var;
-            this.a = um1Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.LoginStatusAware
-        public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, getUserInfoResult) == null) {
-                this.a.onResult(-1);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(GetUserInfoResult getUserInfoResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) == null) {
-                this.a.onResult(-1);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(GetUserInfoResult getUserInfoResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
-                this.b.a.b = SapiAccountManager.getInstance().getSession().bduss;
-                this.b.a.h = SapiAccountManager.getInstance().getSession().getPtoken();
-                this.b.a.a = getUserInfoResult.displayname;
-                this.b.a.g = getUserInfoResult.uid;
-                this.b.a.f = getUserInfoResult.portraitHttps;
-                ve3.a().putString("bd_box_display_name", this.b.a.a);
-                ve3.a().putString("bd_box_uid", this.b.a.g);
-                ve3.a().putString("bd_box_avatar_url", this.b.a.f);
-                ve3.a().putString("bd_box_bduss", this.b.a.b);
-                ve3.a().putString("bd_box_ptoken", this.b.a.h);
-                this.a.onResult(0);
-                this.b.t(true);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e extends GetUserInfoCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b66 a;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.LoginStatusAware
-        public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, getUserInfoResult) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(GetUserInfoResult getUserInfoResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
-        }
-
-        public e(b66 b66Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b66Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b66Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(GetUserInfoResult getUserInfoResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048582, this, getUserInfoResult) != null) {
-                return;
-            }
-            this.a.a.b = SapiAccountManager.getInstance().getSession().bduss;
-            this.a.a.h = SapiAccountManager.getInstance().getSession().getPtoken();
-            this.a.a.a = getUserInfoResult.displayname;
-            this.a.a.g = getUserInfoResult.uid;
-            this.a.a.f = getUserInfoResult.portraitHttps;
-            ve3.a().putString("bd_box_display_name", this.a.a.a);
-            ve3.a().putString("bd_box_uid", this.a.a.g);
-            ve3.a().putString("bd_box_avatar_url", this.a.a.f);
-            ve3.a().putString("bd_box_bduss", this.a.a.b);
-            ve3.a().putString("bd_box_ptoken", this.a.a.h);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f extends AddressManageCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ln3.d b;
-
-        public f(b66 b66Var, String str, ln3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b66Var, str, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = dVar;
-        }
-
-        @Override // com.baidu.sapi2.ecommerce.callback.AddressManageCallback
-        public void onFinish(AddressManageResult addressManageResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, addressManageResult) == null) {
-                if (!"0".equals(this.a) && this.b != null) {
-                    if (addressManageResult.getResultCode() == 0) {
-                        this.b.a(addressManageResult.map.get("addrId"));
-                        return;
-                    }
-                    if (b66.e) {
-                        Log.d(b66.d, String.format("选择收货地址错误（%d:%s", Integer.valueOf(addressManageResult.getResultCode()), addressManageResult.getResultMsg()));
-                    }
-                    this.b.failed();
-                } else if (b66.e) {
-                    Log.d(b66.d, String.format("管理收货地址流程结束（%d:%s", Integer.valueOf(addressManageResult.getResultCode()), addressManageResult.getResultMsg()));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class g extends InvoiceBuildCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ap3.d b;
-
-        public g(b66 b66Var, String str, ap3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b66Var, str, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = dVar;
-        }
-
-        @Override // com.baidu.sapi2.ecommerce.callback.InvoiceBuildCallback
-        public void onFinish(InvoiceBuildResult invoiceBuildResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, invoiceBuildResult) == null) {
-                if (!"0".equals(this.a) && this.b != null) {
-                    if (invoiceBuildResult.getResultCode() == 0) {
-                        this.b.a(invoiceBuildResult.map.get("invoice_id"), this.a);
-                        return;
-                    }
-                    if (b66.e) {
-                        Log.d(b66.d, String.format("获取发票错误（%d:%s）", Integer.valueOf(invoiceBuildResult.getResultCode()), invoiceBuildResult.getResultMsg()));
-                    }
-                    this.b.failed();
-                } else if (b66.e) {
-                    Log.d(b66.d, String.format("发票管理流程结束（%d:%s）", Integer.valueOf(invoiceBuildResult.getResultCode()), invoiceBuildResult.getResultMsg()));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class h extends GetOpenBdussCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pn3.c a;
-        public final /* synthetic */ b66 b;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: a */
-        public void onFailure(OpenBdussResult openBdussResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, openBdussResult) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        public h(b66 b66Var, pn3.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b66Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = b66Var;
-            this.a = cVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: b */
-        public void onSuccess(OpenBdussResult openBdussResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, openBdussResult) != null) {
-                return;
-            }
-            this.b.a.c = openBdussResult.openBduss;
-            this.b.a.d = openBdussResult.unionid;
-            this.b.a.e = openBdussResult.tplStokenMap;
-            ve3.a().putString("bd_box_open_bduss", this.b.a.c);
-            ve3.a().putString("bd_box_union_id", this.b.a.d);
-            ve3.a().putString("bd_box_stoken", zj3.s(this.b.a.e));
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(OpenBdussResult.PARAMS_OPEN_BDUSS, this.b.a.c);
-                jSONObject.put("unionid", this.b.a.d);
-                JSONObject jSONObject2 = new JSONObject();
-                for (String str : this.b.a.e.keySet()) {
-                    jSONObject2.put(str, this.b.a.e.get(str));
-                }
-                jSONObject.put("stokenmap", jSONObject2);
-                jSONObject.put("uid", this.b.a.g);
-                jSONObject.put("bduss", this.b.a.b);
-                jSONObject.put("displayname", this.b.a.a);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            this.a.a(jSONObject.toString());
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class i {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b66 a;
+        public static final /* synthetic */ int[] a;
+        public static final /* synthetic */ int[] b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-965074558, "Lcom/baidu/tieba/b66$i;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-965074806, "Lcom/baidu/tieba/b66$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-965074558, "Lcom/baidu/tieba/b66$i;");
+                    classClinitInterceptable.invokePostClinit(-965074806, "Lcom/baidu/tieba/b66$a;");
                     return;
                 }
             }
-            a = new b66(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947596967, "Lcom/baidu/tieba/b66;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+            int[] iArr = new int[PivotPoint.values().length];
+            b = iArr;
+            try {
+                iArr[PivotPoint.LEFT_TOP.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947596967, "Lcom/baidu/tieba/b66;");
-                return;
+            try {
+                b[PivotPoint.LEFT_CENTER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                b[PivotPoint.LEFT_BOTTOM.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                b[PivotPoint.CENTER_TOP.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                b[PivotPoint.CENTER.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                b[PivotPoint.CENTER_BOTTOM.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                b[PivotPoint.RIGHT_TOP.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                b[PivotPoint.RIGHT_CENTER.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                b[PivotPoint.RIGHT_BOTTOM.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            int[] iArr2 = new int[ScalableType.values().length];
+            a = iArr2;
+            try {
+                iArr2[ScalableType.NONE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                a[ScalableType.FIT_XY.ordinal()] = 2;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                a[ScalableType.FIT_CENTER.ordinal()] = 3;
+            } catch (NoSuchFieldError unused12) {
+            }
+            try {
+                a[ScalableType.FIT_START.ordinal()] = 4;
+            } catch (NoSuchFieldError unused13) {
+            }
+            try {
+                a[ScalableType.FIT_END.ordinal()] = 5;
+            } catch (NoSuchFieldError unused14) {
+            }
+            try {
+                a[ScalableType.LEFT_TOP.ordinal()] = 6;
+            } catch (NoSuchFieldError unused15) {
+            }
+            try {
+                a[ScalableType.LEFT_CENTER.ordinal()] = 7;
+            } catch (NoSuchFieldError unused16) {
+            }
+            try {
+                a[ScalableType.LEFT_BOTTOM.ordinal()] = 8;
+            } catch (NoSuchFieldError unused17) {
+            }
+            try {
+                a[ScalableType.CENTER_TOP.ordinal()] = 9;
+            } catch (NoSuchFieldError unused18) {
+            }
+            try {
+                a[ScalableType.CENTER.ordinal()] = 10;
+            } catch (NoSuchFieldError unused19) {
+            }
+            try {
+                a[ScalableType.CENTER_BOTTOM.ordinal()] = 11;
+            } catch (NoSuchFieldError unused20) {
+            }
+            try {
+                a[ScalableType.RIGHT_TOP.ordinal()] = 12;
+            } catch (NoSuchFieldError unused21) {
+            }
+            try {
+                a[ScalableType.RIGHT_CENTER.ordinal()] = 13;
+            } catch (NoSuchFieldError unused22) {
+            }
+            try {
+                a[ScalableType.RIGHT_BOTTOM.ordinal()] = 14;
+            } catch (NoSuchFieldError unused23) {
+            }
+            try {
+                a[ScalableType.LEFT_TOP_CROP.ordinal()] = 15;
+            } catch (NoSuchFieldError unused24) {
+            }
+            try {
+                a[ScalableType.LEFT_CENTER_CROP.ordinal()] = 16;
+            } catch (NoSuchFieldError unused25) {
+            }
+            try {
+                a[ScalableType.LEFT_BOTTOM_CROP.ordinal()] = 17;
+            } catch (NoSuchFieldError unused26) {
+            }
+            try {
+                a[ScalableType.CENTER_TOP_CROP.ordinal()] = 18;
+            } catch (NoSuchFieldError unused27) {
+            }
+            try {
+                a[ScalableType.CENTER_CROP.ordinal()] = 19;
+            } catch (NoSuchFieldError unused28) {
+            }
+            try {
+                a[ScalableType.CENTER_BOTTOM_CROP.ordinal()] = 20;
+            } catch (NoSuchFieldError unused29) {
+            }
+            try {
+                a[ScalableType.RIGHT_TOP_CROP.ordinal()] = 21;
+            } catch (NoSuchFieldError unused30) {
+            }
+            try {
+                a[ScalableType.RIGHT_CENTER_CROP.ordinal()] = 22;
+            } catch (NoSuchFieldError unused31) {
+            }
+            try {
+                a[ScalableType.RIGHT_BOTTOM_CROP.ordinal()] = 23;
+            } catch (NoSuchFieldError unused32) {
+            }
+            try {
+                a[ScalableType.START_INSIDE.ordinal()] = 24;
+            } catch (NoSuchFieldError unused33) {
+            }
+            try {
+                a[ScalableType.CENTER_INSIDE.ordinal()] = 25;
+            } catch (NoSuchFieldError unused34) {
+            }
+            try {
+                a[ScalableType.END_INSIDE.ordinal()] = 26;
+            } catch (NoSuchFieldError unused35) {
             }
         }
-        e = sm1.a;
     }
 
-    public static b66 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return i.a;
-        }
-        return (b66) invokeV.objValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            c66 c66Var = this.a;
-            if (c66Var != null && TextUtils.isEmpty(c66Var.b)) {
-                m();
-            }
-            return SapiAccountManager.getInstance().isLogin();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            MessageManager.getInstance().registerListener(this.c);
-        }
-    }
-
-    public b66() {
+    public b66(c66 c66Var, c66 c66Var2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {c66Var, c66Var2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this, 2921537);
-        this.b = new ArrayList();
+        this.a = c66Var;
+        this.b = c66Var2;
     }
 
-    public String h() {
+    public final Matrix a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
+                return l(PivotPoint.CENTER);
+            }
+            return c();
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
+                return l(PivotPoint.RIGHT_BOTTOM);
+            }
+            return d();
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return j(this.b.b() / this.a.b(), this.b.a() / this.a.a(), PivotPoint.LEFT_TOP);
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
+                return l(PivotPoint.LEFT_TOP);
+            }
+            return e();
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return h(PivotPoint.CENTER);
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c66 c66Var = this.a;
-            if (c66Var == null) {
-                if (!e) {
-                    return "";
-                }
-                throw new NullPointerException("AccountInfo is null");
-            }
-            if (TextUtils.isEmpty(c66Var.f)) {
-                m();
-            }
-            return this.a.f;
+            return h(PivotPoint.RIGHT_BOTTOM);
         }
-        return (String) invokeV.objValue;
+        return (Matrix) invokeV.objValue;
     }
 
-    public String i() {
+    public final Matrix e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c66 c66Var = this.a;
-            if (c66Var == null) {
-                if (!e) {
-                    return "";
-                }
-                throw new NullPointerException("AccountInfo is null");
-            }
-            if (TextUtils.isEmpty(c66Var.b)) {
-                m();
-            }
-            return this.a.b;
+            return h(PivotPoint.LEFT_TOP);
         }
-        return (String) invokeV.objValue;
+        return (Matrix) invokeV.objValue;
     }
 
-    public String j() {
+    public final Matrix f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c66 c66Var = this.a;
-            if (c66Var == null) {
-                if (!e) {
-                    return "";
-                }
-                throw new NullPointerException("AccountInfo is null");
-            }
-            if (TextUtils.isEmpty(c66Var.a)) {
-                m();
-            }
-            return this.a.a;
+            return j(1.0f, 1.0f, PivotPoint.LEFT_TOP);
         }
-        return (String) invokeV.objValue;
+        return (Matrix) invokeV.objValue;
     }
 
-    public String n() {
-        InterceptResult invokeV;
+    public final Matrix g(PivotPoint pivotPoint) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            c66 c66Var = this.a;
-            if (c66Var == null) {
-                if (!e) {
-                    return "";
-                }
-                throw new NullPointerException("AccountInfo is null");
-            }
-            if (TextUtils.isEmpty(c66Var.g)) {
-                m();
-            }
-            return this.a.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pivotPoint)) == null) {
+            float b = this.a.b() / this.b.b();
+            float a2 = this.a.a() / this.b.a();
+            float max = Math.max(b, a2);
+            return j(max / b, max / a2, pivotPoint);
         }
-        return (String) invokeV.objValue;
+        return (Matrix) invokeL.objValue;
     }
 
-    public /* synthetic */ b66(a aVar) {
-        this();
-    }
-
-    public void e(wm1 wm1Var) {
+    public final Matrix h(PivotPoint pivotPoint) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, wm1Var) == null) {
-            this.b.add(wm1Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, pivotPoint)) == null) {
+            float b = this.a.b() / this.b.b();
+            float a2 = this.a.a() / this.b.a();
+            float min = Math.min(b, a2);
+            return j(min / b, min / a2, pivotPoint);
         }
+        return (Matrix) invokeL.objValue;
     }
 
-    public void o(Context context) {
+    public final Matrix l(PivotPoint pivotPoint) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            u();
-            p(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, pivotPoint)) == null) {
+            return j(this.b.b() / this.a.b(), this.b.a() / this.a.a(), pivotPoint);
         }
+        return (Matrix) invokeL.objValue;
     }
 
-    public final void t(boolean z) {
+    public final Matrix i(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            for (wm1 wm1Var : this.b) {
-                if (wm1Var != null) {
-                    wm1Var.a(z);
-                }
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.setScale(f, f2, f3, f4);
+            return matrix;
         }
+        return (Matrix) invokeCommon.objValue;
     }
 
-    public void v(um1 um1Var) {
+    public final Matrix j(float f, float f2, PivotPoint pivotPoint) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, um1Var) == null) {
-            SapiAccountManager.getInstance().getAccountService().getUserInfo(new d(this, um1Var), SapiAccountManager.getInstance().getSession().bduss);
-        }
-    }
-
-    public void f(Context context, String str, ln3.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, dVar) == null) {
-            AddressManageDTO addressManageDTO = new AddressManageDTO();
-            addressManageDTO.type = str;
-            addressManageDTO.sweepLightLoading = true;
-            PassportSDK.getInstance().loadAddressManage(context, addressManageDTO, new f(this, str, dVar));
-        }
-    }
-
-    public void g(Context context, String str, ap3.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, dVar) == null) {
-            InvoiceBuildDTO invoiceBuildDTO = new InvoiceBuildDTO();
-            invoiceBuildDTO.TYPE = str;
-            PassportSDK.getInstance().loadInvoiceBuild(context, invoiceBuildDTO, new g(this, str, dVar));
-        }
-    }
-
-    public void l(String str, ArrayList<String> arrayList, pn3.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, arrayList, cVar) == null) {
-            if (this.a == null) {
-                if (!e) {
-                    return;
-                }
-                throw new NullPointerException("AccountInfo is null");
-            }
-            GetOpenBdussDTO getOpenBdussDTO = new GetOpenBdussDTO();
-            getOpenBdussDTO.clientId = str;
-            getOpenBdussDTO.targetTplList.addAll(arrayList);
-            SapiAccountManager.getInstance().getAccountService().getOpenBduss(getOpenBdussDTO, new h(this, cVar));
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                SapiAccountManager.getInstance().getConfignation();
-            } catch (Exception unused) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
-            }
-            try {
-                SapiAccountManager.getInstance().isLogin();
-                if (SapiAccountManager.getInstance().isLogin()) {
-                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new e(this), SapiAccountManager.getInstance().getSession().bduss);
-                }
-            } catch (NullPointerException unused2) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), pivotPoint})) == null) {
+            switch (a.b[pivotPoint.ordinal()]) {
+                case 1:
+                    return i(f, f2, 0.0f, 0.0f);
+                case 2:
+                    return i(f, f2, 0.0f, this.a.a() / 2.0f);
+                case 3:
+                    return i(f, f2, 0.0f, this.a.a());
+                case 4:
+                    return i(f, f2, this.a.b() / 2.0f, 0.0f);
+                case 5:
+                    return i(f, f2, this.a.b() / 2.0f, this.a.a() / 2.0f);
+                case 6:
+                    return i(f, f2, this.a.b() / 2.0f, this.a.a());
+                case 7:
+                    return i(f, f2, this.a.b(), 0.0f);
+                case 8:
+                    return i(f, f2, this.a.b(), this.a.a() / 2.0f);
+                case 9:
+                    return i(f, f2, this.a.b(), this.a.a());
+                default:
+                    throw new IllegalArgumentException("Illegal PivotPoint");
             }
         }
+        return (Matrix) invokeCommon.objValue;
     }
 
-    public final void p(Context context) {
+    public Matrix m(ScalableType scalableType) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, context) == null) && this.a == null) {
-            c66 c66Var = new c66();
-            this.a = c66Var;
-            c66Var.f = ve3.a().getString("bd_box_avatar_url", "");
-            this.a.b = ve3.a().getString("bd_box_bduss", "");
-            this.a.h = ve3.a().getString("bd_box_ptoken", "");
-            this.a.g = ve3.a().getString("bd_box_uid", "");
-            this.a.c = ve3.a().getString("bd_box_open_bduss", "");
-            this.a.d = ve3.a().getString("bd_box_union_id", "");
-            this.a.e = zj3.t(ve3.a().getString("bd_box_stoken", ""));
-            this.a.a = ve3.a().getString("bd_box_display_name", "");
-        }
-    }
-
-    public void r(Context context, Bundle bundle, um1 um1Var) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048588, this, context, bundle, um1Var) == null) {
-            if (this.a == null) {
-                this.a = new c66();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, scalableType)) == null) {
+            switch (a.a[scalableType.ordinal()]) {
+                case 1:
+                    return k();
+                case 2:
+                    return f();
+                case 3:
+                    return c();
+                case 4:
+                    return e();
+                case 5:
+                    return d();
+                case 6:
+                    return l(PivotPoint.LEFT_TOP);
+                case 7:
+                    return l(PivotPoint.LEFT_CENTER);
+                case 8:
+                    return l(PivotPoint.LEFT_BOTTOM);
+                case 9:
+                    return l(PivotPoint.CENTER_TOP);
+                case 10:
+                    return l(PivotPoint.CENTER);
+                case 11:
+                    return l(PivotPoint.CENTER_BOTTOM);
+                case 12:
+                    return l(PivotPoint.RIGHT_TOP);
+                case 13:
+                    return l(PivotPoint.RIGHT_CENTER);
+                case 14:
+                    return l(PivotPoint.RIGHT_BOTTOM);
+                case 15:
+                    return g(PivotPoint.LEFT_TOP);
+                case 16:
+                    return g(PivotPoint.LEFT_CENTER);
+                case 17:
+                    return g(PivotPoint.LEFT_BOTTOM);
+                case 18:
+                    return g(PivotPoint.CENTER_TOP);
+                case 19:
+                    return g(PivotPoint.CENTER);
+                case 20:
+                    return g(PivotPoint.CENTER_BOTTOM);
+                case 21:
+                    return g(PivotPoint.RIGHT_TOP);
+                case 22:
+                    return g(PivotPoint.RIGHT_CENTER);
+                case 23:
+                    return g(PivotPoint.RIGHT_BOTTOM);
+                case 24:
+                    return n();
+                case 25:
+                    return a();
+                case 26:
+                    return b();
+                default:
+                    return null;
             }
-            LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true, -1);
-            loginActivityConfig.getIntent().putExtra("close", true);
-            if (bundle != null && (i2 = bundle.getInt("key_login_mode", 1)) > 1) {
-                if (i2 == 4) {
-                    i2 = 1;
-                }
-                loginActivityConfig.setIsFromAiapp(true);
-                loginActivityConfig.setThirdPartyLoginForResult(i2, "");
-            }
-            TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, loginActivityConfig));
-            MessageManager.getInstance().registerListener(new c(this, 2921362, um1Var));
         }
-    }
-
-    public void s(um1 um1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, um1Var) == null) {
-            SapiAccountManager.getInstance().logout();
-            t(false);
-            this.a = new c66();
-            ve3.a().putString("bd_box_display_name", "");
-            ve3.a().putString("bd_box_uid", "");
-            ve3.a().putString("bd_box_avatar_url", "");
-            ve3.a().putString("bd_box_bduss", "");
-            ve3.a().putString("bd_box_ptoken", "");
-            if (um1Var != null) {
-                um1Var.onResult(0);
-            }
-        }
-    }
-
-    public void w(GetUserInfoResult getUserInfoResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, getUserInfoResult) == null) {
-            if (getUserInfoResult != null) {
-                try {
-                    ve3.a().putString("host_account_info_string", getUserInfoResult.toString());
-                    if (this.a == null) {
-                        this.a = new c66();
-                    }
-                    this.a.b = SapiAccountManager.getInstance().getSession().bduss;
-                    this.a.h = SapiAccountManager.getInstance().getSession().getPtoken();
-                    this.a.a = getUserInfoResult.displayname;
-                    this.a.g = getUserInfoResult.uid;
-                    this.a.f = getUserInfoResult.portraitHttps;
-                    ve3.a().putString("bd_box_display_name", this.a.a);
-                    ve3.a().putString("bd_box_uid", this.a.g);
-                    ve3.a().putString("bd_box_avatar_url", this.a.f);
-                    ve3.a().putString("bd_box_bduss", this.a.b);
-                    ve3.a().putString("bd_box_ptoken", this.a.h);
-                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new b(this), this.a.b);
-                    return;
-                } catch (Exception e2) {
-                    if (e) {
-                        e2.printStackTrace();
-                        return;
-                    }
-                    return;
-                }
-            }
-            s(null);
-        }
+        return (Matrix) invokeL.objValue;
     }
 }

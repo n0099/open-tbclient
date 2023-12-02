@@ -1,15 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes9.dex */
+
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+/* loaded from: classes8.dex */
 public interface wu3 {
-    void onCompletion();
+    void a(String str);
 
-    boolean onError();
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onStart();
+    void c(AdElementInfo adElementInfo);
 }

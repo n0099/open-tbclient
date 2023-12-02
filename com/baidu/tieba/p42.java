@@ -1,399 +1,215 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.net.LocalServerSocket;
+import android.net.LocalSocket;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.l42;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TimeZone;
 /* loaded from: classes7.dex */
-public class p42 {
+public class p42 implements l42.c {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String D;
-    public String E;
-    public String a;
-    public String b;
-    public String c;
+    public l42.b a;
+    public LocalServerSocket b;
+    public n42 c;
     public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
-    public String v;
-    public String w;
-    public String x;
-    public String y;
-    public String z;
+    public boolean e;
 
-    public p42() {
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Map<String, String> a;
+        public String b;
+        public String c;
+        public String d;
+        public boolean e;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new HashMap();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static abstract class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public a a;
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        public abstract Map<String, String> b();
+
+        public abstract String c();
+
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        public final void d(PrintWriter printWriter, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, printWriter, str, str2) == null) {
+                printWriter.append((CharSequence) str).append(": ").append((CharSequence) str2).append("\r\n");
+            }
+        }
+
+        public void e(OutputStream outputStream) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, outputStream) == null) {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
+                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+                PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
+                printWriter.append("HTTP/1.1").append(WebvttCueParser.CHAR_SPACE).append((CharSequence) c()).append(" \r\n");
+                d(printWriter, "Date", simpleDateFormat.format(new Date()));
+                printWriter.print("Content-Length: " + a().getBytes().length + "\r\n");
+                Map<String, String> b = b();
+                if (b != null && b.size() > 0) {
+                    for (Map.Entry<String, String> entry : b.entrySet()) {
+                        d(printWriter, entry.getKey(), entry.getValue());
+                    }
+                }
+                printWriter.append("\r\n");
+                printWriter.append((CharSequence) a());
+                printWriter.flush();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948011995, "Lcom/baidu/tieba/p42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948011995, "Lcom/baidu/tieba/p42;");
+                return;
+            }
+        }
+        f = vm1.a;
+    }
+
+    @Override // com.baidu.tieba.l42.c
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e = false;
+            LocalServerSocket localServerSocket = this.b;
+            if (localServerSocket != null) {
+                try {
+                    localServerSocket.close();
+                } catch (IOException e) {
+                    k32.d("V8InspectorServer", "stop local server fail", e);
+                }
+                this.b = null;
+            }
+            n42 n42Var = this.c;
+            if (n42Var != null) {
+                n42Var.l();
+                this.c = null;
+            }
+            this.a = null;
+        }
+    }
+
+    public p42(String str, l42.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.d = str;
+        this.a = bVar;
     }
 
-    public ContentValues g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.l42.c
+    public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
-            contentValues.put("data2", (Integer) 5);
-            contentValues.put("data1", this.y);
-            return contentValues;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e) {
+            return;
         }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
-            contentValues.put("data2", (Integer) 1);
-            contentValues.put("data1", this.z);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
-            contentValues.put("data2", (Integer) 10);
-            contentValues.put("data1", this.q);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
-            contentValues.put("data2", (Integer) 2);
-            contentValues.put("data1", this.f);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/nickname");
-            contentValues.put("data2", (Integer) 1);
-            contentValues.put("data1", this.a);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/note");
-            contentValues.put("data1", this.e);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/website");
-            contentValues.put("data2", (Integer) 1);
-            contentValues.put("data1", this.s);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
-            contentValues.put("data2", (Integer) 4);
-            contentValues.put("data1", this.o);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/phone_v2");
-            contentValues.put("data2", (Integer) 3);
-            contentValues.put("data1", this.p);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return !TextUtils.isEmpty(this.d);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static p42 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            p42 p42Var = new p42();
-            if (jSONObject != null) {
-                jSONObject.optString("photoFilePath");
-                p42Var.a = jSONObject.optString("nickName");
-                p42Var.b = jSONObject.optString("lastName");
-                p42Var.c = jSONObject.optString("middleName");
-                p42Var.d = jSONObject.optString("firstName");
-                p42Var.e = jSONObject.optString("remark");
-                p42Var.f = jSONObject.optString("mobilePhoneNumber");
-                p42Var.g = jSONObject.optString("weChatNumber");
-                p42Var.h = jSONObject.optString("addressCountry");
-                p42Var.i = jSONObject.optString("addressState");
-                p42Var.j = jSONObject.optString("addressCity");
-                p42Var.k = jSONObject.optString("addressStreet");
-                p42Var.l = jSONObject.optString("addressPostalCode");
-                p42Var.m = jSONObject.optString("organization");
-                p42Var.n = jSONObject.optString("title");
-                p42Var.o = jSONObject.optString("workFaxNumber");
-                p42Var.p = jSONObject.optString("workPhoneNumber");
-                p42Var.q = jSONObject.optString("hostNumber");
-                p42Var.r = jSONObject.optString("email");
-                p42Var.s = jSONObject.optString("url");
-                p42Var.t = jSONObject.optString("workAddressCountry");
-                p42Var.u = jSONObject.optString("workAddressState");
-                p42Var.v = jSONObject.optString("workAddressCity");
-                p42Var.w = jSONObject.optString("workAddressStreet");
-                p42Var.x = jSONObject.optString("workAddressPostalCode");
-                p42Var.y = jSONObject.optString("homeFaxNumber");
-                p42Var.z = jSONObject.optString("homePhoneNumber");
-                p42Var.A = jSONObject.optString("homeAddressCountry");
-                p42Var.B = jSONObject.optString("homeAddressState");
-                p42Var.C = jSONObject.optString("homeAddressCity");
-                p42Var.D = jSONObject.optString("homeAddressStreet");
-                p42Var.E = jSONObject.optString("homeAddressPostalCode");
+        try {
+            this.b = new LocalServerSocket(this.d);
+            this.e = true;
+            int i = 0;
+            while (this.e) {
+                LocalSocket accept = this.b.accept();
+                n42 n42Var = new n42(accept.getInputStream(), accept.getOutputStream());
+                this.c = n42Var;
+                n42Var.o(this.a);
+                ExecutorUtilsExt.postOnSerial(this.c, "V8InspectorServer");
+                if (j23.H() && (i = i + 1) > 10) {
+                    if (f) {
+                        Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
+                        return;
+                    }
+                    return;
+                }
             }
-            return p42Var;
+        } catch (IOException e) {
+            k32.d("V8InspectorServer", "launch local server fail", e);
         }
-        return (p42) invokeL.objValue;
-    }
-
-    public ContentValues b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/postal-address_v2");
-            contentValues.put("data2", (Integer) 3);
-            contentValues.put("data1", c());
-            contentValues.put("data9", this.l);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(this.b)) {
-                sb.append(this.b);
-            }
-            if (!TextUtils.isEmpty(this.c)) {
-                sb.append(this.c);
-            }
-            if (!TextUtils.isEmpty(this.d)) {
-                sb.append(this.d);
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ContentValues e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/postal-address_v2");
-            contentValues.put("data2", (Integer) 1);
-            contentValues.put("data1", f());
-            contentValues.put("data9", this.E);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/organization");
-            contentValues.put("data2", (Integer) 1);
-            contentValues.put("data1", this.m);
-            contentValues.put("data4", this.n);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/im");
-            contentValues.put("data5", (Integer) (-1));
-            contentValues.put("data6", AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f014c));
-            contentValues.put("data1", this.g);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public ContentValues p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("mimetype", "vnd.android.cursor.item/postal-address_v2");
-            contentValues.put("data2", (Integer) 2);
-            contentValues.put("data1", q());
-            contentValues.put("data9", this.x);
-            return contentValues;
-        }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(this.h)) {
-                sb.append(this.h);
-            }
-            if (!TextUtils.isEmpty(this.i)) {
-                sb.append(this.i);
-            }
-            if (!TextUtils.isEmpty(this.j)) {
-                sb.append(this.j);
-            }
-            if (!TextUtils.isEmpty(this.k)) {
-                sb.append(this.k);
-            }
-            if (!TextUtils.isEmpty(this.l)) {
-                sb.append(" ");
-                sb.append(this.l);
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(this.A)) {
-                sb.append(this.A);
-            }
-            if (!TextUtils.isEmpty(this.B)) {
-                sb.append(this.B);
-            }
-            if (!TextUtils.isEmpty(this.C)) {
-                sb.append(this.C);
-            }
-            if (!TextUtils.isEmpty(this.D)) {
-                sb.append(this.D);
-            }
-            if (!TextUtils.isEmpty(this.E)) {
-                sb.append(" ");
-                sb.append(this.E);
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!TextUtils.isEmpty(this.t)) {
-                sb.append(this.t);
-            }
-            if (!TextUtils.isEmpty(this.u)) {
-                sb.append(this.u);
-            }
-            if (!TextUtils.isEmpty(this.v)) {
-                sb.append(this.v);
-            }
-            if (!TextUtils.isEmpty(this.w)) {
-                sb.append(this.w);
-            }
-            if (!TextUtils.isEmpty(this.x)) {
-                sb.append(" ");
-                sb.append(this.x);
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

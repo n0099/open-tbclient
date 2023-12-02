@@ -73,7 +73,7 @@ public class ge0<T> {
                 ((Bitmap) this.a).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                 return byteArrayOutputStream.toByteArray();
             } else if (t instanceof File) {
-                return y11.g((File) t);
+                return b21.g((File) t);
             } else {
                 if (t instanceof byte[]) {
                     return (byte[]) t;

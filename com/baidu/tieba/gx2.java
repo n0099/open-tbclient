@@ -1,83 +1,96 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Iterator;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public final class gx2 extends fx2<String, JSONObject> {
+public class gx2 extends ex2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947809224, "Lcom/baidu/tieba/gx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947809224, "Lcom/baidu/tieba/gx2;");
-                return;
-            }
-        }
-        b = h63.v;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gx2() {
-        super("swanCookie");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return df3.l().o();
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hx2
-    /* renamed from: c */
-    public boolean a(@NonNull String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ex2
+    public boolean a(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
         boolean z;
+        Set<Integer> set;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.equals(str, (CharSequence) this.a) && !b()) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (ex2.c) {
+                Log.d("SimpleErrorPageParser", "SimpleErrorPageParser: start error page parse");
             }
-            if (b) {
-                h32.b("SwanCookieInterceptor", ">>> NAUseMap apiName=", str, " , should intercept ", Boolean.valueOf(z));
+            if (bitmap == null) {
+                return false;
             }
-            return z;
+            if (!b(bitmap, rect)) {
+                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            }
+            try {
+                int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
+                if (pixel != -1 && pixel != -657931) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z && (set = this.b) != null) {
+                    Iterator<Integer> it = set.iterator();
+                    while (true) {
+                        if (it.hasNext()) {
+                            if (it.next().intValue() == pixel) {
+                                z = true;
+                                break;
+                            }
+                        } else {
+                            break;
+                        }
+                    }
+                }
+                if (!z) {
+                    return false;
+                }
+                for (int i = rect.left + 1; i < rect.right - 1; i++) {
+                    for (int i2 = rect.top + 1; i2 < rect.bottom - 1; i2++) {
+                        if (pixel != bitmap.getPixel(i, i2)) {
+                            if (vm1.a) {
+                                Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
+                            }
+                            return false;
+                        }
+                    }
+                }
+                if (ex2.c) {
+                    Log.d("SimpleErrorPageParser", "白屏, 图片大小 " + rect.width() + " x " + rect.height());
+                }
+                return true;
+            } catch (IllegalArgumentException e) {
+                if (ex2.c) {
+                    Log.d("SimpleErrorPageParser", "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight());
+                    e.printStackTrace();
+                }
+                return false;
+            }
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 }

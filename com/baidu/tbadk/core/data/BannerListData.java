@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dn6;
-import com.baidu.tieba.rha;
+import com.baidu.tieba.hn6;
+import com.baidu.tieba.vha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class BannerListData implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<AdvertAppInfo> advertAppList;
     public ArrayList<FeedForumData> feedForumList;
-    public dn6 recomTopicData;
+    public hn6 recomTopicData;
 
     /* loaded from: classes4.dex */
     public class a implements Comparator<AdvertAppInfo> {
@@ -110,13 +110,13 @@ public class BannerListData implements Serializable {
         return (List) invokeV.objValue;
     }
 
-    public dn6 getRecomTopicData() {
+    public hn6 getRecomTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.recomTopicData;
         }
-        return (dn6) invokeV.objValue;
+        return (hn6) invokeV.objValue;
     }
 
     public String getLastIds() {
@@ -172,7 +172,7 @@ public class BannerListData implements Serializable {
     public void parserProtobuf(BannerList bannerList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bannerList) == null) {
-            List<AdvertAppInfo> g = rha.m().g();
+            List<AdvertAppInfo> g = vha.m().g();
             if (g != null) {
                 g.clear();
             }
@@ -192,7 +192,7 @@ public class BannerListData implements Serializable {
                     }
                 }
             }
-            rha.m().f();
+            vha.m().f();
             Collections.sort(this.advertAppList, new a(this));
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {

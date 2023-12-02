@@ -1,37 +1,34 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@TargetApi(23)
+import java.io.ByteArrayOutputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes8.dex */
 public class w21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void validateRequestPermissionsRequestCode(int i);
-    }
-
-    public static void a(Activity activity, String[] strArr, int i) {
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, activity, strArr, i) == null) {
-            if (activity instanceof a) {
-                ((a) activity).validateRequestPermissionsRequestCode(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            byte[] bArr2 = null;
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                bArr2 = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return bArr2;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return bArr2;
             }
-            activity.requestPermissions(strArr, i);
         }
-    }
-
-    public static boolean b(Activity activity, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
-            return activity.shouldShowRequestPermissionRationale(str);
-        }
-        return invokeLL.booleanValue;
+        return (byte[]) invokeL.objValue;
     }
 }

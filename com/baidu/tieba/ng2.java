@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ng2<T> extends hg2 {
+public final class ng2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public T c;
-    public boolean d;
+    public final String a;
+    public final String b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,13 +31,15 @@ public class ng2<T> extends hg2 {
                 return;
             }
         }
-        e = sm1.a;
+        c = vm1.a;
     }
 
-    public ng2() {
+    public ng2(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,28 +49,25 @@ public class ng2<T> extends hg2 {
                 return;
             }
         }
-        this.d = true;
-        this.a = "message";
+        this.a = str;
+        this.b = str2;
     }
 
-    @Override // com.baidu.tieba.hg2
-    public void m(Map<String, Object> map) {
+    public static ng2 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            Object obj = this.c;
-            if (obj instanceof String) {
-                String str = (String) obj;
-                if (this.d) {
-                    str = Uri.encode(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return new ng2(jSONObject.optString("webviewid"), jSONObject.optString("message"));
+            } catch (JSONException e) {
+                if (c) {
+                    Log.e("SwanAppNativeMessage", "createEvent failed. " + Log.getStackTraceString(e));
+                    return null;
                 }
-                if (e) {
-                    Log.d("SwanAppWebMessage", "mData: " + this.c);
-                    Log.d("SwanAppWebMessage", "encode mData: " + str);
-                }
-                map.put("message", str);
-            } else if (obj instanceof JSONObject) {
-                map.put("message", obj);
+                return null;
             }
         }
+        return (ng2) invokeL.objValue;
     }
 }

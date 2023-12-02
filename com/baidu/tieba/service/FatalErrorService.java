@@ -213,6 +213,7 @@ public class FatalErrorService extends BdBaseService {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: e */
         public String doInBackground(String... strArr) {
             InterceptResult invokeL;
             boolean z;
@@ -220,22 +221,22 @@ public class FatalErrorService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
                 try {
-                    e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
-                    e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                    f();
+                    f(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
+                    f(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
+                    g();
                     if (TbConfig.getVersion().equals(SharedPrefHelper.getInstance().getString("native_crash_dump_version", ""))) {
                         z = true;
                     } else {
                         SharedPrefHelper.getInstance().putString("native_crash_dump_version", TbConfig.getVersion());
                         z = false;
                     }
-                    File GetFile = FileHelper.GetFile(TbConfig.FATAL_ERROR_NATIVE_DIR);
-                    if (GetFile != null && (listFiles = GetFile.listFiles()) != null) {
+                    File externalPrivateFile = FileHelper.getExternalPrivateFile(TbConfig.FATAL_ERROR_NATIVE_DIR);
+                    if (externalPrivateFile != null && (listFiles = externalPrivateFile.listFiles()) != null) {
                         for (File file : listFiles) {
                             if (file != null) {
                                 if (file.length() >= 1024 && z) {
                                     c(file);
-                                    e(file, TbConfig.ERROR_UPLOAD_SERVER, "4", true, true);
+                                    f(file, TbConfig.ERROR_UPLOAD_SERVER, "4", true, true);
                                 } else {
                                     file.delete();
                                 }
@@ -270,7 +271,7 @@ public class FatalErrorService extends BdBaseService {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public final void e(File file, String str, String str2, boolean z, boolean z2) {
+        public final void f(File file, String str, String str2, boolean z, boolean z2) {
             FileWriter fileWriter;
             FileInputStream fileInputStream;
             Interceptable interceptable = $ic;
@@ -446,7 +447,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        public final void f() {
+        public final void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 File GetFileByAbsolutePath = FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);

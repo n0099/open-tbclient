@@ -1,10 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.view.spanGroup.DownKeyChecker;
-import com.baidu.tbadk.data.PluginCheck;
-import com.baidu.tbadk.data.WebViewWhitePageList;
-import com.baidu.tbadk.tracker.LogUploadConfig;
-import com.baidu.tieba.ei8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
-public class xa5 implements mf1 {
+public class xa5 implements pf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,21 +25,18 @@ public class xa5 implements mf1 {
         }
     }
 
-    @Override // com.baidu.tieba.mf1
+    @Override // com.baidu.tieba.pf1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new DownKeyChecker.a());
-            arrayList.add(new PluginCheck.a());
-            arrayList.add(new WebViewWhitePageList.a());
-            arrayList.add(new LogUploadConfig());
-            arrayList.add(new jc8());
-            arrayList.add(new ei8.b());
-            arrayList.add(new wb9());
-            arrayList.add(new p4a());
-            arrayList.add(new fra());
+            arrayList.add(new yg5());
+            arrayList.add(new gw6());
+            arrayList.add(new fn9());
+            arrayList.add(new aga());
+            arrayList.add(new dra());
+            arrayList.add(new qua());
             return arrayList;
         }
         return invokeV.objValue;

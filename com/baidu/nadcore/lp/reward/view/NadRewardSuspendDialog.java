@@ -12,8 +12,8 @@ import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ok0;
 import com.baidu.tieba.pk0;
-import com.baidu.tieba.q11;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.s11;
+import com.baidu.tieba.w11;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -55,7 +55,7 @@ public final class NadRewardSuspendDialog extends NadRewardVideoDialog {
         super.X2();
         ViewGroup.LayoutParams layoutParams = U2().getLayoutParams();
         Intrinsics.checkNotNullExpressionValue(layoutParams, "topImg.layoutParams");
-        layoutParams.height = u11.c.a(getContext(), 83.0f);
+        layoutParams.height = w11.c.a(getContext(), 83.0f);
         U2().setLayoutParams(layoutParams);
     }
 
@@ -75,7 +75,7 @@ public final class NadRewardSuspendDialog extends NadRewardVideoDialog {
         View findViewById = P2().findViewById(R.id.close_img);
         Intrinsics.checkNotNullExpressionValue(findViewById, "dialogContent.findViewById(R.id.close_img)");
         AdImageView adImageView = (AdImageView) findViewById;
-        View findViewById2 = P2().findViewById(R.id.obfuscated_res_0x7f092683);
+        View findViewById2 = P2().findViewById(R.id.obfuscated_res_0x7f092685);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "dialogContent.findViewById(R.id.title)");
         TextView textView3 = (TextView) findViewById2;
         View findViewById3 = P2().findViewById(R.id.btn_container);
@@ -120,26 +120,26 @@ public final class NadRewardSuspendDialog extends NadRewardVideoDialog {
             if (Q25 != null) {
                 str3 = Q25.y();
             }
-            textView3.setTextColor(q11.a(str3, R.color.nad_reward_dialog_title_default));
+            textView3.setTextColor(s11.a(str3, R.color.nad_reward_dialog_title_default));
         }
         if (textView2 != null) {
             textView2.setTypeface(Typeface.defaultFromStyle(1));
             textView2.setTextSize(1, 17.0f);
             textView2.setGravity(17);
-            textView2.setHeight(u11.c.a(textView2.getContext(), 50.0f));
-            textView2.setWidth(u11.c.a(textView2.getContext(), 219.0f));
+            textView2.setHeight(w11.c.a(textView2.getContext(), 50.0f));
+            textView2.setWidth(w11.c.a(textView2.getContext(), 219.0f));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = u11.c.a(textView2.getContext(), 10.0f);
+            layoutParams.topMargin = w11.c.a(textView2.getContext(), 10.0f);
             linearLayout.addView(textView2, 0, layoutParams);
         }
         if (textView != null) {
             textView.setTypeface(Typeface.defaultFromStyle(1));
             textView.setTextSize(1, 17.0f);
             textView.setGravity(17);
-            textView.setHeight(u11.c.a(textView.getContext(), 50.0f));
-            textView.setWidth(u11.c.a(textView.getContext(), 219.0f));
+            textView.setHeight(w11.c.a(textView.getContext(), 50.0f));
+            textView.setWidth(w11.c.a(textView.getContext(), 219.0f));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.topMargin = u11.c.a(textView.getContext(), 10.0f);
+            layoutParams2.topMargin = w11.c.a(textView.getContext(), 10.0f);
             linearLayout.addView(textView, 0, layoutParams2);
         }
         W2(adImageView);

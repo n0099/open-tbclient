@@ -5,23 +5,25 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.common.ExceptionCode;
+import java.lang.reflect.Method;
 /* loaded from: classes9.dex */
-public class zq3 implements sq3 {
+public class zq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ar3 a;
-    public int b;
-    public boolean c;
+    public int a;
+    public Method b;
+    public Object c;
 
-    public zq3(@NonNull Context context) {
+    public zq3(Class<?> cls) {
+        int intValue;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,112 +33,84 @@ public class zq3 implements sq3 {
                 return;
             }
         }
-        this.b = -1;
-        c(context);
-    }
-
-    public final void e(int i) {
-        int a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            yq3 f = fr3.f();
-            int i2 = f.a;
-            if (i2 < 1) {
-                i2 = 10;
-            }
-            if (f.a() <= 0) {
-                a = ExceptionCode.CRASH_EXCEPTION;
-            } else {
-                a = f.a();
-            }
-            int f2 = this.a.f(i2, a, i2, a);
-            this.b = f2;
-            if (f2 != -1) {
-                this.a.e(f2, i);
-            }
+        this.a = 4099;
+        if (cls == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.sq3
-    public void a() {
-        ar3 ar3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (ar3Var = this.a) != null && ar3Var.c()) {
-            this.c = false;
-            if (this.a.b()) {
-                g();
-            } else {
-                f();
-            }
-        }
-    }
-
-    public final void f() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (i = this.b) != -1) {
-            this.a.d(i);
-            this.a.j(this.b);
-        }
-    }
-
-    public final void g() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (i = this.b) != -1) {
-            this.a.d(i);
-            this.a.i(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.sq3
-    public void b(int i) {
-        ar3 ar3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (ar3Var = this.a) != null && ar3Var.c()) {
-            this.c = true;
-            if (this.a.b()) {
-                e(i);
-            } else {
-                d(i);
-            }
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = ar3.a(context);
-        }
-    }
-
-    public final void d(int i) {
-        int a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            int g = this.a.g();
-            this.b = g;
-            if (g != -1) {
-                yq3 f = fr3.f();
-                int i2 = f.a;
-                if (i2 < 1) {
-                    i2 = 10;
-                }
-                if (f.a() <= 0) {
-                    a = ExceptionCode.CRASH_EXCEPTION;
+        try {
+            Object k = oa4.k(cls, "getInstance", new Object[0]);
+            this.c = k;
+            if (k != null) {
+                Object h = oa4.h(k, "UNIPERF_EVENT_APP_START");
+                if (h == null) {
+                    intValue = this.a;
                 } else {
-                    a = f.a();
+                    intValue = ((Integer) h).intValue();
                 }
-                int i3 = i2;
-                this.a.h(this.b, 0, i3, -1, -1, -1);
-                this.a.h(this.b, 2, i3, i2, -1, -1);
-                int i4 = a;
-                this.a.h(this.b, 4, i4, -1, -1, -1);
-                this.a.h(this.b, 6, i4, a, -1, -1);
-                this.a.h(this.b, 15, i2, i2, i2, i2);
-                this.a.h(this.b, 17, a, a, a, a);
-                this.a.e(this.b, i);
+                this.a = intValue;
+            }
+            Method i3 = oa4.i(cls, "uniPerfEvent", Integer.TYPE, String.class, int[].class);
+            this.b = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static zq3 b(@NonNull Context context) {
+        Class<?> cls;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                cls = oa4.b("android.iawareperf.UniPerf", true);
+            } catch (Throwable unused) {
+                cls = null;
+            }
+            return new zq3(cls);
+        }
+        return (zq3) invokeL.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c != null && this.b != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int d(int i, String str, int... iArr) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, iArr)) == null) {
+            if (!c()) {
+                return -1;
+            }
+            try {
+                Object invoke = this.b.invoke(this.c, Integer.valueOf(i), str, iArr);
+                if (invoke == null) {
+                    return -1;
+                }
+                return ((Integer) invoke).intValue();
+            } catch (Throwable unused) {
+                return -1;
             }
         }
+        return invokeILL.intValue;
     }
 }

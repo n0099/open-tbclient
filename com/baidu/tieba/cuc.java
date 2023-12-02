@@ -5,24 +5,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.Agree;
+import tbclient.AiChatBotInfo;
 /* loaded from: classes5.dex */
-public class cuc extends ltc {
+public class cuc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Agree agree) {
+    public static JSONObject b(@NonNull AiChatBotInfo aiChatBotInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, agree)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aiChatBotInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "agree_num", agree.agree_num);
-            ltc.a(jSONObject, "has_agree", agree.has_agree);
-            ltc.a(jSONObject, "agree_type", agree.agree_type);
-            ltc.a(jSONObject, "disagree_num", agree.disagree_num);
-            ltc.a(jSONObject, "diff_agree_num", agree.diff_agree_num);
-            ltc.a(jSONObject, "lz_agree", agree.lz_agree);
+            ktc.a(jSONObject, "uk", aiChatBotInfo.uk);
+            ktc.a(jSONObject, "pa", aiChatBotInfo.pa);
+            ktc.a(jSONObject, "name", aiChatBotInfo.name);
+            ktc.a(jSONObject, "portrait", aiChatBotInfo.portrait);
+            ktc.a(jSONObject, "background_url", aiChatBotInfo.background_url);
+            ktc.a(jSONObject, "prologue", aiChatBotInfo.prologue);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

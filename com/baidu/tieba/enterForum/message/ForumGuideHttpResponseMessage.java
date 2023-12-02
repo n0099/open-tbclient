@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.b05;
+import com.baidu.tieba.e05;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -129,8 +129,8 @@ public class ForumGuideHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && bArr != null && bArr.length > 0 && getError() == 0) {
-            b05.k();
-            b05.j("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).i(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr, 86400000L);
+            e05.k();
+            e05.j("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).i(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr, 86400000L);
         }
     }
 

@@ -3,8 +3,6 @@ package com.baidu.tieba;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
@@ -17,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v08 extends cs7<h18, ThreadCardViewHolder<h18>> {
+public class v08 extends gs7<k18, ThreadCardViewHolder<k18>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,19 +45,19 @@ public class v08 extends cs7<h18, ThreadCardViewHolder<h18>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: H */
-    public ThreadCardViewHolder<h18> onCreateViewHolder(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<k18> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.c.getPageActivity(), true);
-            bVar.n(new a18(this.c.getPageActivity()));
+            bVar.n(new d18(this.c.getPageActivity()));
             bVar.l().b(0);
             bVar.l().c(0);
             bVar.l().g(0);
             bVar.l().f(0);
             bVar.l().j(0);
             bVar.l().i(0);
-            ThreadCardViewHolder<h18> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.e));
+            ThreadCardViewHolder<k18> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.e));
             threadCardViewHolder.i(this.mPageId);
             return threadCardViewHolder;
         }
@@ -67,16 +65,15 @@ public class v08 extends cs7<h18, ThreadCardViewHolder<h18>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cs7, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.gs7, com.baidu.tieba.ci
     /* renamed from: I */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h18 h18Var, ThreadCardViewHolder<h18> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, k18 k18Var, ThreadCardViewHolder<k18> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h18Var, threadCardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, k18Var, threadCardViewHolder})) == null) {
             threadCardViewHolder.a().s(i);
-            threadCardViewHolder.e(h18Var);
+            threadCardViewHolder.e(k18Var);
             threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new i65(9)));
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

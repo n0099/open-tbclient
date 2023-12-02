@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kr2;
-import com.baidu.tieba.l63;
+import com.baidu.tieba.ip2;
+import com.baidu.tieba.qr2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,292 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 import java.nio.channels.Pipe;
-import java.nio.channels.ReadableByteChannel;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class fp2 extends p63 {
+public class fp2 extends ip2.f {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, f> b;
-    public final kr2 c;
-    public final kr2 d;
-
-    /* loaded from: classes6.dex */
-    public class a implements al3<f> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fp2 a;
-
-        public a(fp2 fp2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fp2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fp2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.al3
-        /* renamed from: b */
-        public void a(f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) != null) {
-                return;
-            }
-            fVar.h(this.a);
-            this.a.b.put(fVar.a, fVar);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements al3<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tk3 a;
-        public final /* synthetic */ fp2 b;
-
-        public b(fp2 fp2Var, tk3 tk3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fp2Var, tk3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fp2Var;
-            this.a = tk3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.al3
-        /* renamed from: b */
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if ("on_progress".equals(str)) {
-                    this.b.A((l63.a) new l63.a("installer_on_progress").v(" event_params_installer_progress", this.a.j()));
-                } else if ("pump_finish".equals(str)) {
-                    this.b.p("installer_on_pump_finish");
-                } else if ("finish".equals(str)) {
-                    this.b.p("installer_on_finish");
-                } else if ("start".equals(str)) {
-                    this.b.p("installer_on_start");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements al3<f> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tk3 a;
-
-        public c(fp2 fp2Var, tk3 tk3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fp2Var, tk3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tk3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.al3
-        /* renamed from: b */
-        public void a(f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                this.a.d(fVar);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements al3<f> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(fp2 fp2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fp2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.al3
-        /* renamed from: b */
-        public void a(f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                fVar.f();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements al3<f> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean[] a;
-
-        public e(fp2 fp2Var, boolean[] zArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fp2Var, zArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zArr;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.al3
-        /* renamed from: b */
-        public void a(f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                boolean[] zArr = this.a;
-                zArr[0] = fVar.d() & zArr[0];
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static abstract class f implements al3<Pipe.SourceChannel> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final Bundle b;
-        public fp2 c;
-
-        public void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        public abstract boolean g(Pipe.SourceChannel sourceChannel, Bundle bundle);
-
-        public f(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = new Bundle();
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.al3
-        /* renamed from: e */
-        public void a(Pipe.SourceChannel sourceChannel) {
-            fp2 fp2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, sourceChannel) == null) && (fp2Var = this.c) != null && g(sourceChannel, fp2Var.c.D())) {
-                i();
-            }
-        }
-
-        public final void h(fp2 fp2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, fp2Var) == null) {
-                this.c = fp2Var;
-            }
-        }
-
-        public Bundle c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.b;
-            }
-            return (Bundle) invokeV.objValue;
-        }
-
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return c().getBoolean("flag_is_ok");
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final void i() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.b.putBoolean("flag_is_ok", true);
-            }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
+    public final String d;
+    public final ce4 e;
 
     static {
         InterceptResult invokeClinit;
@@ -313,102 +33,73 @@ public class fp2 extends p63 {
                 return;
             }
         }
-        e = sm1.a;
+        f = vm1.a;
     }
 
-    public fp2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fp2(String str, ce4 ce4Var) {
+        super("check_sign");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, ce4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new HashMap();
-        this.c = new kr2.a();
-        this.d = new kr2.a();
+        this.d = str;
+        this.e = ce4Var;
     }
 
-    public boolean N() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ip2.f
+    public boolean g(Pipe.SourceChannel sourceChannel, Bundle bundle) {
+        InterceptResult invokeLL;
+        di3 di3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b.isEmpty() || this.d.d("flag_is_ok", false)) {
-                return true;
-            }
-            boolean[] zArr = {true};
-            L(new e(this, zArr));
-            this.d.t("flag_is_ok", zArr[0]);
-            return zArr[0];
-        }
-        return invokeV.booleanValue;
-    }
-
-    public fp2 J(f... fVarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVarArr)) == null) {
-            zk3.d(new a(this), fVarArr);
-            return this;
-        }
-        return (fp2) invokeL.objValue;
-    }
-
-    public fp2 K(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            this.c.E(bundle);
-            return this;
-        }
-        return (fp2) invokeL.objValue;
-    }
-
-    public final void L(al3<f> al3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, al3Var) == null) {
-            zk3.c(al3Var, this.b.values());
-        }
-    }
-
-    public final void O(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && e) {
-            mr2.d(this.c.o("launch_id", "")).f(str).b("SwanInstaller");
-            Log.i("SwanInstaller", str);
-        }
-    }
-
-    public synchronized fp2 M(ReadableByteChannel readableByteChannel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, readableByteChannel)) == null) {
-            synchronized (this) {
-                long currentTimeMillis = System.currentTimeMillis();
-                this.d.a();
-                tk3 tk3Var = new tk3();
-                tk3Var.o(32768);
-                tk3Var.q(30L, TimeUnit.SECONDS);
-                tk3Var.g(this.c.D());
-                tk3Var.p(new b(this, tk3Var));
-                L(new c(this, tk3Var));
-                O("connect: " + readableByteChannel + " at: " + currentTimeMillis);
-                tk3Var.h(readableByteChannel);
-                boolean N = N();
-                if (e) {
-                    O("allOk: " + N + " cost: " + (System.currentTimeMillis() - currentTimeMillis));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sourceChannel, bundle)) == null) {
+            pr2 d = pr2.d(bundle.getString("launch_id"));
+            qr2.b e = d.e();
+            e.b("SignChecker");
+            boolean z = true;
+            e.d(1);
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                try {
+                    di3Var = ca2.a(sourceChannel, this.d, this.e);
+                } catch (IOException e2) {
+                    if (f) {
+                        e2.printStackTrace();
+                    }
+                    di3 di3Var2 = new di3();
+                    di3Var2.k(11L);
+                    di3Var2.i(2300L);
+                    di3Var2.f("inputStream IOException:" + e2.toString());
+                    hi3.a().f(di3Var2);
+                    d.g("SignChecker", di3Var2.toString());
+                    xk3.a(sourceChannel);
+                    di3Var = di3Var2;
                 }
-                if (!N) {
-                    L(new d(this));
+                d.g("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
+                if (di3Var != null) {
+                    z = false;
                 }
+                if (di3Var != null) {
+                    d.g("SignChecker", di3Var.toString());
+                    c().putLong("result_error_code", di3Var.a());
+                }
+                d.g("SignChecker", "done: " + z);
+                return z;
+            } finally {
+                xk3.a(sourceChannel);
             }
-            return this;
         }
-        return (fp2) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

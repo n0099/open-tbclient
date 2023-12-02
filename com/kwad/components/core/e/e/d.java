@@ -13,9 +13,9 @@ public final class d extends b implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.qN = (TextView) findViewById(R.id.obfuscated_res_0x7f091498);
-        this.Ll = (TextView) findViewById(R.id.obfuscated_res_0x7f091499);
-        this.Lm = (TextView) findViewById(R.id.obfuscated_res_0x7f091497);
+        this.qN = (TextView) findViewById(R.id.obfuscated_res_0x7f091499);
+        this.Ll = (TextView) findViewById(R.id.obfuscated_res_0x7f09149a);
+        this.Lm = (TextView) findViewById(R.id.obfuscated_res_0x7f091498);
     }
 
     @Override // com.kwad.components.core.e.e.b, com.kwad.sdk.mvp.Presenter

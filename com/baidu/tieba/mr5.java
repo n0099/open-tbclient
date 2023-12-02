@@ -1,17 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Page;
 /* loaded from: classes7.dex */
-public abstract class mr5<T> implements or5<T> {
+public class mr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public String b;
+    public boolean b;
+    public Object c;
 
     public mr5() {
         Interceptable interceptable = $ic;
@@ -26,41 +26,27 @@ public abstract class mr5<T> implements or5<T> {
                 return;
             }
         }
-        this.a = -1;
-        this.b = "";
+        this.b = true;
     }
 
-    @Override // com.baidu.tieba.or5
-    public int getErrorCode() {
-        InterceptResult invokeV;
+    public void a(Page page) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, page) != null) || page == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.or5
-    public String getErrorMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if (page.has_more.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.b = str;
-        }
+        this.b = z;
+        page.has_prev.intValue();
+        this.a = page.current_page.intValue();
+        page.page_size.intValue();
+        page.total_page.intValue();
+        page.offset.intValue();
+        page.total_count.intValue();
+        hs5.b("parserProto--->currentPage=" + this.a + ",hasMore=" + this.b);
     }
 }

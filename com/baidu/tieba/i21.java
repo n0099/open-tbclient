@@ -1,43 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.mobads.sdk.api.MobadsPermissionSettings;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
 /* loaded from: classes6.dex */
-public final class i21 {
-    public static /* synthetic */ Interceptable $ic;
+public class i21 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static boolean b = false;
+    public static boolean c = false;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static byte[] a(@NonNull byte[] bArr, PublicKey publicKey) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, publicKey)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, publicKey);
-                return cipher.doFinal(bArr);
-            } catch (Exception unused) {
-                return null;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947801505, "Lcom/baidu/tieba/i21;")) == null) {
+            return;
         }
-        return (byte[]) invokeLL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947801505, "Lcom/baidu/tieba/i21;");
+        }
     }
 
-    public static PublicKey b(@NonNull byte[] bArr) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 23) {
+                    if (context.checkSelfPermission(str) != 0) {
+                        return false;
+                    }
+                    return true;
+                } else if (context.checkCallingOrSelfPermission(str) != 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                if (MobadsPermissionSettings.PERMISSION_LOCATION.equalsIgnoreCase(str)) {
+                    return b;
+                }
+                if (MobadsPermissionSettings.PERMISSION_STORAGE.equalsIgnoreCase(str)) {
+                    return c;
+                }
+                if (MobadsPermissionSettings.PERMISSION_APP_LIST.equalsIgnoreCase(str)) {
+                    return d;
+                }
+                if (MobadsPermissionSettings.PERMISSION_PHONE_STATE.equalsIgnoreCase(str)) {
+                    return a;
+                }
+                return false;
+            }
+            return false;
         }
-        return (PublicKey) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

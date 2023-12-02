@@ -134,8 +134,8 @@ public final class f extends c {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.NP = (WebView) findViewById(R.id.obfuscated_res_0x7f0913ac);
-        this.Ov = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091514);
+        this.NP = (WebView) findViewById(R.id.obfuscated_res_0x7f0913ad);
+        this.Ov = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091515);
         this.NP.setBackgroundColor(0);
     }
 

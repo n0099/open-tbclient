@@ -3,6 +3,8 @@ package com.baidu.nadcore.lp.reward.view;
 import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.Resources;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -23,23 +25,28 @@ import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.searchbox.common.security.PermissionStorage;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn0;
-import com.baidu.tieba.bz0;
-import com.baidu.tieba.cz0;
-import com.baidu.tieba.h41;
-import com.baidu.tieba.hn0;
-import com.baidu.tieba.j11;
-import com.baidu.tieba.k41;
-import com.baidu.tieba.kn0;
-import com.baidu.tieba.mn0;
+import com.baidu.tieba.bl0;
+import com.baidu.tieba.cn0;
+import com.baidu.tieba.dz0;
+import com.baidu.tieba.ez0;
+import com.baidu.tieba.in0;
+import com.baidu.tieba.j41;
+import com.baidu.tieba.jl0;
+import com.baidu.tieba.l11;
+import com.baidu.tieba.ln0;
+import com.baidu.tieba.m41;
 import com.baidu.tieba.ms;
+import com.baidu.tieba.nn0;
+import com.baidu.tieba.q41;
 import com.baidu.tieba.qe0;
-import com.baidu.tieba.qn0;
+import com.baidu.tieba.r41;
 import com.baidu.tieba.sk0;
+import com.baidu.tieba.sn0;
 import com.baidu.tieba.ti0;
-import com.baidu.tieba.u11;
 import com.baidu.tieba.uk0;
+import com.baidu.tieba.w11;
 import com.baidu.tieba.xi0;
+import com.baidu.tieba.xk0;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,16 +59,20 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0092\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u00012\u00020\u0002B'\b\u0007\u0012\u0006\u0010G\u001a\u00020F\u0012\n\b\u0002\u0010I\u001a\u0004\u0018\u00010H\u0012\b\b\u0002\u0010J\u001a\u00020\n¢\u0006\u0004\bK\u0010LJ9\u0010\r\u001a\u00020\f2\b\u0010\u0004\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0007\u001a\u00020\u00052\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u0010\u001a\u00020\u000fH\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\fH\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0014\u001a\u00020\fH\u0002¢\u0006\u0004\b\u0014\u0010\u0013J\u000f\u0010\u0015\u001a\u00020\fH\u0002¢\u0006\u0004\b\u0015\u0010\u0013J\u000f\u0010\u0016\u001a\u00020\fH\u0003¢\u0006\u0004\b\u0016\u0010\u0013J3\u0010\u001d\u001a\u00020\f2\u0006\u0010\u0018\u001a\u00020\u00172\u0006\u0010\u001a\u001a\u00020\u00192\b\b\u0002\u0010\u001b\u001a\u00020\u00172\b\b\u0002\u0010\u001c\u001a\u00020\u0017H\u0002¢\u0006\u0004\b\u001d\u0010\u001eJ\u000f\u0010\u001f\u001a\u00020\fH\u0014¢\u0006\u0004\b\u001f\u0010\u0013J\u0017\u0010\"\u001a\u00020\f2\u0006\u0010!\u001a\u00020 H\u0016¢\u0006\u0004\b\"\u0010#J\u001d\u0010&\u001a\u00020\f2\f\u0010%\u001a\b\u0012\u0004\u0012\u00020\f0$H\u0016¢\u0006\u0004\b&\u0010'J\u0017\u0010*\u001a\u00020\f2\u0006\u0010)\u001a\u00020(H\u0016¢\u0006\u0004\b*\u0010+J\u000f\u0010,\u001a\u00020\fH\u0002¢\u0006\u0004\b,\u0010\u0013R\u0018\u0010!\u001a\u0004\u0018\u00010 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010-R\u001d\u00103\u001a\u00020.8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b/\u00100\u001a\u0004\b1\u00102R\u001d\u00108\u001a\u0002048B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b5\u00100\u001a\u0004\b6\u00107R\u0016\u00109\u001a\u00020(8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b9\u0010:R\u001d\u0010?\u001a\u00020;8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b<\u00100\u001a\u0004\b=\u0010>R\u0016\u0010A\u001a\u00020@8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bA\u0010BR\u0018\u0010D\u001a\u0004\u0018\u00010C8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bD\u0010E¨\u0006M"}, d2 = {"Lcom/baidu/nadcore/lp/reward/view/NadRewardHalfTailHolder;", "Lcom/baidu/tieba/uk0;", "Landroid/widget/FrameLayout;", "Landroid/view/View;", "target", "", "from", "to", "", ms.c, "", "vis", "", "doViewAlphaAnimation", "(Landroid/view/View;FFJI)V", "Landroid/view/ViewGroup;", "getView", "()Landroid/view/ViewGroup;", "initArrowView", "()V", "initGuideView", "initPanelPop", "initTailInfoView", "", DnsModel.AREA_KEY, "Lcom/baidu/nadcore/stats/request/ClogBuilder$LogType;", "logType", PermissionStorage.PermissionItem.ITEM_EXT_1, PermissionStorage.PermissionItem.ITEM_EXT_2, "logAndCharge", "(Ljava/lang/String;Lcom/baidu/nadcore/stats/request/ClogBuilder$LogType;Ljava/lang/String;Ljava/lang/String;)V", "onDetachedFromWindow", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "adModel", "setData", "(Lcom/baidu/nadcore/model/AdRewardVideoLpModel;)V", "Lkotlin/Function0;", WebChromeClient.KEY_ARG_CALLBACK, "setOnReplayClickListener", "(Lkotlin/Function0;)V", "", "isVisible", "setVisibility", "(Z)V", "tryShowGuideLottie", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "Lcom/baidu/nadcore/widget/AdImageView;", "arrowView$delegate", "Lkotlin/Lazy;", "getArrowView", "()Lcom/baidu/nadcore/widget/AdImageView;", "arrowView", "Lcom/baidu/nadcore/lp/reward/view/NadRewardHalfTailView;", "halfTailView$delegate", "getHalfTailView", "()Lcom/baidu/nadcore/lp/reward/view/NadRewardHalfTailView;", "halfTailView", "hasShowGuide", "Z", "Lcom/airbnb/lottie/LottieAnimationView;", "lottieGuideView$delegate", "getLottieGuideView", "()Lcom/airbnb/lottie/LottieAnimationView;", "lottieGuideView", "Ljava/lang/Runnable;", "lottieRunnable", "Ljava/lang/Runnable;", "Lcom/baidu/nadcore/webpanel/PanelPopupWindow;", "panelPop", "Lcom/baidu/nadcore/webpanel/PanelPopupWindow;", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0094\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u00012\u00020\u0002B'\b\u0007\u0012\u0006\u0010Q\u001a\u00020P\u0012\n\b\u0002\u0010S\u001a\u0004\u0018\u00010R\u0012\b\b\u0002\u0010T\u001a\u00020\n¢\u0006\u0004\bU\u0010VJ9\u0010\r\u001a\u00020\f2\b\u0010\u0004\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0007\u001a\u00020\u00052\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u0010\u001a\u00020\u000fH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0013\u001a\u00020\u0012H\u0016¢\u0006\u0004\b\u0013\u0010\u0014J\u000f\u0010\u0015\u001a\u00020\fH\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\fH\u0002¢\u0006\u0004\b\u0017\u0010\u0016J\u000f\u0010\u0018\u001a\u00020\fH\u0002¢\u0006\u0004\b\u0018\u0010\u0016J\u000f\u0010\u0019\u001a\u00020\fH\u0003¢\u0006\u0004\b\u0019\u0010\u0016J3\u0010\u001f\u001a\u00020\f2\u0006\u0010\u001a\u001a\u00020\u000f2\u0006\u0010\u001c\u001a\u00020\u001b2\b\b\u0002\u0010\u001d\u001a\u00020\u000f2\b\b\u0002\u0010\u001e\u001a\u00020\u000fH\u0002¢\u0006\u0004\b\u001f\u0010 J\u000f\u0010!\u001a\u00020\fH\u0014¢\u0006\u0004\b!\u0010\u0016J\u0017\u0010$\u001a\u00020\f2\u0006\u0010#\u001a\u00020\"H\u0016¢\u0006\u0004\b$\u0010%J\u001d\u0010(\u001a\u00020\f2\f\u0010'\u001a\b\u0012\u0004\u0012\u00020\f0&H\u0016¢\u0006\u0004\b(\u0010)J\u0017\u0010,\u001a\u00020\f2\u0006\u0010+\u001a\u00020*H\u0016¢\u0006\u0004\b,\u0010-J\u0017\u0010/\u001a\u00020\f2\u0006\u0010.\u001a\u00020*H\u0002¢\u0006\u0004\b/\u0010-J\u000f\u00100\u001a\u00020\fH\u0002¢\u0006\u0004\b0\u0010\u0016R\u0018\u0010#\u001a\u0004\u0018\u00010\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u00101R\u001d\u00107\u001a\u0002028B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b3\u00104\u001a\u0004\b5\u00106R\u001d\u0010<\u001a\u0002088B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b9\u00104\u001a\u0004\b:\u0010;R\u0016\u0010=\u001a\u00020*8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b=\u0010>R\u001d\u0010C\u001a\u00020?8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b@\u00104\u001a\u0004\bA\u0010BR\u0016\u0010E\u001a\u00020D8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bE\u0010FR\u0016\u0010G\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bG\u0010HR\u0018\u0010J\u001a\u0004\u0018\u00010I8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bJ\u0010KR\u0016\u0010L\u001a\u00020*8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bL\u0010>R\u0016\u0010M\u001a\u00020D8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bM\u0010FR\u0016\u0010N\u001a\u00020\u000f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bN\u0010O¨\u0006W"}, d2 = {"Lcom/baidu/nadcore/lp/reward/view/NadRewardHalfTailHolder;", "Lcom/baidu/tieba/uk0;", "Landroid/widget/FrameLayout;", "Landroid/view/View;", "target", "", "from", "to", "", ms.c, "", "vis", "", "doViewAlphaAnimation", "(Landroid/view/View;FFJI)V", "", "getLogTime", "()Ljava/lang/String;", "Landroid/view/ViewGroup;", "getView", "()Landroid/view/ViewGroup;", "initArrowView", "()V", "initGuideView", "initPanelPop", "initTailInfoView", DnsModel.AREA_KEY, "Lcom/baidu/nadcore/stats/request/ClogBuilder$LogType;", "logType", PermissionStorage.PermissionItem.ITEM_EXT_1, PermissionStorage.PermissionItem.ITEM_EXT_2, "logAndCharge", "(Ljava/lang/String;Lcom/baidu/nadcore/stats/request/ClogBuilder$LogType;Ljava/lang/String;Ljava/lang/String;)V", "onDetachedFromWindow", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "adModel", "setData", "(Lcom/baidu/nadcore/model/AdRewardVideoLpModel;)V", "Lkotlin/Function0;", WebChromeClient.KEY_ARG_CALLBACK, "setOnReplayClickListener", "(Lkotlin/Function0;)V", "", "isVisible", "setVisibility", "(Z)V", "autoPopup", "showPanelPop", "tryShowGuideLottie", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "Lcom/baidu/nadcore/widget/AdImageView;", "arrowView$delegate", "Lkotlin/Lazy;", "getArrowView", "()Lcom/baidu/nadcore/widget/AdImageView;", "arrowView", "Lcom/baidu/nadcore/lp/reward/view/NadRewardHalfTailView;", "halfTailView$delegate", "getHalfTailView", "()Lcom/baidu/nadcore/lp/reward/view/NadRewardHalfTailView;", "halfTailView", "hasShowGuide", "Z", "Lcom/airbnb/lottie/LottieAnimationView;", "lottieGuideView$delegate", "getLottieGuideView", "()Lcom/airbnb/lottie/LottieAnimationView;", "lottieGuideView", "Ljava/lang/Runnable;", "lottieRunnable", "Ljava/lang/Runnable;", "mLoadStartTime", "J", "Lcom/baidu/nadcore/webpanel/PanelPopupWindow;", "panelPop", "Lcom/baidu/nadcore/webpanel/PanelPopupWindow;", "shouldCharge", "shouldChargeTask", "tailNineChargeModify", "Ljava/lang/String;", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
     public final Lazy a;
     public final Lazy b;
     public final Lazy c;
-    public h41 d;
-    public hn0 e;
+    public j41 d;
+    public in0 e;
     public boolean f;
-    public final Runnable g;
+    public String g;
+    public long h;
+    public final Runnable i;
+    public boolean j;
+    public Runnable k;
 
     @JvmOverloads
     public NadRewardHalfTailHolder(Context context) {
@@ -88,8 +99,8 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
     }
 
     /* loaded from: classes3.dex */
-    public static final class i<T> implements LottieListener<LottieComposition> {
-        public i() {
+    public static final class k<T> implements LottieListener<LottieComposition> {
+        public k() {
         }
 
         /* loaded from: classes3.dex */
@@ -112,7 +123,7 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
             public void onAnimationCancel(Animator animation) {
                 Intrinsics.checkNotNullParameter(animation, "animation");
                 NadRewardHalfTailHolder nadRewardHalfTailHolder = NadRewardHalfTailHolder.this;
-                nadRewardHalfTailHolder.h(nadRewardHalfTailHolder.getLottieGuideView(), 1.0f, 0.0f, 320L, 8);
+                nadRewardHalfTailHolder.n(nadRewardHalfTailHolder.getLottieGuideView(), 1.0f, 0.0f, 320L, 8);
                 NadRewardHalfTailHolder.this.getArrowView().setVisibility(0);
                 NadRewardHalfTailHolder.this.getArrowView().bringToFront();
             }
@@ -121,7 +132,7 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
             public void onAnimationEnd(Animator animation) {
                 Intrinsics.checkNotNullParameter(animation, "animation");
                 NadRewardHalfTailHolder nadRewardHalfTailHolder = NadRewardHalfTailHolder.this;
-                nadRewardHalfTailHolder.h(nadRewardHalfTailHolder.getLottieGuideView(), 1.0f, 0.0f, 320L, 8);
+                nadRewardHalfTailHolder.n(nadRewardHalfTailHolder.getLottieGuideView(), 1.0f, 0.0f, 320L, 8);
                 NadRewardHalfTailHolder.this.getArrowView().setVisibility(0);
                 NadRewardHalfTailHolder.this.getArrowView().bringToFront();
             }
@@ -135,7 +146,7 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
             NadRewardHalfTailHolder.this.getLottieGuideView().bringToFront();
             NadRewardHalfTailHolder.this.getLottieGuideView().setComposition(lottieComposition);
             NadRewardHalfTailHolder nadRewardHalfTailHolder = NadRewardHalfTailHolder.this;
-            nadRewardHalfTailHolder.h(nadRewardHalfTailHolder.getLottieGuideView(), 0.0f, 1.0f, 320L, 0);
+            nadRewardHalfTailHolder.n(nadRewardHalfTailHolder.getLottieGuideView(), 0.0f, 1.0f, 320L, 0);
             NadRewardHalfTailHolder.this.getLottieGuideView().setRepeatCount(1);
             NadRewardHalfTailHolder.this.getLottieGuideView().addAnimatorListener(new a());
         }
@@ -177,31 +188,35 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            kn0 kn0Var;
-            mn0 mn0Var;
-            hn0 hn0Var = NadRewardHalfTailHolder.this.e;
-            if (hn0Var != null && (kn0Var = hn0Var.j) != null && (mn0Var = kn0Var.i) != null) {
-                str = mn0Var.h();
+            ln0 ln0Var;
+            nn0 nn0Var;
+            if (jl0.a.f()) {
+                in0 in0Var = NadRewardHalfTailHolder.this.e;
+                if (in0Var != null && (ln0Var = in0Var.j) != null && (nn0Var = ln0Var.i) != null) {
+                    str = nn0Var.h();
+                } else {
+                    str = null;
+                }
+                qe0.c(str, NadRewardHalfTailHolder.this.getContext());
             } else {
-                str = null;
+                NadRewardHalfTailHolder.this.u(false);
             }
-            qe0.c(str, NadRewardHalfTailHolder.this.getContext());
             NadRewardHalfTailHolder nadRewardHalfTailHolder = NadRewardHalfTailHolder.this;
             String str2 = ClogBuilder.Area.ARROW.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.ARROW.type");
-            NadRewardHalfTailHolder.n(nadRewardHalfTailHolder, str2, ClogBuilder.LogType.CLICK, null, null, 12, null);
+            NadRewardHalfTailHolder.t(nadRewardHalfTailHolder, str2, ClogBuilder.LogType.CLICK, null, null, 12, null);
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class c extends xi0<k41> {
+    public static final class c extends xi0<m41> {
         public c(Class cls) {
             super(cls);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.xi0
-        public void onEvent(k41 event) {
+        public void onEvent(m41 event) {
             Intrinsics.checkNotNullParameter(event, "event");
             if (event.a == 0 && NadRewardHalfTailHolder.this.getLottieGuideView().isAnimating()) {
                 NadRewardHalfTailHolder.this.getLottieGuideView().cancelAnimation();
@@ -219,12 +234,16 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
         public boolean a(String area, ClogBuilder.LogType logType, String str) {
             Intrinsics.checkNotNullParameter(area, "area");
             Intrinsics.checkNotNullParameter(logType, "logType");
-            if (!TextUtils.equals(area, "morebtn") && !TextUtils.equals(area, "replaybtn")) {
-                qe0.c(str, NadRewardHalfTailHolder.this.getContext());
-                NadRewardHalfTailHolder.n(NadRewardHalfTailHolder.this, area, logType, null, null, 12, null);
-                return true;
+            if (TextUtils.equals(area, "morebtn") || TextUtils.equals(area, "replaybtn")) {
+                return false;
             }
-            return false;
+            if (jl0.a.f() || !jl0.a.b(str)) {
+                qe0.c(str, NadRewardHalfTailHolder.this.getContext());
+            } else {
+                NadRewardHalfTailHolder.this.u(false);
+            }
+            NadRewardHalfTailHolder.t(NadRewardHalfTailHolder.this, area, logType, null, null, 12, null);
+            return true;
         }
     }
 
@@ -240,9 +259,10 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View v, MotionEvent event) {
             boolean z;
-            String str;
-            kn0 kn0Var;
-            mn0 mn0Var;
+            ln0 ln0Var;
+            nn0 nn0Var;
+            ln0 ln0Var2;
+            nn0 nn0Var2;
             Intrinsics.checkNotNullParameter(v, "v");
             Intrinsics.checkNotNullParameter(event, "event");
             int action = event.getAction();
@@ -256,17 +276,28 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
                         z = false;
                     }
                     if (rawY - this.a < -60 && z) {
-                        hn0 hn0Var = NadRewardHalfTailHolder.this.e;
-                        if (hn0Var != null && (kn0Var = hn0Var.j) != null && (mn0Var = kn0Var.i) != null) {
-                            str = mn0Var.h();
+                        String str = null;
+                        if (jl0.a.f()) {
+                            in0 in0Var = NadRewardHalfTailHolder.this.e;
+                            if (in0Var != null && (ln0Var2 = in0Var.j) != null && (nn0Var2 = ln0Var2.i) != null) {
+                                str = nn0Var2.h();
+                            }
+                            qe0.c(str, NadRewardHalfTailHolder.this.getContext());
                         } else {
-                            str = null;
+                            in0 in0Var2 = NadRewardHalfTailHolder.this.e;
+                            if (in0Var2 != null && (ln0Var = in0Var2.j) != null && (nn0Var = ln0Var.i) != null) {
+                                str = nn0Var.g;
+                            }
+                            if (!jl0.a.b(str)) {
+                                qe0.c(str, NadRewardHalfTailHolder.this.getContext());
+                            } else {
+                                NadRewardHalfTailHolder.this.u(false);
+                            }
                         }
-                        qe0.c(str, NadRewardHalfTailHolder.this.getContext());
                         NadRewardHalfTailHolder nadRewardHalfTailHolder = NadRewardHalfTailHolder.this;
                         String str2 = ClogBuilder.Area.SWIPE_UP.type;
                         Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.SWIPE_UP.type");
-                        NadRewardHalfTailHolder.n(nadRewardHalfTailHolder, str2, ClogBuilder.LogType.CLICK, null, null, 12, null);
+                        NadRewardHalfTailHolder.t(nadRewardHalfTailHolder, str2, ClogBuilder.LogType.CLICK, null, null, 12, null);
                         return true;
                     }
                 }
@@ -299,7 +330,7 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
             NadRewardHalfTailHolder nadRewardHalfTailHolder = NadRewardHalfTailHolder.this;
             String str = ClogBuilder.Area.AD_BLANK.type;
             Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.AD_BLANK.type");
-            NadRewardHalfTailHolder.n(nadRewardHalfTailHolder, str, ClogBuilder.LogType.FREE_CLICK, null, null, 12, null);
+            NadRewardHalfTailHolder.t(nadRewardHalfTailHolder, str, ClogBuilder.LogType.FREE_CLICK, null, null, 12, null);
         }
     }
 
@@ -319,8 +350,8 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
         public h() {
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:18:0x0034, code lost:
-            if (r9 != false) goto L48;
+        /* JADX WARN: Code restructure failed: missing block: B:18:0x0035, code lost:
+            if (r9 != false) goto L52;
          */
         @Override // android.view.animation.Animation.AnimationListener
         /*
@@ -330,22 +361,22 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
             Boolean bool;
             String str;
             Long l;
-            qn0 c;
-            kn0 kn0Var;
-            mn0 mn0Var;
-            kn0 kn0Var2;
-            mn0 mn0Var2;
+            sn0 c;
+            ln0 ln0Var;
+            nn0 nn0Var;
+            ln0 ln0Var2;
+            nn0 nn0Var2;
             String str2;
             boolean z;
-            kn0 kn0Var3;
-            mn0 mn0Var3;
+            ln0 ln0Var3;
+            nn0 nn0Var3;
             Intrinsics.checkNotNullParameter(animation, "animation");
-            NadRewardHalfTailHolder.this.o();
+            NadRewardHalfTailHolder.this.v();
             List<MonitorUrl> list = null;
             if (!NadRewardHalfTailHolder.this.f) {
-                hn0 hn0Var = NadRewardHalfTailHolder.this.e;
-                if (hn0Var != null && (kn0Var3 = hn0Var.j) != null && (mn0Var3 = kn0Var3.i) != null) {
-                    str2 = mn0Var3.C;
+                in0 in0Var = NadRewardHalfTailHolder.this.e;
+                if (in0Var != null && (ln0Var3 = in0Var.j) != null && (nn0Var3 = ln0Var3.i) != null) {
+                    str2 = nn0Var3.C;
                 } else {
                     str2 = null;
                 }
@@ -356,42 +387,118 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
                 }
             }
             NadRewardHalfTailHolder.this.getArrowView().setVisibility(0);
-            hn0 hn0Var2 = NadRewardHalfTailHolder.this.e;
-            if (hn0Var2 != null && (kn0Var2 = hn0Var2.j) != null && (mn0Var2 = kn0Var2.i) != null) {
-                bool = mn0Var2.E;
+            in0 in0Var2 = NadRewardHalfTailHolder.this.e;
+            if (in0Var2 != null && (ln0Var2 = in0Var2.j) != null && (nn0Var2 = ln0Var2.i) != null) {
+                bool = nn0Var2.E;
             } else {
                 bool = null;
             }
-            if (!Intrinsics.areEqual(bool, Boolean.TRUE)) {
-                return;
+            if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
+                if (jl0.a.f()) {
+                    in0 in0Var3 = NadRewardHalfTailHolder.this.e;
+                    if (in0Var3 != null && (ln0Var = in0Var3.j) != null && (nn0Var = ln0Var.i) != null) {
+                        str = nn0Var.f;
+                    } else {
+                        str = null;
+                    }
+                    in0 in0Var4 = NadRewardHalfTailHolder.this.e;
+                    if (in0Var4 != null && (c = in0Var4.c()) != null) {
+                        l = Long.valueOf(c.r());
+                    } else {
+                        l = null;
+                    }
+                    in0 in0Var5 = NadRewardHalfTailHolder.this.e;
+                    if (in0Var5 != null) {
+                        list = in0Var5.e;
+                    }
+                    qe0.c(l11.c(str, l, list), NadRewardHalfTailHolder.this.getContext());
+                } else {
+                    NadRewardHalfTailHolder.this.u(true);
+                }
+                NadRewardHalfTailHolder nadRewardHalfTailHolder = NadRewardHalfTailHolder.this;
+                String str3 = ClogBuilder.Area.SWIPE_UP.type;
+                Intrinsics.checkNotNullExpressionValue(str3, "ClogBuilder.Area.SWIPE_UP.type");
+                NadRewardHalfTailHolder.t(nadRewardHalfTailHolder, str3, ClogBuilder.LogType.FREE_CLICK, null, null, 12, null);
             }
-            hn0 hn0Var3 = NadRewardHalfTailHolder.this.e;
-            if (hn0Var3 != null && (kn0Var = hn0Var3.j) != null && (mn0Var = kn0Var.i) != null) {
-                str = mn0Var.f;
-            } else {
-                str = null;
-            }
-            hn0 hn0Var4 = NadRewardHalfTailHolder.this.e;
-            if (hn0Var4 != null && (c = hn0Var4.c()) != null) {
-                l = Long.valueOf(c.p());
-            } else {
-                l = null;
-            }
-            hn0 hn0Var5 = NadRewardHalfTailHolder.this.e;
-            if (hn0Var5 != null) {
-                list = hn0Var5.e;
-            }
-            qe0.c(j11.c(str, l, list), NadRewardHalfTailHolder.this.getContext());
-            NadRewardHalfTailHolder nadRewardHalfTailHolder = NadRewardHalfTailHolder.this;
-            String str3 = ClogBuilder.Area.SWIPE_UP.type;
-            Intrinsics.checkNotNullExpressionValue(str3, "ClogBuilder.Area.SWIPE_UP.type");
-            NadRewardHalfTailHolder.n(nadRewardHalfTailHolder, str3, ClogBuilder.LogType.FREE_CLICK, null, null, 12, null);
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class j<T> implements LottieListener<Throwable> {
-        public j() {
+    public static final class i implements Runnable {
+        public i() {
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            NadRewardHalfTailHolder.this.j = true;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class j implements q41 {
+        public final /* synthetic */ boolean b;
+
+        public j(boolean z) {
+            this.b = z;
+        }
+
+        @Override // com.baidu.tieba.q41
+        public void a() {
+            NadRewardHalfTailHolder nadRewardHalfTailHolder = NadRewardHalfTailHolder.this;
+            String str = ClogBuilder.Area.DOWN_ARROW.type;
+            Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.DOWN_ARROW.type");
+            NadRewardHalfTailHolder.t(nadRewardHalfTailHolder, str, ClogBuilder.LogType.FREE_CLICK, null, null, 12, null);
+        }
+
+        @Override // com.baidu.tieba.q41
+        public void d() {
+            NadRewardHalfTailHolder nadRewardHalfTailHolder = NadRewardHalfTailHolder.this;
+            String str = ClogBuilder.Area.AD_BLANK.type;
+            Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.AD_BLANK.type");
+            NadRewardHalfTailHolder.t(nadRewardHalfTailHolder, str, ClogBuilder.LogType.FREE_CLICK, null, null, 12, null);
+        }
+
+        @Override // com.baidu.tieba.q41
+        public void b() {
+            if (!this.b) {
+                return;
+            }
+            if ((TextUtils.equals(NadRewardHalfTailHolder.this.g, "1") || TextUtils.equals(NadRewardHalfTailHolder.this.g, "2")) && NadRewardHalfTailHolder.this.j) {
+                NadRewardHalfTailHolder nadRewardHalfTailHolder = NadRewardHalfTailHolder.this;
+                String str = ClogBuilder.Area.REWARD_LANDING_PAGE.type;
+                Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.REWARD_LANDING_PAGE.type");
+                nadRewardHalfTailHolder.s(str, ClogBuilder.LogType.CLICK, NadRewardHalfTailHolder.this.getLogTime(), "1");
+                return;
+            }
+            NadRewardHalfTailHolder nadRewardHalfTailHolder2 = NadRewardHalfTailHolder.this;
+            String str2 = ClogBuilder.Area.REWARD_LANDING_PAGE.type;
+            Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.REWARD_LANDING_PAGE.type");
+            nadRewardHalfTailHolder2.s(str2, ClogBuilder.LogType.FREE_CLICK, NadRewardHalfTailHolder.this.getLogTime(), "1");
+        }
+
+        @Override // com.baidu.tieba.q41
+        public void c() {
+            if (!this.b) {
+                return;
+            }
+            if (TextUtils.equals(NadRewardHalfTailHolder.this.g, "2") && NadRewardHalfTailHolder.this.j) {
+                NadRewardHalfTailHolder nadRewardHalfTailHolder = NadRewardHalfTailHolder.this;
+                String str = ClogBuilder.Area.REWARD_LANDING_PAGE.type;
+                Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.REWARD_LANDING_PAGE.type");
+                nadRewardHalfTailHolder.s(str, ClogBuilder.LogType.CLICK, NadRewardHalfTailHolder.this.getLogTime(), "2");
+            }
+            if (TextUtils.equals(NadRewardHalfTailHolder.this.g, "1")) {
+                NadRewardHalfTailHolder nadRewardHalfTailHolder2 = NadRewardHalfTailHolder.this;
+                String str2 = ClogBuilder.Area.REWARD_LANDING_PAGE.type;
+                Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.REWARD_LANDING_PAGE.type");
+                nadRewardHalfTailHolder2.s(str2, ClogBuilder.LogType.FREE_CLICK, NadRewardHalfTailHolder.this.getLogTime(), "2");
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class l<T> implements LottieListener<Throwable> {
+        public l() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -449,7 +556,9 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
                 return (AdImageView) findViewById;
             }
         });
-        this.g = new f();
+        this.g = "0";
+        this.i = new f();
+        this.k = new i();
         LayoutInflater.from(context).inflate(R.layout.nad_reward_half_tail_holder, this);
     }
 
@@ -457,7 +566,7 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
         this(context, (i3 & 2) != 0 ? null : attributeSet, (i3 & 4) != 0 ? 0 : i2);
     }
 
-    public final void h(View view2, float f2, float f3, long j2, int i2) {
+    public final void n(View view2, float f2, float f3, long j2, int i2) {
         if (view2 != null) {
             view2.setAlpha(f2);
             view2.setVisibility(0);
@@ -469,13 +578,13 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
     }
 
     @Override // com.baidu.tieba.uk0
-    public void setData(hn0 adModel) {
+    public void setData(in0 adModel) {
         Intrinsics.checkNotNullParameter(adModel, "adModel");
         this.e = adModel;
-        l();
-        i();
-        j();
-        k();
+        r();
+        o();
+        p();
+        q();
         setOnClickListener(new g());
     }
 
@@ -485,14 +594,9 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
         getHalfTailView().setOnReplayClickListener(callback);
     }
 
-    public static /* synthetic */ void n(NadRewardHalfTailHolder nadRewardHalfTailHolder, String str, ClogBuilder.LogType logType, String str2, String str3, int i2, Object obj) {
-        if ((i2 & 4) != 0) {
-            str2 = "";
-        }
-        if ((i2 & 8) != 0) {
-            str3 = "";
-        }
-        nadRewardHalfTailHolder.m(str, logType, str2, str3);
+    /* JADX INFO: Access modifiers changed from: private */
+    public final String getLogTime() {
+        return String.valueOf((System.currentTimeMillis() - this.h) / 1000);
     }
 
     @Override // com.baidu.tieba.uk0
@@ -500,29 +604,42 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
         return getHalfTailView();
     }
 
-    public final void i() {
+    public final void o() {
         getArrowView().setOnClickListener(new b());
         getArrowView().setImageResource(R.drawable.nad_reward_up_arrow);
         getArrowView().bringToFront();
     }
 
-    public final void k() {
-        ti0.a().c(this, new c(k41.class));
-    }
-
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.g);
+        removeCallbacks(this.i);
         getHalfTailView().k();
         ti0.a().a(this);
     }
 
-    public final void j() {
+    public final void q() {
+        if (!jl0.a.f()) {
+            return;
+        }
+        ti0.a().c(this, new c(m41.class));
+    }
+
+    public static /* synthetic */ void t(NadRewardHalfTailHolder nadRewardHalfTailHolder, String str, ClogBuilder.LogType logType, String str2, String str3, int i2, Object obj) {
+        if ((i2 & 4) != 0) {
+            str2 = "";
+        }
+        if ((i2 & 8) != 0) {
+            str3 = "";
+        }
+        nadRewardHalfTailHolder.s(str, logType, str2, str3);
+    }
+
+    public final void p() {
         ViewGroup.LayoutParams layoutParams = getLottieGuideView().getLayoutParams();
         if (layoutParams != null) {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            layoutParams2.topMargin = (((u11.c.f(getContext()) - u11.c.g()) - u11.c.a(getContext(), 47.0f)) - u11.c.a(getContext(), 472.0f)) - u11.c.a(getContext(), 135.0f);
+            layoutParams2.topMargin = (((w11.c.f(getContext()) - w11.c.h()) - w11.c.a(getContext(), 47.0f)) - w11.c.a(getContext(), 472.0f)) - w11.c.a(getContext(), 135.0f);
             getLottieGuideView().setLayoutParams(layoutParams2);
             return;
         }
@@ -530,7 +647,7 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
-    public final void l() {
+    public final void r() {
         getHalfTailView().setVisibility(8);
         getHalfTailView().setData(this.e);
         getHalfTailView().setBackgroundResource(R.drawable.nad_reward_half_tail_bg);
@@ -539,18 +656,18 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
         getHalfTailView().setOnTouchListener(new e());
     }
 
-    public final void m(String str, ClogBuilder.LogType logType, String str2, String str3) {
+    public final void s(String str, ClogBuilder.LogType logType, String str2, String str3) {
         String str4;
         boolean z;
         boolean z2;
-        hn0 hn0Var;
+        in0 in0Var;
         List<MonitorUrl> list;
         boolean z3;
-        bn0 bn0Var;
+        cn0 cn0Var;
         ClogBuilder u = new ClogBuilder().j(str).y(logType).u(ClogBuilder.Page.WELFARETAIL);
-        hn0 hn0Var2 = this.e;
-        if (hn0Var2 != null && (bn0Var = hn0Var2.f) != null) {
-            str4 = bn0Var.d;
+        in0 in0Var2 = this.e;
+        if (in0Var2 != null && (cn0Var = in0Var2.f) != null) {
+            str4 = cn0Var.d;
         } else {
             str4 = null;
         }
@@ -571,8 +688,8 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
         if (z2) {
             p.l(str3);
         }
-        bz0.e(p);
-        if (logType == ClogBuilder.LogType.CLICK && (hn0Var = this.e) != null && (list = hn0Var.e) != null) {
+        dz0.e(p);
+        if (logType == ClogBuilder.LogType.CLICK && (in0Var = this.e) != null && (list = in0Var.e) != null) {
             ArrayList<MonitorUrl> arrayList = new ArrayList();
             for (Object obj : list) {
                 String str5 = ((MonitorUrl) obj).clickUrl;
@@ -586,55 +703,7 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
                 }
             }
             for (MonitorUrl monitorUrl : arrayList) {
-                cz0.b(monitorUrl.clickUrl);
-            }
-        }
-    }
-
-    public final void o() {
-        String str;
-        boolean z;
-        Boolean bool;
-        kn0 kn0Var;
-        mn0 mn0Var;
-        kn0 kn0Var2;
-        mn0 mn0Var2;
-        kn0 kn0Var3;
-        mn0 mn0Var3;
-        if (!this.f) {
-            hn0 hn0Var = this.e;
-            String str2 = null;
-            if (hn0Var != null && (kn0Var3 = hn0Var.j) != null && (mn0Var3 = kn0Var3.i) != null) {
-                str = mn0Var3.C;
-            } else {
-                str = null;
-            }
-            int i2 = 0;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                hn0 hn0Var2 = this.e;
-                if (hn0Var2 != null && (kn0Var2 = hn0Var2.j) != null && (mn0Var2 = kn0Var2.i) != null) {
-                    bool = mn0Var2.E;
-                } else {
-                    bool = null;
-                }
-                if (!Intrinsics.areEqual(bool, Boolean.TRUE)) {
-                    hn0 hn0Var3 = this.e;
-                    if (hn0Var3 != null && (kn0Var = hn0Var3.j) != null && (mn0Var = kn0Var.i) != null) {
-                        str2 = mn0Var.C;
-                    }
-                    Context context = getContext();
-                    if (str2 != null) {
-                        i2 = str2.hashCode();
-                    }
-                    LottieCompositionFactory.fromUrl(context, str2, String.valueOf(i2)).addListener(new i()).addFailureListener(new j());
-                    getLottieGuideView().playAnimation();
-                    postDelayed(this.g, 4500L);
-                }
+                ez0.b(monitorUrl.clickUrl);
             }
         }
     }
@@ -650,9 +719,9 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
         setVisibility(i2);
         getArrowView().setVisibility(8);
         if (z) {
-            hn0 hn0Var = this.e;
-            if (hn0Var != null) {
-                getHalfTailView().setMoreButton(hn0Var);
+            in0 in0Var = this.e;
+            if (in0Var != null) {
+                getHalfTailView().setMoreButton(in0Var);
             }
             getHalfTailView().setVisibility(0);
             TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
@@ -661,10 +730,150 @@ public final class NadRewardHalfTailHolder extends FrameLayout implements uk0 {
             getHalfTailView().startAnimation(translateAnimation);
             return;
         }
-        h41 h41Var = this.d;
-        if (h41Var != null) {
-            h41Var.f();
+        j41 j41Var = this.d;
+        if (j41Var != null) {
+            j41Var.f();
         }
         getHalfTailView().setVisibility(8);
+    }
+
+    public final void u(boolean z) {
+        String str;
+        boolean z2;
+        xk0 a2;
+        String str2;
+        String str3;
+        String str4;
+        cn0 cn0Var;
+        cn0 cn0Var2;
+        cn0 cn0Var3;
+        ln0 ln0Var;
+        nn0 nn0Var;
+        Handler handler;
+        long j2;
+        sn0 c2;
+        in0 in0Var = this.e;
+        String str5 = null;
+        if (in0Var != null) {
+            str = in0Var.f();
+        } else {
+            str = null;
+        }
+        if (str != null && str.length() != 0) {
+            z2 = false;
+        } else {
+            z2 = true;
+        }
+        if (z2) {
+            this.d = null;
+            return;
+        }
+        if (z && (handler = getHandler()) != null) {
+            Runnable runnable = this.k;
+            in0 in0Var2 = this.e;
+            if (in0Var2 != null && (c2 = in0Var2.c()) != null) {
+                j2 = c2.r();
+            } else {
+                j2 = 0;
+            }
+            handler.postDelayed(runnable, j2);
+        }
+        j41 j41Var = new j41(getContext());
+        in0 in0Var3 = this.e;
+        this.g = (in0Var3 == null || (ln0Var = in0Var3.j) == null || (nn0Var = ln0Var.i) == null || (r6 = nn0Var.F) == null) ? "0" : "0";
+        j41Var.j(new j(z));
+        Resources resources = getResources();
+        Intrinsics.checkNotNullExpressionValue(bl0.a(), "NadRewardVideoLpRuntime.getUIProvider()");
+        double dimension = 1 - (resources.getDimension(a2.w()) / w11.c.c(getContext()));
+        in0 in0Var4 = this.e;
+        if (in0Var4 != null) {
+            str2 = in0Var4.f();
+        } else {
+            str2 = null;
+        }
+        in0 in0Var5 = this.e;
+        if (in0Var5 != null && (cn0Var3 = in0Var5.f) != null) {
+            str3 = cn0Var3.d;
+        } else {
+            str3 = null;
+        }
+        r41 r41Var = new r41(str2, dimension, 0, str3);
+        r41Var.O(true);
+        r41Var.N(false);
+        r41Var.R(true);
+        r41Var.Q(!z);
+        r41Var.F(z);
+        r41Var.G(z);
+        r41Var.H(true);
+        in0 in0Var6 = this.e;
+        if (in0Var6 != null && (cn0Var2 = in0Var6.f) != null) {
+            str4 = cn0Var2.l;
+        } else {
+            str4 = null;
+        }
+        if (!TextUtils.isEmpty(str4)) {
+            in0 in0Var7 = this.e;
+            if (in0Var7 != null && (cn0Var = in0Var7.f) != null) {
+                str5 = cn0Var.k;
+            }
+            r41Var.E(str5);
+        }
+        Unit unit = Unit.INSTANCE;
+        j41Var.i(r41Var);
+        j41Var.k();
+        this.h = System.currentTimeMillis();
+        Unit unit2 = Unit.INSTANCE;
+        this.d = j41Var;
+        if (getLottieGuideView().isAnimating()) {
+            getLottieGuideView().cancelAnimation();
+        }
+    }
+
+    public final void v() {
+        String str;
+        boolean z;
+        Boolean bool;
+        ln0 ln0Var;
+        nn0 nn0Var;
+        ln0 ln0Var2;
+        nn0 nn0Var2;
+        ln0 ln0Var3;
+        nn0 nn0Var3;
+        if (!this.f) {
+            in0 in0Var = this.e;
+            String str2 = null;
+            if (in0Var != null && (ln0Var3 = in0Var.j) != null && (nn0Var3 = ln0Var3.i) != null) {
+                str = nn0Var3.C;
+            } else {
+                str = null;
+            }
+            int i2 = 0;
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                in0 in0Var2 = this.e;
+                if (in0Var2 != null && (ln0Var2 = in0Var2.j) != null && (nn0Var2 = ln0Var2.i) != null) {
+                    bool = nn0Var2.E;
+                } else {
+                    bool = null;
+                }
+                if (!Intrinsics.areEqual(bool, Boolean.TRUE)) {
+                    in0 in0Var3 = this.e;
+                    if (in0Var3 != null && (ln0Var = in0Var3.j) != null && (nn0Var = ln0Var.i) != null) {
+                        str2 = nn0Var.C;
+                    }
+                    Context context = getContext();
+                    if (str2 != null) {
+                        i2 = str2.hashCode();
+                    }
+                    LottieCompositionFactory.fromUrl(context, str2, String.valueOf(i2)).addListener(new k()).addFailureListener(new l());
+                    getLottieGuideView().playAnimation();
+                    postDelayed(this.i, 4500L);
+                }
+            }
+        }
     }
 }

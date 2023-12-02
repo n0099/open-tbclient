@@ -1,6 +1,6 @@
 package com.baidu.nadcore.sweetsqlite;
 
-import com.baidu.tieba.lz0;
+import com.baidu.tieba.nz0;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class StringColumn extends Column implements Serializable {
@@ -12,8 +12,8 @@ public class StringColumn extends Column implements Serializable {
         return 4;
     }
 
-    public StringColumn(lz0 lz0Var) {
-        super(lz0Var);
+    public StringColumn(nz0 nz0Var) {
+        super(nz0Var);
         this.value = "";
     }
 

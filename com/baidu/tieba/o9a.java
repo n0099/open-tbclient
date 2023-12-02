@@ -2,16 +2,14 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.personCenter.view.PersonOftenFuncItemView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.personCenter.view.AutoBannerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,26 +17,73 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class o9a extends jl6<w8a> {
+public class o9a extends nl6<e9a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout i;
+    public int i;
     public LinearLayout j;
-    public TextView k;
-    public PersonOftenFuncItemView l;
-    public PersonOftenFuncItemView m;
+    public LinearLayout k;
+    public AutoBannerView l;
+    public View m;
+    public View n;
+    public f35<n8a> o;
 
-    @Override // com.baidu.tieba.jl6
+    @Override // com.baidu.tieba.nl6
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0803 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d080a : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements f35<n8a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o9a a;
+
+        public a(o9a o9aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o9aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o9aVar;
+        }
+
+        @Override // com.baidu.tieba.f35
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && this.a.l != null && str != null) {
+                TiebaStatic.log(new StatisticItem("c13247").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", i).param("obj_param1", str));
+                this.a.l.f();
+                this.a.l.b(str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.f35
+        /* renamed from: c */
+        public void a(int i, n8a n8aVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, n8aVar) == null) && this.a.l != null && n8aVar != null && n8aVar.a() != null && this.a.l.a(i)) {
+                TiebaStatic.log(new StatisticItem("c13246").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", i).param("obj_param1", n8aVar.a()));
+            }
         }
     }
 
@@ -60,122 +105,74 @@ public class o9a extends jl6<w8a> {
                 return;
             }
         }
-        View i3 = i();
+        this.i = 3;
+        this.o = new a(this);
+        this.n = i();
         int dimens = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X003);
-        i3.setPadding(dimens, 0, dimens, 0);
-        this.i = (LinearLayout) i3.findViewById(R.id.obfuscated_res_0x7f091ad4);
-        this.k = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f091cab);
-        this.j = (LinearLayout) i3.findViewById(R.id.obfuscated_res_0x7f091cac);
-        k(h(), this.a);
+        this.n.setPadding(dimens, 0, dimens, 0);
+        this.j = (LinearLayout) this.n.findViewById(R.id.obfuscated_res_0x7f092a75);
+        this.k = (LinearLayout) this.n.findViewById(R.id.obfuscated_res_0x7f0916fd);
+        AutoBannerView autoBannerView = (AutoBannerView) this.n.findViewById(R.id.obfuscated_res_0x7f091c8c);
+        this.l = autoBannerView;
+        autoBannerView.getCoverFlowView().setAutoPlay(false);
+        this.l.setMarqueenTime(3000L);
+        this.l.getCoverFlowView().setCallback(this.o);
+        this.m = this.n.findViewById(R.id.obfuscated_res_0x7f090437);
     }
 
-    @Override // com.baidu.tieba.jl6
-    public void k(TbPageContext<?> tbPageContext, int i) {
+    public void r(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(i(), R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0205);
-            EMManager.from(this.i).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
-            EMManager.from(this.k).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
-            EMManager.from(this.j).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
-            int childCount = this.j.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.j.getChildAt(i2);
-                if (childAt instanceof LinearLayout) {
-                    int i3 = 0;
-                    while (true) {
-                        LinearLayout linearLayout = (LinearLayout) childAt;
-                        if (i3 < linearLayout.getChildCount()) {
-                            View childAt2 = linearLayout.getChildAt(i3);
-                            if (childAt2 instanceof PersonOftenFuncItemView) {
-                                PersonOftenFuncItemView personOftenFuncItemView = (PersonOftenFuncItemView) childAt2;
-                                SkinManager.setBackgroundColor(personOftenFuncItemView, R.color.CAM_X0205);
-                                SkinManager.setViewTextColor(personOftenFuncItemView.b, (int) R.color.CAM_X0105);
-                            }
-                            i3++;
-                        }
-                    }
-                }
-            }
+        if ((interceptable != null && interceptable.invokeZ(1048580, this, z) != null) || this.l.getCoverFlowView() == null) {
+            return;
+        }
+        if (z) {
+            this.l.getCoverFlowView().o();
+        } else {
+            this.l.getCoverFlowView().D();
         }
     }
 
-    public void onScroll() {
-        boolean z;
+    public void z(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            PersonOftenFuncItemView personOftenFuncItemView = this.l;
-            boolean z2 = true;
-            if (personOftenFuncItemView != null) {
-                if (!personOftenFuncItemView.d && !TbSingleton.getInstance().isMyTabClicked()) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                personOftenFuncItemView.d = z;
-                this.l.d();
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            r(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.nl6
+    public void k(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.i != i) {
+            AutoBannerView autoBannerView = this.l;
+            if (autoBannerView != null) {
+                autoBannerView.e(i);
             }
-            PersonOftenFuncItemView personOftenFuncItemView2 = this.m;
-            if (personOftenFuncItemView2 != null) {
-                if (!personOftenFuncItemView2.d && !TbSingleton.getInstance().isMyTabClicked()) {
-                    z2 = false;
-                }
-                personOftenFuncItemView2.d = z2;
-                this.m.d();
-            }
-            TbSingleton.getInstance().setMyTabClicked(false);
+            SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.m, R.color.CAM_X0204);
+            this.i = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jl6
-    /* renamed from: p */
-    public void j(w8a w8aVar) {
+    @Override // com.baidu.tieba.nl6
+    /* renamed from: s */
+    public void j(e9a e9aVar) {
+        List<n8a> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, w8aVar) == null) {
-            if (w8aVar != null && w8aVar.c() != null && !ListUtils.isEmpty(w8aVar.c())) {
-                this.j.removeAllViews();
-                List<t8a> c = w8aVar.c();
-                LinearLayout linearLayout = new LinearLayout(c());
-                int i = 0;
-                for (t8a t8aVar : c) {
-                    i++;
-                    if (i % 4 == 1) {
-                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-                        layoutParams.bottomMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds60);
-                        LinearLayout linearLayout2 = new LinearLayout(c());
-                        linearLayout2.setOrientation(0);
-                        linearLayout2.setLayoutParams(layoutParams);
-                        this.j.addView(linearLayout2);
-                        linearLayout = linearLayout2;
-                    }
-                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -2, 1.0f);
-                    PersonOftenFuncItemView personOftenFuncItemView = new PersonOftenFuncItemView(c());
-                    personOftenFuncItemView.a(t8aVar);
-                    personOftenFuncItemView.setLayoutParams(layoutParams2);
-                    linearLayout.addView(personOftenFuncItemView);
-                    int i2 = t8aVar.a;
-                    if (i2 == 59) {
-                        this.l = personOftenFuncItemView;
-                    } else if (i2 == 63) {
-                        this.m = personOftenFuncItemView;
-                    }
-                }
-                if (c.size() != 0 && c.size() % 4 != 0) {
-                    for (int i3 = 0; i3 < 4 - (c.size() % 4); i3++) {
-                        PersonOftenFuncItemView personOftenFuncItemView2 = new PersonOftenFuncItemView(c());
-                        LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, -2);
-                        layoutParams3.weight = 1.0f;
-                        personOftenFuncItemView2.setLayoutParams(layoutParams3);
-                        linearLayout.addView(personOftenFuncItemView2);
-                    }
-                }
-                k(h(), this.a);
+        if (interceptable == null || interceptable.invokeL(1048581, this, e9aVar) == null) {
+            k(this.b, TbadkCoreApplication.getInst().getSkinType());
+            if (this.j == null || e9aVar == null || (list = e9aVar.a) == null || this.l == null || list.size() == 0) {
                 return;
             }
-            o(8);
+            this.l.d(e9aVar.a);
+        }
+    }
+
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            r(false);
         }
     }
 }

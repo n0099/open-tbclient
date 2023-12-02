@@ -7,21 +7,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.qq.e.ads.rewardvideo.RewardVideoAD;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class i5c extends e5c<NativeUnifiedADData> {
+public class i5c extends d5c<RewardVideoAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i5c(NativeUnifiedADData nativeUnifiedADData) {
-        super(nativeUnifiedADData);
+    public i5c(RewardVideoAD rewardVideoAD) {
+        super(rewardVideoAD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nativeUnifiedADData};
+            Object[] objArr = {rewardVideoAD};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,37 +33,45 @@ public class i5c extends e5c<NativeUnifiedADData> {
                 return;
             }
         }
+        this.b = "";
     }
 
-    @Override // com.baidu.tieba.e5c
+    @Override // com.baidu.tieba.d5c
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((NativeUnifiedADData) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((RewardVideoAD) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.e5c
+    @Override // com.baidu.tieba.d5c
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.d5c
     public void b(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            ((NativeUnifiedADData) this.a).sendLossNotification(map);
+            ((RewardVideoAD) this.a).sendLossNotification(map);
         }
     }
 
-    @Override // com.baidu.tieba.e5c
+    @Override // com.baidu.tieba.d5c
     public void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            ((NativeUnifiedADData) this.a).sendWinNotification(map);
+            ((RewardVideoAD) this.a).sendWinNotification(map);
         }
     }
 
-    @Override // com.baidu.tieba.e5c
+    @Override // com.baidu.tieba.d5c
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((NativeUnifiedADData) this.a).getECPM();
+            return ((RewardVideoAD) this.a).getECPM();
         }
         return invokeV.intValue;
     }

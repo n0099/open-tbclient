@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,15 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class hs6 implements v0, s3.a {
+public final class hs6 extends is6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public as6 a;
+    public final hu6 a;
+    public long b;
+    public long c;
 
-    public hs6() {
+    public hs6(hu6 timer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {timer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,32 +30,33 @@ public abstract class hs6 implements v0, s3.a {
                 return;
             }
         }
-        this.a = as6.i.a();
+        Intrinsics.checkNotNullParameter(timer, "timer");
+        this.a = timer;
     }
 
-    public final as6 a() {
+    public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            long j = this.c;
+            long j2 = 0;
+            if (this.b > 0) {
+                j2 = this.a.a() - this.b;
+            }
+            return j + j2;
         }
-        return (as6) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.s3.a
-    @CallSuper
-    public void reset() {
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = as6.i.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b > 0) {
+                return true;
+            }
+            return false;
         }
-    }
-
-    public final void b(as6 as6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, as6Var) == null) {
-            Intrinsics.checkNotNullParameter(as6Var, "<set-?>");
-            this.a = as6Var;
-        }
+        return invokeV.booleanValue;
     }
 }

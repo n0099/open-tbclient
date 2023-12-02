@@ -47,7 +47,7 @@ public final class l extends b implements com.kwad.components.ad.reward.presente
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.sq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912f5);
+        this.sq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912f6);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -82,7 +82,7 @@ public final class l extends b implements com.kwad.components.ad.reward.presente
             if (this.so == null) {
                 this.so = new com.kwad.components.ad.reward.n.g(this.qn);
             }
-            this.so.f((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09148f));
+            this.so.f((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091490));
             this.so.b(com.kwad.components.ad.reward.n.r.R(adTemplate));
         }
         AdInfo dP = com.kwad.sdk.core.response.b.e.dP(adTemplate);
@@ -92,7 +92,7 @@ public final class l extends b implements com.kwad.components.ad.reward.presente
             }
             this.sr.h(this.qn.mRootContainer);
             this.sr.b(com.kwad.components.ad.reward.n.r.R(adTemplate));
-            com.kwad.components.ad.reward.presenter.platdetail.actionbar.d.a(getContext(), dP, this.sq, R.dimen.obfuscated_res_0x7f0704e3, false);
+            com.kwad.components.ad.reward.presenter.platdetail.actionbar.d.a(getContext(), dP, this.sq, R.dimen.obfuscated_res_0x7f0704e4, false);
         }
         this.qn.oL.a(this);
     }

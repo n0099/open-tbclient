@@ -33,12 +33,12 @@ public final class R {
     /* loaded from: classes3.dex */
     public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int dimens_1dp = 0x7f070343;
-        public static final int dimens_1px = 0x7f070344;
-        public static final int dimens_2dp = 0x7f070346;
-        public static final int dimens_3dp = 0x7f070347;
-        public static final int dimens_4dp = 0x7f070348;
-        public static final int dimens_5dp = 0x7f07034b;
+        public static final int dimens_1dp = 0x7f070344;
+        public static final int dimens_1px = 0x7f070345;
+        public static final int dimens_2dp = 0x7f070347;
+        public static final int dimens_3dp = 0x7f070348;
+        public static final int dimens_4dp = 0x7f070349;
+        public static final int dimens_5dp = 0x7f07034c;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {

@@ -1,61 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public interface tf9 {
-    a getParallelCharge();
+public abstract class tf9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final SparseIntArray a;
+    public static final SparseArray<BdUniqueId> b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public ArrayList<String> c;
-        public ArrayList<String> d;
+    public abstract <T> lg9 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i);
 
-        public a() {
-            Interceptable interceptable = $ic;
+    public abstract ICardInfo b(JSONObject jSONObject, int i) throws CardParseException;
+
+    public abstract void c();
+
+    public abstract String d();
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948179426, "Lcom/baidu/tieba/tf9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = new ArrayList<>();
-            this.d = new ArrayList<>();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948179426, "Lcom/baidu/tieba/tf9;");
+                return;
+            }
         }
+        a = new SparseIntArray();
+        b = new SparseArray<>();
+    }
 
-        public void a(JSONObject jSONObject) {
-            JSONArray optJSONArray;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("ad_monitor_url")) != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("show_url");
-                        if (!TextUtils.isEmpty(optString)) {
-                            this.c.add(optString);
-                        }
-                        String optString2 = optJSONObject.optString("click_url");
-                        if (!TextUtils.isEmpty(optString2)) {
-                            this.d.add(optString2);
-                        }
-                    }
-                }
+    public tf9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        c();
     }
 }

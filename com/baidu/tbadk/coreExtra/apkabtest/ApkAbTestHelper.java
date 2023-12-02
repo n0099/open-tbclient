@@ -88,6 +88,19 @@ public class ApkAbTestHelper {
         return (ApkAbTestHelper) invokeV.objValue;
     }
 
+    public String getCookieStringIfAbTest() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = "pub_env=" + this.mPubEnvValue + ParamableElem.DIVIDE_PARAM;
+            if (!this.mIsTarget) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public int getPubEnv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,18 +117,5 @@ public class ApkAbTestHelper {
             return this.mIsTarget;
         }
         return invokeV.booleanValue;
-    }
-
-    public String getCookieStringIfAbTest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = "pub_env=" + this.mPubEnvValue + ParamableElem.DIVIDE_PARAM;
-            if (!this.mIsTarget) {
-                return "";
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
     }
 }

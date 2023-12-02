@@ -1,71 +1,87 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernEmptyViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class s86 extends ci<ja6, LiveTabConcernEmptyViewHolder> {
+public class s86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public ArrayList<a> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s86(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), ja6.b);
+    /* loaded from: classes8.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(s86 s86Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s86Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            jSONObject.optString("user_id");
+            jSONObject.optString("portrait");
+        }
+    }
+
+    public s86() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: t */
-    public LiveTabConcernEmptyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new LiveTabConcernEmptyViewHolder(new e96(this.a, viewGroup));
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (LiveTabConcernEmptyViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ja6 ja6Var, LiveTabConcernEmptyViewHolder liveTabConcernEmptyViewHolder) {
-        InterceptResult invokeCommon;
-        e96 e96Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ja6Var, liveTabConcernEmptyViewHolder})) == null) {
-            if (liveTabConcernEmptyViewHolder != null && (e96Var = liveTabConcernEmptyViewHolder.a) != null) {
-                e96Var.j(ja6Var);
-                return liveTabConcernEmptyViewHolder.getView();
+        JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
+        if (optJSONObject != null) {
+            optJSONObject.optInt("has_follow_live");
+            JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.a = new ArrayList<>(optJSONArray.length());
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                    if (optJSONObject2 != null) {
+                        a aVar = new a(this);
+                        aVar.a(optJSONObject2);
+                        this.a.add(aVar);
+                    }
+                }
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
+        JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
+        if (optJSONObject3 != null) {
+            optJSONObject3.optString("url");
+        }
     }
 }

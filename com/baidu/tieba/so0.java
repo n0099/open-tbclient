@@ -1,15 +1,38 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface so0 {
-    @Nullable
-    String a();
+public class so0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static wo0 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    String b();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948158005, "Lcom/baidu/tieba/so0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948158005, "Lcom/baidu/tieba/so0;");
+                return;
+            }
+        }
+        a = wo0.a;
+    }
 
-    long c();
-
-    boolean isSuccess();
+    public static wo0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
+        }
+        return (wo0) invokeV.objValue;
+    }
 }

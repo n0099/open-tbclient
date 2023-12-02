@@ -9,11 +9,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.dfb;
 import com.baidu.tieba.efb;
 import com.baidu.tieba.ffb;
 import com.baidu.tieba.gfb;
-import com.baidu.tieba.hfb;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.o95;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel a;
     public NewVcodeView b;
-    public ffb c;
+    public efb c;
     public WriteData d;
     public int e;
     public NewWriteModel.d f;
@@ -72,9 +72,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             }
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, l95 l95Var, WriteData writeData, AntiData antiData) {
+            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, o95 o95Var, WriteData writeData, AntiData antiData) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, l95Var, writeData, antiData}) == null) && postWriteCallBackData != null && !z) {
+                if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, o95Var, writeData, antiData}) == null) && postWriteCallBackData != null && !z) {
                     if (postWriteCallBackData.getErrorCode() == 220015) {
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
@@ -90,14 +90,14 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                         intent2.putExtras(bundle2);
                         this.a.setResult(0, intent2);
                         this.a.finish();
-                    } else if (l95Var != null && writeData != null) {
+                    } else if (o95Var != null && writeData != null) {
                         this.a.e = JavaTypesHelper.toInt("4", 0);
                         this.a.c.d();
                         this.a.c.onDestroy();
                         this.a.d = writeData;
-                        this.a.d.setVcodeMD5(l95Var.b());
-                        this.a.d.setVcodeUrl(l95Var.c());
-                        this.a.d.setVcodeExtra(l95Var.a());
+                        this.a.d.setVcodeMD5(o95Var.b());
+                        this.a.d.setVcodeUrl(o95Var.c());
+                        this.a.d.setVcodeExtra(o95Var.a());
                         this.a.a.setWriteData(this.a.d);
                         NewVcodeActivity newVcodeActivity = this.a;
                         newVcodeActivity.c = newVcodeActivity.T0();
@@ -149,22 +149,22 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
     }
 
-    public final ffb T0() {
+    public final efb T0() {
         InterceptResult invokeV;
-        ffb gfbVar;
+        efb ffbVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.e == JavaTypesHelper.toInt("5", 0)) {
-                gfbVar = new efb(this.b, this.a);
+                ffbVar = new dfb(this.b, this.a);
             } else if (this.e == JavaTypesHelper.toInt("4", 0)) {
-                gfbVar = new hfb(this.b, this.a);
+                ffbVar = new gfb(this.b, this.a);
             } else {
-                gfbVar = new gfb(this.b, this.a);
+                ffbVar = new ffb(this.b, this.a);
             }
-            gfbVar.c(this.f);
-            return gfbVar;
+            ffbVar.c(this.f);
+            return ffbVar;
         }
-        return (ffb) invokeV.objValue;
+        return (efb) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -214,7 +214,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 }
                 newWriteModel2.k0(z);
             }
-            ffb T0 = T0();
+            efb T0 = T0();
             this.c = T0;
             this.b.setPresenter(T0);
             this.c.a(this.g);

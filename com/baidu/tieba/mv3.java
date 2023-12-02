@@ -8,9 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class mv3 extends kv3 {
+public class mv3 extends nv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String q;
@@ -18,7 +19,7 @@ public class mv3 extends kv3 {
     public String s;
     public String t;
 
-    @Override // com.baidu.tieba.kv3
+    @Override // com.baidu.tieba.nv3
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -26,31 +27,31 @@ public class mv3 extends kv3 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mv3(Context context, iv3 iv3Var) {
-        super(context, iv3Var);
+    public mv3(Context context, lv3 lv3Var) {
+        super(context, lv3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, iv3Var};
+            Object[] objArr = {context, lv3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (iv3) objArr2[1]);
+                super((Context) objArr2[0], (lv3) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.q = IAdInterListener.AdProdType.PRODUCT_REWARDVIDEO;
-        this.r = "10";
-        this.s = "MSSP,ANTI,VIDEO,NMON";
+        this.q = "banner";
+        this.r = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
+        this.s = "MSSP,ANTI,NMON";
         this.t = "LP,DL";
     }
 
-    @Override // com.baidu.tieba.kv3
+    @Override // com.baidu.tieba.nv3
     public HashMap<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,6 +61,10 @@ public class mv3 extends kv3 {
             hashMap.put(IAdInterListener.AdReqParam.PROD, this.q);
             hashMap.put("at", this.r);
             hashMap.put(IAdInterListener.AdReqParam.FET, this.s);
+            if (this.i != null) {
+                hashMap.put("w", "" + this.i.d());
+                hashMap.put("h", "" + this.i.a());
+            }
             return hashMap;
         }
         return (HashMap) invokeV.objValue;

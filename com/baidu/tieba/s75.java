@@ -1,206 +1,325 @@
 package com.baidu.tieba;
 
-import android.media.MediaPlayer;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.coreExtra.data.AudioInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class s75 extends MediaPlayer implements q75 {
+public class s75 {
     public static /* synthetic */ Interceptable $ic;
-    public static Object d;
-    public static s75 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
+    public NetWork a;
+    public a b;
+    public q85 c;
+    public String d;
+    public String e;
+    public List<b> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948104344, "Lcom/baidu/tieba/s75;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public p85 c;
+        public NetWork d;
+        public boolean e;
+        public String f;
+
+        public a(s75 s75Var, String str, p85 p85Var, String str2, String str3) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s75Var, str, p85Var, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948104344, "Lcom/baidu/tieba/s75;");
-                return;
-            }
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.e = false;
+            this.f = null;
+            this.a = str;
+            this.c = p85Var;
+            this.b = str2;
+            this.f = str3;
         }
-        d = new Object();
+
+        /* JADX WARN: Removed duplicated region for block: B:44:0x00f8 A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:46:0x0113 A[SYNTHETIC] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public q85 a() throws IOException {
+            InterceptResult invokeV;
+            long j;
+            int i;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                q85 q85Var = new q85();
+                long c = this.c.c();
+                long j2 = 30720;
+                if (c % 30720 == 0) {
+                    j = c / 30720;
+                } else {
+                    j = (c / 30720) + 1;
+                }
+                int a = this.c.a();
+                if (a < j) {
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.a), "r");
+                    int i2 = a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
+                    if (randomAccessFile.skipBytes(i2) >= i2) {
+                        while (true) {
+                            long j3 = a;
+                            if (j3 < j) {
+                                long j4 = j - 1;
+                                if (j3 == j4) {
+                                    i = (int) (c - (j4 * j2));
+                                } else {
+                                    i = TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
+                                }
+                                byte[] bArr = new byte[i];
+                                int read = randomAccessFile.read(bArr, 0, i);
+                                if (read != -1) {
+                                    NetWork netWork = new NetWork(this.b);
+                                    this.d = netWork;
+                                    netWork.addPostData("voice_chunk", bArr);
+                                    this.d.addPostData("chunk_md5", this.c.b());
+                                    this.d.addPostData("length", String.valueOf(read));
+                                    this.d.addPostData("offset", String.valueOf(a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
+                                    this.d.addPostData("total_length", String.valueOf(c));
+                                    this.d.addPostData("chunk_no", String.valueOf(a + 1));
+                                    this.d.addPostData("total_num", String.valueOf(j));
+                                    this.d.addPostData("voice_md5", this.f);
+                                    if (!this.e) {
+                                        if (this.d.postMultiNetData() != null && this.d.getNetContext().getResponse().isRequestSuccess()) {
+                                            z = false;
+                                            if (!z) {
+                                                q85Var.f(this.d.getServerErrorCode());
+                                                q85Var.g(this.d.getErrorString());
+                                                q85Var.e(this.c);
+                                                q85Var.h(false);
+                                                return q85Var;
+                                            }
+                                        } else {
+                                            this.c.d(a);
+                                            ChunkUploadDatabaseService.saveChunkUploadData(this.c);
+                                            randomAccessFile.close();
+                                        }
+                                    }
+                                    z = true;
+                                    if (!z) {
+                                    }
+                                }
+                                a++;
+                                j2 = 30720;
+                            } else {
+                                randomAccessFile.close();
+                                break;
+                            }
+                        }
+                    } else {
+                        q85Var.h(false);
+                        randomAccessFile.close();
+                        return q85Var;
+                    }
+                }
+                q85Var.h(true);
+                return q85Var;
+            }
+            return (q85) invokeV.objValue;
+        }
     }
 
-    public s75() {
+    /* loaded from: classes8.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public b(s75 s75Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s75Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+        }
+
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public s75(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = true;
-        this.c = -1;
+        this.f = new ArrayList();
+        this.d = str;
+        this.e = str2;
     }
 
-    public static s75 h() {
-        InterceptResult invokeV;
+    public void a(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (d) {
-                    if (e == null) {
-                        e = new s75();
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            this.f.add(new b(this, str, String.valueOf(i)));
+        }
+    }
+
+    public final long b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            if (j % 30720 == 0) {
+                return j / 30720;
+            }
+            return (j / 30720) + 1;
+        }
+        return invokeJ.longValue;
+    }
+
+    public final String c(String str, p85 p85Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, p85Var)) == null) {
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + this.e);
+            this.a = netWork;
+            netWork.addPostData("voice_md5", p85Var.b());
+            if (ListUtils.getCount(this.f) != 0) {
+                for (b bVar : this.f) {
+                    if (bVar != null) {
+                        this.a.addPostData(bVar.a(), bVar.b());
                     }
                 }
             }
-            return e;
+            String postNetData = this.a.postNetData();
+            if (postNetData != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
+                ChunkUploadDatabaseService.delChunkUploadData(str);
+                return postNetData;
+            }
+            p85Var.d((int) b(p85Var.c()));
+            ChunkUploadDatabaseService.saveChunkUploadData(p85Var);
+            this.c.f(this.a.getServerErrorCode());
+            this.c.g(this.a.getErrorString());
+            this.c.h(false);
+            return null;
         }
-        return (s75) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.q75
-    public void a() {
+    public final q85 e(String str, File file) throws IOException {
+        InterceptResult invokeLL;
+        String c;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b) {
-            return;
-        }
-        stop();
-        this.b = true;
-        this.a = false;
-    }
-
-    @Override // com.baidu.tieba.q75
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, file)) == null) {
+            String b2 = xd.b(FileHelper.GetStreamFromFile(file));
+            if (b2 != null && b2.length() > 0) {
+                b2 = b2.toLowerCase();
+            }
+            p85 chunkUploadDataByMd5 = ChunkUploadDatabaseService.getChunkUploadDataByMd5(b2);
+            if (chunkUploadDataByMd5 == null) {
+                chunkUploadDataByMd5 = new p85();
+                chunkUploadDataByMd5.e(b2);
+                chunkUploadDataByMd5.d(0);
+                chunkUploadDataByMd5.f(file.length());
+            }
+            p85 p85Var = chunkUploadDataByMd5;
+            a aVar = new a(this, str, p85Var, TbConfig.SERVER_ADDRESS + this.d, b2);
+            this.b = aVar;
+            q85 a2 = aVar.a();
+            this.c = a2;
+            if (a2.d() && (c = c(b2, p85Var)) != null && !c.equals("")) {
+                AudioInfoData audioInfoData = new AudioInfoData();
+                audioInfoData.parserJson(c);
+                if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
+                    p85Var.e(audioInfoData.getVoiceId());
+                    this.c.e(p85Var);
+                } else {
+                    this.c.f(audioInfoData.getErrorCode());
+                    this.c.g(audioInfoData.getErrorUserMsg());
+                    this.c.h(false);
+                }
+            }
             return this.c;
         }
-        return invokeV.intValue;
+        return (q85) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.q75
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            pause();
-        }
-    }
-
-    @Override // com.baidu.tieba.q75
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            reset();
-            this.a = false;
-            this.b = true;
-            this.c = -1;
-        }
-    }
-
-    @Override // com.baidu.tieba.q75
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return getCurrentPosition();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.q75
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            start();
-            this.b = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.q75
-    public boolean isPrepared() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.q75
-    public boolean b(String str) {
+    public q85 d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.c = -1;
-            if (!this.a) {
-                this.b = true;
-                reset();
-                try {
-                    setDataSource(str);
-                    i(ie.b);
-                    try {
-                        prepare();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                        this.c = 2;
-                        return false;
-                    } catch (IllegalStateException unused) {
-                        this.c = 1;
-                        return false;
-                    }
-                } catch (IOException unused2) {
-                    this.c = 2;
-                    return false;
-                } catch (IllegalArgumentException unused3) {
-                    this.c = 0;
-                    return false;
-                } catch (IllegalStateException unused4) {
-                    this.c = 1;
-                    return false;
-                }
-            }
-            this.a = true;
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            setAudioStreamType(i);
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             try {
-                seekTo(i);
-            } catch (Exception unused) {
+                File file = new File(str);
+                if (!file.exists()) {
+                    return null;
+                }
+                this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.d);
+                return e(str, file);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.q75
-    public void seek(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            j(i);
-        }
+        return (q85) invokeL.objValue;
     }
 }

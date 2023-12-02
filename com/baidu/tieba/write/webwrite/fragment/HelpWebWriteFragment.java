@@ -9,15 +9,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ar6;
-import com.baidu.tieba.ggb;
+import com.baidu.tieba.br6;
+import com.baidu.tieba.dr6;
+import com.baidu.tieba.er6;
+import com.baidu.tieba.fgb;
+import com.baidu.tieba.kgb;
 import com.baidu.tieba.lgb;
-import com.baidu.tieba.mgb;
-import com.baidu.tieba.neb;
-import com.baidu.tieba.pkb;
-import com.baidu.tieba.wq6;
+import com.baidu.tieba.meb;
+import com.baidu.tieba.okb;
 import com.baidu.tieba.write.webwrite.data.WriteDataManager;
-import com.baidu.tieba.xq6;
-import com.baidu.tieba.zq6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,13 +58,13 @@ public final class HelpWebWriteFragment extends BaseWebWriteFragment {
     }
 
     /* loaded from: classes8.dex */
-    public static final class a extends ar6<mgb> {
+    public static final class a extends er6<lgb> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HelpWebWriteFragment b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(HelpWebWriteFragment helpWebWriteFragment, Class<mgb> cls) {
+        public a(HelpWebWriteFragment helpWebWriteFragment, Class<lgb> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -85,10 +85,10 @@ public final class HelpWebWriteFragment extends BaseWebWriteFragment {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ar6
-        public void onEvent(mgb event) {
+        @Override // com.baidu.tieba.er6
+        public void onEvent(lgb event) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
                 this.b.u3();
             }
@@ -114,7 +114,7 @@ public final class HelpWebWriteFragment extends BaseWebWriteFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new ggb();
+            return new fgb();
         }
         return (WriteDataManager) invokeV.objValue;
     }
@@ -123,7 +123,7 @@ public final class HelpWebWriteFragment extends BaseWebWriteFragment {
     public void z3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            xq6.b().c(new lgb());
+            br6.b().c(new kgb());
         }
     }
 
@@ -137,11 +137,11 @@ public final class HelpWebWriteFragment extends BaseWebWriteFragment {
             editorTools.M(true);
             editorTools.N(false);
             editorTools.setBackgroundColorId(R.color.CAM_X0201);
-            final neb m = pkb.m(getPageContext(), editorTools, j3().b().getCallFrom(), this);
+            final meb m = okb.m(getPageContext(), editorTools, j3().b().getCallFrom(), this);
             f3().add(new Function0<Unit>(m) { // from class: com.baidu.tieba.write.webwrite.fragment.HelpWebWriteFragment$configEditor$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ neb $writeTool;
+                public final /* synthetic */ meb $writeTool;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -191,10 +191,10 @@ public final class HelpWebWriteFragment extends BaseWebWriteFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, inflater, viewGroup, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
-            zq6 b = xq6.b();
+            dr6 b = br6.b();
             BdUniqueId uniqueId = getUniqueId();
             Intrinsics.checkNotNullExpressionValue(uniqueId, "uniqueId");
-            b.b(new wq6(uniqueId, mgb.class), new a(this, mgb.class));
+            b.b(new ar6(uniqueId, lgb.class), new a(this, lgb.class));
             return super.onCreateView(inflater, viewGroup, bundle);
         }
         return (View) invokeLLL.objValue;

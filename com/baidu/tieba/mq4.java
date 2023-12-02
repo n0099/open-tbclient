@@ -1,57 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class mq4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public static int b = 2;
-    public static int c = 3;
-    public static int d = 1;
-    public static int e = 2;
-    public static int f = 3;
-    public static int g = 4;
-    public static int h = 5;
-    public static int i = 6;
-    public static int j = 7;
-    public static int k = 8;
-    public static int l = 9;
-    public static int m = 10;
-    public static nq4 n;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface mq4 {
+    void a(Object obj, HashMap<String, String> hashMap, String str, w4 w4Var);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981305, "Lcom/baidu/tieba/mq4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947981305, "Lcom/baidu/tieba/mq4;");
-                return;
-            }
-        }
-        n = new nq4();
-    }
-
-    public static void a(@NonNull int i2, @NonNull int i3, String str, String str2, String str3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, Integer.valueOf(i4)}) == null) {
-            oq4 oq4Var = new oq4();
-            oq4Var.a = i2;
-            oq4Var.b = i3;
-            oq4Var.c = str;
-            oq4Var.d = str2;
-            oq4Var.e = str3;
-            oq4Var.f = i4;
-            n.a(oq4Var);
-        }
-    }
+    oq4 b(Object obj, HashMap<String, String> hashMap, String str);
 }

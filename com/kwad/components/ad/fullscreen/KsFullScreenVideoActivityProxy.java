@@ -131,7 +131,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.l.b
 
     @Override // com.kwad.components.core.proxy.c
     public void initView() {
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09148f);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091490);
         com.kwad.sdk.i.a.aj("fullscreen", "show");
     }
 
@@ -335,7 +335,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.l.b
             gVar.oM = new j(gVar, this.mReportExtData, null);
         }
         if (com.kwad.sdk.core.response.b.a.bH(this.mAdInfo)) {
-            gVar.oK = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913fe));
+            gVar.oK = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913ff));
         }
         gVar.oX = false;
         if (com.kwad.sdk.core.response.b.a.bH(this.mAdInfo)) {

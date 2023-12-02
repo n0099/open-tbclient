@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uxa;
+import com.baidu.tieba.txa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,7 +73,7 @@ public class ThemeAndStarView extends FrameLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String jumpUrl = this.a.getJumpUrl();
                 if (!StringUtils.isNull(jumpUrl)) {
-                    UrlManager.getInstance().dealOneLink(new String[]{uxa.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
+                    UrlManager.getInstance().dealOneLink(new String[]{txa.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.b.getContext(), this.a.getCardId())));
@@ -149,7 +149,7 @@ public class ThemeAndStarView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070386), BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703ec));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070387), BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703ed));
             layoutParams.addRule(11);
             layoutParams.rightMargin = BdUtilHelper.getDimens(getContext(), R.dimen.tbds30);
             setLayoutParams(layoutParams);

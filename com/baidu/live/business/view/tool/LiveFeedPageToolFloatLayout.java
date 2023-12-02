@@ -137,7 +137,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         if (this.e.getVisibility() == 0) {
             layoutParams2.addRule(15);
         } else {
-            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f091655);
+            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f091656);
             layoutParams2.bottomMargin = (int) TypedValue.applyDimension(1, 7.0f, getResources().getDisplayMetrics());
         }
         this.g.setLayoutParams(layoutParams2);
@@ -145,10 +145,10 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
 
     public final void c() {
         LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0611, (ViewGroup) this, true);
-        this.d = findViewById(R.id.obfuscated_res_0x7f091655);
-        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09164a);
-        this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091656);
-        this.g = (LiveSearchGuideView) findViewById(R.id.obfuscated_res_0x7f09164b);
+        this.d = findViewById(R.id.obfuscated_res_0x7f091656);
+        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09164b);
+        this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091657);
+        this.g = (LiveSearchGuideView) findViewById(R.id.obfuscated_res_0x7f09164c);
         this.e.setOnClickListener(new c());
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setShape(0);

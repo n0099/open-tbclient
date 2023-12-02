@@ -3,105 +3,62 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedLinkComponent;
-import tbclient.PbLinkInfo;
+import tbclient.BaseTextColor;
+import tbclient.FeedContentColor;
+import tbclient.FeedContentText;
 /* loaded from: classes5.dex */
 public final class f97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedLinkComponent feedLinkComponent, List<nb7<? extends Object>> mutableList) {
+    public static final e67 a(BaseTextColor baseTextColor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, feedLinkComponent, mutableList) == null) {
-            Intrinsics.checkNotNullParameter(feedLinkComponent, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            List<PbLinkInfo> list = feedLinkComponent.links;
-            if (list != null) {
-                ArrayList arrayList = new ArrayList();
-                for (PbLinkInfo it : list) {
-                    Intrinsics.checkNotNullExpressionValue(it, "it");
-                    g77 b = b(it);
-                    if (b != null) {
-                        arrayList.add(b);
-                    }
-                }
-                if (arrayList.size() > 1) {
-                    mutableList.add(new n47(arrayList));
-                } else {
-                    mutableList.add(new t47((g77) arrayList.get(0)));
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseTextColor)) == null) {
+            Intrinsics.checkNotNullParameter(baseTextColor, "<this>");
+            Integer type = baseTextColor.type;
+            Intrinsics.checkNotNullExpressionValue(type, "type");
+            return new e67(type.intValue(), baseTextColor.day, baseTextColor.night);
         }
+        return (e67) invokeL.objValue;
     }
 
-    public static final g77 b(PbLinkInfo pbLinkInfo) {
+    public static final e67 b(FeedContentColor feedContentColor) {
         InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        int intValue;
-        String str6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pbLinkInfo)) == null) {
-            Intrinsics.checkNotNullParameter(pbLinkInfo, "<this>");
-            String str7 = pbLinkInfo.title;
-            if (str7 == null) {
-                str = "";
-            } else {
-                str = str7;
-            }
-            String str8 = pbLinkInfo.to_url;
-            if (str8 == null) {
-                str2 = "";
-            } else {
-                str2 = str8;
-            }
-            String str9 = pbLinkInfo.pic_url;
-            if (str9 == null) {
-                str3 = "";
-            } else {
-                str3 = str9;
-            }
-            String str10 = pbLinkInfo.link_from;
-            if (str10 == null) {
-                str4 = "";
-            } else {
-                str4 = str10;
-            }
-            String str11 = pbLinkInfo.ext_txt;
-            if (str11 == null) {
-                str5 = "";
-            } else {
-                str5 = str11;
-            }
-            Integer num = pbLinkInfo.sort;
-            int i = 0;
-            if (num == null) {
-                intValue = 0;
-            } else {
-                intValue = num.intValue();
-            }
-            Integer num2 = pbLinkInfo.url_type;
-            if (num2 != null) {
-                i = num2.intValue();
-            }
-            String str12 = pbLinkInfo.content1;
-            if (str12 == null) {
-                str6 = "";
-            } else {
-                str6 = str12;
-            }
-            String str13 = pbLinkInfo.content2;
-            if (str13 == null) {
-                str13 = "";
-            }
-            return new g77(str, str2, str3, str4, str5, intValue, i, str6, str13);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, feedContentColor)) == null) {
+            Intrinsics.checkNotNullParameter(feedContentColor, "<this>");
+            Integer type = feedContentColor.type;
+            Intrinsics.checkNotNullExpressionValue(type, "type");
+            return new e67(type.intValue(), feedContentColor.day, feedContentColor.night);
         }
-        return (g77) invokeL.objValue;
+        return (e67) invokeL.objValue;
+    }
+
+    public static final g87 c(FeedContentText feedContentText) {
+        InterceptResult invokeL;
+        e67 e67Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, feedContentText)) == null) {
+            Intrinsics.checkNotNullParameter(feedContentText, "<this>");
+            String str = feedContentText.text;
+            if (str == null) {
+                str = "";
+            }
+            FeedContentColor feedContentColor = feedContentText.color;
+            e67 e67Var2 = null;
+            if (feedContentColor != null) {
+                e67Var = b(feedContentColor);
+            } else {
+                e67Var = null;
+            }
+            FeedContentColor feedContentColor2 = feedContentText.bg_color;
+            if (feedContentColor2 != null) {
+                e67Var2 = b(feedContentColor2);
+            }
+            return new g87(str, e67Var, e67Var2);
+        }
+        return (g87) invokeL.objValue;
     }
 }

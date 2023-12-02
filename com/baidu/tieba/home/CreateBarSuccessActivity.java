@@ -80,7 +80,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907f7);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092683);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092685);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
@@ -90,8 +90,8 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.e.setTitleText(getPageContext().getString(R.string.create_bar));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09257a);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0925a1);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09257c);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0925a3);
         }
     }
 

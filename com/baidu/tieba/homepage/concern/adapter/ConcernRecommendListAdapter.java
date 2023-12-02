@@ -26,9 +26,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d75;
+import com.baidu.tieba.av4;
+import com.baidu.tieba.g75;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import com.baidu.tieba.xu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     public BdUniqueId c;
     public int d;
     public List<MetaData> e;
-    public xu4<MetaData> f;
+    public av4<MetaData> f;
 
     public void t(boolean z) {
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         public TextView c;
         public HeadPendantClickableView d;
         public DynamicUserLikeButton e;
-        public d75 f;
+        public g75 f;
         public boolean g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -95,7 +95,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
             this.b = (TextView) view2.findViewById(R.id.concern_user_name);
             this.c = (TextView) view2.findViewById(R.id.concern_user_desc);
             this.e = (DynamicUserLikeButton) view2.findViewById(R.id.user_recommend_like_btn);
-            this.f = new d75(concernRecommendListAdapter.b, this.e);
+            this.f = new g75(concernRecommendListAdapter.b, this.e);
         }
 
         public void a(int i) {
@@ -278,10 +278,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         }
     }
 
-    public void u(xu4<MetaData> xu4Var) {
+    public void u(av4<MetaData> av4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, xu4Var) == null) {
-            this.f = xu4Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, av4Var) == null) {
+            this.f = av4Var;
         }
     }
 
@@ -310,10 +310,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData, forumViewHolder) == null) {
             forumViewHolder.e.setOnClickEvent(new b(this, metaData));
-            d75 d75Var = forumViewHolder.f;
-            if (d75Var != null) {
-                d75Var.j(this.c);
-                d75Var.l(metaData);
+            g75 g75Var = forumViewHolder.f;
+            if (g75Var != null) {
+                g75Var.j(this.c);
+                g75Var.l(metaData);
             }
         }
     }
@@ -377,9 +377,9 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         C(metaData, forumViewHolder);
         A(metaData, forumViewHolder);
         B(metaData, forumViewHolder);
-        xu4<MetaData> xu4Var = this.f;
-        if (xu4Var != null) {
-            xu4Var.d(forumViewHolder.itemView, metaData, i, i);
+        av4<MetaData> av4Var = this.f;
+        if (av4Var != null) {
+            av4Var.d(forumViewHolder.itemView, metaData, i, i);
         }
         forumViewHolder.a(this.d);
     }

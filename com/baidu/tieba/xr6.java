@@ -1,27 +1,71 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes9.dex */
 public final class xr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Canvas a;
-    public Bitmap b;
-    public int c;
-    public int d;
+    public final String a;
+    public final List<ThemeColorInfo> b;
+    public final boolean c;
 
-    public xr6() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof xr6) {
+                xr6 xr6Var = (xr6) obj;
+                return Intrinsics.areEqual(this.a, xr6Var.a) && Intrinsics.areEqual(this.b, xr6Var.b) && this.c == xr6Var.c;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int hashCode = ((this.a.hashCode() * 31) + this.b.hashCode()) * 31;
+            boolean z = this.c;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return hashCode + i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "TitleTagsItem(titleText=" + this.a + ", tags=" + this.b + ", isTitleBold=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public xr6(String titleText, List<ThemeColorInfo> tags, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {titleText, tags, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,102 +75,41 @@ public final class xr6 {
                 return;
             }
         }
-        this.a = new Canvas();
-        this.b = it6.b();
+        Intrinsics.checkNotNullParameter(titleText, "titleText");
+        Intrinsics.checkNotNullParameter(tags, "tags");
+        this.a = titleText;
+        this.b = tags;
+        this.c = z;
     }
 
-    public final void b() {
+    public /* synthetic */ xr6(String str, List list, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, list, (i & 4) != 0 ? false : z);
+    }
+
+    public final List<ThemeColorInfo> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.b.isRecycled()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        this.b.eraseColor(0);
+        return (List) invokeV.objValue;
     }
 
-    public final Bitmap c() {
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
-    public final Canvas d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (Canvas) invokeV.objValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.c;
         }
-        return invokeV.intValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || Intrinsics.areEqual(this.b, it6.b())) {
-            return;
-        }
-        this.a.setBitmap(null);
-        this.b = it6.b();
-        this.c = 0;
-        this.d = 0;
-    }
-
-    public final void a(int i, int i2, int i3, boolean z, int i4) {
-        boolean z2;
-        Bitmap.Config config;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)}) == null) {
-            if (!z ? !(i > this.c || i2 > this.d) : !(i != this.c || i2 != this.d)) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (!Intrinsics.areEqual(this.b, it6.b()) && !this.b.isRecycled() && z2) {
-                this.b.eraseColor(0);
-                this.a.setBitmap(this.b);
-                return;
-            }
-            this.c = Math.max(1, i);
-            this.d = Math.max(1, i2);
-            if (i4 == 32) {
-                config = Bitmap.Config.ARGB_8888;
-            } else {
-                config = Bitmap.Config.ARGB_4444;
-            }
-            try {
-                Bitmap createBitmap = Bitmap.createBitmap(this.c, this.d, config);
-                if (i3 > 0) {
-                    createBitmap.setDensity(i3);
-                }
-                this.a.setBitmap(createBitmap);
-                this.a.setDensity(i3);
-                Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(width, heig…y = density\n            }");
-                this.b = createBitmap;
-            } catch (Exception unused) {
-                this.b = it6.b();
-                this.a.setBitmap(null);
-                this.c = 0;
-                this.d = 0;
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

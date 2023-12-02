@@ -9,13 +9,13 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ct9;
-import com.baidu.tieba.dt9;
-import com.baidu.tieba.et9;
-import com.baidu.tieba.ft9;
 import com.baidu.tieba.gt9;
 import com.baidu.tieba.ht9;
 import com.baidu.tieba.it9;
+import com.baidu.tieba.jt9;
+import com.baidu.tieba.kt9;
+import com.baidu.tieba.lt9;
+import com.baidu.tieba.mt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,9 +25,9 @@ public class OneKeyLoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public et9 b;
-    public dt9 c;
-    public ct9 d;
+    public it9 b;
+    public ht9 c;
+    public gt9 d;
 
     public OneKeyLoginActivity() {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
-            et9 et9Var = new et9();
-            this.b = et9Var;
-            et9Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            it9 it9Var = new it9();
+            this.b = it9Var;
+            it9Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
             this.b.b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
             this.b.c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
             this.b.d = this.a;
@@ -82,14 +82,14 @@ public class OneKeyLoginActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d004c);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092081);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092083);
             initData();
             if (TextUtils.isEmpty(this.a)) {
-                this.c = new gt9(getPageContext(), findViewById);
-                this.d = new ft9(getPageContext(), this.c);
+                this.c = new kt9(getPageContext(), findViewById);
+                this.d = new jt9(getPageContext(), this.c);
             } else {
-                this.c = new it9(getPageContext(), findViewById);
-                this.d = new ht9(getPageContext(), this.c);
+                this.c = new mt9(getPageContext(), findViewById);
+                this.d = new lt9(getPageContext(), this.c);
             }
             this.c.c(this.b);
             this.d.j(this.b);

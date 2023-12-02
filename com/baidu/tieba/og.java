@@ -39,7 +39,7 @@ public class og implements ISignatureVerifier {
                 return true;
             }
             String c = ng.c(signatureArr);
-            if (o3b.a(BdBaseApplication.getInst(), "NO_SIGN_CHECK")) {
+            if (n3b.a(BdBaseApplication.getInst(), "NO_SIGN_CHECK")) {
                 return true;
             }
             return "YvigAa51R7YgCp8eDveR1g==".equals(c);

@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.permission.PermissionRequestDialog;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.c05;
+import com.baidu.tieba.f05;
 import com.baidu.tieba.view.ScreenTopToast;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -513,11 +513,11 @@ public class PermissionJudgePolicy {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, str)) == null) {
             if (!PermissionUtil.shouldShowRequestPermissionRationale(activity, str)) {
-                c05 c05Var = new c05(activity);
-                c05Var.setCanceledOnTouchOutside(false);
-                c05Var.setTitle(R.string.request_permission_default_title);
-                c05Var.setMessageId(getPermissionDescriptionId(str));
-                c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b62, new c05.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
+                f05 f05Var = new f05(activity);
+                f05Var.setCanceledOnTouchOutside(false);
+                f05Var.setTitle(R.string.request_permission_default_title);
+                f05Var.setMessageId(getPermissionDescriptionId(str));
+                f05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b62, new f05.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -544,11 +544,11 @@ public class PermissionJudgePolicy {
                         this.val$permission = str;
                     }
 
-                    @Override // com.baidu.tieba.c05.e
-                    public void onClick(c05 c05Var2) {
+                    @Override // com.baidu.tieba.f05.e
+                    public void onClick(f05 f05Var2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, c05Var2) == null) {
-                            c05Var2.dismiss();
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, f05Var2) == null) {
+                            f05Var2.dismiss();
                             Intent intent = new Intent();
                             intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                             intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
@@ -559,7 +559,7 @@ public class PermissionJudgePolicy {
                             }
                         }
                     }
-                }).setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new c05.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
+                }).setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new f05.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -584,18 +584,18 @@ public class PermissionJudgePolicy {
                         this.val$permission = str;
                     }
 
-                    @Override // com.baidu.tieba.c05.e
-                    public void onClick(c05 c05Var2) {
+                    @Override // com.baidu.tieba.f05.e
+                    public void onClick(f05 f05Var2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, c05Var2) == null) {
-                            c05Var2.dismiss();
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, f05Var2) == null) {
+                            f05Var2.dismiss();
                             if (this.this$0.mDialogClickListener != null) {
                                 this.this$0.mDialogClickListener.onDialogCaneled(this.val$permission);
                             }
                         }
                     }
                 }).create(a5.a(activity));
-                c05Var.show();
+                f05Var.show();
                 return false;
             }
             return true;

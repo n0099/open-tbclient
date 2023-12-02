@@ -98,8 +98,8 @@ public final class b implements com.kwad.sdk.widget.c {
         if (viewGroup == null) {
             return;
         }
-        this.Fr = viewGroup.findViewById(R.id.obfuscated_res_0x7f0914af);
-        this.Fs = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0914b2);
+        this.Fr = viewGroup.findViewById(R.id.obfuscated_res_0x7f0914b0);
+        this.Fs = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0914b3);
         this.Fv = new f(this.Fr.getContext(), this.Fr, this);
         a(com.kwad.components.ad.splashscreen.d.a(this.mAdTemplate, this.mAdInfo, this.mApkDownloadHelper, 4));
     }
@@ -120,7 +120,7 @@ public final class b implements com.kwad.sdk.widget.c {
             if (viewStub != null && viewStub.getParent() != null) {
                 this.Fq = (ViewGroup) this.Fp.inflate();
             } else {
-                this.Fq = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f0914b0);
+                this.Fq = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f0914b1);
             }
             g(this.Fq);
         }

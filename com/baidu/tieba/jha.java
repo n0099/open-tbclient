@@ -1,11 +1,27 @@
 package com.baidu.tieba;
+
+import android.graphics.drawable.Drawable;
+import com.baidu.tieba.jia;
+import com.baidu.tieba.video.VideoItemModel;
 /* loaded from: classes6.dex */
 public interface jha {
-    int d(String str, boolean z);
+    void onDestroy();
 
-    int e(String str, boolean z);
+    void onPause();
 
-    void f();
+    void onPrimary(boolean z);
 
-    void g(String str, int i, boolean z);
+    void onUserVisibleHint(boolean z);
+
+    void onViewClick();
+
+    void onViewDoubleClick();
+
+    void onViewDragToRight();
+
+    void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6);
+
+    void setPageChangeHandler(jia.a aVar, int i);
+
+    void updateTiebaData(int i, VideoItemModel videoItemModel);
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes8.dex */
 public interface tn8 {
-    void a();
+    void a(int i, int i2, String str);
 
-    void b(VoiceData.VoiceModel voiceModel);
+    void b(int i);
+
+    void c(int i, String str, String str2);
 }

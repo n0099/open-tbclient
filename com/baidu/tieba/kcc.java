@@ -1,21 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.qcc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 /* loaded from: classes7.dex */
-public final class kcc {
+public class kcc {
     public static /* synthetic */ Interceptable $ic;
-    public static final kcc c;
+    public static qcc a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ExecutorService a;
-    public final Executor b;
 
     static {
         InterceptResult invokeClinit;
@@ -30,35 +27,29 @@ public final class kcc {
                 return;
             }
         }
-        c = new kcc();
+        a = new qcc();
     }
 
-    public kcc() {
+    public static <TResult> TResult a(hcc<TResult> hccVar) throws ExecutionException, InterruptedException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hccVar)) == null) {
+            qcc.c("await must not be called on the UI thread");
+            if (hccVar.g()) {
+                return (TResult) qcc.b(hccVar);
             }
+            qcc.b bVar = new qcc.b();
+            hccVar.c(bVar);
+            hccVar.b(bVar);
+            bVar.a.await();
+            return (TResult) qcc.b(hccVar);
         }
-        this.a = mcc.a();
-        this.b = mcc.b();
+        return (TResult) invokeL.objValue;
     }
 
-    public static ExecutorService a() {
-        InterceptResult invokeV;
+    public static <TResult> hcc<TResult> b(Callable<TResult> callable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (ExecutorService) invokeV.objValue;
-    }
-
-    public static Executor b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.b : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(jcc.a(), callable) : (hcc) invokeL.objValue;
     }
 }

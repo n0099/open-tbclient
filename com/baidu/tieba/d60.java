@@ -420,7 +420,7 @@ public class d60 extends b60 {
             }
             View inflate = LayoutInflater.from(c()).inflate(i2, (ViewGroup) null);
             this.d = inflate;
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e98);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e9a);
             ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.d.findViewById(R.id.continuous_loading_view);
             this.j = continuousAnimationView;
             continuousAnimationView.setOnClickListener(this.s);

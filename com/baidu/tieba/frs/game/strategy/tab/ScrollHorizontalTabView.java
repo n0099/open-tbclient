@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ty7;
+import com.baidu.tieba.xy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import java.util.List;
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ty7> a;
+    public final List<xy7> a;
     public final List<TextView> b;
     public final int c;
     public final int d;
@@ -50,9 +50,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
 
     /* loaded from: classes6.dex */
     public interface f {
-        boolean a(int i, ty7 ty7Var);
+        boolean a(int i, xy7 xy7Var);
 
-        void b(int i, ty7 ty7Var);
+        void b(int i, xy7 xy7Var);
     }
 
     /* loaded from: classes6.dex */
@@ -205,7 +205,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ScrollHorizontalTabView scrollHorizontalTabView = this.a;
-                scrollHorizontalTabView.scrollBy(scrollHorizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07037a), 0);
+                scrollHorizontalTabView.scrollBy(scrollHorizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07037b), 0);
             }
         }
     }
@@ -268,12 +268,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                ty7 ty7Var = (ty7) ListUtils.getItem(this.a.a, i);
-                if (this.a.o != null && !this.a.o.a(i, ty7Var)) {
+                xy7 xy7Var = (xy7) ListUtils.getItem(this.a.a, i);
+                if (this.a.o != null && !this.a.o.a(i, xy7Var)) {
                     return;
                 }
                 if (this.a.o != null) {
-                    this.a.o.b(i, ty7Var);
+                    this.a.o.b(i, xy7Var);
                 }
                 if (this.a.e) {
                     if (this.a.f != i) {
@@ -363,7 +363,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 int[] iArr = new int[2];
                 ((View) ListUtils.getItem(this.b, i)).getLocationOnScreen(iArr);
                 int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext()) - iArr[0];
-                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07037a);
+                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07037b);
                 if (iArr[0] < 0) {
                     post(new c(this, dimensionPixelSize));
                 } else if (equipmentWidth < dimensionPixelSize) {
@@ -519,10 +519,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             int size = this.a.size();
             int size2 = this.b.size();
             for (int i = 0; i < size && i < size2; i++) {
-                ty7 ty7Var = this.a.get(i);
+                xy7 xy7Var = this.a.get(i);
                 TextView textView = this.b.get(i);
-                if (ty7Var != null && textView != null) {
-                    textView.setText(ty7Var.b);
+                if (xy7Var != null && textView != null) {
+                    textView.setText(xy7Var.b);
                 }
             }
         }
@@ -591,7 +591,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    public void setData(List<ty7> list) {
+    public void setData(List<xy7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             this.a.clear();

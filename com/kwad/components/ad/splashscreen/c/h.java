@@ -109,7 +109,7 @@ public final class h extends e {
     }
 
     private void a(final ImageView imageView) {
-        ((FrameLayout) this.Df.mRootContainer.findViewById(R.id.obfuscated_res_0x7f092361)).setClipChildren(false);
+        ((FrameLayout) this.Df.mRootContainer.findViewById(R.id.obfuscated_res_0x7f092363)).setClipChildren(false);
         imageView.post(new Runnable() { // from class: com.kwad.components.ad.splashscreen.c.h.4
             @Override // java.lang.Runnable
             public final void run() {
@@ -127,7 +127,7 @@ public final class h extends e {
     }
 
     private void a(final ImageView imageView, final AdInfo adInfo) {
-        ((FrameLayout) this.Df.mRootContainer.findViewById(R.id.obfuscated_res_0x7f092361)).setClipChildren(false);
+        ((FrameLayout) this.Df.mRootContainer.findViewById(R.id.obfuscated_res_0x7f092363)).setClipChildren(false);
         final AdInfo.CutRuleInfo ci = com.kwad.sdk.core.response.b.a.ci(adInfo);
         imageView.post(new Runnable() { // from class: com.kwad.components.ad.splashscreen.c.h.3
             @Override // java.lang.Runnable
@@ -159,12 +159,12 @@ public final class h extends e {
         }
         this.Dj = true;
         AdInfo dP = com.kwad.sdk.core.response.b.e.dP(this.Df.mAdTemplate);
-        findViewById(R.id.obfuscated_res_0x7f0914b8).setVisibility(0);
-        KSCornerImageView kSCornerImageView = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f0914b7);
+        findViewById(R.id.obfuscated_res_0x7f0914b9).setVisibility(0);
+        KSCornerImageView kSCornerImageView = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f0914b8);
         kSCornerImageView.setRadius(com.kwad.sdk.d.a.a.a(getContext(), 12.0f));
         KSImageLoader.loadImage(kSCornerImageView, com.kwad.sdk.core.response.b.a.cf(dP), this.Df.mAdTemplate);
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f0914b9)).setText(com.kwad.sdk.core.response.b.a.cc(dP));
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0914b6);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f0914ba)).setText(com.kwad.sdk.core.response.b.a.cc(dP));
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0914b7);
         if (TextUtils.isEmpty(com.kwad.sdk.core.response.b.a.au(dP))) {
             textView.setVisibility(8);
         } else {
@@ -177,8 +177,8 @@ public final class h extends e {
     @Override // com.kwad.components.ad.splashscreen.c.e, com.kwad.sdk.mvp.Presenter
     public final void aj() {
         super.aj();
-        this.Di = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914b3);
-        this.Dh = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914c2);
+        this.Di = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914b4);
+        this.Dh = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914c3);
         AdInfo dP = com.kwad.sdk.core.response.b.e.dP(this.Df.mAdTemplate);
         this.mAdInfo = dP;
         String str = com.kwad.sdk.core.response.b.a.aU(dP).materialUrl;

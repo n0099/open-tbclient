@@ -1,59 +1,52 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class el1 extends HandlerThread {
+public class el1 {
     public static /* synthetic */ Interceptable $ic;
-    public static el1 a;
-    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final byte[] a;
+    public final byte[] b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public el1() {
-        super("BackgroundThread", 10);
+    public el1(byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bArr, bArr2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = bArr;
+        this.b = bArr2;
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
-            el1 el1Var = new el1();
-            a = el1Var;
-            el1Var.start();
-            b = new Handler(a.getLooper());
-        }
-    }
-
-    public static Handler b() {
+    public byte[] a() {
         InterceptResult invokeV;
-        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (el1.class) {
-                a();
-                handler = b;
-            }
-            return handler;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (Handler) invokeV.objValue;
+        return (byte[]) invokeV.objValue;
+    }
+
+    public byte[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (byte[]) invokeV.objValue;
     }
 }

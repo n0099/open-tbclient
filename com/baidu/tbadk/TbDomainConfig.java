@@ -3,7 +3,7 @@ package com.baidu.tbadk;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.o3b;
+import com.baidu.tieba.n3b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class TbDomainConfig {
             }
         }
         DOMAIN_HTTPS_SERVER_ADDRESS = UtilHelper.getMetaValue(AppRuntime.getAppContext(), "DOMAIN_HTTPS_SERVER_ADDRESS");
-        if (o3b.a(BdBaseApplication.getInst(), "CHANGE_DOT_REFINED2")) {
+        if (n3b.a(BdBaseApplication.getInst(), "CHANGE_DOT_REFINED2")) {
             DOMAIN_HTTPS_SERVER_ADDRESS = "http://fakedata-mock.bcc-szwg.baidu.com:8080/";
         }
     }

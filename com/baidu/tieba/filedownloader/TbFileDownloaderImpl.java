@@ -6,9 +6,9 @@ import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.iia;
-import com.baidu.tieba.je7;
-import com.baidu.tieba.ke7;
+import com.baidu.tieba.mia;
+import com.baidu.tieba.ne7;
+import com.baidu.tieba.oe7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,11 +27,11 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\u0018\u0000 \u00142\u00020\u0001:\u0001\u0014B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0010\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\n\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\f\u001a\u00020\r2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\u000e\u001a\u00020\r2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\u000f\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0018\u0010\u0011\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0018\u0010\u0012\u001a\u00020\u00132\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016¨\u0006\u0015"}, d2 = {"Lcom/baidu/tieba/filedownloader/TbFileDownloaderImpl;", "Lcom/baidu/tieba/filedownloader/interfaces/IFileDownloader;", "()V", "addGlobalCallback", "", WebChromeClient.KEY_ARG_CALLBACK, "Lcom/baidu/tieba/filedownloader/interfaces/IStatusCallback;", "cancel", "data", "Lcom/baidu/tbadk/download/DownloadData;", "getFilePath", "", "getProgress", "", "getStatus", DownloadStatisticConstants.UBC_TYPE_PAUSE, "removeGlobalCallback", DownloadStatisticConstants.UBC_TYPE_RESUME, "start", "", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class TbFileDownloaderImpl implements je7 {
+public final class TbFileDownloaderImpl implements ne7 {
     public static /* synthetic */ Interceptable $ic;
     public static final a a;
     public static final Lazy<TbFileDownloaderImpl> b;
-    public static final iia c;
+    public static final mia c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public /* synthetic */ TbFileDownloaderImpl(DefaultConstructorMarker defaultConstructorMarker) {
@@ -86,7 +86,7 @@ public final class TbFileDownloaderImpl implements je7 {
         }
         a = new a(null);
         b = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) TbFileDownloaderImpl$Companion$sInstance$2.INSTANCE);
-        iia o = iia.o();
+        mia o = mia.o();
         Intrinsics.checkNotNullExpressionValue(o, "getInstance()");
         c = o;
     }
@@ -105,8 +105,8 @@ public final class TbFileDownloaderImpl implements je7 {
         }
     }
 
-    @Override // com.baidu.tieba.je7
-    public void a(ke7 callback) {
+    @Override // com.baidu.tieba.ne7
+    public void a(oe7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -114,7 +114,7 @@ public final class TbFileDownloaderImpl implements je7 {
         }
     }
 
-    @Override // com.baidu.tieba.je7
+    @Override // com.baidu.tieba.ne7
     public void d(DownloadData data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
@@ -123,24 +123,24 @@ public final class TbFileDownloaderImpl implements je7 {
         }
     }
 
-    @Override // com.baidu.tieba.je7
+    @Override // com.baidu.tieba.ne7
     public int e(DownloadData data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, data)) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            return iia.q(data);
+            return mia.q(data);
         }
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.je7
+    @Override // com.baidu.tieba.ne7
     public void f(DownloadData data) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            iia iiaVar = c;
+            mia miaVar = c;
             String url = data.getUrl();
             String id = data.getId();
             ItemData itemData = data.getItemData();
@@ -149,11 +149,11 @@ public final class TbFileDownloaderImpl implements je7 {
             } else {
                 str = null;
             }
-            iiaVar.i(url, id, str);
+            miaVar.i(url, id, str);
         }
     }
 
-    @Override // com.baidu.tieba.je7
+    @Override // com.baidu.tieba.ne7
     public int g(DownloadData data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -164,8 +164,8 @@ public final class TbFileDownloaderImpl implements je7 {
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.je7
-    public void i(ke7 callback) {
+    @Override // com.baidu.tieba.ne7
+    public void i(oe7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -173,8 +173,8 @@ public final class TbFileDownloaderImpl implements je7 {
         }
     }
 
-    @Override // com.baidu.tieba.je7
-    public void b(DownloadData data, ke7 callback) {
+    @Override // com.baidu.tieba.ne7
+    public void b(DownloadData data, oe7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data, callback) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -183,8 +183,8 @@ public final class TbFileDownloaderImpl implements je7 {
         }
     }
 
-    @Override // com.baidu.tieba.je7
-    public boolean c(DownloadData data, ke7 callback) {
+    @Override // com.baidu.tieba.ne7
+    public boolean c(DownloadData data, oe7 callback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, data, callback)) == null) {
@@ -195,7 +195,7 @@ public final class TbFileDownloaderImpl implements je7 {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.je7
+    @Override // com.baidu.tieba.ne7
     public String h(DownloadData data) {
         InterceptResult invokeL;
         boolean z;
@@ -214,7 +214,7 @@ public final class TbFileDownloaderImpl implements je7 {
                 Intrinsics.checkNotNullExpressionValue(id2, "data.id");
                 sb.append(StringsKt__StringsJVMKt.replace$default(id2, ".", "_", false, 4, (Object) null));
                 sb.append(Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-                String m = iia.m(sb.toString());
+                String m = mia.m(sb.toString());
                 Intrinsics.checkNotNullExpressionValue(m, "getFilePath(fileName)");
                 return m;
             }

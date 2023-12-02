@@ -1,7 +1,9 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
 public interface nt0 {
-    void a(ks0 ks0Var);
+    boolean e(@NonNull ms0 ms0Var);
 
-    int getExpectOrder();
+    mt0 getInterceptorLayer();
 }

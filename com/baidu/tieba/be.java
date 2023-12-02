@@ -48,7 +48,7 @@ public class be {
                     if (i != 1) {
                         if (i != 6) {
                             if (be.d != null) {
-                                be.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f187e));
+                                be.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f187f));
                             }
                         } else {
                             if (be.d != null) {
@@ -57,7 +57,7 @@ public class be {
                             return true;
                         }
                     } else if (be.d != null) {
-                        be.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f187c));
+                        be.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f187d));
                     }
                 } else if (be.d != null) {
                     be.d.c(be.c, message.arg1);
@@ -113,7 +113,7 @@ public class be {
                 d = deVar;
                 b.j(str);
                 a = 2;
-                lr6.a(b, "AmrAudioPlayer", 2);
+                pr6.a(b, "AmrAudioPlayer", 2);
                 return true;
             }
             return false;

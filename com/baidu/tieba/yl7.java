@@ -1,223 +1,106 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.forum.model.FrsGeneralTabListReqMsg;
-import com.baidu.tieba.forum.model.FrsGeneralTabListResMsg;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.forum.model.FrsPageRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.GeneralTabList.DataRes;
 /* loaded from: classes9.dex */
-public final class yl7 extends ml7 {
+public final class yl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NetMessageListener q;
 
-    /* loaded from: classes9.dex */
-    public static final class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yl7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(yl7 yl7Var) {
-            super(CmdConfigHttp.CMD_FRS_COMMON_TAB, 309622);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yl7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yl7Var;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.C(responsedMessage);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yl7(Context context, BdUniqueId bdUniqueId, Bundle bundle) {
-        super(context, bdUniqueId, bundle);
+    public static final FrsPageRequestMessage a(Bundle bundle) {
+        InterceptResult invokeL;
+        String str;
+        boolean z;
+        int i;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, bundle};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (Bundle) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(bdUniqueId, "bdUniqueId");
-        Intrinsics.checkNotNullParameter(bundle, "bundle");
-        a aVar = new a(this);
-        this.q = aVar;
-        aVar.setTag(bdUniqueId);
-        this.q.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.q);
-        J();
-    }
-
-    @Override // com.baidu.tieba.ml7
-    public void B(oi7 responseData, boolean z, boolean z2) {
-        DataRes dataRes;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{responseData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Intrinsics.checkNotNullParameter(responseData, "responseData");
-            super.B(responseData, z, z2);
-            Object a2 = responseData.a();
-            if (a2 instanceof DataRes) {
-                dataRes = (DataRes) a2;
-            } else {
-                dataRes = null;
-            }
-            if (dataRes != null && m().getInt("forum_tab_type") == 100) {
-                List<VideoItemData> a3 = hj7.a(dataRes);
-                if (!a3.isEmpty()) {
-                    String str = a3.get(0).forum_id;
-                    if (z) {
-                        FrsVideoTabPlayActivityConfig.putVideoTabListByFid(str, a3);
-                        return;
-                    }
-                    FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str).clear();
-                    FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str).addAll(a3);
-                }
-            }
-        }
-    }
-
-    public final String I() {
-        InterceptResult invokeV;
-        String d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = 0;
-            boolean z = true;
-            if (q() != 1) {
-                z = false;
-            }
-            if (!z) {
-                i = y27.f(b().a);
-            }
-            if (z) {
-                d = "";
-            } else {
-                fja f = fja.f();
-                d = f.d("FRS_GENERAL_TAB" + v());
-            }
-            String g = y27.g(b().a, z);
-            AdExtParam.a b = AdExtParam.a.b();
-            b.g(i);
-            b.e(g);
-            b.c(d);
-            b.f(n());
-            String a2 = b.a();
-            Intrinsics.checkNotNullExpressionValue(a2, "get().setPreAdThreadCoun…umName(fName).buildJson()");
-            return a2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void K() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            FrsGeneralTabListReqMsg frsGeneralTabListReqMsg = new FrsGeneralTabListReqMsg();
-            frsGeneralTabListReqMsg.setTag(l());
-            frsGeneralTabListReqMsg.setForumId(m().getLong("forum_id"));
-            frsGeneralTabListReqMsg.setTabId(m().getInt("forum_tab_id"));
-            frsGeneralTabListReqMsg.setTabType(m().getInt("forum_tab_type"));
-            String string = m().getString("forum_tab_name");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bundle)) == null) {
+            Intrinsics.checkNotNullParameter(bundle, "bundle");
+            String string = bundle.getString("name");
+            String str2 = "";
             if (string == null) {
                 string = "";
             }
-            frsGeneralTabListReqMsg.setTabName(string);
-            frsGeneralTabListReqMsg.setPn(r());
-            frsGeneralTabListReqMsg.setSortType(t());
-            frsGeneralTabListReqMsg.setLoadType(q());
-            frsGeneralTabListReqMsg.setFrsCommonInfo(p());
-            frsGeneralTabListReqMsg.setNewFrs(1);
-            frsGeneralTabListReqMsg.set_video_doublerow(z() ? 1 : 0);
-            frsGeneralTabListReqMsg.setAdExtParams(I());
-            MessageManager.getInstance().sendMessage(frsGeneralTabListReqMsg);
+            Uri uri = (Uri) bundle.getParcelable(IntentConfig.KEY_URI);
+            String str3 = (uri == null || (str3 = uri.toString()) == null) ? "" : "";
+            if (uri == null || (str = uri.getQueryParameter("name")) == null) {
+                if (uri != null) {
+                    str = uri.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
+                } else {
+                    str = null;
+                }
+            }
+            if (string.length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                if (str != null && str.length() != 0) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                if (!z2) {
+                    string = str.toString();
+                }
+            }
+            FrsPageRequestMessage frsPageRequestMessage = new FrsPageRequestMessage();
+            frsPageRequestMessage.setSortType(-1);
+            frsPageRequestMessage.setDefaultSortType(0);
+            frsPageRequestMessage.setPn(1);
+            frsPageRequestMessage.setCallFrom(bundle.getInt(FrsActivityConfig.FRS_CALL_FROM));
+            frsPageRequestMessage.setHotThreadId(bundle.getLong(FrsActivityConfig.FRS_HOT_THREAD_ID, 0L));
+            frsPageRequestMessage.setObjLocate("2");
+            frsPageRequestMessage.setObjSource("-2");
+            String urlEncode = rd.getUrlEncode(string);
+            Intrinsics.checkNotNullExpressionValue(urlEncode, "getUrlEncode(forumName)");
+            frsPageRequestMessage.setKw(urlEncode);
+            frsPageRequestMessage.setWithGroup(1);
+            frsPageRequestMessage.setCid(0);
+            frsPageRequestMessage.setScrW(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+            frsPageRequestMessage.setScrH(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
+            frsPageRequestMessage.setScrDip(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
+            if (TbImageHelper.getInstance().isShowBigImage()) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            frsPageRequestMessage.setQType(i);
+            frsPageRequestMessage.setUpSchema(str3);
+            String string2 = bundle.getString("yuelaou_locate");
+            if (string2 == null) {
+                string2 = "";
+            }
+            frsPageRequestMessage.setYuelaoLocate(string2);
+            frsPageRequestMessage.setLastClickTid(JavaTypesHelper.toLong(ju5.a(), 0L));
+            String string3 = bundle.getString("from");
+            if (string3 != null) {
+                str2 = string3;
+            }
+            frsPageRequestMessage.setStType(str2);
+            frsPageRequestMessage.setDefaultNavTab(1);
+            frsPageRequestMessage.setLoadType(1);
+            if (ThreadData.isRecAppLoaded.get() && vha.m().b() != null) {
+                frsPageRequestMessage.setRefreshCount(vha.m().b().d(string, false) + 1);
+                frsPageRequestMessage.setLoadCount(vha.m().b().e(string, false));
+            }
+            frsPageRequestMessage.setNewFrs(1);
+            return frsPageRequestMessage;
         }
-    }
-
-    public final void J() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_COMMON_TAB, wva.a(TbConfig.FRS_COMMON_TAB, 309622));
-            tbHttpMessageTask.setResponsedClass(FrsGeneralTabListResMsg.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    @Override // com.baidu.tieba.zb7
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.q);
-        }
-    }
-
-    @Override // com.baidu.tieba.zb7
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || e()) {
-            return;
-        }
-        E(1);
-        D(1);
-        K();
-        i(true);
-    }
-
-    @Override // com.baidu.tieba.zb7
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || e()) {
-            return;
-        }
-        E(r() + 1);
-        D(2);
-        K();
-        i(true);
+        return (FrsPageRequestMessage) invokeL.objValue;
     }
 }

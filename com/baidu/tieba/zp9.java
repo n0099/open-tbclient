@@ -1,92 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class zp9 implements pi {
+public class zp9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<bd5> b;
-    public boolean c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948367782, "Lcom/baidu/tieba/zp9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948367782, "Lcom/baidu/tieba/zp9;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-    }
+    public int a;
+    public String b;
 
     public zp9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = null;
     }
 
-    @Override // com.baidu.tieba.pi
-    public BdUniqueId getType() {
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return d;
+            return this.b;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void a(JSONObject jSONObject) {
-        boolean z;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        boolean z2 = false;
-        if (jSONObject.optInt("need_profile", 0) == 1) {
-            z = true;
-        } else {
-            z = false;
+        try {
+            d(new JSONObject(str).optJSONObject("error"));
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
-        this.a = z;
-        JSONArray optJSONArray = jSONObject.optJSONArray("nearby_person_list");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.b = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                bd5 bd5Var = new bd5();
-                bd5Var.a(optJSONArray.optJSONObject(i));
-                this.b.add(bd5Var);
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            try {
+                this.a = jSONObject.optInt("errno");
+                this.b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
-        if (jSONObject.optInt("has_more", 0) == 1) {
-            z2 = true;
-        }
-        this.c = z2;
     }
 }

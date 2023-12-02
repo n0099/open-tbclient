@@ -1,26 +1,32 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopbarEntrance;
+import tbclient.FrsPage.ShowIcon;
+import tbclient.FrsPage.UserInfo;
 /* loaded from: classes8.dex */
-public class t2d extends ltc {
+public class t2d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TopbarEntrance topbarEntrance) {
+    public static JSONObject b(@NonNull UserInfo userInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topbarEntrance)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "guide_tip_first_text", topbarEntrance.guide_tip_first_text);
-            ltc.a(jSONObject, "guide_tip_text", topbarEntrance.guide_tip_text);
-            ltc.a(jSONObject, BigdayActivityConfig.JUMP_URL, topbarEntrance.jump_url);
+            ktc.a(jSONObject, "user_id", userInfo.user_id);
+            ktc.a(jSONObject, "portrait", userInfo.portrait);
+            ktc.a(jSONObject, "user_name", userInfo.user_name);
+            ktc.a(jSONObject, "gender", userInfo.gender);
+            ktc.a(jSONObject, "intro", userInfo.intro);
+            ShowIcon showIcon = userInfo.tshow_icon;
+            if (showIcon != null) {
+                ktc.a(jSONObject, "tshow_icon", x1d.b(showIcon));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

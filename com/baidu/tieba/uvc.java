@@ -4,22 +4,38 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ChatContent;
+import tbclient.AtMsgBase;
+import tbclient.ChatRoomAtInfo;
 /* loaded from: classes8.dex */
-public class uvc extends ltc {
+public class uvc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ChatContent chatContent) {
+    public static JSONObject b(@NonNull ChatRoomAtInfo chatRoomAtInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatContent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatRoomAtInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "scheme", chatContent.scheme);
-            ltc.a(jSONObject, "btn_text", chatContent.btn_text);
-            ltc.a(jSONObject, "bot_uk", chatContent.bot_uk);
+            ktc.a(jSONObject, "at_count_all", chatRoomAtInfo.at_count_all);
+            ktc.a(jSONObject, "at_all_msg_count", chatRoomAtInfo.at_all_msg_count);
+            ktc.a(jSONObject, "at_single_msg_count", chatRoomAtInfo.at_single_msg_count);
+            if (chatRoomAtInfo.at_all_msg_list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (AtMsgBase atMsgBase : chatRoomAtInfo.at_all_msg_list) {
+                    jSONArray.put(tuc.b(atMsgBase));
+                }
+                ktc.a(jSONObject, "at_all_msg_list", jSONArray);
+            }
+            if (chatRoomAtInfo.at_single_msg_list != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (AtMsgBase atMsgBase2 : chatRoomAtInfo.at_single_msg_list) {
+                    jSONArray2.put(tuc.b(atMsgBase2));
+                }
+                ktc.a(jSONObject, "at_single_msg_list", jSONArray2);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

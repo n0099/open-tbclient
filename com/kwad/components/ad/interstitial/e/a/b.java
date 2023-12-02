@@ -315,7 +315,7 @@ public final class b extends a {
     @Override // com.kwad.components.ad.interstitial.e.a.a, com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0914db);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0914dc);
         this.lc = frameLayout;
         frameLayout.setVisibility(0);
     }

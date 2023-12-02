@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tieba.o41;
+import com.baidu.tieba.q41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ public final class ml0 {
     public static Handler a;
     public static boolean b;
     public static Runnable c;
-    public static WeakReference<h41> d;
+    public static WeakReference<j41> d;
     public static final b e;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,18 +35,18 @@ public final class ml0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes7.dex */
-        public static final class a implements o41 {
+        public static final class a implements q41 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ p41 a;
+            public final /* synthetic */ r41 a;
             public final /* synthetic */ long b;
 
-            public a(p41 p41Var, long j) {
+            public a(r41 r41Var, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {p41Var, Long.valueOf(j)};
+                    Object[] objArr = {r41Var, Long.valueOf(j)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -56,11 +56,11 @@ public final class ml0 {
                         return;
                     }
                 }
-                this.a = p41Var;
+                this.a = r41Var;
                 this.b = j;
             }
 
-            @Override // com.baidu.tieba.o41
+            @Override // com.baidu.tieba.q41
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -68,15 +68,15 @@ public final class ml0 {
                 }
             }
 
-            @Override // com.baidu.tieba.o41
+            @Override // com.baidu.tieba.q41
             public void c() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    o41.a.a(this);
+                    q41.a.a(this);
                 }
             }
 
-            @Override // com.baidu.tieba.o41
+            @Override // com.baidu.tieba.q41
             public void d() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -86,7 +86,7 @@ public final class ml0 {
 
             /* JADX WARN: Removed duplicated region for block: B:24:0x005e  */
             /* JADX WARN: Removed duplicated region for block: B:25:0x0078  */
-            @Override // com.baidu.tieba.o41
+            @Override // com.baidu.tieba.q41
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
@@ -148,14 +148,14 @@ public final class ml0 {
 
         @JvmStatic
         public final void a() {
-            h41 h41Var;
+            j41 j41Var;
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
             WeakReference weakReference = ml0.d;
-            if (weakReference != null && (h41Var = (h41) weakReference.get()) != null) {
-                h41Var.f();
+            if (weakReference != null && (j41Var = (j41) weakReference.get()) != null) {
+                j41Var.f();
             }
             c();
         }
@@ -163,13 +163,13 @@ public final class ml0 {
         @JvmStatic
         public final boolean b() {
             InterceptResult invokeV;
-            h41 h41Var;
+            j41 j41Var;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
                 return invokeV.booleanValue;
             }
             WeakReference weakReference = ml0.d;
-            if (weakReference != null && (h41Var = (h41) weakReference.get()) != null && h41Var.isShowing()) {
+            if (weakReference != null && (j41Var = (j41) weakReference.get()) != null && j41Var.isShowing()) {
                 return true;
             }
             return false;
@@ -189,29 +189,29 @@ public final class ml0 {
         }
 
         @JvmStatic
-        public final void d(Context context, p41 model) {
-            h41 h41Var;
+        public final void d(Context context, r41 model) {
+            j41 j41Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, context, model) == null) {
                 Intrinsics.checkNotNullParameter(context, "context");
                 Intrinsics.checkNotNullParameter(model, "model");
-                if (!v41.a()) {
+                if (!x41.a()) {
                     WeakReference weakReference = ml0.d;
-                    if (weakReference != null && (h41Var = (h41) weakReference.get()) != null && h41Var.isShowing()) {
+                    if (weakReference != null && (j41Var = (j41) weakReference.get()) != null && j41Var.isShowing()) {
                         return;
                     }
                     if (model.d() != -1) {
                         ml0.a.postDelayed(ml0.c, model.d());
                     }
                     if (!(context instanceof Activity)) {
-                        n61.d(new IllegalArgumentException("Error, WebPanel need context is Activity."));
+                        p61.d(new IllegalArgumentException("Error, WebPanel need context is Activity."));
                         return;
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     xk0 a2 = bl0.a();
                     Intrinsics.checkNotNullExpressionValue(a2, "NadRewardVideoLpRuntime.getUIProvider()");
-                    h41 h41Var2 = new h41(context, a2.x());
-                    h41Var2.j(new a(model, currentTimeMillis));
+                    j41 j41Var2 = new j41(context, a2.B());
+                    j41Var2.j(new a(model, currentTimeMillis));
                     model.O(true);
                     model.R(true);
                     model.Q(!model.c());
@@ -220,9 +220,9 @@ public final class ml0 {
                     model.H(true);
                     model.N(false);
                     Unit unit = Unit.INSTANCE;
-                    h41Var2.i(model);
-                    h41Var2.k();
-                    ml0.d = new WeakReference(h41Var2);
+                    j41Var2.i(model);
+                    j41Var2.k();
+                    ml0.d = new WeakReference(j41Var2);
                 }
             }
         }

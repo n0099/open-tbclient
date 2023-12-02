@@ -1,28 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class he4<T> {
+public abstract class he4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile he4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract ContentValues c(T t);
+    public abstract boolean a(jf4 jf4Var, PMSAppInfo pMSAppInfo);
 
-    public abstract T d(Cursor cursor) throws SQLException;
+    public abstract boolean b(jf4 jf4Var, List<kf4> list, hf4 hf4Var, ff4 ff4Var, PMSAppInfo pMSAppInfo);
 
-    public abstract List<T> e(Cursor cursor) throws SQLException;
+    public abstract void c(String str);
+
+    public abstract void d(String str, String str2);
+
+    public abstract <T extends if4> boolean e(Class<T> cls, String str);
+
+    public abstract boolean f(lf4 lf4Var);
+
+    public abstract boolean g(List<lf4> list);
+
+    public abstract boolean h(String str);
+
+    @WorkerThread
+    public abstract int j(@NonNull String str);
+
+    @NonNull
+    @WorkerThread
+    public abstract List<kf4> k(@NonNull String str, int i);
+
+    public abstract boolean l(PMSAppInfo pMSAppInfo);
+
+    public abstract <T extends if4> boolean m(T t);
+
+    public abstract boolean n(String str, String str2, String str3);
+
+    public abstract <T extends if4> T o(Class<T> cls, String str);
+
+    public abstract Map<String, jf4> p();
+
+    public abstract lf4 q(String str, long j, long j2);
+
+    public abstract List<lf4> r(String str, String[] strArr);
+
+    public abstract List<lf4> s(String str, long j, long j2);
+
+    @Nullable
+    public abstract mf4 t(String str);
+
+    public abstract PMSAppInfo u(String str);
+
+    public abstract Map<String, PMSAppInfo> v();
+
+    public abstract List<lf4> w(String str);
+
+    public abstract boolean x(lf4 lf4Var);
+
+    public abstract boolean y(PMSAppInfo pMSAppInfo);
+
+    public abstract boolean z(String str, int i);
 
     public he4() {
         Interceptable interceptable = $ic;
@@ -38,70 +85,19 @@ public abstract class he4<T> {
         }
     }
 
-    public ContentValues a(ff4 ff4Var) {
-        InterceptResult invokeL;
+    public static he4 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ff4Var)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("bundle_id", ff4Var.g);
-            contentValues.put("category", Integer.valueOf(ff4Var.h));
-            contentValues.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, ff4Var.j);
-            contentValues.put("version_code", Long.valueOf(ff4Var.i));
-            contentValues.put("size", Long.valueOf(ff4Var.k));
-            contentValues.put("md5", ff4Var.l);
-            contentValues.put("sign", ff4Var.m);
-            contentValues.put("downloadUrl", ff4Var.n);
-            contentValues.put(PackageTable.FILE_PATH, ff4Var.a);
-            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(ff4Var.b));
-            contentValues.put("create_time", Long.valueOf(ff4Var.c));
-            contentValues.put("update_time", Long.valueOf(ff4Var.d));
-            contentValues.put("state", Integer.valueOf(ff4Var.e));
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public boolean b(Cursor cursor, ff4 ff4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor, ff4Var)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("bundle_id");
-                int columnIndex2 = cursor.getColumnIndex("category");
-                int columnIndex3 = cursor.getColumnIndex(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
-                int columnIndex4 = cursor.getColumnIndex("version_code");
-                int columnIndex5 = cursor.getColumnIndex("size");
-                int columnIndex6 = cursor.getColumnIndex("md5");
-                int columnIndex7 = cursor.getColumnIndex("sign");
-                int columnIndex8 = cursor.getColumnIndex("downloadUrl");
-                int columnIndex9 = cursor.getColumnIndex("_id");
-                int columnIndex10 = cursor.getColumnIndex(PackageTable.FILE_PATH);
-                int columnIndex11 = cursor.getColumnIndex(PackageTable.CURRENT_SIZE);
-                int columnIndex12 = cursor.getColumnIndex("create_time");
-                int columnIndex13 = cursor.getColumnIndex("update_time");
-                int columnIndex14 = cursor.getColumnIndex("state");
-                String string = cursor.getString(columnIndex);
-                if (TextUtils.isEmpty(string)) {
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (he4.class) {
+                    if (a == null) {
+                        a = new ie4();
+                    }
                 }
-                ff4Var.g = string;
-                ff4Var.h = cursor.getInt(columnIndex2);
-                ff4Var.j = cursor.getString(columnIndex3);
-                ff4Var.i = cursor.getLong(columnIndex4);
-                ff4Var.k = cursor.getLong(columnIndex5);
-                ff4Var.l = cursor.getString(columnIndex6);
-                ff4Var.m = cursor.getString(columnIndex7);
-                ff4Var.n = cursor.getString(columnIndex8);
-                ff4Var.a = cursor.getString(columnIndex10);
-                ff4Var.b = cursor.getLong(columnIndex11);
-                ff4Var.c = cursor.getLong(columnIndex12);
-                ff4Var.d = cursor.getLong(columnIndex13);
-                ff4Var.f = cursor.getLong(columnIndex9);
-                ff4Var.e = cursor.getInt(columnIndex14);
-                return true;
             }
-            return false;
+            return a;
         }
-        return invokeLL.booleanValue;
+        return (he4) invokeV.objValue;
     }
 }

@@ -666,10 +666,10 @@ public abstract class BaseSlider<S extends BaseSlider<S, L, T>, L extends BaseOn
     }
 
     private void loadResources(@NonNull Resources resources) {
-        this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07063f);
-        this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07063d);
-        this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07063e);
-        this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070637);
+        this.widgetHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070642);
+        this.trackSidePadding = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070640);
+        this.trackTop = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070641);
+        this.labelPadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07063a);
     }
 
     private boolean moveFocus(int i) {

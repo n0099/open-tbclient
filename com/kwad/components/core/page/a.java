@@ -111,9 +111,9 @@ public class a extends f implements a.InterfaceC0632a, aq.b {
         getActivity().setTheme(R.style.obfuscated_res_0x7f100243);
         setContentView(R.layout.obfuscated_res_0x7f0d04a7);
         b(getIntent());
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913f9);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913fa);
         oQ();
-        com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913fe));
+        com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913ff));
         this.oK = aVar;
         aVar.a(this.mAdTemplate, this.mRootContainer, this.mApkDownloadHelper);
         this.oK.a(this);

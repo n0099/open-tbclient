@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.coreExtra.view.LiveRoomEntranceButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ai5;
+import com.baidu.tieba.di5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -292,7 +292,7 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ai5.a(this.b, "enter_live_room_animation.png");
+            di5.a(this.b, "enter_live_room_animation.png");
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
             this.a.addView(this.b, new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize));
         }
@@ -335,7 +335,7 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
             layoutParams.addRule(15);
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             addView(this.d, layoutParams);
-            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yb5
+            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bc5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -366,7 +366,7 @@ public final class LiveRoomEntranceButton extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             EMManager.from(this).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0619).setBackGroundColor(R.color.CAM_X0604);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zb5
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cc5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

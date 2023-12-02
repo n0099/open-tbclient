@@ -20,25 +20,25 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class drawable {
-        public static final int pass_base_ui_common_dialog_bg = 0x7f081166;
-        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f081167;
+        public static final int pass_base_ui_common_dialog_bg = 0x7f081169;
+        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f08116a;
     }
 
     /* loaded from: classes3.dex */
     public static final class id {
-        public static final int negative_btn = 0x7f0919fb;
-        public static final int pass_base_ui_dialog_content = 0x7f091b46;
-        public static final int pass_base_ui_dialog_horizontal_split_line = 0x7f091b47;
-        public static final int pass_base_ui_dialog_root_view = 0x7f091b48;
-        public static final int pass_base_ui_dialog_title = 0x7f091b49;
-        public static final int pass_base_ui_dialog_vertical_split_line = 0x7f091b4a;
-        public static final int pass_base_ui_first_btn_layout = 0x7f091b4b;
-        public static final int positive_btn = 0x7f091de3;
+        public static final int negative_btn = 0x7f0919fd;
+        public static final int pass_base_ui_dialog_content = 0x7f091b48;
+        public static final int pass_base_ui_dialog_horizontal_split_line = 0x7f091b49;
+        public static final int pass_base_ui_dialog_root_view = 0x7f091b4a;
+        public static final int pass_base_ui_dialog_title = 0x7f091b4b;
+        public static final int pass_base_ui_dialog_vertical_split_line = 0x7f091b4c;
+        public static final int pass_base_ui_first_btn_layout = 0x7f091b4d;
+        public static final int positive_btn = 0x7f091de5;
     }
 
     /* loaded from: classes3.dex */
     public static final class layout {
-        public static final int pass_sdk_base_ui_common_dialog = 0x7f0d079e;
+        public static final int pass_sdk_base_ui_common_dialog = 0x7f0d079f;
     }
 
     /* loaded from: classes3.dex */

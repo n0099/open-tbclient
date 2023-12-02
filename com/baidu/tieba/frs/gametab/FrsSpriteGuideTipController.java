@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.core.widget.SpriteBottomTipView;
-import com.baidu.tieba.fr6;
 import com.baidu.tieba.frs.gametab.FrsSpriteGuideTipController;
-import com.baidu.tieba.ik5;
-import com.baidu.tieba.oq6;
+import com.baidu.tieba.jr6;
+import com.baidu.tieba.lk5;
 import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
+import com.baidu.tieba.sq6;
 import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,7 +40,7 @@ public final class FrsSpriteGuideTipController {
     public final String b;
     public final SpriteAnimationTipManager c;
     public a d;
-    public oq6.e e;
+    public sq6.e e;
     public boolean f;
 
     /* loaded from: classes6.dex */
@@ -134,24 +134,24 @@ public final class FrsSpriteGuideTipController {
         } else {
             str = "funny_sprite_appear_dark";
         }
-        fr6 a2 = ik5.a(FunnySpriteResDownloadUtil.i(str, "see_res", true), false, 2);
+        jr6 a2 = lk5.a(FunnySpriteResDownloadUtil.i(str, "see_res", true), false, 2);
         if (z) {
             str2 = "funny_sprite_show_day";
         } else {
             str2 = "funny_sprite_show_dark";
         }
-        fr6 a3 = ik5.a(FunnySpriteResDownloadUtil.i(str2, "see_res", true), true, 2);
+        jr6 a3 = lk5.a(FunnySpriteResDownloadUtil.i(str2, "see_res", true), true, 2);
         if (z) {
             str3 = "funny_sprite_exit_day";
         } else {
             str3 = "funny_sprite_exit_dark";
         }
-        this.c.v(a2, a3, ik5.a(FunnySpriteResDownloadUtil.i(str3, "see_res", true), false, 2));
+        this.c.v(a2, a3, lk5.a(FunnySpriteResDownloadUtil.i(str3, "see_res", true), false, 2));
         this.c.z(d(this.a));
         this.c.A(4000L);
         this.c.t(UtilHelper.getDimenPixelSize(R.dimen.tbds120), UtilHelper.getDimenPixelSize(R.dimen.tbds239));
         this.c.u(c());
-        this.c.w(new View.OnClickListener() { // from class: com.baidu.tieba.nz7
+        this.c.w(new View.OnClickListener() { // from class: com.baidu.tieba.rz7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -202,7 +202,7 @@ public final class FrsSpriteGuideTipController {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     this.this$0.k(false);
-                    oq6.e f = this.this$0.f();
+                    sq6.e f = this.this$0.f();
                     if (f != null) {
                         f.onDismiss();
                     }
@@ -215,7 +215,7 @@ public final class FrsSpriteGuideTipController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            String c = ik5.c("", 0, this$0.b);
+            String c = lk5.c("", 0, this$0.b);
             if (StringsKt__StringsJVMKt.startsWith$default(c, "tiebaapp://router/portal", false, 2, null)) {
                 UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{c});
             }
@@ -229,7 +229,7 @@ public final class FrsSpriteGuideTipController {
         }
     }
 
-    public final void j(oq6.e eVar) {
+    public final void j(sq6.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, eVar) == null) {
             this.e = eVar;
@@ -264,13 +264,13 @@ public final class FrsSpriteGuideTipController {
         return (a) invokeV.objValue;
     }
 
-    public final oq6.e f() {
+    public final sq6.e f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.e;
         }
-        return (oq6.e) invokeV.objValue;
+        return (sq6.e) invokeV.objValue;
     }
 
     public final void g() {
@@ -279,7 +279,7 @@ public final class FrsSpriteGuideTipController {
             DefaultLog.getInstance().i("FrsGuide", "精灵动画提示控件：隐藏吧引导");
             this.c.q();
             this.f = false;
-            oq6.e eVar = this.e;
+            sq6.e eVar = this.e;
             if (eVar != null) {
                 eVar.onDismiss();
             }

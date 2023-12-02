@@ -44,11 +44,11 @@ public class qg0 extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            tz0[] tz0VarArr = {new zy0().b()};
+            vz0[] vz0VarArr = {new bz0().b()};
             for (int i = 0; i < 1; i++) {
-                tz0 tz0Var = tz0VarArr[i];
-                sQLiteDatabase.execSQL(qz0.b(tz0Var));
-                Iterator<String> it = qz0.a(tz0Var).iterator();
+                vz0 vz0Var = vz0VarArr[i];
+                sQLiteDatabase.execSQL(sz0.b(vz0Var));
+                Iterator<String> it = sz0.a(vz0Var).iterator();
                 while (it.hasNext()) {
                     sQLiteDatabase.execSQL(it.next());
                 }

@@ -43,7 +43,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.b implement
             return;
         }
         AdInfo dP = e.dP(this.mAdTemplate);
-        ViewGroup viewGroup = (ViewGroup) this.qn.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09145b);
+        ViewGroup viewGroup = (ViewGroup) this.qn.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09145c);
         if (viewGroup == null) {
             return;
         }

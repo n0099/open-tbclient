@@ -86,10 +86,10 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     private void B(Context context) {
         this.mContext = context;
         l.inflate(context, R.layout.obfuscated_res_0x7f0d04c1, this);
-        this.dx = (ImageView) findViewById(R.id.obfuscated_res_0x7f091323);
-        this.dy = (TextView) findViewById(R.id.obfuscated_res_0x7f091319);
-        this.dz = (TextView) findViewById(R.id.obfuscated_res_0x7f091325);
-        this.mLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09135b);
+        this.dx = (ImageView) findViewById(R.id.obfuscated_res_0x7f091324);
+        this.dy = (TextView) findViewById(R.id.obfuscated_res_0x7f09131a);
+        this.dz = (TextView) findViewById(R.id.obfuscated_res_0x7f091326);
+        this.mLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09135c);
     }
 
     private void aG() {

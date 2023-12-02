@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.b05;
 import com.baidu.tieba.da;
+import com.baidu.tieba.e05;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
-import com.baidu.tieba.ny4;
+import com.baidu.tieba.qy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ny4 data;
+    public qy4 data;
     public int mErrCode;
     public String mErrMsg;
 
@@ -71,8 +71,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                     z = false;
                 }
                 String str2 = new String(bArr);
-                b05.k();
-                da<String> l = b05.l("tb.my_pages");
+                e05.k();
+                da<String> l = e05.l("tb.my_pages");
                 if (l != null) {
                     if (z) {
                         str = "personal_followme";
@@ -94,20 +94,20 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                ny4 ny4Var = new ny4();
-                this.data = ny4Var;
-                ny4Var.c(jSONObject);
+                qy4 qy4Var = new qy4();
+                this.data = qy4Var;
+                qy4Var.c(jSONObject);
             }
         }
     }
 
-    public ny4 getData() {
+    public qy4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.data;
         }
-        return (ny4) invokeV.objValue;
+        return (qy4) invokeV.objValue;
     }
 
     public String getErrMsg() {

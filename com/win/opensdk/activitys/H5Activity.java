@@ -271,7 +271,7 @@ public class H5Activity extends Activity implements L1 {
         }
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:70:0x01ee -> B:82:0x01f1). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:70:0x01eb -> B:82:0x01ee). Please submit an issue!!! */
     @Override // com.win.opensdk.L1
     public void a(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
@@ -377,10 +377,10 @@ public class H5Activity extends Activity implements L1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0a68);
+            setContentView(R.layout.obfuscated_res_0x7f0d0a69);
             this.a = getApplicationContext();
-            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092b35);
-            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f092b2c);
+            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092b3b);
+            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f092b32);
             this.h = 0L;
             this.i = new m2(this);
             M1.a("hcl", this);

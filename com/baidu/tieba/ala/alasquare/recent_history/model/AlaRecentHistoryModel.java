@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.recent_history.message.AlaRecentHistoryResponseMessage;
-import com.baidu.tieba.ca6;
-import com.baidu.tieba.da6;
+import com.baidu.tieba.ga6;
+import com.baidu.tieba.ha6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import java.util.List;
 public class AlaRecentHistoryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<da6> a;
+    public List<ha6> a;
     public b b;
     public int c;
     public int d;
@@ -39,7 +39,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(boolean z, List<da6> list);
+        void a(boolean z, List<ha6> list);
 
         void b(int i, String str, boolean z);
     }
@@ -98,12 +98,12 @@ public class AlaRecentHistoryModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021082 && (httpResponsedMessage instanceof AlaRecentHistoryResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.g) {
                 AlaRecentHistoryResponseMessage alaRecentHistoryResponseMessage = (AlaRecentHistoryResponseMessage) httpResponsedMessage;
                 if (alaRecentHistoryResponseMessage.isSuccess()) {
-                    ca6 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
+                    ga6 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
                     if (recentHistoryData == null) {
                         return;
                     }
                     this.a.e = recentHistoryData.a;
-                    List<da6> list = recentHistoryData.b;
+                    List<ha6> list = recentHistoryData.b;
                     if (this.a.f) {
                         if (!ListUtils.isEmpty(list)) {
                             AlaRecentHistoryModel.T(this.a);
@@ -168,7 +168,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         }
     }
 
-    public List<da6> getData() {
+    public List<ha6> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

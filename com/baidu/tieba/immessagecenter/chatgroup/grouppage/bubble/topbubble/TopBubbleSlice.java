@@ -29,18 +29,18 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a59;
-import com.baidu.tieba.grb;
+import com.baidu.tieba.e59;
+import com.baidu.tieba.frb;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.lib.socket.msg.data.TopBubbleData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.adapter.PinnedOverlayAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
-import com.baidu.tieba.k05;
-import com.baidu.tieba.m05;
-import com.baidu.tieba.q39;
-import com.baidu.tieba.r39;
+import com.baidu.tieba.n05;
+import com.baidu.tieba.p05;
+import com.baidu.tieba.u39;
+import com.baidu.tieba.v39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class TopBubbleSlice extends Slice implements q39 {
+public class TopBubbleSlice extends Slice implements u39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -172,7 +172,7 @@ public class TopBubbleSlice extends Slice implements q39 {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null || (topBubbleData = (TopBubbleData) view2.getTag(R.id.obfuscated_res_0x7f090725)) == null) {
                 return;
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f091a98) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f091a9a) {
                 this.a.x0();
             } else if (topBubbleData.isExcellent() || this.a.t.p()) {
                 this.a.x0();
@@ -186,7 +186,7 @@ public class TopBubbleSlice extends Slice implements q39 {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null || (topBubbleData = (TopBubbleData) view2.getTag(R.id.obfuscated_res_0x7f090725)) == null) {
                 return;
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f091a98) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f091a9a) {
                 this.a.r0(topBubbleData);
                 this.a.r.dismiss();
                 this.a.t.s(true);
@@ -241,18 +241,18 @@ public class TopBubbleSlice extends Slice implements q39 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements m05.f {
+    public class d implements p05.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k05 a;
+        public final /* synthetic */ n05 a;
         public final /* synthetic */ TopBubbleSlice b;
 
-        public d(TopBubbleSlice topBubbleSlice, k05 k05Var) {
+        public d(TopBubbleSlice topBubbleSlice, n05 n05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {topBubbleSlice, k05Var};
+                Object[] objArr = {topBubbleSlice, n05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -263,20 +263,20 @@ public class TopBubbleSlice extends Slice implements q39 {
                 }
             }
             this.b = topBubbleSlice;
-            this.a = k05Var;
+            this.a = n05Var;
         }
 
-        @Override // com.baidu.tieba.m05.f
-        public void E0(m05 m05Var, int i, View view2) {
+        @Override // com.baidu.tieba.p05.f
+        public void E0(p05 p05Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, m05Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, p05Var, i, view2) == null) {
                 if (i != 0) {
                     if (i == 1) {
                         this.b.y0();
                         this.a.dismiss();
                     }
                 } else if (!StringUtils.isNull(this.b.n) && !StringUtils.isNull(this.b.q)) {
-                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{r39.d(grb.a(grb.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.q), "forumId", this.b.n))});
+                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{v39.d(frb.a(frb.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.q), "forumId", this.b.n))});
                     this.a.dismiss();
                 }
             }
@@ -312,7 +312,7 @@ public class TopBubbleSlice extends Slice implements q39 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.t.n();
-                a59.b(this.a.j.getPageActivity());
+                e59.b(this.a.j.getPageActivity());
             }
         }
     }
@@ -345,8 +345,8 @@ public class TopBubbleSlice extends Slice implements q39 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 f fVar = new f();
                 fVar.a = view2;
-                fVar.b = (TopBubbleView) view2.findViewById(R.id.obfuscated_res_0x7f091a98);
-                fVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092409);
+                fVar.b = (TopBubbleView) view2.findViewById(R.id.obfuscated_res_0x7f091a9a);
+                fVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09240b);
                 return fVar;
             }
             return (f) invokeL.objValue;
@@ -385,13 +385,13 @@ public class TopBubbleSlice extends Slice implements q39 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 g gVar = new g();
                 gVar.a = view2;
-                gVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ddc);
-                RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090adc);
+                gVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091dde);
+                RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090add);
                 gVar.c = recyclerView;
                 recyclerView.setLayoutManager(new LinearLayoutManager(view2.getContext()));
-                gVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090add);
-                gVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ade);
-                gVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b2c);
+                gVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ade);
+                gVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090adf);
+                gVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b2e);
                 gVar.b();
                 return gVar;
             }
@@ -469,12 +469,12 @@ public class TopBubbleSlice extends Slice implements q39 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09d5, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09d6, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.q39
+    @Override // com.baidu.tieba.u39
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -536,7 +536,7 @@ public class TopBubbleSlice extends Slice implements q39 {
         }
     }
 
-    @Override // com.baidu.tieba.q39
+    @Override // com.baidu.tieba.u39
     public void r(@NonNull List<TopBubbleData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
@@ -589,7 +589,7 @@ public class TopBubbleSlice extends Slice implements q39 {
             if (c2 != 0) {
                 if (c2 != 1) {
                     if (c2 == 2) {
-                        r39.f(topBubbleData.getVersionKey(), true);
+                        v39.f(topBubbleData.getVersionKey(), true);
                         this.l.i1(topBubbleData.getMsgId(), topBubbleData.getMsgKey());
                         return;
                     }
@@ -668,9 +668,9 @@ public class TopBubbleSlice extends Slice implements q39 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             String[] strArr = {this.j.getString(R.string.obfuscated_res_0x7f0f042e), this.j.getString(R.string.obfuscated_res_0x7f0f09ec)};
-            k05 k05Var = new k05(this.j);
-            k05Var.i(null, strArr, new d(this, k05Var));
-            k05Var.l();
+            n05 n05Var = new n05(this.j);
+            n05Var.i(null, strArr, new d(this, n05Var));
+            n05Var.l();
         }
     }
 

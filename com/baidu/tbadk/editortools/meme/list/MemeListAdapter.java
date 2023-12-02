@@ -23,13 +23,13 @@ import com.baidu.tbadk.editortools.meme.view.AigcGenerateImageView;
 import com.baidu.tbadk.editortools.meme.view.AigcImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
+import com.baidu.tieba.ag5;
+import com.baidu.tieba.bg5;
+import com.baidu.tieba.br6;
+import com.baidu.tieba.dr6;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.wf5;
 import com.baidu.tieba.xd;
-import com.baidu.tieba.xf5;
-import com.baidu.tieba.xq6;
-import com.baidu.tieba.yf5;
-import com.baidu.tieba.zq6;
+import com.baidu.tieba.zf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -121,10 +121,10 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             BdPageContext<?> a = a5.a(view2.getContext());
             if (!StringsKt__StringsJVMKt.isBlank(str)) {
                 if (a != null) {
-                    zq6 b = xq6.b();
+                    dr6 b = br6.b();
                     BdUniqueId uniqueId = a.getUniqueId();
                     Intrinsics.checkNotNullExpressionValue(uniqueId, "pageContext.uniqueId");
-                    b.c(new yf5(memeData, str, uniqueId));
+                    b.c(new bg5(memeData, str, uniqueId));
                 }
                 this$0.t(2, memeData);
             }
@@ -194,7 +194,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 final MemeData memeData = this.b.get(i);
                 MemeViewHolder memeViewHolder = (MemeViewHolder) holder;
                 memeViewHolder.a().h(memeData);
-                memeViewHolder.a().setOnLoadingClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bg5
+                memeViewHolder.a().setOnLoadingClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.eg5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -205,7 +205,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                             MemeListAdapter.n(MemeListAdapter.this, view2);
                         }
                     }
-                }, new View.OnClickListener() { // from class: com.baidu.tieba.ag5
+                }, new View.OnClickListener() { // from class: com.baidu.tieba.dg5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -217,7 +217,7 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                         }
                     }
                 });
-                memeViewHolder.a().setOnImageClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zf5
+                memeViewHolder.a().setOnImageClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cg5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -313,14 +313,14 @@ public final class MemeListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public final void t(int i, MemeData memeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, memeData) == null) {
-            xf5 xf5Var = new xf5();
-            xf5Var.l(i);
-            xf5Var.h(memeData.getId());
-            xf5Var.i(memeData.getRequestQuery());
-            xf5Var.j(memeData.getObjSource());
-            xf5Var.g(this.c);
-            xf5Var.k(this.d);
-            wf5.a.b(xf5Var);
+            ag5 ag5Var = new ag5();
+            ag5Var.l(i);
+            ag5Var.h(memeData.getId());
+            ag5Var.i(memeData.getRequestQuery());
+            ag5Var.j(memeData.getObjSource());
+            ag5Var.g(this.c);
+            ag5Var.k(this.d);
+            zf5.a.b(ag5Var);
         }
     }
 }

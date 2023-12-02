@@ -1,20 +1,14 @@
 package com.baidu.tieba;
 
-import android.net.http.SslError;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebResourceRequest;
+import android.webkit.JsPromptResult;
 import android.webkit.WebView;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface qj6 {
-    void a(WebView webView, String str);
+    void a(WebView webView, String str, JSONObject jSONObject);
 
-    void b(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence);
+    @Deprecated
+    boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult);
 
-    void c(WebView webView, String str);
-
-    void onPageFinished(WebView webView, String str);
-
-    void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
-
-    boolean shouldOverrideUrlLoading(WebView webView, String str);
+    void onDestroy();
 }

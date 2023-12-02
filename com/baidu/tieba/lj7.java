@@ -1,43 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.GeneralTabList.DataRes;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
-public final class lj7 implements l15 {
+public final class lj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.l15
-    public Class<? extends j15> a() {
-        InterceptResult invokeV;
+    public static final List<VideoItemData> a(DataRes dataRes) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? kj7.class : (Class) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l15
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsCopyLinkGuide" : (String) invokeV.objValue;
-    }
-
-    public lj7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dataRes)) == null) {
+            Intrinsics.checkNotNullParameter(dataRes, "<this>");
+            List<ThreadInfo> list = dataRes.general_list;
+            if (list != null) {
+                ArrayList arrayList = new ArrayList();
+                for (ThreadInfo threadInfo : list) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.parserProtobuf(threadInfo);
+                    VideoItemData videoItemData = new VideoItemData();
+                    videoItemData.buildWithThreadData(threadData);
+                    arrayList.add(videoItemData);
+                }
+                return arrayList;
             }
+            return CollectionsKt__CollectionsKt.emptyList();
         }
+        return (List) invokeL.objValue;
     }
 }

@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.if0;
-import com.baidu.tieba.re5;
-import com.baidu.tieba.rh9;
-import com.baidu.tieba.sh9;
-import com.baidu.tieba.uh9;
+import com.baidu.tieba.ue5;
 import com.baidu.tieba.vh9;
+import com.baidu.tieba.wh9;
+import com.baidu.tieba.yh9;
+import com.baidu.tieba.zh9;
 /* loaded from: classes4.dex */
 public class InitSDKWithPrivacyTask extends LaunchTask {
     public static final String LBS_API_KEY = "ZcNrGBp4BZPVHSz6ODfQGHRAyPQoxc9E";
@@ -56,14 +56,10 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     }
 
     private void initBaiduMap() {
-        BdLocationMananger.getInstance().registerProvider(sh9.t());
-        boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
-        if (Build.VERSION.SDK_INT <= 4) {
-            loadBoolean = false;
+        if (!PermissionUtil.isAgreePrivacyPolicy()) {
+            return;
         }
-        if (loadBoolean) {
-            BdLocationMananger.getInstance().registerProvider(rh9.j());
-        }
+        BdLocationMananger.getInstance().registerProvider(wh9.t());
         MessageManager.getInstance().registerListener(new CustomMessageListener(2010044) { // from class: com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -71,17 +67,17 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
                 EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                 if (editorTools.getCollectTools().indexOf(8) != -1) {
                     if (editorTools.C()) {
-                        editorTools.f(new uh9(editorTools.getContext(), true));
+                        editorTools.f(new yh9(editorTools.getContext(), true));
                     } else {
-                        editorTools.f(new uh9(editorTools.getContext()));
+                        editorTools.f(new yh9(editorTools.getContext()));
                     }
                 }
             }
         });
         CustomMessageTask customMessageTask = new CustomMessageTask(2016556, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<re5> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2016556, new vh9(customMessage.getData(), 0));
+            public CustomResponsedMessage<ue5> run(CustomMessage<Context> customMessage) {
+                return new CustomResponsedMessage<>(2016556, new zh9(customMessage.getData(), 0));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -121,6 +117,13 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         try {
             SDKInitializer.initialize(TbadkCoreApplication.getInst());
         } catch (BaiduMapSDKException unused) {
+        }
+        boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
+        if (Build.VERSION.SDK_INT <= 4) {
+            loadBoolean = false;
+        }
+        if (loadBoolean) {
+            BdLocationMananger.getInstance().registerProvider(vh9.j());
         }
     }
 }

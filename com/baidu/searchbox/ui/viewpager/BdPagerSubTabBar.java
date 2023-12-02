@@ -23,10 +23,10 @@ public class BdPagerSubTabBar extends BdPagerTabBar {
 
     private void init(Context context) {
         setAdapter(new BdPagerTabBar.TabAdapter(context, true, false));
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08151e));
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f081165);
-        setTabTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07076b));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081521));
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f081168);
+        setTabTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07076f));
         setTabTextColor(getResources().getColorStateList(R.color.obfuscated_res_0x7f060b50));
-        setTabBackground(R.drawable.obfuscated_res_0x7f081521);
+        setTabBackground(R.drawable.obfuscated_res_0x7f081524);
     }
 }

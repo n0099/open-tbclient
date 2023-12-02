@@ -103,12 +103,12 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 String str = "im_" + String.valueOf(System.currentTimeMillis());
-                String renameTo = FileHelper.renameTo(this.this$0.mSPath, this.this$0.mSName, TiebaIMConfig.POST_IMAGE_PATH, str + "_send");
+                String tmpSuffixRenameTo = FileHelper.tmpSuffixRenameTo(this.this$0.mSPath, this.this$0.mSName, TiebaIMConfig.POST_IMAGE_PATH, str + "_send");
                 String str2 = str + "_display";
-                String renameTo2 = FileHelper.renameTo(this.this$0.mDPath, this.this$0.mDName, TiebaIMConfig.POST_IMAGE_PATH, str2);
-                Bitmap image = FileHelper.getImage(TiebaIMConfig.POST_IMAGE_PATH, str2);
-                if (renameTo != null && renameTo2 != null && image != null) {
-                    return new ResponseData(image, renameTo, renameTo2, this.this$0.extraMap);
+                String tmpSuffixRenameTo2 = FileHelper.tmpSuffixRenameTo(this.this$0.mDPath, this.this$0.mDName, TiebaIMConfig.POST_IMAGE_PATH, str2);
+                Bitmap tempImg = FileHelper.getTempImg(TiebaIMConfig.POST_IMAGE_PATH, str2);
+                if (tmpSuffixRenameTo != null && tmpSuffixRenameTo2 != null && tempImg != null) {
+                    return new ResponseData(tempImg, tmpSuffixRenameTo, tmpSuffixRenameTo2, this.this$0.extraMap);
                 }
                 return null;
             }

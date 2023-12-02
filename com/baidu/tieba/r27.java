@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.ContextWrapper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class r27 extends ContextWrapper {
+public class r27 implements pi {
     public static /* synthetic */ Interceptable $ic;
-    public static final r27 a;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ForumEmotionPackageData a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,12 +29,10 @@ public final class r27 extends ContextWrapper {
                 return;
             }
         }
-        a = new r27();
+        b = BdUniqueId.gen();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r27() {
-        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,21 +40,19 @@ public final class r27 extends ContextWrapper {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    public final void a(Context context) {
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            if (getBaseContext() == null) {
-                attachBaseContext(context);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

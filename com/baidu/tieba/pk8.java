@@ -1,175 +1,173 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import tbclient.NewTopicList.PkItem;
+import tbclient.NewTopicList.PkModule;
 /* loaded from: classes7.dex */
 public class pk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeRecyclerView b;
-    public LinkedList<ci> c;
-    public vk8 d;
-    public qk8 e;
-    public tk8 f;
-    public uk8 g;
-    public sk8 h;
-    public rk8 i;
+    public long a;
+    public long b;
+    public long c;
+    public a d;
+    public a e;
+    public int f;
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public String b;
+        public String c;
+        public String d;
+        public boolean e;
+        public long f;
+        public String g;
+
+        public a(pk8 pk8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pk8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
     }
 
-    public pk8(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public pk8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        this.c = new LinkedList<>();
-        b();
-    }
-
-    public List<pi> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.b;
-            if (bdTypeRecyclerView != null) {
-                return bdTypeRecyclerView.getData();
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void c() {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeRecyclerView = this.b) != null) {
-            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void e() {
-        qk8 qk8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (qk8Var = this.e) != null) {
-            qk8Var.onPause();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = new vk8(this.a, zm6.E0);
-            this.e = new qk8(this.a, an6.U);
-            this.f = new tk8(this.a, zm6.N0);
-            this.g = new uk8(this.a, zm6.L0);
-            this.h = new sk8(this.a, zm6.F0);
-            this.i = new rk8(this.a, zm6.M0);
-            this.d.A(this.b);
-            this.e.G(this.b);
-            this.f.z(this.b);
-            this.g.A(this.b);
-            this.h.B(this.b);
-            this.i.D(this.b);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.c.add(this.h);
-            this.c.add(this.i);
-            this.b.addAdapters(this.c);
-        }
-    }
-
-    public void f(List<pi> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b.setData(list);
-        }
-    }
-
-    public void g(NEGFeedBackView.NEGFeedbackEventCallback nEGFeedbackEventCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nEGFeedbackEventCallback) == null) {
-            uk8 uk8Var = this.g;
-            if (uk8Var != null) {
-                uk8Var.y(nEGFeedbackEventCallback);
-            }
-            vk8 vk8Var = this.d;
-            if (vk8Var != null) {
-                vk8Var.y(nEGFeedbackEventCallback);
             }
         }
     }
 
-    public void i(yh8 yh8Var) {
+    public void a(PkModule pkModule) {
+        String str;
+        boolean z;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yh8Var) == null) {
-            qk8 qk8Var = this.e;
-            if (qk8Var != null) {
-                qk8Var.F(yh8Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            this.b = pkModule.pk_id.longValue();
+            this.c = pkModule.user_pk_id.longValue();
+            a aVar = new a(this);
+            this.d = aVar;
+            aVar.a = pkModule.agree.pk_num.longValue();
+            a aVar2 = this.d;
+            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1720);
+            } else {
+                str = pkModule.agree.pk_desc;
             }
-            rk8 rk8Var = this.i;
-            if (rk8Var != null) {
-                rk8Var.C(yh8Var);
+            aVar2.b = str;
+            a aVar3 = this.d;
+            PkItem pkItem = pkModule.agree;
+            aVar3.c = pkItem.last_username;
+            aVar3.d = pkItem.pk_icon;
+            boolean z2 = true;
+            if (pkItem.has_clicked.longValue() == 1) {
+                z = true;
+            } else {
+                z = false;
             }
+            aVar3.e = z;
+            this.d.f = pkModule.agree.pk_index.longValue();
+            this.d.g = pkModule.agree.pk_icon_after;
+            a aVar4 = new a(this);
+            this.e = aVar4;
+            aVar4.a = pkModule.disagree.pk_num.longValue();
+            a aVar5 = this.e;
+            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
+                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f171f);
+            } else {
+                str2 = pkModule.disagree.pk_desc;
+            }
+            aVar5.b = str2;
+            a aVar6 = this.e;
+            PkItem pkItem2 = pkModule.disagree;
+            aVar6.c = pkItem2.last_username;
+            aVar6.d = pkItem2.pk_icon;
+            if (pkItem2.has_clicked.longValue() != 1) {
+                z2 = false;
+            }
+            aVar6.e = z2;
+            this.e.f = pkModule.disagree.pk_index.longValue();
+            this.e.g = pkModule.disagree.pk_icon_after;
         }
     }
 
-    public void h(BdUniqueId bdUniqueId) {
+    public void b(tbclient.PkModule pkModule) {
+        String str;
+        boolean z;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            vk8 vk8Var = this.d;
-            if (vk8Var != null) {
-                vk8Var.z(bdUniqueId);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            this.b = pkModule.pk_id.longValue();
+            this.c = pkModule.user_pk_id.longValue();
+            a aVar = new a(this);
+            this.d = aVar;
+            aVar.a = pkModule.agree.pk_num.longValue();
+            a aVar2 = this.d;
+            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1720);
+            } else {
+                str = pkModule.agree.pk_desc;
             }
-            qk8 qk8Var = this.e;
-            if (qk8Var != null) {
-                qk8Var.E(bdUniqueId);
+            aVar2.b = str;
+            a aVar3 = this.d;
+            tbclient.PkItem pkItem = pkModule.agree;
+            aVar3.c = pkItem.last_username;
+            aVar3.d = pkItem.pk_icon;
+            boolean z2 = true;
+            if (pkItem.has_clicked.longValue() == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-            tk8 tk8Var = this.f;
-            if (tk8Var != null) {
-                tk8Var.y(bdUniqueId);
+            aVar3.e = z;
+            this.d.f = pkModule.agree.pk_index.longValue();
+            this.d.g = pkModule.agree.pk_icon_after;
+            a aVar4 = new a(this);
+            this.e = aVar4;
+            aVar4.a = pkModule.disagree.pk_num.longValue();
+            a aVar5 = this.e;
+            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
+                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f171f);
+            } else {
+                str2 = pkModule.disagree.pk_desc;
             }
-            uk8 uk8Var = this.g;
-            if (uk8Var != null) {
-                uk8Var.z(bdUniqueId);
+            aVar5.b = str2;
+            a aVar6 = this.e;
+            tbclient.PkItem pkItem2 = pkModule.disagree;
+            aVar6.c = pkItem2.last_username;
+            aVar6.d = pkItem2.pk_icon;
+            if (pkItem2.has_clicked.longValue() != 1) {
+                z2 = false;
             }
-            sk8 sk8Var = this.h;
-            if (sk8Var != null) {
-                sk8Var.A(bdUniqueId);
-            }
-            rk8 rk8Var = this.i;
-            if (rk8Var != null) {
-                rk8Var.B(bdUniqueId);
-            }
+            aVar6.e = z2;
+            this.e.f = pkModule.disagree.pk_index.longValue();
+            this.e.g = pkModule.disagree.pk_icon_after;
         }
     }
 }

@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ds8;
+import com.baidu.tieba.hs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class FloatNewRecordView extends RelativeLayout implements ds8 {
+public class FloatNewRecordView extends RelativeLayout implements hs8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBLottieAnimationView a;
@@ -171,7 +171,7 @@ public class FloatNewRecordView extends RelativeLayout implements ds8 {
         }
     }
 
-    @Override // com.baidu.tieba.ds8
+    @Override // com.baidu.tieba.hs8
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -214,11 +214,11 @@ public class FloatNewRecordView extends RelativeLayout implements ds8 {
     public final void d(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, viewGroup) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08d8, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08d9, this);
             setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
             this.a = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090321);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a97);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091a9a);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a99);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091a9c);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904a5);
             this.d = imageView;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
@@ -234,7 +234,7 @@ public class FloatNewRecordView extends RelativeLayout implements ds8 {
             this.a.setAnimation(R.raw.obfuscated_res_0x7f110024);
             this.a.setImageAssetsFolder("lottie_audio_recoding/");
             this.a.setRepeatCount(-1);
-            ((ViewGroup.MarginLayoutParams) ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090807)).getLayoutParams()).topMargin = (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) * 36) / 100;
+            ((ViewGroup.MarginLayoutParams) ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090808)).getLayoutParams()).topMargin = (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) * 36) / 100;
             a();
         }
     }

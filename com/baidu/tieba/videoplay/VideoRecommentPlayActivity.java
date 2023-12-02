@@ -35,9 +35,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.util.OnActivityFinishListener;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b16;
-import com.baidu.tieba.lo4;
-import com.baidu.tieba.mo4;
+import com.baidu.tieba.f16;
+import com.baidu.tieba.oo4;
+import com.baidu.tieba.po4;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
@@ -60,7 +60,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public List<VideoItemData> f;
     public VideoVerticalPageFragment g;
     public ImageView h;
-    public b16 i;
+    public f16 i;
     public boolean j;
     public CustomMessageListener k;
 
@@ -282,9 +282,9 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            b16 b16Var = this.i;
-            if (b16Var != null) {
-                b16Var.h();
+            f16 f16Var = this.i;
+            if (f16Var != null) {
+                f16Var.h();
             }
         }
     }
@@ -299,7 +299,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 videoVerticalPageFragment.setPrimary(false);
                 this.g.setUserVisibleHint(false);
             }
-            mo4.w().E();
+            po4.w().E();
         }
     }
 
@@ -312,7 +312,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
                 this.g.setUserVisibleHint(true);
-                mo4.w().Q(lo4.c0, this.g.u());
+                po4.w().Q(oo4.c0, this.g.u());
             }
         }
     }
@@ -501,7 +501,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.f)) {
-                BdUtilHelper.showToast(this, (int) R.string.obfuscated_res_0x7f0f0e6c);
+                BdUtilHelper.showToast(this, (int) R.string.obfuscated_res_0x7f0f0e6d);
                 finish();
                 return;
             }
@@ -509,7 +509,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             this.g = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f092a26, this.g);
+            beginTransaction.add(R.id.obfuscated_res_0x7f092a29, this.g);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             ImageView imageView = new ImageView(getPageContext().getPageActivity());
@@ -550,8 +550,8 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0a19);
-            this.i = new b16(getPageContext(), "client_videomiddle");
+            setContentView(R.layout.obfuscated_res_0x7f0d0a1a);
+            this.i = new f16(getPageContext(), "client_videomiddle");
             r1();
             addNoAdjustSoftInputHeightListener();
             if (!B1() && !E1() && !A1() && !t1() && !s1() && !D1() && !x1() && !v1() && !G1() && !z1() && !y1() && !u1() && !w1() && getWindow() != null) {

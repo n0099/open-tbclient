@@ -1,18 +1,12 @@
 package com.baidu.tbadk.core.util;
 
 import android.graphics.Bitmap;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,59 +21,6 @@ public class PicManager {
     public static PicManager instance;
     public static final BdUniqueId taskId;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public class SaveImgCacheAsyncTask extends BdAsyncTask<String, String, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String imageUrl;
-        public final boolean isNeedReSize;
-        public final boolean isNeedRound;
-        public final String localFileFullPath;
-        public final boolean put2MemoryCache;
-        public final /* synthetic */ PicManager this$0;
-
-        public SaveImgCacheAsyncTask(PicManager picManager, String str, String str2, boolean z, boolean z2, boolean z3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {picManager, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = picManager;
-            this.imageUrl = str;
-            this.localFileFullPath = str2;
-            this.put2MemoryCache = z;
-            this.isNeedRound = z2;
-            this.isNeedReSize = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, PicManager.taskId));
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                try {
-                    this.this$0.saveImageToCacheDisk(this.imageUrl, this.localFileFullPath, this.put2MemoryCache, this.isNeedRound, this.isNeedReSize);
-                    return null;
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                    return null;
-                }
-            }
-            return (String) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -115,7 +56,7 @@ public class PicManager {
         InterceptResult invokeV;
         PicManager picManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (PicManager.class) {
                 if (instance == null) {
                     instance = new PicManager();
@@ -125,28 +66,6 @@ public class PicManager {
             return picManager;
         }
         return (PicManager) invokeV.objValue;
-    }
-
-    private void addPicMemoryCache(String str, Bitmap bitmap, boolean z, boolean z2, boolean z3, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{str, bitmap, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str2}) == null) {
-            try {
-                Bitmap fixBitmap = getFixBitmap(bitmap, z, z3, str2);
-                if (fixBitmap == null) {
-                    return;
-                }
-                addPicMemoryCache(str, new BdImage(fixBitmap, z2));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void addPicMemoryCache(String str, BdImage bdImage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bdImage) == null) {
-            TbImageMemoryCache.w().k(str, bdImage);
-        }
     }
 
     public IMImageSize getChatImageSize(int i, int i2) {
@@ -178,25 +97,6 @@ public class PicManager {
         return (IMImageSize) invokeII.objValue;
     }
 
-    public Bitmap getFixBitmap(Bitmap bitmap, boolean z, boolean z2, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bitmap, Boolean.valueOf(z), Boolean.valueOf(z2), str})) == null) {
-            if (z2) {
-                bitmap = getReSizeBitmap(bitmap);
-            }
-            if (z && bitmap != null) {
-                float f = 10.0f;
-                bitmap = BitmapHelper.getRoundedCornerBitmap(bitmap, (bitmap.getHeight() < 100 || bitmap.getWidth() < 100) ? 5.0f : 5.0f, true);
-            }
-            if (!TextUtils.isEmpty(str)) {
-                StorageFile.getInstance().saveImage(str, BitmapHelper.Bitmap2Bytes(bitmap, 100));
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
     public IMImageSize getImageSize(int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         int i3;
@@ -204,7 +104,7 @@ public class PicManager {
         boolean z2;
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             int msgSPicMaxSizeInt = LocalViewSize.getInstance().getMsgSPicMaxSizeInt();
             if (z) {
                 if (i / i2 >= 3) {
@@ -260,7 +160,7 @@ public class PicManager {
     public Bitmap getReSizeBitmap(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bitmap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) {
             return getReSizeBitmap(bitmap, true);
         }
         return (Bitmap) invokeL.objValue;
@@ -269,7 +169,7 @@ public class PicManager {
     public Bitmap getReSizeBitmap(Bitmap bitmap, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, bitmap, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, bitmap, z)) == null) {
             try {
                 IMImageSize imageSize = getImageSize(bitmap.getWidth(), bitmap.getHeight(), z);
                 int i = imageSize.width;
@@ -294,36 +194,5 @@ public class PicManager {
             }
         }
         return (Bitmap) invokeLZ.objValue;
-    }
-
-    public void saveImageToCacheDisk(String str, String str2, boolean z, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) && str2 != null && str != null) {
-            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-            StorageFile.getInstance().copyFile(str2, nameMd5FromUrl);
-            if (!z && !z2 && !z3) {
-                return;
-            }
-            synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                int imageSize = StorageFile.getInstance().getImageSize(nameMd5FromUrl);
-                if (imageSize <= 0) {
-                    return;
-                }
-                if (z) {
-                    Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    TbImageMemoryCache.w().u(imageSize);
-                    if (image != null) {
-                        addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
-                    }
-                }
-            }
-        }
-    }
-
-    public void saveImageToCacheDiskAsync(String str, String str2, boolean z, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            new SaveImgCacheAsyncTask(this, str2, str2, z3, z3, z3).execute(new String[0]);
-        }
     }
 }

@@ -14,15 +14,15 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.agb;
-import com.baidu.tieba.bgb;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.ehb;
-import com.baidu.tieba.iib;
+import com.baidu.tieba.dhb;
+import com.baidu.tieba.hib;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.vgb;
+import com.baidu.tieba.ugb;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
+import com.baidu.tieba.zfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public final class AddVoteListener extends BizBase {
     public final EditorTools g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AddVoteListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, vgb writePageState, EditorTools editor) {
+    public AddVoteListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, ugb writePageState, EditorTools editor) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,7 +55,7 @@ public final class AddVoteListener extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (vgb) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (ugb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -69,21 +69,21 @@ public final class AddVoteListener extends BizBase {
         this.g = editor;
     }
 
-    @Override // com.baidu.tieba.dgb
+    @Override // com.baidu.tieba.cgb
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new WrapListener[]{h().invoke("writePage.addVote", new AddVoteListener$keyListeners$1(this)), h().invoke("writePage.deleteVote", new AddVoteListener$keyListeners$2(this))} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dgb
-    public bgb[] b() {
+    @Override // com.baidu.tieba.cgb
+    public agb[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new bgb[]{o(25048, new AddVoteListener$requestCodeHandlers$1(this))} : (bgb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new agb[]{o(25048, new AddVoteListener$requestCodeHandlers$1(this))} : (agb[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.write.webwrite.data.BizBase, com.baidu.tieba.dgb
+    @Override // com.baidu.tieba.write.webwrite.data.BizBase, com.baidu.tieba.cgb
     public Function1<JSONObject, Unit> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -138,11 +138,11 @@ public final class AddVoteListener extends BizBase {
         return (Function1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dgb
-    public agb[] f() {
+    @Override // com.baidu.tieba.cgb
+    public zfb[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new agb[]{n(22, new AddVoteListener$editorActionHandlers$1(this))} : (agb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new zfb[]{n(22, new AddVoteListener$editorActionHandlers$1(this))} : (zfb[]) invokeV.objValue;
     }
 
     public final void v(String str) {
@@ -183,7 +183,7 @@ public final class AddVoteListener extends BizBase {
             TbLog defaultLog = DefaultLog.getInstance();
             defaultLog.i("write", "收到H5通知，编辑投票：" + str);
             try {
-                b = ehb.b(str);
+                b = dhb.b(str);
                 WriteVoteActivityConfig writeVoteActivityConfig = new WriteVoteActivityConfig(i().getPageActivity(), 25048);
                 if (b != null) {
                     writeVoteActivityConfig.setExtraData(b);
@@ -200,7 +200,7 @@ public final class AddVoteListener extends BizBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i, obj) == null) {
             this.g.y();
-            iib.b(i().getPageActivity(), 10);
+            hib.b(i().getPageActivity(), 10);
             WriteVoteData writeVoteData = k().getWriteVoteData();
             WriteVoteActivityConfig writeVoteActivityConfig = new WriteVoteActivityConfig(i().getPageActivity(), 25048);
             if (writeVoteData != null) {

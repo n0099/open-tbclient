@@ -1,13 +1,23 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.x82;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.c52;
+import com.baidu.tieba.ed2;
+import com.baidu.tieba.gp2;
+import com.baidu.tieba.zd2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,25 +25,639 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class z82 implements k82<j82>, s82 {
+public class z82 implements h33 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
-    public static final boolean l;
+    public static final boolean f;
+    public static volatile z82 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile y82 a;
-    public volatile y82 b;
-    public final LinkedList<hg2> c;
-    public final List<m82<j82>> d;
-    public y82 e;
-    public volatile boolean f;
-    public volatile boolean g;
-    public volatile boolean h;
-    public boolean i;
-    public final Object j;
+    public final BlockingQueue<PrefetchEvent> a;
+    public final AtomicInteger b;
+    public final int c;
+    public volatile boolean d;
+    public final List<Bundle> e;
+
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // com.baidu.tieba.h33
+    public void timeout() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final AtomicInteger e;
+        public transient /* synthetic */ FieldHolder $fh;
+        public volatile boolean a;
+        public volatile g82 b;
+        public final List<v82> c;
+        public final List<String> d;
+
+        /* renamed from: com.baidu.tieba.z82$c$c  reason: collision with other inner class name */
+        /* loaded from: classes9.dex */
+        public class C0549c extends k82 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c f;
+
+            /* renamed from: com.baidu.tieba.z82$c$c$a */
+            /* loaded from: classes9.dex */
+            public class a extends j82 {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ C0549c e;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                public a(C0549c c0549c, String str, String str2) {
+                    super(str, str2);
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0549c, str, str2};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            Object[] objArr2 = newInitContext.callArgs;
+                            super((String) objArr2[0], (String) objArr2[1]);
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.e = c0549c;
+                }
+
+                @Override // com.baidu.tieba.j82
+                public zd2 e() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                        zd2.b bVar = new zd2.b();
+                        bVar.c(1);
+                        bVar.b(this.e.f.n());
+                        return bVar.a();
+                    }
+                    return (zd2) invokeV.objValue;
+                }
+            }
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public C0549c(c cVar, Context context) {
+                super(context);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, context};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        super((Context) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f = cVar;
+            }
+
+            @Override // com.baidu.tieba.k82
+            public j82 h(String str) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                    return new a(this, str, "runtime/index.js");
+                }
+                return (j82) invokeL.objValue;
+            }
+        }
+
+        /* loaded from: classes9.dex */
+        public class a implements v82 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ PrefetchEvent b;
+            public final /* synthetic */ CountDownLatch c;
+            public final /* synthetic */ c d;
+
+            public a(c cVar, String str, PrefetchEvent prefetchEvent, CountDownLatch countDownLatch) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, str, prefetchEvent, countDownLatch};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.d = cVar;
+                this.a = str;
+                this.b = prefetchEvent;
+                this.c = countDownLatch;
+            }
+
+            @Override // com.baidu.tieba.v82
+            public void onReady() {
+                i52 e;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (this.d.b != null && (e = this.d.b.e()) != null && !e.isDestroyed()) {
+                        this.d.s(this.a, e);
+                        this.d.r(e, this.b);
+                        if (z82.f) {
+                            Log.d("PreCodeCacheManager", "fill code cache finish for - " + this.a);
+                        }
+                    }
+                    CountDownLatch countDownLatch = this.c;
+                    if (countDownLatch != null) {
+                        countDownLatch.countDown();
+                    }
+                }
+            }
+        }
+
+        /* loaded from: classes9.dex */
+        public class b extends y42 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ long a;
+            public final /* synthetic */ c b;
+
+            public b(c cVar, long j) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, Long.valueOf(j)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = cVar;
+                this.a = j;
+            }
+
+            @Override // com.baidu.tieba.y42
+            public void a(String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                    if (z82.f) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        Log.d("PreCodeCacheManager", "create a new master cost - " + (currentTimeMillis - this.a) + ms.c);
+                    }
+                    super.a(str);
+                    this.b.a = true;
+                    this.b.q();
+                }
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-276247242, "Lcom/baidu/tieba/z82$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-276247242, "Lcom/baidu/tieba/z82$c;");
+                    return;
+                }
+            }
+            e = new AtomicInteger(1000);
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.c = new ArrayList();
+            this.d = new CopyOnWriteArrayList();
+        }
+
+        public final g82 j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return new C0549c(this, AppRuntime.getAppContext());
+            }
+            return (g82) invokeV.objValue;
+        }
+
+        public void k() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b != null) {
+                this.b.destroy();
+            }
+        }
+
+        public final synchronized void q() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                synchronized (this) {
+                    for (v82 v82Var : this.c) {
+                        if (v82Var != null) {
+                            v82Var.onReady();
+                        }
+                    }
+                    this.c.clear();
+                }
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+
+        public final synchronized void g(v82 v82Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, v82Var) == null) {
+                synchronized (this) {
+                    if (v82Var == null) {
+                        return;
+                    }
+                    if (this.a) {
+                        v82Var.onReady();
+                        return;
+                    }
+                    if (!this.c.contains(v82Var)) {
+                        this.c.add(v82Var);
+                    }
+                }
+            }
+        }
+
+        public final boolean o(PrefetchEvent prefetchEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, prefetchEvent)) == null) {
+                if (prefetchEvent == null) {
+                    return false;
+                }
+                String str = prefetchEvent.appPath;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                File file = new File(str);
+                if (!gp2.z(file) || !gp2.y(file)) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public final boolean p(@NonNull SwanAppConfigData swanAppConfigData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, swanAppConfigData)) == null) {
+                String str = swanAppConfigData.n;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                try {
+                    return new JSONObject(str).has("_modules");
+                } catch (JSONException e2) {
+                    if (z82.f) {
+                        e2.printStackTrace();
+                    }
+                    return false;
+                }
+            }
+            return invokeL.booleanValue;
+        }
+
+        public void l(String str, PrefetchEvent prefetchEvent, CountDownLatch countDownLatch) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048581, this, str, prefetchEvent, countDownLatch) == null) {
+                if (this.b == null) {
+                    this.b = i();
+                }
+                this.d.add(str);
+                g(new a(this, str, prefetchEvent, countDownLatch));
+            }
+        }
+
+        public final void s(String str, i52 i52Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048588, this, str, i52Var) == null) && (i52Var instanceof sd2)) {
+                ((sd2) i52Var).z0(m());
+            }
+        }
+
+        public final PrefetchEvent.c h(PrefetchEvent prefetchEvent, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent, str)) == null) {
+                if (!o(prefetchEvent)) {
+                    return null;
+                }
+                HashMap hashMap = new HashMap();
+                hashMap.put("appKey", prefetchEvent.appId);
+                hashMap.put("schema", prefetchEvent.schema);
+                hashMap.put("state", prefetchEvent.state);
+                hashMap.put("scene", prefetchEvent.scene);
+                hashMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, prefetchEvent.appPath);
+                hashMap.put("pageType", prefetchEvent.pageType);
+                File file = new File(prefetchEvent.appPath);
+                String m = gp2.m(new File(file, "app.json"));
+                prefetchEvent.appConfig = m;
+                hashMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, m);
+                SwanAppConfigData c = SwanAppConfigData.c(prefetchEvent.appConfig, file);
+                if (c == null || p(c)) {
+                    return null;
+                }
+                String f = c.f();
+                prefetchEvent.pageUrl = f;
+                hashMap.put(PrefetchEvent.EVENT_KEY_PAGE_URL, f);
+                String f2 = ck3.f(prefetchEvent.pageUrl);
+                String o = ck3.o(prefetchEvent.pageUrl);
+                String c2 = ca3.c(f2, c);
+                if (!TextUtils.equals(f2, c2)) {
+                    if (!TextUtils.isEmpty(o)) {
+                        c2 = c2 + "?" + o;
+                    }
+                    hashMap.put("pageRoutePath", c2);
+                }
+                return new PrefetchEvent.c(hashMap, str);
+            }
+            return (PrefetchEvent.c) invokeLL.objValue;
+        }
+
+        public final g82 i() {
+            InterceptResult invokeV;
+            long j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (z82.f) {
+                    j = System.currentTimeMillis();
+                } else {
+                    j = 0;
+                }
+                g82 j2 = j();
+                j2.loadUrl(ck3.w(ed2.V().Z()));
+                j2.b(new b(this, j));
+                return j2;
+            }
+            return (g82) invokeV.objValue;
+        }
+
+        public final V8EngineConfiguration.CodeCacheSetting m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
+                codeCacheSetting.id = "appjs";
+                ArrayList<String> arrayList = new ArrayList<>();
+                codeCacheSetting.pathList = arrayList;
+                arrayList.addAll(this.d);
+                c52.a d = c52.b.d();
+                codeCacheSetting.maxCount = d.a;
+                codeCacheSetting.sizeLimit = d.b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
+                return codeCacheSetting;
+            }
+            return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
+        }
+
+        public final String n() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                String str = "master" + e.getAndIncrement();
+                if (z82.f) {
+                    Log.d("PreCodeCacheManager", "code cache master id - " + str);
+                }
+                return str;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final void r(@NonNull i52 i52Var, PrefetchEvent prefetchEvent) {
+            long j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048587, this, i52Var, prefetchEvent) == null) {
+                if (z82.f) {
+                    j = System.currentTimeMillis();
+                } else {
+                    j = 0;
+                }
+                PrefetchEvent.c h = h(prefetchEvent, "preload");
+                if (h != null) {
+                    gg2.a(i52Var, h);
+                    if (z82.f) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        Log.d("PreCodeCacheManager", "send code cache msg cost - " + (currentTimeMillis - j) + ms.c);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public boolean b;
+        public final BlockingQueue<PrefetchEvent> c;
+        public final AtomicInteger d;
+        public c e;
+        public int f;
+
+        public b(int i, @NonNull BlockingQueue<PrefetchEvent> blockingQueue, @NonNull AtomicInteger atomicInteger) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), blockingQueue, atomicInteger};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = 0;
+            this.a = i <= 0 ? 30 : i;
+            this.b = false;
+            this.c = blockingQueue;
+            this.d = atomicInteger;
+        }
+
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b = true;
+                this.d.decrementAndGet();
+                b();
+                if (z82.f) {
+                    Log.d("PreCodeCacheManager", "CodeCacheFillTask destroy");
+                }
+            }
+        }
+
+        public final void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                c cVar = this.e;
+                if (cVar != null) {
+                    cVar.k();
+                    this.e = null;
+                }
+                if (z82.f) {
+                    Log.d("PreCodeCacheManager", "master destroy");
+                }
+            }
+        }
+
+        public final void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                int i = this.f + 1;
+                this.f = i;
+                if (i >= 10) {
+                    this.f = 0;
+                    b();
+                }
+            }
+        }
+
+        public void g() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                ExecutorUtilsExt.postOnElastic(this, "code_cache_fill_thread", 3);
+            }
+        }
+
+        public final void c(PrefetchEvent prefetchEvent) throws InterruptedException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, prefetchEvent) == null) {
+                if (this.e == null) {
+                    this.e = d();
+                }
+                if (this.e == null) {
+                    a();
+                    return;
+                }
+                CountDownLatch countDownLatch = new CountDownLatch(1);
+                this.e.l(prefetchEvent.appPath, prefetchEvent, countDownLatch);
+                countDownLatch.await(3L, TimeUnit.SECONDS);
+                f();
+            }
+        }
+
+        public final c d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (ed2.V().l0() && e()) {
+                    return new c(null);
+                }
+                if (z82.f) {
+                    Log.d("PreCodeCacheManager", "v8 master can not create");
+                }
+                return null;
+            }
+            return (c) invokeV.objValue;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                while (!this.b) {
+                    try {
+                        try {
+                            PrefetchEvent poll = this.c.poll(this.a, TimeUnit.SECONDS);
+                            if (poll == null) {
+                                a();
+                            } else {
+                                c(poll);
+                            }
+                        } catch (InterruptedException e) {
+                            if (z82.f) {
+                                e.printStackTrace();
+                            }
+                            a();
+                        }
+                    } catch (Throwable th) {
+                        if (z82.f) {
+                            th.printStackTrace();
+                        }
+                        a();
+                        return;
+                    }
+                }
+            }
+        }
+
+        public final boolean e() {
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                boolean c = ed2.v.c();
+                String Z = ed2.V().Z();
+                if (!TextUtils.isEmpty(Z) && new File(Z).exists()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                fc3 c2 = dc3.c();
+                if (ed2.V().t0() && c && z && c2.b()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -48,62 +672,60 @@ public class z82 implements k82<j82>, s82 {
                 return;
             }
         }
-        k = sm1.a;
-        boolean z = true;
-        if (ha2.l() != 1) {
-            z = false;
-        }
-        l = z;
+        f = vm1.a;
     }
 
-    @Override // com.baidu.tieba.l82
-    public boolean f() {
+    public static z82 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.a != null) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (g == null) {
+                synchronized (z82.class) {
+                    if (g == null) {
+                        g = new z82();
+                    }
+                }
             }
-            return false;
+            return g;
         }
-        return invokeV.booleanValue;
+        return (z82) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l82
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.l82
-    public boolean h() {
+    public final j33 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
+            j33 e = l33.k().e();
+            if (e != null && !e.E()) {
+                return e;
+            }
+            return null;
         }
-        return invokeV.booleanValue;
+        return (j33) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.k82
-    public boolean i() {
+    public final b j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.i;
+            return new b(30, this.a, this.b);
         }
-        return invokeV.booleanValue;
+        return (b) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s82
-    public void onReady() {
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || !ProcessUtils.isMainProcess()) {
+            return;
+        }
+        l33.k().b(this);
+    }
+
+    public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f = true;
+            this.d = true;
+            p();
         }
     }
 
@@ -120,354 +742,187 @@ public class z82 implements k82<j82>, s82 {
                 return;
             }
         }
-        this.c = new LinkedList<>();
-        this.d = new LinkedList();
-        this.j = new Object();
-        this.f = false;
-        this.g = false;
-        this.i = false;
-        this.h = false;
+        this.a = new LinkedBlockingQueue();
+        this.b = new AtomicInteger(0);
+        this.c = 1;
+        this.e = new ArrayList();
+        m();
+        if (f) {
+            Log.d("PreCodeCacheManager", "max master size - " + this.c);
+        }
     }
 
-    @Override // com.baidu.tieba.k82
-    public void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar, pMSAppInfo) == null) {
-            if (k) {
-                Log.i("SwanAppMasterProviderMulti", "get a prefetch event - " + cVar);
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.a.size() > 0 && this.b.get() < this.c) {
+            if (this.b.incrementAndGet() > this.c) {
+                this.b.decrementAndGet();
+                return;
             }
-            if (!this.f) {
-                if (k) {
-                    Log.w("SwanAppMasterProviderMulti", "can not prefetch before default mater ready");
+            j().g();
+            if (f) {
+                Log.d("PreCodeCacheManager", "start a new code cache fill task");
+                Log.d("PreCodeCacheManager", "master size - " + this.b.get());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.h33
+    public void a(String str, j33 j33Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, j33Var) == null) && TextUtils.equals(str, "event_puppet_online") && !j33Var.E()) {
+            n(j33Var);
+        }
+    }
+
+    public final PrefetchEvent b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            PrefetchEvent.b bVar = new PrefetchEvent.b();
+            bVar.a(str);
+            bVar.e("show");
+            bVar.c("fill_code_cache");
+            PrefetchEvent b2 = bVar.b();
+            b2.appPath = str2;
+            b2.pageType = "main";
+            return b2;
+        }
+        return (PrefetchEvent) invokeLL.objValue;
+    }
+
+    public final boolean c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+            if ((ProcessUtils.isMainProcess() && !ek3.G() && !rp2.w0().c()) || TextUtils.isEmpty(str) || j <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public final void d(@NonNull PrefetchEvent prefetchEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, prefetchEvent) == null) {
+            this.a.offer(prefetchEvent);
+            if (this.d) {
+                p();
+            }
+        }
+    }
+
+    public final synchronized void l(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+            synchronized (this) {
+                if (bundle == null) {
                     return;
                 }
+                this.e.add(bundle);
+                if (f) {
+                    Log.d("PreCodeCacheManager", "add fill code cache msg to cache");
+                }
+            }
+        }
+    }
+
+    public final void e(String str, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(1048580, this, str, j) != null) || !c(str, j) || ProcessUtils.isMainProcess()) {
+            return;
+        }
+        if (f) {
+            Log.d("PreCodeCacheManager", "start to fill code cache app - " + str + " , version - " + j);
+        }
+        d(b(str, gp2.e.i(str, String.valueOf(j)).getPath() + File.separator));
+    }
+
+    public void f(String str, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(1048581, this, str, j) != null) || !ProcessUtils.isMainProcess() || !c(str, j)) {
+            return;
+        }
+        j33 h = h();
+        if (h == null) {
+            if (f) {
+                Log.d("PreCodeCacheManager", "there is no blank client");
                 return;
             }
-            h32.i(PrefetchEvent.MODULE, "start prefetch master");
-            if (pMSAppInfo != null) {
-                String str2 = pMSAppInfo.appId;
-                if (!TextUtils.isEmpty(str2)) {
-                    if (k) {
-                        x82.c().h("SwanAppMasterProviderMulti");
-                    }
-                    if (this.g) {
-                        h63 c0 = h63.c0();
-                        if (c0 != null && TextUtils.equals(str2, c0.getAppId())) {
-                            h32.i(PrefetchEvent.MODULE, "prefetch after app start");
-                            this.e.r(str, cVar, pMSAppInfo);
-                            return;
-                        } else if (k) {
-                            Log.w("SwanAppMasterProviderMulti", "can not prefetch after swan app start, only same app allowed");
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                    synchronized (this.j) {
-                        if (this.g) {
-                            return;
-                        }
-                        if (this.b == null || this.b.w(pMSAppInfo, cVar)) {
-                            m(this.b);
-                            this.b = l(false, this.i);
-                        }
-                        this.b.r(str, cVar, pMSAppInfo);
-                        return;
-                    }
-                }
-            }
-            if (k) {
-                Log.w("SwanAppMasterProviderMulti", "prefetch currentAppInfo is empty or appId is empty");
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.l82
-    public void c(m82<j82> m82Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m82Var) != null) || m82Var == null) {
             return;
         }
-        synchronized (this.j) {
-            if (this.g) {
-                if (k) {
-                    Log.d("SwanAppMasterProviderMulti", "app already start , call back immediately");
-                }
-                m82Var.a(this.h, this.e);
-                return;
-            }
-            if (!this.d.contains(m82Var)) {
-                this.d.add(m82Var);
+        Bundle bundle = new Bundle();
+        bundle.putString("cc_app_id", str);
+        bundle.putLong("cc_app_version", j);
+        if (h.T()) {
+            o(h, bundle);
+        } else {
+            l(bundle);
+        }
+    }
+
+    public final void o(j33 j33Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, j33Var, bundle) == null) {
+            a33 e = a33.e();
+            c33 c33Var = new c33(130, bundle);
+            c33Var.b(j33Var.b);
+            e.h(c33Var);
+            if (f) {
+                Log.d("PreCodeCacheManager", "current process - " + j33Var.b.index);
             }
         }
     }
 
-    @Override // com.baidu.tieba.k82
-    public void d(hg2 hg2Var) {
+    public void g(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, hg2Var) == null) && hg2Var != null && !this.g) {
-            synchronized (this.j) {
-                this.c.add(hg2Var);
-            }
-        }
-    }
-
-    public final void k(y82 y82Var) {
-        y82 y82Var2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, y82Var) == null) {
-            if (y82Var == this.b) {
-                y82Var2 = this.a;
-            } else {
-                y82Var2 = this.b;
-            }
-            this.a = y82Var;
-            m(y82Var2);
-            this.b = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.k82
-    public void j(boolean z, s82 s82Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048585, this, z, s82Var) == null) {
-            if (this.a == null) {
-                synchronized (this.j) {
-                    if (this.a == null) {
-                        this.i = z;
-                        this.a = l(true, z);
-                        this.a.c(this);
-                        this.a.c(s82Var);
-                        return;
-                    }
-                }
-            }
-            if (k) {
-                Log.w("SwanAppMasterProviderMulti", "call prepareDefault repeat");
-            }
-            if (this.a != null) {
-                this.a.c(s82Var);
-            }
-        }
-    }
-
-    public final void q(boolean z, y82 y82Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZL(1048593, this, z, y82Var) != null) || this.d.size() <= 0) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, bundle) != null) || bundle == null || bundle.size() <= 0 || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
             return;
         }
-        synchronized (this.j) {
-            for (m82<j82> m82Var : this.d) {
-                m82Var.a(z, y82Var);
-            }
-            this.d.clear();
-        }
-        if (k) {
-            Log.d("SwanAppMasterProviderMulti", "is hit prefetch env - " + z);
-        }
+        e(bundle.getString("cc_app_id"), bundle.getLong("cc_app_version"));
     }
 
-    public y82 l(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            x82.c().b(!z);
-            return new y82(z, z2);
-        }
-        return (y82) invokeCommon.objValue;
-    }
-
-    public final void m(y82 y82Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, y82Var) == null) && y82Var != null && y82Var.i() != null) {
-            y82Var.i().destroy();
-            if (k) {
-                Log.i("SwanAppMasterProviderMulti", "master destroy, id - " + y82Var.i().a() + ", isReady - " + y82Var.n() + ", is Default - " + y82Var.l());
-            }
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || this.c.isEmpty() || !this.g) {
-            return;
-        }
-        synchronized (this.j) {
-            Iterator<hg2> it = this.c.iterator();
-            while (it.hasNext()) {
-                hg2 next = it.next();
-                if (k) {
-                    Log.d("SwanAppMasterProviderMulti", "dispatchPendingEvents event: " + next.a);
-                }
-                bd2.V().V0(next);
-            }
-            this.c.clear();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.l82
-    @SuppressLint({"BDThrowableCheck"})
-    /* renamed from: p */
-    public y82 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (!this.g) {
-                if (k) {
-                    Log.w("SwanAppMasterProviderMulti", "master not final confirmed, has default - " + f());
-                    Log.w("SwanAppMasterProviderMulti", Log.getStackTraceString(new RuntimeException("throw by debug")));
-                    return null;
-                }
-                return null;
-            }
-            return this.e;
-        }
-        return (y82) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l82
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            if (k) {
-                Log.d("SwanAppMasterProviderMulti", "release master provider");
-            }
-            this.f = false;
-            this.g = false;
-            this.i = false;
-            this.h = false;
-            m(this.a);
-            m(this.b);
-            this.a = null;
-            this.b = null;
-            this.e = null;
-            synchronized (this.j) {
-                this.c.clear();
-                this.d.clear();
-            }
-            n82.c();
-            q82.b().d();
-            x82.c().a();
-        }
-    }
-
-    public final void o(boolean z, y82 y82Var, PMSAppInfo pMSAppInfo) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), y82Var, pMSAppInfo}) == null) {
-            this.h = z;
-            this.e = y82Var;
-            y82Var.p(pMSAppInfo);
-            this.g = true;
-            n();
-            k(y82Var);
-            if (k) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            if (k) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.i("SwanAppMasterProviderMulti", "clear useless master cost - " + (currentTimeMillis - j) + ms.c);
-            }
-            q(z, y82Var);
-            x82.c().a();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x0128, code lost:
-        if (r7 == false) goto L52;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x012c A[Catch: all -> 0x0180, TryCatch #0 {, blocks: (B:23:0x0065, B:25:0x0069, B:27:0x006d, B:28:0x0076, B:30:0x007c, B:34:0x0088, B:36:0x0091, B:58:0x0135, B:37:0x0095, B:39:0x009d, B:40:0x00a1, B:42:0x00c6, B:47:0x011f, B:54:0x012c, B:55:0x012f, B:56:0x0132, B:59:0x0138), top: B:72:0x0065 }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x012f A[Catch: all -> 0x0180, TryCatch #0 {, blocks: (B:23:0x0065, B:25:0x0069, B:27:0x006d, B:28:0x0076, B:30:0x007c, B:34:0x0088, B:36:0x0091, B:58:0x0135, B:37:0x0095, B:39:0x009d, B:40:0x00a1, B:42:0x00c6, B:47:0x011f, B:54:0x012c, B:55:0x012f, B:56:0x0132, B:59:0x0138), top: B:72:0x0065 }] */
-    @Override // com.baidu.tieba.l82
-    /* renamed from: r */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public y82 e(PMSAppInfo pMSAppInfo) {
+    public boolean k(String str) {
         InterceptResult invokeL;
-        long j;
-        y82 y82Var;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, pMSAppInfo)) == null) {
-            if (k) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || !str.startsWith("master")) {
+                return false;
             }
-            if ((pMSAppInfo == null || !this.f) && k) {
-                Log.e("SwanAppMasterProviderMulti", Log.getStackTraceString(new Exception("currentAppInfo can not be null， and should call startApp after preload finished")));
+            String substring = str.substring(6);
+            if (!TextUtils.isDigitsOnly(substring)) {
+                return false;
             }
-            if (k) {
-                Log.w("SwanAppMasterProviderMulti", "real start a swan app - " + pMSAppInfo);
-                Log.w("SwanAppMasterProviderMulti", "is default master ready - " + this.f);
+            try {
+                i = Integer.parseInt(substring);
+            } catch (NumberFormatException unused) {
+                i = 0;
             }
-            if (this.g) {
-                return this.e;
+            if (i < 1000) {
+                return false;
             }
-            synchronized (this.j) {
-                if (!this.g) {
-                    if (k) {
-                        x82.c().h("SwanAppMasterProviderMulti");
-                    }
-                    boolean z = true;
-                    if (this.b != null && this.b.n() && pMSAppInfo != null) {
-                        if (this.b.w(pMSAppInfo, null)) {
-                            y82Var = this.a;
-                            z = false;
-                            o(z, y82Var, pMSAppInfo);
-                        } else {
-                            if (this.b.j()) {
-                                y82Var = this.b;
-                            } else {
-                                x82.a aVar = new x82.a(pMSAppInfo.appKey, pMSAppInfo.versionCode);
-                                boolean f = x82.c().f(aVar);
-                                boolean g = x82.c().g(aVar);
-                                boolean e = x82.c().e();
-                                if (k) {
-                                    Log.d("SwanAppMasterProviderMulti", "app - " + aVar + ", is loaded - " + f);
-                                    Log.d("SwanAppMasterProviderMulti", "app - " + aVar + ", is loading - " + g);
-                                    StringBuilder sb = new StringBuilder();
-                                    sb.append("has loading app now - ");
-                                    sb.append(e);
-                                    Log.d("SwanAppMasterProviderMulti", sb.toString());
-                                }
-                                if (e && !g) {
-                                    if (f && l) {
-                                        if (z) {
-                                            y82Var = this.b;
-                                        } else {
-                                            y82Var = this.a;
-                                        }
-                                    }
-                                    z = false;
-                                    if (z) {
-                                    }
-                                }
-                                if (z) {
-                                }
-                            }
-                            o(z, y82Var, pMSAppInfo);
-                        }
-                    }
-                    y82Var = this.a;
-                    z = false;
-                    o(z, y82Var, pMSAppInfo);
-                }
-            }
-            if (k) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.i("SwanAppMasterProviderMulti", "get right master cost - " + (currentTimeMillis - j) + ms.c);
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append("final master id - ");
-                sb2.append(this.e.i().a());
-                Log.i("SwanAppMasterProviderMulti", sb2.toString());
-            }
-            return this.e;
+            return true;
         }
-        return (y82) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public final synchronized void n(j33 j33Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, j33Var) == null) {
+            synchronized (this) {
+                if (this.e.size() <= 0) {
+                    return;
+                }
+                if (f) {
+                    Log.d("PreCodeCacheManager", "send msg from cache");
+                }
+                for (Bundle bundle : this.e) {
+                    o(j33Var, bundle);
+                }
+                this.e.clear();
+            }
+        }
     }
 }

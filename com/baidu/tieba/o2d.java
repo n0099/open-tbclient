@@ -1,33 +1,46 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopCode;
+import tbclient.FrsPage.TopLiveData;
+import tbclient.FrsPage.TopLiveDataPostList;
+import tbclient.YyExt;
 /* loaded from: classes7.dex */
-public class o2d extends ltc {
+public class o2d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TopCode topCode) {
+    public static JSONObject b(@NonNull TopLiveData topLiveData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topCode)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topLiveData)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, BigdayActivityConfig.IMG_URL, topCode.img_url);
-            ltc.a(jSONObject, "game_link", topCode.game_link);
-            ltc.a(jSONObject, "summary", topCode.summary);
-            ltc.a(jSONObject, "code_link", topCode.code_link);
-            ltc.a(jSONObject, "get_type", topCode.get_type);
-            ltc.a(jSONObject, "surplusgift", topCode.surplusgift);
-            ltc.a(jSONObject, "giftworth", topCode.giftworth);
-            ltc.a(jSONObject, "type_text", topCode.type_text);
-            ltc.a(jSONObject, SubtitleLog.TAG, topCode.subtitle);
+            ktc.a(jSONObject, "title", topLiveData.title);
+            ktc.a(jSONObject, AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, topLiveData.cover);
+            ktc.a(jSONObject, "desc", topLiveData.desc);
+            ktc.a(jSONObject, "live_size", topLiveData.live_size);
+            ktc.a(jSONObject, "jump_type", topLiveData.jump_type);
+            ktc.a(jSONObject, BigdayActivityConfig.JUMP_URL, topLiveData.jump_url);
+            ktc.a(jSONObject, "flv", topLiveData.flv);
+            ktc.a(jSONObject, "hls", topLiveData.hls);
+            YyExt yyExt = topLiveData.yy_ext;
+            if (yyExt != null) {
+                ktc.a(jSONObject, "yy_ext", sbd.b(yyExt));
+            }
+            if (topLiveData.post_list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (TopLiveDataPostList topLiveDataPostList : topLiveData.post_list) {
+                    jSONArray.put(p2d.b(topLiveDataPostList));
+                }
+                ktc.a(jSONObject, "post_list", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,125 +1,26 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Rect;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.sdk.api.BaiduNativeManager;
-import com.baidu.mobads.sdk.api.ExpressResponse;
-import com.baidu.mobads.sdk.api.RequestParameters;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.mobads.sdk.api.IBasicCPUData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.ArrayList;
-import java.util.List;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e3c extends d3c<t2c> {
+public class e3c extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FunNativeAdListenerHelper<t2c, m2c> e;
-
-    /* loaded from: classes5.dex */
-    public class a implements BaiduNativeManager.ExpressAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e3c a;
-
-        public a(e3c e3cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e3cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e3cVar;
-        }
-
-        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.ExpressAdListener
-        public void onLpClosed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.ExpressAdListener
-        public void onNativeFail(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                LogPrinter.d();
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.ExpressAdListener
-        public void onNativeLoad(List<ExpressResponse> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                if (list == null || list.isEmpty()) {
-                    this.a.onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (ExpressResponse expressResponse : list) {
-                    arrayList.add(new t2c(expressResponse));
-                }
-                this.a.onAdLoaded(arrayList);
-            }
-        }
-
-        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.ExpressAdListener
-        public void onNoAd(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-                LogPrinter.d();
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.ExpressAdListener
-        public void onVideoDownloadFailed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.ExpressAdListener
-        public void onVideoDownloadSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.d();
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e3c(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,89 +30,51 @@ public class e3c extends d3c<t2c> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new FunNativeAdListenerHelper<>(this);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        Object invoke;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new w2c(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        t2c t2cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (t2cVar = (t2c) obj) != null) {
-            this.e.destroy(t2cVar);
-            t2cVar.a = null;
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, obj)) == null) {
-            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (t2c) obj, new j3c(this, this));
-        }
-        return (FunNativeAd2) invokeLLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            new BaiduNativeManager(context.getApplicationContext(), this.mPid.pid).loadExpressAd(new RequestParameters.Builder().downloadAppConfirmPolicy(1).build(), new a(this));
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        ViewGroup.LayoutParams layoutParams;
-        Rect rect;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
-            t2c t2cVar = (t2c) obj;
-            this.e.startShow(t2cVar, str, this.mPid, null, null);
-            View b = k2c.b(t2cVar.a, new h3c(this, t2cVar));
-            if (b == null) {
-                onAdError(t2cVar, "ExpressView Null");
-                return false;
-            }
-            ExpressResponse expressResponse = t2cVar.a;
-            if (expressResponse != null && activity != null) {
-                expressResponse.bindInteractionActivity(activity);
-            }
-            ViewGroup viewGroup2 = (ViewGroup) b.getParent();
-            if (viewGroup2 != null) {
-                viewGroup2.removeView(b);
-            }
-            if (t2cVar.a.getStyleType() == 41) {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) FunAdSdk.getAppContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getRealMetrics(displayMetrics);
-                if (displayMetrics.widthPixels > displayMetrics.heightPixels) {
-                    rect = new Rect(0, 0, displayMetrics.heightPixels, displayMetrics.widthPixels);
-                } else {
-                    rect = new Rect(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                if (obj instanceof IBasicCPUData) {
+                    Object findField = ReflectionUtils.findField("java.lang.Object", obj);
+                    Object findField2 = ReflectionUtils.findField("com.baidu.mobads.sdk.internal.aq", obj);
+                    if (findField2 == null) {
+                        findField2 = ReflectionUtils.findField("com.baidu.mobads.sdk.internal.ap", obj);
+                    }
+                    if (findField == null || findField2 == null || (invoke = ReflectionUtils.invoke(findField2, "b", new Class[]{Object.class, String.class, Object[].class}, findField, "getNativeResonse", new Object[0])) == null) {
+                        return null;
+                    }
+                    Field declaredField = invoke.getClass().getDeclaredField("x");
+                    declaredField.setAccessible(true);
+                    Object obj2 = declaredField.get(invoke);
+                    if (obj2 instanceof JSONObject) {
+                        JSONObject jSONObject = (JSONObject) obj2;
+                        JSONObject optJSONObject = jSONObject.optJSONObject("apo");
+                        RippedAd.Builder builder = new RippedAd.Builder();
+                        builder.setCorporation(jSONObject.optString("publisher")).setTitle(jSONObject.optString("tit")).setDescription(jSONObject.optString("desc")).setImageUrl(jSONObject.optString("w_picurl")).setIconUrl(jSONObject.optString("icon")).setClickUrl(jSONObject.optString("curl")).setVideoUrl(jSONObject.optString("vurl")).setAppName(jSONObject.optString("appname")).setAppPkg(jSONObject.optString("apk_name")).setAppUrl(jSONObject.optString("app_store_link"));
+                        if (optJSONObject != null) {
+                            builder.setDeepLinkUrl(optJSONObject.optString("page"));
+                        }
+                        return builder.build();
+                    }
+                    return null;
                 }
-                layoutParams = new ViewGroup.LayoutParams((rect.width() * 3) / 4, -2);
-            } else {
-                layoutParams = new ViewGroup.LayoutParams(-1, -2);
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
-            viewGroup.addView(b, layoutParams);
-            return true;
         }
-        return invokeLLLL.booleanValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

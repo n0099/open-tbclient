@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.tga;
+import com.baidu.tieba.xga;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,11 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
 import tbclient.GetWebviewCacheInfo.Offpack;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, tga> mModuleInfos;
+    public Map<String, xga> mModuleInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewCacheResHttpMsg() {
@@ -40,7 +40,7 @@ public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
         }
     }
 
-    public Map<String, tga> getModuleInfos() {
+    public Map<String, xga> getModuleInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -64,9 +64,9 @@ public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
                 this.mModuleInfos.clear();
                 for (Offpack offpack : getWebviewCacheInfoResIdl.data.offpack_list) {
                     if (offpack != null && !TextUtils.isEmpty(offpack.mod_name)) {
-                        tga tgaVar = new tga();
-                        tgaVar.e(offpack);
-                        this.mModuleInfos.put(offpack.mod_name, tgaVar);
+                        xga xgaVar = new xga();
+                        xgaVar.e(offpack);
+                        this.mModuleInfos.put(offpack.mod_name, xgaVar);
                     }
                 }
             }

@@ -1,7 +1,7 @@
 package tv.athena.revenue.payui.model;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.agd;
+import com.baidu.tieba.zfd;
 import java.util.List;
 import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
@@ -12,7 +12,7 @@ public class PayFlowModel {
     public AppCustomExpand appCustomExpand;
     public Map<String, String> clientInfoExpand;
     public List<Integer> payFailedRetryCode;
-    public agd payResultViewRetryApi;
+    public zfd payResultViewRetryApi;
     public AbsViewEventHandler viewEventListener;
 
     public String toString() {

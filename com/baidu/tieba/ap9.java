@@ -1,19 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface ap9 {
-    public static final String a = File.separator;
-    public static final String b = Environment.getExternalStorageDirectory() + a + "tieba";
-    public static final String c = b + a + ".tieba_post_monitor";
-    public static final String d = c + a + "v1";
-    public static final String e;
+    void a(JSONObject jSONObject) throws JSONException;
 
-    static {
-        StringBuilder sb = new StringBuilder();
-        sb.append(d);
-        sb.append(a);
-        e = sb.toString();
-    }
+    void b(JSONObject jSONObject) throws JSONException;
+
+    void c(JSONObject jSONObject) throws JSONException;
 }

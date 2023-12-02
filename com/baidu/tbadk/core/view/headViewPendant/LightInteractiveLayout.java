@@ -41,9 +41,9 @@ import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f65;
-import com.baidu.tieba.g65;
+import com.baidu.tieba.i65;
 import com.baidu.tieba.im.util.MessageUtils;
+import com.baidu.tieba.j65;
 import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -68,7 +68,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public View c;
     public View d;
     public ImageView e;
-    public g65 f;
+    public j65 f;
     public WeakReference<Context> g;
     public LightEmotionAdapter h;
     public ImageView i;
@@ -485,13 +485,13 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public void setOnDismissListener(g65 g65Var) {
+    public void setOnDismissListener(j65 j65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, g65Var) == null) {
-            this.f = g65Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, j65Var) == null) {
+            this.f = j65Var;
             LightEmotionAdapter lightEmotionAdapter = this.h;
             if (lightEmotionAdapter != null) {
-                lightEmotionAdapter.r(g65Var);
+                lightEmotionAdapter.r(j65Var);
             }
         }
     }
@@ -536,9 +536,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
             if (weakReference != null) {
                 return weakReference.get();
             }
-            g65 g65Var = this.f;
-            if (g65Var != null) {
-                g65Var.onClose();
+            j65 j65Var = this.f;
+            if (j65Var != null) {
+                j65Var.onClose();
                 return null;
             }
             return null;
@@ -610,7 +610,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 L(lightEmotionData.getId());
                 MetaData metaData2 = this.A;
                 if (metaData2 != null) {
-                    f65.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
+                    i65.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
                 }
             } else if (i2 == 3) {
                 HashMap hashMap = new HashMap();
@@ -642,9 +642,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.A != null && getViewContext() != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getViewContext(), this.A.getUserId(), this.A.getUserName())));
-            g65 g65Var = this.f;
-            if (g65Var != null) {
-                g65Var.onClose();
+            j65 j65Var = this.f;
+            if (j65Var != null) {
+                j65Var.onClose();
             }
         }
     }
@@ -737,9 +737,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 int rawY = (int) motionEvent.getRawY();
                 this.w = rawY;
                 if (!H(this.b, this.v, rawY)) {
-                    g65 g65Var = this.f;
-                    if (g65Var != null) {
-                        g65Var.onClose();
+                    j65 j65Var = this.f;
+                    if (j65Var != null) {
+                        j65Var.onClose();
                         return true;
                     }
                     return true;

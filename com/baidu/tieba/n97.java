@@ -1,142 +1,117 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.view.View;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import kotlin.TuplesKt;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.DownloadBar;
-import tbclient.FeedMaskLayer;
-import tbclient.FeedVideoAdComponent;
-import tbclient.MaskLayerText;
-import tbclient.VideoField;
+import tbclient.FeedPicComponent;
+import tbclient.PicDecoration;
+import tbclient.PicInfo;
 /* loaded from: classes7.dex */
 public final class n97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static final class a extends v97 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MaskLayerText a;
-
-        public a(MaskLayerText maskLayerText) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {maskLayerText};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static final List<x77> a(List<PicDecoration> decorationComponentList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, decorationComponentList)) == null) {
+            Intrinsics.checkNotNullParameter(decorationComponentList, "decorationComponentList");
+            ArrayList arrayList = new ArrayList();
+            for (PicDecoration picDecoration : decorationComponentList) {
+                HashMap<String, String> a = va7.a.a(picDecoration.decoration_info);
+                String str = picDecoration.name;
+                Intrinsics.checkNotNullExpressionValue(str, "decorationComponent.name");
+                String str2 = picDecoration.location;
+                Intrinsics.checkNotNullExpressionValue(str2, "decorationComponent.location");
+                arrayList.add(new x77(str, str2, a));
             }
-            this.a = maskLayerText;
+            return arrayList;
         }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View widget) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
-                Intrinsics.checkNotNullParameter(widget, "widget");
-                ua7.c(widget.getContext(), this.a.schema);
-            }
-        }
+        return (List) invokeL.objValue;
     }
 
-    public static final SpannableString a(List<MaskLayerText> textList) {
-        InterceptResult invokeL;
+    public static final u47 b(List<PicInfo> picInfoList, String schema, r67 feedExtraData) {
+        InterceptResult invokeLLL;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, picInfoList, schema, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(picInfoList, "picInfoList");
+            Intrinsics.checkNotNullParameter(schema, "schema");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            a67 a67Var = new a67();
+            ArrayList arrayList = new ArrayList();
+            for (PicInfo picInfo : picInfoList) {
+                w77 w77Var = new w77();
+                w77Var.a = picInfo.small_pic_url;
+                Integer num = picInfo.width;
+                Intrinsics.checkNotNullExpressionValue(num, "component.width");
+                w77Var.b = num.intValue();
+                Integer num2 = picInfo.height;
+                Intrinsics.checkNotNullExpressionValue(num2, "component.height");
+                w77Var.c = num2.intValue();
+                Double d = picInfo.crop_point_width_ratio;
+                Intrinsics.checkNotNullExpressionValue(d, "component.crop_point_width_ratio");
+                w77Var.e = d.doubleValue();
+                Double d2 = picInfo.crop_point_height_ratio;
+                Intrinsics.checkNotNullExpressionValue(d2, "component.crop_point_height_ratio");
+                w77Var.f = d2.doubleValue();
+                Integer num3 = picInfo.is_long_pic;
+                if (num3 != null && num3.intValue() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                w77Var.d = z;
+                w77Var.g = picInfo.scheme;
+                List<PicDecoration> list = picInfo.decoration;
+                if (list != null && !list.isEmpty()) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                if (!z2) {
+                    List<PicDecoration> list2 = picInfo.decoration;
+                    Intrinsics.checkNotNullExpressionValue(list2, "component.decoration");
+                    w77Var.h = a(list2);
+                }
+                w77Var.i.addAll(CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "image_click", null, 2, null), s67.e(feedExtraData, "image_click2", null, 2, null), s67.e(feedExtraData, "image_click3", null, 2, null), s67.e(feedExtraData, "image_click4", null, 2, null), s67.e(feedExtraData, "image_click5", null, 2, null), s67.d(feedExtraData, "image_click_selector1", s67.a(feedExtraData, MapsKt__MapsKt.mutableMapOf(TuplesKt.to("pic_type", picInfo.pic_type))))}));
+                arrayList.add(w77Var);
+            }
+            a67Var.a = arrayList;
+            return new u47(a67Var, schema, feedExtraData.a().a(), feedExtraData.c().a(), null, 16, null);
+        }
+        return (u47) invokeLLL.objValue;
+    }
+
+    public static final void c(FeedPicComponent feedPicComponent, List<rb7<?>> dataList, r67 feedExtraData) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, textList)) == null) {
-            Intrinsics.checkNotNullParameter(textList, "textList");
-            if (ListUtils.isEmpty(textList)) {
-                return new SpannableString("");
-            }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            for (MaskLayerText maskLayerText : textList) {
-                if (maskLayerText != null) {
-                    String str = maskLayerText.text;
-                    boolean z2 = true;
-                    if (str != null && str.length() != 0) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (!z) {
-                        String str2 = maskLayerText.schema;
-                        if (str2 != null && str2.length() != 0) {
-                            z2 = false;
-                        }
-                        if (z2) {
-                            spannableStringBuilder.append((CharSequence) maskLayerText.text);
-                        } else {
-                            SpannableString spannableString = new SpannableString(maskLayerText.text);
-                            spannableString.setSpan(new a(maskLayerText), 0, maskLayerText.text.length(), 17);
-                            spannableStringBuilder.append((CharSequence) spannableString);
-                        }
-                    }
-                }
-            }
-            return new SpannableString(spannableStringBuilder);
-        }
-        return (SpannableString) invokeL.objValue;
-    }
-
-    public static final void b(FeedVideoAdComponent feedVideoAdComponent, List<nb7<?>> dataList, i87 videoSchemaData, n67 feedExtraData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, feedVideoAdComponent, dataList, videoSchemaData, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedVideoAdComponent, "<this>");
+        if (interceptable == null || interceptable.invokeLLL(65538, null, feedPicComponent, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedPicComponent, "<this>");
             Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            VideoField videoField = feedVideoAdComponent.video_info;
-            if (videoField != null) {
-                x47 b = o97.b(videoField, videoSchemaData, feedExtraData);
-                String str = "";
-                SpannableString spannableString = new SpannableString("");
-                FeedMaskLayer mask_layer = feedVideoAdComponent.mask_layer;
-                if (mask_layer != null) {
-                    Intrinsics.checkNotNullExpressionValue(mask_layer, "mask_layer");
-                    String str2 = mask_layer.topright_text;
-                    if (str2 != null) {
-                        Intrinsics.checkNotNullExpressionValue(str2, "mask.topright_text ?: \"\"");
-                        str = str2;
-                    }
-                    List<MaskLayerText> list = mask_layer.button_texts;
-                    Intrinsics.checkNotNullExpressionValue(list, "mask.button_texts");
-                    spannableString = a(list);
-                }
-                b.q(spannableString);
-                g67 g67Var = new g67(null, null, null, null, null, null, 63, null);
-                DownloadBar download_bar = feedVideoAdComponent.download_bar;
-                if (download_bar != null) {
-                    Intrinsics.checkNotNullExpressionValue(download_bar, "download_bar");
-                    String str3 = download_bar.type;
-                    Intrinsics.checkNotNullExpressionValue(str3, "bar.type");
-                    String str4 = download_bar.icon;
-                    Intrinsics.checkNotNullExpressionValue(str4, "bar.icon");
-                    String str5 = download_bar.guide_text;
-                    Intrinsics.checkNotNullExpressionValue(str5, "bar.guide_text");
-                    String str6 = download_bar.button_text;
-                    Intrinsics.checkNotNullExpressionValue(str6, "bar.button_text");
-                    String str7 = download_bar.schema;
-                    Intrinsics.checkNotNullExpressionValue(str7, "bar.schema");
-                    g67Var = new g67(str3, str4, str5, str6, str7, feedExtraData.a());
-                }
-                dataList.add(new ob7(new w47(b, str, spannableString, g67Var), "video_ad"));
+            List<PicInfo> list = feedPicComponent.pics;
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
             }
+            if (z) {
+                return;
+            }
+            List<PicInfo> pics = feedPicComponent.pics;
+            Intrinsics.checkNotNullExpressionValue(pics, "pics");
+            String schema = feedPicComponent.schema;
+            Intrinsics.checkNotNullExpressionValue(schema, "schema");
+            dataList.add(new sb7(b(pics, schema, feedExtraData), "pic"));
         }
     }
 }

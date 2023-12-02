@@ -1,21 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
 /* loaded from: classes8.dex */
 public class tx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+    public int a;
+    public String b;
+    public long c;
+    public String d;
+    public String e;
+    public int f;
+    public String g;
+    public long h;
+    public long i;
+    public long j;
+    public int k;
+    public int l;
+    public long m;
+    public long n;
+    public String o;
+    public long p;
+    public int q;
+    public int r;
+    public int s;
 
     public tx4() {
         Interceptable interceptable = $ic;
@@ -27,50 +40,25 @@ public class tx4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = 0;
     }
 
-    public int a() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.j;
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 
-    public String b() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.b = jSONObject.optInt("class_id", 0);
-            this.a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void d(Classify classify) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, classify) != null) || classify == null) {
-            return;
-        }
-        this.b = classify.class_id.intValue();
-        this.a = classify.class_name;
+        return invokeV.longValue;
     }
 }

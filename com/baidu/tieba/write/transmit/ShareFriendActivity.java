@@ -44,22 +44,22 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hx8;
+import com.baidu.tieba.cw8;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.ShareIMCommonCardData;
-import com.baidu.tieba.ix8;
-import com.baidu.tieba.iz8;
-import com.baidu.tieba.jx8;
-import com.baidu.tieba.keb;
-import com.baidu.tieba.kx8;
-import com.baidu.tieba.kz8;
+import com.baidu.tieba.jeb;
 import com.baidu.tieba.lx8;
-import com.baidu.tieba.lz8;
 import com.baidu.tieba.mx8;
+import com.baidu.tieba.mz8;
+import com.baidu.tieba.nx8;
+import com.baidu.tieba.ox8;
+import com.baidu.tieba.oz8;
+import com.baidu.tieba.px8;
+import com.baidu.tieba.pz8;
+import com.baidu.tieba.qeb;
+import com.baidu.tieba.qx8;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.reb;
-import com.baidu.tieba.yv8;
-import com.baidu.tieba.zeb;
+import com.baidu.tieba.yeb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,7 +80,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public ThreadData F;
     public ForumData G;
     public GroupInfoData H;
-    public final kz8 I;
+    public final oz8 I;
     public boolean J;
     public boolean K;
     public ShareIMCommonCardData L;
@@ -91,8 +91,8 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public List<MetaData> d;
     public List<MetaData> e;
     public List<String> f;
-    public reb g;
-    public zeb h;
+    public qeb g;
+    public yeb h;
     public View i;
     public FrameLayout j;
     public BdListView k;
@@ -445,14 +445,14 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     }
 
     /* loaded from: classes8.dex */
-    public class i implements hx8.b {
+    public class i implements lx8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ShareFriendActivity a;
 
-        @Override // com.baidu.tieba.hx8.b
+        @Override // com.baidu.tieba.lx8.b
         public /* synthetic */ void onCancel() {
-            ix8.a(this);
+            mx8.a(this);
         }
 
         public i(ShareFriendActivity shareFriendActivity) {
@@ -473,7 +473,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             this.a = shareFriendActivity;
         }
 
-        @Override // com.baidu.tieba.hx8.b
+        @Override // com.baidu.tieba.lx8.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -483,14 +483,14 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     }
 
     /* loaded from: classes8.dex */
-    public class j implements hx8.b {
+    public class j implements lx8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ShareFriendActivity a;
 
-        @Override // com.baidu.tieba.hx8.b
+        @Override // com.baidu.tieba.lx8.b
         public /* synthetic */ void onCancel() {
-            ix8.a(this);
+            mx8.a(this);
         }
 
         public j(ShareFriendActivity shareFriendActivity) {
@@ -511,7 +511,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             this.a = shareFriendActivity;
         }
 
-        @Override // com.baidu.tieba.hx8.b
+        @Override // com.baidu.tieba.lx8.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -521,14 +521,14 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     }
 
     /* loaded from: classes8.dex */
-    public class k implements hx8.b {
+    public class k implements lx8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ShareFriendActivity a;
 
-        @Override // com.baidu.tieba.hx8.b
+        @Override // com.baidu.tieba.lx8.b
         public /* synthetic */ void onCancel() {
-            ix8.a(this);
+            mx8.a(this);
         }
 
         public k(ShareFriendActivity shareFriendActivity) {
@@ -549,7 +549,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             this.a = shareFriendActivity;
         }
 
-        @Override // com.baidu.tieba.hx8.b
+        @Override // com.baidu.tieba.lx8.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -559,14 +559,14 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     }
 
     /* loaded from: classes8.dex */
-    public class l implements hx8.b {
+    public class l implements lx8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ShareFriendActivity a;
 
-        @Override // com.baidu.tieba.hx8.b
+        @Override // com.baidu.tieba.lx8.b
         public /* synthetic */ void onCancel() {
-            ix8.a(this);
+            mx8.a(this);
         }
 
         public l(ShareFriendActivity shareFriendActivity) {
@@ -587,7 +587,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             this.a = shareFriendActivity;
         }
 
-        @Override // com.baidu.tieba.hx8.b
+        @Override // com.baidu.tieba.lx8.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -636,7 +636,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     }
 
     /* loaded from: classes8.dex */
-    public static class n extends BdAsyncTask<String, Integer, keb> {
+    public static class n extends BdAsyncTask<String, Integer, jeb> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<ShareFriendActivity> a;
@@ -664,7 +664,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public keb doInBackground(String... strArr) {
+        public jeb doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -686,37 +686,37 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                 if (!this.b.getNetContext().getResponse().isRequestSuccess()) {
                     return null;
                 }
-                keb kebVar = new keb();
-                kebVar.d(postNetData);
-                return kebVar;
+                jeb jebVar = new jeb();
+                jebVar.d(postNetData);
+                return jebVar;
             }
-            return (keb) invokeL.objValue;
+            return (jeb) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(keb kebVar) {
+        public void onPostExecute(jeb jebVar) {
             ShareFriendActivity shareFriendActivity;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kebVar) == null) && (shareFriendActivity = this.a.get()) != null) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jebVar) == null) && (shareFriendActivity = this.a.get()) != null) {
                 shareFriendActivity.l = null;
                 shareFriendActivity.hideNetRefreshView(shareFriendActivity.j);
                 if (this.b.getNetContext().getResponse().isRequestSuccess()) {
                     shareFriendActivity.k.setVisibility(0);
-                    shareFriendActivity.g.b(kebVar);
+                    shareFriendActivity.g.b(jebVar);
                     if (shareFriendActivity.h == null) {
                         return;
                     }
-                    if (shareFriendActivity.z && kebVar != null && kebVar.c() != null && kebVar.c().isEmpty()) {
+                    if (shareFriendActivity.z && jebVar != null && jebVar.c() != null && jebVar.c().isEmpty()) {
                         shareFriendActivity.A1(2);
-                    } else if (!shareFriendActivity.y || kebVar == null || kebVar.c() == null || !kebVar.c().isEmpty() || lz8.a() == null || !lz8.a().isEmpty()) {
+                    } else if (!shareFriendActivity.y || jebVar == null || jebVar.c() == null || !jebVar.c().isEmpty() || pz8.a() == null || !pz8.a().isEmpty()) {
                         shareFriendActivity.A1(0);
                     } else {
                         shareFriendActivity.A1(2);
                     }
-                    if (kebVar != null) {
-                        ArrayList<MetaData> c = kebVar.c();
+                    if (jebVar != null) {
+                        ArrayList<MetaData> c = jebVar.c();
                         int size = c.size();
                         for (int i = 0; i < size; i++) {
                             c.get(i).setItemType(shareFriendActivity.D);
@@ -730,7 +730,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                     shareFriendActivity.k.setVisibility(8);
                     shareFriendActivity.showNetRefreshView(shareFriendActivity.j, shareFriendActivity.getString(R.string.refresh_view_title_text), null, shareFriendActivity.getString(R.string.refresh_view_button_text), true, shareFriendActivity.getNetRefreshListener());
                 }
-                super.onPostExecute(kebVar);
+                super.onPostExecute(jebVar);
             }
         }
 
@@ -788,7 +788,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         this.B = 2;
         this.C = 1;
         this.D = 3;
-        this.I = new kz8();
+        this.I = new oz8();
         this.J = false;
         this.K = false;
         this.M = new e(this);
@@ -804,7 +804,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             ArrayList<MetaData> c2 = this.g.a().c();
             if (!ListUtils.isEmpty(c2)) {
                 A1(0);
-            } else if (ListUtils.isEmpty(c2) && ListUtils.isEmpty(lz8.a())) {
+            } else if (ListUtils.isEmpty(c2) && ListUtils.isEmpty(pz8.a())) {
                 A1(1);
             }
             this.h.d(c2);
@@ -842,7 +842,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d08df);
+            setContentView(R.layout.obfuscated_res_0x7f0d08e0);
             s1(bundle);
             initView();
             x1();
@@ -861,30 +861,30 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public final void B1(@NonNull ForumData forumData, @NonNull MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumData, metaData) == null) {
-            hx8 hx8Var = new hx8(getActivity(), new kx8(getActivity()));
-            hx8Var.j(forumData, metaData);
-            hx8Var.i(new j(this));
-            hx8Var.k();
+            lx8 lx8Var = new lx8(getActivity(), new ox8(getActivity()));
+            lx8Var.j(forumData, metaData);
+            lx8Var.i(new j(this));
+            lx8Var.k();
         }
     }
 
     public final void C1(@NonNull GroupInfoData groupInfoData, @NonNull MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, groupInfoData, metaData) == null) {
-            hx8 hx8Var = new hx8(getActivity(), new lx8(getActivity()));
-            hx8Var.j(groupInfoData, metaData);
-            hx8Var.i(new k(this));
-            hx8Var.k();
+            lx8 lx8Var = new lx8(getActivity(), new px8(getActivity()));
+            lx8Var.j(groupInfoData, metaData);
+            lx8Var.i(new k(this));
+            lx8Var.k();
         }
     }
 
     public final void D1(@NonNull ThreadData threadData, @NonNull MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, threadData, metaData) == null) {
-            hx8 hx8Var = new hx8(getActivity(), new mx8(getActivity()));
-            hx8Var.j(threadData, metaData);
-            hx8Var.i(new i(this));
-            hx8Var.k();
+            lx8 lx8Var = new lx8(getActivity(), new qx8(getActivity()));
+            lx8Var.j(threadData, metaData);
+            lx8Var.i(new i(this));
+            lx8Var.k();
         }
     }
 
@@ -976,30 +976,30 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public final void E1(@NonNull ShareIMCommonCardData shareIMCommonCardData, @NonNull MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, shareIMCommonCardData, metaData) == null) {
-            hx8 hx8Var = new hx8(getActivity(), new jx8(getActivity()));
-            hx8Var.j(shareIMCommonCardData, metaData);
-            hx8Var.i(new l(this));
+            lx8 lx8Var = new lx8(getActivity(), new nx8(getActivity()));
+            lx8Var.j(shareIMCommonCardData, metaData);
+            lx8Var.i(new l(this));
             if (metaData.groupData != null) {
-                iz8.a(shareIMCommonCardData, 2);
+                mz8.a(shareIMCommonCardData, 2);
             } else if (!TextUtils.isEmpty(metaData.getUserId())) {
-                iz8.a(shareIMCommonCardData, 1);
+                mz8.a(shareIMCommonCardData, 1);
             }
-            hx8Var.k();
+            lx8Var.k();
         }
     }
 
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.i = findViewById(R.id.obfuscated_res_0x7f0922b6);
-            this.p = NoDataViewFactory.b(getPageContext().getContext(), this.i, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NOFOLLOW, BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f0703bc)), NoDataViewFactory.e.d(null, getResources().getString(R.string.no_people_focus)), null, true);
+            this.i = findViewById(R.id.obfuscated_res_0x7f0922b8);
+            this.p = NoDataViewFactory.b(getPageContext().getContext(), this.i, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NOFOLLOW, BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f0703bd)), NoDataViewFactory.e.d(null, getResources().getString(R.string.no_people_focus)), null, true);
             t1();
-            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0922c4);
-            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0922a0);
-            this.k = (BdListView) findViewById(R.id.obfuscated_res_0x7f091607);
-            zeb zebVar = new zeb(this);
-            this.h = zebVar;
-            this.k.setAdapter((ListAdapter) zebVar);
+            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0922c6);
+            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0922a2);
+            this.k = (BdListView) findViewById(R.id.obfuscated_res_0x7f091608);
+            yeb yebVar = new yeb(this);
+            this.h = yebVar;
+            this.k.setAdapter((ListAdapter) yebVar);
             this.h.b(this.e);
             this.k.setOnItemClickListener(new g(this));
             this.k.setOnScrollListener(new h(this));
@@ -1068,7 +1068,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public final void s1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
-            this.g = new reb();
+            this.g = new qeb();
             if (bundle != null) {
                 this.z = bundle.getBoolean(ShareFriendActivityConfig.FROM_MESSAGE_TAB, false);
                 this.y = bundle.getBoolean(ShareFriendActivityConfig.FROM_SHARE_FRIEND, false);
@@ -1095,7 +1095,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
 
     public void w1(@NonNull MetaData metaData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048595, this, metaData) != null) || yv8.a(getActivity())) {
+        if ((interceptable != null && interceptable.invokeL(1048595, this, metaData) != null) || cw8.a(getActivity())) {
             return;
         }
         ThreadData threadData = this.F;
@@ -1133,7 +1133,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             this.a.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
             this.o = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.w = (ImageView) this.t.findViewById(R.id.new_friend_search);
-            View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0720, (View.OnClickListener) null);
+            View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0721, (View.OnClickListener) null);
             this.s = addCustomView;
             addCustomView.setVisibility(8);
             ImageView imageView = (ImageView) this.s.findViewById(R.id.obfuscated_res_0x7f0904d7);

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cu;
-import com.baidu.tieba.cw4;
+import com.baidu.tieba.fw4;
 import com.baidu.tieba.it;
 import com.baidu.tieba.jt;
 import com.baidu.tieba.qs;
@@ -180,10 +180,10 @@ public class NegFeedBackDecorItem extends qs implements it<NegativeFeedBackData>
         }
     }
 
-    private void setAlignTop(cw4 cw4Var) {
+    private void setAlignTop(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, cw4Var) == null) {
-            if (cw4Var.showCardBottomOpWeight()) {
+        if (interceptable == null || interceptable.invokeL(65541, this, fw4Var) == null) {
+            if (fw4Var.showCardBottomOpWeight()) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
                 int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
@@ -236,15 +236,15 @@ public class NegFeedBackDecorItem extends qs implements it<NegativeFeedBackData>
         }
     }
 
-    public void autoAlignParent(cw4 cw4Var) {
+    public void autoAlignParent(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cw4Var) == null) && cw4Var != null && cw4Var.getNegFeedBackData() != null) {
-            if (cw4Var.getNegFeedBackData().getTopicID() <= 0 && cw4Var.getThreadData() != null) {
-                if (!cw4Var.showCardBottomOpWeight() && !cw4Var.isFromFrs()) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fw4Var) == null) && fw4Var != null && fw4Var.getNegFeedBackData() != null) {
+            if (fw4Var.getNegFeedBackData().getTopicID() <= 0 && fw4Var.getThreadData() != null) {
+                if (!fw4Var.showCardBottomOpWeight() && !fw4Var.isFromFrs()) {
                     autoAlignParent(Align.ALIGN_RIGHT_BOTTOM);
-                } else if (cw4Var.isSupportTop()) {
+                } else if (fw4Var.isSupportTop()) {
                     setTopMarginParentAlignTop(UtilHelper.getDimenPixelSize(R.dimen.tbds50));
-                } else if (cw4Var.isSupportBottom()) {
+                } else if (fw4Var.isSupportBottom()) {
                     cu cuVar = this.threadCard;
                     if (cuVar != null) {
                         cuVar.p(this);
@@ -255,7 +255,7 @@ public class NegFeedBackDecorItem extends qs implements it<NegativeFeedBackData>
             } else if (this.isConcernRecommend) {
                 adjustForConcernRecommend();
             } else {
-                setAlignTop(cw4Var);
+                setAlignTop(fw4Var);
             }
         }
     }

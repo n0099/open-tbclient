@@ -6,8 +6,8 @@ import com.baidu.adp.log.DefaultLog;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.kma;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.oma;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +25,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0007\u0018\u0000 \t2\u00020\u0001:\u0001\tB\u0005¢\u0006\u0002\u0010\u0002J\u001c\u0010\u0003\u001a\u00020\u00042\b\u0010\u0005\u001a\u0004\u0018\u00010\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\bH\u0016¨\u0006\n"}, d2 = {"Lcom/baidu/tieba/videoplay/dispatcher/VideoListPlayDispatcher;", "Lcom/baidu/tieba/schema/SchemaDispatcher;", "()V", "dispatch", "", "jsonObject", "Lorg/json/JSONObject;", "context", "Landroid/content/Context;", "Companion", "VideoPlay_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class VideoListPlayDispatcher implements kma {
+public final class VideoListPlayDispatcher implements oma {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
     public static final String TAG = "VideoImmersivePlayDispatcher";
@@ -85,7 +85,7 @@ public final class VideoListPlayDispatcher implements kma {
         }
     }
 
-    @Override // com.baidu.tieba.kma
+    @Override // com.baidu.tieba.oma
     public void dispatch(JSONObject jSONObject, Context context) {
         VideoRecommentPlayActivityConfig.PersonalPageParams personalPageParams;
         Interceptable interceptable = $ic;

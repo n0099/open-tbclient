@@ -132,18 +132,18 @@ public class DownloadProgressView extends FrameLayout {
 
     private void initView() {
         l.inflate(getContext(), com.baidu.tieba.R.layout.obfuscated_res_0x7f0d04bf, this);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09140b);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09140c);
         this.dh = textProgressBar;
         textProgressBar.setTextDimen(this.HX);
         this.dh.setTextColor(this.HV, this.HW);
         this.dh.setProgressDrawable(this.HY);
-        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0913e1);
+        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0913e2);
         this.HT = textView;
         textView.setTextColor(this.HU);
         this.HT.setTextSize(0, this.HX);
         this.HT.setVisibility(0);
         this.HT.setBackground(this.HZ);
-        findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09136c).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.widget.DownloadProgressView.1
+        findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09136d).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.widget.DownloadProgressView.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 DownloadProgressView.this.performClick();

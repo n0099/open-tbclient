@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,118 +15,75 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public final class ms2 {
+public class ms2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean c;
+    public static final ms2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final os2 a;
-    public final List<ns2> b;
-    public Boolean c;
-    public ns2 d;
+    public final AtomicBoolean a;
+    public final List<js2> b;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public os2 a;
-        public List<ns2> b;
-        public RuntimeException c;
+    }
 
-        public a() {
+    /* loaded from: classes7.dex */
+    public class b extends sr2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ ms2 b;
+
+        public b(ms2 ms2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ms2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ms2Var;
+            this.a = 0;
+        }
+
+        @Override // com.baidu.tieba.sr2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b.d(activity);
                 }
             }
         }
 
-        @SuppressLint({"BDThrowableCheck"})
-        public a a(@NonNull List<ns2> list) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.sr2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                if (list.contains(null)) {
-                    this.c = new IllegalArgumentException("branches contains null value");
-                    if (!ms2.e) {
-                        this.b = null;
-                        return this;
-                    }
-                    throw this.c;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                int i = this.a - 1;
+                this.a = i;
+                if (i == 0) {
+                    this.b.e(activity);
                 }
-                for (ns2 ns2Var : list) {
-                    if (ns2Var.c() + 0 > 100) {
-                        this.c = new IllegalArgumentException("The sum of all flow in the branch must be in [0,100]");
-                        if (!ms2.e) {
-                            this.b = null;
-                            return this;
-                        }
-                        throw this.c;
-                    }
-                }
-                this.b = Collections.unmodifiableList(list);
-                return this;
             }
-            return (a) invokeL.objValue;
         }
 
-        @Nullable
-        @SuppressLint({"BDThrowableCheck"})
-        public ms2 b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.c != null) {
-                    if (!ms2.e) {
-                        return null;
-                    }
-                    throw this.c;
-                } else if (this.a == null) {
-                    this.c = new IllegalStateException("testSwitch == null");
-                    if (!ms2.e) {
-                        return null;
-                    }
-                    throw this.c;
-                } else {
-                    List<ns2> list = this.b;
-                    if (list == null) {
-                        this.c = new IllegalStateException("branches == null");
-                        if (!ms2.e) {
-                            return null;
-                        }
-                        throw this.c;
-                    }
-                    for (ns2 ns2Var : list) {
-                        if (!os2.c(this.a.f(), ns2Var.e)) {
-                            this.c = new IllegalStateException("branch valueType error");
-                            if (!ms2.e) {
-                                return null;
-                            }
-                            throw this.c;
-                        }
-                    }
-                    return new ms2(this);
-                }
-            }
-            return (ms2) invokeV.objValue;
-        }
-
-        public a c(@NonNull os2 os2Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, os2Var)) == null) {
-                this.a = os2Var;
-                return this;
-            }
-            return (a) invokeL.objValue;
+        public /* synthetic */ b(ms2 ms2Var, a aVar) {
+            this(ms2Var);
         }
     }
 
@@ -139,25 +100,36 @@ public final class ms2 {
                 return;
             }
         }
-        e = sm1.a;
+        c = vm1.a;
+        d = new ms2();
     }
 
-    @NonNull
-    public os2 c() {
+    public static ms2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
+        }
+        return (ms2) invokeV.objValue;
+    }
+
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            if (LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN) {
+                return true;
+            }
+            return false;
         }
-        return (os2) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ms2(a aVar) {
+    public ms2() {
+        List<js2> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -167,33 +139,59 @@ public final class ms2 {
                 return;
             }
         }
-        this.c = Boolean.FALSE;
-        this.a = aVar.a;
-        this.b = aVar.b;
+        this.a = new AtomicBoolean(false);
+        tf1<js2> tf1Var = new ls2().a;
+        if (tf1Var == null) {
+            list = null;
+        } else {
+            list = tf1Var.getList();
+        }
+        this.b = list;
     }
 
-    @Nullable
-    public synchronized ns2 b() {
-        InterceptResult invokeV;
+    public void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.c.booleanValue()) {
-                    return this.d;
-                }
-                int currentTimeMillis = (int) (System.currentTimeMillis() % 100);
-                this.c = Boolean.TRUE;
-                for (int i = 0; i < this.b.size(); i++) {
-                    ns2 ns2Var = this.b.get(i);
-                    currentTimeMillis -= ns2Var.c();
-                    if (currentTimeMillis < 0) {
-                        this.d = ns2Var;
-                        return ns2Var;
-                    }
-                }
-                return null;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext instanceof Application) {
+                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
             }
         }
-        return (ns2) invokeV.objValue;
+    }
+
+    public void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (js2 js2Var : this.b) {
+                    if (current == js2Var.b()) {
+                        js2Var.a(true, activity);
+                    }
+                }
+            }
+        }
+    }
+
+    public void e(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (js2 js2Var : this.b) {
+                    if (current == js2Var.b()) {
+                        js2Var.a(false, activity);
+                    }
+                }
+            }
+        }
     }
 }

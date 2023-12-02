@@ -1,60 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class tt5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
-    public static String b = null;
-    public static String c = null;
-    public static String d = "floor";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948192756, "Lcom/baidu/tieba/tt5;")) == null) {
-            return;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return false;
+            }
+            int indexOf = str.indexOf("hiphotos");
+            if (indexOf > 0 && indexOf < 20) {
+                return true;
+            }
+            int indexOf2 = str.indexOf("tiebapic");
+            if (indexOf2 <= 0 || indexOf2 >= 20) {
+                return false;
+            }
+            return true;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948192756, "Lcom/baidu/tieba/tt5;");
-        }
+        return invokeL.booleanValue;
     }
 
-    public static void a(String str, String str2, String str3, int i, BdPageContext bdPageContext, BaijiahaoData baijiahaoData) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i), bdPageContext, baijiahaoData}) == null) {
-            b = str;
-            c = str2;
-            a = str3;
-            if (!StringUtils.isNull(str3) && bdPageContext != null && bdPageContext.getPageActivity() != null) {
-                if (d.equals(a)) {
-                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(bdPageContext.getPageActivity()).createSubPbActivityConfig(b, c, "search_post", true);
-                    createSubPbActivityConfig.setKeyPageStartFrom(8);
-                    createSubPbActivityConfig.setBjhData(baijiahaoData);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-                    return;
-                }
-                PbActivityConfig createNormalCfg = new PbActivityConfig(bdPageContext.getPageActivity()).createNormalCfg(b, c, "search_post");
-                createNormalCfg.setStartFrom(8);
-                createNormalCfg.setBjhData(baijiahaoData);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c();
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!FileHelper.checkSD() || !f7.c()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

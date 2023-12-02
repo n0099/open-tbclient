@@ -3,7 +3,7 @@ package com.baidu.tieba.impersonal.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import com.baidu.tieba.kt5;
+import com.baidu.tieba.ot5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public final class Extra implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @SerializedName("msg_sug_info")
-    @kt5(serialize = false)
+    @ot5(serialize = false)
     public MsgSugInfo msgSugInfo;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -102,7 +102,7 @@ public final class Extra implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @SerializedName("sug_list")
-        @kt5(serialize = false)
+        @ot5(serialize = false)
         public List<AbilityItem> msgSugAbilityItems;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

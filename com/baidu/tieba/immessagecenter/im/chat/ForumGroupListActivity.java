@@ -79,20 +79,18 @@ public final class ForumGroupListActivity extends BaseFragmentActivity {
                     String str = "";
                     if (stringExtra == null) {
                         stringExtra = "";
-                    } else {
-                        Intrinsics.checkNotNullExpressionValue(stringExtra, "intent.getStringExtra(Sc…stant.KEY_FORUM_ID) ?: \"\"");
                     }
+                    Intrinsics.checkNotNullExpressionValue(stringExtra, "intent.getStringExtra(Sc…stant.KEY_FORUM_ID) ?: \"\"");
                     String stringExtra2 = forumGroupListActivity.getIntent().getStringExtra(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME);
                     if (stringExtra2 == null) {
                         stringExtra2 = "";
-                    } else {
-                        Intrinsics.checkNotNullExpressionValue(stringExtra2, "intent.getStringExtra(Sc…ant.KEY_FORUM_NAME) ?: \"\"");
                     }
+                    Intrinsics.checkNotNullExpressionValue(stringExtra2, "intent.getStringExtra(Sc…ant.KEY_FORUM_NAME) ?: \"\"");
                     String stringExtra3 = forumGroupListActivity.getIntent().getStringExtra("roomId");
                     if (stringExtra3 != null) {
-                        Intrinsics.checkNotNullExpressionValue(stringExtra3, "intent.getStringExtra(Sc…nstant.KEY_ROOM_ID) ?: \"\"");
                         str = stringExtra3;
                     }
+                    Intrinsics.checkNotNullExpressionValue(str, "intent.getStringExtra(Sc…nstant.KEY_ROOM_ID) ?: \"\"");
                     Bundle bundle = new Bundle();
                     Long longOrNull = StringsKt__StringNumberConversionsKt.toLongOrNull(stringExtra);
                     long j2 = 0;
@@ -143,7 +141,7 @@ public final class ForumGroupListActivity extends BaseFragmentActivity {
             setContentView(R.layout.obfuscated_res_0x7f0d003b);
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
             Intrinsics.checkNotNullExpressionValue(beginTransaction, "supportFragmentManager.beginTransaction()");
-            beginTransaction.replace(R.id.obfuscated_res_0x7f090c35, l1());
+            beginTransaction.replace(R.id.obfuscated_res_0x7f090c36, l1());
             beginTransaction.commitAllowingStateLoss();
         }
     }

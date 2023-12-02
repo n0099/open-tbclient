@@ -1,130 +1,199 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
+import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ju8 {
-    public static /* synthetic */ Interceptable $ic;
+public class ju8 extends xt8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static xt8 d = null;
+    public static String e = "tb_oficial_msg_";
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public long f;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947895900, "Lcom/baidu/tieba/ju8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947895900, "Lcom/baidu/tieba/ju8;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ju8() {
+        super("tb_oficial_msg_", OfficialChatMessage.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (Class) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public String a() {
+    public static synchronized ju8 w() {
+        InterceptResult invokeV;
+        ju8 ju8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (ju8.class) {
+                if (d == null) {
+                    d = new ju8();
+                }
+                ju8Var = (ju8) d;
+            }
+            return ju8Var;
+        }
+        return (ju8) invokeV.objValue;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00b5: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:29:0x00b5 */
+    public static List<nu8> x() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Exception e2;
+        Cursor cursor;
+        Cursor cursor2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            Cursor cursor3 = null;
+            ArrayList arrayList2 = null;
+            try {
+                try {
+                    cursor = fu8.e().g("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                    if (cursor != null) {
+                        try {
+                            arrayList = new ArrayList(cursor.getCount());
+                            while (cursor.moveToNext()) {
+                                try {
+                                    nu8 nu8Var = new nu8();
+                                    nu8Var.h(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
+                                    nu8Var.j(cursor.getInt(cursor.getColumnIndex("unread_count")));
+                                    nu8Var.i(cursor.getString(cursor.getColumnIndex("group_head")));
+                                    nu8Var.g(cursor.getString(cursor.getColumnIndex("group_name")));
+                                    nu8Var.k(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    int columnIndex = cursor.getColumnIndex("visit_time");
+                                    if (columnIndex >= 0) {
+                                        nu8Var.l(cursor.getLong(columnIndex));
+                                    }
+                                    arrayList.add(nu8Var);
+                                } catch (Exception e3) {
+                                    e2 = e3;
+                                    e2.printStackTrace();
+                                    TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
+                                    sd.a(cursor);
+                                    return arrayList;
+                                }
+                            }
+                            arrayList2 = arrayList;
+                        } catch (Exception e4) {
+                            arrayList = null;
+                            e2 = e4;
+                        }
+                    }
+                    sd.a(cursor);
+                    return arrayList2;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor3 = cursor2;
+                    sd.a(cursor3);
+                    throw th;
+                }
+            } catch (Exception e5) {
+                arrayList = null;
+                e2 = e5;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                sd.a(cursor3);
+                throw th;
+            }
+        } else {
+            return (List) invokeV.objValue;
+        }
+    }
+
+    public static List<String> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
+            try {
+                try {
+                    fu8 e2 = fu8.e();
+                    cursor = e2.g("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            arrayList.add(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
+                        }
+                    }
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                    TiebaStatic.printDBExceptionLog(e3, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
+                }
+                return arrayList;
+            } finally {
+                sd.a(cursor);
+            }
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void A(long j, long j2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("read_count", Integer.valueOf(i));
+                fu8 e2 = fu8.e();
+                int i2 = e2.i(e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
+                BdLog.d("updateReadCount result = " + i2);
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
         }
     }
 
-    public void h(String str) {
+    public void z(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.f = j;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("visit_time", Long.valueOf(j2));
+                contentValues.put("unread_count", (Integer) 0);
+                int i = fu8.e().i("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)});
+                BdLog.d("updateReadCount result = " + i);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
         }
     }
 }

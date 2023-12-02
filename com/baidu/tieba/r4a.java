@@ -1,42 +1,55 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.SparseArray;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DeleteThreadInfo;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pb.pb.sub.SubPbModel;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tbadk.mvc.model.CacheModel;
+import com.baidu.tieba.pb.pb.main.pendantrecord.PbPendantRecordCacheModel;
+import com.baidu.tieba.push.PushGuideManager;
+import com.baidu.tieba.push.PushSceneItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class r4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public PbPendantRecordCacheModel b;
+    public boolean c;
+    public boolean d;
+    public String e;
+    public String f;
+    public ArrayList<m3a> g;
+    public long h;
+    public final CacheModel.CacheModelCallback<m3a> i;
 
     /* loaded from: classes8.dex */
-    public class a implements qx5 {
+    public class a implements CacheModel.CacheModelCallback<m3a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f5a a;
-        public final /* synthetic */ SubPbModel b;
+        public final /* synthetic */ r4a a;
 
-        public a(f5a f5aVar, SubPbModel subPbModel) {
+        public a(r4a r4aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {f5aVar, subPbModel};
+                Object[] objArr = {r4aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,138 +59,168 @@ public class r4a {
                     return;
                 }
             }
-            this.a = f5aVar;
-            this.b = subPbModel;
+            this.a = r4aVar;
         }
 
-        @Override // com.baidu.tieba.qx5
-        public void a() {
+        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
+        public void onCacheDataGet(ReadCacheRespMsg<List<m3a>> readCacheRespMsg, ReadCacheMessage<m3a> readCacheMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.z0(false);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, readCacheRespMsg, readCacheMessage) == null) {
+                this.a.c = true;
+                if (readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
+                    this.a.g.clear();
+                    this.a.g.addAll(readCacheRespMsg.getData());
+                }
+                if (this.a.d) {
+                    this.a.d = false;
+                    if (!TextUtils.isEmpty(this.a.e) && !TextUtils.isEmpty(this.a.f)) {
+                        r4a r4aVar = this.a;
+                        r4aVar.n(r4aVar.e, this.a.f);
+                        this.a.e = null;
+                        this.a.f = null;
+                    }
+                }
             }
         }
 
-        @Override // com.baidu.tieba.qx5
-        public void b(List<String> list) {
-            int i;
+        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
+        public void onCacheDataWrite(WriteCacheRespMsg<List<m3a>> writeCacheRespMsg, WriteCacheMessage<m3a> writeCacheMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || !(this.a.A() instanceof BdTypeListView)) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeCacheRespMsg, writeCacheMessage) == null) {
+                if (writeCacheMessage != null && writeCacheMessage.getData() != null) {
+                    this.a.j(writeCacheMessage.getData().getCacheKey(), writeCacheMessage.getData().b(), ListUtils.getCount(writeCacheMessage.getData().c()));
+                }
+                this.a.o();
+            }
+        }
+    }
+
+    public r4a(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            List<pi> data = ((BdTypeListView) this.a.A()).getData();
-            if (!ListUtils.isEmpty(data) && !ListUtils.isEmpty(list)) {
-                Iterator<pi> it = data.iterator();
-                while (true) {
-                    i = 0;
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    pi next = it.next();
-                    if (next instanceof nwa) {
-                        while (true) {
-                            if (i >= list.size()) {
-                                break;
-                            } else if (TextUtils.equals(list.get(i), ((nwa) next).U())) {
-                                it.remove();
-                                if (this.b.z0() != null) {
-                                    this.b.z0().A(this.b.z0().m() - 1);
-                                }
-                            } else {
-                                i++;
-                            }
-                        }
-                    }
-                }
-                while (i < data.size()) {
-                    if (data.get(i) instanceof o5a) {
-                        ((o5a) data.get(i)).b(this.b.z0().m());
-                    }
-                    i++;
-                }
-                ((BdTypeListView) this.a.A()).setData(data);
-                this.a.R();
-            }
         }
+        this.c = false;
+        this.d = false;
+        this.g = new ArrayList<>();
+        this.h = 0L;
+        this.i = new a(this);
+        this.a = tbPageContext;
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            px5.b().a();
-        }
-    }
-
-    public static sx5 b(SubPbModel subPbModel, f5a f5aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, subPbModel, f5aVar)) == null) {
-            if (subPbModel != null && f5aVar != null) {
-                sx5 sx5Var = new sx5();
-                sx5Var.p(subPbModel.B0());
-                sx5Var.o(subPbModel.A0());
-                sx5Var.n(subPbModel.E0());
-                if (subPbModel.z0() != null && subPbModel.z0().f() != null) {
-                    sx5Var.l(subPbModel.z0().f().getId());
-                    sx5Var.m(subPbModel.z0().f().getName());
-                    sx5Var.k(subPbModel.z0().f().getImage_url());
-                    sx5Var.t(subPbModel.z0().f().getUser_level());
-                }
-                UserData userData = new UserData();
-                userData.setIsManager(subPbModel.G0());
-                sx5Var.s(userData);
-                sx5Var.q(new a(f5aVar, subPbModel));
-                AntiData x0 = subPbModel.x0();
-                SparseArray<String> sparseArray = new SparseArray<>();
-                if (x0 != null && x0.getDelThreadInfoList() != null) {
-                    List<DeleteThreadInfo> delThreadInfoList = x0.getDelThreadInfoList();
-                    for (int i = 0; i < delThreadInfoList.size(); i++) {
-                        if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                            sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                        }
-                    }
-                }
-                sx5Var.r(sparseArray);
-                return sx5Var;
-            }
-            return null;
-        }
-        return (sx5) invokeLL.objValue;
-    }
-
-    public static boolean c(lw9 lw9Var, nwa nwaVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, lw9Var, nwaVar)) == null) {
-            if (lw9Var != null && nwaVar != null && lw9Var.f() != null && lw9Var.l() != null) {
-                ux5 ux5Var = new ux5();
-                ux5Var.d(lw9Var.f().getId());
-                ux5Var.f(lw9Var.l().getId());
-                ux5Var.e(nwaVar.U());
-                return px5.b().c(ux5Var);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void d(TbPageContext tbPageContext, SubPbModel subPbModel, f5a f5aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, tbPageContext, subPbModel, f5aVar) == null) && tbPageContext != null && f5aVar != null && f5aVar.t() != null && subPbModel != null) {
-            px5.b().e(tbPageContext, (ViewGroup) f5aVar.t(), b(subPbModel, f5aVar));
-            px5.b().d(3);
-        }
-    }
-
-    public static boolean e(nwa nwaVar) {
+    public final ArrayList<String> k(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, nwaVar)) == null) {
-            if (nwaVar == null) {
-                return false;
-            }
-            return px5.b().f(nwaVar.U());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add(str);
+            return arrayList;
         }
-        return invokeL.booleanValue;
+        return (ArrayList) invokeL.objValue;
+    }
+
+    @MainThread
+    public void p(@NonNull String str) {
+        PbPendantRecordCacheModel pbPendantRecordCacheModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || (pbPendantRecordCacheModel = this.b) == null) {
+            return;
+        }
+        pbPendantRecordCacheModel.addCache(new m3a(str, "", new ArrayList()));
+    }
+
+    public final void j(@NonNull String str, @NonNull String str2, int i) {
+        PushSceneItem l;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) && (l = PushGuideManager.l("pb_to_personalize")) != null && l.getThreshold() > 0 && PushGuideManager.e("pb_to_personalize") && i >= l.getThreshold()) {
+            br6.b().c(new yw9(true, JavaTypesHelper.toLong(str2, 0L)));
+            if (this.a != null && !TextUtils.isEmpty(str)) {
+                String string = this.a.getResources().getString(R.string.push_tip_default_title);
+                String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1049, str);
+                l.setTitle(string);
+                l.setText(string2);
+            }
+            p(str);
+        }
+    }
+
+    @NonNull
+    public final ArrayList l(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (ListUtils.isEmpty(this.g)) {
+                this.g = new ArrayList<>();
+            }
+            Iterator<m3a> it = this.g.iterator();
+            while (it.hasNext()) {
+                m3a next = it.next();
+                if (next != null && str.equals(next.a())) {
+                    ArrayList<String> c = next.c();
+                    if (next.d() < this.h) {
+                        c.clear();
+                        c.add(str2);
+                        return c;
+                    } else if (c.contains(str2)) {
+                        return c;
+                    } else {
+                        c.add(str2);
+                        return c;
+                    }
+                }
+            }
+            return k(str2);
+        }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    public r4a m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == null) {
+                PbPendantRecordCacheModel pbPendantRecordCacheModel = new PbPendantRecordCacheModel(this.a);
+                this.b = pbPendantRecordCacheModel;
+                pbPendantRecordCacheModel.setCallback(this.i);
+                this.h = UtilHelper.getTodayZeroTime();
+                o();
+            }
+            return this;
+        }
+        return (r4a) invokeV.objValue;
+    }
+
+    public final void o() {
+        PbPendantRecordCacheModel pbPendantRecordCacheModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (pbPendantRecordCacheModel = this.b) == null) {
+            return;
+        }
+        pbPendantRecordCacheModel.loadCache();
+    }
+
+    @MainThread
+    public void n(@NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.b != null && !TextUtils.isEmpty(str)) {
+            if (!this.c) {
+                this.d = true;
+                this.e = str;
+                this.f = str2;
+                o();
+                return;
+            }
+            this.b.addCache(new m3a(str, str2, l(str, str2)));
+        }
     }
 }

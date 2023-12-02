@@ -1,36 +1,42 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.dz2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class xy2 extends v52 {
+public class xy2 extends vy2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.ou1
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentApi" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes9.dex */
-    public class a extends s72 {
+    public class a implements dz2.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xy2 c;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ xy2 b;
 
-        public a(xy2 xy2Var) {
+        public a(xy2 xy2Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xy2Var};
+                Object[] objArr = {xy2Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,88 +46,70 @@ public class xy2 extends v52 {
                     return;
                 }
             }
-            this.c = xy2Var;
+            this.b = xy2Var;
+            this.a = str;
         }
 
-        @Override // com.baidu.tieba.s72, com.baidu.tieba.v72
-        public boolean a(String str) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.dz2.d
+        public void a(@NonNull ly1 ly1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
-                    Map<String, String> t = zj3.t(zj3.o(str));
-                    if (t != null && t.get("statusCode") != null) {
-                        try {
-                            zy2.a().onPayResult(Integer.valueOf(t.get("statusCode")).intValue(), URLDecoder.decode(t.get("result"), "UTF-8"));
-                        } catch (UnsupportedEncodingException e) {
-                            e.printStackTrace();
-                            zy2.a().onPayResult(Integer.valueOf(t.get("statusCode")).intValue(), null);
-                        }
-                    } else {
-                        zy2.a().onPayResult(6, null);
-                    }
-                    v52.f3();
-                    return true;
-                }
-                return super.a(str);
+            if (interceptable == null || interceptable.invokeL(1048576, this, ly1Var) == null) {
+                this.b.d(this.a, ly1Var);
             }
-            return invokeL.booleanValue;
         }
     }
 
-    public xy2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xy2(@NonNull mu1 mu1Var) {
+        super(mu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mu1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((mu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.v52
-    public v72 g3() {
-        InterceptResult invokeV;
+    public ly1 y(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new a(this);
-        }
-        return (v72) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.v52
-    public rs1 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return bd2.V().g0().i(z());
-        }
-        return (rs1) invokeV.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r6v5, types: [com.baidu.tieba.ps1] */
-    @Override // com.baidu.tieba.v52, com.baidu.swan.support.v4.app.Fragment
-    public View A0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00e7, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f0901a3).setVisibility(8);
-            rs1 j = j();
-            this.G0 = j;
-            j.V(g3());
-            this.H0 = this.G0.getWebView();
-            this.G0.loadUrl(this.I0);
-            this.G0.i((FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901e2), this.H0.covertToView());
-            if (Z1()) {
-                inflate = c2(inflate);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            r("#requestThirdPayment", false);
+            k63 c0 = k63.c0();
+            if (c0 == null) {
+                return new ly1(1001, "swan app is null");
             }
-            return I1(inflate, this);
+            SwanAppActivity w = c0.w();
+            if (w == null) {
+                return new ly1(1001, "swan activity is null");
+            }
+            Pair<ly1, JSONObject> t = t(str);
+            ly1 ly1Var = (ly1) t.first;
+            if (!ly1Var.isSuccess()) {
+                return ly1Var;
+            }
+            JSONObject jSONObject = (JSONObject) t.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new ly1(202, "cb is empty");
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("orderInfo");
+            String optString2 = jSONObject.optString("invokeFrom");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = "api";
+            }
+            new dz2(c0, w, new a(this, optString)).n(optJSONObject, optString2);
+            return ly1.f();
         }
-        return (View) invokeLLL.objValue;
+        return (ly1) invokeL.objValue;
     }
 }

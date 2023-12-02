@@ -1,74 +1,73 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class te3 extends re3 {
+public class te3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final String c;
+    public final String d;
 
-    public te3() {
+    public te3(String str, int i, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = i;
+        this.c = str2;
+        this.d = str3;
     }
 
-    @Override // com.baidu.tieba.re3
-    @SuppressLint({"BDThrowableCheck"})
-    public Bundle c(qe3 qe3Var) {
+    public static Bundle a(String str, int i, String str2, String str3) {
+        InterceptResult invokeLILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65537, null, str, i, str2, str3)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("bundle_sp_name_key", str);
+            bundle.putString("bundle_prefs_key", str2);
+            bundle.putInt("bundle_data_type_key", i);
+            bundle.putString("bundle_data_value_key", str3);
+            return bundle;
+        }
+        return (Bundle) invokeLILL.objValue;
+    }
+
+    public static te3 b(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qe3Var)) == null) {
-            pe3 b = ve3.b(qe3Var.a);
-            if (b == null) {
-                if (!re3.a) {
-                    return Bundle.EMPTY;
-                }
-                throw new IllegalArgumentException("illegal sp.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) {
+            if (bundle.isEmpty()) {
+                return null;
             }
-            int i = qe3Var.b;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                if (re3.a) {
-                                    throw new IllegalArgumentException("wrong info params.");
-                                }
-                            } else {
-                                b.putFloat(qe3Var.c, Float.parseFloat(qe3Var.d));
-                            }
-                        } else {
-                            b.putString(qe3Var.c, qe3Var.d);
-                        }
-                    } else {
-                        b.putBoolean(qe3Var.c, Boolean.parseBoolean(qe3Var.d));
-                    }
-                } else {
-                    b.putLong(qe3Var.c, Long.parseLong(qe3Var.d));
-                }
-            } else {
-                b.putInt(qe3Var.c, Integer.parseInt(qe3Var.d));
-            }
-            if (re3.a) {
-                Log.d("SwanAppSpDelegation", "Put: " + qe3Var);
-            }
-            return Bundle.EMPTY;
+            return new te3(bundle.getString("bundle_sp_name_key"), bundle.getInt("bundle_data_type_key"), bundle.getString("bundle_prefs_key"), bundle.getString("bundle_data_value_key"));
         }
-        return (Bundle) invokeL.objValue;
+        return (te3) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SpMethodInfo{mDataType=" + this.b + ", mPrefName='" + this.c + "', mDataValue='" + this.d + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv4;
+import com.baidu.tieba.fv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,13 +66,13 @@ public class ThreadDelegateStatic extends FragmentDelegate {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             FragmentTabStructure fragmentTabStructure;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016207 || !(customResponsedMessage.getData() instanceof cv4)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016207 || !(customResponsedMessage.getData() instanceof fv4)) {
                 return;
             }
-            cv4 cv4Var = (cv4) customResponsedMessage.getData();
+            fv4 fv4Var = (fv4) customResponsedMessage.getData();
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-            cv4Var.a(threadDelegateStatic);
-            if (cv4Var.b() == null || (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) == null) {
+            fv4Var.a(threadDelegateStatic);
+            if (fv4Var.b() == null || (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
             fragmentTabStructure.frag.setArguments(new Bundle());

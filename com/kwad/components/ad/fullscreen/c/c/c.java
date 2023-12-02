@@ -5,6 +5,6 @@ import com.baidu.tieba.R;
 public final class c extends com.kwad.components.ad.reward.presenter.f.b {
     @Override // com.kwad.components.ad.reward.presenter.f.b
     public final int ci() {
-        return R.id.obfuscated_res_0x7f09139b;
+        return R.id.obfuscated_res_0x7f09139c;
     }
 }

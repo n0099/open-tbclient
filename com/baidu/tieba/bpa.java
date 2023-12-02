@@ -1,17 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
 @Service
 /* loaded from: classes5.dex */
-public class bpa implements IHostStateAbiltiy {
+public class bpa implements zw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,23 +29,13 @@ public class bpa implements IHostStateAbiltiy {
         }
     }
 
-    @Override // com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy
-    public boolean hasAgreedPrivacyPolicy() {
+    @Override // com.baidu.tieba.zw
+    public String getAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return PermissionUtil.isAgreePrivacyPolicy();
+            return TbConfig.getVersion();
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy
-    public boolean isForeground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !lt5.i().m();
-        }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

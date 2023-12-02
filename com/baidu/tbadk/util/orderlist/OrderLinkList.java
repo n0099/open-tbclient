@@ -1,8 +1,8 @@
 package com.baidu.tbadk.util.orderlist;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ev5;
-import com.baidu.tieba.fv5;
+import com.baidu.tieba.iv5;
+import com.baidu.tieba.jv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class OrderLinkList<D extends ev5> {
+public class OrderLinkList<D extends iv5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fv5<D> a;
-    public fv5<D> b;
-    public fv5<D> c;
+    public jv5<D> a;
+    public jv5<D> b;
+    public jv5<D> c;
     public boolean d;
     public volatile int e;
 
@@ -108,8 +108,8 @@ public class OrderLinkList<D extends ev5> {
         D d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            fv5<D> fv5Var = this.a;
-            if (fv5Var != null && (d = fv5Var.b) != null) {
+            jv5<D> jv5Var = this.a;
+            if (jv5Var != null && (d = jv5Var.b) != null) {
                 return d;
             }
             return null;
@@ -119,61 +119,61 @@ public class OrderLinkList<D extends ev5> {
 
     public D a(int i) {
         InterceptResult invokeI;
-        fv5<D> fv5Var;
+        jv5<D> jv5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            fv5<D> fv5Var2 = this.a;
-            if (fv5Var2 == null) {
+            jv5<D> jv5Var2 = this.a;
+            if (jv5Var2 == null) {
                 return null;
             }
-            this.b = fv5Var2;
+            this.b = jv5Var2;
             do {
-                fv5<D> fv5Var3 = this.b;
-                if (fv5Var3.a == i) {
+                jv5<D> jv5Var3 = this.b;
+                if (jv5Var3.a == i) {
                     break;
                 }
-                this.c = fv5Var3;
-                fv5Var = fv5Var3.c;
-                this.b = fv5Var;
-            } while (fv5Var != null);
-            fv5<D> fv5Var4 = this.b;
-            if (fv5Var4 == null) {
+                this.c = jv5Var3;
+                jv5Var = jv5Var3.c;
+                this.b = jv5Var;
+            } while (jv5Var != null);
+            jv5<D> jv5Var4 = this.b;
+            if (jv5Var4 == null) {
                 return null;
             }
-            return fv5Var4.b;
+            return jv5Var4.b;
         }
         return (D) invokeI.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: D extends com.baidu.tieba.ev5 */
-    /* JADX DEBUG: Type inference failed for r5v11. Raw type applied. Possible types: com.baidu.tieba.fv5<D extends com.baidu.tieba.ev5>, com.baidu.tieba.fv5<E> */
-    /* JADX DEBUG: Type inference failed for r5v2. Raw type applied. Possible types: com.baidu.tieba.fv5<D extends com.baidu.tieba.ev5>, com.baidu.tieba.fv5<E> */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: D extends com.baidu.tieba.iv5 */
+    /* JADX DEBUG: Type inference failed for r5v11. Raw type applied. Possible types: com.baidu.tieba.jv5<D extends com.baidu.tieba.iv5>, com.baidu.tieba.jv5<E> */
+    /* JADX DEBUG: Type inference failed for r5v2. Raw type applied. Possible types: com.baidu.tieba.jv5<D extends com.baidu.tieba.iv5>, com.baidu.tieba.jv5<E> */
     /* JADX WARN: Multi-variable type inference failed */
     public synchronized void c(D d) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d) == null) {
             synchronized (this) {
-                fv5 fv5Var = (fv5<D>) new fv5();
-                fv5Var.a = d.a();
-                fv5Var.b = d;
-                fv5 fv5Var2 = (fv5<D>) this.a;
-                fv5Var.c = fv5Var2;
-                this.a = fv5Var;
-                this.b = fv5Var;
-                this.c = fv5Var2;
-                while (this.b.c != null && fv5Var.a < this.b.c.a) {
+                jv5 jv5Var = (jv5<D>) new jv5();
+                jv5Var.a = d.a();
+                jv5Var.b = d;
+                jv5 jv5Var2 = (jv5<D>) this.a;
+                jv5Var.c = jv5Var2;
+                this.a = jv5Var;
+                this.b = jv5Var;
+                this.c = jv5Var2;
+                while (this.b.c != null && jv5Var.a < this.b.c.a) {
                     this.d = true;
                     this.b = this.b.c;
                 }
-                if (this.b.c != null && fv5Var.a == this.b.c.a) {
-                    this.b.c.b = fv5Var.b;
+                if (this.b.c != null && jv5Var.a == this.b.c.a) {
+                    this.b.c.b = jv5Var.b;
                     this.a = this.c;
                     this.d = false;
                     return;
                 }
                 if (this.d) {
-                    fv5Var.c = (fv5<D>) this.b.c;
-                    this.b.c = fv5Var;
+                    jv5Var.c = (jv5<D>) this.b.c;
+                    this.b.c = jv5Var;
                     this.a = this.c;
                     this.d = false;
                 }
@@ -194,9 +194,9 @@ public class OrderLinkList<D extends ev5> {
                 while (this.b.a != i) {
                     z = false;
                     this.c = this.b;
-                    fv5<D> fv5Var = this.b.c;
-                    this.b = fv5Var;
-                    if (fv5Var == null) {
+                    jv5<D> jv5Var = this.b.c;
+                    this.b = jv5Var;
+                    if (jv5Var == null) {
                         break;
                     }
                 }

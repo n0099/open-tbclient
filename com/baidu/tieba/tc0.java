@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tc0 extends cg1<jk0> {
+public class tc0 extends fg1<jk0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,7 +37,7 @@ public class tc0 extends cg1<jk0> {
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                d71.a().d(str);
+                f71.a().d(str);
             }
         }
 
@@ -45,7 +45,7 @@ public class tc0 extends cg1<jk0> {
         public void c(String str, ik0 ik0Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, ik0Var) == null) {
-                d71.a().c(str, ik0Var);
+                f71.a().c(str, ik0Var);
             }
         }
     }
@@ -65,7 +65,7 @@ public class tc0 extends cg1<jk0> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cg1
+    @Override // com.baidu.tieba.fg1
     /* renamed from: a */
     public jk0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;

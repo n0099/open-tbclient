@@ -1,28 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 /* loaded from: classes7.dex */
-public class pk4 {
+public class pk4<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Object obj, StringBuilder sb) {
-        int lastIndexOf;
+    /* loaded from: classes7.dex */
+    public interface a<D> {
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b<D> {
+    }
+
+    public abstract String a(D d);
+
+    public abstract void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
+
+    public abstract void c(int i, b<D> bVar);
+
+    public abstract void d(a<D> aVar);
+
+    public abstract void e();
+
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, obj, sb) == null) {
-            if (obj == null) {
-                sb.append(StringUtil.NULL_STRING);
-                return;
-            }
-            String simpleName = obj.getClass().getSimpleName();
-            if ((simpleName == null || simpleName.length() <= 0) && (lastIndexOf = (simpleName = obj.getClass().getName()).lastIndexOf(46)) > 0) {
-                simpleName = simpleName.substring(lastIndexOf + 1);
-            }
-            sb.append(simpleName);
-            sb.append('{');
-            sb.append(Integer.toHexString(System.identityHashCode(obj)));
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            throw null;
         }
     }
+
+    public abstract void g();
+
+    public abstract void h(b<D> bVar);
+
+    public abstract void i(a<D> aVar);
 }

@@ -1,5 +1,10 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Intent;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cz3 extends ny3 {
+public class cz3 extends qy3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,12 +33,12 @@ public class cz3 extends ny3 {
                 return;
             }
         }
-        c = sm1.a;
+        c = vm1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cz3() {
-        super("getSid");
+        super("startPermissionsPage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,23 +54,37 @@ public class cz3 extends ny3 {
         }
     }
 
-    @Override // com.baidu.tieba.ny3
-    public iy1 a(JSONObject jSONObject, lj2 lj2Var) {
+    @Override // com.baidu.tieba.qy3
+    public ly1 a(JSONObject jSONObject, oj2 oj2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lj2Var)) == null) {
-            String k = op2.g0().k();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("sid", k);
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, oj2Var)) == null) {
+            k63 c0 = k63.c0();
+            if (c0 != null && c0.w() != null) {
+                String str = Build.MANUFACTURER;
+                if (!TextUtils.isEmpty(str)) {
+                    str = str.toLowerCase(Locale.US);
                 }
+                if (TextUtils.equals(str, "oppo")) {
+                    try {
+                        Intent intent = new Intent(c0.w().getPackageName());
+                        intent.setComponent(new ComponentName("com.oppo.launcher", "com.oppo.launcher.shortcut.ShortcutSettingsActivity"));
+                        c0.w().startActivity(intent);
+                    } catch (Exception e) {
+                        if (c) {
+                            e.printStackTrace();
+                        }
+                        oj3.f(c0.w());
+                    }
+                } else {
+                    oj3.g(c0.w());
+                }
+                oj2Var.onSuccess(null);
+            } else if (c) {
+                Log.d("StartPermissionsPage", "swan or activity is null");
             }
-            lj2Var.onSuccess(jSONObject2);
             return null;
         }
-        return (iy1) invokeLL.objValue;
+        return (ly1) invokeLL.objValue;
     }
 }

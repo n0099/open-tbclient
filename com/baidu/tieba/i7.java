@@ -4,6 +4,7 @@ import android.os.Environment;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,10 +15,9 @@ import java.io.File;
 public class i7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public String a;
     public String b;
     public String c;
-    public String d;
 
     public i7() {
         Interceptable interceptable = $ic;
@@ -32,13 +32,13 @@ public class i7 {
                 return;
             }
         }
-        this.a = Environment.getExternalStorageDirectory().getAbsolutePath();
-        this.b = this.a + "/baidu/";
+        this.a = null;
+        this.b = null;
         this.c = null;
-        this.d = null;
         try {
-            this.c = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
-            this.d = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+            this.a = BdBaseApplication.getInst().getExternalFilesDir(null) + "/baidu/";
+            this.b = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
+            this.c = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -55,26 +55,30 @@ public class i7 {
                     return null;
                 }
                 if (str != null) {
-                    str3 = this.b + str + "/";
+                    if (str.contains(TbConfig.SHARE_HUB_DIR_NAME)) {
+                        str3 = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/" + str;
+                    } else {
+                        str3 = this.a + str + "/";
+                    }
                 } else {
-                    str3 = this.b;
+                    str3 = this.a;
                 }
             } else if (z3) {
-                str2 = this.d;
-                if (str2 == null) {
-                    return null;
-                }
-                if (str != null) {
-                    str3 = this.d + str + "/";
-                }
-                str3 = str2;
-            } else {
                 str2 = this.c;
                 if (str2 == null) {
                     return null;
                 }
                 if (str != null) {
                     str3 = this.c + str + "/";
+                }
+                str3 = str2;
+            } else {
+                str2 = this.b;
+                if (str2 == null) {
+                    return null;
+                }
+                if (str != null) {
+                    str3 = this.b + str + "/";
                 }
                 str3 = str2;
             }
@@ -133,6 +137,6 @@ public class i7 {
         if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || str == null) {
             return;
         }
-        this.b = this.a + "/" + str + "/";
+        this.a = BdBaseApplication.getInst().getExternalFilesDir(null) + "/" + str + "/";
     }
 }

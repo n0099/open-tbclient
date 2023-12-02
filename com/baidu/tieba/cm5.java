@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: ChatFloatEntranceService.java */
 /* loaded from: classes5.dex */
-public interface cm5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "GroupChatService");
+public final /* synthetic */ class cm5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(@NonNull Context context, long j, int i, String str);
-
-    void b(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z);
-
-    long c();
-
-    void d(@NonNull Context context, long j, String str, int i, String str2);
-
-    void e(@NonNull Context context, long j, String str, int i);
-
-    void f(@NonNull Context context, int i, long j, boolean z);
+    public static dm5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (dm5) ServiceManager.getService(dm5.a);
+        }
+        return (dm5) invokeV.objValue;
+    }
 }

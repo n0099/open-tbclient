@@ -438,7 +438,7 @@ public class UniversalToast implements PopItem {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return DeviceUtil.ScreenInfo.getStatusBarHeight() + ((int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070753));
+            return DeviceUtil.ScreenInfo.getStatusBarHeight() + ((int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070757));
         }
         return invokeL.intValue;
     }

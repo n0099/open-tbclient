@@ -1,102 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bm1 implements cm1 {
+public class bm1 {
     public static /* synthetic */ Interceptable $ic;
-    public static bm1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public cm1 a;
-    public boolean b;
 
-    public bm1() {
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            byte[] bArr2 = new byte[256];
+            for (int i = 0; i < 256; i++) {
+                bArr2[i] = (byte) i;
             }
+            if (bArr != null && bArr.length != 0) {
+                int i2 = 0;
+                int i3 = 0;
+                for (int i4 = 0; i4 < 256; i4++) {
+                    i3 = ((bArr[i2] & 255) + (bArr2[i4] & 255) + i3) & 255;
+                    byte b = bArr2[i4];
+                    bArr2[i4] = bArr2[i3];
+                    bArr2[i3] = b;
+                    i2 = (i2 + 1) % bArr.length;
+                }
+                return bArr2;
+            }
+            return null;
         }
-        this.a = null;
-        this.b = false;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static bm1 b() {
-        InterceptResult invokeV;
+    public static byte[] b(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (bm1.class) {
-                    if (c == null) {
-                        c = new bm1();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
+            if (bArr != null && bArr2 != null) {
+                return d(bArr, bArr2);
             }
-            return c;
+            return null;
         }
-        return (bm1) invokeV.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.cm1
-    public String a() {
-        InterceptResult invokeV;
+    public static byte[] c(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            cm1 cm1Var = this.a;
-            if (cm1Var == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
+            if (bArr != null && bArr2 != null) {
+                return d(bArr, bArr2);
             }
-            try {
-                return cm1Var.a();
-            } catch (Throwable unused) {
-                return null;
-            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.cm1
-    public void a(Context context, dm1 dm1Var) {
-        cm1 fm1Var;
+    public static byte[] d(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dm1Var) == null) {
-            try {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                int ordinal = com.baidu.sso.u.a.a(Build.MANUFACTURER).ordinal();
-                if (ordinal != 0) {
-                    if (ordinal == 1) {
-                        fm1Var = new fm1();
-                    } else if (ordinal == 2) {
-                        fm1Var = new nm1();
-                    } else if (ordinal == 3) {
-                        fm1Var = new lm1();
-                    } else if (ordinal == 4) {
-                        fm1Var = new hm1();
-                    }
-                    this.a = fm1Var;
-                } else {
-                    this.a = null;
-                }
-                if (this.a != null) {
-                    this.a.a(context, dm1Var);
-                }
-            } catch (Throwable unused) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
+            byte[] a = a(bArr2);
+            byte[] bArr3 = new byte[bArr.length];
+            int i = 0;
+            int i2 = 0;
+            for (int i3 = 0; i3 < bArr.length; i3++) {
+                i = (i + 1) & 255;
+                i2 = ((a[i] & 255) + i2) & 255;
+                byte b = a[i];
+                a[i] = a[i2];
+                a[i2] = b;
+                bArr3[i3] = (byte) (a[((a[i] & 255) + (a[i2] & 255)) & 255] ^ bArr[i3]);
+                bArr3[i3] = (byte) (bArr3[i3] ^ ExifInterface.START_CODE);
             }
+            return bArr3;
         }
+        return (byte[]) invokeLL.objValue;
     }
 }

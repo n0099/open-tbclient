@@ -184,7 +184,7 @@ public class TextInputEditText extends AppCompatEditText {
         boolean requestRectangleOnScreen = super.requestRectangleOnScreen(rect);
         TextInputLayout textInputLayout = getTextInputLayout();
         if (textInputLayout != null && this.textInputLayoutFocusedRectEnabled) {
-            this.parentRect.set(0, textInputLayout.getHeight() - getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070608), textInputLayout.getWidth(), textInputLayout.getHeight());
+            this.parentRect.set(0, textInputLayout.getHeight() - getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07060b), textInputLayout.getWidth(), textInputLayout.getHeight());
             textInputLayout.requestRectangleOnScreen(this.parentRect, true);
         }
         return requestRectangleOnScreen;

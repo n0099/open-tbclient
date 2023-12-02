@@ -79,7 +79,7 @@ public class BottomNavigationView extends FrameLayout {
     private void addCompatibilityTopDivider(Context context) {
         View view2 = new View(context);
         view2.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606f8));
-        view2.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702af)));
+        view2.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b0)));
         addView(view2);
     }
 
@@ -268,7 +268,7 @@ public class BottomNavigationView extends FrameLayout {
             BottomNavigationMenuView bottomNavigationMenuView = this.menuView;
             bottomNavigationMenuView.setIconTintList(bottomNavigationMenuView.createDefaultColorStateList(16842808));
         }
-        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ab)));
+        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ac)));
         if (obtainTintedStyledAttributes.hasValue(8)) {
             setItemTextAppearanceInactive(obtainTintedStyledAttributes.getResourceId(8, 0));
         }

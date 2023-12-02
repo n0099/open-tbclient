@@ -1,99 +1,70 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes8.dex */
-public class t14 {
+public class t14 implements ae2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a implements al3<hb3> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static String a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ py1 a;
 
-        public a(py1 py1Var) {
+        public static String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {py1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                if (TextUtils.isEmpty(a)) {
+                    a = ki3.c();
                 }
+                return a;
             }
-            this.a = py1Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.al3
-        /* renamed from: b */
-        public void a(hb3 hb3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hb3Var) == null) {
-                if (hb3Var == null || hb3Var.d || hb3Var.j != 1) {
-                    t14.c(this.a, false, "system deny");
-                } else {
-                    t14.c(this.a, true, "authorize:ok");
-                }
-            }
+            return (String) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948128338, "Lcom/baidu/tieba/t14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948128338, "Lcom/baidu/tieba/t14;");
-                return;
-            }
-        }
-        a = sm1.a;
-    }
-
-    public static void b(JsObject jsObject) {
-        py1 G;
+    public t14() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, jsObject) != null) || (G = py1.G(jsObject)) == null) {
-            return;
-        }
-        h63 c0 = h63.c0();
-        if (c0 == null) {
-            c(G, false, "authorize:fail internal error");
-        } else {
-            c0.f0().e("mapp_enable_eval", new a(G));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void c(py1 py1Var, boolean z, String str) {
+    @Override // com.baidu.tieba.ae2
+    public String getUserAgent() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{py1Var, Boolean.valueOf(z), str}) == null) {
-            if (a) {
-                Log.i("AuthorizeEvalApi", "callAsyncCallback: " + str);
-            }
-            q04 q04Var = new q04();
-            q04Var.errMsg = str;
-            t84.a(py1Var, z, q04Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a.a();
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ae2
+    public sd2 a(String str, pe2 pe2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, pe2Var, v8ThreadDelegatePolicy)) == null) {
+            return new u14(str, pe2Var, v8ThreadDelegatePolicy);
+        }
+        return (sd2) invokeLLL.objValue;
     }
 }

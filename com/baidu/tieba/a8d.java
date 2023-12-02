@@ -1,54 +1,44 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.tencent.open.SocialConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.AwardInfo;
-import tbclient.AwardUser;
-import tbclient.LotteryRegular;
-import tbclient.LotteryTheme;
-import tbclient.SeniorLottery;
+import tbclient.ServiceArea;
+import tbclient.SmartApp;
 /* loaded from: classes5.dex */
-public class a8d extends ltc {
+public class a8d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SeniorLottery seniorLottery) {
+    public static JSONObject b(@NonNull ServiceArea serviceArea) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, seniorLottery)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, serviceArea)) == null) {
             JSONObject jSONObject = new JSONObject();
-            LotteryTheme lotteryTheme = seniorLottery.theme;
-            if (lotteryTheme != null) {
-                ltc.a(jSONObject, "theme", z4d.b(lotteryTheme));
+            ktc.a(jSONObject, "servicename", serviceArea.servicename);
+            ktc.a(jSONObject, SocialConstants.PARAM_APP_ICON, serviceArea.picurl);
+            ktc.a(jSONObject, "serviceurl", serviceArea.serviceurl);
+            ktc.a(jSONObject, "version", serviceArea.version);
+            ktc.a(jSONObject, TableDefine.MessageColumns.COLUME_SERVICE_TYPE, serviceArea.service_type);
+            SmartApp smartApp = serviceArea.area_smart_app;
+            if (smartApp != null) {
+                ktc.a(jSONObject, "area_smart_app", m8d.b(smartApp));
             }
-            if (seniorLottery.award_info != null) {
+            ktc.a(jSONObject, "schema", serviceArea.schema);
+            if (serviceArea.third_statistics_url != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (AwardInfo awardInfo : seniorLottery.award_info) {
-                    jSONArray.put(xuc.b(awardInfo));
+                for (String str : serviceArea.third_statistics_url) {
+                    jSONArray.put(str);
                 }
-                ltc.a(jSONObject, "award_info", jSONArray);
+                ktc.a(jSONObject, "third_statistics_url", jSONArray);
             }
-            ltc.a(jSONObject, "myaward", seniorLottery.myaward);
-            if (seniorLottery.luck_users != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (AwardUser awardUser : seniorLottery.luck_users) {
-                    jSONArray2.put(yuc.b(awardUser));
-                }
-                ltc.a(jSONObject, "luck_users", jSONArray2);
-            }
-            ltc.a(jSONObject, "act_desc", seniorLottery.act_desc);
-            if (seniorLottery.act_regular != null) {
-                JSONArray jSONArray3 = new JSONArray();
-                for (LotteryRegular lotteryRegular : seniorLottery.act_regular) {
-                    jSONArray3.put(y4d.b(lotteryRegular));
-                }
-                ltc.a(jSONObject, "act_regular", jSONArray3);
-            }
+            ktc.a(jSONObject, "tag", serviceArea.tag);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

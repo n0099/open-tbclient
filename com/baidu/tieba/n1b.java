@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +13,16 @@ public class n1b extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final fza b;
+    public sza b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n1b(MainTabActivity mainTabActivity, fza fzaVar) {
-        super(2001304);
+    public n1b(MainTabActivity mainTabActivity) {
+        super(2921736);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, fzaVar};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,36 +34,35 @@ public class n1b extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = fzaVar;
+        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        fza fzaVar;
-        boolean z;
+        sza szaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && (fzaVar = this.b) != null && fzaVar.A() != null) {
-            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
-            boolean z2 = false;
-            if (intValue != 2 && oldSkinType != 2) {
-                z = true;
-            } else {
-                z = false;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && SpeedStatsUtils.UBC_VALUE_SPLASH.equals(customResponsedMessage.getData())) {
+            MainTabActivity mainTabActivity = this.a;
+            this.b = mainTabActivity.e;
+            mainTabActivity.I1(true);
+            if (MainTabActivity.W && (szaVar = this.b) != null && szaVar.h() != null) {
+                this.b.h().a();
             }
-            if (z) {
-                return;
+            sza szaVar2 = this.b;
+            if (szaVar2 != null && szaVar2.c() != null) {
+                this.b.c().b();
             }
-            if ((intValue == 3 || intValue == 0) && oldSkinType == 2) {
-                z2 = true;
+            v4b.c().b();
+            v4b.c().a();
+            if (r35.a().f()) {
+                r35.a().g(this.a.getClass().getName());
+                r35.a().l(false);
             }
-            if (z2) {
-                this.b.A().e(1);
-            } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
-                this.b.A().e(2);
-            } else {
-                this.b.A().e(1);
+            if (r35.a().e()) {
+                r35.a().b();
+                r35.a().h(this.a.getClass().getName());
+                r35.a().k(false);
             }
         }
     }

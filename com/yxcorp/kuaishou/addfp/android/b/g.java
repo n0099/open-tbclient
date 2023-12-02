@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;

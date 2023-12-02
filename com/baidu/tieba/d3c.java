@@ -1,166 +1,217 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Rect;
+import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.sdk.api.SplashAd;
-import com.baidu.searchbox.player.model.YYOption;
-import com.baidu.tieba.w3c;
+import com.baidu.mobads.sdk.api.BaiduNativeManager;
+import com.baidu.mobads.sdk.api.ExpressResponse;
+import com.baidu.mobads.sdk.api.RequestParameters;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import java.util.HashMap;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class d3c<A extends w3c> extends ReporterPidLoader<A> {
+public class d3c extends c3c<s2c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FunNativeAdListenerHelper<s2c, l2c> e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public d3c(FunAdType funAdType, Ssp.Pid pid) {
-        this(funAdType, pid, true);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public class a implements BaiduNativeManager.ExpressAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d3c a;
+
+        public a(d3c d3cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d3cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d3cVar;
+        }
+
+        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.ExpressAdListener
+        public void onLpClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
             }
         }
-    }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public d3c(FunAdType funAdType, Ssp.Pid pid, boolean z) {
-        this(funAdType, pid, z, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.ExpressAdListener
+        public void onNativeFail(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                LogPrinter.d();
+                this.a.onError(i, str);
             }
         }
-    }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public d3c(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2) {
-        this(funAdType, pid, z, z2, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.ExpressAdListener
+        public void onNativeLoad(List<ExpressResponse> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+                if (list == null || list.isEmpty()) {
+                    this.a.onError(0, "NoFill");
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (ExpressResponse expressResponse : list) {
+                    arrayList.add(new s2c(expressResponse));
+                }
+                this.a.onAdLoaded(arrayList);
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.ExpressAdListener
+        public void onNoAd(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+                LogPrinter.d();
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.ExpressAdListener
+        public void onVideoDownloadFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.baidu.mobads.sdk.api.BaiduNativeManager.ExpressAdListener
+        public void onVideoDownloadSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                LogPrinter.d();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d3c(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2, boolean z3) {
-        super(funAdType, pid, z, z2, z3);
+    public d3c(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
-            interceptable.invokeUnInit(65539, newInitContext);
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
-    public AdReporter<A> createAdReporter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new p2c(this.mPid) : (AdReporter) invokeV.objValue;
+        this.e = new FunNativeAdListenerHelper<>(this);
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
+    public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            try {
-                return Double.parseDouble(((w3c) obj).a()) / 100.0d;
-            } catch (Exception unused) {
-                return 0.0d;
-            }
-        }
-        return invokeL.doubleValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new v2c(pid) : (AdRipper) invokeL.objValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, String str, double d, double d2, boolean z, int i) {
-        int i2;
-        String str2;
+    public void destroyInternal(Object obj) {
+        s2c s2cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{obj, str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            w3c w3cVar = (w3c) obj;
-            String valueOf = String.valueOf(d2 * 100.0d);
-            if (z) {
-                w3cVar.a(valueOf);
-                return;
-            }
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(SplashAd.KEY_BIDFAIL_ECPM, Integer.valueOf((int) (d * 100.0d)));
-            if (str.equals(FunAdSdk.PLATFORM_CSJ)) {
-                i2 = 1;
-            } else if (str.equals(FunAdSdk.PLATFORM_GDT)) {
-                i2 = 2;
-            } else if (str.equals(FunAdSdk.PLATFORM_KS)) {
-                i2 = 3;
-            } else if (str.equals(FunAdSdk.PLATFORM_SIG)) {
-                i2 = 4;
-            } else if (str.equals("baidu") && !this.mPid.isBidding) {
-                i2 = 9;
-            } else {
-                i2 = 10;
-            }
-            hashMap.put(SplashAd.KEY_BIDFAIL_ADN, Integer.valueOf(i2));
-            if (i == 3) {
-                str2 = YYOption.UrlProtocol.USER;
-            } else if (i == 5) {
-                str2 = "900";
-            } else {
-                str2 = "203";
-            }
-            w3cVar.a(str2, hashMap);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (s2cVar = (s2c) obj) != null) {
+            this.e.destroy(s2cVar);
+            s2cVar.a = null;
         }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, obj)) == null) {
+            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (s2c) obj, new i3c(this, this));
+        }
+        return (FunNativeAd2) invokeLLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            new BaiduNativeManager(context.getApplicationContext(), this.mPid.pid).loadExpressAd(new RequestParameters.Builder().downloadAppConfirmPolicy(1).build(), new a(this));
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        ViewGroup.LayoutParams layoutParams;
+        Rect rect;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
+            s2c s2cVar = (s2c) obj;
+            this.e.startShow(s2cVar, str, this.mPid, null, null);
+            View b = j2c.b(s2cVar.a, new g3c(this, s2cVar));
+            if (b == null) {
+                onAdError(s2cVar, "ExpressView Null");
+                return false;
+            }
+            ExpressResponse expressResponse = s2cVar.a;
+            if (expressResponse != null && activity != null) {
+                expressResponse.bindInteractionActivity(activity);
+            }
+            ViewGroup viewGroup2 = (ViewGroup) b.getParent();
+            if (viewGroup2 != null) {
+                viewGroup2.removeView(b);
+            }
+            if (s2cVar.a.getStyleType() == 41) {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                ((WindowManager) FunAdSdk.getAppContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getRealMetrics(displayMetrics);
+                if (displayMetrics.widthPixels > displayMetrics.heightPixels) {
+                    rect = new Rect(0, 0, displayMetrics.heightPixels, displayMetrics.widthPixels);
+                } else {
+                    rect = new Rect(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels);
+                }
+                layoutParams = new ViewGroup.LayoutParams((rect.width() * 3) / 4, -2);
+            } else {
+                layoutParams = new ViewGroup.LayoutParams(-1, -2);
+            }
+            viewGroup.addView(b, layoutParams);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

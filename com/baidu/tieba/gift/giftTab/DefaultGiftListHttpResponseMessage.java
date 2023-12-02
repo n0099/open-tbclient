@@ -3,10 +3,10 @@ package com.baidu.tieba.gift.giftTab;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.n98;
-import com.baidu.tieba.qx4;
 import com.baidu.tieba.r98;
-import com.baidu.tieba.rx4;
+import com.baidu.tieba.tx4;
+import com.baidu.tieba.ux4;
+import com.baidu.tieba.v98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,13 +27,13 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String addFreeUrl;
-    public ArrayList<n98> categoryList;
+    public ArrayList<r98> categoryList;
     public int currencyType;
     public int freeChance;
-    public ArrayList<qx4> giftList;
-    public ArrayList<r98> numberList;
+    public ArrayList<tx4> giftList;
+    public ArrayList<v98> numberList;
     public long sceneId;
-    public rx4 urlTitleData;
+    public ux4 urlTitleData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DefaultGiftListHttpResponseMessage(int i) {
@@ -74,36 +74,36 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
             this.freeChance = dataRes.free_chance.intValue();
             this.sceneId = getGiftListResIdl.data.scene_id.intValue();
             this.currencyType = getGiftListResIdl.data.currency_type.intValue();
-            rx4 rx4Var = new rx4();
-            this.urlTitleData = rx4Var;
+            ux4 ux4Var = new ux4();
+            this.urlTitleData = ux4Var;
             DataRes dataRes2 = getGiftListResIdl.data;
             UrlTitle urlTitle = dataRes2.currency_txt;
-            rx4Var.a = urlTitle.name;
-            rx4Var.b = urlTitle.url;
+            ux4Var.a = urlTitle.name;
+            ux4Var.b = urlTitle.url;
             List<PresentGiftList1> list = dataRes2.gift_list;
             if (list != null && list.size() > 0) {
                 this.giftList = new ArrayList<>();
                 for (PresentGiftList1 presentGiftList1 : getGiftListResIdl.data.gift_list) {
                     if (presentGiftList1 != null) {
-                        qx4 qx4Var = new qx4();
-                        qx4Var.a = presentGiftList1.gift_id.intValue();
-                        qx4Var.b = presentGiftList1.gift_name;
-                        qx4Var.c = presentGiftList1.price.intValue();
-                        qx4Var.d = presentGiftList1.thumbnail_url;
+                        tx4 tx4Var = new tx4();
+                        tx4Var.a = presentGiftList1.gift_id.intValue();
+                        tx4Var.b = presentGiftList1.gift_name;
+                        tx4Var.c = presentGiftList1.price.intValue();
+                        tx4Var.d = presentGiftList1.thumbnail_url;
                         presentGiftList1.ios_price.intValue();
-                        qx4Var.e = presentGiftList1.gift_desc;
-                        qx4Var.f = presentGiftList1.activity_type.intValue();
-                        qx4Var.g = presentGiftList1.mark_url;
-                        qx4Var.h = presentGiftList1.begin_time.intValue();
-                        qx4Var.i = presentGiftList1.end_time.intValue();
-                        qx4Var.j = presentGiftList1.discount.intValue();
+                        tx4Var.e = presentGiftList1.gift_desc;
+                        tx4Var.f = presentGiftList1.activity_type.intValue();
+                        tx4Var.g = presentGiftList1.mark_url;
+                        tx4Var.h = presentGiftList1.begin_time.intValue();
+                        tx4Var.i = presentGiftList1.end_time.intValue();
+                        tx4Var.j = presentGiftList1.discount.intValue();
                         presentGiftList1.ios_discount.intValue();
                         presentGiftList1.proportion.intValue();
                         presentGiftList1.pitch_on.intValue();
-                        qx4Var.k = presentGiftList1.gift_count.intValue();
-                        qx4Var.q = presentGiftList1.currency_unit.intValue();
-                        qx4Var.s = presentGiftList1.currency.intValue();
-                        this.giftList.add(qx4Var);
+                        tx4Var.k = presentGiftList1.gift_count.intValue();
+                        tx4Var.q = presentGiftList1.currency_unit.intValue();
+                        tx4Var.s = presentGiftList1.currency.intValue();
+                        this.giftList.add(tx4Var);
                     }
                 }
             }
@@ -112,9 +112,9 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
                 this.categoryList = new ArrayList<>();
                 for (PresentCategoryList presentCategoryList : getGiftListResIdl.data.list) {
                     if (presentCategoryList != null) {
-                        n98 n98Var = new n98();
-                        n98Var.d(presentCategoryList);
-                        this.categoryList.add(n98Var);
+                        r98 r98Var = new r98();
+                        r98Var.d(presentCategoryList);
+                        this.categoryList.add(r98Var);
                     }
                 }
             }
@@ -123,9 +123,9 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
                 this.numberList = new ArrayList<>();
                 for (PresentNumInfo presentNumInfo : getGiftListResIdl.data.num_info) {
                     if (presentNumInfo != null) {
-                        r98 r98Var = new r98();
-                        r98Var.c(presentNumInfo);
-                        this.numberList.add(r98Var);
+                        v98 v98Var = new v98();
+                        v98Var.c(presentNumInfo);
+                        this.numberList.add(v98Var);
                     }
                 }
             }
@@ -141,7 +141,7 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<n98> getCategoryList() {
+    public ArrayList<r98> getCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -159,7 +159,7 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public ArrayList<qx4> getGiftList() {
+    public ArrayList<tx4> getGiftList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -168,7 +168,7 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
         return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList<r98> getGiftNumberList() {
+    public ArrayList<v98> getGiftNumberList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

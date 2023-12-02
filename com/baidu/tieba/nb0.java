@@ -87,14 +87,14 @@ public class nb0 {
 
         /* renamed from: com.baidu.tieba.nb0$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0412b implements Runnable {
+        public class RunnableC0405b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean a;
             public final /* synthetic */ Exception b;
             public final /* synthetic */ b c;
 
-            public RunnableC0412b(b bVar, boolean z, Exception exc) {
+            public RunnableC0405b(b bVar, boolean z, Exception exc) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -219,7 +219,7 @@ public class nb0 {
         public void f(Exception exc) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, exc) == null) && this.c.d != null && !this.c.d.isEmpty()) {
-                new Handler(Looper.getMainLooper()).post(new RunnableC0412b(this, this.c.q(), exc));
+                new Handler(Looper.getMainLooper()).post(new RunnableC0405b(this, this.c.q(), exc));
             }
         }
 

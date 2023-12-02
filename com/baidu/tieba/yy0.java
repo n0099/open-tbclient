@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Locale;
 /* loaded from: classes9.dex */
-public class yy0 {
+public class yy0 extends xy0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile yy0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, vy0> a;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public yy0() {
+        this("nad_default", 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,54 +26,93 @@ public class yy0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
     }
 
-    public static yy0 a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public yy0(String str) {
+        this(str, 0);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (yy0.class) {
-                    if (b == null) {
-                        b = new yy0();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return b;
         }
-        return (yy0) invokeV.objValue;
     }
 
-    @NonNull
-    public vy0 b(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yy0(String str, int i) {
+        super(str, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                str = "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            vy0 vy0Var = (vy0) ny0.b(this.a, str);
-            if (vy0Var == null) {
-                synchronized (yy0.class) {
-                    vy0Var = (vy0) ny0.b(this.a, str);
-                    if (vy0Var == null) {
-                        if (TextUtils.isEmpty(str)) {
-                            vy0Var = xy0.a().a();
-                        } else {
-                            vy0Var = xy0.a().b(str);
-                        }
-                        ny0.e(this.a, str, vy0Var);
-                    }
-                }
-            }
-            return vy0Var;
         }
-        return (vy0) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.xy0
+    public SharedPreferences c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "nad_default";
+            }
+            return hf0.b().getSharedPreferences(str, i);
+        }
+        return (SharedPreferences) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.xy0
+    public void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            i(str, str2, true);
+        }
+    }
+
+    @Override // com.baidu.tieba.xy0
+    public void i(@NonNull String str, @Nullable String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, str2, z) == null) {
+            if (z) {
+                k(str, str2);
+            }
+            super.h(str, str2);
+        }
+    }
+
+    public final void k(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) && str2 != null && str2.length() > 256) {
+            j(String.format(Locale.getDefault(), "the value of %s is %d, over the limit of %d!", str, Integer.valueOf(str2.length()), 256));
+        }
     }
 }

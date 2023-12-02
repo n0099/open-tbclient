@@ -101,7 +101,7 @@ public class wa0 {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1171T;
+    public boolean f1169T;
     public boolean U;
     public int V;
     public int W;
@@ -777,7 +777,7 @@ public class wa0 {
                         }
                         aVar.h = this.a.Q;
                         aVar.i = this.a.R;
-                        aVar.j = this.a.f1171T;
+                        aVar.j = this.a.f1169T;
                         aVar.k = this.a.S;
                         aVar.l = this.a.U;
                         aVar.m = this.a.V;
@@ -1112,7 +1112,7 @@ public class wa0 {
         this.O = new ArrayList();
         this.P = new ArrayList();
         this.S = false;
-        this.f1171T = false;
+        this.f1169T = false;
         this.U = false;
         this.X = new JSONObject();
         this.Y = new JSONObject();

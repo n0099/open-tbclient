@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ci;
-import com.baidu.tieba.je6;
+import com.baidu.tieba.ne6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaEnterEffectCategoryAdapter extends ci<je6, ViewHolder> {
+public class AlaEnterEffectCategoryAdapter extends ci<ne6, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,14 +48,14 @@ public class AlaEnterEffectCategoryAdapter extends ci<je6, ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f090a6d);
+            this.a = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f090a6e);
             this.b = getView().findViewById(R.id.obfuscated_res_0x7f09020c);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, je6.b);
+        super(context, ne6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,12 +99,12 @@ public class AlaEnterEffectCategoryAdapter extends ci<je6, ViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: x */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, je6 je6Var, ViewHolder viewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ne6 ne6Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, je6Var, viewHolder})) == null) {
-            if (je6Var != null) {
-                viewHolder.a.setText(je6Var.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ne6Var, viewHolder})) == null) {
+            if (ne6Var != null) {
+                viewHolder.a.setText(ne6Var.a);
             }
             if (i == 0) {
                 viewHolder.b.setVisibility(8);

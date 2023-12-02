@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.imp.LiveUserSecurityBehaviorServiceImpl;
-import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityBehaviorService;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.PayChannelService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class uj9 extends cg1<LiveUserSecurityBehaviorService> {
+public class uj9 extends fg1<PayChannelService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public final class uj9 extends cg1<LiveUserSecurityBehaviorService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cg1
+    @Override // com.baidu.tieba.fg1
     /* renamed from: a */
-    public LiveUserSecurityBehaviorService createService() {
+    public PayChannelService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new LiveUserSecurityBehaviorServiceImpl();
+            return new vj9();
         }
-        return (LiveUserSecurityBehaviorService) invokeV.objValue;
+        return (PayChannelService) invokeV.objValue;
     }
 }

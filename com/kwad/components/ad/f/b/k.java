@@ -49,7 +49,7 @@ public final class k extends com.kwad.components.ad.f.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.nl = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091500);
+        this.nl = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091501);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -1,20 +1,14 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class hx3 {
+public class hx3 extends md3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile HashMap<String, List<ay3>> a;
 
     public hx3() {
         Interceptable interceptable = $ic;
@@ -26,120 +20,20 @@ public class hx3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-    }
-
-    public synchronized void a(String str, ay3 ay3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, ay3Var) == null) {
-            synchronized (this) {
-                if (e(str, ay3Var)) {
-                    return;
-                }
-                List<ay3> c = c(str);
-                if (!c.contains(ay3Var)) {
-                    c.add(ay3Var);
-                }
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, c);
-                }
             }
         }
     }
 
-    public synchronized void b(String str, cy3 cy3Var) {
+    public void g(fx3 fx3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cy3Var) == null) {
-            synchronized (this) {
-                for (ay3 ay3Var : new ArrayList(c(str))) {
-                    if (ay3Var != null) {
-                        ay3Var.b(cy3Var);
-                    }
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, fx3Var) != null) || fx3Var == null) {
+            return;
         }
-    }
-
-    public synchronized void g(String str, ay3 ay3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, ay3Var) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                if (ay3Var == null) {
-                    this.a.remove(str);
-                    return;
-                }
-                List<ay3> c = c(str);
-                if (c.contains(ay3Var)) {
-                    c.remove(ay3Var);
-                    if (c.isEmpty()) {
-                        this.a.remove(str);
-                    }
-                }
-            }
+        if (md3.j) {
+            Log.d("GamenowAppEvent", "setCommonData: " + fx3Var.a());
         }
-    }
-
-    public final List<ay3> c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new ArrayList();
-            }
-            List<ay3> list = this.a.get(str);
-            if (list == null) {
-                return new ArrayList();
-            }
-            return list;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public synchronized boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                List<ay3> list = this.a.get(str);
-                if (list != null) {
-                    if (!list.isEmpty()) {
-                        z = true;
-                    }
-                }
-                return z;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                g(str, null);
-            }
-        }
-    }
-
-    public final boolean e(String str, ay3 ay3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, ay3Var)) == null) {
-            if (!TextUtils.isEmpty(str) && ay3Var != null) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
+        this.a = fx3Var.a;
+        this.f = fx3Var.c;
+        this.c = fx3Var.b;
     }
 }

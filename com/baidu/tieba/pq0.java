@@ -1,106 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.InteractiveEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URL;
+import java.util.List;
+import java.util.regex.Pattern;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
+@JvmName(name = "AuthStrategyHelper")
 /* loaded from: classes7.dex */
-public class pq0 extends br0 {
+public final class pq0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile mq0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public sq0 d;
-    public yq0 e;
-    public xq0 f;
-    public tq0 g;
-    public rq0 h;
 
-    public pq0() {
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("host", "vdept3.bdstatic.com");
+                jSONObject2.put("auth", "1_1_1_3");
+                jSONArray.put(jSONObject2);
+                jSONObject.put("hosts", jSONArray);
+            } catch (Exception e) {
+                hg0.c("AuthStrategyHelper", e.toString());
+            }
+            String jSONObject3 = jSONObject.toString();
+            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
+            return jSONObject3;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final List<lq0> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = oq0.a(vx0.j().getString("host_auth_config", a()));
+            }
+            mq0 mq0Var = a;
+            if (mq0Var != null) {
+                return mq0Var.a();
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static final synchronized lq0 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            synchronized (pq0.class) {
+                if (str == null) {
+                    return null;
+                }
+                List<lq0> b = b();
+                if (b == null) {
+                    return null;
+                }
+                try {
+                    String host = new URL(str).getHost();
+                    for (lq0 lq0Var : b) {
+                        if (Pattern.matches(lq0Var.b(), host)) {
+                            return lq0Var;
+                        }
+                    }
+                } catch (Exception e) {
+                    hg0.a("AuthStrategyHelper", e.getMessage());
+                }
+                return null;
             }
         }
-    }
-
-    public void B() {
-        xq0 xq0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (xq0Var = this.f) != null) {
-            xq0Var.b();
-        }
-    }
-
-    public void C() {
-        xq0 xq0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (xq0Var = this.f) != null) {
-            xq0Var.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.br0, com.baidu.tieba.cr0
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.r();
-            this.d = null;
-            this.e = null;
-            this.g = null;
-            this.f = null;
-            this.h = null;
-        }
-    }
-
-    public void D(boolean z, boolean z2) {
-        rq0 rq0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && (rq0Var = this.h) != null) {
-            rq0Var.a(z, z2);
-        }
-    }
-
-    public void F(int i, int i2) {
-        tq0 tq0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) && (tq0Var = this.g) != null) {
-            tq0Var.a(i, i2);
-        }
-    }
-
-    public void E(boolean z) {
-        yq0 yq0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (yq0Var = this.e) != null) {
-            yq0Var.a(z);
-        }
-    }
-
-    public void G(int i) {
-        sq0 sq0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (sq0Var = this.d) != null) {
-            sq0Var.a(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.cr0
-    public void b(ks0 ks0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ks0Var) == null) {
-            super.b(ks0Var);
-            if (InteractiveEvent.ACTION_INTERACTIVE_START.equals(ks0Var.c())) {
-                B();
-            } else if (InteractiveEvent.ACTION_INTERACTIVE_FINISH.equals(ks0Var.c())) {
-                C();
-            }
-        }
+        return (lq0) invokeL.objValue;
     }
 }

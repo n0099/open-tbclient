@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
-import com.baidu.tieba.nr9;
+import com.baidu.tieba.rr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,7 +77,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            nr9.l lVar;
+            rr9.l lVar;
             ArrayList arrayList;
             boolean z;
             Object extra;
@@ -86,8 +86,8 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof HashMap)) {
                     HashMap hashMap = (HashMap) extra;
                     Object obj = hashMap.get(WebChromeClient.KEY_ARG_CALLBACK);
-                    if (obj != null && (obj instanceof nr9.l)) {
-                        lVar = (nr9.l) obj;
+                    if (obj != null && (obj instanceof rr9.l)) {
+                        lVar = (rr9.l) obj;
                     } else {
                         lVar = null;
                     }
@@ -116,9 +116,9 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                             if (lVar != null) {
                                 lVar.a(groupId, arrayList);
                             }
-                            nr9.l().u(true, httpResponsedMessage.getErrorString());
+                            rr9.l().u(true, httpResponsedMessage.getErrorString());
                             if (z) {
-                                nr9.l().p(groupId, arrayList, null);
+                                rr9.l().p(groupId, arrayList, null);
                                 return;
                             }
                             HashMap hashMap2 = new HashMap();
@@ -159,17 +159,17 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public final void P(nr9.l lVar, String str) {
+    public final void P(rr9.l lVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, lVar, str) == null) {
             if (lVar != null) {
                 lVar.onFail(str);
             }
-            nr9.l().u(false, str);
+            rr9.l().u(false, str);
         }
     }
 
-    public void Q(String str, List<FaceData> list, nr9.l lVar, int i) {
+    public void Q(String str, List<FaceData> list, rr9.l lVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, lVar, i) == null) {
             if (list != null && !list.isEmpty()) {

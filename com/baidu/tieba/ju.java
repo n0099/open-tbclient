@@ -31,7 +31,7 @@ public class ju extends vs {
     public int i;
     public int j;
     public Context k;
-    public cw4 l;
+    public fw4 l;
     public VideoImageNoPlayerLayout m;
     public int n;
     public String o;
@@ -98,9 +98,9 @@ public class ju extends vs {
         }
 
         @Override // com.baidu.tieba.su
-        public void a(cw4 cw4Var) {
+        public void a(fw4 fw4Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, cw4Var) == null) && this.a.q != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, fw4Var) == null) && this.a.q != null) {
                 this.a.q.a(this.a.l);
             }
         }
@@ -170,11 +170,11 @@ public class ju extends vs {
     }
 
     @Override // com.baidu.tieba.os
-    public void n(im6<cw4> im6Var) {
+    public void n(mm6<fw4> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, im6Var) == null) {
-            super.n(im6Var);
-            this.m.setOnCardSubClickListener(im6Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, mm6Var) == null) {
+            super.n(mm6Var);
+            this.m.setOnCardSubClickListener(mm6Var);
         }
     }
 
@@ -203,9 +203,9 @@ public class ju extends vs {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cw4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, fw4Var) == null) {
             int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
             if (equipmentWidth != this.n) {
                 s = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
@@ -219,11 +219,11 @@ public class ju extends vs {
                 this.j = i / 3;
                 this.n = equipmentWidth;
             }
-            this.l = cw4Var;
-            if (cw4Var != null && cw4Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
+            this.l = fw4Var;
+            if (fw4Var != null && fw4Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
                 boolean z = false;
                 this.m.setVisibility(0);
-                this.m.onBindDataToView(cw4Var);
+                this.m.onBindDataToView(fw4Var);
                 ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
                 ViewGroup.LayoutParams layoutParams2 = this.m.j.getLayoutParams();
                 int i2 = layoutParams.width;

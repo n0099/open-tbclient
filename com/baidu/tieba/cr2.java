@@ -1,147 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Looper;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.yj3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class cr2 {
+public class cr2 implements or2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Integer> a;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final cr2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-881153559, "Lcom/baidu/tieba/cr2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+    public static SwanAppConfigData a(File file) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            if (file != null && file.exists()) {
+                long currentTimeMillis = System.currentTimeMillis();
+                SwanAppConfigData b = w63.b(file.getAbsolutePath());
+                if (or2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("buildAppJsonConfig cost = ");
+                    sb.append(currentTimeMillis2 - currentTimeMillis);
+                    sb.append("ms ; current thread is main = ");
+                    if (Looper.getMainLooper() == Looper.myLooper()) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    sb.append(" ; path = ");
+                    sb.append(file);
+                    Log.d("SwanPerformance", sb.toString());
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-881153559, "Lcom/baidu/tieba/cr2$a;");
-                    return;
-                }
+                return b;
             }
-            a = new cr2();
+            return null;
         }
+        return (SwanAppConfigData) invokeL.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684294, "Lcom/baidu/tieba/cr2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947684294, "Lcom/baidu/tieba/cr2;");
-                return;
-            }
-        }
-        boolean z = sm1.a;
-        op2.g0().getSwitch("swan_pms_request_retry_count", 1);
-        b = 1;
-    }
-
-    public cr2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap();
-    }
-
-    public static cr2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a.a;
-        }
-        return (cr2) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.put(str, Integer.valueOf(c(str) + 1));
-        }
-    }
-
-    public final int c(String str) {
+    public static SwanAppConfigData b(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Integer num = this.a.get(str);
-            if (num == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (file != null && file.exists()) {
+                SwanAppConfigData swanAppConfigData = (SwanAppConfigData) dr2.c().b(file.getAbsolutePath());
+                if (swanAppConfigData == null) {
+                    swanAppConfigData = n03.e().j(file);
+                    if (swanAppConfigData == null) {
+                        swanAppConfigData = a(file);
+                    }
+                    dr2.c().d(file.getAbsolutePath(), swanAppConfigData);
+                } else if (or2.a) {
+                    Log.d("SwanPerformance", "adopt cached app.json");
+                }
+                return swanAppConfigData;
             }
-            return num.intValue();
+            return null;
         }
-        return invokeL.intValue;
+        return (SwanAppConfigData) invokeL.objValue;
     }
 
-    public boolean f(String str) {
-        InterceptResult invokeL;
+    public static Boolean c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (d() && c(str) < b) {
-                return true;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            Boolean bool = (Boolean) dr2.c().b("getNightModeStateCache");
+            if (bool == null) {
+                return Boolean.valueOf(rp2.M().a());
             }
-            return false;
+            if (z) {
+                dr2.c().e("getNightModeStateCache");
+            }
+            return bool;
         }
-        return invokeL.booleanValue;
+        return (Boolean) invokeZ.objValue;
     }
 
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.remove(str);
-        }
-    }
-
-    public final boolean d() {
+    public static List<yj3.a> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = sd4.b().i().getInt("get_pkg_retry_switch", 0);
-            h32.i("GetPkgRetryController", "getServerRetrySwitch:" + i);
-            if (i != 1) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            List<yj3.a> list = (List) dr2.c().b("getStorageListCache");
+            if (list == null) {
+                List<yj3.a> d = yj3.d();
+                dr2.c().d("getStorageListCache", d);
+                return d;
             }
-            return true;
+            return list;
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    public String e(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void e(Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            return str + "_" + str2;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
+            dr2.c().d("getNightModeStateCache", bool);
         }
-        return (String) invokeLL.objValue;
     }
 }

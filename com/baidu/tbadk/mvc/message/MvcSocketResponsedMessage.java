@@ -6,11 +6,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tbadk.mvc.data.IResponseData;
-import com.baidu.tieba.b05;
+import com.baidu.tieba.bo5;
 import com.baidu.tieba.da;
+import com.baidu.tieba.e05;
 import com.baidu.tieba.jd;
 import com.baidu.tieba.td;
-import com.baidu.tieba.xn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public abstract class MvcSocketResponsedMessage<D extends IResponseData, M exten
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        xn5 xn5Var;
+        bo5 bo5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
@@ -60,28 +60,28 @@ public abstract class MvcSocketResponsedMessage<D extends IResponseData, M exten
                 String str = null;
                 if (getOrginalMessage() instanceof MvcSocketMessage) {
                     MvcSocketMessage mvcSocketMessage = (MvcSocketMessage) getOrginalMessage();
-                    if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof xn5)) {
-                        xn5Var = (xn5) mvcSocketMessage.getData();
+                    if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof bo5)) {
+                        bo5Var = (bo5) mvcSocketMessage.getData();
                     }
-                    xn5Var = null;
+                    bo5Var = null;
                 } else {
                     if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                         MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-                        if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof xn5)) {
-                            xn5Var = (xn5) mvcNetMessage.getRequestData();
+                        if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof bo5)) {
+                            bo5Var = (bo5) mvcNetMessage.getRequestData();
                         }
                     }
-                    xn5Var = null;
+                    bo5Var = null;
                 }
-                if (xn5Var != null) {
-                    String cacheKey = xn5Var.getCacheKey();
-                    String cacheTableName = xn5Var.getCacheTableName();
-                    if (xn5Var.isNeedUid()) {
+                if (bo5Var != null) {
+                    String cacheKey = bo5Var.getCacheKey();
+                    String cacheTableName = bo5Var.getCacheTableName();
+                    if (bo5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     }
                     if (cacheKey != null && !TextUtils.isEmpty(cacheTableName) && bArr != null) {
-                        b05.k();
-                        da<byte[]> j = b05.j(cacheTableName, str);
+                        e05.k();
+                        da<byte[]> j = e05.j(cacheTableName, str);
                         if (j == null) {
                             return;
                         }

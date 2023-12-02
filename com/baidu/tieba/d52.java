@@ -1,109 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fq1;
-import com.baidu.tieba.l53;
+import com.baidu.tieba.c52;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebSettings;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class d52 {
+public final class d52 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z, String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements fq1.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ b b;
-
-        public a(Context context, b bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947655464, "Lcom/baidu/tieba/d52;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = context;
-            this.b = bVar;
-        }
-
-        @Override // com.baidu.tieba.fq1.b
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (!z) {
-                    h32.c("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
-                    this.b.a(false, this.a.getString(R.string.obfuscated_res_0x7f0f0144));
-                    return;
-                }
-                h32.c("DeveloperAuthenticateHelper", "Authentication Success");
-                this.b.a(true, "");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947655464, "Lcom/baidu/tieba/d52;");
+                return;
             }
         }
+        a = vm1.a;
+    }
 
-        @Override // com.baidu.tieba.fq1.b
-        public void b(Exception exc) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                h32.d("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
-                String message = exc.getMessage();
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0144));
-                if (TextUtils.isEmpty(message)) {
-                    str = "";
-                } else {
-                    str = "\n" + message;
-                }
-                sb.append(str);
-                this.b.a(false, sb.toString());
+    @NonNull
+    public static WebSettings.CodeCacheSetting a(String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            WebSettings.CodeCacheSetting codeCacheSetting = new WebSettings.CodeCacheSetting();
+            codeCacheSetting.id = str;
+            ArrayList<String> arrayList = new ArrayList<>();
+            codeCacheSetting.pathList = arrayList;
+            arrayList.add(str2);
+            if (str.hashCode() == 93029162 && str.equals("appjs")) {
+                c = 0;
+            } else {
+                c = 65535;
             }
+            if (c != 0) {
+                codeCacheSetting.maxCount = 20;
+                codeCacheSetting.sizeLimit = 102400;
+            } else {
+                c52.a d = c52.b.d();
+                codeCacheSetting.maxCount = d.a;
+                codeCacheSetting.sizeLimit = d.b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
+            }
+            if (a) {
+                Log.d("WebViewCodeCacheHelper", "buildCacheSetting cacheType: " + str);
+                Log.d("WebViewCodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
+                Log.d("WebViewCodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
+            }
+            return codeCacheSetting;
         }
-    }
-
-    public static void a(@NonNull h63 h63Var, @NonNull Context context, @NonNull b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, h63Var, context, bVar) == null) {
-            vm1.b(h63Var.P(), new a(context, bVar));
-        }
-    }
-
-    public static void b(Context context, @StringRes int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
-            l53.a aVar = new l53.a(context);
-            aVar.U(i);
-            aVar.x(str);
-            aVar.n(new pl3());
-            aVar.O(R.string.obfuscated_res_0x7f0f0151, null);
-            aVar.X();
-        }
-    }
-
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            b(context, R.string.obfuscated_res_0x7f0f018a, str);
-        }
+        return (WebSettings.CodeCacheSetting) invokeLL.objValue;
     }
 }

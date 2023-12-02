@@ -31,7 +31,7 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iw4;
+import com.baidu.tieba.lw4;
 import com.baidu.tieba.view.headcard.ContentCollectListAdapter;
 import com.baidu.tieba.zd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -249,8 +249,8 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.n = BdUtilHelper.getDimens(getContext(), R.dimen.tbds115);
             this.m = BdUtilHelper.getDimens(getContext(), R.dimen.tbds3);
             u = (((BdUtilHelper.getEquipmentWidth(getContext()) - (BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004) * 5)) - BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006)) - BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005)) - this.k;
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092683);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090807);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092685);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090808);
             this.d = (EMTextView) findViewById(R.id.more_label_view);
             this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090372);
             this.e = (TbImageView) findViewById(R.id.image_content);
@@ -283,13 +283,13 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.g.setFrom(this.p);
             this.g.setIsAgreeNumClick(true);
             this.g.setAgreeAnimationResource();
-            iw4 iw4Var = new iw4();
-            iw4Var.b = 1;
-            iw4Var.h = 1;
-            iw4Var.g = 1;
-            iw4Var.c = 7;
-            iw4Var.f = this.q;
-            this.g.setStatisticData(iw4Var);
+            lw4 lw4Var = new lw4();
+            lw4Var.b = 1;
+            lw4Var.h = 1;
+            lw4Var.g = 1;
+            lw4Var.c = 7;
+            lw4Var.f = this.q;
+            this.g.setStatisticData(lw4Var);
         }
     }
 

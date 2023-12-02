@@ -32,12 +32,12 @@ public class tt extends ku {
     }
 
     @Override // com.baidu.tieba.ku
-    public hea t() {
+    public lea t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new kea(this.b, this.i);
+            return new oea(this.b, this.i);
         }
-        return (hea) invokeV.objValue;
+        return (lea) invokeV.objValue;
     }
 }

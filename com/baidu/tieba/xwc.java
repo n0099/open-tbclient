@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.EsportStatic;
+import tbclient.EsportUser;
 /* loaded from: classes9.dex */
-public class xwc extends ltc {
+public class xwc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull EsportStatic esportStatic) {
+    public static JSONObject b(@NonNull EsportUser esportUser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, esportStatic)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, esportUser)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "img", esportStatic.img);
-            ltc.a(jSONObject, "url", esportStatic.url);
+            ktc.a(jSONObject, "steam_name", esportUser.steam_name);
+            ktc.a(jSONObject, "steam_portrait", esportUser.steam_portrait);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -2,39 +2,50 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.pay.PayResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class r66 extends ActivityDelegation {
+public class r66 extends ActivityDelegation implements xm1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public u66 b;
+    public Activity c;
+    public Map<String, String> d;
+    public CustomMessageListener e;
 
     /* loaded from: classes8.dex */
-    public class a implements q66 {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r66 a;
 
-        public a(r66 r66Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(r66 r66Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r66Var};
+                Object[] objArr = {r66Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -43,87 +54,117 @@ public class r66 extends ActivityDelegation {
             this.a = r66Var;
         }
 
-        @Override // com.baidu.tieba.q66
-        public void a(Bundle bundle) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                this.a.mResult.putInt("status_code", bundle.getInt("result_code"));
-                this.a.mResult.putString("params", bundle.getString("result_msg"));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
+                Object data = customResponsedMessage.getData();
+                if (!(data instanceof PayResult)) {
+                    return;
+                }
+                PayResult payResult = (PayResult) data;
+                if (getTag() != payResult.tag && !payResult.isWx) {
+                    return;
+                }
+                this.a.mResult.putInt("result_code", payResult.type);
+                this.a.mResult.putString("result_msg", payResult.message);
+                if (this.a.b != null) {
+                    this.a.b.a(this.a.mResult);
+                }
                 this.a.finish();
             }
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948073623, "Lcom/baidu/tieba/r66;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948073623, "Lcom/baidu/tieba/r66;");
-                return;
-            }
-        }
-        a = sm1.a;
     }
 
     public r66() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = BdUniqueId.gen();
+        this.e = new a(this, 2921393);
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = null;
+            MessageManager.getInstance().unRegisterListener(this.e);
+            super.finish();
         }
     }
 
-    public static Bundle d(String str) {
-        InterceptResult invokeL;
+    public void d(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("order_info", str);
-            return bundle;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            this.c = activity;
         }
-        return (Bundle) invokeL.objValue;
+    }
+
+    public void e(u66 u66Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u66Var) == null) {
+            this.b = u66Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.xm1
+    public void onResult(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mResult.putInt("result_code", i);
+            this.mResult.putString("result_msg", "");
+            finish();
+        }
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public boolean onExec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.mParams.isEmpty()) {
-                if (a) {
-                    Log.d("BaiFuBaoPayDelegation", "onExec params is null.");
-                }
-                return false;
-            }
-            if (a) {
-                Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
-            }
-            Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
-            if (!gp5.c().d()) {
-                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.plugin_pay_wallet_not_found);
-                return false;
-            } else if (!(getAgent() instanceof Activity)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            this.e.setTag(this.a);
+            MessageManager.getInstance().registerListener(this.e);
+            int i = this.mParams.getInt("type");
+            String string = this.mParams.getString("orderInfo");
+            PayResult payResult = new PayResult();
+            payResult.tag = this.a;
+            payResult.type = i;
+            payResult.message = string;
+            payResult.params = (Map) this.mParams.getSerializable("params");
+            payResult.orderinfo = this.d;
+            if (getAgent() != null) {
+                payResult.context = getAgent();
             } else {
-                n66 n66Var = new n66();
-                n66Var.mParams.putInt("type", 1);
-                n66Var.mParams.putString("orderInfo", this.mParams.getString("order_info"));
-                n66Var.d(getAgent());
-                n66Var.e(new a(this));
-                n66Var.onExec();
-                return false;
+                Activity activity = this.c;
+                if (activity != null) {
+                    payResult.context = activity;
+                } else {
+                    payResult.context = TbadkCoreApplication.getInst().getCurrentActivity();
+                }
             }
+            CustomMessage customMessage = new CustomMessage(2921393, payResult);
+            customMessage.setTag(this.a);
+            boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
+            Bundle bundle = this.mResult;
+            int i2 = 1;
+            if (sendMessage) {
+                i2 = 0;
+            }
+            bundle.putInt("result_code", i2);
+            Bundle bundle2 = this.mResult;
+            bundle2.putString("result_msg", "" + sendMessage);
+            return false;
         }
         return invokeV.booleanValue;
     }

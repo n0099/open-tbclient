@@ -284,8 +284,8 @@ public final class LoadingDialog extends Dialog {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             this.mCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f09077d);
             this.mBottomTv = (TextView) findViewById(R.id.obfuscated_res_0x7f0904ba);
-            this.mDotAnimTv = (TextView) findViewById(R.id.obfuscated_res_0x7f090979);
-            this.mLoadingContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091707);
+            this.mDotAnimTv = (TextView) findViewById(R.id.obfuscated_res_0x7f09097a);
+            this.mLoadingContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091708);
             int i = this.loadingLayoutId;
             if (i == -1) {
                 i = R.layout.obfuscated_res_0x7f0d0213;
@@ -293,7 +293,7 @@ public final class LoadingDialog extends Dialog {
             LayoutInflater.from(getContext()).inflate(i, (ViewGroup) this.mLoadingContainer, true);
             FrameLayout frameLayout = this.mLoadingContainer;
             if (frameLayout != null) {
-                view2 = frameLayout.findViewById(R.id.obfuscated_res_0x7f09170a);
+                view2 = frameLayout.findViewById(R.id.obfuscated_res_0x7f09170b);
             } else {
                 view2 = null;
             }

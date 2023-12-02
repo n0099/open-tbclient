@@ -65,9 +65,9 @@ public class InterstitialAggregateManualTipsView extends LinearLayout implements
 
     private void initView() {
         l.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d04de, this);
-        this.iR = (ImageView) findViewById(R.id.obfuscated_res_0x7f091380);
-        this.iS = (ImageView) findViewById(R.id.obfuscated_res_0x7f091381);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09137f);
+        this.iR = (ImageView) findViewById(R.id.obfuscated_res_0x7f091381);
+        this.iS = (ImageView) findViewById(R.id.obfuscated_res_0x7f091382);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091380);
         this.iT = imageView;
         com.kwad.sdk.d.a.a.a(this, this.iR, this.iS, imageView);
     }

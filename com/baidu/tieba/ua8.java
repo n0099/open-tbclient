@@ -1,125 +1,217 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.DiscoverHotForum;
-import tbclient.DiscoverTabCard;
-import tbclient.RecommendForumInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.BannerImage;
+import tbclient.RecomTopicList;
 /* loaded from: classes8.dex */
 public class ua8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public ArrayList<ThreadData> b;
+    public uw4 c;
+    public vx4 d;
+    public bk8 e;
+    @Nullable
+    public String f;
+    public dq9 g;
 
-    public static void a(ThreadData threadData, int i) {
-        StatisticItem n;
+    public ua8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65536, null, threadData, i) == null) {
-            if (i != 1) {
-                n = null;
-            } else {
-                n = nua.n("c13692", threadData, 3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            TiebaStatic.log(n);
         }
+        this.a = true;
     }
 
-    public static void b(View view2, cw4 cw4Var, int i) {
+    public uw4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65537, null, view2, cw4Var, i) == null) && view2 != null && cw4Var != null && cw4Var.getThreadData() != null && !StringUtils.isNull(cw4Var.getThreadData().getTid())) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
-            ThreadData threadData = cw4Var.getThreadData();
-            int i2 = 1;
-            if (threadData.isLinkThread()) {
-                statisticItem.param("obj_type", 4);
-            } else if (threadData.isShareThread) {
-                statisticItem.param("obj_type", 5);
-            } else if (threadData.isBJHArticleThreadType()) {
-                statisticItem.param("obj_type", 6);
-            } else if (threadData.isBJHNormalThreadType()) {
-                statisticItem.param("obj_type", 7);
-            } else if (threadData.isBJHVideoThreadType()) {
-                statisticItem.param("obj_type", 8);
-            } else if (threadData.isBJHVideoDynamicThreadType()) {
-                statisticItem.param("obj_type", 9);
-            } else if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-                statisticItem.param("obj_type", 1);
-            } else if (threadData.isVideoThreadType()) {
-                statisticItem.param("obj_type", 2);
-            }
-            statisticItem.param("obj_locate", i);
-            if (i == 3 || (i == 6 && (view2 instanceof TbImageView))) {
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, 2);
-            }
-            statisticItem.param("tid", cw4Var.getThreadData().getTid());
-            statisticItem.param("fid", cw4Var.getThreadData().getFid());
-            statisticItem.param("fname", cw4Var.getThreadData().getForum_name());
-            statisticItem.param("obj_source", 1);
-            if (cw4Var instanceof qm6) {
-                if (((qm6) cw4Var).x()) {
-                    i2 = 2;
-                }
-                statisticItem.param("obj_param1", i2);
-            }
-            if (cw4Var.getThreadData().getAuthor() != null) {
-                statisticItem.param("uid", cw4Var.getThreadData().getAuthor().getUserId());
-            }
-            if (threadData.getBaijiahaoData() != null) {
-                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
-            } else {
-                statisticItem.param("obj_id", threadData.getTid());
-            }
-            if (cw4Var.getThreadData().getThreadAlaInfo() != null) {
-                int calculateLiveType = YYLiveUtil.calculateLiveType(cw4Var.getThreadData().getThreadAlaInfo());
-                if (cw4Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                    TiebaStaticHelper.addYYParam(statisticItem, cw4Var.getThreadData().getThreadAlaInfo().mYyExtData);
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
-            }
-            TiebaStatic.log(statisticItem);
-            a(threadData, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (uw4) invokeV.objValue;
     }
 
-    public static boolean c(DiscoverHotForum.Builder builder, long j, boolean z) {
-        InterceptResult invokeCommon;
+    public vx4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{builder, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            if (j != 0 && builder != null) {
-                List<DiscoverTabCard> list = builder.tab_list;
-                if (ListUtils.isEmpty(list)) {
-                    return false;
-                }
-                for (int i = 0; i < list.size(); i++) {
-                    DiscoverTabCard.Builder builder2 = new DiscoverTabCard.Builder(list.get(i));
-                    List<RecommendForumInfo> list2 = builder2.forum_list;
-                    if (!ListUtils.isEmpty(list2)) {
-                        for (int i2 = 0; i2 < list2.size(); i2++) {
-                            RecommendForumInfo.Builder builder3 = new RecommendForumInfo.Builder(list2.get(i2));
-                            if (builder3.forum_id.longValue() == j && builder3.is_like.intValue() != z) {
-                                builder3.is_like = Integer.valueOf(z ? 1 : 0);
-                                list2.set(i2, builder3.build(true));
-                                list.set(i, builder2.build(true));
-                                return true;
-                            }
-                        }
-                        continue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (vx4) invokeV.objValue;
+    }
+
+    public bk8 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (bk8) invokeV.objValue;
+    }
+
+    public dq9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return (dq9) invokeV.objValue;
+    }
+
+    public ArrayList<ThreadData> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(JSONObject jSONObject) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
+            boolean z = false;
+            if (optJSONArray != null) {
+                this.b = new ArrayList<>(optJSONArray.length());
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                    if (jSONObject2 != null) {
+                        ThreadData threadData = new ThreadData();
+                        threadData.isFromFeedTab = true;
+                        threadData.isFromLocal = "local".equals(this.f);
+                        threadData.parserJson(jSONObject2);
+                        threadData.insertItemToTitleOrAbstractText();
+                        this.b.add(threadData);
                     }
                 }
             }
-            return false;
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("banner_list");
+            if (optJSONArray2 != null) {
+                this.c = new uw4();
+                ArrayList arrayList = new ArrayList();
+                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                    JSONObject optJSONObject = optJSONArray2.optJSONObject(i3);
+                    if (optJSONObject != null) {
+                        BannerImage.Builder builder = new BannerImage.Builder();
+                        builder.ahead_url = optJSONObject.optString("ahead_url");
+                        builder.img_url = optJSONObject.optString(BigdayActivityConfig.IMG_URL);
+                        builder.title = optJSONObject.optString("title");
+                        arrayList.add(builder.build(true));
+                    }
+                }
+                this.c.parserProtobuf(arrayList);
+            }
+            JSONArray optJSONArray3 = jSONObject.optJSONArray("grid");
+            if (optJSONArray3 != null && optJSONArray3.length() >= 4) {
+                this.d = new vx4();
+                ArrayList arrayList2 = new ArrayList();
+                for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
+                    JSONObject optJSONObject2 = optJSONArray3.optJSONObject(i4);
+                    if (optJSONObject2 != null) {
+                        BannerImage.Builder builder2 = new BannerImage.Builder();
+                        builder2.ahead_url = optJSONObject2.optString("ahead_url");
+                        builder2.img_url = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
+                        builder2.title = optJSONObject2.optString("title");
+                        arrayList2.add(builder2.build(true));
+                    }
+                }
+                this.d.parserProtobuf(arrayList2);
+            }
+            JSONArray optJSONArray4 = jSONObject.optJSONArray("module_list");
+            JSONArray jSONArray = null;
+            int i5 = 0;
+            while (true) {
+                if (i5 < optJSONArray4.length()) {
+                    JSONObject optJSONObject3 = optJSONArray4.optJSONObject(i5);
+                    if ("hot_topic".equals(optJSONObject3.optString("type"))) {
+                        jSONArray = optJSONObject3.optJSONArray("hot_topic");
+                        i = optJSONObject3.optInt(CriusAttrConstants.POSITION);
+                        break;
+                    }
+                    i5++;
+                } else {
+                    i = 0;
+                    break;
+                }
+            }
+            if (jSONArray != null && jSONArray.length() >= 4) {
+                ArrayList arrayList3 = new ArrayList();
+                for (int i6 = 0; i6 < jSONArray.length(); i6++) {
+                    JSONObject optJSONObject4 = jSONArray.optJSONObject(i6);
+                    if (optJSONObject4 != null && i6 < 6) {
+                        RecomTopicList.Builder builder3 = new RecomTopicList.Builder();
+                        builder3.topic_id = Long.valueOf(JavaTypesHelper.toLong(optJSONObject4.optString("topic_id"), 0L));
+                        builder3.topic_name = optJSONObject4.optString("topic_name");
+                        builder3.topic_desc = optJSONObject4.optString("topic_desc");
+                        builder3.tag = Integer.valueOf(optJSONObject4.optInt("tag"));
+                        builder3.topic_pic = optJSONObject4.optString("topic_pic");
+                        builder3.type = Integer.valueOf(optJSONObject4.optInt("type"));
+                        builder3.discuss_num = Long.valueOf(JavaTypesHelper.toLong(optJSONObject4.optString("discuss_num"), 0L));
+                        arrayList3.add(builder3.build(true));
+                    }
+                    bk8 bk8Var = new bk8();
+                    this.e = bk8Var;
+                    bk8Var.floorPosition = i;
+                    bk8Var.parserProtobuf(arrayList3);
+                }
+            }
+            if (jSONObject.optInt("has_more", 1) == 1) {
+                z = true;
+            }
+            this.a = z;
+            JSONObject optJSONObject5 = jSONObject.optJSONObject("nearby_person");
+            if (optJSONObject5 != null) {
+                dq9 dq9Var = new dq9();
+                this.g = dq9Var;
+                dq9Var.a(optJSONObject5);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return invokeCommon.booleanValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.f = str;
+        }
     }
 }

@@ -22,24 +22,24 @@ import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.dv7;
 import com.baidu.tieba.frs.view.RoundAdapterLinearLayout;
-import com.baidu.tieba.fy5;
-import com.baidu.tieba.l68;
-import com.baidu.tieba.n68;
-import com.baidu.tieba.ru7;
-import com.baidu.tieba.zua;
+import com.baidu.tieba.hv7;
+import com.baidu.tieba.jy5;
+import com.baidu.tieba.p68;
+import com.baidu.tieba.r68;
+import com.baidu.tieba.vu7;
+import com.baidu.tieba.yua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class FrsTopADView extends FrameLayout implements dv7 {
+public class FrsTopADView extends FrameLayout implements hv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public zua b;
+    public yua b;
     public ForumData c;
     public RoundAdapterLinearLayout d;
     public TextView e;
@@ -47,7 +47,7 @@ public class FrsTopADView extends FrameLayout implements dv7 {
     public TextView g;
     public FrsAdCommentScrollView h;
     public TextView i;
-    public ru7 j;
+    public vu7 j;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -77,8 +77,8 @@ public class FrsTopADView extends FrameLayout implements dv7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null && !StringUtils.isNull(this.a.b.q())) {
-                if (!fy5.a(this.a.a, this.a.b.i())) {
-                    n68.b((TbPageContext) a5.a(this.a.a), this.a.b.k(), this.a.b.q(), this.a.b.j());
+                if (!jy5.a(this.a.a, this.a.b.i())) {
+                    r68.b((TbPageContext) a5.a(this.a.a), this.a.b.k(), this.a.b.q(), this.a.b.j());
                 }
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
                 httpMessage.addParam("id", this.a.b.c());
@@ -181,7 +181,7 @@ public class FrsTopADView extends FrameLayout implements dv7 {
         f(context);
     }
 
-    @Override // com.baidu.tieba.dv7
+    @Override // com.baidu.tieba.hv7
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -189,7 +189,7 @@ public class FrsTopADView extends FrameLayout implements dv7 {
         }
     }
 
-    @Override // com.baidu.tieba.dv7
+    @Override // com.baidu.tieba.hv7
     public void onPrimary(boolean z) {
         FrsAdCommentScrollView frsAdCommentScrollView;
         Interceptable interceptable = $ic;
@@ -198,26 +198,26 @@ public class FrsTopADView extends FrameLayout implements dv7 {
         }
     }
 
-    public void e(ForumData forumData, zua zuaVar, boolean z) {
+    public void e(ForumData forumData, yua yuaVar, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(1048576, this, forumData, zuaVar, z) != null) || zuaVar == null) {
+        if ((interceptable != null && interceptable.invokeLLZ(1048576, this, forumData, yuaVar, z) != null) || yuaVar == null) {
             return;
         }
         this.c = forumData;
-        this.b = zuaVar;
-        this.e.setText(zuaVar.o());
-        if (zuaVar.p() == 3) {
+        this.b = yuaVar;
+        this.e.setText(yuaVar.o());
+        if (yuaVar.p() == 3) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f089b, Integer.valueOf(this.b.h())));
-        } else if (zuaVar.p() == 1) {
+        } else if (yuaVar.p() == 1) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f089d, Integer.valueOf(this.b.h())));
-        } else if (zuaVar.p() == 2) {
+        } else if (yuaVar.p() == 2) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0899, Integer.valueOf(this.b.h())));
-        } else if (zuaVar.p() == 4) {
+        } else if (yuaVar.p() == 4) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f089a, Integer.valueOf(this.b.h())));
         }
         this.f.startLoad(this.b.d(), 10, false);
-        zua zuaVar2 = this.b;
-        if (zuaVar2 != null && zuaVar2.f()) {
+        yua yuaVar2 = this.b;
+        if (yuaVar2 != null && yuaVar2.f()) {
             this.i.setVisibility(0);
         } else {
             this.i.setVisibility(8);
@@ -226,7 +226,7 @@ public class FrsTopADView extends FrameLayout implements dv7 {
         if (frsAdCommentScrollView != null) {
             frsAdCommentScrollView.m(this.b.a());
         }
-        if (!z && forumData != null && l68.j(this.b, forumData.getId())) {
+        if (!z && forumData != null && p68.j(this.b, forumData.getId())) {
             this.j.s(this.b, forumData, Long.parseLong(forumData.getId()));
             this.h.post(new b(this));
         }
@@ -239,17 +239,17 @@ public class FrsTopADView extends FrameLayout implements dv7 {
             RoundAdapterLinearLayout roundAdapterLinearLayout = (RoundAdapterLinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03c6, (ViewGroup) null);
             this.d = roundAdapterLinearLayout;
             roundAdapterLinearLayout.setRadius(this.a.getResources().getDimension(R.dimen.tbds20));
-            this.e = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090df1);
-            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090df6);
-            TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090def);
+            this.e = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090df2);
+            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090df7);
+            TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090df0);
             this.f = tbImageView;
             tbImageView.setDefaultBgResource(R.color.white_alpha100);
             this.h = (FrsAdCommentScrollView) this.d.findViewById(R.id.obfuscated_res_0x7f0900b8);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090df0);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090df1);
             this.i = textView;
             EMManager.from(textView).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0602);
             EMManager.from(this.i).setTextColor(R.color.CAM_X0617);
-            this.j = new ru7(context, this.d, this.f);
+            this.j = new vu7(context, this.d, this.f);
             addView(this.d);
             this.d.setOnClickListener(new a(this));
         }
@@ -264,7 +264,7 @@ public class FrsTopADView extends FrameLayout implements dv7 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dv7
+    @Override // com.baidu.tieba.hv7
     public void onDestroy() {
         FrsAdCommentScrollView frsAdCommentScrollView;
         Interceptable interceptable = $ic;
@@ -273,21 +273,21 @@ public class FrsTopADView extends FrameLayout implements dv7 {
         }
     }
 
-    @Override // com.baidu.tieba.dv7
+    @Override // com.baidu.tieba.hv7
     public void onPause() {
-        ru7 ru7Var;
+        vu7 vu7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ru7Var = this.j) != null) {
-            ru7Var.q();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (vu7Var = this.j) != null) {
+            vu7Var.q();
         }
     }
 
-    @Override // com.baidu.tieba.dv7
+    @Override // com.baidu.tieba.hv7
     public void onResume() {
-        ru7 ru7Var;
+        vu7 vu7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (ru7Var = this.j) != null) {
-            ru7Var.r();
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (vu7Var = this.j) != null) {
+            vu7Var.r();
         }
     }
 }

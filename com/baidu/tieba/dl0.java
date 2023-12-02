@@ -55,7 +55,7 @@ public class dl0 extends re0 {
             }
             Intent intent = new Intent(context, NadRewardVideoActivity.class);
             intent.putExtra("params", d);
-            boolean d2 = m11.d(context, intent);
+            boolean d2 = o11.d(context, intent);
             if (!d2) {
                 i = 1001;
             }

@@ -140,9 +140,9 @@ public class CloseCountDownView extends LinearLayout {
     private void V(Context context) {
         setOrientation(0);
         l.inflate(context, R.layout.obfuscated_res_0x7f0d04c5, this);
-        this.FK = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ec);
-        this.FL = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ea);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914c0);
+        this.FK = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ed);
+        this.FL = (TextView) findViewById(R.id.obfuscated_res_0x7f0912eb);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914c1);
         this.FM = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.splashscreen.widget.CloseCountDownView.2
             @Override // android.view.View.OnClickListener

@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,27 +9,12 @@ public class tj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void validateRequestPermissionsRequestCode(int i);
-    }
-
-    public static void a(Activity activity, String[] strArr, int i) {
+    public static SharedPreferences a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, activity, strArr, i) == null) {
-            if (activity instanceof a) {
-                ((a) activity).validateRequestPermissionsRequestCode(i);
-            }
-            activity.requestPermissions(strArr, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new tm4("key_pms_sp_name");
         }
-    }
-
-    public static boolean b(Activity activity, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
-            return activity.shouldShowRequestPermissionRationale(str);
-        }
-        return invokeLL.booleanValue;
+        return (SharedPreferences) invokeV.objValue;
     }
 }

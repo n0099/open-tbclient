@@ -3,10 +3,10 @@ package com.baidu.tieba.sprite.homepage.userstrategy;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.dua;
-import com.baidu.tieba.oq6;
+import com.baidu.tieba.cua;
 import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
 import com.baidu.tieba.sprite.homepage.userstrategy.NewUserSpriteShowStrategy$dispatchSpriteNotification$1;
+import com.baidu.tieba.sq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,16 +21,16 @@ import kotlin.jvm.internal.Lambda;
 public final class NewUserSpriteShowStrategy$dispatchSpriteNotification$1 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ dua $hotEventShowData;
+    public final /* synthetic */ cua $hotEventShowData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NewUserSpriteShowStrategy$dispatchSpriteNotification$1(dua duaVar) {
+    public NewUserSpriteShowStrategy$dispatchSpriteNotification$1(cua cuaVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {duaVar};
+            Object[] objArr = {cuaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,11 +41,11 @@ public final class NewUserSpriteShowStrategy$dispatchSpriteNotification$1 extend
                 return;
             }
         }
-        this.$hotEventShowData = duaVar;
+        this.$hotEventShowData = cuaVar;
     }
 
     /* renamed from: invoke$lambda-0  reason: not valid java name */
-    public static final void m147invoke$lambda0(dua hotEventShowData) {
+    public static final void m146invoke$lambda0(cua hotEventShowData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, hotEventShowData) == null) {
             Intrinsics.checkNotNullParameter(hotEventShowData, "$hotEventShowData");
@@ -67,16 +67,16 @@ public final class NewUserSpriteShowStrategy$dispatchSpriteNotification$1 extend
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             HotEventData b = this.$hotEventShowData.b();
-            final dua duaVar = this.$hotEventShowData;
-            HomeSpriteEdgeFloatManager.l.c().X(new dua(b, new oq6.e() { // from class: com.baidu.tieba.xra
+            final cua cuaVar = this.$hotEventShowData;
+            HomeSpriteEdgeFloatManager.l.c().X(new cua(b, new sq6.e() { // from class: com.baidu.tieba.wra
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.oq6.e
+                @Override // com.baidu.tieba.sq6.e
                 public final void onDismiss() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        NewUserSpriteShowStrategy$dispatchSpriteNotification$1.m147invoke$lambda0(dua.this);
+                        NewUserSpriteShowStrategy$dispatchSpriteNotification$1.m146invoke$lambda0(cua.this);
                     }
                 }
             }));

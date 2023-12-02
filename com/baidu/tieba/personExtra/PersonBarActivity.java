@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import com.baidu.tieba.t9a;
+import com.baidu.tieba.x9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class PersonBarActivity extends BasePersonInfoActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return getPageContext().getString(R.string.obfuscated_res_0x7f0f1095);
+            return getPageContext().getString(R.string.obfuscated_res_0x7f0f1096);
         }
         return (String) invokeV.objValue;
     }
@@ -67,7 +67,7 @@ public class PersonBarActivity extends BasePersonInfoActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return getPageContext().getString(R.string.obfuscated_res_0x7f0f1091);
+            return getPageContext().getString(R.string.obfuscated_res_0x7f0f1092);
         }
         return (String) invokeV.objValue;
     }
@@ -87,7 +87,7 @@ public class PersonBarActivity extends BasePersonInfoActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return getPageContext().getString(R.string.obfuscated_res_0x7f0f1094);
+            return getPageContext().getString(R.string.obfuscated_res_0x7f0f1095);
         }
         return (String) invokeV.objValue;
     }
@@ -115,7 +115,7 @@ public class PersonBarActivity extends BasePersonInfoActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return getPageContext().getString(R.string.obfuscated_res_0x7f0f1090);
+            return getPageContext().getString(R.string.obfuscated_res_0x7f0f1091);
         }
         return (String) invokeV.objValue;
     }
@@ -139,7 +139,7 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        t9a k3;
+        x9a k3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onPageSelected(i);

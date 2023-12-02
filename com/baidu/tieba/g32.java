@@ -1,22 +1,40 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes6.dex */
 public class g32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, ns1> b;
+    public static final String a;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? "a0" : (String) invokeV.objValue;
+    }
+
+    public static String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? "android" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,103 +49,353 @@ public class g32 {
                 return;
             }
         }
-        a = sm1.a;
-        b = new HashMap(2);
+        a = e32.b();
+        b = new String[]{e32.c(), e32.b(), "https://ossapi.baidu.com", "https://ext.baidu.com"};
     }
 
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && c()) {
-            b();
-        }
-    }
-
-    public static ns1 a() {
+    public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a) {
-                Log.d("ConsoleCache", "create new sConsole");
-            }
-            h32.n(true);
-            return bd2.V().g0().b(AppRuntime.getAppContext());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String g = g();
+            String h = h();
+            int i = Build.VERSION.SDK_INT;
+            String i2 = i();
+            return g + "_" + h + "_" + i + "_" + i2;
         }
-        return (ns1) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        StringBuilder sb;
+        StringBuilder sb2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            h63 c0 = h63.c0();
-            if (c0 != null && !TextUtils.isEmpty(c0.b)) {
-                return f32.b(ky1.a(c0.b));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            if (a) {
-                Log.w("ConsoleCache", "swanApp is null or appId is empty");
+            String str4 = str2 + "=";
+            int indexOf = str.indexOf("?");
+            String str5 = null;
+            if (indexOf < 0) {
+                int indexOf2 = str.indexOf("#");
+                if (indexOf2 < 0) {
+                    sb2 = new StringBuilder(str);
+                } else {
+                    str5 = str.substring(indexOf2);
+                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+                }
+                sb2.append("?");
+                sb2.append(str4);
+                sb2.append(str3);
+                if (str5 != null) {
+                    sb2.append(str5);
+                }
+                return sb2.toString();
+            }
+            if (str.indexOf("&" + str4, indexOf) < 0) {
+                if (str.indexOf("?" + str4, indexOf) < 0) {
+                    int indexOf3 = str.indexOf("#");
+                    if (indexOf3 < 0) {
+                        sb = new StringBuilder(str);
+                    } else {
+                        str5 = str.substring(indexOf3);
+                        str = str.substring(0, indexOf3);
+                        sb = new StringBuilder(str);
+                    }
+                    if (!str.endsWith("&") && !str.endsWith("?")) {
+                        sb.append("&");
+                    }
+                    sb.append(str4);
+                    sb.append(str3);
+                    if (str5 != null) {
+                        sb.append(str5);
+                    }
+                    return sb.toString();
+                }
+                return str;
+            }
+            return str;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String b2 = k03.b();
+            if (b2 != null) {
+                return a(str, "launchid", b2);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            try {
+                return URLEncoder.encode(str, "utf-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
+            }
+            for (String str2 : b) {
+                if (str.startsWith(str2)) {
+                    return true;
+                }
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x002d A[Catch: all -> 0x006f, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0057 A[Catch: all -> 0x006f, TRY_LEAVE, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static synchronized ns1 b() {
+    public static String v(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+            return w(str, false);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int c() {
         InterceptResult invokeV;
-        String str;
-        ns1 ns1Var;
+        NetworkInfo networkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (g32.class) {
-                h63 c0 = h63.c0();
-                if (c0 != null && !TextUtils.isEmpty(c0.getAppId())) {
-                    str = c0.getAppId();
-                    String a2 = ky1.a(str);
-                    ns1Var = b.get(a2);
-                    if (ns1Var == null) {
-                        e();
-                        ns1Var = a();
-                        b.put(a2, ns1Var);
-                        if (a) {
-                            Log.d("ConsoleCache", "can not find sconsole for appId - " + str);
-                        }
-                    }
-                    if (a) {
-                        Log.d("ConsoleCache", "get sconsole for appId - " + str);
-                    }
-                }
-                str = "_no_id_";
-                String a22 = ky1.a(str);
-                ns1Var = b.get(a22);
-                if (ns1Var == null) {
-                }
-                if (a) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String str = null;
+            try {
+                networkInfo = ((ConnectivityManager) rp2.c().getSystemService("connectivity")).getActiveNetworkInfo();
+            } catch (NullPointerException unused) {
+                networkInfo = null;
+            }
+            if (networkInfo != null) {
+                if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
+                    str = "WIFI";
+                } else {
+                    str = networkInfo.getExtraInfo();
                 }
             }
-            return ns1Var;
+            if (str == null) {
+                return 5;
+            }
+            String upperCase = str.toUpperCase();
+            if ("WIFI".equals(upperCase)) {
+                return 1;
+            }
+            if ("3GNET".equals(upperCase)) {
+                return 21;
+            }
+            if ("3GWAP".equals(upperCase)) {
+                return 22;
+            }
+            if ("CMNET".equals(upperCase)) {
+                return 31;
+            }
+            if ("UNINET".equals(upperCase)) {
+                return 32;
+            }
+            if ("CTNET".equals(upperCase)) {
+                return 33;
+            }
+            if ("CMWAP".equals(upperCase)) {
+                return 41;
+            }
+            if ("UNIWAP".equals(upperCase)) {
+                return 42;
+            }
+            if (!"CTWAP".equals(upperCase)) {
+                return 5;
+            }
+            return 43;
         }
-        return (ns1) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static synchronized void e() {
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            synchronized (g32.class) {
-                if (b.size() > 0) {
-                    for (String str : b.keySet()) {
-                        ns1 ns1Var = b.get(str);
-                        if (ns1Var != null) {
-                            ns1Var.C();
-                        }
-                    }
-                    b.clear();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return rp2.n().a();
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            String str = Build.MODEL;
+            if (TextUtils.isEmpty(str)) {
+                return "NUL";
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String str = Build.VERSION.RELEASE;
+            if (TextUtils.isEmpty(str)) {
+                return com.baidu.mobads.sdk.internal.cj.d;
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            String str = Build.MANUFACTURER;
+            if (TextUtils.isEmpty(str)) {
+                return "NUL";
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return j(s());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return j(t());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return j(f());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            NetworkInfo c = SwanAppNetworkUtils.c(rp2.c());
+            if (c == null) {
+                return 0;
+            }
+            return c.getSubtype();
+        }
+        return invokeV.intValue;
+    }
+
+    public static String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return c() + "_" + n();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            return AppRuntime.getApplication().getPackageName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            return wm1.a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            return rp2.h0().i(AppRuntime.getAppContext());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            int o = bk3.o(appContext);
+            int n = bk3.n(appContext);
+            int m = bk3.m(appContext);
+            String q = q();
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(o);
+            stringBuffer.append("_");
+            stringBuffer.append(n);
+            stringBuffer.append("_");
+            stringBuffer.append(q);
+            stringBuffer.append("_");
+            stringBuffer.append(ek3.D());
+            stringBuffer.append("_");
+            stringBuffer.append(m);
+            return stringBuffer.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String w(String str, boolean z) {
+        InterceptResult invokeLZ;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65559, null, str, z)) == null) {
+            String a2 = a(a(a(a(a(a(a(a(a(str, "uid", l()), "ua", k()), "ut", m()), BaiduIdentityManager.PARAM_OSBRANCH, e()), "pkgname", p()), "network", o()), "appname", d()), "hostname", d()), "swan_sdk_version", r());
+            if (SwanAppAllianceLoginHelper.d.f()) {
+                i = 2;
+            } else {
+                i = 0;
+            }
+            String a3 = a(a2, "mnpunion", String.valueOf(i));
+            if (z) {
+                return b(a3);
+            }
+            return a3;
+        }
+        return (String) invokeLZ.objValue;
     }
 }

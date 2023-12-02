@@ -16,7 +16,7 @@ public class au extends vs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSmartAppLayout h;
-    public cw4 i;
+    public fw4 i;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -77,11 +77,11 @@ public class au extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: y */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cw4Var) == null) {
-            this.i = cw4Var;
-            this.h.onBindDataToView(cw4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, fw4Var) == null) {
+            this.i = fw4Var;
+            this.h.onBindDataToView(fw4Var);
         }
     }
 

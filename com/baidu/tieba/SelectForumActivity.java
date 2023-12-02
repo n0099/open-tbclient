@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.GameData;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.q16;
+import com.baidu.tieba.u16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class SelectForumActivity extends SuspendedActivity implements f06 {
+public class SelectForumActivity extends SuspendedActivity implements j06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g06 k;
+    public k06 k;
     public boolean l;
     public ArrayList<SelectForumData> m;
     public GameData n;
@@ -119,7 +119,7 @@ public class SelectForumActivity extends SuspendedActivity implements f06 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements q16.f {
+    public class c implements u16.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectForumActivity a;
@@ -142,7 +142,7 @@ public class SelectForumActivity extends SuspendedActivity implements f06 {
             this.a = selectForumActivity;
         }
 
-        @Override // com.baidu.tieba.q16.f
+        @Override // com.baidu.tieba.u16.f
         public void a(ArrayList<SelectForumData> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
@@ -195,7 +195,7 @@ public class SelectForumActivity extends SuspendedActivity implements f06 {
         this.n = (GameData) intent.getSerializableExtra(SelectForumConfig.KEY_GAME_DATA);
     }
 
-    @Override // com.baidu.tieba.f06
+    @Override // com.baidu.tieba.j06
     public GameData W0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -210,9 +210,9 @@ public class SelectForumActivity extends SuspendedActivity implements f06 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            g06 g06Var = this.k;
-            if (g06Var != null) {
-                g06Var.onDestroy();
+            k06 k06Var = this.k;
+            if (k06Var != null) {
+                k06Var.onDestroy();
             }
         }
     }
@@ -222,36 +222,36 @@ public class SelectForumActivity extends SuspendedActivity implements f06 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
-            g06 g06Var = this.k;
-            if (g06Var != null) {
-                g06Var.onResume();
+            k06 k06Var = this.k;
+            if (k06Var != null) {
+                k06Var.onResume();
             }
         }
     }
 
-    public final q16.f z1() {
+    public final u16.f z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return new c(this);
         }
-        return (q16.f) invokeV.objValue;
+        return (u16.f) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public hq5 m1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public lq5 m1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
                 if (this.l) {
-                    this.k = new q16(getPageContext(), linearLayout, navigationBar, z1(), this.m);
+                    this.k = new u16(getPageContext(), linearLayout, navigationBar, z1(), this.m);
                 } else {
-                    this.k = new p16(getPageContext(), linearLayout, navigationBar);
+                    this.k = new t16(getPageContext(), linearLayout, navigationBar);
                 }
             }
             return this.k;
         }
-        return (hq5) invokeLL.objValue;
+        return (lq5) invokeLL.objValue;
     }
 }

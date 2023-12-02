@@ -1,14 +1,14 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.k8c;
+import com.baidu.tieba.j8c;
 import java.util.Locale;
 /* loaded from: classes10.dex */
 public class Pose {
-    public final k8c a;
+    public final j8c a;
     public final float[] b;
 
     static {
-        k8c k8cVar = k8c.e;
+        j8c j8cVar = j8c.e;
     }
 
     public String toString() {

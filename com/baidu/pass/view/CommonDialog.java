@@ -60,14 +60,14 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
 
         public CommonDialog build() {
             CharSequence charSequence;
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d079e, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d079f, (ViewGroup) null);
             CommonDialog commonDialog = new CommonDialog(this.a, R.style.obfuscated_res_0x7f1003f8);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b49);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b46);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091b47);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919fb);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091de3);
-            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091b4a);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b4b);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b48);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091b49);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919fd);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091de5);
+            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091b4c);
             textView.setText(this.c);
             if (TextUtils.isEmpty(this.b)) {
                 charSequence = "";
@@ -97,7 +97,7 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             attributes.height = -2;
             window.setAttributes(attributes);
             if (this.d) {
-                inflate.findViewById(R.id.obfuscated_res_0x7f091b48).setBackgroundResource(R.drawable.obfuscated_res_0x7f081167);
+                inflate.findViewById(R.id.obfuscated_res_0x7f091b4a).setBackgroundResource(R.drawable.obfuscated_res_0x7f08116a);
                 textView.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060921));
                 textView2.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06091a));
                 findViewById.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060920));

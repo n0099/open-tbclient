@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
@@ -9,15 +11,10 @@ public class q4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(String str, String str2, String str3, String str4, String str5) {
+    public static void a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65536, null, str, str2, str3, str4, str5) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.addParam("fid", str2);
-            statisticItem.addParam("tid", str3);
-            statisticItem.addParam("uid", str4);
-            statisticItem.addParam("obj_source", str5);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeL(65536, null, tbPageContext) == null) {
+            PayPanelUtils.launchPayPanel(tbPageContext, IMConstants.IM_MSG_TYPE_ADVISORY_EVALUATION, MemberPayStatistic.REFER_PAGE_POSTING);
         }
     }
 }

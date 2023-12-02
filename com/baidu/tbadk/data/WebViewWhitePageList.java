@@ -8,10 +8,10 @@ import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.unitedscheme.JsNativeDomainWhiteListListener;
 import com.baidu.tbadk.data.WebViewWhitePageList;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.gl6;
+import com.baidu.tieba.kl6;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.u45;
-import com.baidu.tieba.wa5;
+import com.baidu.tieba.x45;
+import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public final class WebViewWhitePageList {
     @Singleton
     @Service
     /* loaded from: classes5.dex */
-    public static final class a implements wa5 {
+    public static final class a implements za5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,11 +54,11 @@ public final class WebViewWhitePageList {
                     return;
                 }
             }
-            gl6.h(new gl6.b() { // from class: com.baidu.tieba.nc5
+            kl6.h(new kl6.b() { // from class: com.baidu.tieba.qc5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.gl6.b
+                @Override // com.baidu.tieba.kl6.b
                 public final boolean a(String str) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -77,7 +77,7 @@ public final class WebViewWhitePageList {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.wa5
+        @Override // com.baidu.tieba.za5
         public void parseJson(JSONObject json) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -92,12 +92,12 @@ public final class WebViewWhitePageList {
                         z = false;
                     }
                     if (z) {
-                        u45.g("WebViewWhitePageCheck-webviewWhiteMonitorWhiteList", null);
+                        x45.g("WebViewWhitePageCheck-webviewWhiteMonitorWhiteList", null);
                         return;
                     }
                     WebViewWhitePageList webViewWhitePageList = WebViewWhitePageList.a;
                     WebViewWhitePageList.b = DataExt.toEntityList(arrayJson, String.class);
-                    u45.g("WebViewWhitePageCheck-webviewWhiteMonitorWhiteList", arrayJson);
+                    x45.g("WebViewWhitePageCheck-webviewWhiteMonitorWhiteList", arrayJson);
                 } catch (Exception e) {
                     TbLog defaultLog = DefaultLog.getInstance();
                     defaultLog.e("WebViewWhitePageCheck", "插件配置数据解析失败" + e.getMessage());
@@ -120,7 +120,7 @@ public final class WebViewWhitePageList {
             }
         }
         a = new WebViewWhitePageList();
-        u45.e("WebViewWhitePageCheck-webviewWhiteMonitorWhiteList", null, AnonymousClass1.INSTANCE, 2, null);
+        x45.e("WebViewWhitePageCheck-webviewWhiteMonitorWhiteList", null, AnonymousClass1.INSTANCE, 2, null);
     }
 
     public WebViewWhitePageList() {

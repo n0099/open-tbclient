@@ -10,27 +10,27 @@ import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bk3;
-import com.baidu.tieba.ek4;
-import com.baidu.tieba.er2;
-import com.baidu.tieba.g33;
-import com.baidu.tieba.i33;
-import com.baidu.tieba.o52;
-import com.baidu.tieba.op2;
-import com.baidu.tieba.r83;
-import com.baidu.tieba.sm1;
-import com.baidu.tieba.wb3;
+import com.baidu.tieba.ek3;
+import com.baidu.tieba.hk4;
+import com.baidu.tieba.hr2;
+import com.baidu.tieba.j33;
+import com.baidu.tieba.l33;
+import com.baidu.tieba.r52;
+import com.baidu.tieba.rp2;
+import com.baidu.tieba.u83;
+import com.baidu.tieba.vm1;
+import com.baidu.tieba.zb3;
 /* loaded from: classes4.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
-    public static final boolean u = sm1.a;
-    public er2 j;
+    public static final boolean u = vm1.a;
+    public hr2 j;
     public ForbiddenInfo k;
     public String l;
     public int p;
     public int q;
     public String s;
     public int t;
-    public wb3 m = null;
+    public zb3 m = null;
     public int n = 0;
     public int o = 0;
     public String r = "";
@@ -44,7 +44,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
     }
 
     public void F() {
-        B(op2.M().a());
+        B(rp2.M().a());
     }
 
     @Override // android.app.Activity
@@ -61,10 +61,10 @@ public class SwanAppErrorActivity extends FragmentActivity {
 
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
-        g33 i;
+        j33 i;
         super.onStart();
-        if (TextUtils.equals(this.l, "type_app_forbidden") && (i = i33.k().i(this.k.appId)) != null && i.E()) {
-            r83.K(this.k.appId);
+        if (TextUtils.equals(this.l, "type_app_forbidden") && (i = l33.k().i(this.k.appId)) != null && i.E()) {
+            u83.K(this.k.appId);
         }
     }
 
@@ -72,15 +72,15 @@ public class SwanAppErrorActivity extends FragmentActivity {
         return this.k;
     }
 
-    public er2 z() {
+    public hr2 z() {
         return this.j;
     }
 
     public final void A() {
-        o52 o52Var;
-        ek4 a = k().a();
+        r52 r52Var;
+        hk4 a = k().a();
         if (getIntent() != null) {
-            o52Var = o52.m3(this.r, this.l, this.s, this.t, this.k, this.p, this.q);
+            r52Var = r52.m3(this.r, this.l, this.s, this.t, this.k, this.p, this.q);
         } else if (this.j == null) {
             if (u) {
                 Log.e("SwanAppErrorActivity", "launchInfo is null,error");
@@ -88,9 +88,9 @@ public class SwanAppErrorActivity extends FragmentActivity {
             }
             return;
         } else {
-            o52Var = new o52();
+            r52Var = new r52();
         }
-        a.a(R.id.obfuscated_res_0x7f09019a, o52Var);
+        a.a(R.id.obfuscated_res_0x7f09019a, r52Var);
         a.e();
     }
 
@@ -104,7 +104,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
             return;
         }
         if (this.m == null) {
-            this.m = new wb3();
+            this.m = new zb3();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
@@ -114,12 +114,12 @@ public class SwanAppErrorActivity extends FragmentActivity {
         }
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.wj4, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.zj4, android.app.Activity
     public void onCreate(Bundle bundle) {
         D(R.anim.obfuscated_res_0x7f01001d, R.anim.obfuscated_res_0x7f010024);
-        int c0 = bk3.c0(this);
+        int c0 = ek3.c0(this);
         super.onCreate(bundle);
-        bk3.g(this, c0);
+        ek3.g(this, c0);
         setContentView(R.layout.obfuscated_res_0x7f0d00aa);
         C(getIntent());
         A();
@@ -137,7 +137,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         if (intent == null) {
             return;
         }
-        this.j = er2.e1(intent);
+        this.j = hr2.e1(intent);
         this.k = (ForbiddenInfo) intent.getParcelableExtra("swan_error_forbidden_info");
         this.p = intent.getIntExtra("swan_error_menu_notice_count", 0);
         this.q = intent.getIntExtra("swan_error_menu_privacy_count", 0);

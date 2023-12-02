@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.model.message.CheckRealNameHttpResponseMessage;
 import com.baidu.tieba.model.message.CheckRealNameRequestNetMessage;
 import com.baidu.tieba.model.message.CheckRealNameSocketResponseMessage;
-import com.baidu.tieba.wva;
+import com.baidu.tieba.vva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -148,8 +148,8 @@ public class CheckRealNameModel extends BdBaseModel {
     public final void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wva.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
-            wva.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
+            vva.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
+            vva.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

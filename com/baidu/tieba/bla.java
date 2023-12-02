@@ -1,112 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.fb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class bla implements ub7 {
+public final class bla implements fb7.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final yb7 a;
+    public final BdUniqueId b;
 
-    public bla() {
+    public bla(yb7 statStrategy, BdUniqueId pageId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {statStrategy, pageId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
+        Intrinsics.checkNotNullParameter(pageId, "pageId");
+        this.a = statStrategy;
+        this.b = pageId;
     }
 
-    @Override // com.baidu.tieba.ub7
-    public Map<String, String> a(r57 businessInfo) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        boolean z;
+    @Override // com.baidu.tieba.fb7.b
+    public void a(rb7<?> data, int i) {
+        Map<String, String> hashMap;
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("page_type", "a002");
-            String str3 = a.get("thread_id");
-            String str4 = "";
-            if (str3 == null) {
-                str3 = "";
+        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            bb7 bb7Var = (bb7) data;
+            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
+            int i2 = i + 1;
+            statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, i2);
+            v57 v57Var = new v57();
+            v57 v57Var2 = bb7Var.b;
+            if (v57Var2 != null) {
+                v57Var = v57Var2;
             }
-            hashMap.put("obj_id", str3);
-            String str5 = a.get("recom_source");
-            if (str5 == null) {
-                str5 = "";
-            }
-            hashMap.put("list_strategy", str5);
-            x75 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-            boolean z2 = false;
-            if (adAdSense != null && (str2 = adAdSense.k) != null) {
-                if (str2.length() > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    hashMap.put("ab_tag", str2);
+            if (bb7Var.b != null) {
+                for (Map.Entry<String, String> entry : this.a.a(v57Var).entrySet()) {
+                    statisticItem.param(entry.getKey(), entry.getValue());
                 }
             }
-            CharSequence charSequence = (CharSequence) hashMap.get("ab_tag");
-            if ((charSequence == null || charSequence.length() == 0) ? true : true) {
-                String str6 = a.get("abtest_tag");
-                if (str6 == null) {
-                    str6 = "";
+            n77 n77Var = bb7Var.a;
+            if (n77Var != null && (a = n77Var.a()) != null) {
+                for (Map.Entry<String, String> entry2 : a.entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
                 }
-                hashMap.put("ab_tag", str6);
             }
-            String str7 = a.get("is_video_work");
-            String str8 = "0";
-            if (str7 == null) {
-                str7 = "0";
+            pua.g().c(this.b, statisticItem);
+            n77 n77Var2 = bb7Var.a;
+            if (n77Var2 == null || (hashMap = n77Var2.a()) == null) {
+                hashMap = new HashMap<>();
             }
-            hashMap.put(TiebaStatic.Params.IS_ZP, str7);
-            String str9 = a.get(TiebaStatic.Params.GUA_TYPE);
-            if (str9 == null) {
-                str9 = "0";
-            }
-            hashMap.put(TiebaStatic.Params.GUA_TYPE, str9);
-            String str10 = a.get(TiebaStatic.Params.IS_SPECIAL_THREAD);
-            if (str10 == null) {
-                str10 = "0";
-            }
-            hashMap.put(TiebaStatic.Params.IS_SPECIAL_THREAD, str10);
-            String str11 = a.get(TiebaStatic.Params.RECOM_TYPE);
-            if (str11 != null) {
-                str4 = str11;
-            }
-            hashMap.put(TiebaStatic.Params.RECOM_TYPE, str4);
-            if (!PermissionUtil.isBrowseMode()) {
-                str = "0";
+            v57Var.a().put("position_from_1", String.valueOf(i2));
+            if (Intrinsics.areEqual(v57Var.a().get("is_video_card"), "1")) {
+                cma cmaVar = new cma();
+                ac7.a.b(new e87(cmaVar.getKey(), cmaVar.a(v57Var), hashMap, null, null, 24, null));
+            } else if (Intrinsics.areEqual(v57Var.a().get("is_live_card"), "1")) {
+                jla jlaVar = new jla();
+                ac7.a.b(new e87(jlaVar.getKey(), jlaVar.a(v57Var), hashMap, null, null, 24, null));
             } else {
-                str = "1";
+                ula ulaVar = new ula();
+                ac7.a.b(new e87(ulaVar.getKey(), ulaVar.a(v57Var), hashMap, null, null, 24, null));
             }
-            hashMap.put(TiebaStatic.Params.PURE_BROWSING, str);
-            String str12 = a.get("has_forum_head_pendants");
-            if (str12 != null) {
-                str8 = str12;
+            xla xlaVar = new xla();
+            ac7.a.b(new e87(xlaVar.getKey(), xlaVar.a(v57Var), hashMap, xlaVar.b(), xlaVar.d()));
+            if (Intrinsics.areEqual(v57Var.a().get("thread_type"), "74")) {
+                pla plaVar = new pla();
+                plaVar.b("0");
+                ac7.a.b(new e87(plaVar.getKey(), plaVar.a(v57Var), hashMap, null, null, 24, null));
             }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str8);
-            return hashMap;
         }
-        return (Map) invokeL.objValue;
     }
 }

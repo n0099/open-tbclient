@@ -1,11 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface ws8 {
-    void onCanceled();
+    void a();
 
-    void onPostExecute();
-
-    void onPreExecute();
-
-    void onProgressUpdate(int i, String str, int i2);
+    void b();
 }

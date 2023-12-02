@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,16 +11,16 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class dq6 implements ub7 {
+public final class dq6 implements yb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, String> a;
+    public String a;
 
-    @Override // com.baidu.tieba.ub7
+    @Override // com.baidu.tieba.yb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreStatisticKey.KEY_ITEM_THROUGH_CLICK : (String) invokeV.objValue;
     }
 
     public dq6() {
@@ -37,59 +36,34 @@ public final class dq6 implements ub7 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.a = "";
     }
 
-    @Override // com.baidu.tieba.ub7
-    public Map<String, String> a(r57 businessInfo) {
+    @Override // com.baidu.tieba.yb7
+    public Map<String, String> a(v57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
             Map<String, String> a = businessInfo.a();
-            HashMap<String, String> hashMap = this.a;
-            String str = a.get("has_customstate");
-            String str2 = "";
+            hashMap.put("obj_locate", this.a);
+            String str = a.get("item_id");
             if (str == null) {
                 str = "";
             }
-            hashMap.put("obj_source", str);
-            if (Intrinsics.areEqual(a.get("has_customstate"), "1")) {
-                HashMap<String, String> hashMap2 = this.a;
-                String str3 = a.get("customstate_name");
-                if (str3 == null) {
-                    str3 = "";
-                }
-                hashMap2.put("obj_name", str3);
-            }
-            HashMap<String, String> hashMap3 = this.a;
-            String str4 = a.get("user_id");
-            if (str4 != null) {
-                str2 = str4;
-            }
-            hashMap3.put(TiebaStatic.Params.FRIEND_UID, str2);
-            return this.a;
+            hashMap.put("obj_type", str);
+            return hashMap;
         }
         return (Map) invokeL.objValue;
     }
 
-    public final dq6 b(String locate) {
+    public final dq6 b(String objLocate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
-            Intrinsics.checkNotNullParameter(locate, "locate");
-            this.a.put("obj_locate", locate);
-            return this;
-        }
-        return (dq6) invokeL.objValue;
-    }
-
-    public final dq6 d(String type) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, type)) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            this.a.put("obj_type", type);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objLocate)) == null) {
+            Intrinsics.checkNotNullParameter(objLocate, "objLocate");
+            this.a = objLocate;
             return this;
         }
         return (dq6) invokeL.objValue;

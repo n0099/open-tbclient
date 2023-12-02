@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,18 +14,19 @@ import com.baidu.turbonet.net.UploadDataProvider;
 import com.baidu.turbonet.net.UploadDataSink;
 import java.io.IOException;
 import java.net.HttpRetryException;
+import java.net.ProtocolException;
 import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public final class tob extends xob {
-    public static /* synthetic */ Interceptable $ic;
+public final class tob extends wob {
+    public static /* synthetic */ Interceptable $ic = null;
+    @VisibleForTesting
+    public static int i = 16384;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vob d;
-    public final yob e;
+    public final xob d;
+    public final long e;
     public final ByteBuffer f;
     public final UploadDataProvider g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
+    public long h;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -30,17 +34,25 @@ public final class tob extends xob {
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.baidu.tieba.xob
-    public void e() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948189346, "Lcom/baidu/tieba/tob;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948189346, "Lcom/baidu/tieba/tob;");
         }
     }
 
-    @Override // com.baidu.tieba.xob
+    @Override // com.baidu.tieba.wob
     public void g() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
@@ -49,16 +61,6 @@ public final class tob extends xob {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tob a;
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return -1L;
-            }
-            return invokeV.longValue;
-        }
 
         public b(tob tobVar) {
             Interceptable interceptable = $ic;
@@ -91,22 +93,25 @@ public final class tob extends xob {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a.e;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
         public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
                 if (byteBuffer.remaining() >= this.a.f.remaining()) {
                     byteBuffer.put(this.a.f);
                     this.a.f.clear();
-                    uploadDataSink.a(this.a.h);
-                    if (!this.a.h) {
-                        this.a.e.quit();
-                        return;
-                    } else if (this.a.i) {
-                        this.a.e.quit();
-                        return;
-                    } else {
-                        return;
-                    }
+                    uploadDataSink.a(false);
+                    this.a.d.quit();
+                    return;
                 }
                 int limit = this.a.f.limit();
                 this.a.f.limit(this.a.f.position() + byteBuffer.remaining());
@@ -117,108 +122,115 @@ public final class tob extends xob {
         }
     }
 
-    public tob(vob vobVar, int i, yob yobVar, boolean z, boolean z2) {
+    public tob(uob uobVar, long j, xob xobVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vobVar, Integer.valueOf(i), yobVar, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {uobVar, Long.valueOf(j), xobVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.g = new b(this, null);
-        if (vobVar != null) {
-            if (i > 0) {
-                this.f = ByteBuffer.allocate(i);
-                this.d = vobVar;
-                this.e = yobVar;
-                this.i = z;
-                this.j = z2;
+        if (uobVar != null) {
+            if (j >= 0) {
+                this.e = j;
+                this.f = ByteBuffer.allocate((int) Math.min(j, i));
+                this.d = xobVar;
+                this.h = 0L;
                 return;
             }
-            throw new IllegalArgumentException("chunkLength should be greater than 0");
+            throw new IllegalArgumentException("Content length must be larger than 0 for non-chunked upload.");
         }
         throw null;
     }
 
     @Override // java.io.OutputStream
-    public void write(int i) throws IOException {
+    public void write(int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            c();
+            o(1);
             p();
-            this.f.put((byte) i);
+            this.f.put((byte) i2);
+            this.h++;
+            r();
         }
     }
 
-    @Override // com.baidu.tieba.xob, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    @Override // com.baidu.tieba.wob
+    public void e() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.close();
-            if (!this.h) {
-                this.h = true;
-                this.f.flip();
-                if (this.i) {
-                    this.e.b(this.d.getReadTimeout());
-                }
-            }
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.h >= this.e) {
+            return;
         }
+        throw new ProtocolException("Content received is less than Content-Length.");
     }
 
-    @Override // com.baidu.tieba.xob
+    @Override // com.baidu.tieba.wob
     public UploadDataProvider f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.g;
         }
         return (UploadDataProvider) invokeV.objValue;
     }
 
-    @Override // java.io.OutputStream, java.io.Flushable
-    public void flush() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.j && this.f.position() > 0) {
-            q();
-        }
-    }
-
     public final void p() throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.f.hasRemaining()) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.f.hasRemaining()) {
             q();
         }
     }
 
     public final void q() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             c();
             this.f.flip();
-            this.e.b(this.d.getReadTimeout());
+            this.d.a();
             a();
         }
     }
 
-    @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
+    public final void r() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2) == null) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.h == this.e) {
+            q();
+        }
+    }
+
+    public final void o(int i2) throws ProtocolException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i2) != null) || this.h + i2 <= this.e) {
+            return;
+        }
+        throw new ProtocolException("expected " + (this.e - this.h) + " bytes but received " + i2);
+    }
+
+    @Override // java.io.OutputStream
+    public void write(byte[] bArr, int i2, int i3) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3) == null) {
             c();
-            if (bArr.length - i >= i2 && i >= 0 && i2 >= 0) {
-                int i3 = i2;
-                while (i3 > 0) {
-                    int min = Math.min(i3, this.f.remaining());
-                    this.f.put(bArr, (i + i2) - i3, min);
-                    i3 -= min;
+            if (bArr.length - i2 >= i3 && i2 >= 0 && i3 >= 0) {
+                o(i3);
+                int i4 = i3;
+                while (i4 > 0) {
                     p();
+                    int min = Math.min(i4, this.f.remaining());
+                    this.f.put(bArr, (i2 + i3) - i4, min);
+                    i4 -= min;
                 }
+                this.h += i3;
+                r();
                 return;
             }
             throw new IndexOutOfBoundsException();

@@ -10,7 +10,6 @@ import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pic;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -370,7 +369,7 @@ public class JsonTransHelper {
                 return null;
             }
             ThreadPicList.Builder builder = new ThreadPicList.Builder();
-            builder.pic = jSONObject.optString(pic.f);
+            builder.pic = jSONObject.optString("pic");
             return builder.build(false);
         }
         return (ThreadPicList) invokeL.objValue;
@@ -385,7 +384,7 @@ public class JsonTransHelper {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(pic.f, threadPicList.pic);
+                jSONObject.put("pic", threadPicList.pic);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

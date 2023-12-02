@@ -35,7 +35,7 @@ public final class a {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, f2);
         ofFloat.setDuration(j);
         ofFloat.setInterpolator(PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f));
-        final float dimension = view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704f5);
+        final float dimension = view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704f6);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.i.a.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -95,9 +95,9 @@ public final class a {
     }
 
     private void initView() {
-        this.ya = (Button) this.Hg.findViewById(R.id.obfuscated_res_0x7f091416);
-        this.yb = (Button) this.Hg.findViewById(R.id.obfuscated_res_0x7f091418);
-        this.xZ = this.Hg.findViewById(R.id.obfuscated_res_0x7f091417);
+        this.ya = (Button) this.Hg.findViewById(R.id.obfuscated_res_0x7f091417);
+        this.yb = (Button) this.Hg.findViewById(R.id.obfuscated_res_0x7f091419);
+        this.xZ = this.Hg.findViewById(R.id.obfuscated_res_0x7f091418);
     }
 
     public final void jN() {

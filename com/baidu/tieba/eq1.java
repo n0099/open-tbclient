@@ -1,65 +1,30 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.tu1;
 /* loaded from: classes5.dex */
 public interface eq1 {
-    boolean A();
+    @NonNull
+    ob3 a(Activity activity, boolean z, String str, String str2);
 
-    boolean B();
+    @NonNull
+    tb3 b(Activity activity, tu1.d dVar, Bundle bundle);
 
-    JSONObject C();
+    @NonNull
+    ub3 c(Activity activity, String str, String str2, boolean z, boolean z2);
 
-    boolean D();
+    @NonNull
+    pb3 d(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3);
 
-    void E();
+    @NonNull
+    sb3 e(Context context);
 
-    long F();
+    @NonNull
+    rb3 f(Context context);
 
-    boolean G();
-
-    long H();
-
-    String getExpInfos();
-
-    JSONObject getRawSwitch();
-
-    int getSwitch(String str, int i);
-
-    String getSwitch(String str, String str2);
-
-    boolean getSwitch(String str, boolean z);
-
-    boolean j();
-
-    String k();
-
-    boolean l();
-
-    boolean m();
-
-    long n();
-
-    boolean o();
-
-    boolean p();
-
-    int q();
-
-    boolean r();
-
-    boolean s();
-
-    boolean t();
-
-    int u();
-
-    boolean v();
-
-    boolean w();
-
-    boolean x();
-
-    int y();
-
-    boolean z();
+    @NonNull
+    qb3 g(Context context, String str);
 }

@@ -1,164 +1,176 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.tbadk.editortools.view.CommonTabContentView;
+import com.baidu.tieba.ph5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes8.dex */
-public class re5 {
+public class re5 extends ph5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public boolean i;
-    public boolean j;
-    public boolean k;
-    public int l;
-    public se5 m;
-    public int n;
-    public boolean o;
-    public int[] p;
-    public boolean q;
-    public int r;
-    public boolean s;
+    public LinkedList<qe5> m;
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ie5
+    public void U(he5 he5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, he5Var) == null) {
         }
     }
 
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+    /* loaded from: classes8.dex */
+    public class a implements ph5.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ re5 a;
+
+        public a(re5 re5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {re5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = re5Var;
+        }
+
+        @Override // com.baidu.tieba.ph5.a
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) != null) {
+                return (View) invokeILL.objValue;
+            }
+            DLauncher C = this.a.C(i);
+            if (C.getLayoutParams() == null) {
+                C.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+            }
+            return C;
         }
     }
 
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+    /* loaded from: classes8.dex */
+    public class b implements CommonTabContentView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ re5 a;
+
+        public b(re5 re5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {re5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = re5Var;
+        }
+
+        @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
+        public void a(View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && view2.isEnabled() && (view2 instanceof DLauncher) && this.a.j != null) {
+                this.a.j.G(view2);
+            }
         }
     }
 
-    public re5(Context context, String str, int i) {
+    public re5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.k = true;
-        this.o = false;
-        this.s = true;
-        this.b = str;
-        this.c = i;
-        this.a = context;
     }
 
-    public re5(Context context, String str, int i, int i2) {
+    @Override // com.baidu.tieba.ph5
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LinkedList<qe5> linkedList = this.m;
+            if (linkedList != null) {
+                linkedList.clear();
             }
+            this.m = null;
         }
-        this.k = true;
-        this.o = false;
-        this.s = true;
-        this.b = str;
-        this.c = i;
-        this.a = context;
-        this.l = i2;
     }
 
-    public re5(String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.k = true;
-        this.o = false;
-        this.s = true;
-        this.b = str;
-        this.c = i;
-        this.l = i2;
-    }
-
-    public Context b() {
+    @Override // com.baidu.tieba.ph5
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            LinkedList<qe5> linkedList = this.m;
+            if (linkedList != null) {
+                return linkedList.size();
+            }
+            return 0;
         }
-        return (Context) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void B(LinkedList<qe5> linkedList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.s;
+        if (interceptable == null || interceptable.invokeL(1048576, this, linkedList) == null) {
+            this.m = linkedList;
         }
-        return invokeV.booleanValue;
     }
 
-    public void e(boolean z) {
+    public final DLauncher C(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.s = z;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0 && i < c()) {
+                return (DLauncher) this.m.get(i);
+            }
+            return null;
+        }
+        return (DLauncher) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.ph5
+    public void n(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
+            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            o(4);
+            v(2);
+            x(new a(this));
+            h().b(this);
+            s(new b(this));
         }
     }
 }

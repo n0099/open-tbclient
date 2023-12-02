@@ -1,31 +1,30 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Build;
+import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.Display;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.security.GeneralSecurityException;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 /* loaded from: classes8.dex */
 public class uj3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,131 +40,159 @@ public class uj3 {
                 return;
             }
         }
-        a = sm1.a;
+        a = sk3.b;
     }
 
-    public static boolean a(File file, String str) {
-        InterceptResult invokeLL;
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
-            return b(file, str, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (f(appContext)) {
+                return false;
+            }
+            return a(appContext);
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static boolean c(ReadableByteChannel readableByteChannel, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, readableByteChannel, str)) == null) {
-            return d(readableByteChannel, str, null);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static byte[] e(byte[] bArr, PublicKey publicKey) throws GeneralSecurityException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, publicKey)) == null) {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(2, publicKey);
-            return cipher.doFinal(bArr);
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static boolean b(File file, String str, ok3 ok3Var) {
-        InterceptResult invokeLLL;
+    @SuppressLint({"PrivateApi", "ObsoleteSdkInt"})
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
         boolean z;
-        Object valueOf;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, file, str, ok3Var)) == null) {
-            if (file == null) {
-                z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            Resources resources = context.getResources();
+            int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
+            boolean z2 = false;
+            if (identifier > 0) {
+                z = resources.getBoolean(identifier);
             } else {
                 z = false;
             }
-            if (!z && file.exists() && !TextUtils.isEmpty(str)) {
-                ReadableByteChannel readableByteChannel = null;
-                try {
-                    readableByteChannel = Channels.newChannel(new FileInputStream(file));
-                    return d(readableByteChannel, str, ok3Var);
-                } catch (IOException e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    return false;
-                } finally {
-                    km4.d(readableByteChannel);
-                }
-            }
-            if (ok3Var != null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("zipfile: isEmpty=");
-                sb.append(z);
-                sb.append("; exists=");
-                if (z) {
-                    valueOf = "";
+            try {
+                if (Build.VERSION.SDK_INT < 21) {
+                    i = Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
                 } else {
-                    valueOf = Boolean.valueOf(file.exists());
+                    i = Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
                 }
-                sb.append(valueOf);
-                ok3Var.a = sb.toString();
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean d(ReadableByteChannel readableByteChannel, String str, ok3 ok3Var) throws IOException {
-        InterceptResult invokeLLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, readableByteChannel, str, ok3Var)) == null) {
-            if (readableByteChannel == null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z && !TextUtils.isEmpty(str)) {
-                String c = mm4.c(false, readableByteChannel);
-                if (ok3Var != null) {
-                    ok3Var.a = c;
-                }
-                try {
-                    String str2 = new String(e(Base64.decode(str.getBytes("utf-8"), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
-                    if (ok3Var != null) {
-                        ok3Var.b = str2;
-                    }
-                    return TextUtils.equals(str2, c);
-                } catch (Exception e) {
-                    if (a) {
-                        Log.i("SwanAppSignChecker", e.toString());
-                        e.printStackTrace();
-                    }
-                    if (ok3Var != null) {
-                        ok3Var.b = e.getLocalizedMessage();
-                    }
+                if (i != 0) {
                     return false;
                 }
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                String str = (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, "qemu.hw.mainkeys");
+                if (!"1".equals(str)) {
+                    if ("0".equals(str)) {
+                        z2 = true;
+                    } else {
+                        z2 = z;
+                    }
+                }
+                return z2;
+            } catch (Exception unused) {
+                return z;
             }
-            if (ok3Var != null) {
-                ok3Var.a = "zipSource isNullIs=" + z;
-            }
-            return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static PublicKey f(String str) {
+    public static Pair<Integer, Integer> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Pair<Integer, Integer> d = d();
+            return new Pair<>(Integer.valueOf(((Integer) d.first).intValue()), Integer.valueOf(((Integer) d.second).intValue() - c()));
+        }
+        return (Pair) invokeV.objValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!e()) {
+                return 0;
+            }
+            Resources resources = AppRuntime.getAppContext().getResources();
+            if (bk3.L()) {
+                str = "navigation_bar_height";
+            } else {
+                str = "navigation_bar_height_landscape";
+            }
+            return bk3.r(resources, str);
+        }
+        return invokeV.intValue;
+    }
+
+    public static Pair<Integer, Integer> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            WindowManager windowManager = (WindowManager) appContext.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
+            if (windowManager == null) {
+                return new Pair<>(Integer.valueOf(bk3.o(appContext)), Integer.valueOf(bk3.n(appContext)));
+            }
+            Display defaultDisplay = windowManager.getDefaultDisplay();
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            defaultDisplay.getRealMetrics(displayMetrics);
+            return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
+        }
+        return (Pair) invokeV.objValue;
+    }
+
+    public static boolean f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            String str = Build.BRAND;
             try {
-                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
-            } catch (UnsupportedEncodingException | NullPointerException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-                return null;
+                if (TextUtils.isEmpty(str)) {
+                    if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
+                        return false;
+                    }
+                    return true;
+                }
+                if (!str.equalsIgnoreCase("HUAWEI") && !str.equalsIgnoreCase("HONOR")) {
+                    if (str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
+                        if (Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) == 0) {
+                            return false;
+                        }
+                        return true;
+                    } else if (str.equalsIgnoreCase("VIVO")) {
+                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
+                            return false;
+                        }
+                        return true;
+                    } else if (str.equalsIgnoreCase(a)) {
+                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
+                            return false;
+                        }
+                        return true;
+                    } else if (str.equalsIgnoreCase("SAMSUNG")) {
+                        if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) == 0) {
+                            return false;
+                        }
+                        return true;
+                    } else if (Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+                if (Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                if (vm1.a) {
+                    e.printStackTrace();
+                }
+                return false;
             }
         }
-        return (PublicKey) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

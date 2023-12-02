@@ -1,108 +1,70 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewStub;
-import android.webkit.WebView;
-import android.widget.LinearLayout;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.pb.view.PbGiftListView;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.VisitedForumData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class f0a {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean y;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewStub a;
-    public PbGiftListView b;
-    public ViewStub c;
-    public LinearLayout d;
-    public View e;
-    public BaseWebView f;
+    public final b a;
+    public boolean b;
+    public boolean c;
+    public String d;
+    public int e;
+    public int f;
+    public boolean g;
+    public int h;
+    public boolean i;
+    public int j;
+    public int k;
+    public final Handler l;
+    public boolean m;
+    public final Runnable n;
+    public long o;
+    public long p;
+    public long q;
+    public boolean r;
+    public int s;
+    public final int t;
+    public final BdTypeListView u;
+    public int v;
+    public int w;
+    public boolean x;
 
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(int i);
     }
 
     /* loaded from: classes5.dex */
-    public class a implements BaseWebView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        public a(f0a f0aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f0aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements BaseWebView.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(f0a f0aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f0aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                webView.loadUrl("javascript:(function(){var iframe=document.getElementsByClassName(\"video_iframe\");if(iframe&&iframe.length>0){for(var i=iframe.length-1;i>=0;i--){iframe[i].contentWindow.document.getElementsByClassName(\"tvp_fullscreen_button\")[0].style.display=\"none\"}}})();");
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f0a a;
 
-        public c(f0a f0aVar) {
+        public a(f0a f0aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,127 +85,293 @@ public class f0a {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a.f != null) {
-                        this.a.f.destroy();
-                        this.a.f = null;
-                    }
-                } catch (Throwable th) {
-                    BdLog.e(th);
-                }
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.r = true;
+            if (f0a.y) {
+                Log.d("PbEnterFrsTipShowRule-C", "completeStayPageTime = true");
+            }
+            this.a.o();
         }
     }
 
-    public f0a(View view2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947711698, "Lcom/baidu/tieba/f0a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947711698, "Lcom/baidu/tieba/f0a;");
+                return;
+            }
+        }
+        y = GlobalBuildConfig.isDebug();
+    }
+
+    public final boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!this.r || !this.x) {
+                return true;
+            }
+            if (this.c) {
+                return g();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.m = false;
+            this.l.removeCallbacks(this.n);
+            this.p += System.currentTimeMillis() - this.q;
+        }
+    }
+
+    public f0a(BdTypeListView bdTypeListView, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {bdTypeListView, bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090eac);
-        this.c = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f091602);
+        this.s = 0;
+        this.t = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
+        this.v = -1;
+        this.w = -1;
+        this.u = bdTypeListView;
+        this.a = bVar;
+        this.l = new Handler(Looper.getMainLooper());
+        this.n = new a(this);
     }
 
-    public void a() {
-        BaseWebView baseWebView;
+    public final int c(List<pi> list, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (baseWebView = this.f) != null) {
-            baseWebView.removeAllViews();
-            this.f.getSettings().setBuiltInZoomControls(true);
-            this.f.setVisibility(8);
-            SafeHandler.getInst().postDelayed(new c(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
-        }
-    }
-
-    public void b(iy4 iy4Var, String str, String str2, long j, long j2, long j3) {
-        ViewStub viewStub;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{iy4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (iy4Var != null && !ListUtils.isEmpty(iy4Var.a()) && (viewStub = this.a) != null) {
-                if (this.b == null) {
-                    this.b = (PbGiftListView) viewStub.inflate();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, list, z)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return -1;
+            }
+            int i = 0;
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                if ((list.get(i2) instanceof mwa) && list.get(i2).getType() == mwa.Y0 && (i = i + 1) == this.s) {
+                    return i2;
                 }
-                this.b.setVisibility(0);
-                this.b.g(iy4Var, str, str2, j, j2, j3);
-                this.b.i();
-                return;
             }
-            PbGiftListView pbGiftListView = this.b;
-            if (pbGiftListView != null) {
-                pbGiftListView.setVisibility(8);
+            if (z) {
+                return -1;
+            }
+            return list.size() - 1;
+        }
+        return invokeLZ.intValue;
+    }
+
+    public void i(boolean z, int i) {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || !this.i || i == 3 || (bdTypeListView = this.u) == null) {
+            return;
+        }
+        this.w = c(bdTypeListView.getData(), z);
+        if (y) {
+            Log.d("PbEnterFrsTipShowRule-C", "onDataSet mTargetIndex = " + this.w);
+        }
+    }
+
+    public void m(@Nullable ForumData forumData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, forumData) == null) && forumData != null && !TextUtils.isEmpty(forumData.getId())) {
+            e(forumData);
+            f();
+            d();
+        }
+    }
+
+    public final void d() {
+        int b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.g = true;
+            this.h = 0;
+            this.f = this.e;
+            VisitedForumData q = zx6.o().q(this.d);
+            if (q != null) {
+                if (y) {
+                    Log.d("PbEnterFrsTipShowRule-C", "lastVisitedTime = " + q.getVisitedTime());
+                    Log.d("PbEnterFrsTipShowRule-C", "lastPostNum = " + q.getPostNum());
+                }
+                b2 = q.getPostNum();
+                this.h = JavaTypesHelper.toInt(q.getVisitedTime(), 0);
+            } else {
+                b2 = e0a.a().b(this.d);
+            }
+            if (b2 < 0) {
+                b2 = 0;
+            }
+            int i = this.e - b2;
+            this.f = i;
+            if (i <= 0) {
+                this.f = 0;
+            }
+            if (this.f < this.k) {
+                this.g = false;
+            }
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule-C", "满足新贴数条件 = " + this.g);
             }
         }
     }
 
-    public void c(yx4 yx4Var) {
+    public final void e(@Nullable ForumData forumData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yx4Var) == null) && yx4Var != null && !rd.isEmpty(yx4Var.e())) {
-            BaseWebView baseWebView = this.f;
-            if ((baseWebView == null || !baseWebView.getIsLoaded()) && yx4Var.c() == yx4.g && this.c != null) {
-                if (yx4Var.f()) {
-                    LinearLayout linearLayout = this.d;
-                    if (linearLayout != null) {
-                        linearLayout.setVisibility(8);
-                        return;
-                    }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumData) == null) {
+            boolean z = true;
+            if (forumData.isLike() != 1) {
+                z = false;
+            }
+            this.c = z;
+            this.d = forumData.getId();
+            this.e = forumData.getPost_num();
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule-C", "newForumPostNum" + this.e);
+            }
+            if (this.c && e0a.a().b(this.d) < 0) {
+                e0a.a().e(forumData.getId(), forumData.getPost_num());
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.o = t4a.h(this.c) * 1000;
+            this.s = t4a.e(this.c);
+            this.j = t4a.d();
+            this.k = t4a.b();
+            this.i = true;
+            n();
+        }
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!this.g) {
+                if (y) {
+                    Log.d("PbEnterFrsTipShowRule-C", "新贴数 拦截");
+                }
+                return true;
+            } else if (((int) (System.currentTimeMillis() / 1000)) - this.h < this.j * 86400) {
+                if (y) {
+                    Log.d("PbEnterFrsTipShowRule-C", "距离上次浏览时间 拦截");
+                }
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.m = true;
+            d();
+            this.l.removeCallbacks(this.n);
+            this.q = System.currentTimeMillis();
+            if (!this.r) {
+                if (this.o > 0) {
+                    n();
                     return;
                 }
-                if (this.d == null) {
-                    LinearLayout linearLayout2 = (LinearLayout) this.c.inflate();
-                    this.d = linearLayout2;
-                    this.e = linearLayout2.findViewById(R.id.obfuscated_res_0x7f0915fd);
-                    this.f = (BaseWebView) this.d.findViewById(R.id.obfuscated_res_0x7f091603);
+                return;
+            }
+            o();
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && !this.b && this.i) {
+            if (h()) {
+                if (y) {
+                    Log.d("PbEnterFrsTipShowRule", "tryToShowTip = false");
+                    return;
                 }
-                this.e.setVisibility(0);
-                SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-                this.f.setVisibility(0);
-                this.f.setFocusable(false);
-                this.f.setBackgroundColor(0);
-                this.f.getSettings().setCacheMode(-1);
-                this.f.setVerticalScrollBarEnabled(false);
-                this.f.setHorizontalScrollBarEnabled(false);
-                this.f.getSettings().setAllowFileAccess(true);
-                this.f.getSettings().setAppCacheEnabled(true);
-                this.f.getSettings().setDomStorageEnabled(true);
-                this.f.getSettings().setDatabaseEnabled(true);
-                this.f.setOnLoadUrlListener(new a(this));
-                this.f.setOnPageFinishedListener(new b(this));
-                this.f.loadUrl(yx4Var.e());
+                return;
+            }
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule-C", "tryToShowTip = hasShown");
+            }
+            this.b = true;
+            b bVar = this.a;
+            if (bVar != null) {
+                bVar.a(this.f);
             }
         }
     }
 
-    public void d() {
-        BaseWebView baseWebView;
+    public void l(int i, int i2) {
+        BdTypeListView bdTypeListView;
+        View childAt;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (baseWebView = this.f) != null) {
-            try {
-                baseWebView.onPause();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if ((interceptable != null && interceptable.invokeII(1048585, this, i, i2) != null) || (bdTypeListView = this.u) == null || this.b || !this.i || this.w < 0 || (childAt = bdTypeListView.getChildAt(i2 - 1)) == null) {
+            return;
+        }
+        if (this.v <= 0) {
+            this.v = this.u.getHeight() - this.t;
+        }
+        if (this.v <= 0) {
+            return;
+        }
+        if (this.x) {
+            o();
+            return;
+        }
+        int headerViewsCount = this.w + this.u.getHeaderViewsCount();
+        int i3 = (i + i2) - 1;
+        if (i3 > headerViewsCount) {
+            if (i3 - 1 == headerViewsCount && childAt.getTop() > this.v) {
+                return;
             }
+            this.x = true;
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule-C", "completeGuideFloor = true");
+            }
+            o();
         }
     }
 
-    public void e() {
-        BaseWebView baseWebView;
+    public final void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (baseWebView = this.f) != null) {
-            try {
-                baseWebView.onResume();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.b && this.i && this.m) {
+            this.l.removeCallbacks(this.n);
+            long j = this.o - this.p;
+            if (y) {
+                Log.d("PbEnterFrsTipShowRule", "remainTime = " + j);
+            }
+            if (j <= 0) {
+                this.l.post(this.n);
+            } else {
+                this.l.postDelayed(this.n, j);
             }
         }
     }

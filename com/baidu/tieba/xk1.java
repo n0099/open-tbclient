@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
+import cn.com.chinatelecom.gateway.lib.PreCodeListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class xk1 {
+public abstract class xk1 implements PreCodeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yk1 a;
-    public Context b;
+    public final long a;
 
-    public xk1(Context context, Handler handler) {
+    public xk1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,19 +25,15 @@ public class xk1 {
                 return;
             }
         }
-        this.a = new yk1(context, handler);
-        this.b = context;
+        this.a = System.currentTimeMillis();
     }
 
-    public String a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
-            if (str != null) {
-                return this.a.b(str, bArr, null);
-            }
-            throw new IllegalArgumentException("postToServerForm request null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.longValue;
     }
 }

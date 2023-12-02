@@ -5,19 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.WorldCupLottery;
+import tbclient.FrsPage.WorldCupNews;
 /* loaded from: classes5.dex */
-public class a3d extends ltc {
+public class a3d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull WorldCupLottery worldCupLottery) {
+    public static JSONObject b(@NonNull WorldCupNews worldCupNews) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldCupLottery)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, worldCupNews)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "url", worldCupLottery.url);
+            ktc.a(jSONObject, "title", worldCupNews.title);
+            ktc.a(jSONObject, "url", worldCupNews.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

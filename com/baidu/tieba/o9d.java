@@ -1,25 +1,26 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.TbreadDispatch;
+import tbclient.Terminal;
 /* loaded from: classes7.dex */
-public class o9d extends ltc {
+public class o9d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TbreadDispatch tbreadDispatch) {
+    public static JSONObject b(@NonNull Terminal terminal) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbreadDispatch)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, terminal)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "floor_num", tbreadDispatch.floor_num);
-            ltc.a(jSONObject, "product_type", tbreadDispatch.product_type);
-            ltc.a(jSONObject, "product_id", tbreadDispatch.product_id);
+            ktc.a(jSONObject, "pc", terminal.pc);
+            ktc.a(jSONObject, "wap", terminal.wap);
+            ktc.a(jSONObject, CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, terminal.client);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

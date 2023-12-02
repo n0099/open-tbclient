@@ -124,7 +124,7 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
     public void t1(Bundle bundle) {
         super.t1(bundle);
         setContentView(R.layout.nad_max_activity);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f092082);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f092084);
         Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
         this.v = (FrameLayout) findViewById;
         getWindow().setFormat(-3);

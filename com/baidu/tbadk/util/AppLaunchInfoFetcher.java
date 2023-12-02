@@ -10,7 +10,7 @@ import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.s7;
-import com.baidu.tieba.vt5;
+import com.baidu.tieba.zt5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class AppLaunchInfoFetcher {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void onFinish(vt5 vt5Var);
+        void onFinish(zt5 zt5Var);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -118,7 +118,7 @@ public class AppLaunchInfoFetcher {
     }
 
     @TargetApi(23)
-    public static vt5 b(Context context) {
+    public static zt5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -126,14 +126,14 @@ public class AppLaunchInfoFetcher {
             if (appTasks != null) {
                 for (ActivityManager.AppTask appTask : appTasks) {
                     if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseIntent != null && appTask.getTaskInfo().baseIntent.getComponent() != null) {
-                        return new vt5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
+                        return new zt5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
                     }
                 }
                 return null;
             }
             return null;
         }
-        return (vt5) invokeL.objValue;
+        return (zt5) invokeL.objValue;
     }
 
     public static Type d(Message message) {
@@ -159,7 +159,7 @@ public class AppLaunchInfoFetcher {
         return (Type) invokeL.objValue;
     }
 
-    public static vt5 c() {
+    public static zt5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -172,10 +172,10 @@ public class AppLaunchInfoFetcher {
                     Intent a2 = a(message);
                     Type d2 = d(message);
                     if (a2 != null && a2.getComponent() != null) {
-                        return new vt5(Type.ACTIVITY, a2);
+                        return new zt5(Type.ACTIVITY, a2);
                     }
                     if (d2 != Type.UNKNOWN) {
-                        return new vt5(d2, null);
+                        return new zt5(d2, null);
                     }
                     Object d3 = s7.d(message, "next");
                     if (d3 instanceof Message) {
@@ -187,27 +187,27 @@ public class AppLaunchInfoFetcher {
             }
             return null;
         }
-        return (vt5) invokeV.objValue;
+        return (zt5) invokeV.objValue;
     }
 
     public static void e(Context context, List<a> list) {
-        vt5 vt5Var;
+        zt5 zt5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 23) {
-                    vt5Var = b(context);
+                    zt5Var = b(context);
                 } else {
-                    vt5Var = null;
+                    zt5Var = null;
                 }
-                if (vt5Var == null) {
-                    vt5Var = c();
+                if (zt5Var == null) {
+                    zt5Var = c();
                 }
-                if (vt5Var == null) {
-                    vt5Var = new vt5(Type.UNKNOWN, null);
+                if (zt5Var == null) {
+                    zt5Var = new zt5(Type.UNKNOWN, null);
                 }
                 for (a aVar : list) {
-                    aVar.onFinish(vt5Var);
+                    aVar.onFinish(zt5Var);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

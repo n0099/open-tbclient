@@ -5,21 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.CommonDistance;
+import tbclient.FrsPage.CommonForum;
 /* loaded from: classes8.dex */
-public class uzc extends ltc {
+public class uzc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull CommonDistance commonDistance) {
+    public static JSONObject b(@NonNull CommonForum commonForum) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, commonDistance)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, commonForum)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "distance", commonDistance.distance);
-            ltc.a(jSONObject, "time", commonDistance.time);
-            ltc.a(jSONObject, "is_hide", commonDistance.is_hide);
+            ktc.a(jSONObject, "common_forum", commonForum.common_forum);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

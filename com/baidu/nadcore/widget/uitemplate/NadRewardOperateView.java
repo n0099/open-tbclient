@@ -12,9 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k81;
-import com.baidu.tieba.l81;
-import com.baidu.tieba.s21;
+import com.baidu.tieba.m81;
+import com.baidu.tieba.n81;
+import com.baidu.tieba.u21;
 /* loaded from: classes3.dex */
 public class NadRewardOperateView extends FrameLayout {
     public AdImageView a;
@@ -24,10 +24,10 @@ public class NadRewardOperateView extends FrameLayout {
     public TextView e;
     public TextView f;
 
-    public void setFeedListener(l81 l81Var) {
+    public void setFeedListener(n81 n81Var) {
     }
 
-    public void setViewDownloadListener(k81 k81Var) {
+    public void setViewDownloadListener(m81 m81Var) {
     }
 
     public NadRewardOperateView(@NonNull Context context) {
@@ -38,7 +38,7 @@ public class NadRewardOperateView extends FrameLayout {
         if (view2 == null) {
             return;
         }
-        s21.a(view2.getContext(), view2, 6.0f);
+        u21.a(view2.getContext(), view2, 6.0f);
     }
 
     public NadRewardOperateView(@NonNull Context context, @Nullable AttributeSet attributeSet) {

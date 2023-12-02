@@ -5,15 +5,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.t59;
-import com.baidu.tieba.u59;
+import com.baidu.tieba.x59;
+import com.baidu.tieba.y59;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class AtMeNetModel extends NetModel<t59, u59, AtMessageFragment> {
+public class AtMeNetModel extends NetModel<x59, y59, AtMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,13 +42,13 @@ public class AtMeNetModel extends NetModel<t59, u59, AtMessageFragment> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AtMeNetModel(TbPageContext tbPageContext, t59 t59Var) {
-        super(tbPageContext, t59Var, NetModel.NetModelType.TYPE_NETWORK);
+    public AtMeNetModel(TbPageContext tbPageContext, x59 x59Var) {
+        super(tbPageContext, x59Var, NetModel.NetModelType.TYPE_NETWORK);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, t59Var};
+            Object[] objArr = {tbPageContext, x59Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -63,11 +63,11 @@ public class AtMeNetModel extends NetModel<t59, u59, AtMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<u59> getResponseDataClass() {
+    public Class<y59> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return u59.class;
+            return y59.class;
         }
         return (Class) invokeV.objValue;
     }

@@ -53,7 +53,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             str = "bkb";
         }
         try {
-            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f147f), "UTF-8");
+            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f1480), "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

@@ -1,269 +1,302 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.IBinder;
-import android.os.RemoteException;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.ubc.Flow;
-import com.baidu.swan.ubc.IRemoteUBCService;
-import com.baidu.tbadk.core.util.GameCenterCoreUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Autowired
 /* loaded from: classes7.dex */
 public class ml4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile IRemoteUBCService a;
-    public static final Map<String, Integer> b;
-    public static final Set<String> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947976500, "Lcom/baidu/tieba/ml4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947976500, "Lcom/baidu/tieba/ml4;");
-                return;
-            }
-        }
-        b = new HashMap();
-        HashSet hashSet = new HashSet();
-        c = hashSet;
-        hashSet.add(GameCenterCoreUtils.REF_TYPE_FROM_GAMECENTER);
-        c.add("671");
-        b.put(GameCenterCoreUtils.REF_TYPE_FROM_GAMECENTER, -1);
-        b.put("671", -1);
-    }
-
-    public ml4() {
+    public ml4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
     }
 
-    public static Context f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return AppRuntime.getAppContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Inject
-    public static tl4 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return oy2.a();
-        }
-        return (tl4) invokeV.objValue;
-    }
-
-    public static int a(String str, String str2) {
-        InterceptResult invokeLL;
-        int intValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            Integer num = b.get(str);
-            if (num == null) {
-                num = -1;
-            }
-            if (num.intValue() == -1) {
-                intValue = bm4.e().getInt(str2, 0);
-            } else {
-                intValue = num.intValue();
-            }
-            int i = intValue + 1;
-            if (i >= Integer.MAX_VALUE || i < 0) {
-                return 0;
-            }
-            return i;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!c.contains(str)) {
-                return str2;
-            }
-            tl4 h = h();
-            if (h != null && h.p()) {
-                synchronized (ml4.class) {
-                    String str3 = "ubc_counter" + str;
-                    int a2 = a(str, str3);
-                    try {
-                        JSONObject jSONObject = new JSONObject(str2);
-                        jSONObject.put("counter", a2);
-                        str2 = jSONObject.toString();
-                        bm4.e().putInt(str3, a2);
-                        b.put(str, Integer.valueOf(a2));
-                    } catch (JSONException unused) {
-                    }
-                }
-                return str2;
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static JSONObject c(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
-            if (!c.contains(str)) {
-                return jSONObject;
-            }
-            tl4 h = h();
-            if (h != null && h.p()) {
-                synchronized (ml4.class) {
-                    String str2 = "ubc_counter" + str;
-                    int a2 = a(str, str2);
-                    try {
-                        jSONObject.put("counter", a2);
-                        bm4.e().putInt(str2, a2);
-                        b.put(str, Integer.valueOf(a2));
-                    } catch (JSONException unused) {
-                    }
-                }
-                return jSONObject;
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public static Flow d(String str) {
+    public final boolean a(fm4 fm4Var) {
         InterceptResult invokeL;
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return e(str, "", 0);
-        }
-        return (Flow) invokeL.objValue;
-    }
-
-    public static void onEvent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            j(str, "", 0);
-        }
-    }
-
-    public static Flow e(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, str, str2, i)) == null) {
-            return xl4.b().a(str, str2, i);
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    public static void j(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65547, null, str, str2, i) == null) {
-            if (rf1.g()) {
-                str2 = b(str, str2);
-            }
-            if (gm4.a()) {
-                xl4.b().e(str, str2, i);
-            }
-        }
-    }
-
-    public static void l(String str, Map<String, String> map, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65549, null, str, map, i) == null) && gm4.a()) {
-            xl4.b().f(str, map, i);
-        }
-    }
-
-    public static void n(String str, JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65551, null, str, jSONObject, i) == null) {
-            if (rf1.g()) {
-                c(str, jSONObject);
-            }
-            if (gm4.a()) {
-                xl4.b().g(str, jSONObject, i);
-            }
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static IRemoteUBCService g() throws RemoteException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (a == null) {
-                synchronized (ml4.class) {
-                    if (a == null) {
-                        IBinder f = IPCServiceManager.f("open_log", true);
-                        if (f != null) {
-                            if (f != null) {
-                                a = IRemoteUBCService.Stub.asInterface(f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fm4Var)) == null) {
+            File file = new File(this.a.getFilesDir() + File.separator + "ubcdir", "proc");
+            if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+                for (File file2 : listFiles) {
+                    BufferedReader bufferedReader = null;
+                    try {
+                        try {
+                            BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
+                            long j = Long.MAX_VALUE;
+                            long j2 = 0;
+                            int i = 0;
+                            while (true) {
+                                try {
+                                    String readLine = bufferedReader2.readLine();
+                                    if (readLine == null) {
+                                        break;
+                                    }
+                                    JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
+                                    if (jSONObject.has("abtest")) {
+                                        fm4Var.f = "1";
+                                    }
+                                    long j3 = jSONObject.getLong("timestamp");
+                                    if (j3 > 0) {
+                                        if (j3 < j) {
+                                            j = j3;
+                                        }
+                                        if (j3 > j2) {
+                                            j2 = j3;
+                                        }
+                                    }
+                                    fm4Var.a(jSONObject);
+                                    i++;
+                                    if (i >= 10) {
+                                        break;
+                                    }
+                                } catch (Exception e) {
+                                    e = e;
+                                    bufferedReader = bufferedReader2;
+                                    e.printStackTrace();
+                                    nm4.d(bufferedReader);
+                                } catch (Throwable th) {
+                                    th = th;
+                                    bufferedReader = bufferedReader2;
+                                    nm4.d(bufferedReader);
+                                    throw th;
+                                }
                             }
-                        } else {
-                            throw new RemoteException("Ceres get remote service empty !");
+                            fm4Var.g(j, j2);
+                            nm4.d(bufferedReader2);
+                        } catch (Exception e2) {
+                            e = e2;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b(boolean z) {
+        String str;
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            File file = new File(this.a.getFilesDir(), "ubcdir");
+            if (!file.exists()) {
+                return;
+            }
+            if (z) {
+                str = "filereal";
+            } else {
+                str = "filedata";
+            }
+            File file2 = new File(file, str);
+            if (file2.exists()) {
+                file2.delete();
+            }
+            File file3 = new File(file, "proc");
+            if (file3.exists() && file3.isDirectory() && (listFiles = file3.listFiles()) != null && listFiles.length != 0) {
+                for (File file4 : listFiles) {
+                    if (file4.isFile()) {
+                        file4.delete();
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean c(fm4 fm4Var, boolean z) {
+        InterceptResult invokeLZ;
+        boolean z2;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, fm4Var, z)) == null) {
+            File file = new File(this.a.getFilesDir(), "ubcdir");
+            if (!file.exists()) {
+                file.mkdir();
+            }
+            if (!z) {
+                z2 = a(fm4Var);
+            } else {
+                z2 = false;
+            }
+            if (z) {
+                str = "filereal";
+            } else {
+                str = "filedata";
+            }
+            File file2 = new File(file, str);
+            if (file2.exists()) {
+                BufferedReader bufferedReader = null;
+                try {
+                    BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
+                    long j = Long.MAX_VALUE;
+                    long j2 = 0;
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
+                            if (jSONObject.has("abtest")) {
+                                fm4Var.f = "1";
+                            }
+                            long j3 = jSONObject.getLong("timestamp");
+                            if (j3 > 0) {
+                                if (j3 < j) {
+                                    j = j3;
+                                }
+                                if (j3 > j2) {
+                                    j2 = j3;
+                                }
+                            }
+                            fm4Var.a(jSONObject);
+                            z2 = true;
+                        } catch (Exception unused) {
+                            bufferedReader = bufferedReader2;
+                            nm4.d(bufferedReader);
+                            return z2;
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader = bufferedReader2;
+                            nm4.d(bufferedReader);
+                            throw th;
                         }
                     }
+                    fm4Var.g(j, j2);
+                    nm4.d(bufferedReader2);
+                } catch (Exception unused2) {
+                } catch (Throwable th2) {
+                    th = th2;
                 }
             }
-            return a;
+            return z2;
         }
-        return (IRemoteUBCService) invokeV.objValue;
+        return invokeLZ.booleanValue;
     }
 
-    public static void i(String str, String str2) {
+    public void d(tl4 tl4Var, boolean z) {
+        String str;
+        File file;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
-            j(str, str2, 0);
-        }
-    }
-
-    public static void k(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, map) == null) {
-            l(str, map, 0);
-        }
-    }
-
-    public static void m(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, str, jSONObject) == null) {
-            n(str, jSONObject, 0);
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, tl4Var, z) == null) {
+            File file2 = new File(this.a.getFilesDir(), "ubcdir");
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            if (!TextUtils.isEmpty(tl4Var.k)) {
+                File file3 = new File(file2, "proc");
+                if (!file3.exists()) {
+                    file3.mkdirs();
+                }
+                file = new File(file3, tl4Var.k);
+            } else {
+                if (z) {
+                    str = "filereal";
+                } else {
+                    str = "filedata";
+                }
+                file = new File(file2, str);
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (tl4Var.e != null) {
+                    JSONObject jSONObject2 = tl4Var.e;
+                    if (jSONObject2.has("bizId")) {
+                        try {
+                            JSONObject jSONObject3 = jSONObject2.getJSONObject("content");
+                            JSONObject jSONObject4 = jSONObject2.getJSONObject(DI.APP_INFO_NAME);
+                            if (jSONObject3 != null && jSONObject4 != null) {
+                                jSONObject3.put(DI.APP_INFO_NAME, jSONObject4);
+                                jSONObject2.remove(DI.APP_INFO_NAME);
+                            }
+                            jSONObject = jSONObject2;
+                        } catch (JSONException unused) {
+                            jSONObject = jSONObject2;
+                        }
+                    } else {
+                        jSONObject.put("content", jSONObject2);
+                    }
+                } else if (!TextUtils.isEmpty(tl4Var.d)) {
+                    jSONObject.put("content", tl4Var.d);
+                }
+                jSONObject.put("bizId", tl4Var.a);
+                jSONObject.put("timestamp", tl4Var.f);
+                jSONObject.put("eventType", "0");
+                if (!TextUtils.isEmpty(tl4Var.h)) {
+                    jSONObject.put("abtest", tl4Var.h);
+                }
+                if (!TextUtils.isEmpty(tl4Var.i)) {
+                    jSONObject.put("c", tl4Var.i);
+                }
+                if (tl4Var.j) {
+                    jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
+                }
+                jSONObject.put(Constant.ID_TYPE, ol4.g().j(tl4Var.a));
+            } catch (JSONException unused2) {
+            }
+            byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file, true);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileOutputStream.write(encode);
+                fileOutputStream.write("\n".getBytes());
+                fileOutputStream.flush();
+                nm4.d(fileOutputStream);
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                nm4.d(fileOutputStream2);
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                nm4.d(fileOutputStream2);
+                throw th;
+            }
         }
     }
 }

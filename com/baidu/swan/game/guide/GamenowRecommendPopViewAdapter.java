@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dx3;
-import com.baidu.tieba.rw3;
+import com.baidu.tieba.gx3;
+import com.baidu.tieba.uw3;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
@@ -26,7 +26,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
 
         public a(GamenowRecommendPopViewAdapter gamenowRecommendPopViewAdapter, View view2) {
             super(view2);
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0909bb);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0909bc);
             this.b = (TextView) view2.findViewById(R.id.tv_name);
         }
     }
@@ -73,7 +73,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
         if (TextUtils.isEmpty(recommendGameInfo.appKey)) {
             return;
         }
-        dx3.n().b("gbBDialogClick", "3", recommendGameInfo.appKey, String.valueOf(intValue));
-        rw3.n().A(recommendGameInfo.appKey, recommendGameInfo.appName, recommendGameInfo.iconUrl, intValue);
+        gx3.n().b("gbBDialogClick", "3", recommendGameInfo.appKey, String.valueOf(intValue));
+        uw3.n().A(recommendGameInfo.appKey, recommendGameInfo.appName, recommendGameInfo.iconUrl, intValue);
     }
 }

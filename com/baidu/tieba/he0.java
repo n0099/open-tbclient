@@ -118,7 +118,7 @@ public class he0 extends LruCache<String, ge0<File>> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     System.currentTimeMillis();
-                    y11.i(this.a, (File) this.b.a());
+                    b21.i(this.a, (File) this.b.a());
                     this.c.put(((File) this.b.a()).getName(), this.b);
                     he0.b(this.c);
                     if (!this.c.a.isEmpty()) {
@@ -308,14 +308,14 @@ public class he0 extends LruCache<String, ge0<File>> {
     public void e(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            ly0.b(this.a, eVar);
+            ny0.b(this.a, eVar);
         }
     }
 
     public final void g(ge0<File> ge0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, ge0Var) == null) {
-            c01.c(new c(this, ge0Var), "delete_disk_file_async", 3);
+            e01.c(new c(this, ge0Var), "delete_disk_file_async", 3);
         }
     }
 
@@ -349,7 +349,7 @@ public class he0 extends LruCache<String, ge0<File>> {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
             he0 he0Var = new he0(i, str);
             he0Var.e = false;
-            c01.c(new a(str, he0Var), "restore_cache_from_disk", 3);
+            e01.c(new a(str, he0Var), "restore_cache_from_disk", 3);
             return he0Var;
         }
         return (he0) invokeLI.objValue;
@@ -392,7 +392,7 @@ public class he0 extends LruCache<String, ge0<File>> {
     public final void r(ge0<File> ge0Var, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, ge0Var, bArr) == null) {
-            c01.c(new b(this, bArr, ge0Var), "store_cache_to_disk", 3);
+            e01.c(new b(this, bArr, ge0Var), "store_cache_to_disk", 3);
         }
     }
 

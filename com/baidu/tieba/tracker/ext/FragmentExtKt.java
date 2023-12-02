@@ -2,12 +2,12 @@ package com.baidu.tieba.tracker.ext;
 
 import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a4b;
-import com.baidu.tieba.j4b;
-import com.baidu.tieba.m4b;
+import com.baidu.tieba.i4b;
+import com.baidu.tieba.l4b;
 import com.baidu.tieba.tracker.Monitor;
 import com.baidu.tieba.tracker.core.data.AbsEventNode;
 import com.baidu.tieba.tracker.core.data.EventParams;
+import com.baidu.tieba.z3b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,36 +26,36 @@ public final class FragmentExtKt {
     public transient /* synthetic */ FieldHolder $fh;
 
     public static final void a(Fragment fragment, Pair<String, String>... params) {
-        m4b m4bVar;
-        j4b<m4b> d;
+        l4b l4bVar;
+        i4b<l4b> d;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, fragment, params) == null) {
             Intrinsics.checkNotNullParameter(fragment, "<this>");
             Intrinsics.checkNotNullParameter(params, "params");
-            if (fragment instanceof m4b) {
-                m4bVar = (m4b) fragment;
+            if (fragment instanceof l4b) {
+                l4bVar = (l4b) fragment;
             } else {
-                m4bVar = null;
+                l4bVar = null;
             }
-            if (m4bVar != null && (d = Monitor.a.d(m4bVar)) != null) {
+            if (l4bVar != null && (d = Monitor.a.d(l4bVar)) != null) {
                 d.b(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
             }
         }
     }
 
     public static final void b(Fragment fragment, final Pair<String, ? extends Object>... params) {
-        m4b m4bVar;
+        l4b l4bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, fragment, params) == null) {
             Intrinsics.checkNotNullParameter(fragment, "<this>");
             Intrinsics.checkNotNullParameter(params, "params");
-            if (fragment instanceof m4b) {
-                m4bVar = (m4b) fragment;
+            if (fragment instanceof l4b) {
+                l4bVar = (l4b) fragment;
             } else {
-                m4bVar = null;
+                l4bVar = null;
             }
-            if (m4bVar != null) {
-                Monitor.a.a(fragment, m4bVar, a4b.c.a).h(20000L, new Function1<AbsEventNode, Unit>(params) { // from class: com.baidu.tieba.tracker.ext.FragmentExtKt$startMonitor$2$1
+            if (l4bVar != null) {
+                Monitor.a.a(fragment, l4bVar, z3b.c.a).h(20000L, new Function1<AbsEventNode, Unit>(params) { // from class: com.baidu.tieba.tracker.ext.FragmentExtKt$startMonitor$2$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Pair<String, Object>[] $params;
@@ -104,18 +104,18 @@ public final class FragmentExtKt {
     }
 
     public static final void c(Fragment fragment, Pair<String, String>... params) {
-        m4b m4bVar;
-        j4b<m4b> d;
+        l4b l4bVar;
+        i4b<l4b> d;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, fragment, params) == null) {
             Intrinsics.checkNotNullParameter(fragment, "<this>");
             Intrinsics.checkNotNullParameter(params, "params");
-            if (fragment instanceof m4b) {
-                m4bVar = (m4b) fragment;
+            if (fragment instanceof l4b) {
+                l4bVar = (l4b) fragment;
             } else {
-                m4bVar = null;
+                l4bVar = null;
             }
-            if (m4bVar != null && (d = Monitor.a.d(m4bVar)) != null) {
+            if (l4bVar != null && (d = Monitor.a.d(l4bVar)) != null) {
                 d.l(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
             }
         }

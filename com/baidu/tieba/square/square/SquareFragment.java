@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gta;
-import com.baidu.tieba.ita;
-import com.baidu.tieba.m55;
+import com.baidu.tieba.fta;
+import com.baidu.tieba.hta;
+import com.baidu.tieba.p55;
 import com.baidu.tieba.square.square.SquareModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,7 +30,7 @@ public class SquareFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public ita a;
+    public hta a;
     public SquareModel b;
     public boolean c;
     public boolean d;
@@ -40,7 +40,7 @@ public class SquareFragment extends BaseFragment {
     public final SquareModel.a h;
     public final NoNetworkView.b i;
     public final View.OnKeyListener j;
-    public final m55.g k;
+    public final p55.g k;
 
     static {
         InterceptResult invokeClinit;
@@ -82,13 +82,13 @@ public class SquareFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, gta gtaVar) {
+        public void a(boolean z, String str, fta ftaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, gtaVar}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, ftaVar}) == null) {
                 this.a.a.z(true, "");
                 SquareFragment squareFragment = this.a;
                 squareFragment.hideLoadingView(squareFragment.a.A());
-                if (z && gtaVar != null && !gtaVar.g()) {
+                if (z && ftaVar != null && !ftaVar.g()) {
                     this.a.a.E(this.a.b.X());
                     this.a.c = true;
                     this.a.a.C();
@@ -215,7 +215,7 @@ public class SquareFragment extends BaseFragment {
     }
 
     /* loaded from: classes8.dex */
-    public class d implements m55.g {
+    public class d implements p55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareFragment a;
@@ -238,7 +238,7 @@ public class SquareFragment extends BaseFragment {
             this.a = squareFragment;
         }
 
-        @Override // com.baidu.tieba.m55.g
+        @Override // com.baidu.tieba.p55.g
         public void g(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
@@ -289,9 +289,9 @@ public class SquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            ita itaVar = this.a;
-            if (itaVar != null) {
-                itaVar.onChangeSkinType(i);
+            hta htaVar = this.a;
+            if (htaVar != null) {
+                htaVar.onChangeSkinType(i);
             }
         }
     }
@@ -313,9 +313,9 @@ public class SquareFragment extends BaseFragment {
     public final void W2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ita itaVar = new ita(this.f, getUniqueId(), this.g, this.j);
-            this.a = itaVar;
-            itaVar.G(this.k);
+            hta htaVar = new hta(this.f, getUniqueId(), this.g, this.j);
+            this.a = htaVar;
+            htaVar.G(this.k);
         }
     }
 
@@ -411,7 +411,7 @@ public class SquareFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0928, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0929, (ViewGroup) null);
             this.g = inflate;
             return inflate;
         }

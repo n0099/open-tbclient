@@ -1,33 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes5.dex */
-public interface cv3 {
-    void a(FrameLayout frameLayout);
+public class cv3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void d(boolean z);
+    @Inject(force = false)
+    public static dv3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return d34.a();
+        }
+        return (dv3) invokeV.objValue;
+    }
 
-    cv3 e(Context context, @NonNull yt3 yt3Var);
+    @Inject
+    public static ev3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return wp2.a();
+        }
+        return (ev3) invokeV.objValue;
+    }
 
-    void g(wu3 wu3Var);
-
-    int getCurrentPosition();
-
-    int getDuration();
-
-    void h(yt3 yt3Var);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void mute(boolean z);
-
-    void pause();
-
-    void resume();
-
-    void stop();
+    @Inject
+    public static fv3 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new xp2();
+        }
+        return (fv3) invokeV.objValue;
+    }
 }

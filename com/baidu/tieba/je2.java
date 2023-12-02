@@ -2,11 +2,9 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.webkit.ValueCallback;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.smallgame.sdk.permission.PermissionListener;
-import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.mb3;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,100 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.PermissionRequest;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class je2 implements PermissionProxy {
+public class je2 implements ie2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean f;
+    public static volatile je2 g;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements al3<kb3<mb3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ PermissionListener c;
-        public final /* synthetic */ je2 d;
-
-        public a(je2 je2Var, String str, String str2, PermissionListener permissionListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {je2Var, str, str2, permissionListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = je2Var;
-            this.a = str;
-            this.b = str2;
-            this.c = permissionListener;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.al3
-        /* renamed from: b */
-        public void a(kb3<mb3.e> kb3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kb3Var) == null) {
-                if (fb3.h(kb3Var)) {
-                    this.d.b(this.a, this.b, this.c);
-                } else {
-                    this.c.onPermissionResult(this.a, 2);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements k13 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PermissionListener a;
-        public final /* synthetic */ String b;
-
-        public b(je2 je2Var, PermissionListener permissionListener, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {je2Var, permissionListener, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = permissionListener;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.k13
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.onPermissionResult(this.b, 0);
-            }
-        }
-
-        @Override // com.baidu.tieba.k13
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.onPermissionResult(this.b, 1);
-            }
-        }
-    }
+    public HashMap<String, ke2> a;
+    public HashMap<String, ArrayList<ValueCallback<String>>> b;
+    public String c;
+    public HttpManager d;
+    public final Object e;
 
     static {
         InterceptResult invokeClinit;
@@ -122,7 +41,23 @@ public class je2 implements PermissionProxy {
                 return;
             }
         }
-        a = sm1.a;
+        f = vm1.a;
+    }
+
+    public static je2 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (g == null) {
+                synchronized (je2.class) {
+                    if (g == null) {
+                        g = new je2();
+                    }
+                }
+            }
+            return g;
+        }
+        return (je2) invokeV.objValue;
     }
 
     public je2() {
@@ -135,66 +70,127 @@ public class je2 implements PermissionProxy {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.e = new Object();
+        this.d = sp2.l().b();
+        this.c = sp2.f().a();
+    }
+
+    @Override // com.baidu.tieba.ie2
+    public void a(String str, String str2) {
+        ArrayList<ValueCallback<String>> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            synchronized (this.e) {
+                if (g(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i = 0; i < size; i++) {
+                        arrayList.get(i).onReceiveValue(str2);
+                        if (f) {
+                            Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
+                        }
+                    }
+                    this.a.remove(str);
+                }
             }
         }
     }
 
-    public final void b(@NonNull String str, @NonNull String str2, @NonNull PermissionListener permissionListener) {
+    public void h(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, permissionListener) == null) {
-            b bVar = new b(this, permissionListener, str);
-            j13.e(str2, new String[]{str2}, 2, g63.K().w(), bVar);
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, valueCallback) == null) {
+            if (TextUtils.isEmpty(str)) {
+                valueCallback.onReceiveValue(null);
+                return;
+            }
+            try {
+                String e = e(str);
+                if (TextUtils.isEmpty(e)) {
+                    return;
+                }
+                File file = new File(e(str));
+                if (file.exists() && !file.isDirectory()) {
+                    if (valueCallback != null) {
+                        valueCallback.onReceiveValue(e);
+                        return;
+                    }
+                    return;
+                }
+                synchronized (this.e) {
+                    if (!g(str)) {
+                        d(str);
+                    }
+                    c(str, valueCallback);
+                }
+            } catch (Exception e2) {
+                if (f) {
+                    e2.printStackTrace();
+                }
+            }
         }
     }
 
-    public final String c(String str) {
+    @Override // com.baidu.tieba.ie2
+    public void b(int i, String str) {
+        ArrayList<ValueCallback<String>> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            synchronized (this.e) {
+                if (g(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        arrayList.get(i2).onReceiveValue("");
+                    }
+                    this.a.remove(str);
+                }
+            }
+        }
+    }
+
+    public final void c(String str, ValueCallback<String> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, valueCallback) == null) {
+            if (this.b.containsKey(str)) {
+                this.b.get(str).add(valueCallback);
+                return;
+            }
+            ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
+            arrayList.add(valueCallback);
+            this.b.put(str, arrayList);
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (f) {
+                Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
+            }
+            ke2 ke2Var = new ke2(this.d, this.c, str, this);
+            this.a.put(str, ke2Var);
+            ke2Var.e();
+        }
+    }
+
+    public final String e(String str) throws MalformedURLException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -1785599184) {
-                if (hashCode == -1352756132 && str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
-                    c = 1;
-                }
-            } else if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
-                c = 0;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return null;
-                }
-                return PermissionRequest.RESOURCE_AUDIO_CAPTURE;
-            }
-            return PermissionRequest.RESOURCE_VIDEO_CAPTURE;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.c + sp2.f().c(str);
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.smallgame.sdk.permission.PermissionProxy
-    public void requestPermission(String str, PermissionListener permissionListener) {
+    public final boolean g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, permissionListener) == null) {
-            if (a) {
-                Log.d("V8PermissionDelegate", "requestPermission : " + str);
-            }
-            if (permissionListener == null) {
-                if (a) {
-                    Log.e("V8PermissionDelegate", "PermissionListener can not be null.");
-                    return;
-                }
-                return;
-            }
-            String c = c(str);
-            h63 M = h63.M();
-            if (!TextUtils.isEmpty(c) && M != null && M.w() != null) {
-                M.f0().g(M.w(), str, new a(this, str, c, permissionListener));
-            } else {
-                permissionListener.onPermissionResult(str, 2);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return this.a.containsKey(str);
         }
+        return invokeL.booleanValue;
     }
 }

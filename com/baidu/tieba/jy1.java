@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.security.SchemeCheckerHelperImpl;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jy1 {
+public class jy1 implements hy1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String[] b;
+    public static final boolean b;
+    public static volatile jy1 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<hy1> a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,82 +32,81 @@ public class jy1 {
                 return;
             }
         }
-        a = sm1.a;
-        b = new String[]{"swan", "swanAPI", "utils"};
+        b = vm1.a;
     }
 
-    @NonNull
-    public static Pair<Boolean, hy1> a(iu1 iu1Var, String str) {
-        InterceptResult invokeLL;
+    public jy1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, iu1Var, str)) == null) {
-            iy1 iy1Var = new iy1();
-            boolean b2 = b(str, iu1Var.a().f());
-            if (b2) {
-                iy1Var.b = 402;
-            }
-            return new Pair<>(Boolean.valueOf(b2), iy1Var);
-        }
-        return (Pair) invokeLL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean b(String str, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
-            if (!(callbackHandler instanceof qs1)) {
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
-                }
-                return false;
-            } else if (TextUtils.isEmpty(str)) {
-                if (!a) {
-                    return false;
-                }
-                throw new RuntimeException("whitelistName is empty");
-            } else {
-                String Y = ((qs1) callbackHandler).Y();
-                if (SchemeCheckerHelperImpl.FRAME_WHITE_LIST_SWAN_APP_WIDGET.equals(Y)) {
-                    z = c(str);
-                } else if ("ai_apps_ad_landing".equals(Y)) {
-                    z = !y63.a(str);
-                } else {
-                    if (!"swan_app_alliance_login_widget".equals(Y) && !"swan_app_alliance_choose_address_widget".equals(Y) && a) {
-                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
-                    }
-                    return false;
-                }
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
-                }
-                return z;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLL.booleanValue;
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        arrayList.add(new iy1());
     }
 
-    public static boolean c(@NonNull String str) {
-        InterceptResult invokeL;
-        String[] strArr;
+    public static jy1 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int indexOf = str.indexOf("/");
-            if (indexOf < 0) {
-                return true;
-            }
-            if (str.startsWith("swan")) {
-                String substring = str.substring(indexOf + 1);
-                for (String str2 : b) {
-                    if (y63.g(str2 + "/" + substring)) {
-                        return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (jy1.class) {
+                    if (c == null) {
+                        c = new jy1();
                     }
                 }
-                return true;
             }
-            return !y63.g(str);
+            return c;
         }
-        return invokeL.booleanValue;
+        return (jy1) invokeV.objValue;
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.d("Api-Marker", "release: ");
+                }
+                if (c == null) {
+                    return;
+                }
+                c = null;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.hy1
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (b) {
+                Log.d("Api-Marker", "markStart: " + str);
+            }
+            for (int i = 0; i < this.a.size(); i++) {
+                this.a.get(i).a(str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.hy1
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (b) {
+                Log.d("Api-Marker", "markEnd: " + str);
+            }
+            for (int i = 0; i < this.a.size(); i++) {
+                this.a.get(i).b(str);
+            }
+        }
     }
 }

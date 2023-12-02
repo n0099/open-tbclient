@@ -26,12 +26,12 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.InitWriteWebDelaySwitch;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.lv5;
 import com.baidu.tieba.n00;
+import com.baidu.tieba.pv5;
 import com.baidu.tieba.qf;
-import com.baidu.tieba.s5b;
-import com.baidu.tieba.v05;
+import com.baidu.tieba.r5b;
 import com.baidu.tieba.write.WriteWebViewCacheManager;
+import com.baidu.tieba.y05;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONArray;
@@ -79,7 +79,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 try {
                     Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                     if (currentActivity != null) {
-                        YunDialogManager.onShow(currentActivity, v05.r);
+                        YunDialogManager.onShow(currentActivity, y05.r);
                     }
                     if (Build.VERSION.SDK_INT >= 17) {
                         SharedPrefHelper.getInstance().putString("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
@@ -109,7 +109,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 JSONArray jSONArray = new JSONArray(string);
                 TbLog defaultLog = DefaultLog.getInstance();
                 defaultLog.i("WebPreheat", "冷启动预热H5:" + jSONArray);
-                lv5.e(jSONArray);
+                pv5.e(jSONArray);
             }
         } catch (Throwable th) {
             TbLog defaultLog2 = DefaultLog.getInstance();
@@ -133,7 +133,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
         boolean contains = TbadkCoreApplication.getInst().getSharedPreferences("settings2", 0).contains("key_splash_shake_ad_open");
         boolean z3 = TbadkCoreApplication.getInst().getSharedPreferences("settings2", 0).getBoolean("key_splash_shake_ad_open", true);
         boolean isKVStorageInitSuccess = KVStorageFactory.isKVStorageInitSuccess();
-        String absolutePath = AppRuntime.getAppContext().getDir(s5b.c, 0).getAbsolutePath();
+        String absolutePath = AppRuntime.getAppContext().getDir(r5b.c, 0).getAbsolutePath();
         boolean exists = new File(absolutePath).exists();
         String kVStoragePath = KVStorageRuntime.getKVStorageControl().getKVStoragePath();
         if (kVStoragePath != null && new File(kVStoragePath).exists()) {

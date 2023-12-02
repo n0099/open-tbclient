@@ -51,7 +51,7 @@ public class CaptureStatic {
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0223a implements v5b {
+        public class C0223a implements u5b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
@@ -141,7 +141,7 @@ public class CaptureStatic {
                 this.b = intentConfig;
             }
 
-            @Override // com.baidu.tieba.v5b
+            @Override // com.baidu.tieba.u5b
             public void a() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.getData() instanceof IntentConfig)) {
@@ -166,7 +166,7 @@ public class CaptureStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.v5b
+            @Override // com.baidu.tieba.u5b
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -202,7 +202,7 @@ public class CaptureStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
                 DefaultLog.getInstance().i("write", "打开视频编辑页1，开始检测so");
-                p5b.b(TbadkCoreApplication.getInst(), new C0223a(this, customResponsedMessage, (IntentConfig) customResponsedMessage.getData()));
+                o5b.b(TbadkCoreApplication.getInst(), new C0223a(this, customResponsedMessage, (IntentConfig) customResponsedMessage.getData()));
             }
         }
     }

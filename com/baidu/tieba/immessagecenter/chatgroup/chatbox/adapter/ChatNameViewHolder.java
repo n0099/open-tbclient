@@ -4,12 +4,12 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.bn8;
-import com.baidu.tieba.f29;
+import com.baidu.tieba.c39;
+import com.baidu.tieba.fn8;
 import com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder;
 import com.baidu.tieba.j29;
-import com.baidu.tieba.m29;
-import com.baidu.tieba.y29;
+import com.baidu.tieba.n29;
+import com.baidu.tieba.q29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ChatNameViewHolder extends BaseItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y29 e;
-    public j29 f;
+    public c39 e;
+    public n29 f;
     public String g;
-    public f29 h;
-    public m29 i;
+    public j29 h;
+    public q29 i;
     public View j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,21 +46,21 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
         this.g = str;
         this.j = view2;
         if (str.equals("message_tab")) {
-            this.i = m29.f(view2);
+            this.i = q29.f(view2);
         } else {
-            this.h = f29.f(view2);
+            this.h = j29.f(view2);
         }
     }
 
     @Override // com.baidu.tieba.im.base.core.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull bn8 bn8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull fn8 fn8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048576, this, bn8Var, tbPageContext, i) == null) && (bn8Var instanceof y29)) {
-            this.e = (y29) bn8Var;
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, fn8Var, tbPageContext, i) == null) && (fn8Var instanceof c39)) {
+            this.e = (c39) fn8Var;
             if (this.g.equals("message_tab")) {
-                this.f = new j29(this.e, this.i, this.j, this, this.g);
+                this.f = new n29(this.e, this.i, this.j, this, this.g);
             } else {
-                this.f = new j29(this.e, this.h, this.j, this, this.g);
+                this.f = new n29(this.e, this.h, this.j, this, this.g);
             }
             this.f.f(this.e);
         }

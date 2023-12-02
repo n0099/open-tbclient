@@ -1,84 +1,151 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.jt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mt8 implements pi {
+public class mt8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984312, "Lcom/baidu/tieba/mt8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements jt8.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947984312, "Lcom/baidu/tieba/mt8;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public mt8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    @Override // com.baidu.tieba.pi
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b)) {
+        @Override // com.baidu.tieba.jt8.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                boolean isOpen = ChatStatusManager.getInst().getIsOpen(0);
+                String curId = ChatStatusManager.getInst().getCurId(0);
+                if (TextUtils.isEmpty(str) || !isOpen || !str.equals(curId)) {
+                    return false;
+                }
                 return true;
             }
-            return false;
+            return invokeL.booleanValue;
         }
-        return invokeV.booleanValue;
     }
 
-    public void a(JSONObject jSONObject) {
+    /* loaded from: classes7.dex */
+    public class b implements jt8.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.jt8.a
+        public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMessage, imMessageCenterPojo)) == null) {
+                if (chatMessage != null && chatMessage.getMsgType() == 22) {
+                    if (vz8.A(chatMessage)) {
+                        return true;
+                    }
+                    long a = mt8.a(chatMessage);
+                    if (a > imMessageCenterPojo.getRead_msgId()) {
+                        imMessageCenterPojo.setRead_msgId(a);
+                    }
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public static long a(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
+            if (chatMessage == null) {
+                return -1L;
+            }
+            if (chatMessage.getMsgType() == 22) {
+                try {
+                    String content = chatMessage.getContent();
+                    if (TextUtils.isEmpty(content)) {
+                        return -1L;
+                    }
+                    JSONObject jSONObject = new JSONObject(content);
+                    String optString = jSONObject.optString("eventId");
+                    if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong("groupId") != xw8.j.longValue()) {
+                        return -1L;
+                    }
+                } catch (Exception unused) {
+                    return -1L;
+                }
+            }
+            return uz8.a(optJSONObject.optLong("readMsgId"));
+        }
+        return invokeL.longValue;
+    }
+
+    public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, jt8.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            jt8.e(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(5), new b());
+        }
+    }
+
+    public static void c(GroupMsgData groupMsgData) {
+        LinkedList<ChatMessage> listMessage;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, groupMsgData) != null) || groupMsgData == null || (listMessage = groupMsgData.getListMessage()) == null) {
             return;
         }
-        this.a = jSONObject.optString("pid");
-        this.b = jSONObject.optString("url");
+        for (int i = 0; i < listMessage.size(); i++) {
+            try {
+                if (new JSONObject(listMessage.get(i).getContent()).optString("eventId").equals(TbEnum.SystemMessage.EVENT_ID_CYBER_VIOLENCE)) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+                }
+            } catch (Exception unused) {
+            }
+        }
     }
 }

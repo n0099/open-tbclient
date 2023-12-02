@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ob1;
+import com.baidu.tieba.rb1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -96,9 +96,9 @@ public class ProgressButton extends FrameLayout {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             this.e = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d019e, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0925bc);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e61);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ob1.ProgressButton);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0925be);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e63);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, rb1.ProgressButton);
             this.a.setTextColor(obtainStyledAttributes.getColor(0, -1));
             obtainStyledAttributes.recycle();
         }

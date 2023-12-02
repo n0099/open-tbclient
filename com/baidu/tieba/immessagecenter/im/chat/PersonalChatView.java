@@ -43,11 +43,11 @@ import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.immessagecenter.im.chat.GamePlayServiceView;
 import com.baidu.tieba.immessagecenter.im.model.GamePlayCanSendCardModel;
 import com.baidu.tieba.immessagecenter.im.model.PersonalMsglistModel;
-import com.baidu.tieba.ne5;
-import com.baidu.tieba.pz8;
-import com.baidu.tieba.roc;
-import com.baidu.tieba.sw8;
+import com.baidu.tieba.qe5;
+import com.baidu.tieba.qoc;
+import com.baidu.tieba.tz8;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.ww8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -453,7 +453,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
     }
 
     /* loaded from: classes6.dex */
-    public class i implements sw8.a {
+    public class i implements ww8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalChatView a;
@@ -476,7 +476,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
             this.a = personalChatView;
         }
 
-        @Override // com.baidu.tieba.sw8.a
+        @Override // com.baidu.tieba.ww8.a
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && "0".equals(str) && this.a.r != null && this.a.s != null) {
@@ -486,7 +486,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
     }
 
     /* loaded from: classes6.dex */
-    public class j implements roc {
+    public class j implements qoc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalChatView a;
@@ -509,7 +509,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
             this.a = personalChatView;
         }
 
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.qoc
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -548,10 +548,10 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         }
     }
 
-    public final void O(ne5 ne5Var) {
+    public final void O(qe5 qe5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ne5Var) == null) && ne5Var != null && ne5Var != null && (ne5Var instanceof View)) {
-            ((View) ne5Var).setOnClickListener(this.v);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qe5Var) == null) && qe5Var != null && qe5Var != null && (qe5Var instanceof View)) {
+            ((View) qe5Var).setOnClickListener(this.v);
         }
     }
 
@@ -613,7 +613,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         this.a.e(this.o);
         this.a.g(this.t, new j(this));
         this.a.f(this);
-        pz8.b(this.p);
+        tz8.b(this.p);
         ViewGroup viewGroup = this.mLayBottom;
         if (viewGroup instanceof BottomInputLayout) {
             ((BottomInputLayout) viewGroup).setOnInputLayoutChangeListener(this);
@@ -830,15 +830,15 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
             if (i2 == 0) {
                 UrlSchemaJumpHelper.jumpGameGodsPage(this.d, "com.baidu.tieba://unidispatch/GameGodsDetailPage?god_id=" + this.p + "&" + BdUniDispatchSchemeController.PARAM_FROM_NATIVE + "=1");
-                pz8.a(this.p);
+                tz8.a(this.p);
             } else if (i2 == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SEND_POSTCARD_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", this.d.i3()));
                 if (!this.q) {
                     BdUtilHelper.showToast(((AbsMsglistView) this).mContext, this.u);
                 } else if (!StringUtils.isNull(this.d.i3())) {
-                    sw8 sw8Var = new sw8();
+                    ww8 ww8Var = new ww8();
                     this.d.f3().sendGameTeamMessage(this.d.b0);
-                    sw8Var.c(new i(this), this.d.h3().getUserId());
+                    ww8Var.c(new i(this), this.d.h3().getUserId());
                 }
             }
         }
@@ -858,17 +858,17 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
                 string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cdf);
             }
             if (this.d.n3()) {
-                View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0835, talkableActivity);
+                View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0836, talkableActivity);
                 this.mBtnForumInfo = addCustomView;
-                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090f2e);
+                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090f2f);
                 this.b = textView;
                 textView.setText(string);
                 this.b.setVisibility(0);
             } else {
-                View addCustomView2 = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0835, talkableActivity);
+                View addCustomView2 = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0836, talkableActivity);
                 this.mBtnForumInfo = addCustomView2;
-                this.c = (ImageView) addCustomView2.findViewById(R.id.obfuscated_res_0x7f090f2d);
-                int dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070420);
+                this.c = (ImageView) addCustomView2.findViewById(R.id.obfuscated_res_0x7f090f2e);
+                int dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070421);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimens, dimens);
                 layoutParams.rightMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0701b2);
                 this.mBtnForumInfo.setLayoutParams(layoutParams);
@@ -904,7 +904,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
                     NoDataViewFactory.d.a aVar = new NoDataViewFactory.d.a();
                     aVar.i(NoDataViewFactory.ImgType.LOCAL);
                     aVar.h(R.drawable.new_pic_emotion_01);
-                    aVar.j(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0703d9));
+                    aVar.j(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0703da));
                     NoDataView a2 = NoDataViewFactory.a(talkableActivity, keyboardLayout, aVar.f(), NoDataViewFactory.e.d(null, talkableActivity.getString(R.string.no_data_common_txt)), null);
                     this.m = a2;
                     a2.setVisibility(0);

@@ -1,189 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gift.giftTab.CategoryGiftListModel;
-import com.baidu.tieba.gift.giftTab.DefaultGiftListModel;
-import com.baidu.tieba.gift.giftTab.FreeGiftChanceModel;
-import com.baidu.tieba.gift.giftTab.GiftTabActivity;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class s98 {
+public class s98 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdPageContext<GiftTabActivity> a;
-    public DefaultGiftListModel b;
-    public CategoryGiftListModel c;
-    public FreeGiftChanceModel d;
-    public ArrayList<p98> e;
-    public ArrayList<n98> f;
-    public ArrayList<r98> g;
-    public HashMap<Integer, ArrayList<qx4>> h;
-    public int i;
-    public String j;
-    public int k;
-    public rx4 l;
-    public e m;
-    public d n;
-    public DefaultGiftListModel.b o;
-    public CategoryGiftListModel.b p;
-    public FreeGiftChanceModel.b q;
+    public Context a;
+    public List<tx4> b;
+    public int c;
 
     /* loaded from: classes8.dex */
-    public interface d {
-        void a(int i);
-    }
-
-    /* loaded from: classes8.dex */
-    public interface e {
-        void a(int i, String str, boolean z, String str2, int i2, rx4 rx4Var, ArrayList<p98> arrayList, ArrayList<n98> arrayList2, ArrayList<r98> arrayList3);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements DefaultGiftListModel.b {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s98 a;
+    }
 
-        public a(s98 s98Var) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TbImageView b;
+        public View c;
+        public TextView d;
+        public TextView e;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s98Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = s98Var;
         }
 
-        @Override // com.baidu.tieba.gift.giftTab.DefaultGiftListModel.b
-        public void a(int i, String str, int i2, String str2, int i3, rx4 rx4Var, ArrayList<n98> arrayList, ArrayList<qx4> arrayList2, ArrayList<r98> arrayList3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, Integer.valueOf(i3), rx4Var, arrayList, arrayList2, arrayList3}) == null) {
-                if (i == 0) {
-                    int i4 = 0;
-                    if (arrayList != null && arrayList.size() >= 1 && arrayList.get(0) != null) {
-                        i4 = arrayList.get(0).a();
-                    }
-                    this.a.f = arrayList;
-                    this.a.h.put(Integer.valueOf(i4), arrayList2);
-                    this.a.g = arrayList3;
-                    this.a.j = str2;
-                    this.a.i = i2;
-                    s98 s98Var = this.a;
-                    s98Var.k = i3;
-                    s98Var.l = rx4Var;
-                    s98Var.q();
-                }
-                if (this.a.m != null) {
-                    e eVar = this.a.m;
-                    String str3 = this.a.j;
-                    s98 s98Var2 = this.a;
-                    eVar.a(i, str, true, str3, s98Var2.k, s98Var2.l, s98Var2.e, this.a.f, this.a.g);
-                }
-            }
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements CategoryGiftListModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s98 a;
-
-        public b(s98 s98Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s98Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s98Var;
-        }
-
-        @Override // com.baidu.tieba.gift.giftTab.CategoryGiftListModel.b
-        public void a(int i, String str, int i2, ArrayList<qx4> arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), arrayList}) == null) {
-                if (i == 0) {
-                    this.a.h.put(Integer.valueOf(i2), arrayList);
-                    this.a.q();
-                }
-                if (this.a.m != null) {
-                    e eVar = this.a.m;
-                    String str2 = this.a.j;
-                    s98 s98Var = this.a;
-                    eVar.a(i, str, false, str2, s98Var.k, s98Var.l, s98Var.e, this.a.f, this.a.g);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements FreeGiftChanceModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s98 a;
-
-        public c(s98 s98Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s98Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s98Var;
-        }
-
-        @Override // com.baidu.tieba.gift.giftTab.FreeGiftChanceModel.b
-        public void a(int i, String str, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) != null) || i != 0) {
-                return;
-            }
-            this.a.i = i2;
-            if (this.a.n != null) {
-                this.a.n.a(this.a.i);
-            }
-        }
-    }
-
-    public s98(BdPageContext<GiftTabActivity> bdPageContext) {
+    public s98(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -193,95 +80,110 @@ public class s98 {
                 return;
             }
         }
-        this.h = new HashMap<>();
-        this.o = new a(this);
-        this.p = new b(this);
-        this.q = new c(this);
-        this.a = bdPageContext;
-        DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(bdPageContext);
-        this.b = defaultGiftListModel;
-        defaultGiftListModel.a0(this.o);
-        CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.a);
-        this.c = categoryGiftListModel;
-        categoryGiftListModel.S(this.p);
-        FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.a);
-        this.d = freeGiftChanceModel;
-        freeGiftChanceModel.S(this.q);
+        this.c = -1;
+        this.a = context;
     }
 
-    public void n(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public tx4 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.d == null) {
-                FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.a);
-                this.d = freeGiftChanceModel;
-                freeGiftChanceModel.S(this.q);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < getCount()) {
+                return this.b.get(i);
             }
-            this.d.R(str);
+            return null;
+        }
+        return (tx4) invokeI.objValue;
+    }
+
+    public void c(List<tx4> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b = list;
+            notifyDataSetChanged();
         }
     }
 
-    public void p(int i) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            if (this.c == null) {
-                CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.a);
-                this.c = categoryGiftListModel;
-                categoryGiftListModel.S(this.p);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<tx4> list = this.b;
+            if (list == null) {
+                return 0;
             }
-            this.c.R(i);
+            return list.size();
         }
+        return invokeV.intValue;
     }
 
-    public void r(d dVar) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.n = dVar;
-        }
-    }
-
-    public void s(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
-            this.m = eVar;
-        }
-    }
-
-    public void o(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            if (this.b == null) {
-                DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(this.a);
-                this.b = defaultGiftListModel;
-                defaultGiftListModel.a0(this.o);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && view2.getTag() != null) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03f7, (ViewGroup) null);
+                bVar = new b(null);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910fc);
+                bVar.a = tbImageView;
+                tbImageView.setDefaultBgResource(R.drawable.transparent_bg);
+                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917a6);
+                bVar.b = tbImageView2;
+                tbImageView2.setDefaultBgResource(R.drawable.transparent_bg);
+                bVar.b.setDefaultResource(R.drawable.transparent_bg);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0917bc);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091993);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e25);
+                view2.setTag(bVar);
             }
-            this.b.Z(str, j);
-        }
-    }
-
-    public final void q() {
-        HashMap<Integer, ArrayList<qx4>> hashMap;
-        ArrayList<n98> arrayList;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (hashMap = this.h) != null && hashMap.size() > 0 && (arrayList = this.f) != null && arrayList.size() > 0) {
-            if (this.e == null) {
-                this.e = new ArrayList<>();
+            SkinManager.setViewTextColor(bVar.d, R.color.CAM_X0105, 1);
+            if (i == this.c) {
+                SkinManager.setBackgroundResource(bVar.c, R.drawable.chx_box_gift_s);
+            } else {
+                bVar.c.setBackgroundResource(R.color.common_color_10022);
             }
-            this.e.clear();
-            Iterator<n98> it = this.f.iterator();
-            while (it.hasNext()) {
-                n98 next = it.next();
-                if (next != null && !StringUtils.isNull(next.b())) {
-                    p98 p98Var = new p98();
-                    p98Var.c(next.a());
-                    p98Var.d(next.b());
-                    ArrayList<qx4> arrayList2 = this.h.get(Integer.valueOf(next.a()));
-                    if (arrayList2 != null) {
-                        p98Var.e(arrayList2);
-                    }
-                    this.e.add(p98Var);
+            tx4 item = getItem(i);
+            if (item != null) {
+                bVar.d.setText(item.b);
+                bVar.a.startLoad(item.d, 10, false);
+                bVar.b.startLoad(item.g, 10, false);
+                int i2 = item.f;
+                if (i2 == 5) {
+                    bVar.e.setVisibility(8);
+                } else if (i2 == 3) {
+                    bVar.e.setVisibility(0);
+                    bVar.e.setText(x98.b(item.a(), false, item.s));
+                } else {
+                    bVar.e.setVisibility(0);
+                    bVar.e.setText(x98.b(item.b(), false, item.s));
                 }
             }
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

@@ -1,70 +1,77 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.frsfeedforums.FrsFeedItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import tbclient.GameForumGuideTab.GameForumSubTab;
-import tbclient.ThreadInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class my7 {
+public class my7 extends gs7<bva, FrsFeedItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ky7 l;
+    public boolean m;
 
-    public static List<ty7> a(List<GameForumSubTab> list) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public my7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (GameForumSubTab gameForumSubTab : list) {
-                ty7 ty7Var = new ty7();
-                if (gameForumSubTab != null) {
-                    ty7Var.a = gameForumSubTab.id.intValue();
-                    ty7Var.b = gameForumSubTab.sub_tab_name;
-                    LabelDataList labelDataList = new LabelDataList();
-                    labelDataList.parseProtu(gameForumSubTab.sub_label_list);
-                    ty7Var.c = labelDataList;
-                    arrayList.add(ty7Var);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+        this.m = z;
     }
 
-    public static List<pi> b(List<ThreadInfo> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: H */
+    public FrsFeedItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            LinkedList linkedList = new LinkedList();
-            for (int i = 0; i < list.size(); i++) {
-                ky7 ky7Var = new ky7();
-                ThreadData threadData = new ThreadData();
-                ky7Var.c(threadData);
-                threadData.parserProtobuf(list.get(i));
-                threadData.parser_title();
-                if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                    wx4 wx4Var = new wx4();
-                    wx4Var.e(threadData.getLegoCard());
-                    linkedList.add(wx4Var);
-                } else {
-                    linkedList.add(ky7Var);
-                }
-            }
-            return linkedList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0377, (ViewGroup) null);
+            this.l = new ky7(this.c, inflate, 2, this.m, this.mPageId);
+            return new FrsFeedItemViewHolder(inflate);
         }
-        return (List) invokeL.objValue;
+        return (FrsFeedItemViewHolder) invokeL.objValue;
+    }
+
+    public View I(int i, View view2, ViewGroup viewGroup, bva bvaVar, FrsFeedItemViewHolder frsFeedItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bvaVar, frsFeedItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) bvaVar, (bva) frsFeedItemViewHolder);
+            if (bvaVar != null) {
+                this.l.o(bvaVar.b(), bvaVar.a());
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.gs7, com.baidu.tieba.ci
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        I(i, view2, viewGroup, (bva) obj, (FrsFeedItemViewHolder) viewHolder);
+        return view2;
     }
 }

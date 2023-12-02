@@ -1,103 +1,107 @@
 package com.baidu.tieba;
 
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.face.platform.ConstPath;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tieba.q22;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Context;
+import android.view.Surface;
+import androidx.annotation.NonNull;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class vo2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static q22.g b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vo2 extends hk2 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948247440, "Lcom/baidu/tieba/vo2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948247440, "Lcom/baidu/tieba/vo2;");
-                return;
-            }
-        }
-        a = sm1.a;
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(int i);
+
+        void b(int i);
+
+        void c(String str);
+
+        void d(@NonNull String str);
+
+        void e(String str);
+
+        void f();
+
+        void onEnded();
+
+        void onError(int i);
+
+        void onPrepared();
+
+        void onRelease(String str);
     }
 
-    public static void a(q22.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
-            b = gVar;
-        }
-    }
+    void B(boolean z);
 
-    public static void b(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, editText, i) == null) {
-            e(editText, ConstPath.KEY_BLUR, i);
-        }
-    }
+    void C();
 
-    public static void d(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, editText, i) == null) {
-            e(editText, "confirm", i);
-        }
-    }
+    void G(int i);
 
-    public static void f(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, editText, i) == null) {
-            e(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
-        }
-    }
+    void H();
 
-    public static void c(r22 r22Var, EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65539, null, r22Var, editText, i) == null) && editText != null && b != null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("value", editText.getText());
-                jSONObject.put("eventName", "change");
-                jSONObject.put("cursorOffset", editText.getSelectionStart());
-                jSONObject.put("keyCode", i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            r22Var.j(editText.getText().toString());
-            r22Var.l(editText.getSelectionStart(), editText.getSelectionEnd());
-            b.a(String.valueOf(editText.getTag()), jSONObject);
-        }
-    }
+    void L(int i, int i2, int i3, int i4);
 
-    public static void e(EditText editText, String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i) == null) && editText != null && b != null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("value", editText.getText());
-                jSONObject.put("eventName", str);
-                jSONObject.put("cursorOffset", editText.getText().length());
-                jSONObject.put("keyboardHeight", "" + yj3.O(i));
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            b.a(String.valueOf(editText.getTag()), jSONObject);
-        }
-    }
+    void N(ZeusPluginFactory.Invoker invoker);
+
+    boolean O(String str, String str2, String str3, boolean z);
+
+    boolean P();
+
+    a Q();
+
+    void S(Map map);
+
+    void T();
+
+    void V();
+
+    int a();
+
+    void a0(String str);
+
+    void b0();
+
+    String c();
+
+    ZeusPluginFactory.Invoker e0();
+
+    void f0(int i);
+
+    void g0(@NonNull a aVar);
+
+    Context getContext();
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    int getVideoHeight();
+
+    int getVideoSarDen();
+
+    int getVideoSarNum();
+
+    int getVideoWidth();
+
+    boolean i0();
+
+    boolean isPlaying();
+
+    void l(boolean z);
+
+    void m0();
+
+    void pause();
+
+    boolean prepareAsync();
+
+    void release();
+
+    void seekTo(int i);
+
+    void setSpeed(float f);
+
+    void setSurface(Surface surface);
+
+    void start();
 }

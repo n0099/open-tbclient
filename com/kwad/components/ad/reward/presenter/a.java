@@ -68,14 +68,14 @@ public final class a extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0913db);
+        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0913dc);
         if (viewStub != null) {
             viewStub.inflate();
         }
-        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0914ff);
+        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091500);
         l(this.qn);
         if (RewardRenderResult.DEFAULT.equals(this.qn.fI())) {
-            com.kwad.components.ad.reward.g.a(getContext(), this.qn, (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091475));
+            com.kwad.components.ad.reward.g.a(getContext(), this.qn, (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091476));
         }
     }
 }

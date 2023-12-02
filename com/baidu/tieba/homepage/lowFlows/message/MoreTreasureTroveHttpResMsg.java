@@ -3,8 +3,8 @@ package com.baidu.tieba.homepage.lowFlows.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.gf8;
-import com.baidu.tieba.lf8;
+import com.baidu.tieba.kf8;
+import com.baidu.tieba.pf8;
 import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes6.dex */
-public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements gf8 {
+public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements kf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<pi> mMoreTreasureTroveDataList;
@@ -39,7 +39,7 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
         }
     }
 
-    @Override // com.baidu.tieba.gf8
+    @Override // com.baidu.tieba.kf8
     public List<pi> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
                 setError(error.errorno.intValue());
                 setErrorString(moreTreasureTroveResIdl.error.usermsg);
             }
-            this.mMoreTreasureTroveDataList = lf8.b(moreTreasureTroveResIdl);
+            this.mMoreTreasureTroveDataList = pf8.b(moreTreasureTroveResIdl);
         }
     }
 }

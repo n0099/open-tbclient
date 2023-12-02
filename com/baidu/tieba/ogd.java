@@ -1,214 +1,144 @@
 package com.baidu.tieba;
 
+import android.app.Dialog;
 import android.content.Context;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
+import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Gallery;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
-import kotlin.TypeCastException;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.ImageLoaderSupplier;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
 /* loaded from: classes7.dex */
-public final class ogd extends mgd<BannerConfigItem.BannerInfo> {
+public class ogd extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageLoaderSupplier c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948032765, "Lcom/baidu/tieba/ogd;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948032765, "Lcom/baidu/tieba/ogd;");
-        }
-    }
+    public String a;
+    public AbsPayMessageReceiver b;
+    public PayFlowType c;
+    public Context d;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public class a extends AbsPayMessageReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-        public final /* synthetic */ ogd b;
+        public final /* synthetic */ ogd this$0;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(ogd ogdVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ogd ogdVar, PayFlowType payFlowType) {
+            super(payFlowType);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ogdVar};
+                Object[] objArr = {ogdVar, payFlowType};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((PayFlowType) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = ogdVar;
+            this.this$0 = ogdVar;
         }
 
-        public final void c(ImageView imageView) {
+        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
+        public void onAllPayFlowViewRelease() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageView) == null) {
-                this.a = imageView;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                RLog.info(this.this$0.a, "onAllPayFlowViewRelease");
+                this.this$0.dismiss();
             }
         }
 
-        public final ImageView a() {
-            InterceptResult invokeV;
+        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
+        public void onDialogPayFlowViewRelease() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                RLog.info(this.this$0.a, "onDialogPayFlowViewRelease");
+                this.this$0.dismiss();
             }
-            return (ImageView) invokeV.objValue;
         }
 
-        public final void b(BannerConfigItem.BannerInfo bannerInfo, int i, Context context) {
-            ImageView imageView;
-            ImageLoaderSupplier e;
-            String str;
+        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
+        public void onWalletPayFlowViewRelease() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bannerInfo, i, context) == null) && (imageView = this.a) != null && (e = this.b.e()) != null) {
-                if (bannerInfo != null) {
-                    str = bannerInfo.imageUrl;
-                } else {
-                    str = null;
-                }
-                ImageLoaderSupplier.ImageParam imageParam = new ImageLoaderSupplier.ImageParam(str, -1, -1);
-                if (context instanceof ContextThemeWrapper) {
-                    ContextThemeWrapper contextThemeWrapper = (ContextThemeWrapper) context;
-                    if (zfd.a.a(contextThemeWrapper.getBaseContext())) {
-                        RLog.debug("PluginCenterBannerAdapter", "imageLoaderSupplier load success context.baseContext:" + contextThemeWrapper.getBaseContext());
-                        Context baseContext = contextThemeWrapper.getBaseContext();
-                        Intrinsics.checkExpressionValueIsNotNull(baseContext, "context.baseContext");
-                        e.onLoad(baseContext, imageView, imageParam);
-                        return;
-                    }
-                    RLog.error("PluginCenterBannerAdapter", "imageLoaderSupplier load error context.baseContext null", new Object[0]);
-                } else if (zfd.a.a(context)) {
-                    RLog.debug("PluginCenterBannerAdapter", "imageLoaderSupplier load success context:" + context);
-                    e.onLoad(context, imageView, imageParam);
-                } else {
-                    RLog.error("PluginCenterBannerAdapter", "imageLoaderSupplier load error context null", new Object[0]);
-                }
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                RLog.info(this.this$0.a, "onWalletPayFlowViewRelease");
+                this.this$0.dismiss();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ogd(Context context) {
-        super(context);
+    public ogd(Context context, int i, PayFlowType payFlowType) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            Object[] objArr = {context, Integer.valueOf(i), payFlowType};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.debug("PluginCenterBannerAdapter", "constructor");
+        this.a = "AutoHideSoftInputDialog";
+        this.a += "@" + hashCode();
+        this.d = context;
+        this.c = payFlowType;
     }
 
-    @NonNull
-    public final a d(View view2) {
-        InterceptResult invokeL;
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            a aVar = new a(this);
-            aVar.c((ImageView) view2.findViewById(R.id.top_banner_image));
-            ImageView a2 = aVar.a();
-            if (a2 == null) {
-                Intrinsics.throwNpe();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            RLog.info(this.a, "onCreate");
+            this.b = new a(this, this.c);
+            nfd.d(getContext(), this.b);
+        }
+    }
+
+    @Override // android.app.Dialog, android.content.DialogInterface
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View currentFocus = getCurrentFocus();
+            if (currentFocus instanceof EditText) {
+                ((InputMethodManager) getContext().getSystemService("input_method")).hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
             }
-            a2.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            view2.setTag(aVar);
-            return aVar;
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public final ImageLoaderSupplier e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (ImageLoaderSupplier) invokeV.objValue;
-    }
-
-    public final void f(BannerConfigItem.BannerInfo bannerInfo, a aVar, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, bannerInfo, aVar, i) == null) && bannerInfo != null) {
-            Context mContext = this.b;
-            Intrinsics.checkExpressionValueIsNotNull(mContext, "mContext");
-            aVar.b(bannerInfo, i, mContext);
-        }
-    }
-
-    public final void g(ImageLoaderSupplier imageLoaderSupplier) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, imageLoaderSupplier) == null) {
-            this.c = imageLoaderSupplier;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            Object obj = null;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.pay_ui_layout_plugincenter_banner_item, (ViewGroup) null);
-                if (view2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                view2.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-                aVar = d(view2);
-            } else {
-                if (view2 != null) {
-                    obj = view2.getTag();
-                }
-                if (obj != null) {
-                    aVar = (a) obj;
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type tv.athena.revenue.payui.view.banner.PluginCenterBannerAdapter.ViewHolder");
-                }
+            if (yfd.a.a(this.d)) {
+                super.dismiss();
             }
-            BannerConfigItem.BannerInfo item = getItem(i);
-            Intrinsics.checkExpressionValueIsNotNull(item, "getItem(position)");
-            f(item, aVar, i);
-            return view2;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.app.Dialog
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onStop();
+            RLog.info(this.a, MissionEvent.MESSAGE_STOP);
+            if (this.b != null) {
+                nfd.e(getContext(), this.b);
+                this.b = null;
+            }
+        }
     }
 }

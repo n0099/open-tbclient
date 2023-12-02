@@ -170,7 +170,7 @@ public final class a extends c implements com.kwad.sdk.core.h.c {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.lc = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09235c);
+        this.lc = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09235e);
     }
 
     @Override // com.kwad.components.ad.splashscreen.c.c.c, com.kwad.sdk.mvp.Presenter

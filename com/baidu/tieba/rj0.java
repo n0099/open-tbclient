@@ -27,7 +27,7 @@ public interface rj0 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return bu0.a();
+                return du0.a();
             }
             return (rj0) invokeV.objValue;
         }

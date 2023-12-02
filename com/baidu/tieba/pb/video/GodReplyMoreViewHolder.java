@@ -36,8 +36,8 @@ public class GodReplyMoreViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.c = 3;
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091739);
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f09095a);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09173a);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f09095b);
         SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0106);
         SkinManager.setBackgroundResource(this.a, R.drawable.more_all);
         SkinManager.setBackgroundResource(this.b, R.color.CAM_X0204);

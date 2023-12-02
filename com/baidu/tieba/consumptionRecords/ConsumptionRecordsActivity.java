@@ -110,7 +110,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public final void p1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091f77);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091f79);
             this.b = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.b.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
@@ -133,7 +133,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
             sigleRecordsFragment3.X2(3);
             FragmentTabStructure fragmentTabStructure3 = new FragmentTabStructure();
             fragmentTabStructure3.frag = this.e;
-            fragmentTabStructure3.textResId = R.string.obfuscated_res_0x7f0f122c;
+            fragmentTabStructure3.textResId = R.string.obfuscated_res_0x7f0f122d;
             l1(fragmentTabStructure3, n1(getPageContext().getPageActivity()), null);
             this.b.j(3);
             this.b.setCurrentTab(m1(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));

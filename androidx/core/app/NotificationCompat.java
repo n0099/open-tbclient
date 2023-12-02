@@ -2514,8 +2514,8 @@ public class NotificationCompat {
         private Bitmap reduceLargeIconSize(@Nullable Bitmap bitmap) {
             if (bitmap != null && Build.VERSION.SDK_INT < 27) {
                 Resources resources = this.mContext.getResources();
-                int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070274);
-                int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070273);
+                int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070276);
+                int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070274);
                 if (bitmap.getWidth() <= dimensionPixelSize && bitmap.getHeight() <= dimensionPixelSize2) {
                     return bitmap;
                 }
@@ -2931,8 +2931,8 @@ public class NotificationCompat {
 
         private int calculateTopPadding() {
             Resources resources = this.mBuilder.mContext.getResources();
-            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070766);
-            int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070767);
+            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07076a);
+            int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07076b);
             float constrain = (constrain(resources.getConfiguration().fontScale, 1.0f, 1.3f) - 1.0f) / 0.29999995f;
             return Math.round(((1.0f - constrain) * dimensionPixelSize) + (constrain * dimensionPixelSize2));
         }
@@ -3063,9 +3063,9 @@ public class NotificationCompat {
         }
 
         private void hideNormalContent(RemoteViews remoteViews) {
-            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092683, 8);
+            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092685, 8);
+            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09257e, 8);
             remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09257c, 8);
-            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09257a, 8);
         }
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
@@ -3136,7 +3136,7 @@ public class NotificationCompat {
             if (i4 == 0) {
                 i4 = 0;
             }
-            Bitmap createColoredBitmap = createColoredBitmap(R.drawable.obfuscated_res_0x7f08114a, i4, i2);
+            Bitmap createColoredBitmap = createColoredBitmap(R.drawable.obfuscated_res_0x7f08114d, i4, i2);
             Canvas canvas = new Canvas(createColoredBitmap);
             Drawable mutate = this.mBuilder.mContext.getResources().getDrawable(i).mutate();
             mutate.setFilterBitmap(true);
@@ -3184,50 +3184,50 @@ public class NotificationCompat {
             int i4 = Build.VERSION.SDK_INT;
             if (i4 >= 16 && i4 < 21) {
                 if (z3) {
-                    remoteViews.setInt(R.id.obfuscated_res_0x7f091a9d, "setBackgroundResource", R.drawable.obfuscated_res_0x7f081145);
-                    remoteViews.setInt(R.id.obfuscated_res_0x7f09106a, "setBackgroundResource", R.drawable.obfuscated_res_0x7f08114c);
+                    remoteViews.setInt(R.id.obfuscated_res_0x7f091a9f, "setBackgroundResource", R.drawable.obfuscated_res_0x7f081148);
+                    remoteViews.setInt(R.id.obfuscated_res_0x7f09106b, "setBackgroundResource", R.drawable.obfuscated_res_0x7f08114f);
                 } else {
-                    remoteViews.setInt(R.id.obfuscated_res_0x7f091a9d, "setBackgroundResource", R.drawable.obfuscated_res_0x7f081144);
-                    remoteViews.setInt(R.id.obfuscated_res_0x7f09106a, "setBackgroundResource", R.drawable.obfuscated_res_0x7f08114b);
+                    remoteViews.setInt(R.id.obfuscated_res_0x7f091a9f, "setBackgroundResource", R.drawable.obfuscated_res_0x7f081147);
+                    remoteViews.setInt(R.id.obfuscated_res_0x7f09106b, "setBackgroundResource", R.drawable.obfuscated_res_0x7f08114e);
                 }
             }
             Builder builder = this.mBuilder;
             if (builder.mLargeIcon != null) {
                 if (Build.VERSION.SDK_INT >= 16) {
-                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09106a, 0);
-                    remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f09106a, this.mBuilder.mLargeIcon);
+                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09106b, 0);
+                    remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f09106b, this.mBuilder.mLargeIcon);
                 } else {
-                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09106a, 8);
+                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09106b, 8);
                 }
                 if (z && this.mBuilder.mNotification.icon != 0) {
-                    int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070761);
-                    int dimensionPixelSize2 = dimensionPixelSize - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070763) * 2);
+                    int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070765);
+                    int dimensionPixelSize2 = dimensionPixelSize - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070767) * 2);
                     if (Build.VERSION.SDK_INT >= 21) {
                         Builder builder2 = this.mBuilder;
-                        remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f092019, createIconWithBackground(builder2.mNotification.icon, dimensionPixelSize, dimensionPixelSize2, builder2.getColor()));
+                        remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f09201b, createIconWithBackground(builder2.mNotification.icon, dimensionPixelSize, dimensionPixelSize2, builder2.getColor()));
                     } else {
-                        remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f092019, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
+                        remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f09201b, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
                     }
-                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092019, 0);
+                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09201b, 0);
                 }
             } else if (z && builder.mNotification.icon != 0) {
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09106a, 0);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09106b, 0);
                 if (Build.VERSION.SDK_INT >= 21) {
-                    int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07075e) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07075b);
-                    int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070764);
+                    int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070762) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07075f);
+                    int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070768);
                     Builder builder3 = this.mBuilder;
-                    remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f09106a, createIconWithBackground(builder3.mNotification.icon, dimensionPixelSize3, dimensionPixelSize4, builder3.getColor()));
+                    remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f09106b, createIconWithBackground(builder3.mNotification.icon, dimensionPixelSize3, dimensionPixelSize4, builder3.getColor()));
                 } else {
-                    remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f09106a, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
+                    remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f09106b, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
                 }
             }
             CharSequence charSequence3 = this.mBuilder.mContentTitle;
             if (charSequence3 != null) {
-                remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092683, charSequence3);
+                remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092685, charSequence3);
             }
             CharSequence charSequence4 = this.mBuilder.mContentText;
             if (charSequence4 != null) {
-                remoteViews.setTextViewText(R.id.obfuscated_res_0x7f09257a, charSequence4);
+                remoteViews.setTextViewText(R.id.obfuscated_res_0x7f09257c, charSequence4);
                 z4 = true;
             } else {
                 z4 = false;
@@ -3240,32 +3240,32 @@ public class NotificationCompat {
             Builder builder4 = this.mBuilder;
             CharSequence charSequence5 = builder4.mContentInfo;
             if (charSequence5 != null) {
-                remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0911a2, charSequence5);
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0911a2, 0);
+                remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0911a3, charSequence5);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0911a3, 0);
             } else if (builder4.mNumber > 0) {
                 if (this.mBuilder.mNumber > resources.getInteger(R.integer.obfuscated_res_0x7f0a002b)) {
-                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0911a2, resources.getString(R.string.obfuscated_res_0x7f0f14b6));
+                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0911a3, resources.getString(R.string.obfuscated_res_0x7f0f14b7));
                 } else {
-                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0911a2, NumberFormat.getIntegerInstance().format(this.mBuilder.mNumber));
+                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0911a3, NumberFormat.getIntegerInstance().format(this.mBuilder.mNumber));
                 }
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0911a2, 0);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0911a3, 0);
             } else {
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0911a2, 8);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0911a3, 8);
                 z6 = z4;
                 z7 = z5;
                 charSequence = this.mBuilder.mSubText;
                 if (charSequence != null && Build.VERSION.SDK_INT >= 16) {
-                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f09257a, charSequence);
+                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f09257c, charSequence);
                     charSequence2 = this.mBuilder.mContentText;
                     if (charSequence2 == null) {
-                        remoteViews.setTextViewText(R.id.obfuscated_res_0x7f09257c, charSequence2);
-                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09257c, 0);
+                        remoteViews.setTextViewText(R.id.obfuscated_res_0x7f09257e, charSequence2);
+                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09257e, 0);
                         z8 = true;
                         if (z8 && Build.VERSION.SDK_INT >= 16) {
                             if (z2) {
-                                remoteViews.setTextViewTextSize(R.id.obfuscated_res_0x7f09257a, 0, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070765));
+                                remoteViews.setTextViewTextSize(R.id.obfuscated_res_0x7f09257c, 0, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070769));
                             }
-                            remoteViews.setViewPadding(R.id.obfuscated_res_0x7f0915eb, 0, 0, 0, 0);
+                            remoteViews.setViewPadding(R.id.obfuscated_res_0x7f0915ec, 0, 0, 0, 0);
                         }
                         if (this.mBuilder.getWhenIfShowing() != 0) {
                             if (this.mBuilder.mUseChronometer && Build.VERSION.SDK_INT >= 16) {
@@ -3277,8 +3277,8 @@ public class NotificationCompat {
                                     remoteViews.setChronometerCountDown(R.id.obfuscated_res_0x7f09075e, z10);
                                 }
                             } else {
-                                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09264c, 0);
-                                remoteViews.setLong(R.id.obfuscated_res_0x7f09264c, "setTime", this.mBuilder.getWhenIfShowing());
+                                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09264e, 0);
+                                remoteViews.setLong(R.id.obfuscated_res_0x7f09264e, "setTime", this.mBuilder.getWhenIfShowing());
                             }
                         } else {
                             z9 = z7;
@@ -3288,36 +3288,36 @@ public class NotificationCompat {
                         } else {
                             i2 = 8;
                         }
-                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092021, i2);
+                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092023, i2);
                         if (!z6) {
                             i3 = 8;
                         }
-                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0915ed, i3);
+                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0915ee, i3);
                         return remoteViews;
                     }
-                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09257c, 8);
+                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09257e, 8);
                 }
                 z8 = false;
                 if (z8) {
                     if (z2) {
                     }
-                    remoteViews.setViewPadding(R.id.obfuscated_res_0x7f0915eb, 0, 0, 0, 0);
+                    remoteViews.setViewPadding(R.id.obfuscated_res_0x7f0915ec, 0, 0, 0, 0);
                 }
                 if (this.mBuilder.getWhenIfShowing() != 0) {
                 }
                 if (z9) {
                 }
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092021, i2);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092023, i2);
                 if (!z6) {
                 }
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0915ed, i3);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0915ee, i3);
                 return remoteViews;
             }
             z6 = true;
             z7 = true;
             charSequence = this.mBuilder.mSubText;
             if (charSequence != null) {
-                remoteViews.setTextViewText(R.id.obfuscated_res_0x7f09257a, charSequence);
+                remoteViews.setTextViewText(R.id.obfuscated_res_0x7f09257c, charSequence);
                 charSequence2 = this.mBuilder.mContentText;
                 if (charSequence2 == null) {
                 }
@@ -3329,21 +3329,21 @@ public class NotificationCompat {
             }
             if (z9) {
             }
-            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092021, i2);
+            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092023, i2);
             if (!z6) {
             }
-            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0915ed, i3);
+            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0915ee, i3);
             return remoteViews;
         }
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public void buildIntoRemoteViews(RemoteViews remoteViews, RemoteViews remoteViews2) {
             hideNormalContent(remoteViews);
-            remoteViews.removeAllViews(R.id.obfuscated_res_0x7f091a9f);
-            remoteViews.addView(R.id.obfuscated_res_0x7f091a9f, remoteViews2.clone());
-            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091a9f, 0);
+            remoteViews.removeAllViews(R.id.obfuscated_res_0x7f091aa1);
+            remoteViews.addView(R.id.obfuscated_res_0x7f091aa1, remoteViews2.clone());
+            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091aa1, 0);
             if (Build.VERSION.SDK_INT >= 21) {
-                remoteViews.setViewPadding(R.id.obfuscated_res_0x7f091aa0, 0, calculateTopPadding(), 0, 0);
+                remoteViews.setViewPadding(R.id.obfuscated_res_0x7f091aa2, 0, calculateTopPadding(), 0, 0);
             }
         }
 
@@ -3927,7 +3927,7 @@ public class NotificationCompat {
             int min;
             boolean z2 = true;
             int i = 0;
-            RemoteViews applyStandardTemplate = applyStandardTemplate(true, R.layout.obfuscated_res_0x7f0d076d, false);
+            RemoteViews applyStandardTemplate = applyStandardTemplate(true, R.layout.obfuscated_res_0x7f0d076e, false);
             applyStandardTemplate.removeAllViews(R.id.obfuscated_res_0x7f090094);
             List<Action> nonContextualActions = getNonContextualActions(this.mBuilder.mActions);
             if (z && nonContextualActions != null && (min = Math.min(nonContextualActions.size(), 3)) > 0) {
@@ -3956,9 +3956,9 @@ public class NotificationCompat {
             }
             String packageName = this.mBuilder.mContext.getPackageName();
             if (z) {
-                i = R.layout.obfuscated_res_0x7f0d0766;
+                i = R.layout.obfuscated_res_0x7f0d0767;
             } else {
-                i = R.layout.obfuscated_res_0x7f0d0765;
+                i = R.layout.obfuscated_res_0x7f0d0766;
             }
             RemoteViews remoteViews = new RemoteViews(packageName, i);
             IconCompat iconCompat = action.getIconCompat();

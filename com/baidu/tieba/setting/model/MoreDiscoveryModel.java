@@ -15,15 +15,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b05;
+import com.baidu.tieba.bi5;
 import com.baidu.tieba.da;
+import com.baidu.tieba.e05;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.tieba.setting.person.PersonPostListData;
-import com.baidu.tieba.uwa;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.twa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public NicknameInfo b;
     public final Context c;
     public Handler d;
-    public uwa e;
+    public twa e;
     public boolean f;
     public NetMessageListener g;
 
@@ -240,7 +240,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.a = null;
         this.c = moreActivity.getPageContext().getContext();
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new uwa("profileStat");
+        this.e = new twa("profileStat");
         registerListener(this.g);
     }
 
@@ -301,8 +301,8 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b05.k();
-            return b05.j("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+            e05.k();
+            return e05.j("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         }
         return (da) invokeV.objValue;
     }
@@ -326,9 +326,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public final void e0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.e == null) {
-            uwa uwaVar = new uwa("profileStat");
-            this.e = uwaVar;
-            uwaVar.f();
+            twa twaVar = new twa("profileStat");
+            this.e = twaVar;
+            twaVar.f();
         }
     }
 
@@ -382,7 +382,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                     getUser().setIosBImgFormat(TbadkCoreApplication.getInst().getDefaultIosBImgFormat());
                     getUser().setIosBUrl(TbadkCoreApplication.getInst().getDefaultIosBUrl());
                 }
-                yh5.d().i(getUser());
+                bi5.d().i(getUser());
                 this.mLoadDataMode = 1;
                 this.mLoadDataCallBack.c(Boolean.TRUE);
                 return;
@@ -390,7 +390,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             if (z3) {
                 setErrorString(str);
             } else {
-                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0e6f));
+                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0e70));
             }
             this.mLoadDataMode = 1;
             this.mLoadDataCallBack.c(Boolean.FALSE);

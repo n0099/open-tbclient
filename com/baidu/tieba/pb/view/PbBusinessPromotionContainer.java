@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fz4;
+import com.baidu.tieba.iz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -264,10 +264,10 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         this.k = new b(this, 2001336);
         this.l = new c(this, 2001335);
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0571, this);
-        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09109c);
-        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09109a);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09109b);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091099);
+        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09109d);
+        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09109b);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09109c);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09109a);
         this.b.setRadius(BdUtilHelper.getDimens(context, R.dimen.tbds24));
         this.b.setConrers(5);
         this.b.setDefaultResource(17170445);
@@ -295,19 +295,19 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         }
     }
 
-    public void f(ThreadData threadData, fz4 fz4Var, boolean z) {
+    public void f(ThreadData threadData, iz4 iz4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, fz4Var, z) == null) {
-            if (threadData != null && fz4Var != null && !StringUtils.isNull(fz4Var.d())) {
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, iz4Var, z) == null) {
+            if (threadData != null && iz4Var != null && !StringUtils.isNull(iz4Var.d())) {
                 this.e = threadData;
                 i(z);
                 this.i = true;
                 setVisibility(0);
-                this.b.startLoad(fz4Var.a(), 10, false);
-                this.c.setText(fz4Var.d());
+                this.b.startLoad(iz4Var.a(), 10, false);
+                this.c.setText(iz4Var.d());
                 if (!this.g) {
                     this.g = true;
-                    this.h = fz4Var.f();
+                    this.h = iz4Var.f();
                     j();
                     return;
                 }

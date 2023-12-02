@@ -114,8 +114,8 @@ public final class a extends e {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public final void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
         super.onViewCreated(view2, bundle);
-        this.NQ = (FeedVideoView) findViewById(R.id.obfuscated_res_0x7f0914d2);
-        this.PN = (SplitScrollWebView) findViewById(R.id.obfuscated_res_0x7f091511);
+        this.NQ = (FeedVideoView) findViewById(R.id.obfuscated_res_0x7f0914d3);
+        this.PN = (SplitScrollWebView) findViewById(R.id.obfuscated_res_0x7f091512);
         w(view2);
         j(this.lC);
         initView();
@@ -207,9 +207,9 @@ public final class a extends e {
     }
 
     private void w(View view2) {
-        this.NR = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09151e);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09151f);
-        ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091520)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.splitLandingPage.a.1
+        this.NR = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09151f);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091520);
+        ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091521)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.splitLandingPage.a.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view3) {
                 a.this.NR.setVisibility(8);

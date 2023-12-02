@@ -31,8 +31,9 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo9;
-import com.baidu.tieba.co9;
+import com.baidu.tieba.cm9;
+import com.baidu.tieba.fo9;
+import com.baidu.tieba.go9;
 import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
@@ -54,11 +55,10 @@ import com.baidu.tieba.memberCenter.tail.message.SetTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.SetTailSocketResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
-import com.baidu.tieba.no9;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
-import com.baidu.tieba.re5;
-import com.baidu.tieba.wva;
-import com.baidu.tieba.yl9;
+import com.baidu.tieba.ro9;
+import com.baidu.tieba.ue5;
+import com.baidu.tieba.vva;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,12 +94,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<re5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ue5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001342, new co9(customMessage.getData(), 1));
+                    return new CustomResponsedMessage<>(2001342, new go9(customMessage.getData(), 1));
                 }
                 return null;
             }
@@ -127,12 +127,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<re5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ue5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001343, new bo9(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001343, new fo9(customMessage.getData()));
                 }
                 return null;
             }
@@ -160,12 +160,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<re5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ue5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    return new CustomResponsedMessage<>(2921824, new no9(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2921824, new ro9(customMessage.getData()));
                 }
                 return null;
             }
@@ -276,12 +276,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<re5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ue5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001339, new yl9(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001339, new cm9(customMessage.getData()));
                 }
                 return null;
             }
@@ -629,7 +629,7 @@ public class MemberCenterStatic {
                         UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
                         return;
                     } else {
-                        BdUtilHelper.showToast(tbPageContext.getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1151);
+                        BdUtilHelper.showToast(tbPageContext.getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1152);
                         return;
                     }
                 }
@@ -641,8 +641,8 @@ public class MemberCenterStatic {
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
-            wva.h(i3, cls2, false, false);
-            wva.c(i3, i2, str, cls, false, false, false, false);
+            vva.h(i3, cls2, false, false);
+            vva.c(i3, i2, str, cls, false, false, false, false);
         }
     }
 

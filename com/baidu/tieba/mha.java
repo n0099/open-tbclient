@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface mha {
-    void setIsFromCDN(boolean z);
+    boolean a();
 }

@@ -13,9 +13,11 @@ public class xi2 {
     public int a;
     public int b;
     @V8JavascriptField
-    public String data;
+    public String digest;
     @V8JavascriptField
     public String errMsg;
+    @V8JavascriptField
+    public int size;
 
     public xi2() {
         Interceptable interceptable = $ic;
@@ -39,7 +41,7 @@ public class xi2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ReadFileStringCallBack" + this.b;
+            return "GetFileInfoCallBack" + this.b;
         }
         return (String) invokeV.objValue;
     }

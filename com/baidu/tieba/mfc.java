@@ -3,36 +3,170 @@ package com.baidu.tieba;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.ui.state.StateManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.SoftReference;
+import com.yy.open.activity.AssistActivity;
+import com.yy.open.activity.BridgeActivity;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class mfc {
     public static /* synthetic */ Interceptable $ic;
-    public static SoftReference<mfc> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public nfc a;
-    public String b;
+    public SparseArray<c> a;
+    public Handler b;
     public Context c;
+    public String d;
+    public qfc e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947972191, "Lcom/baidu/tieba/mfc;")) == null) {
-            return;
+    public final void h(int i, Intent intent, jfc jfcVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), intent, jfcVar, Long.valueOf(j)}) == null) {
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ jfc b;
+        public final /* synthetic */ Intent c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ mfc e;
+
+        public a(mfc mfcVar, int i, jfc jfcVar, Intent intent, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mfcVar, Integer.valueOf(i), jfcVar, intent, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = mfcVar;
+            this.a = i;
+            this.b = jfcVar;
+            this.c = intent;
+            this.d = j;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947972191, "Lcom/baidu/tieba/mfc;");
+
+        @Override // java.lang.Runnable
+        public void run() {
+            String str;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a == 0) {
+                        this.b.onCancel();
+                        return;
+                    }
+                    String stringExtra = this.c.getStringExtra("resjson");
+                    this.e.e.a(stringExtra);
+                    JSONObject jSONObject = new JSONObject(stringExtra);
+                    if (jSONObject.has("resCode") && jSONObject.has("resMsg")) {
+                        String optString = jSONObject.optString("resMsg");
+                        int optInt = jSONObject.optInt("resCode");
+                        if (optInt != 1000006 && optInt != 1290001) {
+                            optInt = this.a;
+                            this.e.f(this.c, this.b, this.d, optInt, optString);
+                            return;
+                        }
+                        Log.e("chenqiang", "resCode:" + optInt);
+                        this.e.f(this.c, this.b, this.d, optInt, optString);
+                        return;
+                    }
+                    Log.e("chenqiang", "please update yy new version！");
+                    if (jSONObject.has("openid") && jSONObject.has("access_code")) {
+                        i = this.a;
+                        str = "success";
+                    } else {
+                        str = "handleAuthLoginResult--default error!";
+                        i = 444222199;
+                    }
+                    this.e.f(this.c, this.b, this.d, i, str);
+                } catch (Exception unused) {
+                    this.b.onError(new kfc(444222105, pfc.h(444222105)));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jfc a;
+        public final /* synthetic */ kfc b;
+
+        public b(mfc mfcVar, jfc jfcVar, kfc kfcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mfcVar, jfcVar, kfcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jfcVar;
+            this.b = kfcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onError(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public jfc a;
+        public long b;
+
+        public c(mfc mfcVar, jfc jfcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mfcVar, jfcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jfcVar;
+            this.b = System.currentTimeMillis();
         }
     }
 
@@ -42,59 +176,198 @@ public final class mfc {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        rfc.b();
-        this.a = new nfc(context, str);
-        this.b = str;
+        this.e = qfc.b();
         this.c = context;
+        this.d = str;
+        this.a = new SparseArray<>();
+        this.b = new Handler(Looper.getMainLooper());
     }
 
-    public static mfc b(Context context, String str) {
-        InterceptResult invokeLL;
-        mfc mfcVar;
-        mfc mfcVar2;
+    public final void c(Activity activity, String str, jfc jfcVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (context != null && str != null) {
-                SoftReference<mfc> softReference = d;
-                if (softReference == null) {
-                    mfcVar = null;
-                } else {
-                    mfcVar = softReference.get();
-                }
-                if (mfcVar == null || !str.equals(mfcVar.b)) {
-                    synchronized (mfc.class) {
-                        mfcVar2 = new mfc(context, str);
-                        d = new SoftReference<>(mfcVar2);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, jfcVar) == null) {
+            if (ofc.d(activity, BridgeActivity.class) && ofc.d(activity, AssistActivity.class)) {
+                int a2 = pfc.a(activity);
+                if (a2 != 0) {
+                    try {
+                        this.a.put(62345, new c(this, jfcVar));
+                        String c2 = pfc.c(this.c, this.d, str, true);
+                        Intent intent = new Intent(activity, AssistActivity.class);
+                        intent.putExtra("type", "type_web");
+                        intent.putExtra("url", c2);
+                        activity.startActivityForResult(intent, 62345);
+                        return;
+                    } catch (Exception unused) {
+                        g(new kfc(a2), jfcVar);
+                        return;
                     }
-                    return mfcVar2;
                 }
-                return mfcVar;
+                Intent e = pfc.e(activity);
+                this.a.put(62345, new c(this, jfcVar));
+                Bundle d = pfc.d(activity, this.d);
+                e.putExtra("action", "action_login");
+                e.putExtra(StateManager.KEY_STATE, d);
+                i(activity, e, 62345);
+                return;
             }
-            throw new IllegalArgumentException("YYOpenSDK createInstance failed, Make sure context or appid is not null!");
-        }
-        return (mfc) invokeLL.objValue;
-    }
-
-    public final void a(Activity activity, kfc kfcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, kfcVar) == null) {
-            this.a.c(activity, "123", kfcVar);
+            g(new kfc(3), jfcVar);
         }
     }
 
-    public final void c(int i, int i2, Intent intent, kfc kfcVar) {
+    public final boolean d(int i, int i2, Intent intent, jfc jfcVar) {
+        InterceptResult invokeCommon;
+        long currentTimeMillis;
+        jfc jfcVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, kfcVar}) == null) {
-            this.a.d(i, i2, intent, kfcVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, jfcVar})) == null) {
+            if (i != 62345 && i != 62347) {
+                return false;
+            }
+            c cVar = this.a.get(i);
+            if (cVar != null) {
+                currentTimeMillis = cVar.b;
+                jfcVar2 = cVar.a;
+                this.a.remove(i);
+            } else {
+                currentTimeMillis = System.currentTimeMillis();
+                jfcVar2 = jfcVar;
+            }
+            if (i == 62345) {
+                e(i2, intent, jfcVar2, currentTimeMillis);
+                return true;
+            } else if (i != 62347) {
+                return false;
+            } else {
+                h(i2, intent, jfcVar2, currentTimeMillis);
+                return true;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void e(int i, Intent intent, jfc jfcVar, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), intent, jfcVar, Long.valueOf(j)}) == null) {
+            this.b.postDelayed(new a(this, i, jfcVar, intent, j), 10L);
+        }
+    }
+
+    public final void f(Intent intent, jfc jfcVar, long j, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{intent, jfcVar, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            switch (i) {
+                case 1000006:
+                    jfcVar.onError(new kfc(1000006, str));
+                    return;
+                case 1290001:
+                    jfcVar.onError(new kfc(1290001, str));
+                    return;
+                case 444111001:
+                    try {
+                        String stringExtra = intent.getStringExtra("resjson");
+                        this.e.a(stringExtra);
+                        JSONObject jSONObject = new JSONObject(stringExtra);
+                        jSONObject.optString("openid");
+                        jSONObject.optString("uid");
+                        jSONObject.optString("access_code");
+                        jfcVar.onComplete(jSONObject);
+                        return;
+                    } catch (Exception unused) {
+                        jfcVar.onError(new kfc(444222105, pfc.h(444222105)));
+                        return;
+                    }
+                case 444111002:
+                    jfcVar.onCancel();
+                    return;
+                case 444111003:
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(intent.getStringExtra("resjson"));
+                        if ("1".equals(jSONObject2.optString("appType"))) {
+                            jSONObject2.optString("uid");
+                        } else {
+                            jSONObject2.optString("openid");
+                        }
+                        jfcVar.onComplete(jSONObject2);
+                        return;
+                    } catch (Exception unused2) {
+                        jfcVar.onError(new kfc(444222105, pfc.h(444222105)));
+                        return;
+                    }
+                case 444222000:
+                    jfcVar.onError(new kfc(444222000, str));
+                    return;
+                case 444222001:
+                    jfcVar.onError(new kfc(444222001, str));
+                    return;
+                case 444222002:
+                    jfcVar.onError(new kfc(444222002, str));
+                    return;
+                case 444222003:
+                    jfcVar.onError(new kfc(444222003, str));
+                    return;
+                case 444222104:
+                    jfcVar.onError(new kfc(444222104, str));
+                    return;
+                case 444222105:
+                    jfcVar.onError(new kfc(444222105, str));
+                    return;
+                case 444222106:
+                    try {
+                        new JSONObject(intent.getStringExtra("resjson"));
+                        jfcVar.onError(new kfc(444222106, str));
+                        return;
+                    } catch (Exception unused3) {
+                        jfcVar.onError(new kfc(444222105, pfc.h(444222105)));
+                        return;
+                    }
+                case 444222108:
+                    try {
+                        jfcVar.onComplete(new JSONObject(intent.getStringExtra("resjson")));
+                        return;
+                    } catch (Exception unused4) {
+                        jfcVar.onError(new kfc(444222105, pfc.h(444222105)));
+                        return;
+                    }
+                case 444222110:
+                    try {
+                        new JSONObject(intent.getStringExtra("resjson"));
+                        jfcVar.onError(new kfc(444222110, str));
+                        return;
+                    } catch (Exception unused5) {
+                        jfcVar.onError(new kfc(444222105, pfc.h(444222105)));
+                        return;
+                    }
+                default:
+                    Log.e("chenqiang", "default  error");
+                    jfcVar.onError(new kfc(i, pfc.h(i)));
+                    return;
+            }
+        }
+    }
+
+    public final void g(kfc kfcVar, jfc jfcVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, kfcVar, jfcVar) == null) && jfcVar != null) {
+            this.b.postDelayed(new b(this, jfcVar, kfcVar), 50L);
+        }
+    }
+
+    public final void i(Activity activity, Intent intent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048582, this, activity, intent, i) == null) {
+            intent.putExtra("request_code", i);
+            Intent intent2 = new Intent(activity.getApplicationContext(), BridgeActivity.class);
+            intent2.putExtra("intent", intent);
+            activity.startActivityForResult(intent2, i);
         }
     }
 }

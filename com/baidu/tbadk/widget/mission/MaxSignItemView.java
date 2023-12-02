@@ -122,8 +122,8 @@ public class MaxSignItemView extends FrameLayout {
             this.j = false;
             this.k = activeCenterStatusData;
             this.f = view2;
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091234);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091261);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091235);
+            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091262);
             CircleView circleView = (CircleView) this.f.findViewById(R.id.select_circle);
             this.i = circleView;
             circleView.setVisibility(4);

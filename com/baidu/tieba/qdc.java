@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
+import android.content.SharedPreferences;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class qdc {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "h";
+    public static /* synthetic */ Interceptable $ic;
+    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,29 +29,39 @@ public class qdc {
         }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static String a(String str, String str2, Context context) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Context a2 = mdc.a();
-            if (a2 == null) {
-                return "";
-            }
-            try {
-                return a2.getPackageManager().getPackageInfo(str, 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                String str2 = a;
-                pdc.d(str2, "getVersion NameNotFoundException : " + e.getMessage());
-                return "";
-            } catch (Exception e2) {
-                String str3 = a;
-                pdc.d(str3, "getVersion: " + e2.getMessage());
-                return "";
-            } catch (Throwable unused) {
-                pdc.d(a, "throwable");
-                return "";
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, context)) == null) {
+            return b(context).getString(str, str2);
         }
-        return (String) invokeL.objValue;
+        return (String) invokeLLL.objValue;
+    }
+
+    public static void c(String str, String str2, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, context) == null) {
+            b(context).edit().putString(str, str2).apply();
+        }
+    }
+
+    public static synchronized SharedPreferences b(Context context) {
+        InterceptResult invokeL;
+        SharedPreferences sharedPreferences;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (qdc.class) {
+                if (a == null) {
+                    if (Build.VERSION.SDK_INT >= 24) {
+                        a = context.createDeviceProtectedStorageContext().getSharedPreferences("aegis", 0);
+                    } else {
+                        a = context.getApplicationContext().getSharedPreferences("aegis", 0);
+                    }
+                }
+                sharedPreferences = a;
+            }
+            return sharedPreferences;
+        }
+        return (SharedPreferences) invokeL.objValue;
     }
 }

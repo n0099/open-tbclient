@@ -1,24 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ItemPlot;
+import tbclient.ItemPoint;
 /* loaded from: classes5.dex */
-public class f4d extends ltc {
+public class f4d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ItemPlot itemPlot) {
+    public static JSONObject b(@NonNull ItemPoint itemPoint) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemPlot)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemPoint)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "level", itemPlot.level);
-            ltc.a(jSONObject, "num", itemPlot.num);
+            ktc.a(jSONObject, "time_intval", itemPoint.time_intval);
+            ktc.a(jSONObject, Config.EVENT_HEAT_POINT, itemPoint.point);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

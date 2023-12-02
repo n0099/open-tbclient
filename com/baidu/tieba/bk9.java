@@ -1,276 +1,46 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.SocketMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.AccountRealNameCallback;
-import com.baidu.sapi2.callback.SapiCallback;
-import com.baidu.sapi2.dto.RealNameDTO;
-import com.baidu.sapi2.result.AccountRealNameResult;
-import com.baidu.sapi2.result.CheckUserFaceIdResult;
-import com.baidu.searchbox.live.game.interfaces.GameService;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.searchbox.live.data.constant.PwLogConstant;
+import com.baidu.searchbox.live.interfaces.LiveConstants;
+import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.im.util.MessageUtils;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bk9 implements GameService {
+public class bk9 implements EventDispatcherService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
-    public SocketMessageListener b;
-    public CustomMessageListener c;
 
-    /* loaded from: classes5.dex */
-    public class a extends SocketMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameService.MsgSendListener a;
-        public final /* synthetic */ bk9 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(bk9 bk9Var, int i, GameService.MsgSendListener msgSendListener) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bk9Var, Integer.valueOf(i), msgSendListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = bk9Var;
-            this.a = msgSendListener;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: g */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || !(socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
-                return;
-            }
-            ChatMessage chatMessage = (ChatMessage) ((ResponseCommitPersonalMessage) socketResponsedMessage).getOrginalMessage();
-            if (chatMessage instanceof PersonalChatMessage) {
-                String valueOf = String.valueOf(chatMessage.getRecordId());
-                if (this.b.a.containsKey(valueOf)) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("msg_id", this.b.a.get(valueOf));
-                    if (socketResponsedMessage.hasError()) {
-                        this.a.onFailed(hashMap);
-                    } else {
-                        this.a.onSuccess(hashMap);
-                    }
-                }
-            }
+    public final void a(Map<String, ?> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements SapiCallback<CheckUserFaceIdResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameService.GameAuthCallback a;
-        public final /* synthetic */ bk9 b;
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        public b(bk9 bk9Var, GameService.GameAuthCallback gameAuthCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bk9Var, gameAuthCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = bk9Var;
-            this.a = gameAuthCallback;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: a */
-        public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
-            GameService.GameAuthCallback gameAuthCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) && (gameAuthCallback = this.a) != null) {
-                gameAuthCallback.onFail(checkUserFaceIdResult.getResultCode(), checkUserFaceIdResult.getResultMsg());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: b */
-        public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, checkUserFaceIdResult) == null) {
-                if (!"advanced_cert_face_match".equals(checkUserFaceIdResult.action) && !"cert_face_match".equals(checkUserFaceIdResult.action)) {
-                    this.b.c(this.a);
-                    return;
-                }
-                GameService.GameAuthCallback gameAuthCallback = this.a;
-                if (gameAuthCallback != null) {
-                    gameAuthCallback.onSuccess();
-                }
-            }
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c extends AccountRealNameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameService.GameAuthCallback a;
-
-        public c(bk9 bk9Var, GameService.GameAuthCallback gameAuthCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bk9Var, gameAuthCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gameAuthCallback;
-        }
-
-        @Override // com.baidu.sapi2.callback.AccountRealNameCallback
-        public void onFinish(AccountRealNameResult accountRealNameResult) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
-                super.onFinish(accountRealNameResult);
-                if (accountRealNameResult.getResultCode() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    GameService.GameAuthCallback gameAuthCallback = this.a;
-                    if (gameAuthCallback != null) {
-                        gameAuthCallback.onSuccess();
-                        return;
-                    }
-                    return;
-                }
-                GameService.GameAuthCallback gameAuthCallback2 = this.a;
-                if (gameAuthCallback2 != null) {
-                    gameAuthCallback2.onFail(accountRealNameResult.getResultCode(), accountRealNameResult.getResultMsg());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameService.GameSelectImageCallback a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(bk9 bk9Var, int i, GameService.GameSelectImageCallback gameSelectImageCallback) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bk9Var, Integer.valueOf(i), gameSelectImageCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gameSelectImageCallback;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            String optString;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921829 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof JSONObject) && (optString = ((JSONObject) customResponsedMessage.getData()).optString(AlbumActivityConfig.ALBUM_RESULT)) != null) {
-                WriteImagesInfo writeImagesInfo = new WriteImagesInfo(1);
-                writeImagesInfo.parseJson(optString);
-                writeImagesInfo.updateQuality();
-                LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
-                if (chosedFiles != null && !ListUtils.isEmpty(chosedFiles)) {
-                    this.a.onSelectImage(chosedFiles.get(0).getFilePath());
-                }
-            }
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
@@ -284,164 +54,215 @@ public class bk9 implements GameService {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
-    }
-
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void clearCachedHostMsgSendAPI() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void releaseHostMsgSendAPI() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.b != null) {
-                MessageManager.getInstance().unRegisterListener(this.b);
-                this.b = null;
-            }
-            if (this.c != null) {
-                MessageManager.getInstance().unRegisterListener(this.c);
-                this.c = null;
             }
         }
     }
 
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void initHostMsgSendAPI(@Nullable GameService.MsgSendListener msgSendListener) {
+    public static void g(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, msgSendListener) != null) || msgSendListener == null) {
+        if ((interceptable != null && interceptable.invokeL(65537, null, arrayList) != null) || arrayList == null || arrayList.size() == 0) {
+        }
+    }
+
+    public final void i(Map<String, ?> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
+            String str = (String) map.get("data");
+            if (!TextUtils.isEmpty(str) && str != null) {
+                try {
+                    jh9.o(new JSONObject(str));
+                } catch (JSONException unused) {
+                }
+            }
+        }
+    }
+
+    public final void b(String str, Map<String, ?> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) != null) || map == null || TextUtils.isEmpty(str)) {
             return;
         }
-        if (this.b == null) {
-            this.b = new a(this, 0, msgSendListener);
-        }
-        MessageManager.getInstance().registerListener(205001, this.b);
-    }
-
-    public final void c(@Nullable GameService.GameAuthCallback gameAuthCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gameAuthCallback) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                if (gameAuthCallback != null) {
-                    gameAuthCallback.onFail(-1, "pass没有初始化");
-                    return;
-                }
-                return;
-            }
-            RealNameDTO realNameDTO = new RealNameDTO();
-            realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
-            realNameDTO.scene = "baidugame";
-            realNameDTO.needCbKey = true;
-            PassportSDK.getInstance().loadAccountRealName(TbadkCoreApplication.getInst().getContext(), new c(this, gameAuthCallback), realNameDTO);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void callHostMsgSendAPI(@Nullable Map<String, String> map) {
-        long parseLong;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) && map != null && !map.isEmpty()) {
-            String str = map.get("msg_id");
-            String str2 = map.get("msg_content");
-            String str3 = map.get("receiver_id");
-            String str4 = map.get("receiver_name");
-            String str5 = map.get("receiver_avatar");
-            String str6 = map.get(DI.FOLLOW_STATUS);
-            String str7 = map.get("msg_type");
-            try {
-                if (TextUtils.isEmpty(str3)) {
-                    parseLong = -1;
-                } else {
-                    parseLong = Long.parseLong(str3);
-                }
-                int parseInt = Integer.parseInt(str7);
-                boolean equalsIgnoreCase = "1".equalsIgnoreCase(str6);
-                if (parseLong > -1) {
-                    this.a.put(String.valueOf(MessageUtils.createAndSendPersonalText(parseInt, str2, parseLong, str4, str4, str5, equalsIgnoreCase)), str);
-                    new sw8().c(null, str3);
-                }
-            } catch (NumberFormatException unused) {
-                if (BdBaseApplication.getInst().isDebugMode()) {
-                    BdLog.e("NumberFormatException: parse long");
-                }
+        StatisticItem statisticItem = new StatisticItem(str);
+        for (String str2 : map.keySet()) {
+            Object obj = map.get(str2);
+            if (obj != null) {
+                statisticItem.addParam(str2, obj.toString());
             }
         }
+        statisticItem.addParam("uid", BdStatisticsManager.getInstance().getUid());
+        TiebaStatic.log(statisticItem);
     }
 
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void dispatchYYLiveRouter(@NonNull Context context, @NonNull String str) {
+    public final void d(Map<String, ?> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) && str != null && context != null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                fh9.c(context, "bdtiebalive://video/yylive/router?url=" + URLEncoder.encode(str, "utf-8"));
-            } catch (UnsupportedEncodingException e) {
+                jSONObject.put("roomId", map.get("roomId"));
+                jSONObject.put("isClosed", map.get("isClosed"));
+                jSONObject.put("liveId", map.get("liveId"));
+                jSONObject.put("type", map.get("type"));
+                jSONObject.put("sid", map.get("sid"));
+                jSONObject.put(YyLiveRoomConfig.KEY_SSID, map.get(YyLiveRoomConfig.KEY_SSID));
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921547, jSONObject));
         }
     }
 
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void logTiebaStatic(@NonNull String str, @NonNull Map<String, String> map) {
+    public void e(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, str, map) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, map) != null) || rd.isEmpty(str)) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem(str);
         if (map != null) {
             for (String str2 : map.keySet()) {
-                statisticItem.addParam(str2, map.get(str2));
+                statisticItem.param(str2, map.get(str2));
             }
         }
         TiebaStatic.log(statisticItem);
     }
 
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void doAuth(@NonNull Map<String, String> map, @Nullable GameService.GameAuthCallback gameAuthCallback) {
+    public void f(Map<String, ?> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, map, gameAuthCallback) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                if (gameAuthCallback != null) {
-                    gameAuthCallback.onFail(-1, "pass没有初始化");
-                    return;
-                }
-                return;
-            }
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            HashMap hashMap = new HashMap();
-            hashMap.put("scene", "baidugame");
-            SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new b(this, gameAuthCallback), session.bduss, hashMap);
+        if ((interceptable != null && interceptable.invokeL(1048581, this, map) != null) || map == null) {
+            return;
         }
+        HashMap hashMap = new HashMap();
+        String obj = map.remove("key").toString();
+        for (String str : map.keySet()) {
+            hashMap.put(str, map.get(str).toString());
+        }
+        e(obj, hashMap);
     }
 
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void selectImage(@NonNull Activity activity, @NonNull GameService.GameSelectImageCallback gameSelectImageCallback) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.searchbox.live.interfaces.service.EventDispatcherService
+    public void onEvent(String str, Map<String, ?> map) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, gameSelectImageCallback) == null) {
-            if (this.c != null) {
-                MessageManager.getInstance().unRegisterListener(this.c);
-                this.c = null;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, map) == null) {
+            switch (str.hashCode()) {
+                case -2147386482:
+                    if (str.equals("sync_webview_cookie")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1369745389:
+                    if (str.equals("living_room_is_closed")) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1326603888:
+                    if (str.equals(LiveConstants.SdkToHostEvents.DO_LOG)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1284765503:
+                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_DUR)) {
+                        c = '\n';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -841542404:
+                    if (str.equals(LiveConstants.SdkToHostEvents.GO_FEEDBACK)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -807428011:
+                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_START)) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -442093365:
+                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_FAIL)) {
+                        c = '\t';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 152519529:
+                    if (str.equals("live_show_close")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1480780598:
+                    if (str.equals(PwLogConstant.PW_UBC_PLUGIN_SUC)) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1766660371:
+                    if (str.equals(LiveConstants.SdkToHostEvents.BUY_TBEAN_RESULT)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1785162541:
+                    if (str.equals(LiveConstants.SdkToHostEvents.KEY_PRE_DOWANLOAD_SWAN)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            this.c = new d(this, 2921829, gameSelectImageCallback);
-            MessageManager.getInstance().registerListener(this.c);
-            PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
-            permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (permissionJudgePolicy.startRequestPermission(activity)) {
-                return;
+            switch (c) {
+                case 0:
+                    h();
+                    return;
+                case 1:
+                    c();
+                    return;
+                case 2:
+                    f(map);
+                    return;
+                case 3:
+                    g((ArrayList) map.get(str));
+                    return;
+                case 4:
+                    a(map);
+                    return;
+                case 5:
+                    i(map);
+                    return;
+                case 6:
+                    d(map);
+                    return;
+                case 7:
+                    b("c15400", map);
+                    return;
+                case '\b':
+                    b("c15401", map);
+                    return;
+                case '\t':
+                    b("c15402", map);
+                    return;
+                case '\n':
+                    b("c15403", map);
+                    return;
+                default:
+                    return;
             }
-            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) activity, new WriteImagesInfo(1, 1).toJsonString(), true);
-            albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-            albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-            albumActivityConfig.setResourceType(2);
-            albumActivityConfig.getIntent().putExtra("from", AlbumActivityConfig.FROM_GAME_AUDIO_ROOM);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
         }
     }
 }

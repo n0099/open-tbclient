@@ -1,214 +1,215 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.AndroidUtils;
-import com.baidu.searchbox.IntentConstants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.c05;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetAddressList.LbsInfo;
+import tbclient.GetAddressList.friendList;
 /* loaded from: classes5.dex */
-public class bb5 {
+public class bb5 implements TbCheckBox.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
+    public long c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public cb5 h;
+    public String i;
 
-    /* loaded from: classes5.dex */
-    public class a implements c05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ DialogInterface.OnCancelListener c;
-
-        public a(int i, Context context, DialogInterface.OnCancelListener onCancelListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), context, onCancelListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = context;
-            this.c = onCancelListener;
-        }
-
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                bb5.d(this.a, this.b);
-                c05Var.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.c;
-                if (onCancelListener != null) {
-                    onCancelListener.onCancel(c05Var.getDialog());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements c05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DialogInterface.OnCancelListener a;
-
-        public b(DialogInterface.OnCancelListener onCancelListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {onCancelListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = onCancelListener;
-        }
-
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.a;
-                if (onCancelListener != null) {
-                    onCancelListener.onCancel(c05Var.getDialog());
-                }
-            }
-        }
-    }
-
-    public static void e(int i, Context context) {
+    public bb5() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, context) != null) || context == null) {
-            return;
-        }
-        d(i, context);
-    }
-
-    public static boolean b(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (i != 3 && i != 2) {
-                if (i != 8 && i != 4) {
-                    if (i == 6) {
-                        return sva.b(context, "com.sina.weibo");
-                    }
-                    return true;
-                }
-                return sva.b(context, "com.tencent.mobileqq");
-            }
-            return sva.b(context, "com.tencent.mm");
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static String c(int i, Context context) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, context)) == null) {
-            if (i != 3 && i != 2) {
-                if (i != 8 && i != 4) {
-                    if (i == 6) {
-                        return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f1453));
-                    }
-                    return null;
-                }
-                return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f11f6));
-            }
-            return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f18b3));
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public static void d(int i, Context context) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65539, null, i, context) == null) {
-            if (i != 3 && i != 2) {
-                if (i != 8 && i != 4) {
-                    if (i == 6) {
-                        if (!b(context, i)) {
-                            BdToast.makeText(context.getApplicationContext(), context.getText(R.string.share_sina_weibo_not_install)).show();
-                            return;
-                        }
-                        intent = new Intent();
-                        intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
-                        intent.addCategory("android.intent.category.DEFAULT");
-                        intent.setData(Uri.parse("sinaweibo://splash"));
-                        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    } else {
-                        intent = null;
-                    }
-                } else if (!b(context, i)) {
-                    BdToast.makeText(context.getApplicationContext(), context.getText(R.string.share_qq_not_install)).show();
-                    return;
-                } else {
-                    intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    context.startActivity(intent);
-                }
-            } else if (!b(context, i)) {
-                BdToast.makeText(context.getApplicationContext(), context.getText(R.string.share_wechat_not_install)).show();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            } else {
-                intent = new Intent("android.intent.action.MAIN");
-                ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
-                intent.addCategory("android.intent.category.LAUNCHER");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                intent.setComponent(componentName);
-                context.startActivity(intent);
             }
-            if (intent != null) {
-                context.startActivity(intent);
+        }
+        this.a = false;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public cb5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
+        }
+        return (cb5) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+    public boolean isChecked() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i(friendList friendlist) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, friendlist) == null) && friendlist != null) {
+            this.b = friendlist.user_name;
+            this.c = friendlist.user_id.longValue();
+            this.e = friendlist.portrait;
+            this.i = friendlist.name_show;
+            this.f = friendlist.quanpin;
+            LbsInfo lbsInfo = friendlist.location;
+            int i = -1;
+            long j = 0;
+            if (lbsInfo == null) {
+                this.h = new cb5("", 0L, -1);
+                return;
             }
+            Long l = lbsInfo.time;
+            if (l != null && l.longValue() > 0) {
+                j = friendlist.location.time.longValue();
+            }
+            Integer num = friendlist.location.is_hide;
+            if (num != null && num.intValue() >= 0) {
+                i = friendlist.location.is_hide.intValue();
+            }
+            this.h = new cb5(friendlist.location.distance, j, i);
         }
     }
 
-    public static void f(ShareItem shareItem, Context context, int i, DialogInterface.OnCancelListener onCancelListener) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65541, null, shareItem, context, i, onCancelListener) != null) || shareItem == null || TextUtils.isEmpty(shareItem.content) || TextUtils.isEmpty(shareItem.title) || !(context instanceof Activity)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.g = str;
         }
-        AndroidUtils.copyToClipboard(shareItem.cmdContent);
-        Activity activity = (Activity) context;
-        c05 c05Var = new c05(activity);
-        c05Var.setTitle(context.getString(R.string.command_share_tips));
-        c05Var.setMessage(shareItem.cmdContent);
-        c05Var.setAutoNight(false);
-        c05Var.setCancelable(true);
-        c05Var.setTitleShowCenter(true);
-        c05Var.setPositiveButton(c(i, context), new a(i, context, onCancelListener));
-        c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new b(onCancelListener)).create(a5.a(activity));
-        if (onCancelListener != null) {
-            c05Var.setOnCalcelListener(onCancelListener);
+    }
+
+    public void k(cb5 cb5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, cb5Var) == null) {
+            this.h = cb5Var;
         }
-        c05Var.show();
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.i = str;
+        }
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+    public void setChecked(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.a = z;
+        }
     }
 }

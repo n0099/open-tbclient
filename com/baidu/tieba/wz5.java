@@ -1,80 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
-import android.view.View;
-import android.view.ViewConfiguration;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class wz5 {
+import java.util.TimerTask;
+/* loaded from: classes8.dex */
+public final class wz5 extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public b b;
-    public VelocityTracker c;
-    public float d;
-    public float e;
-    public long f;
-    public long g;
-    public boolean h;
-    public boolean i;
-    public int j;
-    public int k;
-    public int l;
+    public float a;
+    public final float b;
+    public final WheelView c;
 
-    /* loaded from: classes9.dex */
-    public interface b {
-        void Y0(float f, float f2);
-
-        void onViewClick();
-
-        void onViewDragToRight();
-    }
-
-    /* loaded from: classes9.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wz5 a;
-
-        public a(wz5 wz5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wz5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wz5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.i && this.a.h && this.a.b != null) {
-                this.a.b.onViewClick();
-            }
-        }
-    }
-
-    public wz5(View view2) {
+    public wz5(WheelView wheelView, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {wheelView, Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,82 +29,59 @@ public class wz5 {
                 return;
             }
         }
-        this.a = view2;
-        ViewConfiguration viewConfiguration = ViewConfiguration.get(view2.getContext());
-        if (viewConfiguration != null) {
-            this.l = viewConfiguration.getScaledPagingTouchSlop();
-        }
-        this.k = ViewConfiguration.getMaximumFlingVelocity();
-        this.j = ViewConfiguration.getMinimumFlingVelocity();
+        this.c = wheelView;
+        this.b = f;
+        this.a = 2.1474836E9f;
     }
 
-    public void f(b bVar) {
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.b = bVar;
-        }
-    }
-
-    public boolean d(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (this.c == null) {
-                this.c = VelocityTracker.obtain();
-            }
-            this.c.addMovement(motionEvent);
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 3) {
-                        e();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == 2.1474836E9f) {
+                float f = 2000.0f;
+                if (Math.abs(this.b) > 2000.0f) {
+                    if (this.b <= 0.0f) {
+                        f = -2000.0f;
                     }
+                    this.a = f;
                 } else {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - this.f < 100 && currentTimeMillis - this.g < 500) {
-                        this.i = true;
-                    } else {
-                        this.i = false;
-                    }
-                    VelocityTracker velocityTracker = this.c;
-                    velocityTracker.computeCurrentVelocity(1000, this.k);
-                    if (Math.abs(velocityTracker.getYVelocity()) > this.j && Math.abs(this.e - motionEvent.getY()) > 50.0f) {
-                        this.i = false;
-                        this.h = false;
-                    }
-                    if (this.i) {
-                        b bVar2 = this.b;
-                        if (bVar2 != null) {
-                            bVar2.Y0(motionEvent.getRawX(), motionEvent.getRawY());
-                        }
-                    } else if (Math.abs(this.d - motionEvent.getX()) > this.l && (this.d - motionEvent.getX()) - 50.0f > Math.abs(this.e - motionEvent.getY()) && (bVar = this.b) != null) {
-                        bVar.onViewDragToRight();
-                    }
-                    if (!this.i && this.h && Math.abs(this.d - motionEvent.getX()) < 30.0f && Math.abs(this.e - motionEvent.getY()) < 30.0f) {
-                        this.a.postDelayed(new a(this), 300L);
-                    }
-                    this.g = currentTimeMillis;
-                    e();
+                    this.a = this.b;
                 }
-            } else {
-                this.d = motionEvent.getX();
-                this.e = motionEvent.getY();
-                this.f = System.currentTimeMillis();
-                this.h = true;
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void e() {
-        VelocityTracker velocityTracker;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (velocityTracker = this.c) != null) {
-            velocityTracker.clear();
-            this.c.recycle();
-            this.c = null;
+            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
+                this.c.b();
+                this.c.getHandler().sendEmptyMessage(2000);
+                return;
+            }
+            WheelView wheelView = this.c;
+            float f2 = (int) (this.a / 100.0f);
+            wheelView.setTotalScrollY(wheelView.getTotalScrollY() - f2);
+            if (!this.c.i()) {
+                float itemHeight = this.c.getItemHeight();
+                float f3 = (-this.c.getInitPosition()) * itemHeight;
+                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
+                double d = itemHeight * 0.25d;
+                if (this.c.getTotalScrollY() - d < f3) {
+                    f3 = this.c.getTotalScrollY() + f2;
+                } else if (this.c.getTotalScrollY() + d > itemsCount) {
+                    itemsCount = this.c.getTotalScrollY() + f2;
+                }
+                if (this.c.getTotalScrollY() <= f3) {
+                    this.a = 40.0f;
+                    this.c.setTotalScrollY((int) f3);
+                } else if (this.c.getTotalScrollY() >= itemsCount) {
+                    this.c.setTotalScrollY((int) itemsCount);
+                    this.a = -40.0f;
+                }
+            }
+            float f4 = this.a;
+            if (f4 < 0.0f) {
+                this.a = f4 + 20.0f;
+            } else {
+                this.a = f4 - 20.0f;
+            }
+            this.c.getHandler().sendEmptyMessage(1000);
         }
     }
 }

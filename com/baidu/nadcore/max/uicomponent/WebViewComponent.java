@@ -17,14 +17,14 @@ import com.baidu.tieba.dm0;
 import com.baidu.tieba.ff0;
 import com.baidu.tieba.jm0;
 import com.baidu.tieba.mm0;
-import com.baidu.tieba.my0;
 import com.baidu.tieba.nm0;
 import com.baidu.tieba.om0;
+import com.baidu.tieba.oy0;
 import com.baidu.tieba.pm0;
 import com.baidu.tieba.ql0;
 import com.baidu.tieba.qm0;
-import com.baidu.tieba.qn0;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.sn0;
+import com.baidu.tieba.w11;
 import com.baidu.tieba.wl0;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -91,7 +91,7 @@ public final class WebViewComponent extends AbsComponentPlugin implements mm0, n
         }
     });
 
-    @Override // com.baidu.tieba.x51
+    @Override // com.baidu.tieba.z51
     public boolean B() {
         return true;
     }
@@ -99,17 +99,17 @@ public final class WebViewComponent extends AbsComponentPlugin implements mm0, n
     public final void D(int i) {
     }
 
-    @Override // com.baidu.tieba.y51
+    @Override // com.baidu.tieba.a61
     public boolean X0() {
         return false;
     }
 
-    @Override // com.baidu.tieba.y51
+    @Override // com.baidu.tieba.a61
     public boolean Y0() {
         return false;
     }
 
-    @Override // com.baidu.tieba.y51
+    @Override // com.baidu.tieba.a61
     public boolean g0() {
         return true;
     }
@@ -118,7 +118,7 @@ public final class WebViewComponent extends AbsComponentPlugin implements mm0, n
         return (qm0) this.e.getValue();
     }
 
-    @Override // com.baidu.tieba.x51
+    @Override // com.baidu.tieba.z51
     public void n() {
     }
 
@@ -154,16 +154,16 @@ public final class WebViewComponent extends AbsComponentPlugin implements mm0, n
             } else {
                 i2 = 0;
             }
-            outline.setRoundRect(new Rect(0, 0, i, i2), u11.c.a(WebViewComponent.this.b(), 18.0f));
+            outline.setRoundRect(new Rect(0, 0, i, i2), w11.c.a(WebViewComponent.this.b(), 18.0f));
         }
     }
 
-    @Override // com.baidu.tieba.x51
+    @Override // com.baidu.tieba.z51
     public Activity getActivity() {
         return d();
     }
 
-    @Override // com.baidu.tieba.x51
+    @Override // com.baidu.tieba.z51
     public Intent getIntent() {
         Intent intent = d().getIntent();
         Intrinsics.checkNotNullExpressionValue(intent, "hostActivity.intent");
@@ -255,7 +255,7 @@ public final class WebViewComponent extends AbsComponentPlugin implements mm0, n
             }
             String str2 = str;
             if (!TextUtils.isEmpty(str2)) {
-                qn0.v.a(my0.c(str2));
+                sn0.v.a(oy0.c(str2));
             }
         }
     }
@@ -285,7 +285,7 @@ public final class WebViewComponent extends AbsComponentPlugin implements mm0, n
         }
         View j3 = q().j();
         if (j3 != null) {
-            j3.setPadding(j3.getPaddingLeft(), j3.getPaddingTop(), j3.getPaddingRight(), u11.c.a(b(), 49.0f));
+            j3.setPadding(j3.getPaddingLeft(), j3.getPaddingTop(), j3.getPaddingRight(), w11.c.a(b(), 49.0f));
         }
     }
 }

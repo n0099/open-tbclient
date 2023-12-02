@@ -1,131 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import com.tencent.connect.share.QzonePublish;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b56 extends cg1<ye0> {
+public class b56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements ye0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ye0
-        public String[] c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (String[]) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ye0
-        public boolean d(Context context, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        /* renamed from: com.baidu.tieba.b56$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0239a implements bf0 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean[] a;
-            public final /* synthetic */ ze0 b;
-
-            public C0239a(a aVar, boolean[] zArr, ze0 ze0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, zArr, ze0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = zArr;
-                this.b = ze0Var;
-            }
-
-            @Override // com.baidu.tieba.bf0
-            public void onResult(boolean z) {
-                ze0 ze0Var;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    this.a[0] = z;
-                    if (z && (ze0Var = this.b) != null) {
-                        ze0Var.a(true, null);
-                    }
-                }
-            }
-        }
-
-        public a(b56 b56Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b56Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ye0
-        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable ze0 ze0Var) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, ze0Var)) == null) {
-                Log.e("CMDConfig", "host invoke command = " + str);
-                if (UrlSchemaJumpHelper.isHitBlackList(str)) {
-                    return true;
-                }
-                if (!str.startsWith("http://") && !str.startsWith("https://")) {
-                    df0.a(context, str, null, new C0239a(this, new boolean[1], ze0Var), false);
-                    return true;
-                }
-                UrlManager.getInstance().dealOneLink(new String[]{str});
-                return true;
-            }
-            return invokeLLLL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ye0
-        public void b(String str, String str2, bf0 bf0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bf0Var) == null) && bf0Var != null) {
-                bf0Var.onResult(true);
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public long j;
+    public long k;
 
     public b56() {
         Interceptable interceptable = $ic;
@@ -137,19 +37,110 @@ public class b56 extends cg1<ye0> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = "";
+        this.c = "";
+        this.e = "";
+        this.f = "";
+        this.b = "";
+        this.a = "";
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cg1
-    /* renamed from: a */
-    public ye0 createService() throws ServiceNotFoundException {
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TextUtils.isEmpty(this.d);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static b56 a(AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
+            b56 b56Var = new b56();
+            if (adInfo == null) {
+                return b56Var;
+            }
+            b56Var.a = adInfo.adImgUrl;
+            b56Var.b = adInfo.redirectUrl;
+            b56Var.j = adInfo.startShowTime;
+            b56Var.k = adInfo.endShowTime;
+            b56Var.d = adInfo.videoLocalPath;
+            b56Var.e = adInfo.videoJumpUrl;
+            b56Var.f = adInfo.videoMd5;
+            b56Var.g = adInfo.videoDuration;
+            b56Var.h = adInfo.videoWidth;
+            b56Var.i = adInfo.videoHight;
+            b56Var.c = adInfo.adVideoUrl;
+            return b56Var;
+        }
+        return (b56) invokeL.objValue;
+    }
+
+    public static b56 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            b56 b56Var = new b56();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                b56Var.a = jSONObject.optString("adImgUrl");
+                b56Var.b = jSONObject.optString("redirectUrl");
+                b56Var.d = jSONObject.optString("videoLocalPath");
+                b56Var.j = jSONObject.optLong("startShowTime");
+                b56Var.k = jSONObject.optLong("endShowTime");
+                b56Var.e = jSONObject.optString("videoJumpUrl");
+                b56Var.f = jSONObject.optString("videoMd5");
+                b56Var.g = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
+                b56Var.h = jSONObject.optInt("videoWidth");
+                b56Var.i = jSONObject.optInt("videoHeight");
+                b56Var.c = jSONObject.optString("adVideoUrl");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return b56Var;
+        }
+        return (b56) invokeL.objValue;
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+            if ((System.currentTimeMillis() / 1000 >= this.j && System.currentTimeMillis() / 1000 <= this.k) || (this.j == 0 && this.k == 0)) {
+                return true;
+            }
+            return false;
         }
-        return (ye0) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("adImgUrl", this.a);
+                jSONObject.put("redirectUrl", this.b);
+                jSONObject.put("videoLocalPath", this.d);
+                jSONObject.put("startShowTime", this.j);
+                jSONObject.put("endShowTime", this.k);
+                jSONObject.put("videoMd5", this.f);
+                jSONObject.put("videoJumpUrl", this.e);
+                jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.g);
+                jSONObject.put("videoWidth", this.h);
+                jSONObject.put("videoHeight", this.i);
+                jSONObject.put("adVideoUrl", this.c);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

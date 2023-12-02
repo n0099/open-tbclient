@@ -1,77 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import tbclient.ApkDetail;
 /* loaded from: classes9.dex */
-public final class yv6 {
+public class yv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final boolean b;
 
-    public yv6() {
+    public static void a(mv6 mv6Var) {
+        ItemData itemData;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65536, null, mv6Var) == null) && mv6Var != null && (itemData = mv6Var.a) != null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
+            httpMessage.addParam("item_id", itemData.itemId);
+            httpMessage.addParam("app_name", itemData.mTitle);
+            httpMessage.addParam("source_type", mv6Var.b);
+            httpMessage.addParam("icon_url", itemData.mIconUrl);
+            httpMessage.addParam("score", Double.valueOf(itemData.mScore));
+            httpMessage.addParam("tags", itemData.mTags);
+            httpMessage.addParam("apk_name", itemData.pkgName);
+            ApkDetail apkDetail = itemData.apkDetail;
+            if (apkDetail != null) {
+                httpMessage.addParam("developer", apkDetail.developer);
+                httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
+                httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
+                httpMessage.addParam("version", itemData.apkDetail.version);
+                httpMessage.addParam("version_code", itemData.apkDetail.version_code);
             }
-        }
-        this.b = UbsABTestHelper.isAddExtraDuration();
-    }
-
-    public final void a(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (xv6.a.a() || !this.b) {
-                return;
-            }
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                if (!(activity instanceof BaseActivity) && !(activity instanceof BaseFragmentActivity)) {
-                    String localClassName = activity.getLocalClassName();
-                    Intrinsics.checkNotNullExpressionValue(localClassName, "activity.localClassName");
-                    if (StringsKt__StringsKt.contains$default((CharSequence) localClassName, (CharSequence) "FlutterPageActivity", false, 2, (Object) null)) {
-                        return;
-                    }
-                } else {
-                    return;
-                }
-            }
-            long currentTimeMillis = (System.currentTimeMillis() - this.a) / 1000;
-            if (PermissionUtil.isAgreePrivacyPolicy() && currentTimeMillis > 0) {
-                PvThread pvThread = new PvThread("use", String.valueOf(currentTimeMillis));
-                pvThread.setPageName(activity.getLocalClassName());
-                pvThread.start();
-            }
-        }
-    }
-
-    public final void b(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (!this.b) {
-                return;
-            }
-            this.a = System.currentTimeMillis();
+            MessageManager.getInstance().sendMessageFromBackground(httpMessage);
         }
     }
 }

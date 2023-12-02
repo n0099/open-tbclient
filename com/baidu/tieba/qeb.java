@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class qeb implements mf1 {
+public class qeb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public jeb a;
 
     public qeb() {
         Interceptable interceptable = $ic;
@@ -21,20 +22,25 @@ public class qeb implements mf1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
     }
 
-    @Override // com.baidu.tieba.mf1
-    public Object get() {
+    public jeb a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new fn9());
-            arrayList.add(new gn9());
-            return arrayList;
+            return this.a;
         }
-        return invokeV.objValue;
+        return (jeb) invokeV.objValue;
+    }
+
+    public void b(jeb jebVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jebVar) == null) {
+            this.a = jebVar;
+        }
     }
 }

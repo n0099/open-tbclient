@@ -57,8 +57,8 @@ public final class LayoutInterviewLiveViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0911f4;
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911f4);
+            int i = R.id.obfuscated_res_0x7f0911f5;
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911f5);
             if (tbImageView != null) {
                 i = R.id.interview_live_tip;
                 TextView textView = (TextView) view2.findViewById(R.id.interview_live_tip);

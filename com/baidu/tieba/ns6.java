@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ns6 extends hs6 {
+public final class ns6 implements Comparator<y0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public PointF c;
 
     public ns6() {
         Interceptable interceptable = $ic;
@@ -25,46 +22,28 @@ public final class ns6 extends hs6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new PointF();
-        new RectF();
     }
 
-    public final PointF c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(y0 entity1, y0 entity2) {
+        InterceptResult invokeLL;
+        es6 a;
+        qs6 b;
+        es6 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
+            Intrinsics.checkNotNullParameter(entity1, "entity1");
+            Intrinsics.checkNotNullParameter(entity2, "entity2");
+            qs6 b2 = ot6.b(entity2);
+            if (b2 == null || (a = b2.a()) == null || (b = ot6.b(entity1)) == null || (a2 = b.a()) == null) {
+                return 0;
+            }
+            return a2.compareTo(a);
         }
-        return (PointF) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.hs6, com.baidu.tieba.s3.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.reset();
-            this.b = false;
-            this.c = new PointF();
-            new RectF();
-        }
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-        }
+        return invokeLL.intValue;
     }
 }

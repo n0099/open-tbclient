@@ -1,23 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.common.others.url.UrlUtils;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.coreExtra.util.DialogUtil;
-import com.baidu.tbadk.coreExtra.util.PushOpenUtil;
-import com.baidu.tbadk.dispatcher.OpenWebViewDispatcher;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.push.PushGuideManager;
-import com.baidu.tieba.push.PushSceneItem;
-import com.baidu.tieba.push.guide.DialogParamProvider;
-import com.baidu.tieba.push.guide.Scene;
-import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,39 +10,67 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.lang.reflect.Method;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
-import kotlin.TuplesKt;
-import kotlin.Unit;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function0;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public abstract class yfa implements DialogParamProvider {
+public final class yfa {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
-    public static final Map<String, Method> c;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
+    public String a;
+    public final List<zfa> b;
 
-    public abstract boolean c();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948329621, "Lcom/baidu/tieba/yfa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948329621, "Lcom/baidu/tieba/yfa;");
+                return;
+            }
+        }
+        c = new a(null);
+    }
 
-    public abstract String h();
-
-    @JvmOverloads
-    public final boolean j(TbPageContext<?> pageContext) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pageContext)) == null) {
-            Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-            return l(this, pageContext, null, 2, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof yfa) {
+                yfa yfaVar = (yfa) obj;
+                return Intrinsics.areEqual(this.a, yfaVar.a) && Intrinsics.areEqual(this.b, yfaVar.b);
+            }
+            return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "PushSceneGroupRecord(date=" + this.a + ", groups=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
     }
 
     /* loaded from: classes9.dex */
@@ -83,372 +96,150 @@ public abstract class yfa implements DialogParamProvider {
             }
         }
 
-        public final Map<String, Object> a(DialogParamProvider provider, List<String> paramKeyList) {
-            InterceptResult invokeLL;
+        public final List<zfa> a(JSONObject jSONObject) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, provider, paramKeyList)) == null) {
-                Intrinsics.checkNotNullParameter(provider, "provider");
-                Intrinsics.checkNotNullParameter(paramKeyList, "paramKeyList");
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                for (String str : paramKeyList) {
-                    Method method = (Method) yfa.c.get(str);
-                    if (method != null) {
-                        try {
-                            Object invoke = method.invoke(provider, new Object[0]);
-                            if (invoke != null) {
-                                linkedHashMap.put(str, invoke);
-                            } else {
-                                throw new IllegalArgumentException("Required value was null.".toString());
-                                break;
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("groups");
+                if (optJSONArray == null) {
+                    return new ArrayList();
+                }
+                ArrayList arrayList = new ArrayList();
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    zfa a = zfa.c.a(optJSONArray.optJSONObject(i));
+                    if (a != null) {
+                        arrayList.add(a);
                     }
                 }
-                return linkedHashMap;
+                return arrayList;
             }
-            return (Map) invokeLL.objValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class b implements tu4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final TbPageContext<?> a;
-        public final yfa b;
-
-        @Override // com.baidu.tieba.tu4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
+            return (List) invokeL.objValue;
         }
 
-        public b(TbPageContext<?> pageContext, yfa pushGuide) {
+        @JvmStatic
+        public final yfa b(String str) {
+            InterceptResult invokeL;
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pageContext, pushGuide};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-            Intrinsics.checkNotNullParameter(pushGuide, "pushGuide");
-            this.a = pageContext;
-            this.b = pushGuide;
-        }
-
-        @Override // com.baidu.tieba.tu4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Activity pageActivity = this.a.getPageActivity();
-                String h = this.b.h();
-                int a = Scene.c.a(h);
-                if (!this.b.c() && a >= 0) {
-                    new MsgRemindModel(this.a).T(a, Scene.c.b(h), null);
-                }
-                if (!this.b.b()) {
-                    DialogUtil.jumpSystemNotificationSetting(pageActivity);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
                 } else {
-                    PushOpenUtil.showPushPermissionSucToast(pageActivity);
+                    z = true;
                 }
+                if (z) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString(GfhKeyValue.TYPE_DATE);
+                Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"date\")");
+                return new yfa(optString, a(jSONObject));
             }
+            return (yfa) invokeL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948329621, "Lcom/baidu/tieba/yfa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948329621, "Lcom/baidu/tieba/yfa;");
-                return;
-            }
-        }
-        b = new a(null);
-        c = new LinkedHashMap();
-        Method[] declaredMethods = DialogParamProvider.class.getDeclaredMethods();
-        Intrinsics.checkNotNullExpressionValue(declaredMethods, "DialogParamProvider::class.java.declaredMethods");
-        for (Method it : declaredMethods) {
-            aga agaVar = (aga) it.getAnnotation(aga.class);
-            if (agaVar != null) {
-                Map<String, Method> map = c;
-                String paramKey = agaVar.paramKey();
-                Intrinsics.checkNotNullExpressionValue(it, "it");
-                map.put(paramKey, it);
-            }
-        }
-    }
-
-    public yfa() {
+    public yfa(String date, List<zfa> groups) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {date, groups};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(date, "date");
+        Intrinsics.checkNotNullParameter(groups, "groups");
+        this.a = date;
+        this.b = groups;
     }
 
-    public final boolean b() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return PushGuideManager.d();
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final Object d() {
+    public final List<zfa> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            PushSceneItem l = PushGuideManager.l(h());
-            if (l != null) {
-                return l.isHitNewStyle();
-            }
-            return false;
+            return Intrinsics.areEqual(this.a, rd.getDateStringDay(new Date()));
         }
         return invokeV.booleanValue;
     }
 
-    public final void g() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            PushGuideManager.m(h());
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String dateStringDay = rd.getDateStringDay(new Date());
+            if (dateStringDay == null) {
+                dateStringDay = "";
+            }
+            this.a = dateStringDay;
+            this.b.clear();
         }
     }
 
-    public boolean i() {
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            zfa zfaVar = null;
+            for (zfa zfaVar2 : this.b) {
+                if (zfaVar2.a() == i) {
+                    zfaVar = zfaVar2;
+                }
+            }
+            if (zfaVar == null) {
+                this.b.add(new zfa(i, 1));
+                return;
+            }
+            zfaVar.c(zfaVar.b() + 1);
+        }
+    }
+
+    public final void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.a = str;
+        }
+    }
+
+    public final String g() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (c() && b()) {
-                z = false;
-            } else {
-                z = true;
+            JSONArray jSONArray = new JSONArray();
+            for (zfa zfaVar : this.b) {
+                jSONArray.put(zfaVar.d());
             }
-            if (!z || !PushGuideManager.e(h())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.push.guide.DialogParamProvider
-    @aga(paramKey = "forum_icon")
-    public String provideForumIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return DialogParamProvider.a.a(this);
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(GfhKeyValue.TYPE_DATE, this.a);
+            jSONObject.put("groups", jSONArray);
+            String jSONObject2 = jSONObject.toString();
+            Intrinsics.checkNotNullExpressionValue(jSONObject2, "JSONObject().apply {\n   …ray)\n        }.toString()");
+            return jSONObject2;
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.push.guide.DialogParamProvider
-    @aga(paramKey = "forum_id")
-    public String provideForumId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return DialogParamProvider.a.b(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.push.guide.DialogParamProvider
-    @aga(paramKey = "forum_name")
-    public String provideForumName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return DialogParamProvider.a.c(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.push.guide.DialogParamProvider
-    @aga(paramKey = "forum_slogan")
-    public String provideForumSlogan() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return DialogParamProvider.a.d(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.push.guide.DialogParamProvider
-    public String provideNickname() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            String m = pv4.t().m();
-            if (m == null) {
-                return "";
-            }
-            return m;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.push.guide.DialogParamProvider
-    public String providePortrait() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            String r = pv4.t().r();
-            if (r == null) {
-                return "";
-            }
-            return r;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.push.guide.DialogParamProvider
-    @aga(paramKey = "thread_abstract")
-    public String provideThreadAbstract() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return DialogParamProvider.a.e(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.push.guide.DialogParamProvider
-    @aga(paramKey = "thread_id")
-    public String provideThreadId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return DialogParamProvider.a.f(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.push.guide.DialogParamProvider
-    @aga(paramKey = MissonDetailsActivityConfig.THREAD_TITLE)
-    public String provideThreadTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return DialogParamProvider.a.g(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.push.guide.DialogParamProvider
-    public String provideUserId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            String h = pv4.t().h();
-            if (h == null) {
-                return "";
-            }
-            return h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.yfa */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static /* synthetic */ boolean l(yfa yfaVar, TbPageContext tbPageContext, Function0 function0, int i, Object obj) {
-        if (obj == null) {
-            if ((i & 2) != 0) {
-                function0 = null;
-            }
-            return yfaVar.k(tbPageContext, function0);
-        }
-        throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: tryShow");
-    }
-
-    public final void e(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            this.a = obj;
-        }
-    }
-
-    @JvmOverloads
-    public boolean k(TbPageContext<?> pageContext, Function0<Unit> function0) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, pageContext, function0)) == null) {
-            Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-            if (!i() || pageContext.getPageActivity() == null) {
-                return false;
-            }
-            if (!m()) {
-                if (function0 != null) {
-                    function0.invoke();
-                    return true;
-                }
-                PushOpenUtil.showPushPermissionDialogV2(pageContext, h(), new b(pageContext, this));
-                g();
-                return true;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            String h = h();
-            String i = PushGuideManager.a.i(h);
-            if (i == null) {
-                return false;
-            }
-            if (BdNetTypeUtil.isNetWorkAvailable() && !YunDialogManager.isShowingDialog()) {
-                PushSceneItem l = PushGuideManager.l(h);
-                if (l != null) {
-                    String appendParam = UrlUtils.appendParam(i, "params", dx.a(DataExt.toJson(MapsKt__MapsKt.mutableMapOf(TuplesKt.to("title", l.getTitle()), TuplesKt.to("text", l.getText()), TuplesKt.to("scene_name", h), TuplesKt.to(WebChromeClient.KEY_ARG_ARRAY, b.a(this, l.getDialogParams()))))));
-                    Intrinsics.checkNotNullExpressionValue(appendParam, "appendParam(\n           …s.toJson())\n            )");
-                    String assembleH5DialogSchemaUrl = OpenWebViewDispatcher.assembleH5DialogSchemaUrl(appendParam, "push_guide_h5_dialog");
-                    Intrinsics.checkNotNullExpressionValue(assembleH5DialogSchemaUrl, "assembleH5DialogSchemaUr…_h5_dialog\"\n            )");
-                    UrlManager.getInstance().dealOneLink(assembleH5DialogSchemaUrl);
-                    g();
-                } else {
-                    throw new IllegalArgumentException("Required value was null.".toString());
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

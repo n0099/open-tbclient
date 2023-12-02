@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.growthFunnel.GrowthFunnelHelper;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.switchs.TbBrowseModeSwitch;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.f05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,154 +17,85 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class lq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity a;
-    public c05 b;
-    public c05 c;
-    public c05 d;
-    public int e;
-    public View.OnClickListener f;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lq6 a;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ int b;
 
-        public a(lq6 lq6Var) {
+        public a(TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lq6Var};
+                Object[] objArr = {tbPageContext, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
+                f05Var.dismiss();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.a.getPageActivity(), true, this.b)));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements f05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = lq6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            int i;
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int id = view2.getId();
-                if (id == R.id.private_yes || id == R.id.obfuscated_res_0x7f092b7c) {
-                    this.a.j();
-                } else if (id == R.id.private_no) {
-                    if (this.a.b.isShowing()) {
-                        this.a.b.dismiss();
-                        zqa.a("1", "2");
-                    }
-                    if (this.a.c == null) {
-                        lq6 lq6Var = this.a;
-                        lq6Var.c = n16.a(lq6Var.a.getPageContext(), this.a.f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
-                    }
-                    this.a.c.show();
-                    zqa.b("2");
-                } else if (id == R.id.obfuscated_res_0x7f0904ce) {
-                    lq6.g(this.a);
-                    if (this.a.c.isShowing()) {
-                        this.a.c.dismiss();
-                        zqa.a("2", "2");
-                        if (this.a.d == null) {
-                            lq6 lq6Var2 = this.a;
-                            TbPageContext<BaseFragmentActivity> pageContext = lq6Var2.a.getPageContext();
-                            View.OnClickListener onClickListener = this.a.f;
-                            if (TbBrowseModeSwitch.isOn()) {
-                                i = R.string.secret_hint_browser;
-                            } else {
-                                i = R.string.secret_hint_browser_exit;
-                            }
-                            lq6Var2.d = n16.a(pageContext, onClickListener, R.string.privacy_policy_guide_two, i);
-                            this.a.d.show();
-                            zqa.b("3");
-                        }
-                    }
-                    if (this.a.d.isShowing() && this.a.e == 2) {
-                        this.a.d.dismiss();
-                        zqa.a("3", "2");
-                        if (TbBrowseModeSwitch.isOn()) {
-                            PermissionUtil.doBrowseModeInit();
-                            PermissionUtil.starMainTabActivity(this.a.a, 2);
-                        }
-                        this.a.a.finish();
-                    }
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
+                f05Var.dismiss();
             }
         }
     }
 
-    public lq6(@NonNull BaseFragmentActivity baseFragmentActivity) {
+    public static void a(Intent intent, TbPageContext tbPageContext, int i) {
+        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeLLI(65536, null, intent, tbPageContext, i) != null) || intent == null || !TbadkCoreApplication.isLogin() || (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) == null) {
+            return;
         }
-        this.e = 0;
-        this.f = new a(this);
-        this.a = baseFragmentActivity;
-    }
-
-    public static /* synthetic */ int g(lq6 lq6Var) {
-        int i = lq6Var.e;
-        lq6Var.e = i + 1;
-        return i;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c05 c05Var = this.b;
-            if (c05Var != null && c05Var.isShowing()) {
-                this.b.dismiss();
-                SmartLaunchStats.onConfirmPrivacy();
-                zqa.a("1", "1");
-                GrowthFunnelHelper.logClientDau("logoController", false);
-            }
-            c05 c05Var2 = this.c;
-            if (c05Var2 != null && c05Var2.isShowing()) {
-                this.c.dismiss();
-                zqa.a("2", "1");
-                GrowthFunnelHelper.logClientDau("logoController", false);
-            }
-            c05 c05Var3 = this.d;
-            if (c05Var3 != null && c05Var3.isShowing()) {
-                this.d.dismiss();
-                zqa.a("3", "1");
-                GrowthFunnelHelper.logClientDau("logoController", false);
-            }
-            SharedPrefHelper.getInstance().putLong("key_first_enter_app_timestamp", System.currentTimeMillis());
-            TbSingleton.getInstance().setAppFirstStart(true);
-            PermissionUtil.doAgreePrivacyInit();
-            PermissionUtil.starMainTabActivity(this.a, 2);
-            this.a.finish();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c05 b = n16.b(this.a.getPageContext(), this.f);
-            this.b = b;
-            b.show();
-            zqa.b("1");
-            TbSingleton.setExceptInsertAdDiaShow(true);
-            SmartLaunchStats.onPrivacyDialogShow();
+        String queryParameter = uri.getQueryParameter("portrait");
+        if (TbadkCoreApplication.getCurrentPortrait() != null && queryParameter != null && !TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
+            f05 f05Var = new f05(tbPageContext.getPageActivity());
+            f05Var.setContentViewSize(1);
+            f05Var.setMessage(tbPageContext.getString(R.string.account_not_the_same_as_pc));
+            f05Var.setPositiveButton(R.string.change_account, new a(tbPageContext, i));
+            f05Var.setNegativeButton(R.string.not_change_account, new b());
+            f05Var.create(tbPageContext).show();
         }
     }
 }

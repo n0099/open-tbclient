@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.af6;
 import com.baidu.tieba.barselect.BarVoteModel;
-import com.baidu.tieba.ue6;
+import com.baidu.tieba.ef6;
+import com.baidu.tieba.ye6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class BarVoteActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public BarVoteModel b;
-    public ue6 c;
+    public ye6 c;
     public long d;
     public int e;
     public BarVoteModel.c f;
@@ -56,30 +56,30 @@ public class BarVoteActivity extends BaseActivity {
         }
 
         @Override // com.baidu.tieba.barselect.BarVoteModel.c
-        public void a(int i, String str, af6 af6Var) {
+        public void a(int i, String str, ef6 ef6Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, af6Var) == null) && this.a.c != null && this.a.c.w() != null) {
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, ef6Var) == null) && this.a.c != null && this.a.c.w() != null) {
                 BarVoteActivity barVoteActivity = this.a;
                 barVoteActivity.hideLoadingView(barVoteActivity.c.w());
                 if (i == 0) {
-                    if (af6Var != null && af6Var.a() != null && af6Var.a().h() >= 1 && af6Var.a().h() <= 2) {
+                    if (ef6Var != null && ef6Var.a() != null && ef6Var.a().h() >= 1 && ef6Var.a().h() <= 2) {
                         if (this.a.c.u() != null) {
                             this.a.c.u().setVisibility(0);
                         }
                         long j = this.a.d;
                         if (j != 0) {
-                            af6Var.i(j);
+                            ef6Var.i(j);
                         }
-                        if (af6Var.g() == null) {
-                            af6Var.l(this.a.a);
+                        if (ef6Var.g() == null) {
+                            ef6Var.l(this.a.a);
                         }
-                        this.a.c.C(af6Var);
+                        this.a.c.C(ef6Var);
                     } else if (this.a.b != null && this.a.b.mPn == 0) {
                         if (this.a.c.u() != null) {
                             this.a.c.u().setVisibility(8);
                         }
-                        if (af6Var != null && af6Var.a() != null) {
-                            if (af6Var.a().h() < 1 || af6Var.a().h() > 2) {
+                        if (ef6Var != null && ef6Var.a() != null) {
+                            if (ef6Var.a().h() < 1 || ef6Var.a().h() > 2) {
                                 this.a.c.F(TbadkCoreApplication.getInst().getString(R.string.error_status));
                                 return;
                             }
@@ -164,9 +164,9 @@ public class BarVoteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            ue6 ue6Var = this.c;
-            if (ue6Var != null) {
-                ue6Var.z(i);
+            ye6 ye6Var = this.c;
+            if (ye6Var != null) {
+                ye6Var.z(i);
             }
         }
     }
@@ -198,9 +198,9 @@ public class BarVoteActivity extends BaseActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ue6 ue6Var = this.c;
-            if (ue6Var != null) {
-                ue6Var.y();
+            ye6 ye6Var = this.c;
+            if (ye6Var != null) {
+                ye6Var.y();
             }
             BarVoteModel barVoteModel = this.b;
             if (barVoteModel != null) {
@@ -225,8 +225,8 @@ public class BarVoteActivity extends BaseActivity {
             if (view2.getId() == R.id.right_textview) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"https://tiebac.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
             } else if (view2.getId() == R.id.pb_more) {
-                ue6 ue6Var = this.c;
-                if (ue6Var != null && ue6Var.v() != null) {
+                ye6 ye6Var = this.c;
+                if (ye6Var != null && ye6Var.v() != null) {
                     this.c.v().R();
                 }
                 K0();
@@ -239,7 +239,7 @@ public class BarVoteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            this.c = new ue6(this);
+            this.c = new ye6(this);
             this.d = getIntent().getLongExtra("fid", 0L);
             this.e = getIntent().getIntExtra("source", 0);
             BarVoteModel barVoteModel = new BarVoteModel(this);

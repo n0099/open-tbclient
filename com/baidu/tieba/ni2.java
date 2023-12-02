@@ -1,28 +1,19 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.webkit.JavascriptInterface;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class ni2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    @V8JavascriptField
-    public long lastAccessedTime;
-    @V8JavascriptField
-    public long lastModifiedTime;
-    @V8JavascriptField
-    public long mode;
-    @V8JavascriptField
-    public long size;
+    public HashMap<String, oi2> a;
 
     public ni2() {
         Interceptable interceptable = $ic;
@@ -34,43 +25,62 @@ public class ni2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public void a(oi2 oi2Var, String... strArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, oi2Var, strArr) == null) && strArr != null && strArr.length != 0) {
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str)) {
+                    this.a.put(str, oi2Var);
+                }
             }
         }
     }
 
-    @JavascriptInterface
-    public boolean isDirectory() {
-        InterceptResult invokeV;
+    public ArrayList<oi2> c(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            ArrayList<oi2> arrayList = null;
+            if (strArr != null && strArr.length != 0) {
+                for (String str : strArr) {
+                    if (!TextUtils.isEmpty(str)) {
+                        for (String str2 : this.a.keySet()) {
+                            if (str2.startsWith(str) || str.startsWith(str2)) {
+                                if (arrayList == null) {
+                                    arrayList = new ArrayList<>();
+                                }
+                                arrayList.add(this.a.get(str2));
+                            }
+                        }
+                    }
+                }
+            }
+            return arrayList;
         }
-        return invokeV.booleanValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    @JavascriptInterface
-    public boolean isFile() {
-        InterceptResult invokeV;
+    public void d(oi2 oi2Var, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @SuppressLint({"KotlinPropertyAccess"})
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    @SuppressLint({"KotlinPropertyAccess"})
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.b = z;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, oi2Var, strArr) == null) && strArr != null && strArr.length != 0) {
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str) && this.a.get(str) == oi2Var) {
+                    this.a.remove(str);
+                }
+            }
         }
     }
 }

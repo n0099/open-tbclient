@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.fy4;
-import com.baidu.tieba.ky4;
+import com.baidu.tieba.iy4;
+import com.baidu.tieba.ny4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,13 +42,13 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
     public TbImageView i;
     public LinearLayout j;
     public View k;
-    public ky4 l;
+    public ny4 l;
     public b m;
     public View.OnClickListener n;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(ky4 ky4Var);
+        void a(ny4 ny4Var);
     }
 
     /* loaded from: classes7.dex */
@@ -89,9 +89,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
                 PbRecommendNovelHolder pbRecommendNovelHolder = this.a;
                 if (view2 == pbRecommendNovelHolder.h) {
                     String str = pbRecommendNovelHolder.l.l1;
-                    fy4 fy4Var = new fy4();
+                    iy4 iy4Var = new iy4();
                     TbPageContext tbPageContext = (TbPageContext) a5.a(this.a.a.getPageActivity());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, fy4Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, iy4Var));
                     TiebaStatic.log(new StatisticItem("c11387").param("obj_source", 6).param("obj_locate", "0").param("obj_param1", str));
                     TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.a.l.l1).param("obj_locate", "3"));
                 } else if (view2 == pbRecommendNovelHolder.j) {
@@ -127,37 +127,37 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.n = new a(this);
         this.a = tbPageContext;
         this.m = bVar;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925d4);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925d3);
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091aad);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091abd);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091aa9);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ab7);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ab5);
-        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ab8);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091abc);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925d6);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925d5);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091aaf);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091abf);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091aab);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ab9);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ab7);
+        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091aba);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091abe);
         this.i = tbImageView;
         tbImageView.setDefaultResource(R.drawable.transparent_bg);
         this.i.setDefaultBgResource(R.drawable.transparent_bg);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091f53);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091f55);
         this.h.setOnClickListener(this.n);
         this.j.setOnClickListener(this.n);
         this.c.setOnClickListener(this.n);
     }
 
-    public void d(ky4 ky4Var) {
+    public void d(ny4 ny4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, ky4Var) != null) || ky4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ny4Var) != null) || ny4Var == null) {
             return;
         }
-        this.l = ky4Var;
-        this.b.setText(ky4Var.i1);
-        this.c.setText(ky4Var.j1);
-        this.i.startLoad(ky4Var.q1, 10, false);
-        this.d.startLoad(ky4Var.m1, 10, false);
-        this.h.setText(ky4Var.p1);
-        this.e.setText(ky4Var.n1);
-        List<String> list = ky4Var.o1;
+        this.l = ny4Var;
+        this.b.setText(ny4Var.i1);
+        this.c.setText(ny4Var.j1);
+        this.i.startLoad(ny4Var.q1, 10, false);
+        this.d.startLoad(ny4Var.m1, 10, false);
+        this.h.setText(ny4Var.p1);
+        this.e.setText(ny4Var.n1);
+        List<String> list = ny4Var.o1;
         if (list != null) {
             int size = list.size();
             if (size != 1) {

@@ -1,29 +1,37 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import com.baidu.webkit.sdk.PermissionRequest;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ux1 {
+public class ux1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public cy1 a;
-    public boolean b;
-    public loc c;
+
+    @Override // com.baidu.tieba.ou1
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "SystemInfoApi" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public class a implements gk3<ly1> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ux1 a;
@@ -46,15 +54,26 @@ public class ux1 {
             this.a = ux1Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gk3
+        /* renamed from: a */
+        public ly1 call() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (ux1.d) {
-                    Log.d("PendingOperationManager", "=============== FMP end, begin loop pending operation ==============");
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject d = yz2.c().d("getSystemInfo");
+                if (d == null) {
+                    ux1 ux1Var = this.a;
+                    d = ux1Var.H(ux1Var.i());
+                    yz2.c().h("getSystemInfo", d);
+                    yz2.c().h("getSystemInfoSync", d);
                 }
-                this.a.j();
+                if (d == null) {
+                    return new ly1(202, "empty joData");
+                }
+                return new ly1(0, d);
             }
+            return (ly1) invokeV.objValue;
         }
     }
 
@@ -62,14 +81,16 @@ public class ux1 {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ux1 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ gk3 b;
+        public final /* synthetic */ ux1 c;
 
-        public b(ux1 ux1Var) {
+        public b(ux1 ux1Var, String str, gk3 gk3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ux1Var};
+                Object[] objArr = {ux1Var, str, gk3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -79,169 +100,242 @@ public class ux1 {
                     return;
                 }
             }
-            this.a = ux1Var;
+            this.c = ux1Var;
+            this.a = str;
+            this.b = gk3Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (ux1.d) {
-                    Log.d("PendingOperationManager", "=============== FCP end, begin loop pending operation ==============");
-                }
-                this.a.j();
+                this.c.d(this.a, (ly1) this.b.call());
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ux1 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-360317444, "Lcom/baidu/tieba/ux1$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-360317444, "Lcom/baidu/tieba/ux1$c;");
-                    return;
-                }
-            }
-            a = new ux1(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948226267, "Lcom/baidu/tieba/ux1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948226267, "Lcom/baidu/tieba/ux1;");
-                return;
-            }
-        }
-        d = sm1.a;
-    }
-
-    public ux1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ux1(@NonNull mu1 mu1Var) {
+        super(mu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mu1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((mu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.a = new cy1();
     }
 
-    public static ux1 d() {
-        InterceptResult invokeV;
+    public static String G(Context context) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return c.a;
-        }
-        return (ux1) invokeV.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (d) {
-                Log.d("PendingOperationManager", "=============== release PendingQueue & reset fmp flag ==============");
-            }
-            i();
-            this.a.b();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = false;
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
-            this.a.d();
-        }
-    }
-
-    public /* synthetic */ ux1(a aVar) {
-        this();
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void c(BasePendingOperation basePendingOperation) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
-            if (basePendingOperation == null) {
-                if (!d) {
-                    return;
-                }
-                throw new IllegalStateException("The operation can't be null!");
-            } else if (!e() && basePendingOperation.a()) {
-                this.a.a(basePendingOperation);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (context instanceof SwanAppActivity) {
+                i = ((SwanAppActivity) context).S();
             } else {
-                if (d) {
-                    Log.d("PendingOperationManager", "=============== Execute module:" + e() + " " + basePendingOperation.b() + " params:" + basePendingOperation.c());
-                }
-                basePendingOperation.run();
+                i = 0;
             }
+            if (i == 1) {
+                return pf3.i(sp2.i().m(), i);
+            }
+            return pf3.i(ed2.V().e0(), i);
         }
+        return (String) invokeL.objValue;
     }
 
-    public void f() {
+    public static void C(@NonNull JSONObject jSONObject) throws JSONException {
+        k63 M;
+        j93 h;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (d) {
-                Log.d("PendingOperationManager", String.format("=============== FCP end, delay  %d ms to loop ==============", 6000));
+        if ((interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) && (M = k63.M()) != null && M.f0().f("mapp_location")) {
+            kq2 I = rp2.I();
+            if (I == null) {
+                h = null;
+            } else {
+                h = I.h();
             }
-            this.c = bj3.c(new b(this), "pending_operation", LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION, TimeUnit.MILLISECONDS);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.c != null) {
-                if (d) {
-                    Log.d("PendingOperationManager", "=============== FMP end, cancel fcp loop operation ==============");
-                }
-                this.c.unsubscribe();
-                this.c = null;
-            }
-            if (e()) {
+            if (h == null) {
                 return;
             }
-            bj3.j(new a(this), "pending_operation");
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("city", h.k);
+            jSONObject2.put("cityCode", h.l);
+            jSONObject2.put("country", h.i);
+            jSONObject2.put("district", h.n);
+            jSONObject2.put("province", h.m);
+            jSONObject2.put("street", h.o);
+            jSONObject2.put("streetNumber", h.p);
+            jSONObject2.put("coord_gcj02", E(h, "gcj02"));
+            jSONObject2.put("coord_wgs84", E(h, "wgs84"));
+            jSONObject.put("cacheLocation", jSONObject2);
         }
+    }
+
+    public static JSONObject E(@NonNull j93 j93Var, @NonNull String str) throws JSONException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, j93Var, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            double[] g = rp2.I().g(j93Var, str);
+            if (g != null && g.length >= 2) {
+                jSONObject.put("longitude", g[0]);
+                jSONObject.put("latitude", g[1]);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public final void B(@NonNull JSONObject jSONObject) throws JSONException {
+        k63 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && (M = k63.M()) != null && M.f0().f("mapp_set_user_agent")) {
+            jSONObject.put("userAgent", cd4.b().getUserAgent());
+        }
+    }
+
+    public final void A(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, jSONObject) == null) {
+            jSONObject.put("cameraAuthorized", oj3.j(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE));
+            jSONObject.put("locationAuthorized", oj3.j(context, com.kuaishou.weapon.p0.g.g));
+            jSONObject.put("microphoneAuthorized", oj3.j(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE));
+            jSONObject.put("notificationAuthorized", ek3.N(context));
+            jSONObject.put("locationEnabled", ek3.L(context));
+            jSONObject.put("wifiEnabled", ek3.V(context));
+        }
+    }
+
+    public final void D(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull Pair<Integer, Integer> pair) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject, pair) == null) {
+            int O = bk3.O(tj3.e(context));
+            int O2 = bk3.O(((Integer) pair.first).intValue());
+            int O3 = bk3.O(((Integer) pair.second).intValue());
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("left", 0);
+            jSONObject2.put("right", O2);
+            jSONObject2.put("top", O);
+            jSONObject2.put("width", O2);
+            jSONObject2.put("bottom", O3);
+            jSONObject2.put("height", O3 - O);
+            jSONObject.put("safeArea", jSONObject2);
+        }
+    }
+
+    public ly1 F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            r("#getCommonSysInfoSync", false);
+            JSONObject d = yz2.c().d("getCommonSysInfoSync");
+            if (d == null) {
+                try {
+                    d = new JSONObject();
+                    d.put("imei", ek3.r());
+                    yz2.c().h("getCommonSysInfoSync", d);
+                } catch (JSONException unused) {
+                    return new ly1(1001, "exec fail");
+                }
+            }
+            return new ly1(0, d);
+        }
+        return (ly1) invokeV.objValue;
+    }
+
+    public ly1 K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            r("#getSystemInfoSync", false);
+            JSONObject d = yz2.c().d("getSystemInfoSync");
+            if (d == null) {
+                d = H(i());
+                yz2.c().h("getSystemInfoSync", d);
+                yz2.c().h("getSystemInfo", d);
+            }
+            if (d == null) {
+                return new ly1(202, "empty joData");
+            }
+            return new ly1(0, d);
+        }
+        return (ly1) invokeV.objValue;
+    }
+
+    public final JSONObject H(Context context) {
+        InterceptResult invokeL;
+        JSONObject a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            if (rp2.g0().o()) {
+                a2 = vx1.b(context);
+            } else {
+                a2 = vx1.a(context);
+            }
+            if (a2 == null) {
+                return null;
+            }
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
+            Pair<Integer, Integer> s = xr2.V().s();
+            Pair<Integer, Integer> y = xr2.V().y();
+            try {
+                a2.put("SDKVersion", G(context));
+                a2.put("windowWidth", (int) (((Integer) s.first).intValue() / displayMetrics.density));
+                a2.put("windowHeight", (int) (((Integer) s.second).intValue() / displayMetrics.density));
+                a2.put("screenWidth", bk3.O(((Integer) y.first).intValue()));
+                a2.put("screenHeight", bk3.O(((Integer) y.second).intValue()));
+                a2.put("privacyMode", rp2.y0().c());
+                C(a2);
+                A(context, a2);
+                D(context, a2, y);
+                B(a2);
+            } catch (JSONException e) {
+                q("json put data fail", e, false);
+            }
+            return a2;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public ly1 I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            r("#getSystemInfo", false);
+            return J(null);
+        }
+        return (ly1) invokeV.objValue;
+    }
+
+    public ly1 J(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            r("#getSystemInfoAsync", false);
+            a aVar = new a(this);
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    String optString = new JSONObject(str).optString("cb");
+                    if (!TextUtils.isEmpty(optString)) {
+                        ej3.k(new b(this, optString, aVar), "SystemInfoApi");
+                        return ly1.f();
+                    }
+                } catch (JSONException e) {
+                    q("json put data fail", e, false);
+                }
+            }
+            return aVar.call();
+        }
+        return (ly1) invokeL.objValue;
     }
 }

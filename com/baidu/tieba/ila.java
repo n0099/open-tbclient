@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,9 +11,16 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class ila implements ub7 {
+public final class ila implements yb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.yb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c10705" : (String) invokeV.objValue;
+    }
 
     public ila() {
         Interceptable interceptable = $ic;
@@ -29,30 +36,38 @@ public abstract class ila implements ub7 {
         }
     }
 
-    @Override // com.baidu.tieba.ub7
-    public Map<String, String> a(r57 businessInfo) {
+    @Override // com.baidu.tieba.yb7
+    public Map<String, String> a(v57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
             Map<String, String> a = businessInfo.a();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            String str = "";
-            if (currentAccount == null) {
-                currentAccount = "";
+            hashMap.putAll(tla.a.a(businessInfo));
+            String str = a.get("pic_count");
+            String str2 = "0";
+            if (str == null) {
+                str = "0";
             }
-            hashMap.put("uid", currentAccount);
-            String str2 = a.get("live_type");
-            if (str2 == null) {
-                str2 = "";
+            hashMap.put("obj_type", str);
+            hashMap.put(TiebaStatic.Params.AB_ACTION, "show");
+            String str3 = a.get("has_concerned");
+            if (str3 == null) {
+                str3 = "0";
             }
-            hashMap.put("obj_param1", str2);
-            String str3 = a.get("live_app_id");
-            if (str3 != null) {
-                str = str3;
+            hashMap.put(TiebaStatic.Params.AB_TYPE, str3);
+            hashMap.put(TiebaStatic.Params.IS_FULL, "");
+            String str4 = a.get("author_is_living");
+            if (str4 == null) {
+                str4 = "0";
             }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM6, str4);
+            String str5 = a.get(TiebaStatic.Params.GUA_TYPE);
+            if (str5 != null) {
+                str2 = str5;
+            }
+            hashMap.put(TiebaStatic.Params.GUA_TYPE, str2);
             return hashMap;
         }
         return (Map) invokeL.objValue;

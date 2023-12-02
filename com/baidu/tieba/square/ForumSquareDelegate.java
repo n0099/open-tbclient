@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.nsa;
 import com.baidu.tieba.osa;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.psa;
 import com.baidu.tieba.square.model.ForumSquareModel;
-import com.baidu.tieba.usa;
+import com.baidu.tieba.tsa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,14 +26,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class ForumSquareDelegate implements psa {
+public class ForumSquareDelegate implements osa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
     public String mCurrentClassName;
     public ForumSquareModel mForumSquareModel;
     public ForumSquareView mForumSquareView;
-    public osa mSquareViewController;
+    public nsa mSquareViewController;
     public final TbPageContext mTbPageContext;
     public CustomMessageListener refreshForumSquareListener;
 
@@ -104,13 +104,13 @@ public class ForumSquareDelegate implements psa {
         this.mTbPageContext.registerListener(this.refreshForumSquareListener);
     }
 
-    @Override // com.baidu.tieba.psa
+    @Override // com.baidu.tieba.osa
     public void onError(String str, ErrorData errorData) {
         ForumSquareView forumSquareView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) && (forumSquareView = this.mForumSquareView) != null && this.mForumSquareModel != null) {
             forumSquareView.showNormalUI();
-            usa a0 = this.mForumSquareModel.a0(str);
+            tsa a0 = this.mForumSquareModel.a0(str);
             if (a0 != null && (!a0.d || !ListUtils.isEmpty(a0.a()))) {
                 this.mForumSquareView.setForumListData(a0.a());
                 checkLoadMoreStateUI(str, a0.a());
@@ -121,7 +121,7 @@ public class ForumSquareDelegate implements psa {
         }
     }
 
-    @Override // com.baidu.tieba.psa
+    @Override // com.baidu.tieba.osa
     public void onNoData(ErrorData errorData) {
         ForumSquareView forumSquareView;
         Interceptable interceptable = $ic;
@@ -192,9 +192,9 @@ public class ForumSquareDelegate implements psa {
     public void startLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            osa osaVar = new osa(this.mContext, this, this.mForumSquareView);
-            this.mSquareViewController = osaVar;
-            osaVar.e();
+            nsa nsaVar = new nsa(this.mContext, this, this.mForumSquareView);
+            this.mSquareViewController = nsaVar;
+            nsaVar.e();
             startLoadNetData();
         }
     }
@@ -221,7 +221,7 @@ public class ForumSquareDelegate implements psa {
             this.mCurrentClassName = str;
             ForumSquareModel forumSquareModel = this.mForumSquareModel;
             if (forumSquareModel != null && this.mForumSquareView != null) {
-                usa a0 = forumSquareModel.a0(str);
+                tsa a0 = forumSquareModel.a0(str);
                 if (a0 != null && (!a0.d || !ListUtils.isEmpty(a0.a()))) {
                     this.mForumSquareView.showNormalUI();
                     checkLoadMoreStateUI(str, a0.a());
@@ -240,7 +240,7 @@ public class ForumSquareDelegate implements psa {
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
         if (r5.equals(r1) == false) goto L11;
      */
-    @Override // com.baidu.tieba.psa
+    @Override // com.baidu.tieba.osa
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -287,7 +287,7 @@ public class ForumSquareDelegate implements psa {
     }
 
     public void saveScrollPosition(String str) {
-        usa a0;
+        tsa a0;
         Pair<Integer, Integer> currentScrollPosition;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || this.mForumSquareView == null || this.mForumSquareModel == null || TextUtils.isEmpty(str) || (a0 = this.mForumSquareModel.a0(str)) == null || (currentScrollPosition = this.mForumSquareView.getCurrentScrollPosition()) == null) {

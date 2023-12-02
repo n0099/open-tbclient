@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.ay7;
+import com.baidu.tieba.by7;
+import com.baidu.tieba.cy7;
 import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
 import com.baidu.tieba.frs.forumRule.message.ForumRuleDetailHttpResMsg;
 import com.baidu.tieba.frs.forumRule.message.ForumRuleDetailReqMsg;
-import com.baidu.tieba.ux7;
-import com.baidu.tieba.wva;
-import com.baidu.tieba.wx7;
-import com.baidu.tieba.xx7;
+import com.baidu.tieba.vva;
 import com.baidu.tieba.yx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,9 +48,9 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     public int d;
     public String e;
     public String f;
-    public xx7 g;
+    public by7 g;
     public ForumRuleBaseData h;
-    public ux7 i;
+    public yx7 i;
     public NetMessageListener j;
 
     public void W(Bundle bundle) {
@@ -122,13 +122,13 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
                             this.a.g = ((ForumRuleDetailHttpResMsg) responsedMessage).getmForumRuleDetailData();
                         }
                         if (this.a.g != null && this.a.i != null) {
-                            ux7 ux7Var = this.a.i;
+                            yx7 yx7Var = this.a.i;
                             if (this.a.g.b() == 2) {
                                 z = true;
                             } else {
                                 z = false;
                             }
-                            ux7Var.c(z, this.a.g.a());
+                            yx7Var.c(z, this.a.g.a());
                             this.a.i.e(this.a.g.l());
                             this.a.i.d(this.a.g);
                             this.a.e0();
@@ -216,10 +216,10 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
         }
     }
 
-    public void d0(ux7 ux7Var) {
+    public void d0(yx7 yx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, ux7Var) == null) {
-            this.i = ux7Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, yx7Var) == null) {
+            this.i = yx7Var;
         }
     }
 
@@ -228,25 +228,25 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.h != null) {
             this.i.c(false, "");
             this.i.e(this.h.getTitle());
-            xx7 xx7Var = new xx7();
+            by7 by7Var = new by7();
             BawuRoleInfoPub.Builder builder = new BawuRoleInfoPub.Builder();
             builder.portrait = TbadkCoreApplication.getCurrentPortrait();
             builder.name_show = TbadkCoreApplication.getCurrentAccountNameShow();
             builder.user_level = Integer.valueOf(this.d);
-            xx7Var.p(builder.build(true));
+            by7Var.p(builder.build(true));
             ForumInfo.Builder builder2 = new ForumInfo.Builder();
             builder2.forum_name = this.c;
-            xx7Var.q(builder2.build(true));
-            xx7Var.s(false);
-            xx7Var.t(this.h.getPreface());
-            this.i.d(xx7Var);
+            by7Var.q(builder2.build(true));
+            by7Var.s(false);
+            by7Var.t(this.h.getPreface());
+            this.i.d(by7Var);
             e0();
-            wx7 wx7Var = new wx7();
-            wx7Var.h(this.c);
-            wx7Var.g(this.e);
-            wx7Var.k(TbadkCoreApplication.getCurrentAccountNameShow());
-            wx7Var.l(TbadkCoreApplication.getCurrentPortrait());
-            this.i.a(wx7Var);
+            ay7 ay7Var = new ay7();
+            ay7Var.h(this.c);
+            ay7Var.g(this.e);
+            ay7Var.k(TbadkCoreApplication.getCurrentAccountNameShow());
+            ay7Var.l(TbadkCoreApplication.getCurrentPortrait());
+            this.i.a(ay7Var);
             this.i.finish();
         }
     }
@@ -261,7 +261,7 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     public final void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, wva.a(TbConfig.FORUM_RULES_SHOW, 309690));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, vva.a(TbConfig.FORUM_RULES_SHOW, 309690));
             tbHttpMessageTask.setResponsedClass(ForumRuleDetailHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -332,20 +332,20 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
         }
     }
 
-    public final yx7 a0(ForumRuleBaseData.ForumRuleItemData forumRuleItemData) {
+    public final cy7 a0(ForumRuleBaseData.ForumRuleItemData forumRuleItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, forumRuleItemData)) == null) {
             if (forumRuleItemData != null) {
-                yx7 yx7Var = new yx7();
-                yx7Var.g(forumRuleItemData.getTitle());
-                yx7Var.f(Y(forumRuleItemData.getContent()));
-                yx7Var.e(false);
-                return yx7Var;
+                cy7 cy7Var = new cy7();
+                cy7Var.g(forumRuleItemData.getTitle());
+                cy7Var.f(Y(forumRuleItemData.getContent()));
+                cy7Var.e(false);
+                return cy7Var;
             }
             return null;
         }
-        return (yx7) invokeL.objValue;
+        return (cy7) invokeL.objValue;
     }
 
     public final void e0() {
@@ -364,9 +364,9 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
                 List<ForumRule> k = this.g.k();
                 if (k != null && k.size() > 0) {
                     for (ForumRule forumRule : k) {
-                        yx7 yx7Var = new yx7();
-                        yx7Var.d(forumRule);
-                        arrayList.add(yx7Var);
+                        cy7 cy7Var = new cy7();
+                        cy7Var.d(forumRule);
+                        arrayList.add(cy7Var);
                     }
                 }
             }

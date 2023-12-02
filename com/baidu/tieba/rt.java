@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class rt extends os<cw4> {
+public class rt extends os<fw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgTextLayout f;
-    public cw4 g;
+    public fw4 g;
     public int h;
     public String i;
 
@@ -54,9 +54,9 @@ public class rt extends os<cw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    tl6.a(this.a.g.getThreadData().getId());
-                    tl6.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    tl6.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    xl6.a(this.a.g.getThreadData().getId());
+                    xl6.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    xl6.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -96,10 +96,10 @@ public class rt extends os<cw4> {
     }
 
     @Override // com.baidu.tieba.os
-    public void n(im6<cw4> im6Var) {
+    public void n(mm6<fw4> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, im6Var) == null) {
-            this.f.setSubClickListener(im6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mm6Var) == null) {
+            this.f.setSubClickListener(mm6Var);
         }
     }
 
@@ -113,12 +113,12 @@ public class rt extends os<cw4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: t */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cw4Var) == null) {
-            this.g = cw4Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, fw4Var) == null) {
+            this.g = fw4Var;
             this.f.setFrom(this.i);
-            this.f.onBindDataToView(cw4Var);
+            this.f.onBindDataToView(fw4Var);
         }
     }
 

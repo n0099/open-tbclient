@@ -1,66 +1,58 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-import com.baidu.tieba.ps1;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface os1<T extends ps1> extends qs1<T>, xr1 {
-    void A(int i);
+public interface os1 {
 
-    boolean G();
+    /* loaded from: classes7.dex */
+    public interface a {
+    }
 
-    boolean I();
+    void C(@NonNull Context context, @NonNull ps1 ps1Var, @NonNull a aVar);
 
-    void J(yc2 yc2Var);
+    boolean i();
 
-    zs1 K();
+    /* loaded from: classes7.dex */
+    public static class b extends s63 implements os1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void M(FrameLayout frameLayout, w63 w63Var);
+        @Override // com.baidu.tieba.os1
+        public void C(Context context, ps1 ps1Var, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, context, ps1Var, aVar) == null) {
+            }
+        }
 
-    int O();
+        @Override // com.baidu.tieba.os1
+        public boolean i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
 
-    void P(String str);
-
-    void Q();
-
-    boolean T(fa3 fa3Var);
-
-    boolean U(fa3 fa3Var);
-
-    void V(v72 v72Var);
-
-    void W(w72 w72Var);
-
-    @Nullable
-    x22 Z();
-
-    boolean c();
-
-    int c0();
-
-    PullToRefreshBaseWebView e0();
-
-    boolean f0();
-
-    void g(hw2 hw2Var);
-
-    @Nullable
-    String g0();
-
-    void i(ViewGroup viewGroup, View view2);
-
-    rs1 j();
-
-    String l();
-
-    boolean q(int i);
-
-    void t(String str);
-
-    boolean u(fa3 fa3Var);
-
-    void x(FrameLayout frameLayout, w63 w63Var);
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

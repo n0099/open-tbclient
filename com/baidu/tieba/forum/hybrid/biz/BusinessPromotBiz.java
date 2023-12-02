@@ -13,12 +13,12 @@ import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.forum.hybrid.manager.BizBase;
 import com.baidu.tieba.forum.hybrid.manager.WrapListener;
-import com.baidu.tieba.fy5;
-import com.baidu.tieba.i5b;
+import com.baidu.tieba.h5b;
+import com.baidu.tieba.jy5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.nk7;
-import com.baidu.tieba.nzc;
-import com.baidu.tieba.zua;
+import com.baidu.tieba.mzc;
+import com.baidu.tieba.rk7;
+import com.baidu.tieba.yua;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u0000 \u00122\u00020\u00012\u00020\u0002:\u0001\u0012B\u001b\u0012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0010\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\fH\u0002J\u0013\u0010\r\u001a\b\u0012\u0004\u0012\u00020\u000f0\u000eH\u0016¢\u0006\u0002\u0010\u0010J\b\u0010\u0011\u001a\u00020\nH\u0016¨\u0006\u0013"}, d2 = {"Lcom/baidu/tieba/forum/hybrid/biz/BusinessPromotBiz;", "Lcom/baidu/tieba/forum/hybrid/manager/BizBase;", "Lcom/baidu/tieba/forum/hybrid/manager/Clean;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;)V", "businessPromotJump", "", "data", "", "keyListeners", "", "Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", "()[Lcom/baidu/tieba/forum/hybrid/manager/WrapListener;", MissionEvent.MESSAGE_DESTROY, "Companion", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class BusinessPromotBiz extends BizBase implements nk7 {
+public final class BusinessPromotBiz extends BizBase implements rk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +52,7 @@ public final class BusinessPromotBiz extends BizBase implements nk7 {
         }
     }
 
-    @Override // com.baidu.tieba.nk7
+    @Override // com.baidu.tieba.rk7
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -82,7 +82,7 @@ public final class BusinessPromotBiz extends BizBase implements nk7 {
         Intrinsics.checkNotNullParameter(webView, "webView");
     }
 
-    @Override // com.baidu.tieba.mk7
+    @Override // com.baidu.tieba.qk7
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,14 +93,14 @@ public final class BusinessPromotBiz extends BizBase implements nk7 {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            zua zuaVar = new zua();
+            yua yuaVar = new yua();
             try {
-                zuaVar.t(nzc.b(new JSONObject(str)));
+                yuaVar.t(mzc.b(new JSONObject(str)));
             } catch (Exception unused) {
                 TbLog hybridLog = HybridLog.getInstance();
                 hybridLog.e("BusinessPromotBiz", "平台推广区域数据解析失败: " + str);
             }
-            String q = zuaVar.q();
+            String q = yuaVar.q();
             Intrinsics.checkNotNullExpressionValue(q, "promotData.url");
             if (q.length() == 0) {
                 z = true;
@@ -110,13 +110,13 @@ public final class BusinessPromotBiz extends BizBase implements nk7 {
             if (z) {
                 return;
             }
-            if (!fy5.a(f().getPageActivity(), zuaVar.i()) && !UtilHelper.isMatchScheme(f().getPageActivity().getBaseContext(), zuaVar.k(), zuaVar.j()) && zuaVar.q() != null) {
-                i5b.a(f(), zuaVar.q());
+            if (!jy5.a(f().getPageActivity(), yuaVar.i()) && !UtilHelper.isMatchScheme(f().getPageActivity().getBaseContext(), yuaVar.k(), yuaVar.j()) && yuaVar.q() != null) {
+                h5b.a(f(), yuaVar.q());
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-            httpMessage.addParam("id", zuaVar.c());
+            httpMessage.addParam("id", yuaVar.c());
             MessageManager.getInstance().sendMessage(httpMessage);
-            List<String> l = zuaVar.l();
+            List<String> l = yuaVar.l();
             Intrinsics.checkNotNullExpressionValue(l, "promotData.thirdStatisticUrlList");
             ThirdStatisticHelper.sendReq((String) CollectionsKt___CollectionsKt.getOrNull(l, 1));
         }

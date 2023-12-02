@@ -1,99 +1,109 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import tbclient.FeedLayout;
+import tbclient.VideoDoubleRowLayout;
 /* loaded from: classes8.dex */
-public final class s67 implements z67 {
+public final class s67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final Map<String, JSONObject> c;
-    public final f37.h d;
 
-    public s67(String spaceName, String uid) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {spaceName, uid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(spaceName, "spaceName");
-        Intrinsics.checkNotNullParameter(uid, "uid");
-        this.a = spaceName;
-        this.b = uid;
-        this.c = new LinkedHashMap();
-        f37.h d = f37.a().d();
-        this.d = d;
-        Map<String, JSONObject> b = d.b(this.a, this.b);
-        Intrinsics.checkNotNullExpressionValue(b, "cacheResolver.getCache(spaceName, uid)");
-        this.c.putAll(b);
-    }
-
-    @Override // com.baidu.tieba.z67
-    public void a(String key, Map<String, String> valueMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, key, valueMap) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(valueMap, "valueMap");
-            if (this.c.get(key) == null) {
-                this.c.put(key, new JSONObject());
-            }
-            try {
-                for (String str : valueMap.keySet()) {
-                    JSONObject jSONObject = this.c.get(key);
-                    if (jSONObject != null) {
-                        jSONObject.put(str, valueMap.get(str));
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            JSONObject jSONObject2 = this.c.get(key);
-            if (jSONObject2 == null) {
-                jSONObject2 = new JSONObject();
-            }
-            b(key, jSONObject2);
-        }
-    }
-
-    public final void b(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            this.d.a(this.a, this.b, str, jSONObject);
-        }
-    }
-
-    @Override // com.baidu.tieba.z67
-    public String getValue(String key, String subKey) {
+    public static final v57 a(r67 r67Var, Map<String, String> appendMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, key, subKey)) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(subKey, "subKey");
-            JSONObject jSONObject = this.c.get(key);
-            if (jSONObject != null) {
-                return jSONObject.optString(subKey);
-            }
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, r67Var, appendMap)) == null) {
+            Intrinsics.checkNotNullParameter(r67Var, "<this>");
+            Intrinsics.checkNotNullParameter(appendMap, "appendMap");
+            v57 v57Var = new v57();
+            v57Var.a().putAll(r67Var.a().a());
+            v57Var.a().putAll(appendMap);
+            return v57Var;
         }
-        return (String) invokeLL.objValue;
+        return (v57) invokeLL.objValue;
+    }
+
+    public static final void b(r67 r67Var, FeedLayout feedLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, r67Var, feedLayout) == null) {
+            Intrinsics.checkNotNullParameter(r67Var, "<this>");
+            Intrinsics.checkNotNullParameter(feedLayout, "feedLayout");
+            r67Var.a().b(va7.a.a(feedLayout.business_info));
+            r67Var.c().b(va7.a.a(feedLayout.log_info));
+        }
+    }
+
+    public static final void c(r67 r67Var, VideoDoubleRowLayout feedLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, r67Var, feedLayout) == null) {
+            Intrinsics.checkNotNullParameter(r67Var, "<this>");
+            Intrinsics.checkNotNullParameter(feedLayout, "feedLayout");
+            r67Var.a().b(va7.a.a(feedLayout.business_info));
+            r67Var.c().b(va7.a.a(feedLayout.log_info));
+        }
+    }
+
+    public static final Map<String, String> f(r67 r67Var, String statStrategyKey) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, r67Var, statStrategyKey)) == null) {
+            Intrinsics.checkNotNullParameter(r67Var, "<this>");
+            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
+            HashMap hashMap = new HashMap();
+            yb7 yb7Var = r67Var.e().get(statStrategyKey);
+            if (yb7Var != null) {
+                hashMap.putAll(yb7Var.a(r67Var.a()));
+            }
+            return hashMap;
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    public static final e87 d(r67 r67Var, String statStrategyKey, v57 v57Var) {
+        InterceptResult invokeLLL;
+        v57 v57Var2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, r67Var, statStrategyKey, v57Var)) == null) {
+            Intrinsics.checkNotNullParameter(r67Var, "<this>");
+            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
+            yb7 yb7Var = r67Var.e().get(statStrategyKey);
+            if (yb7Var instanceof zb7) {
+                zb7 zb7Var = (zb7) yb7Var;
+                if (v57Var == null) {
+                    v57Var2 = r67Var.a();
+                } else {
+                    v57Var2 = v57Var;
+                }
+                statStrategyKey = zb7Var.c(v57Var2);
+            }
+            e87 e87Var = new e87(null, null, null, null, null, 31, null);
+            yb7 yb7Var2 = r67Var.e().get(statStrategyKey);
+            if (yb7Var2 != null) {
+                String key = yb7Var2.getKey();
+                if (v57Var == null) {
+                    v57Var = r67Var.a();
+                }
+                e87Var = new e87(key, yb7Var2.a(v57Var), r67Var.c().a(), null, null, 24, null);
+                if (yb7Var2 instanceof vb7) {
+                    e87Var.g(((vb7) yb7Var2).b());
+                }
+                if (yb7Var2 instanceof f77) {
+                    e87Var.f(((f77) yb7Var2).d());
+                }
+            }
+            return e87Var;
+        }
+        return (e87) invokeLLL.objValue;
+    }
+
+    public static /* synthetic */ e87 e(r67 r67Var, String str, v57 v57Var, int i, Object obj) {
+        if ((i & 2) != 0) {
+            v57Var = null;
+        }
+        return d(r67Var, str, v57Var);
     }
 }

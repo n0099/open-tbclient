@@ -21,13 +21,13 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e27;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.tieba.faceshop.emotioncenter.model.EmotionCenterModel;
-import com.baidu.tieba.g27;
-import com.baidu.tieba.m55;
-import com.baidu.tieba.nr9;
+import com.baidu.tieba.i27;
+import com.baidu.tieba.k27;
+import com.baidu.tieba.p55;
+import com.baidu.tieba.rr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class EmotionRecommendFragment extends BaseFragment implements e27 {
+public class EmotionRecommendFragment extends BaseFragment implements i27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g27 a;
+    public k27 a;
     public EmotionCenterModel b;
     public boolean c;
     public boolean d;
@@ -47,10 +47,10 @@ public class EmotionRecommendFragment extends BaseFragment implements e27 {
     public final CustomMessageListener g;
     public CustomMessageListener h;
     public CustomMessageListener i;
-    public m55.g j;
+    public p55.g j;
     public BdListView.p k;
 
-    @Override // com.baidu.tieba.e27
+    @Override // com.baidu.tieba.i27
     public void D1(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, emotionCenterData) == null) {
@@ -196,7 +196,7 @@ public class EmotionRecommendFragment extends BaseFragment implements e27 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements m55.g {
+    public class d implements p55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionRecommendFragment a;
@@ -219,7 +219,7 @@ public class EmotionRecommendFragment extends BaseFragment implements e27 {
             this.a = emotionRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.m55.g
+        @Override // com.baidu.tieba.p55.g
         public void g(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -294,7 +294,7 @@ public class EmotionRecommendFragment extends BaseFragment implements e27 {
         this.k = new e(this);
     }
 
-    @Override // com.baidu.tieba.e27
+    @Override // com.baidu.tieba.i27
     public void k1(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, emotionCenterData) == null) {
@@ -320,9 +320,9 @@ public class EmotionRecommendFragment extends BaseFragment implements e27 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            g27 g27Var = this.a;
-            if (g27Var != null) {
-                g27Var.n(i);
+            k27 k27Var = this.a;
+            if (k27Var != null) {
+                k27Var.n(i);
             }
         }
     }
@@ -338,17 +338,17 @@ public class EmotionRecommendFragment extends BaseFragment implements e27 {
     public final void K2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (nr9.l().r()) {
-                g27 g27Var = this.a;
-                if (g27Var != null) {
-                    g27Var.t();
+            if (rr9.l().r()) {
+                k27 k27Var = this.a;
+                if (k27Var != null) {
+                    k27Var.t();
                     return;
                 }
                 return;
             }
-            g27 g27Var2 = this.a;
-            if (g27Var2 != null) {
-                g27Var2.o();
+            k27 k27Var2 = this.a;
+            if (k27Var2 != null) {
+                k27Var2.o();
             }
         }
     }
@@ -357,9 +357,9 @@ public class EmotionRecommendFragment extends BaseFragment implements e27 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            g27 g27Var = this.a;
-            if (g27Var != null) {
-                return g27Var.f();
+            k27 k27Var = this.a;
+            if (k27Var != null) {
+                return k27Var.f();
             }
             return 0;
         }
@@ -384,7 +384,7 @@ public class EmotionRecommendFragment extends BaseFragment implements e27 {
         }
     }
 
-    @Override // com.baidu.tieba.e27
+    @Override // com.baidu.tieba.i27
     public void X1(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, emotionCenterData) == null) {
@@ -413,9 +413,9 @@ public class EmotionRecommendFragment extends BaseFragment implements e27 {
         EmotionCenterModel emotionCenterModel2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            g27 g27Var = new g27(getPageContext(), getUniqueId());
-            this.a = g27Var;
-            g27Var.q(this.j);
+            k27 k27Var = new k27(getPageContext(), getUniqueId());
+            this.a = k27Var;
+            k27Var.q(this.j);
             this.a.r(this.k);
             registerListener(this.g);
             registerListener(this.h);

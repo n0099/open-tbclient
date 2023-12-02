@@ -13,14 +13,14 @@ import androidx.core.content.ContextCompat;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hf0;
-import com.baidu.tieba.ly0;
-import com.baidu.tieba.s21;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.ny0;
+import com.baidu.tieba.u21;
+import com.baidu.tieba.w11;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NadExpressBottomView extends ViewGroup {
-    public static final int l = u11.c.a(hf0.b(), 3.0f);
-    public static final int m = u11.c.a(hf0.b(), 0.0f);
+    public static final int l = w11.c.a(hf0.b(), 3.0f);
+    public static final int m = w11.c.a(hf0.b(), 0.0f);
     public static final int n = d(R.dimen.NAD_F_M_W_X007);
     public static final int o;
     public static final int p;
@@ -146,23 +146,23 @@ public class NadExpressBottomView extends ViewGroup {
             return;
         }
         while (i3 < this.g.size()) {
-            if (TextUtils.equals((CharSequence) ly0.d(this.g, i3), this.c)) {
-                i = (int) (i + g((String) ly0.d(this.g, i3), this.f) + n);
+            if (TextUtils.equals((CharSequence) ny0.d(this.g, i3), this.c)) {
+                i = (int) (i + g((String) ny0.d(this.g, i3), this.f) + n);
                 i2 = l * 2;
             } else {
-                if (!TextUtils.isEmpty(this.b) && TextUtils.equals((CharSequence) ly0.d(this.g, i3), this.k)) {
+                if (!TextUtils.isEmpty(this.b) && TextUtils.equals((CharSequence) ny0.d(this.g, i3), this.k)) {
                     i2 = this.i - i;
-                    float g2 = g((String) ly0.d(this.g, i3), this.e) + n;
+                    float g2 = g((String) ny0.d(this.g, i3), this.e) + n;
                     float f = i2;
                     if (f > g2) {
                         g = i + g2;
                     } else {
-                        String b = s21.b(this.d, this.b, f, this.e);
+                        String b = u21.b(this.d, this.b, f, this.e);
                         this.k = b;
-                        ly0.a(this.g, b, i3);
+                        ny0.a(this.g, b, i3);
                     }
                 } else {
-                    g = i + g((String) ly0.d(this.g, i3), this.e) + n;
+                    g = i + g((String) ny0.d(this.g, i3), this.e) + n;
                 }
                 i = (int) g;
                 if (i <= this.i) {
@@ -186,13 +186,13 @@ public class NadExpressBottomView extends ViewGroup {
         int i3 = 0;
         for (int i4 = 0; i4 < min; i4++) {
             int measuredHeight = getMeasuredHeight();
-            if (TextUtils.equals((CharSequence) ly0.d(this.g, i4), this.c)) {
+            if (TextUtils.equals((CharSequence) ny0.d(this.g, i4), this.c)) {
                 canvas.drawText(this.c, l + i3, ((((measuredHeight - i2) / 2.0f) + (q / 2.0f)) - ((this.f.getFontMetrics().top + this.f.getFontMetrics().bottom) / 2.0f)) - 1.0f, this.f);
                 f = i3;
                 g = g(this.c, this.f) + l;
                 i = n;
             } else {
-                String str = (String) ly0.d(this.g, i4);
+                String str = (String) ny0.d(this.g, i4);
                 if (!TextUtils.isEmpty(str)) {
                     f = i3;
                     canvas.drawText(str, f, e(this.e, measuredHeight), this.e);
@@ -211,7 +211,7 @@ public class NadExpressBottomView extends ViewGroup {
         this.a.setImageDrawable(getResources().getDrawable(R.drawable.nad_unlike_btn_icon));
         this.a.setId(R.id.nad_base_delete_id);
         this.a.setContentDescription("不感兴趣");
-        s21.a(getContext(), this.a, 15.0f);
+        u21.a(getContext(), this.a, 15.0f);
         setWillNotDraw(false);
         TextPaint textPaint = new TextPaint();
         this.e = textPaint;
@@ -229,7 +229,7 @@ public class NadExpressBottomView extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        s21.a(getContext(), this.a, 15.0f);
+        u21.a(getContext(), this.a, 15.0f);
     }
 
     @Override // android.view.ViewGroup, android.view.View

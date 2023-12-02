@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,47 +11,39 @@ import kotlin.jvm.internal.Intrinsics;
 public final class r77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public final String c;
-    public final String d;
-    public a87 e;
-    public a87 f;
+    public final int a;
+    public final String b;
+    public final boolean c;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof r77) {
                 r77 r77Var = (r77) obj;
-                return this.a == r77Var.a && this.b == r77Var.b && Intrinsics.areEqual(this.c, r77Var.c) && Intrinsics.areEqual(this.d, r77Var.d) && Intrinsics.areEqual(this.e, r77Var.e) && Intrinsics.areEqual(this.f, r77Var.f);
+                return this.a == r77Var.a && Intrinsics.areEqual(this.b, r77Var.b) && this.c == r77Var.c;
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v14 */
-    /* JADX WARN: Type inference failed for: r0v15 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            boolean z = this.a;
-            ?? r0 = z;
-            if (z) {
-                r0 = 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int hashCode = ((this.a * 31) + this.b.hashCode()) * 31;
+            boolean z = this.c;
+            int i = z;
+            if (z != 0) {
+                i = 1;
             }
-            int hashCode = ((((((r0 * 31) + this.b) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31;
-            a87 a87Var = this.e;
-            int hashCode2 = (hashCode + (a87Var == null ? 0 : a87Var.hashCode())) * 31;
-            a87 a87Var2 = this.f;
-            return hashCode2 + (a87Var2 != null ? a87Var2.hashCode() : 0);
+            return hashCode + i;
         }
         return invokeV.intValue;
     }
@@ -60,18 +51,18 @@ public final class r77 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "PersonAttentionData(isLike=" + this.a + ", likeStatus=" + this.b + ", userId=" + this.c + ", portrait=" + this.d + ", followStatData=" + this.e + ", unfollowStatData=" + this.f + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "MoveThreadTabData(id=" + this.a + ", name=" + this.b + ", enable=" + this.c + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public r77(boolean z, int i, String userId, String portrait, a87 a87Var, a87 a87Var2) {
+    public r77(int i, String name, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), userId, portrait, a87Var, a87Var2};
+            Object[] objArr = {Integer.valueOf(i), name, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -81,30 +72,26 @@ public final class r77 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(userId, "userId");
-        Intrinsics.checkNotNullParameter(portrait, "portrait");
-        this.a = z;
-        this.b = i;
-        this.c = userId;
-        this.d = portrait;
-        this.e = a87Var;
-        this.f = a87Var2;
+        Intrinsics.checkNotNullParameter(name, "name");
+        this.a = i;
+        this.b = name;
+        this.c = z;
     }
 
-    public final a87 a() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            return this.c;
         }
-        return (a87) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
         }
         return invokeV.intValue;
     }
@@ -113,49 +100,8 @@ public final class r77 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.b;
         }
         return (String) invokeV.objValue;
-    }
-
-    public final a87 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (a87) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public final void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.b = i;
-        }
     }
 }

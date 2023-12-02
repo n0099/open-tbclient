@@ -16,8 +16,8 @@ public class LiveSearchDeleteEntranceViewHolder extends RecyclerView.ViewHolder 
     public LiveSearchDeleteEntranceViewHolder(View view2) {
         super(view2);
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09167e);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09167d);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09167f);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09167e);
     }
 
     public void a(int i) {

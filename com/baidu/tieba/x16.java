@@ -1,193 +1,108 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.jrb;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubs.analytics.SampleResult;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.File;
+import java.io.FileInputStream;
+import java.security.PublicKey;
 /* loaded from: classes9.dex */
 public class x16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
 
-    public final String e(int i) {
-        InterceptResult invokeI;
+    public static boolean a(String str, File file) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i == 2) {
-                return PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, file)) == null) {
+            if (!TextUtils.isEmpty(str) && file != null && file.exists()) {
+                try {
+                    PublicKey e = yd.e(kd.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+                    if (e == null) {
+                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "publicKeyCode is null").param("obj_source", file.getName()));
+                        return false;
+                    }
+                    byte[] b = b(str);
+                    if (b != null && b.length > 0) {
+                        byte[] b2 = yd.b(e, b);
+                        if (b2 != null && b2.length > 0) {
+                            String trim = new String(b2, "UTF-8").trim();
+                            String b3 = xd.b(new FileInputStream(file));
+                            if (b3 != null) {
+                                b3 = b3.trim();
+                            }
+                            if (!TextUtils.isEmpty(b3) && !TextUtils.isEmpty(trim)) {
+                                if (b3.equalsIgnoreCase(trim)) {
+                                    return true;
+                                }
+                                TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 != serverMD5").param("obj_source", file.getName()));
+                                BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
+                                return false;
+                            }
+                            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 or serverMD5 is null").param("obj_source", file.getName()));
+                            return false;
+                        }
+                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "des is null").param("obj_source", file.getName()));
+                        return false;
+                    }
+                    TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "server_data is null").param("obj_source", file.getName()));
+                    return false;
+                } catch (Exception e2) {
+                    StatisticItem statisticItem = new StatisticItem("c10836");
+                    TiebaStatic.log(statisticItem.param("obj_type", "exception:" + e2.getMessage()).param("obj_source", file.getName()));
+                    BdLog.e("download MD5 RSA ERROR！Exception:" + e2.getMessage() + " ; file:" + file.getName());
+                    return false;
+                }
             }
-            return null;
+            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "checkRSA input args is null"));
+            return false;
         }
-        return (String) invokeI.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public final String f(int i) {
-        InterceptResult invokeI;
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (i == 1) {
-                return "key_card_show_type";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null) {
+                char[] charArray = str.toCharArray();
+                int length = charArray.length / 2;
+                byte[] bArr = new byte[length];
+                if (charArray.length % 2 != 0) {
+                    return null;
+                }
+                int i = 0;
+                int i2 = 0;
+                while (true) {
+                    int i3 = i + 1;
+                    if (i3 >= charArray.length || i2 >= length) {
+                        break;
+                    }
+                    bArr[i2] = (byte) ((c(charArray[i]) << 4) | c(charArray[i3]));
+                    i2++;
+                    i = i3 + 1;
+                }
+                return bArr;
             }
-            if (i == 2) {
-                return "key_card_abstract_switch";
-            }
-            return null;
+            throw new IllegalArgumentException("binary string is null");
         }
-        return (String) invokeI.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public x16() {
+    public static int c(char c) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) {
+            int digit = Character.digit(c, 16);
+            if (digit != -1) {
+                return digit;
             }
+            throw new RuntimeException("Illegal hexadecimal character " + c);
         }
-        this.b = false;
-        i();
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a = SharedPrefHelper.getInstance().getInt("key_abtest_channel", 0);
-            j();
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.b && this.a == 1) {
-            boolean h = h();
-            this.b = h;
-            if (!h) {
-                this.a = 0;
-            }
-        }
-    }
-
-    public final int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 1) {
-                return d(i);
-            }
-            int i2 = this.a;
-            if (i2 == 1) {
-                return c(i);
-            }
-            if (i2 == 0) {
-                return d(i);
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public final int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            String f = f(i);
-            if (rd.isEmpty(f) || SharedPrefHelper.getInstance().getInt(f, 0) != 1) {
-                return 0;
-            }
-            return 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            if (i != 1 && i != 0) {
-                return;
-            }
-            this.a = i;
-            SharedPrefHelper.getInstance().putInt("key_abtest_channel", this.a);
-            j();
-        }
-    }
-
-    public void b(ArrayList<Integer> arrayList, w16 w16Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, w16Var) == null) && arrayList != null && w16Var != null) {
-            Iterator<Integer> it = arrayList.iterator();
-            while (it.hasNext()) {
-                int intValue = it.next().intValue();
-                w16Var.b(intValue, a(intValue));
-            }
-        }
-    }
-
-    public final int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            String e = e(i);
-            if (rd.isEmpty(e)) {
-                return 0;
-            }
-            SampleResult a = irb.a(e);
-            if (a != SampleResult.T1 && a != SampleResult.T2 && a != SampleResult.T3 && a != SampleResult.T4 && a != SampleResult.T5) {
-                return 0;
-            }
-            return 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return false;
-            }
-            try {
-                jrb.a aVar = new jrb.a();
-                aVar.e(TbadkCoreApplication.getInst());
-                aVar.j(false);
-                aVar.n(30L);
-                aVar.m(1);
-                aVar.l(false);
-                aVar.o(15L);
-                aVar.k(1000);
-                irb.b(aVar.c());
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
+        return invokeCommon.intValue;
     }
 }

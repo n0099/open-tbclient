@@ -82,9 +82,9 @@ public final class c extends e implements com.kwad.sdk.core.h.c {
     private void t(AdInfo adInfo) {
         int i;
         if (com.kwad.components.ad.splashscreen.f.c.z(adInfo)) {
-            i = R.id.obfuscated_res_0x7f0914c7;
+            i = R.id.obfuscated_res_0x7f0914c8;
         } else {
-            i = R.id.obfuscated_res_0x7f0914c3;
+            i = R.id.obfuscated_res_0x7f0914c4;
         }
         findViewById(i).setVisibility(0);
     }
@@ -120,9 +120,9 @@ public final class c extends e implements com.kwad.sdk.core.h.c {
     private void v(AdInfo adInfo) {
         int i;
         if (com.kwad.components.ad.splashscreen.f.c.z(adInfo)) {
-            i = R.id.obfuscated_res_0x7f0914c6;
+            i = R.id.obfuscated_res_0x7f0914c7;
         } else {
-            i = R.id.obfuscated_res_0x7f0914c5;
+            i = R.id.obfuscated_res_0x7f0914c6;
         }
         this.CX = (TextView) findViewById(i);
         AdInfo.AdPreloadInfo adPreloadInfo = adInfo.adPreloadInfo;
@@ -136,7 +136,7 @@ public final class c extends e implements com.kwad.sdk.core.h.c {
     }
 
     private void w(AdInfo adInfo) {
-        this.Db = findViewById(R.id.obfuscated_res_0x7f0914a8);
+        this.Db = findViewById(R.id.obfuscated_res_0x7f0914a9);
         if (com.kwad.sdk.core.response.b.a.cu(adInfo) && adInfo.adSplashInfo.skipButtonPosition == 0) {
             this.Db.setVisibility(0);
             this.Db.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.splashscreen.c.c.2
@@ -177,16 +177,16 @@ public final class c extends e implements com.kwad.sdk.core.h.c {
         v(this.sc);
         if (u(this.sc)) {
             if (com.kwad.components.ad.splashscreen.f.c.z(this.sc)) {
-                i2 = R.id.obfuscated_res_0x7f0914ca;
+                i2 = R.id.obfuscated_res_0x7f0914cb;
             } else {
-                i2 = R.id.obfuscated_res_0x7f0914c9;
+                i2 = R.id.obfuscated_res_0x7f0914ca;
             }
             this.CY = (com.kwad.components.ad.splashscreen.widget.a) findViewById(i2);
         } else {
             if (com.kwad.components.ad.splashscreen.f.c.z(this.sc)) {
-                i = R.id.obfuscated_res_0x7f0914b5;
+                i = R.id.obfuscated_res_0x7f0914b6;
             } else {
-                i = R.id.obfuscated_res_0x7f0914b4;
+                i = R.id.obfuscated_res_0x7f0914b5;
             }
             this.CY = (com.kwad.components.ad.splashscreen.widget.a) findViewById(i);
         }

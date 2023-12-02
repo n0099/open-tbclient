@@ -33,38 +33,38 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class dimen {
-        public static final int common_tips_text_size_b = 0x7f07024e;
-        public static final int common_tool_bar_height = 0x7f07024f;
-        public static final int common_tool_bar_height_big = 0x7f070250;
-        public static final int common_tool_bar_height_very_big = 0x7f070251;
-        public static final int common_tool_bar_praise_icon_size = 0x7f070252;
-        public static final int common_toolbar_comment_text_bottom_padding = 0x7f070254;
-        public static final int common_toolbar_comment_text_width_left = 0x7f070255;
-        public static final int common_toolbar_comment_text_width_right = 0x7f070256;
-        public static final int common_toolbar_commentinput_height = 0x7f070257;
-        public static final int common_toolbar_commentinput_hint_size = 0x7f070259;
-        public static final int common_toolbar_commentinput_left = 0x7f07025a;
-        public static final int common_toolbar_commentinput_margin_right = 0x7f07025b;
-        public static final int common_toolbar_commentinput_padding = 0x7f07025c;
-        public static final int common_toolbar_commentinput_right = 0x7f07025d;
-        public static final int common_toolbar_commentinput_right_2 = 0x7f07025e;
-        public static final int common_toolbar_commenttips_margin_top = 0x7f07025f;
-        public static final int common_toolbar_icon_margin = 0x7f070260;
-        public static final int common_toolbar_item_width = 0x7f070262;
-        public static final int common_toolbar_landing_margin = 0x7f070263;
-        public static final int common_toolbar_praise_tip_margin_left = 0x7f070264;
-        public static final int common_toolbar_praise_tip_padding = 0x7f070265;
-        public static final int common_toolbar_praise_width = 0x7f070267;
-        public static final int common_toolbar_split_height = 0x7f070268;
-        public static final int common_toolbar_split_margin = 0x7f070269;
-        public static final int common_toolbar_split_wight = 0x7f07026b;
-        public static final int common_toolbar_wenda_item_width = 0x7f07026c;
-        public static final int home_tab_widget_icon_width = 0x7f07047f;
-        public static final int liveshow_button_pressed_alpha = 0x7f07057f;
-        public static final int search_tool_bar_side_padding = 0x7f0707e5;
-        public static final int search_tool_bar_voice_side_padding = 0x7f0707e6;
-        public static final int toolbar_comment_input_corner_radius = 0x7f070b47;
-        public static final int toolbar_comment_shortcut_view_padding = 0x7f070b48;
+        public static final int common_tips_text_size_b = 0x7f07024f;
+        public static final int common_tool_bar_height = 0x7f070250;
+        public static final int common_tool_bar_height_big = 0x7f070251;
+        public static final int common_tool_bar_height_very_big = 0x7f070252;
+        public static final int common_tool_bar_praise_icon_size = 0x7f070254;
+        public static final int common_toolbar_comment_text_bottom_padding = 0x7f070255;
+        public static final int common_toolbar_comment_text_width_left = 0x7f070256;
+        public static final int common_toolbar_comment_text_width_right = 0x7f070257;
+        public static final int common_toolbar_commentinput_height = 0x7f070259;
+        public static final int common_toolbar_commentinput_hint_size = 0x7f07025a;
+        public static final int common_toolbar_commentinput_left = 0x7f07025b;
+        public static final int common_toolbar_commentinput_margin_right = 0x7f07025c;
+        public static final int common_toolbar_commentinput_padding = 0x7f07025d;
+        public static final int common_toolbar_commentinput_right = 0x7f07025e;
+        public static final int common_toolbar_commentinput_right_2 = 0x7f07025f;
+        public static final int common_toolbar_commenttips_margin_top = 0x7f070260;
+        public static final int common_toolbar_icon_margin = 0x7f070262;
+        public static final int common_toolbar_item_width = 0x7f070263;
+        public static final int common_toolbar_landing_margin = 0x7f070264;
+        public static final int common_toolbar_praise_tip_margin_left = 0x7f070265;
+        public static final int common_toolbar_praise_tip_padding = 0x7f070267;
+        public static final int common_toolbar_praise_width = 0x7f070268;
+        public static final int common_toolbar_split_height = 0x7f070269;
+        public static final int common_toolbar_split_margin = 0x7f07026b;
+        public static final int common_toolbar_split_wight = 0x7f07026c;
+        public static final int common_toolbar_wenda_item_width = 0x7f07026d;
+        public static final int home_tab_widget_icon_width = 0x7f070480;
+        public static final int liveshow_button_pressed_alpha = 0x7f070580;
+        public static final int search_tool_bar_side_padding = 0x7f0707e9;
+        public static final int search_tool_bar_voice_side_padding = 0x7f0707ea;
+        public static final int toolbar_comment_input_corner_radius = 0x7f070b4b;
+        public static final int toolbar_comment_shortcut_view_padding = 0x7f070b4c;
     }
 
     /* loaded from: classes3.dex */
@@ -106,16 +106,16 @@ public final class R {
         public static final int common_toolbar_mini_red = 0x7f08054d;
         public static final int common_toolbar_red = 0x7f08054e;
         public static final int common_toolbar_red_photo = 0x7f08054f;
-        public static final int searchbox_image_refresh_icon_close = 0x7f0813c6;
-        public static final int searchbox_image_refresh_icon_refreshing = 0x7f0813c7;
-        public static final int toolbar_comment_shortcut_view = 0x7f081554;
-        public static final int toolbar_item_comment_input_bg_close_comment = 0x7f081555;
-        public static final int toolbar_item_comment_input_bg_dark = 0x7f081556;
-        public static final int toolbar_item_comment_input_bg_mini_video = 0x7f081557;
-        public static final int toolbar_item_comment_input_bg_normal = 0x7f081558;
-        public static final int toolbar_wenda_bottom_bar_edit_icon = 0x7f081559;
-        public static final int toolbar_wenda_bottom_bar_result_icon = 0x7f08155a;
-        public static final int wenda_bottom_bar_split_line = 0x7f0815d0;
+        public static final int searchbox_image_refresh_icon_close = 0x7f0813c9;
+        public static final int searchbox_image_refresh_icon_refreshing = 0x7f0813ca;
+        public static final int toolbar_comment_shortcut_view = 0x7f081557;
+        public static final int toolbar_item_comment_input_bg_close_comment = 0x7f081558;
+        public static final int toolbar_item_comment_input_bg_dark = 0x7f081559;
+        public static final int toolbar_item_comment_input_bg_mini_video = 0x7f08155a;
+        public static final int toolbar_item_comment_input_bg_normal = 0x7f08155b;
+        public static final int toolbar_wenda_bottom_bar_edit_icon = 0x7f08155c;
+        public static final int toolbar_wenda_bottom_bar_result_icon = 0x7f08155d;
+        public static final int wenda_bottom_bar_split_line = 0x7f0815d3;
     }
 
     /* loaded from: classes3.dex */
@@ -125,21 +125,21 @@ public final class R {
         public static final int comments_hot_cut_line = 0x7f0907b2;
         public static final int comments_redtip_text = 0x7f0907b3;
         public static final int common_tool_item_comments = 0x7f0907cb;
-        public static final int praise_view_id = 0x7f091e0e;
-        public static final int redtip_dot = 0x7f091f81;
-        public static final int redtip_dot_viewstub = 0x7f091f82;
-        public static final int redtip_icon = 0x7f091f83;
-        public static final int redtip_icon_copy = 0x7f091f84;
-        public static final int redtip_text = 0x7f091f85;
-        public static final int toolbar_comment_input_emoji = 0x7f0926f6;
-        public static final int toolbar_comment_input_emoji_1 = 0x7f0926f7;
-        public static final int toolbar_comment_input_emoji_2 = 0x7f0926f8;
-        public static final int toolbar_comment_input_guide_view = 0x7f0926f9;
-        public static final int toolbar_comment_input_view = 0x7f0926fa;
-        public static final int toolbar_comment_shortcut_view = 0x7f0926fb;
-        public static final int wenda_item_divid_line = 0x7f092b0f;
-        public static final int wenda_item_img = 0x7f092b10;
-        public static final int wenda_item_title_tv = 0x7f092b11;
+        public static final int praise_view_id = 0x7f091e10;
+        public static final int redtip_dot = 0x7f091f83;
+        public static final int redtip_dot_viewstub = 0x7f091f84;
+        public static final int redtip_icon = 0x7f091f85;
+        public static final int redtip_icon_copy = 0x7f091f86;
+        public static final int redtip_text = 0x7f091f87;
+        public static final int toolbar_comment_input_emoji = 0x7f0926f8;
+        public static final int toolbar_comment_input_emoji_1 = 0x7f0926f9;
+        public static final int toolbar_comment_input_emoji_2 = 0x7f0926fa;
+        public static final int toolbar_comment_input_guide_view = 0x7f0926fb;
+        public static final int toolbar_comment_input_view = 0x7f0926fc;
+        public static final int toolbar_comment_shortcut_view = 0x7f0926fd;
+        public static final int wenda_item_divid_line = 0x7f092b15;
+        public static final int wenda_item_img = 0x7f092b16;
+        public static final int wenda_item_title_tv = 0x7f092b17;
     }
 
     /* loaded from: classes3.dex */

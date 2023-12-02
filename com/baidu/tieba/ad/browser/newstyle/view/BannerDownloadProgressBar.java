@@ -14,7 +14,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o16;
+import com.baidu.tieba.s16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,19 +76,19 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     public final void h(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, o16.ad_progress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, s16.ad_progress);
             int parseColor = Color.parseColor("#666666");
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070797);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07079b);
             int parseColor2 = Color.parseColor("#2BBCFF");
             int parseColor3 = Color.parseColor("#2B87FF");
-            this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070796);
+            this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07079a);
             this.d = obtainStyledAttributes.getColor(1, parseColor2);
             this.e = obtainStyledAttributes.getColor(0, parseColor3);
             this.b = obtainStyledAttributes.getColor(7, parseColor);
             this.g = obtainStyledAttributes.getInteger(2, this.g);
             this.a = obtainStyledAttributes.getInteger(3, 0);
             this.f = obtainStyledAttributes.getString(5);
-            this.c = obtainStyledAttributes.getDimension(8, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070795));
+            this.c = obtainStyledAttributes.getDimension(8, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070799));
             this.h = obtainStyledAttributes.getDimensionPixelSize(4, dimensionPixelSize);
             obtainStyledAttributes.recycle();
             j();

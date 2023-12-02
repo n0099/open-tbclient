@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.share.ShareEvent;
+import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ln5 implements lm5<ShareEvent> {
+public class ln5 implements om5<PrePageKeyEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,26 +28,15 @@ public class ln5 implements lm5<ShareEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm5
+    @Override // com.baidu.tieba.om5
     /* renamed from: a */
-    public boolean onEvent(ShareEvent shareEvent) {
+    public boolean onEvent(PrePageKeyEvent prePageKeyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareEvent)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return false;
-            }
-            int i = shareEvent.status;
-            if (shareEvent.from == 1) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921696, Integer.valueOf(i)));
-            }
-            if (i == 1) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921406, shareEvent));
-                String str = shareEvent.tid;
-                if (!TextUtils.isEmpty(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921417, str));
-                    return true;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, prePageKeyEvent)) == null) {
+            if (prePageKeyEvent != null && !TextUtils.isEmpty(prePageKeyEvent.prePageKey)) {
+                TbPageExtraHelper.setPrePageKey(prePageKeyEvent.prePageKey);
+                return true;
             }
             return false;
         }

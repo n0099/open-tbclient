@@ -47,11 +47,11 @@ public final class NormalSpriteViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            DynamicAnimView dynamicAnimView = (DynamicAnimView) view2.findViewById(R.id.obfuscated_res_0x7f092375);
+            DynamicAnimView dynamicAnimView = (DynamicAnimView) view2.findViewById(R.id.obfuscated_res_0x7f092377);
             if (dynamicAnimView != null) {
                 return new NormalSpriteViewBinding((FrameLayout) view2, dynamicAnimView);
             }
-            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f092375)));
+            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f092377)));
         }
         return (NormalSpriteViewBinding) invokeL.objValue;
     }
@@ -61,7 +61,7 @@ public final class NormalSpriteViewBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0762, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0763, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

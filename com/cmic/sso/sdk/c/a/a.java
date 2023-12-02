@@ -87,76 +87,76 @@ public class a implements b {
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:144:0x0086 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:150:0x00cf */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:66:0x01d2 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:74:0x01dd */
-    /* JADX WARN: Can't wrap try/catch for region: R(35:1|(2:145|(1:147))|3|(2:4|5)|(2:137|(29:139|10|(1:12)(1:136)|13|14|(3:16|(5:19|20|21|22|17)|74)|76|(1:(1:83)(1:84))|85|(1:87)|88|89|(3:91|92|93)(1:131)|94|96|97|98|99|100|(2:101|(1:103)(1:104))|105|106|(1:108)|109|(1:111)(1:120)|112|(2:118|119)|48|49))|9|10|(0)(0)|13|14|(0)|76|(2:78|(0)(0))|85|(0)|88|89|(0)(0)|94|96|97|98|99|100|(3:101|(0)(0)|103)|105|106|(0)|109|(0)(0)|112|(1:114)|118|119|(1:(0))) */
-    /* JADX WARN: Code restructure failed: missing block: B:105:0x0258, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:66:0x01d1 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:74:0x01dc */
+    /* JADX WARN: Can't wrap try/catch for region: R(35:1|(2:145|(1:147))|3|(2:4|5)|(2:137|(29:139|10|(1:12)(1:136)|13|14|(3:16|(5:19|20|21|22|17)|74)|76|(1:(1:83)(1:84))|85|(1:87)|88|89|(3:91|93|94)(1:131)|95|96|97|98|99|100|(2:101|(1:103)(1:104))|105|106|(1:108)|109|(1:111)(1:120)|112|(2:118|119)|48|49))|9|10|(0)(0)|13|14|(0)|76|(2:78|(0)(0))|85|(0)|88|89|(0)(0)|95|96|97|98|99|100|(3:101|(0)(0)|103)|105|106|(0)|109|(0)(0)|112|(1:114)|118|119|(1:(0))) */
+    /* JADX WARN: Code restructure failed: missing block: B:105:0x0257, code lost:
         r12.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:108:0x027b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:108:0x027a, code lost:
         r6 = r18;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:109:0x027e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:109:0x027d, code lost:
         r6 = r10.toString();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x01d2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x01d1, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x01d4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x01d3, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x01d5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x01d4, code lost:
         r13 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:70:0x01d8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x01d7, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:71:0x01d9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x01d8, code lost:
         r13 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:80:0x01e3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x01e2, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:81:0x01e4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x01e3, code lost:
         r18 = r6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x01e8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x01e7, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:84:0x01e9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x01e8, code lost:
         r18 = r6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:94:0x0226, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:94:0x0225, code lost:
         r15 = 200050;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:95:0x022d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:95:0x022c, code lost:
         r15 = 102102;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x0258  */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x027b  */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x027e  */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x0290  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x02ae  */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x02d1  */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x02d4  */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x02e6  */
-    /* JADX WARN: Removed duplicated region for block: B:151:0x0176 A[EDGE_INSN: B:151:0x0176->B:50:0x0176 ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0069 A[Catch: all -> 0x01ed, Exception -> 0x01f6, TryCatch #9 {Exception -> 0x01f6, all -> 0x01ed, blocks: (B:5:0x0034, B:7:0x0049, B:13:0x0063, B:15:0x0069, B:16:0x007a, B:9:0x004d, B:11:0x0057), top: B:139:0x0034 }] */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x007a A[Catch: all -> 0x01ed, Exception -> 0x01f6, TRY_LEAVE, TryCatch #9 {Exception -> 0x01f6, all -> 0x01ed, blocks: (B:5:0x0034, B:7:0x0049, B:13:0x0063, B:15:0x0069, B:16:0x007a, B:9:0x004d, B:11:0x0057), top: B:139:0x0034 }] */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x00a5 A[Catch: all -> 0x01e3, Exception -> 0x01e8, TryCatch #11 {Exception -> 0x01e8, all -> 0x01e3, blocks: (B:17:0x0086, B:19:0x00a5, B:20:0x00ad, B:22:0x00b3), top: B:144:0x0086 }] */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00df A[Catch: all -> 0x01df, Exception -> 0x01e1, TryCatch #8 {Exception -> 0x01e1, all -> 0x01df, blocks: (B:24:0x00b9, B:25:0x00cf, B:27:0x00d5, B:29:0x00d9, B:32:0x00df, B:33:0x0102, B:34:0x010c, B:36:0x012e, B:37:0x0137, B:40:0x0142), top: B:148:0x00b9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0102 A[Catch: all -> 0x01df, Exception -> 0x01e1, TryCatch #8 {Exception -> 0x01e1, all -> 0x01df, blocks: (B:24:0x00b9, B:25:0x00cf, B:27:0x00d5, B:29:0x00d9, B:32:0x00df, B:33:0x0102, B:34:0x010c, B:36:0x012e, B:37:0x0137, B:40:0x0142), top: B:148:0x00b9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x012e A[Catch: all -> 0x01df, Exception -> 0x01e1, TryCatch #8 {Exception -> 0x01e1, all -> 0x01df, blocks: (B:24:0x00b9, B:25:0x00cf, B:27:0x00d5, B:29:0x00d9, B:32:0x00df, B:33:0x0102, B:34:0x010c, B:36:0x012e, B:37:0x0137, B:40:0x0142), top: B:148:0x00b9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0142 A[Catch: all -> 0x01df, Exception -> 0x01e1, TRY_ENTER, TRY_LEAVE, TryCatch #8 {Exception -> 0x01e1, all -> 0x01df, blocks: (B:24:0x00b9, B:25:0x00cf, B:27:0x00d5, B:29:0x00d9, B:32:0x00df, B:33:0x0102, B:34:0x010c, B:36:0x012e, B:37:0x0137, B:40:0x0142), top: B:148:0x00b9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0155  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0168 A[Catch: Exception -> 0x01d2, all -> 0x02a5, LOOP:1: B:47:0x0162->B:49:0x0168, LOOP_END, TryCatch #3 {all -> 0x02a5, blocks: (B:92:0x01fd, B:96:0x0233, B:98:0x0237, B:100:0x023f, B:102:0x0247, B:46:0x0160, B:47:0x0162, B:49:0x0168, B:50:0x0176), top: B:139:0x0034 }] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x018b  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x01ae  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x01b1  */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x0226  */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x022d  */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x0237 A[Catch: all -> 0x02a5, TryCatch #3 {all -> 0x02a5, blocks: (B:92:0x01fd, B:96:0x0233, B:98:0x0237, B:100:0x023f, B:102:0x0247, B:46:0x0160, B:47:0x0162, B:49:0x0168, B:50:0x0176), top: B:139:0x0034 }] */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x0257  */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x027a  */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x027d  */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x028f  */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x02ad  */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x02d0  */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x02d3  */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x02e5  */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x0175 A[EDGE_INSN: B:151:0x0175->B:50:0x0175 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0069 A[Catch: all -> 0x01ec, Exception -> 0x01f5, TryCatch #8 {Exception -> 0x01f5, all -> 0x01ec, blocks: (B:5:0x0034, B:7:0x0049, B:13:0x0063, B:15:0x0069, B:16:0x007a, B:9:0x004d, B:11:0x0057), top: B:139:0x0034 }] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x007a A[Catch: all -> 0x01ec, Exception -> 0x01f5, TRY_LEAVE, TryCatch #8 {Exception -> 0x01f5, all -> 0x01ec, blocks: (B:5:0x0034, B:7:0x0049, B:13:0x0063, B:15:0x0069, B:16:0x007a, B:9:0x004d, B:11:0x0057), top: B:139:0x0034 }] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x00a5 A[Catch: all -> 0x01e2, Exception -> 0x01e7, TryCatch #11 {Exception -> 0x01e7, all -> 0x01e2, blocks: (B:17:0x0086, B:19:0x00a5, B:20:0x00ad, B:22:0x00b3), top: B:144:0x0086 }] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00df A[Catch: all -> 0x01de, Exception -> 0x01e0, TryCatch #12 {Exception -> 0x01e0, all -> 0x01de, blocks: (B:24:0x00b9, B:25:0x00cf, B:27:0x00d5, B:29:0x00d9, B:32:0x00df, B:33:0x0102, B:34:0x010c, B:36:0x012e, B:37:0x0137, B:40:0x0141), top: B:142:0x00b9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0102 A[Catch: all -> 0x01de, Exception -> 0x01e0, TryCatch #12 {Exception -> 0x01e0, all -> 0x01de, blocks: (B:24:0x00b9, B:25:0x00cf, B:27:0x00d5, B:29:0x00d9, B:32:0x00df, B:33:0x0102, B:34:0x010c, B:36:0x012e, B:37:0x0137, B:40:0x0141), top: B:142:0x00b9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x012e A[Catch: all -> 0x01de, Exception -> 0x01e0, TryCatch #12 {Exception -> 0x01e0, all -> 0x01de, blocks: (B:24:0x00b9, B:25:0x00cf, B:27:0x00d5, B:29:0x00d9, B:32:0x00df, B:33:0x0102, B:34:0x010c, B:36:0x012e, B:37:0x0137, B:40:0x0141), top: B:142:0x00b9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0141 A[Catch: all -> 0x01de, Exception -> 0x01e0, TRY_ENTER, TRY_LEAVE, TryCatch #12 {Exception -> 0x01e0, all -> 0x01de, blocks: (B:24:0x00b9, B:25:0x00cf, B:27:0x00d5, B:29:0x00d9, B:32:0x00df, B:33:0x0102, B:34:0x010c, B:36:0x012e, B:37:0x0137, B:40:0x0141), top: B:142:0x00b9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0154  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0167 A[Catch: Exception -> 0x01d1, all -> 0x02a4, LOOP:1: B:47:0x0161->B:49:0x0167, LOOP_END, TryCatch #4 {all -> 0x02a4, blocks: (B:92:0x01fc, B:96:0x0232, B:98:0x0236, B:100:0x023e, B:102:0x0246, B:46:0x015f, B:47:0x0161, B:49:0x0167, B:50:0x0175), top: B:139:0x0034 }] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x018a  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x01ad  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x01b0  */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x0225  */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x022c  */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x0236 A[Catch: all -> 0x02a4, TryCatch #4 {all -> 0x02a4, blocks: (B:92:0x01fc, B:96:0x0232, B:98:0x0236, B:100:0x023e, B:102:0x0246, B:46:0x015f, B:47:0x0161, B:49:0x0167, B:50:0x0175), top: B:139:0x0034 }] */
     /* JADX WARN: Type inference failed for: r20v0, types: [com.cmic.sso.sdk.c.a.a, java.lang.Object] */
     /* JADX WARN: Type inference failed for: r2v26, types: [java.lang.StringBuilder] */
     /* JADX WARN: Type inference failed for: r2v3, types: [java.lang.StringBuilder] */
@@ -257,6 +257,7 @@ public class a implements b {
                             if (e instanceof EOFException) {
                             }
                             if (e instanceof UnknownHostException) {
+                                aVar.a("remote_ip", a());
                             }
                             a(outputStream);
                             a(inputStream);
@@ -281,17 +282,23 @@ public class a implements b {
                             a(outputStream);
                             a(closeable);
                             if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
                             }
                             com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "responseCode: " + i);
                             ?? sb4 = new StringBuilder();
                             sb4.append("responseResult: ");
                             if (TextUtils.isEmpty(sb2)) {
+                                str2 = str;
+                            } else {
+                                str2 = sb2.toString();
                             }
                             sb4.append(str2);
                             com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", sb4.toString());
-                            if (i == 200) {
+                            if (i == 200 && i != 301 && i != 302) {
+                                cVar2.a(com.cmic.sso.sdk.c.d.a.a(i));
+                            } else {
+                                cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                             }
-                            cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                             throw th;
                         }
                     }
@@ -366,7 +373,6 @@ public class a implements b {
                         if (e instanceof EOFException) {
                         }
                         if (e instanceof UnknownHostException) {
-                            aVar.a("remote_ip", a());
                         }
                         a(outputStream);
                         a(inputStream);
@@ -390,23 +396,17 @@ public class a implements b {
                         a(outputStream);
                         a(closeable2);
                         if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
                         }
                         com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "responseCode: " + i);
                         ?? sb42 = new StringBuilder();
                         sb42.append("responseResult: ");
                         if (TextUtils.isEmpty(sb2)) {
-                            str2 = str;
-                        } else {
-                            str2 = sb2.toString();
                         }
                         sb42.append(str2);
                         com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", sb42.toString());
-                        if (i == 200 && i != 301 && i != 302) {
-                            cVar2.a(com.cmic.sso.sdk.c.d.a.a(i));
-                        } else {
-                            cVar2.a((com.cmic.sso.sdk.c.d.b) null);
+                        if (i == 200) {
                         }
+                        cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                         throw th;
                     }
                 } else {

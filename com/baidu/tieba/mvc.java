@@ -1,34 +1,27 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.BottomMenu;
-import tbclient.SubBottomMenu;
+import tbclient.BusinessAccountInfo;
 /* loaded from: classes7.dex */
-public class mvc extends ltc {
+public class mvc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull BottomMenu bottomMenu) {
+    public static JSONObject b(@NonNull BusinessAccountInfo businessAccountInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bottomMenu)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, businessAccountInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "name", bottomMenu.name);
-            ltc.a(jSONObject, "url", bottomMenu.url);
-            if (bottomMenu.submenu != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (SubBottomMenu subBottomMenu : bottomMenu.submenu) {
-                    jSONArray.put(a9d.b(subBottomMenu));
-                }
-                ltc.a(jSONObject, "submenu", jSONArray);
-            }
-            ltc.a(jSONObject, "type", bottomMenu.type);
+            ktc.a(jSONObject, IMUserExtraData.KEY_IS_BUSINESS_ACCOUNT, businessAccountInfo.is_business_account);
+            ktc.a(jSONObject, "is_forum_business_account", businessAccountInfo.is_forum_business_account);
+            ktc.a(jSONObject, "business_name", businessAccountInfo.business_name);
+            ktc.a(jSONObject, "identifi_explain", businessAccountInfo.identifi_explain);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

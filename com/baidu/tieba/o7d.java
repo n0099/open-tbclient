@@ -1,32 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.RecommendInfo;
-import tbclient.SchoolRecomUserInfo;
+import tbclient.RecommendTip;
 /* loaded from: classes7.dex */
-public class o7d extends ltc {
+public class o7d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecommendInfo recommendInfo) {
+    public static JSONObject b(@NonNull RecommendTip recommendTip) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recommendInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recommendTip)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "title", recommendInfo.title);
-            if (recommendInfo.user_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
-                    jSONArray.put(y7d.b(schoolRecomUserInfo));
-                }
-                ltc.a(jSONObject, "user_list", jSONArray);
-            }
+            ktc.a(jSONObject, "reason", recommendTip.reason);
+            ktc.a(jSONObject, TiebaStatic.Params.IS_FOLLOW, recommendTip.is_follow);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

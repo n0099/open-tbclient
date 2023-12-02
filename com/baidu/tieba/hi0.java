@@ -21,15 +21,15 @@ public class hi0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
             JSONObject jSONObject = new JSONObject();
-            my0.f(jSONObject, "downStatus", str);
+            oy0.f(jSONObject, "downStatus", str);
             try {
                 d = Double.parseDouble(str2) * 100.0d;
             } catch (Exception unused) {
                 d = 0.0d;
             }
-            my0.e(jSONObject, "process", Math.round(d));
-            my0.f(jSONObject, "uri", str3);
-            my0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
+            oy0.e(jSONObject, "process", Math.round(d));
+            oy0.f(jSONObject, "uri", str3);
+            oy0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
             return jSONObject.toString();
         }
         return (String) invokeLLLL.objValue;
@@ -50,13 +50,13 @@ public class hi0 {
         } else {
             str = "202";
         }
-        ny0.e(map, "status", str);
+        py0.e(map, "status", str);
         if (z) {
             str2 = "调用成功";
         } else {
             str2 = "";
         }
-        ny0.e(map, "message", str2);
+        py0.e(map, "message", str2);
         ze0Var.a(z, map);
     }
 
@@ -68,9 +68,9 @@ public class hi0 {
         HashMap hashMap = new HashMap();
         hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, str);
         JSONObject jSONObject = new JSONObject();
-        my0.f(jSONObject, "uri", str2);
-        my0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
-        my0.f(jSONObject, "downStatus", str4);
+        oy0.f(jSONObject, "uri", str2);
+        oy0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
+        oy0.f(jSONObject, "downStatus", str4);
         hashMap.put("data", jSONObject.toString());
         b(ze0Var, true, hashMap);
     }
@@ -82,7 +82,7 @@ public class hi0 {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
-            return my0.c(str).optString("bt_info");
+            return oy0.c(str).optString("bt_info");
         }
         return (String) invokeL.objValue;
     }

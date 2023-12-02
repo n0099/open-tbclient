@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.ac7;
-import com.baidu.tieba.fja;
-import com.baidu.tieba.r88;
+import com.baidu.tieba.bt5;
+import com.baidu.tieba.ec7;
+import com.baidu.tieba.jja;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
-import com.baidu.tieba.ss5;
-import com.baidu.tieba.xs5;
+import com.baidu.tieba.v88;
+import com.baidu.tieba.ws5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 @Metadata(d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0017\n\u0002\u0010\t\n\u0002\b:\n\u0002\u0010\u0006\n\u0002\b\u001d\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\u0010\u0010{\u001a\u00020|2\u0006\u0010}\u001a\u00020~H\u0014J\b\u0010\u007f\u001a\u00020\u000bH\u0016R\u001a\u0010\u0004\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0006\u0010\u0007\"\u0004\b\b\u0010\tR\u001a\u0010\n\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u001a\u0010\u0010\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0011\u0010\r\"\u0004\b\u0012\u0010\u000fR\u001a\u0010\u0013\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0007\"\u0004\b\u0015\u0010\tR\u001a\u0010\u0016\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\r\"\u0004\b\u0018\u0010\u000fR\u001a\u0010\u0019\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\r\"\u0004\b\u001b\u0010\u000fR\u001a\u0010\u001c\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001d\u0010\r\"\u0004\b\u001e\u0010\u000fR\u001a\u0010\u001f\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b \u0010\r\"\u0004\b!\u0010\u000fR\u001a\u0010\"\u001a\u00020#X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b$\u0010%\"\u0004\b&\u0010'R\u001a\u0010(\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b(\u0010\r\"\u0004\b)\u0010\u000fR\u001a\u0010*\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b*\u0010\r\"\u0004\b+\u0010\u000fR\u001a\u0010,\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b,\u0010\r\"\u0004\b-\u0010\u000fR\u001a\u0010.\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b.\u0010\r\"\u0004\b/\u0010\u000fR\u001a\u00100\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b1\u0010\u0007\"\u0004\b2\u0010\tR\u001a\u00103\u001a\u00020#X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b4\u0010%\"\u0004\b5\u0010'R\u001a\u00106\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b7\u0010\u0007\"\u0004\b8\u0010\tR\u001a\u00109\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b:\u0010\r\"\u0004\b;\u0010\u000fR\u001a\u0010<\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b=\u0010\r\"\u0004\b>\u0010\u000fR\u001a\u0010?\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b@\u0010\r\"\u0004\bA\u0010\u000fR\u001a\u0010B\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bC\u0010\u0007\"\u0004\bD\u0010\tR\u001a\u0010E\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bF\u0010\u0007\"\u0004\bG\u0010\tR\u001a\u0010H\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bI\u0010\r\"\u0004\bJ\u0010\u000fR\u001a\u0010K\u001a\u00020#X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bL\u0010%\"\u0004\bM\u0010'R\u001a\u0010N\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bO\u0010\r\"\u0004\bP\u0010\u000fR\u001a\u0010Q\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bR\u0010\r\"\u0004\bS\u0010\u000fR\u001a\u0010T\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bU\u0010\r\"\u0004\bV\u0010\u000fR\u001a\u0010W\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bX\u0010\r\"\u0004\bY\u0010\u000fR\u001a\u0010Z\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b[\u0010\r\"\u0004\b\\\u0010\u000fR\u001a\u0010]\u001a\u00020^X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b_\u0010`\"\u0004\ba\u0010bR\u001a\u0010c\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bd\u0010\r\"\u0004\be\u0010\u000fR\u001a\u0010f\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bg\u0010\r\"\u0004\bh\u0010\u000fR\u001a\u0010i\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bj\u0010\r\"\u0004\bk\u0010\u000fR\u001a\u0010l\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bm\u0010\r\"\u0004\bn\u0010\u000fR\u001a\u0010o\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bp\u0010\u0007\"\u0004\bq\u0010\tR\u001a\u0010r\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bs\u0010\u0007\"\u0004\bt\u0010\tR\u001a\u0010u\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bv\u0010\r\"\u0004\bw\u0010\u000fR\u001a\u0010x\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\by\u0010\u0007\"\u0004\bz\u0010\t¨\u0006\u0080\u0001"}, d2 = {"Lcom/baidu/tieba/forum/model/FrsPageRequestMessage;", "Lcom/baidu/adp/framework/message/NetMessage;", "Lcom/baidu/tieba/feed/model/IGetFeedLoadType;", "()V", "adFloorInfo", "", "getAdFloorInfo", "()Ljava/lang/String;", "setAdFloorInfo", "(Ljava/lang/String;)V", ReplyMeActivityConfig.KEY_FROM, "", "getCallFrom", "()I", "setCallFrom", "(I)V", "categoryId", "getCategoryId", "setCategoryId", "chatroomNewMsg", "getChatroomNewMsg", "setChatroomNewMsg", "cid", "getCid", "setCid", "ctime", "getCtime", "setCtime", "dataSize", "getDataSize", "setDataSize", "defaultSortType", "getDefaultSortType", "setDefaultSortType", "hotThreadId", "", "getHotThreadId", "()J", "setHotThreadId", "(J)V", "isDefaultNavTab", "setDefaultNavTab", "isGood", "setGood", "isNewFrs", "setNewFrs", "isSelection", "setSelection", TiebaStatic.Params.H5_FORUM_NAME, "getKw", "setKw", "lastClickTid", "getLastClickTid", "setLastClickTid", "lastIds", "getLastIds", "setLastIds", "loadCount", "getLoadCount", "setLoadCount", "loadType", "getLoadType", "setLoadType", "netError", "getNetError", "setNetError", "objLocate", "getObjLocate", "setObjLocate", "objSource", "getObjSource", "setObjSource", "pn", "getPn", "setPn", "pushTid", "getPushTid", "setPushTid", "qType", "getQType", "setQType", "refreshCount", "getRefreshCount", "setRefreshCount", "requestTimes", "getRequestTimes", "setRequestTimes", "rn", "getRn", "setRn", "rnNeed", "getRnNeed", "setRnNeed", "scrDip", "", "getScrDip", "()D", "setScrDip", "(D)V", "scrH", "getScrH", "setScrH", "scrW", "getScrW", "setScrW", "sortType", "getSortType", "setSortType", "stParam", "getStParam", "setStParam", "stType", "getStType", "setStType", "upSchema", "getUpSchema", "setUpSchema", "withGroup", "getWithGroup", "setWithGroup", "yuelaoLocate", "getYuelaoLocate", "setYuelaoLocate", HttpClientWrap.c, "", "isShortConnection", "", "getFeedLoadType", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class FrsPageRequestMessage extends NetMessage implements ac7 {
+public final class FrsPageRequestMessage extends NetMessage implements ec7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String adFloorInfo;
@@ -132,11 +132,11 @@ public final class FrsPageRequestMessage extends NetMessage implements ac7 {
             builder.is_selection = Integer.valueOf(this.isSelection);
             builder.call_from = Integer.valueOf(this.callFrom);
             builder.hot_thread_id = Long.valueOf(this.hotThreadId);
-            String d = r88.e().d("frs_feed");
+            String d = v88.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = ss5.g(d, ss5.f());
-            builder.ad_bear_sid_price = Double.valueOf(ss5.i());
-            if (ss5.n(builder.ad_bear_sid)) {
+            builder.ad_bear_context = ws5.g(d, ws5.f());
+            builder.ad_bear_sid_price = Double.valueOf(ws5.i());
+            if (ws5.n(builder.ad_bear_sid)) {
                 i = 1;
             } else {
                 i = 0;
@@ -150,7 +150,7 @@ public final class FrsPageRequestMessage extends NetMessage implements ac7 {
             builder.ad_param = builder2.build(false);
             builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
             if (this.loadType != 1) {
-                str = fja.f().d("FRS");
+                str = jja.f().d("FRS");
             }
             builder.ad_context_list = str;
             builder.up_schema = this.upSchema;
@@ -158,7 +158,7 @@ public final class FrsPageRequestMessage extends NetMessage implements ac7 {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = xs5.b();
+            builder.app_transmit_data = bt5.b();
             builder.push_tid = Long.valueOf(this.pushTid);
             NetMessageHelper.bindCommonParamsToProtobufData(builder, true, false, true);
             builder.chatroom_new_msg = this.chatroomNewMsg;
@@ -244,7 +244,7 @@ public final class FrsPageRequestMessage extends NetMessage implements ac7 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ac7
+    @Override // com.baidu.tieba.ec7
     public int getFeedLoadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

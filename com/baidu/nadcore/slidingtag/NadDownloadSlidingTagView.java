@@ -12,13 +12,13 @@ import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bo0;
 import com.baidu.tieba.ce0;
 import com.baidu.tieba.ph0;
-import com.baidu.tieba.sy0;
-import com.baidu.tieba.ty0;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.uy0;
+import com.baidu.tieba.vy0;
+import com.baidu.tieba.w11;
 import com.baidu.tieba.wg0;
-import com.baidu.tieba.zn0;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.yy.gslbsdk.db.DelayTB;
 import kotlin.Lazy;
@@ -102,10 +102,10 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    private final void setDownloadTextView(zn0 zn0Var) {
+    private final void setDownloadTextView(bo0 bo0Var) {
         String str;
         boolean z;
-        zn0.b bVar = zn0Var.c;
+        bo0.b bVar = bo0Var.c;
         String str2 = null;
         if (bVar != null) {
             str = bVar.a;
@@ -122,7 +122,7 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
             Intrinsics.checkNotNullExpressionValue(str, "resources.getString(com.…tring.nad_download_start)");
         }
         this.r = str;
-        zn0.c cVar = (zn0.c) CollectionsKt___CollectionsKt.getOrNull(zn0Var.a, 0);
+        bo0.c cVar = (bo0.c) CollectionsKt___CollectionsKt.getOrNull(bo0Var.a, 0);
         if (cVar != null) {
             str2 = cVar.c;
         }
@@ -147,14 +147,14 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
         downloadTextView.setVisibility(0);
     }
 
-    private final void setLinear(zn0 zn0Var) {
+    private final void setLinear(bo0 bo0Var) {
         LinearLayout linear = getLinear();
         int i = 0;
         if (!getTvList().isEmpty()) {
             if (getLinear().getChildAt(0) instanceof AdImageView) {
-                linear.setPadding(u11.c.a(linear.getContext(), 5.0f), u11.c.a(linear.getContext(), 5.0f), u11.c.a(linear.getContext(), 5.0f), u11.c.a(linear.getContext(), 5.0f));
+                linear.setPadding(w11.c.a(linear.getContext(), 5.0f), w11.c.a(linear.getContext(), 5.0f), w11.c.a(linear.getContext(), 5.0f), w11.c.a(linear.getContext(), 5.0f));
             } else {
-                linear.setPadding(u11.c.a(linear.getContext(), 7.0f), u11.c.a(linear.getContext(), 8.0f), u11.c.a(linear.getContext(), 5.0f), u11.c.a(linear.getContext(), 8.0f));
+                linear.setPadding(w11.c.a(linear.getContext(), 7.0f), w11.c.a(linear.getContext(), 8.0f), w11.c.a(linear.getContext(), 5.0f), w11.c.a(linear.getContext(), 8.0f));
             }
             linear.setGravity(16);
             TextView textView = (TextView) CollectionsKt___CollectionsKt.getOrNull(getTvList(), 0);
@@ -170,9 +170,9 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
         linear.setVisibility(i);
     }
 
-    private final void setTextViewList(zn0 zn0Var) {
-        for (zn0.c cVar : zn0Var.a) {
-            TextView a = ty0.a(getContext(), cVar);
+    private final void setTextViewList(bo0 bo0Var) {
+        for (bo0.c cVar : bo0Var.a) {
+            TextView a = vy0.a(getContext(), cVar);
             if (a != null) {
                 a.setTextSize(0, getTextSizePx());
                 a.setLayoutParams(r());
@@ -198,7 +198,7 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
         if (downloadTextView != null) {
             AdDownloadStatus adDownloadStatus = data.c;
             if (adDownloadStatus != null) {
-                int i = sy0.$EnumSwitchMapping$0[adDownloadStatus.ordinal()];
+                int i = uy0.$EnumSwitchMapping$0[adDownloadStatus.ordinal()];
                 if (i != 1) {
                     if (i == 2) {
                         str = getResources().getString(R.string.nad_downloading);
@@ -242,23 +242,23 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
             textView.setLayoutParams(r());
         }
         if (getLinear().getChildAt(0) instanceof AdImageView) {
-            int a2 = u11.c.a(getContext(), 5.0f) + getIconSizePx() + u11.c.a(getContext(), 5.0f) + p(textView) + u11.c.a(getContext(), 5.0f);
+            int a2 = w11.c.a(getContext(), 5.0f) + getIconSizePx() + w11.c.a(getContext(), 5.0f) + p(textView) + w11.c.a(getContext(), 5.0f);
             TextView downloadTextPrefix = getDownloadTextPrefix();
             Intrinsics.checkNotNullExpressionValue(downloadTextPrefix, "downloadTextPrefix");
-            int p2 = a2 + p(downloadTextPrefix) + u11.c.a(getContext(), 5.0f);
+            int p2 = a2 + p(downloadTextPrefix) + w11.c.a(getContext(), 5.0f);
             TextView downloadTextView = getDownloadTextView();
             Intrinsics.checkNotNullExpressionValue(downloadTextView, "downloadTextView");
             p = p2 + p(downloadTextView);
-            a = u11.c.a(getContext(), 9.0f);
+            a = w11.c.a(getContext(), 9.0f);
         } else {
-            int a3 = u11.c.a(getContext(), 7.0f) + p(textView) + u11.c.a(getContext(), 5.0f);
+            int a3 = w11.c.a(getContext(), 7.0f) + p(textView) + w11.c.a(getContext(), 5.0f);
             TextView downloadTextPrefix2 = getDownloadTextPrefix();
             Intrinsics.checkNotNullExpressionValue(downloadTextPrefix2, "downloadTextPrefix");
-            int p3 = a3 + p(downloadTextPrefix2) + u11.c.a(getContext(), 5.0f);
+            int p3 = a3 + p(downloadTextPrefix2) + w11.c.a(getContext(), 5.0f);
             TextView downloadTextView2 = getDownloadTextView();
             Intrinsics.checkNotNullExpressionValue(downloadTextView2, "downloadTextView");
             p = p3 + p(downloadTextView2);
-            a = u11.c.a(getContext(), 9.0f);
+            a = w11.c.a(getContext(), 9.0f);
         }
         int i = p + a;
         int i2 = this.q;
@@ -283,23 +283,23 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
             textView.setLayoutParams(r());
         }
         if (getLinear().getChildAt(0) instanceof AdImageView) {
-            int a2 = u11.c.a(getContext(), 5.0f) + getIconSizePx() + u11.c.a(getContext(), 5.0f) + p(textView) + u11.c.a(getContext(), 5.0f);
+            int a2 = w11.c.a(getContext(), 5.0f) + getIconSizePx() + w11.c.a(getContext(), 5.0f) + p(textView) + w11.c.a(getContext(), 5.0f);
             TextView downloadTextPrefix = getDownloadTextPrefix();
             Intrinsics.checkNotNullExpressionValue(downloadTextPrefix, "downloadTextPrefix");
-            int p2 = a2 + p(downloadTextPrefix) + u11.c.a(getContext(), 5.0f);
+            int p2 = a2 + p(downloadTextPrefix) + w11.c.a(getContext(), 5.0f);
             TextView downloadTextView = getDownloadTextView();
             Intrinsics.checkNotNullExpressionValue(downloadTextView, "downloadTextView");
             p = p2 + p(downloadTextView);
-            a = u11.c.a(getContext(), 9.0f);
+            a = w11.c.a(getContext(), 9.0f);
         } else {
-            int a3 = u11.c.a(getContext(), 7.0f) + p(textView) + u11.c.a(getContext(), 5.0f);
+            int a3 = w11.c.a(getContext(), 7.0f) + p(textView) + w11.c.a(getContext(), 5.0f);
             TextView downloadTextPrefix2 = getDownloadTextPrefix();
             Intrinsics.checkNotNullExpressionValue(downloadTextPrefix2, "downloadTextPrefix");
-            int p3 = a3 + p(downloadTextPrefix2) + u11.c.a(getContext(), 5.0f);
+            int p3 = a3 + p(downloadTextPrefix2) + w11.c.a(getContext(), 5.0f);
             TextView downloadTextView2 = getDownloadTextView();
             Intrinsics.checkNotNullExpressionValue(downloadTextView2, "downloadTextView");
             p = p3 + p(downloadTextView2);
-            a = u11.c.a(getContext(), 9.0f);
+            a = w11.c.a(getContext(), 9.0f);
         }
         int i = p + a;
         int i2 = this.q;
@@ -312,17 +312,17 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
 
     public final void x() {
         int a;
-        int a2 = this.q - u11.c.a(getContext(), 9.0f);
+        int a2 = this.q - w11.c.a(getContext(), 9.0f);
         TextView downloadTextView = getDownloadTextView();
         Intrinsics.checkNotNullExpressionValue(downloadTextView, "downloadTextView");
-        int p = (a2 - p(downloadTextView)) - u11.c.a(getContext(), 5.0f);
+        int p = (a2 - p(downloadTextView)) - w11.c.a(getContext(), 5.0f);
         TextView downloadTextPrefix = getDownloadTextPrefix();
         Intrinsics.checkNotNullExpressionValue(downloadTextPrefix, "downloadTextPrefix");
-        int p2 = (p - p(downloadTextPrefix)) - u11.c.a(getContext(), 5.0f);
+        int p2 = (p - p(downloadTextPrefix)) - w11.c.a(getContext(), 5.0f);
         if (getLinear().getChildAt(0) instanceof AdImageView) {
-            a = getIconSizePx() + u11.c.a(getContext(), 5.0f) + u11.c.a(getContext(), 5.0f);
+            a = getIconSizePx() + w11.c.a(getContext(), 5.0f) + w11.c.a(getContext(), 5.0f);
         } else {
-            a = u11.c.a(getContext(), 7.0f);
+            a = w11.c.a(getContext(), 7.0f);
         }
         int i = p2 - a;
         for (TextView textView : getTvList()) {

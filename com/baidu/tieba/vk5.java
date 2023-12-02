@@ -1,10 +1,16 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
 /* loaded from: classes8.dex */
 public interface vk5 {
-    void a(ChatMsg chatMsg);
+    BroadcastReceiver a(@NonNull Context context, @NonNull xk5 xk5Var);
 
-    void b(int i, String str, SendMsgResponse sendMsgResponse);
+    void b(@NonNull Context context, long j, long j2, int i, long j3, wk5 wk5Var);
+
+    void c(@NonNull Context context, @NonNull BroadcastReceiver broadcastReceiver);
+
+    void d(@NonNull Context context, @NonNull ChatMsg chatMsg, long j, @NonNull yk5 yk5Var);
 }

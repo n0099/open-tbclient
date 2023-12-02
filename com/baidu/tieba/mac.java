@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.qac;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
-/* JADX WARN: Incorrect class signature, class is equals to this class: <TResult:Ljava/lang/Object;>Ljava/lang/Object;Lcom/baidu/tieba/mac;Lcom/baidu/tieba/yac;Lcom/baidu/tieba/zac<TTResult;>; */
 /* loaded from: classes7.dex */
-public class mac<TResult> implements yac, yac {
+public class mac implements qac.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CountDownLatch a;
+    public final /* synthetic */ nac a;
 
-    public mac() {
+    public mac(nac nacVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nacVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,6 +26,6 @@ public class mac<TResult> implements yac, yac {
                 return;
             }
         }
-        this.a = new CountDownLatch(1);
+        this.a = nacVar;
     }
 }

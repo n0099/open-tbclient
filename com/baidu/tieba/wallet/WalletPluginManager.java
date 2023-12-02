@@ -12,7 +12,7 @@ import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.data.PluginCheck;
-import com.baidu.tieba.qc5;
+import com.baidu.tieba.tc5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +122,7 @@ public class WalletPluginManager {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this) { // from class: com.baidu.tieba.wallet.WalletPluginManager.14
+                invokePlugin(new tc5(this) { // from class: com.baidu.tieba.wallet.WalletPluginManager.14
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -145,7 +145,7 @@ public class WalletPluginManager {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
@@ -179,7 +179,7 @@ public class WalletPluginManager {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, activity)) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this) { // from class: com.baidu.tieba.wallet.WalletPluginManager.11
+                invokePlugin(new tc5(this) { // from class: com.baidu.tieba.wallet.WalletPluginManager.11
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -202,7 +202,7 @@ public class WalletPluginManager {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
@@ -235,7 +235,7 @@ public class WalletPluginManager {
         if (interceptable == null || interceptable.invokeL(1048592, this, context) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this, context) { // from class: com.baidu.tieba.wallet.WalletPluginManager.1
+                invokePlugin(new tc5(this, context) { // from class: com.baidu.tieba.wallet.WalletPluginManager.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -260,7 +260,7 @@ public class WalletPluginManager {
                         this.val$context = context;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
@@ -293,7 +293,7 @@ public class WalletPluginManager {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this, context, str) { // from class: com.baidu.tieba.wallet.WalletPluginManager.2
+                invokePlugin(new tc5(this, context, str) { // from class: com.baidu.tieba.wallet.WalletPluginManager.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -320,7 +320,7 @@ public class WalletPluginManager {
                         this.val$jumpData = str;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) {
@@ -353,7 +353,7 @@ public class WalletPluginManager {
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this, context, str) { // from class: com.baidu.tieba.wallet.WalletPluginManager.5
+                invokePlugin(new tc5(this, context, str) { // from class: com.baidu.tieba.wallet.WalletPluginManager.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -380,7 +380,7 @@ public class WalletPluginManager {
                         this.val$payOrder = str;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) {
@@ -413,7 +413,7 @@ public class WalletPluginManager {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, map) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this, context, map) { // from class: com.baidu.tieba.wallet.WalletPluginManager.13
+                invokePlugin(new tc5(this, context, map) { // from class: com.baidu.tieba.wallet.WalletPluginManager.13
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -440,7 +440,7 @@ public class WalletPluginManager {
                         this.val$paramsMap = map;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
@@ -473,7 +473,7 @@ public class WalletPluginManager {
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, iDxmProxyCallback) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this, str, iDxmProxyCallback) { // from class: com.baidu.tieba.wallet.WalletPluginManager.12
+                invokePlugin(new tc5(this, str, iDxmProxyCallback) { // from class: com.baidu.tieba.wallet.WalletPluginManager.12
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -500,7 +500,7 @@ public class WalletPluginManager {
                         this.val$iDxmProxyCallback = iDxmProxyCallback;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) {
@@ -533,7 +533,7 @@ public class WalletPluginManager {
         if (interceptable == null || interceptable.invokeLL(1048587, this, context, str) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this, context, str) { // from class: com.baidu.tieba.wallet.WalletPluginManager.4
+                invokePlugin(new tc5(this, context, str) { // from class: com.baidu.tieba.wallet.WalletPluginManager.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -560,7 +560,7 @@ public class WalletPluginManager {
                         this.val$id = str;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) {
@@ -593,7 +593,7 @@ public class WalletPluginManager {
         if (interceptable == null || interceptable.invokeLL(1048590, this, context, str) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this, context, str) { // from class: com.baidu.tieba.wallet.WalletPluginManager.3
+                invokePlugin(new tc5(this, context, str) { // from class: com.baidu.tieba.wallet.WalletPluginManager.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -620,7 +620,7 @@ public class WalletPluginManager {
                         this.val$url = str;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) {
@@ -653,7 +653,7 @@ public class WalletPluginManager {
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, map, bdUniqueId) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this, activity, str, map, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginManager.9
+                invokePlugin(new tc5(this, activity, str, map, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginManager.9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -684,7 +684,7 @@ public class WalletPluginManager {
                         this.val$tag = bdUniqueId;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) {
@@ -717,7 +717,7 @@ public class WalletPluginManager {
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, activity, map, str, bdUniqueId) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this, activity, map, str, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginManager.10
+                invokePlugin(new tc5(this, activity, map, str, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginManager.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -748,7 +748,7 @@ public class WalletPluginManager {
                         this.val$tag = bdUniqueId;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) {
@@ -790,7 +790,7 @@ public class WalletPluginManager {
         if (interceptable == null || interceptable.invokeLLL(1048583, this, context, str, bdUniqueId) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this, context, str, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginManager.6
+                invokePlugin(new tc5(this, context, str, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginManager.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -819,7 +819,7 @@ public class WalletPluginManager {
                         this.val$tag = bdUniqueId;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) {
@@ -852,7 +852,7 @@ public class WalletPluginManager {
         if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, bdUniqueId) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this, activity, str, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginManager.8
+                invokePlugin(new tc5(this, activity, str, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginManager.8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -881,7 +881,7 @@ public class WalletPluginManager {
                         this.val$tag = bdUniqueId;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) {
@@ -915,7 +915,7 @@ public class WalletPluginManager {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{activity, str, Boolean.valueOf(z), function1})) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
             if (iWalletPlugin == null) {
-                invokePlugin(new qc5(this, function1, activity, str, z) { // from class: com.baidu.tieba.wallet.WalletPluginManager.7
+                invokePlugin(new tc5(this, function1, activity, str, z) { // from class: com.baidu.tieba.wallet.WalletPluginManager.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WalletPluginManager this$0;
@@ -946,7 +946,7 @@ public class WalletPluginManager {
                         this.val$flag = z;
                     }
 
-                    @Override // com.baidu.tieba.qc5, com.baidu.nps.main.invoke.IInvokeCallback
+                    @Override // com.baidu.tieba.tc5, com.baidu.nps.main.invoke.IInvokeCallback
                     public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) {

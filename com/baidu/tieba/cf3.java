@@ -1,37 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tieba.sc3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
+import java.io.File;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes5.dex */
 public class cf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static Set<String> b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public long e;
-    public boolean f;
-    public long g;
-    public long h;
-    public int i;
 
     /* loaded from: classes5.dex */
-    public static final class a implements Comparator<cf3> {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
 
-        public a() {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                sc3.b bVar = new sc3.b(10010);
+                bVar.l(String.valueOf(cf3.c));
+                bVar.k(this.a);
+                bVar.j(String.valueOf(this.b));
+                bVar.h(k63.h0());
+                bVar.m();
+                if (this.b == 3) {
+                    int unused = cf3.c = 0;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements tq3<Pair<String, File>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(cf3 cf3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cf3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,128 +96,240 @@ public class cf3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
+        @Override // com.baidu.tieba.tq3
         /* renamed from: a */
-        public int compare(cf3 cf3Var, cf3 cf3Var2) {
-            InterceptResult invokeLL;
+        public void run(@NonNull Pair<String, File> pair) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cf3Var, cf3Var2)) == null) {
-                int length = cf3Var2.b.length() - cf3Var.b.length();
-                if (length != 0) {
-                    return length;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                if (cf3.b != null && pair.first != null && cf3.b.contains(pair.first)) {
+                    new bf3(rp2.c(), pair.first).clearAll();
+                    return;
                 }
-                int length2 = cf3Var2.a.length() - cf3Var.a.length();
-                if (length2 != 0) {
-                    return length2;
+                File file = pair.second;
+                if (file != null) {
+                    nm4.L(file);
                 }
-                int hashCode = cf3Var2.c.hashCode() - cf3Var.c.hashCode();
-                if (hashCode != 0) {
-                    return hashCode;
-                }
-                if (cf3Var2.d == null) {
-                    return -1;
-                }
-                if (cf3Var.d == null) {
-                    return 1;
-                }
-                return 0;
             }
-            return invokeLL.intValue;
         }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Callable<SharedPreferences> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bf3 a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ cf3 e;
+
+        public c(cf3 cf3Var, bf3 bf3Var, long j, Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cf3Var, bf3Var, Long.valueOf(j), context, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = cf3Var;
+            this.a = bf3Var;
+            this.b = j;
+            this.c = context;
+            this.d = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public SharedPreferences call() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!this.a.setCustomMeta(this.b | 1)) {
+                    return null;
+                }
+                String l = this.e.l(this.c, this.d);
+                if (cf3.a) {
+                    Log.i("SwanExtensionApiImpl", String.format("customMeta=%d, name=%s, spName=%s", Long.valueOf(this.b), this.d, l));
+                }
+                if (l == null) {
+                    return null;
+                }
+                return this.c.getSharedPreferences(l, 0);
+            }
+            return (SharedPreferences) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final cf3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-892205927, "Lcom/baidu/tieba/cf3$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-892205927, "Lcom/baidu/tieba/cf3$d;");
+                    return;
+                }
+            }
+            a = new cf3(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947672793, "Lcom/baidu/tieba/cf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947672793, "Lcom/baidu/tieba/cf3;");
+                return;
+            }
+        }
+        a = vm1.a;
+        b = new CopyOnWriteArraySet();
+        c = 0;
     }
 
     public cf3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public cf3(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.e = -1L;
     }
 
-    public boolean a(String str) {
+    public static cf3 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return d.a;
+        }
+        return (cf3) invokeV.objValue;
+    }
+
+    public /* synthetic */ cf3(a aVar) {
+        this();
+    }
+
+    public final lm4 f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
-                if (!this.a.startsWith(".")) {
-                    return str.equals(this.a);
-                }
-                if (str.endsWith(this.a.substring(1))) {
-                    int length = this.a.length();
-                    int length2 = str.length();
-                    if (length2 > length - 1 && str.charAt(length2 - length) != '.') {
-                        return false;
-                    }
-                    return true;
-                }
-            }
-            return false;
+            return new tm4(str);
         }
-        return invokeL.booleanValue;
+        return (lm4) invokeL.objValue;
     }
 
-    public boolean b(cf3 cf3Var) {
-        InterceptResult invokeL;
+    public void g(@NonNull String str, Set<String> set, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cf3Var)) == null) {
-            if (cf3Var == null || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || !TextUtils.equals(this.a, cf3Var.a) || !TextUtils.equals(this.b, cf3Var.b) || !TextUtils.equals(this.c, cf3Var.c)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, set, z) == null) {
+            h(str, set, z);
+            ve2.c(new File(bf3.c()), str, SwanKV.PREFS_SUFFIX, set, z, new b(this));
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean c(String str) {
-        InterceptResult invokeL;
+    public void h(@NonNull String str, Set<String> set, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.b) || !str.startsWith(this.b)) {
-                return false;
-            }
-            int length = this.b.length();
-            int length2 = str.length();
-            if (this.b.charAt(length - 1) != '/' && length2 > length && str.charAt(length) != '/') {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, set, z) == null) {
+            ve2.b(new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), str, ActivityChooserModel.HISTORY_FILE_EXTENSION, set, z);
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void m(Context context, String str, @NonNull bf3 bf3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, str, bf3Var) == null) {
+            long customMeta = bf3Var.getCustomMeta();
+            if ((customMeta & 1) == 1) {
+                return;
+            }
+            bf3Var.importFromSharedPreferences(new c(this, bf3Var, customMeta, context, str));
+        }
+    }
+
+    @AnyThread
+    public static void i(int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65544, null, i, str) == null) {
+            ej3.f().execute(new a(str, i));
+        }
     }
 
     @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    @AnyThread
+    public lm4 k(Context context, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "domain: " + this.a + "; path: " + this.b + "; name: " + this.c + "; value: " + this.d + "; expires: " + this.e + "; secure: " + this.f;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, context, str, z)) == null) {
+            try {
+                if (z) {
+                    i = 2;
+                } else {
+                    i = 1;
+                }
+                bf3 bf3Var = new bf3(context, str, i);
+                b.add(str);
+                m(context, str, bf3Var);
+                if (c > 0) {
+                    i(3, str);
+                }
+                return bf3Var;
+            } catch (NoClassDefFoundError | UnsatisfiedLinkError e) {
+                if (a) {
+                    Log.e("SwanExtensionApiImpl", "getSharedPrefsImpl", e);
+                }
+                c++;
+                i(2, str);
+                return f(str);
+            }
         }
-        return (String) invokeV.objValue;
+        return (lm4) invokeLLZ.objValue;
+    }
+
+    @Nullable
+    public final String l(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
+            if (str == null) {
+                str = context.getPackageName() + "_preferences";
+            }
+            if ("default".equals(str)) {
+                if (tm4.d(context, str).exists()) {
+                    return str;
+                }
+                str = context.getPackageName() + "_preferences";
+            }
+            if (tm4.d(context, str).exists()) {
+                return str;
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
 }

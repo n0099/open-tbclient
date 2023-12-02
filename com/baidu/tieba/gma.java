@@ -1,29 +1,19 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.IFlyingScheduleIoc;
+import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
 @Service
 /* loaded from: classes6.dex */
-public class gma implements IFlyingScheduleIoc {
+public final class gma implements sl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.unitedscheme.IFlyingScheduleIoc
-    public boolean enableFlyingSchedule() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
 
     public gma() {
         Interceptable interceptable = $ic;
@@ -37,5 +27,15 @@ public class gma implements IFlyingScheduleIoc {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.sl5
+    public List<LaunchTask> asyncList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return CollectionsKt__CollectionsKt.mutableListOf(new hma());
+        }
+        return (List) invokeV.objValue;
     }
 }

@@ -1,25 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.searchbox.widget.SlideInterceptor;
 /* loaded from: classes5.dex */
-public interface as1 {
-    void b();
-
-    void c();
-
-    as1 create();
-
-    void d(rv2 rv2Var, boolean z);
-
-    void e(rv2 rv2Var, Context context);
-
-    boolean isPlaying();
-
-    boolean onBackPressed();
-
-    void pause();
-
-    void resume();
-
-    void stop();
+public interface as1 extends SlideInterceptor {
+    double y();
 }

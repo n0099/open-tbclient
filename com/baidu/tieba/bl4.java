@@ -1,20 +1,9 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class bl4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static boolean a(View view2, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, view2, i)) == null) {
-            return view2.canScrollVertically(i);
-        }
-        return invokeLI.booleanValue;
-    }
+public interface bl4 {
+    View onCreateView(View view2, String str, Context context, AttributeSet attributeSet);
 }

@@ -1,20 +1,15 @@
 package com.baidu.tieba;
-
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class dq3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface dq3 {
+    String b();
 
-    public static SharedPreferences a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new qm4("swan_config_sp_name");
-        }
-        return (SharedPreferences) invokeV.objValue;
-    }
+    String c();
+
+    String e();
+
+    String g();
+
+    String h();
+
+    boolean isDebug();
 }

@@ -48,9 +48,9 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             super(view2);
             this.d = view2;
             this.e = str;
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f091634);
-            this.b = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091633);
-            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091635);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f091635);
+            this.b = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091634);
+            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091636);
             a();
         }
 

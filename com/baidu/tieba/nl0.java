@@ -51,7 +51,7 @@ public class nl0 extends re0 {
             HashMap<String, String> d = ve0Var.d();
             Intent intent = new Intent(context, ImmersiveVideoDetailActivity.class);
             intent.putExtra("map", d);
-            return m11.d(context, intent);
+            return o11.d(context, intent);
         }
         return invokeLLLL.booleanValue;
     }

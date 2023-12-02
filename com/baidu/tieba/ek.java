@@ -58,9 +58,9 @@ public class ek {
                         case 3:
                             if (ek.d != null) {
                                 if (nd.d()) {
-                                    ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f1876));
+                                    ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f1877));
                                 } else {
-                                    ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f187f));
+                                    ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f1880));
                                 }
                                 he unused2 = ek.d = null;
                                 break;
@@ -68,7 +68,7 @@ public class ek {
                             break;
                         case 2:
                             if (ek.d != null) {
-                                ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f1877));
+                                ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f1878));
                                 he unused3 = ek.d = null;
                                 break;
                             }
@@ -81,28 +81,28 @@ public class ek {
                             break;
                         case 5:
                             if (ek.d != null) {
-                                ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f187b));
+                                ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f187c));
                                 he unused4 = ek.d = null;
                                 break;
                             }
                             break;
                         case 6:
                             if (ek.d != null) {
-                                ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f1878));
+                                ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f1879));
                                 he unused5 = ek.d = null;
                                 break;
                             }
                             break;
                         case 7:
                             if (ek.d != null) {
-                                ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f1888));
+                                ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f1889));
                                 he unused6 = ek.d = null;
                                 break;
                             }
                             break;
                         case 8:
                             if (ek.d != null) {
-                                ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f1885));
+                                ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f1886));
                                 he unused7 = ek.d = null;
                                 break;
                             }
@@ -115,7 +115,7 @@ public class ek {
                             break;
                         default:
                             if (ek.d != null) {
-                                ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f187d));
+                                ek.d.error(message.what, ie.a(R.string.obfuscated_res_0x7f0f187e));
                                 he unused8 = ek.d = null;
                                 break;
                             }
@@ -198,7 +198,7 @@ public class ek {
                 d = heVar;
                 if (b.j(str, i)) {
                     a = 3;
-                    lr6.a(b, "AmrRecorder", 1);
+                    pr6.a(b, "AmrRecorder", 1);
                     return true;
                 }
                 b = null;

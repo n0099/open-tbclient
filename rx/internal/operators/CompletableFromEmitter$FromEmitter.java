@@ -1,20 +1,20 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.doc;
-import com.baidu.tieba.loc;
-import com.baidu.tieba.usc;
-import com.baidu.tieba.voc;
+import com.baidu.tieba.coc;
+import com.baidu.tieba.koc;
+import com.baidu.tieba.tsc;
+import com.baidu.tieba.uoc;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes2.dex */
-public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements loc {
+public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements koc {
     public static final long serialVersionUID = 5539301318568668881L;
-    public final doc actual;
+    public final coc actual;
     public final SequentialSubscription resource = new SequentialSubscription();
 
-    public CompletableFromEmitter$FromEmitter(doc docVar) {
-        this.actual = docVar;
+    public CompletableFromEmitter$FromEmitter(coc cocVar) {
+        this.actual = cocVar;
     }
 
     public void onError(Throwable th) {
@@ -26,18 +26,18 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
                 this.resource.unsubscribe();
             }
         }
-        usc.j(th);
+        tsc.j(th);
     }
 
-    public void setCancellation(voc vocVar) {
-        setSubscription(new CancellableSubscription(vocVar));
+    public void setCancellation(uoc uocVar) {
+        setSubscription(new CancellableSubscription(uocVar));
     }
 
-    public void setSubscription(loc locVar) {
-        this.resource.update(locVar);
+    public void setSubscription(koc kocVar) {
+        this.resource.update(kocVar);
     }
 
-    @Override // com.baidu.tieba.loc
+    @Override // com.baidu.tieba.koc
     public boolean isUnsubscribed() {
         return get();
     }
@@ -52,7 +52,7 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
         }
     }
 
-    @Override // com.baidu.tieba.loc
+    @Override // com.baidu.tieba.koc
     public void unsubscribe() {
         if (compareAndSet(false, true)) {
             this.resource.unsubscribe();

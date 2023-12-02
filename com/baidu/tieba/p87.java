@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,22 +8,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class p87 extends yq6 {
+public final class p87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final Object b;
+    public final int a;
+    public final long b;
+    public final String c;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof p87) {
                 p87 p87Var = (p87) obj;
-                return Intrinsics.areEqual(this.a, p87Var.a) && Intrinsics.areEqual(this.b, p87Var.b);
+                return this.a == p87Var.a && this.b == p87Var.b && Intrinsics.areEqual(this.c, p87Var.c);
             }
             return false;
         }
@@ -34,54 +34,63 @@ public final class p87 extends yq6 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a * 31) + c.a(this.b)) * 31) + this.c.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "ThreadEditSelectEvent(context=" + this.a + ", cardData=" + this.b + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "VoteOptionData(id=" + this.a + ", num=" + this.b + ", text=" + this.c + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public p87(Context context, Object cardData) {
+    public p87(int i, long j, String text) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, cardData};
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), text};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(cardData, "cardData");
-        this.a = context;
-        this.b = cardData;
+        Intrinsics.checkNotNullParameter(text, "text");
+        this.a = i;
+        this.b = j;
+        this.c = text;
     }
 
-    public final Object a() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final Context b() {
+    public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return (Context) invokeV.objValue;
+        return invokeV.longValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
     }
 }

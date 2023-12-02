@@ -1,58 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface ls1 {
+    void a(@NonNull Object obj, String str, String str2);
 
-    /* loaded from: classes7.dex */
-    public interface a {
-    }
+    void b(@NonNull Object obj);
 
-    void C(@NonNull Context context, @NonNull ms1 ms1Var, @NonNull a aVar);
+    Object beginFlow(String str);
 
-    boolean i();
+    void c(@NonNull Object obj);
 
-    /* loaded from: classes7.dex */
-    public static class b extends p63 implements ls1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void d(String str, Map<String, String> map);
 
-        @Override // com.baidu.tieba.ls1
-        public void C(Context context, ms1 ms1Var, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, context, ms1Var, aVar) == null) {
-            }
-        }
+    boolean e();
 
-        @Override // com.baidu.tieba.ls1
-        public boolean i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
+    void f(String str, JSONObject jSONObject);
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    void g(@NonNull Object obj, String str, String str2, long j);
+
+    void h(@NonNull Object obj, String str);
+
+    void i(String str, String str2);
 }

@@ -49,16 +49,17 @@ import com.baidu.tbadk.coreExtra.model.AttentionModel;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a65;
-import com.baidu.tieba.ai5;
-import com.baidu.tieba.f9b;
-import com.baidu.tieba.ft5;
+import com.baidu.tieba.a06;
+import com.baidu.tieba.d65;
+import com.baidu.tieba.di5;
+import com.baidu.tieba.e9b;
+import com.baidu.tieba.jt5;
+import com.baidu.tieba.m9b;
 import com.baidu.tieba.n9b;
-import com.baidu.tieba.o9b;
-import com.baidu.tieba.pda;
 import com.baidu.tieba.play.OnStatusChangedListener;
 import com.baidu.tieba.play.TbVideoView;
 import com.baidu.tieba.rd;
+import com.baidu.tieba.tda;
 import com.baidu.tieba.video.LiveConfig;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
@@ -66,7 +67,6 @@ import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.VideoPlayFragment;
 import com.baidu.tieba.videoplay.view.EnterLiveRoomBtn;
 import com.baidu.tieba.view.expandable.ExpandableTextView;
-import com.baidu.tieba.wz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,7 +77,7 @@ import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 /* loaded from: classes8.dex */
-public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
+public class VideoLiveFragment extends BaseFragment implements a06.b, m9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoPlayFragment.g1 A;
@@ -92,7 +92,7 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
     public final View.OnTouchListener J;
     public final GestureDetectorCompat K;
     public View.OnClickListener L;
-    public final pda M;
+    public final tda M;
     public LinearLayout a;
     public RelativeLayout b;
     public TbVideoView c;
@@ -116,11 +116,11 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
     public LiveConfig u;
     public AttentionModel v;
     public BdUniqueId w;
-    public o9b x;
+    public n9b x;
     public String y;
     public int z;
 
-    @Override // com.baidu.tieba.n9b
+    @Override // com.baidu.tieba.m9b
     public int P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -130,28 +130,28 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.wz5.b
+    @Override // com.baidu.tieba.a06.b
     public void Y0(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.n9b
+    @Override // com.baidu.tieba.m9b
     public void b1(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.wz5.b
+    @Override // com.baidu.tieba.a06.b
     public void onViewClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.n9b
+    @Override // com.baidu.tieba.m9b
     public VideoItemModel z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -407,7 +407,7 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
     }
 
     /* loaded from: classes8.dex */
-    public class g implements pda {
+    public class g implements tda {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoLiveFragment a;
@@ -430,7 +430,7 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
             this.a = videoLiveFragment;
         }
 
-        @Override // com.baidu.tieba.pda
+        @Override // com.baidu.tieba.tda
         public void onVideoSizeChanged(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && this.a.u != null && this.a.u.getCutList() != null) {
@@ -533,7 +533,7 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
         public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, transition) == null) {
-                this.a.s.setImageBitmap(ft5.a(bitmap, 15, false));
+                this.a.s.setImageBitmap(jt5.a(bitmap, 15, false));
             }
         }
 
@@ -814,20 +814,20 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
             this.g.setBorderColor(R.color.CAM_X0622);
             this.g.setDrawBorder(true);
             this.g.setUseNightOrDarkMask(false);
-            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0929a3);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f09174f);
+            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0929a6);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091750);
             this.j = tBSpecificationBtn;
             tBSpecificationBtn.setText(getString(R.string.obfuscated_res_0x7f0f02f4));
             this.j.setOnClickListener(this.L);
-            a65 a65Var = new a65();
-            UtilHelper.addFollowUserIconStyle(a65Var);
-            a65Var.i(R.color.CAM_X0101);
-            a65Var.o(0, 0);
-            a65Var.p(0);
-            a65Var.m(true);
-            a65Var.k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds145), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds60));
-            this.j.setConfig(a65Var);
-            ExpandableTextView expandableTextView = (ExpandableTextView) this.e.findViewById(R.id.obfuscated_res_0x7f0916b1);
+            d65 d65Var = new d65();
+            UtilHelper.addFollowUserIconStyle(d65Var);
+            d65Var.i(R.color.CAM_X0101);
+            d65Var.o(0, 0);
+            d65Var.p(0);
+            d65Var.m(true);
+            d65Var.k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds145), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds60));
+            this.j.setConfig(d65Var);
+            ExpandableTextView expandableTextView = (ExpandableTextView) this.e.findViewById(R.id.obfuscated_res_0x7f0916b2);
             this.k = expandableTextView;
             expandableTextView.setTextSize(BdUtilHelper.getDimens(getContext(), R.dimen.T_X07));
             this.k.setTextColor(R.color.CAM_X0621);
@@ -835,14 +835,14 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
             this.k.setExpandable(false);
             this.k.setTextMaxLine(3);
             this.k.setLimitLine(3);
-            this.o = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0916c3);
-            this.p = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091697);
-            this.l = (EnterLiveRoomBtn) this.e.findViewById(R.id.obfuscated_res_0x7f090a79);
-            this.m = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091696);
-            this.n = (TbImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0916c1);
-            this.q = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0916b2);
-            this.r = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091699);
-            this.s = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09162d);
+            this.o = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0916c4);
+            this.p = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091698);
+            this.l = (EnterLiveRoomBtn) this.e.findViewById(R.id.obfuscated_res_0x7f090a7a);
+            this.m = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091697);
+            this.n = (TbImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0916c2);
+            this.q = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0916b3);
+            this.r = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09169a);
+            this.s = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09162e);
             this.t = (TBLottieAnimationView) this.e.findViewById(R.id.obfuscated_res_0x7f090319);
         }
     }
@@ -850,7 +850,7 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
     public final void g3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.x = new o9b(this.f, this.u);
+            this.x = new n9b(this.f, this.u);
         }
     }
 
@@ -890,7 +890,7 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
         }
     }
 
-    @Override // com.baidu.tieba.wz5.b
+    @Override // com.baidu.tieba.a06.b
     public void onViewDragToRight() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
@@ -903,7 +903,7 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && this.B && (videoItemData = this.f) != null && videoItemData.getLivePageData() != null && this.f.getLivePageData().mYyExtData != null) {
             YyExtData yyExtData = this.f.getLivePageData().mYyExtData;
-            f9b.g("sp_live_into_id_", this.f.thread_id);
+            e9b.g("sp_live_into_id_", this.f.thread_id);
             YYLiveUtil.jumpToYYLiveRoom(getPageContext(), yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "", null, "video_immersion", str, false);
         }
     }
@@ -1008,7 +1008,7 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
             super.onChangeSkinType(i2);
-            ai5.a(this.n, "enter_live_room_animation.png");
+            di5.a(this.n, "enter_live_room_animation.png");
             SkinManager.setImageResource(this.r, R.drawable.icon_live_stop_play);
             EMManager.from(this.h).setTextSize(R.dimen.T_X06).setTextStyle(R.string.F_X02).setTextShadow(R.array.S_O_X001);
             EMManager.from(this.j).setCorner(R.string.J_X01).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0101).setTextStyle(R.string.F_X02).setBackGroundColor(R.color.CAM_X0302);
@@ -1023,11 +1023,11 @@ public class VideoLiveFragment extends BaseFragment implements wz5.b, n9b {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048598, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0a11, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0a12, (ViewGroup) null);
             this.e = inflate;
             inflate.setOnTouchListener(this.J);
             this.a = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09048e);
-            this.b = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0929f4);
+            this.b = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0929f7);
             this.c = new TbVideoView(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             this.d = layoutParams;

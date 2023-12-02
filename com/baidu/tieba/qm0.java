@@ -11,7 +11,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class qm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m61 a;
+    public o61 a;
 
     public qm0(pm0 pm0Var, Context context) {
         Interceptable interceptable = $ic;
@@ -29,30 +29,30 @@ public final class qm0 {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.a = new m61(context);
+        this.a = new o61(context);
     }
 
     public final void a() {
-        m61 m61Var;
+        o61 o61Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (m61Var = this.a) != null) {
-            m61Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (o61Var = this.a) != null) {
+            o61Var.h();
         }
     }
 
     public final void b() {
-        m61 m61Var;
+        o61 o61Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (m61Var = this.a) != null) {
-            m61Var.k();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (o61Var = this.a) != null) {
+            o61Var.k();
         }
     }
 
     public final void c(boolean z) {
-        m61 m61Var;
+        o61 o61Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (m61Var = this.a) != null) {
-            m61Var.n(z);
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (o61Var = this.a) != null) {
+            o61Var.n(z);
         }
     }
 }

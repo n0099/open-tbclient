@@ -25,15 +25,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.bc;
-import com.baidu.tieba.ct5;
-import com.baidu.tieba.lt5;
+import com.baidu.tieba.gt5;
 import com.baidu.tieba.nc;
-import com.baidu.tieba.qp5;
+import com.baidu.tieba.pt5;
 import com.baidu.tieba.rb;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.rs5;
+import com.baidu.tieba.up5;
 import com.baidu.tieba.vd;
-import com.baidu.tieba.vo5;
+import com.baidu.tieba.vs5;
+import com.baidu.tieba.zo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -581,7 +581,7 @@ public class TiebaStatic {
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             try {
                 rb.g();
-                qp5.c();
+                up5.c();
                 BdStatisticsManager.getInstance().save();
                 sendMultiProcessBroadcast();
             } catch (Exception e) {
@@ -608,12 +608,12 @@ public class TiebaStatic {
         if (!StringUtils.isNull(sampleId)) {
             statisticItem.param(Params.SAMPLE_ID, sampleId);
         }
-        String c = rs5.d().c();
+        String c = vs5.d().c();
         if (!StringUtils.isNull(c)) {
             statisticItem.param(Params.ABTEST_RESULT, c);
         }
-        vo5.f().e(statisticItem);
-        statisticItem.addParam("session_id", lt5.i().k());
+        zo5.f().e(statisticItem);
+        statisticItem.addParam("session_id", pt5.i().k());
     }
 
     public static String getCua(Context context) {
@@ -862,13 +862,13 @@ public class TiebaStatic {
                     TbadkCoreApplication.getInst().getCuidGid();
                     bcVar.i = TbadkCoreApplication.getInst().getImei();
                     bcVar.j = TbConfig.getSubappType();
-                    bcVar.r = ct5.c().f(context) + "_" + ct5.c().e(context);
+                    bcVar.r = gt5.c().f(context) + "_" + gt5.c().e(context);
                     bcVar.v = TbadkCoreApplication.getInst().getAndroidId();
                     bcVar.s = getCua(context);
                     bcVar.t = PermissionUtil.getLastCachedOid(context);
                     bcVar.u = PermissionUtil.getLocalMacAddress(context);
-                    bcVar.w = ct5.c().a();
-                    bcVar.x = ct5.c().g() + "_" + ct5.c().h();
+                    bcVar.w = gt5.c().a();
+                    bcVar.x = gt5.c().g() + "_" + gt5.c().h();
                     bcVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
                     bcVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
                     bcVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());

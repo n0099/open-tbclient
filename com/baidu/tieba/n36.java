@@ -1,101 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.CountDownTimer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.nadcore.player.remote.BDRemotePlayerService;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class n36 extends cg1<uf0> {
+public class n36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public CountDownTimer b;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cg1
-    /* renamed from: a */
-    public uf0 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new uf0() { // from class: com.baidu.tieba.m36
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(long j, long j2);
 
-            @Override // com.baidu.tieba.uf0
-            public final boolean a() {
-                InterceptResult invokeV2;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? n36.b() : invokeV2.booleanValue;
-            }
-        } : (uf0) invokeV.objValue;
+        void b();
     }
 
     /* loaded from: classes7.dex */
-    public static final class a implements CyberPlayerManager.InstallListener2 {
+    public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ n36 b;
 
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            }
-        }
-
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(n36 n36Var, long j, long j2, long j3) {
+            super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n36Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallError(int i, int i2, String detail) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, detail) == null) {
-                Intrinsics.checkNotNullParameter(detail, "detail");
-                hg0.c("NadCyberManagerImpl", "onInstallError: type=" + i + ", errorType=" + i2 + ", detail=" + detail);
-            }
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener2
-        public void onInstallInfo(int i, int i2, Object obj) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
-                if (obj instanceof String) {
-                    str = (String) obj;
-                } else {
-                    str = null;
-                }
-                if (str == null) {
                     return;
                 }
-                hg0.c("NadCyberManagerImpl", "onInstallInfo: what=" + i + ", message=" + str);
+            }
+            this.b = n36Var;
+            this.a = j3;
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
+                this.b.a.b();
             }
         }
 
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallSuccess(int i, String coreVer) {
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048579, this, i, coreVer) == null) {
-                Intrinsics.checkNotNullParameter(coreVer, "coreVer");
-                hg0.c("NadCyberManagerImpl", "onInstallSuccess: type=" + i + ", ver=" + coreVer);
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && this.b.a != null) {
+                this.b.a.a(this.a, j);
             }
         }
     }
@@ -114,30 +82,58 @@ public final class n36 extends cg1<uf0> {
         }
     }
 
-    public static final boolean b() {
-        InterceptResult invokeV;
-        Class<BDRemotePlayerService> cls;
+    public void b() {
+        CountDownTimer countDownTimer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (CyberPlayerManager.isCoreLoaded(31)) {
-                return true;
-            }
-            new HashMap().put(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE, "2");
-            boolean k = tx0.k();
-            try {
-                Context context = TbadkCoreApplication.getInst().getContext();
-                String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-                if (k) {
-                    cls = BDRemotePlayerService.class;
-                } else {
-                    cls = null;
-                }
-                CyberPlayerManager.install(context, cuidGalaxy2, (String) null, 31, (Class<?>) cls, (Map<String, String>) null, (CyberPlayerManager.InstallListener2) new a());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return true;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (countDownTimer = this.b) != null) {
+            countDownTimer.cancel();
         }
-        return invokeV.booleanValue;
+    }
+
+    public void d(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.a = bVar;
+        }
+    }
+
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            long j2 = j / 1000;
+            long j3 = j2 / 3600;
+            StringBuilder sb = new StringBuilder();
+            if (j3 > 0) {
+                if (j3 < 10) {
+                    sb.append("0");
+                }
+                sb.append(j3);
+                sb.append(":");
+            }
+            Long.signum(j3);
+            long j4 = j2 - (j3 * 3600);
+            long j5 = j4 / 60;
+            if (j5 < 10) {
+                sb.append("0");
+            }
+            sb.append(j5);
+            sb.append(":");
+            long j6 = j4 - (j5 * 60);
+            if (j6 < 10) {
+                sb.append("0");
+            }
+            sb.append(j6);
+            return sb.toString();
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public void e(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            b();
+            this.b = new a(this, j2, 1000L, j).start();
+        }
     }
 }

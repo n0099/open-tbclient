@@ -21,20 +21,20 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz0;
-import com.baidu.tieba.ey0;
-import com.baidu.tieba.hw4;
+import com.baidu.tieba.a35;
+import com.baidu.tieba.cja;
+import com.baidu.tieba.dz0;
+import com.baidu.tieba.gy0;
 import com.baidu.tieba.jh0;
-import com.baidu.tieba.k11;
-import com.baidu.tieba.l26;
-import com.baidu.tieba.oia;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.m11;
+import com.baidu.tieba.p26;
 import com.baidu.tieba.recapp.lego.controller.NadTitleController;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.uf9;
+import com.baidu.tieba.sia;
 import com.baidu.tieba.wg0;
-import com.baidu.tieba.x25;
-import com.baidu.tieba.xn0;
-import com.baidu.tieba.yia;
+import com.baidu.tieba.yf9;
+import com.baidu.tieba.zn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -177,7 +177,7 @@ public final class NadTitleController {
                 Intrinsics.checkNotNullParameter(text, "text");
                 Intrinsics.checkNotNullParameter(fm, "fm");
                 f();
-                x25.a(fm, this.b);
+                a35.a(fm, this.b);
                 TextView textView = c().get();
                 if (textView == null || (textView.getGravity() & 112) != 16) {
                     a(fm);
@@ -323,11 +323,11 @@ public final class NadTitleController {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             AdCard adCard;
-            xn0 xn0Var;
-            xn0.b bVar;
+            zn0 zn0Var;
+            zn0.b bVar;
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (adCard = this.a.c) != null && (xn0Var = adCard.richTitleLinkModel) != null && (bVar = xn0Var.a) != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (adCard = this.a.c) != null && (zn0Var = adCard.richTitleLinkModel) != null && (bVar = zn0Var.a) != null) {
                 String str2 = bVar.a;
                 if (!Intrinsics.areEqual(str2, "command")) {
                     if (Intrinsics.areEqual(str2, "download")) {
@@ -338,12 +338,12 @@ public final class NadTitleController {
                         } else {
                             str = null;
                         }
-                        l26.a(str);
+                        p26.a(str);
                         AdCard adCard3 = this.a.c;
                         if (adCard3 != null) {
                             advertAppInfo = adCard3.getAdvertAppInfo();
                         }
-                        uf9.c(advertAppInfo);
+                        yf9.c(advertAppInfo);
                         jh0 jh0Var = this.a.d;
                         if (jh0Var != null) {
                             jh0Var.l();
@@ -494,24 +494,24 @@ public final class NadTitleController {
         });
     }
 
-    public final Drawable j(xn0.b bVar) {
+    public final Drawable j(zn0.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
-            return k11.a.a(f(), bVar.b);
+            return m11.a.a(f(), bVar.b);
         }
         return (Drawable) invokeL.objValue;
     }
 
     @ColorRes
-    public final int k(xn0.b bVar) {
+    public final int k(zn0.b bVar) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
             Resources resources = f().getResources();
             if (resources == null) {
-                i = oia.b;
+                i = sia.b;
                 return i;
             }
             return resources.getIdentifier(bVar.d, "color", f().getPackageName());
@@ -588,11 +588,11 @@ public final class NadTitleController {
         return (TextView) invokeV.objValue;
     }
 
-    public final Drawable h(xn0.b bVar) {
+    public final Drawable h(zn0.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
-            Drawable a2 = k11.a.a(f(), bVar.b);
+            Drawable a2 = m11.a.a(f(), bVar.b);
             if (a2 == null) {
                 Resources resources = f().getResources();
                 if (resources != null) {
@@ -626,7 +626,7 @@ public final class NadTitleController {
 
     public final void o(String str) {
         AdvertAppInfo advertAppInfo;
-        hw4 hw4Var;
+        kw4 kw4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             AdCard adCard = this.c;
@@ -636,18 +636,18 @@ public final class NadTitleController {
             } else {
                 advertAppInfo = null;
             }
-            if (advertAppInfo == null || (hw4Var = advertAppInfo.i) == null) {
+            if (advertAppInfo == null || (kw4Var = advertAppInfo.i) == null) {
                 return;
             }
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.CLICK).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(hw4Var.b)).v(advertAppInfo.j).j("title_shorturl").p(advertAppInfo.g);
-            bz0.e(clogBuilder);
+            clogBuilder.y(ClogBuilder.LogType.CLICK).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(kw4Var.b)).v(advertAppInfo.j).j("title_shorturl").p(advertAppInfo.g);
+            dz0.e(clogBuilder);
             AdCard adCard2 = this.c;
             if (adCard2 != null) {
                 advertAppInfo2 = adCard2.getAdvertAppInfo();
             }
-            uf9.c(advertAppInfo2);
-            l26.a(str);
+            yf9.c(advertAppInfo2);
+            p26.a(str);
         }
     }
 
@@ -656,7 +656,7 @@ public final class NadTitleController {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, adCard, i)) == null) {
-            xn0.b bVar = adCard.richTitleLinkModel.a;
+            zn0.b bVar = adCard.richTitleLinkModel.a;
             if (bVar == null) {
                 return false;
             }
@@ -667,8 +667,8 @@ public final class NadTitleController {
             Boolean bool = adCard.titleBold;
             Intrinsics.checkNotNullExpressionValue(bool, "card.titleBold");
             boolean booleanValue = bool.booleanValue();
-            i2 = oia.a;
-            l.setParams(new ey0(str, str2, booleanValue, i2, bVar.c, k(bVar), j(bVar), h(bVar), g(), i, adCard.maxTitleLine));
+            i2 = sia.a;
+            l.setParams(new gy0(str, str2, booleanValue, i2, bVar.c, k(bVar), j(bVar), h(bVar), g(), i, adCard.maxTitleLine));
             l().setCustomizedProcessor(new a(this));
             if (!l().j()) {
                 return false;
@@ -681,7 +681,7 @@ public final class NadTitleController {
                 }
                 this.d = null;
             }
-            wg0 d = yia.d(adCard);
+            wg0 d = cja.d(adCard);
             d.q.j = "title_shorturl";
             this.d = new jh0(d, l());
             return true;

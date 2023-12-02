@@ -1,577 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.KeyEvent;
-import android.view.View;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.PointF;
+import android.view.animation.Interpolator;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.menu.PopupWindow;
-import com.baidu.tieba.jc4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class oc4 implements mc4, tc4, View.OnKeyListener {
+public class oc4 implements Interpolator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public Context c;
-    public int d;
-    public qc4 e;
-    public List<pc4> f;
-    public List<pc4> g;
-    public List<List<pc4>> h;
-    public mc4 i;
-    public tc4 j;
-    public View.OnKeyListener k;
-    public c l;
-    public jc4 m;
-    public boolean n;
-    public int o;
-    public boolean p;
+    public int a;
+    public final PointF b;
+    public final PointF c;
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(oc4 oc4Var, boolean z);
-    }
-
-    public final boolean q(pc4 pc4Var) {
-        InterceptResult invokeL;
+    public final double a(double d, double d2, double d3, double d4, double d5) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, pc4Var)) == null) {
-            return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) {
+            double d6 = 1.0d - d;
+            double d7 = d * d;
+            double d8 = d6 * d6;
+            return (d8 * d6 * d2) + (d8 * 3.0d * d * d3) + (d6 * 3.0d * d7 * d4) + (d7 * d * d5);
         }
-        return invokeL.booleanValue;
+        return invokeCommon.doubleValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class a implements PopupWindow.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oc4 a;
-
-        public a(oc4 oc4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oc4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = oc4Var;
-        }
-
-        @Override // com.baidu.swan.menu.PopupWindow.b
-        public void onDismiss() {
-            oc4 oc4Var;
-            c cVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = (oc4Var = this.a).l) != null) {
-                cVar.a(oc4Var, false);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements jc4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oc4 a;
-
-        public b(oc4 oc4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oc4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = oc4Var;
-        }
-
-        @Override // com.baidu.tieba.jc4.a
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
-                return;
-            }
-            this.a.k(i);
-        }
-    }
-
-    public oc4(Context context, View view2, int i, jc4 jc4Var, @Nullable ic4 ic4Var) {
+    public oc4(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, Integer.valueOf(i), jc4Var, ic4Var};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = 0;
-        this.f = new ArrayList();
-        this.g = new ArrayList();
-        this.h = new ArrayList();
-        this.o = -1;
-        this.p = false;
-        if (i < 0) {
-            return;
-        }
-        this.c = context;
-        this.d = i;
-        this.m = jc4Var;
-        this.p = jc4Var.a();
-        List<pc4> b2 = rc4.b(this.d);
-        this.f = b2;
-        this.m.d(this.d, b2);
-        this.m.e(this.d, this.f);
-        if (this.m.a()) {
-            this.m.c(this.d, this.f);
-        }
-        qc4 qc4Var = new qc4(this.c, view2, ic4Var);
-        this.e = qc4Var;
-        qc4Var.K(new a(this));
+        this.a = 0;
+        this.b = new PointF();
+        PointF pointF = new PointF();
+        this.c = pointF;
+        PointF pointF2 = this.b;
+        pointF2.x = f;
+        pointF2.y = f2;
+        pointF.x = f3;
+        pointF.y = f4;
     }
 
-    @Override // com.baidu.tieba.mc4
-    public boolean b(View view2, pc4 pc4Var) {
-        InterceptResult invokeLL;
+    @Override // android.animation.TimeInterpolator
+    public float getInterpolation(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, pc4Var)) == null) {
-            if (!pc4Var.i()) {
-                return true;
-            }
-            if (q(pc4Var)) {
-                g(true);
-            }
-            mc4 mc4Var = this.i;
-            if (mc4Var == null) {
-                return false;
-            }
-            return mc4Var.b(view2, pc4Var);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void s(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            t(z, i, null, false);
-        }
-    }
-
-    public final pc4 z(pc4 pc4Var, boolean z) {
-        InterceptResult invokeLZ;
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048602, this, pc4Var, z)) == null) {
-            if (pc4Var == null) {
-                return null;
-            }
-            if (z) {
-                i = R.string.obfuscated_res_0x7f0f0130;
-            } else {
-                i = R.string.obfuscated_res_0x7f0f0133;
-            }
-            pc4Var.q(i);
-            if (z) {
-                i2 = R.drawable.obfuscated_res_0x7f080102;
-            } else {
-                i2 = R.drawable.obfuscated_res_0x7f080115;
-            }
-            pc4Var.m(i2);
-            return pc4Var;
-        }
-        return (pc4) invokeLZ.objValue;
-    }
-
-    public void A(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            z(h(5), z);
-            u();
-            this.e.V();
-            j();
-        }
-    }
-
-    @Override // com.baidu.tieba.tc4
-    public boolean a(pc4 pc4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pc4Var)) == null) {
-            if (q(pc4Var) && !this.a) {
-                g(true);
-            }
-            tc4 tc4Var = this.j;
-            if (tc4Var == null) {
-                return false;
-            }
-            return tc4Var.a(pc4Var);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.e.W(z);
-            c cVar = this.l;
-            if (cVar != null) {
-                cVar.a(this, false);
-            }
-        }
-    }
-
-    public final void k(int i) {
-        pc4 h;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && (h = h(i)) != null && h.j()) {
-            this.g.add(h);
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.e.Z(i);
-        }
-    }
-
-    public void n(mc4 mc4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, mc4Var) == null) {
-            this.i = mc4Var;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.n = z;
-        }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            s(z, 0);
-        }
-    }
-
-    public void d(int i, int i2) {
-        pc4 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            boolean z = false;
-            for (pc4 pc4Var : this.f) {
-                if (pc4Var.c() == i) {
-                    z = true;
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
+            int i = this.a;
+            float f2 = f;
+            while (true) {
+                if (i >= 4096) {
+                    break;
                 }
-            }
-            if (z || (a2 = rc4.a(i)) == null) {
-                return;
-            }
-            int size = this.f.size();
-            if (i2 <= 0) {
-                i2 = 0;
-            } else if (i2 >= size) {
-                i2 = size;
-            }
-            this.f.add(i2, a2);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g(true);
-        }
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            qc4 qc4Var = this.e;
-            if (qc4Var != null && qc4Var.z()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j() {
-        qc4 qc4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (qc4Var = this.e) != null) {
-            qc4Var.Y();
-        }
-    }
-
-    public pc4 h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            for (int i2 = 0; i2 < this.f.size(); i2++) {
-                pc4 pc4Var = this.f.get(i2);
-                if (pc4Var != null && pc4Var.c() == i) {
-                    pc4Var.n(0L);
-                    pc4Var.p(this);
-                    return pc4Var;
+                f2 = (i * 1.0f) / 4096.0f;
+                if (a(f2, 0.0d, this.b.x, this.c.x, 1.0d) >= f) {
+                    this.a = i;
+                    break;
                 }
+                i++;
             }
-            return null;
-        }
-        return (pc4) invokeI.objValue;
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048587, this, i) != null) || this.f == null) {
-            return;
-        }
-        int i2 = -1;
-        for (int i3 = 0; i3 < this.f.size(); i3++) {
-            if (this.f.get(i3).c() == i) {
-                i2 = i3;
+            double a = a(f2, 0.0d, this.b.y, this.c.y, 1.0d);
+            if (a > 0.999d) {
+                a = 1.0d;
+                this.a = 0;
             }
+            return (float) a;
         }
-        if (i2 > -1) {
-            this.f.remove(i2);
-        }
-    }
-
-    @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view2, int i, KeyEvent keyEvent) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048591, this, view2, i, keyEvent)) == null) {
-            View.OnKeyListener onKeyListener = this.k;
-            if (onKeyListener != null) {
-                return onKeyListener.onKey(view2, i, keyEvent);
-            }
-            return false;
-        }
-        return invokeLIL.booleanValue;
-    }
-
-    public void t(boolean z, int i, View view2, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), view2, Boolean.valueOf(z2)}) == null) {
-            if (i()) {
-                g(true);
-                return;
-            }
-            w(z, i);
-            u();
-            this.e.a0(this.h, view2, z2, this.b);
-            c cVar = this.l;
-            if (cVar != null) {
-                cVar.a(this, true);
-            }
-        }
-    }
-
-    public final void u() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.h.clear();
-            if (this.m.a()) {
-                this.h.add(this.g);
-                return;
-            }
-            int size = this.g.size();
-            int i2 = 5;
-            if (size > 0 && size <= 5) {
-                this.h.add(this.g);
-            } else if (size > 5 && size <= 10) {
-                if (!this.a) {
-                    i2 = this.o;
-                }
-                this.h.add(this.g.subList(0, i2));
-                this.h.add(this.g.subList(i2, size));
-            } else if (size > 10) {
-                if (this.a) {
-                    i = (int) Math.ceil(size / 2.0f);
-                } else {
-                    i = this.o;
-                }
-                this.h.add(this.g.subList(0, i));
-                this.h.add(this.g.subList(i, size));
-            }
-        }
-    }
-
-    public final pc4 v(pc4 pc4Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048598, this, pc4Var, i)) == null) {
-            if (pc4Var == null) {
-                return null;
-            }
-            if (i == 2) {
-                pc4Var.q(R.string.obfuscated_res_0x7f0f012f);
-                pc4Var.m(R.drawable.obfuscated_res_0x7f0800fc);
-                return pc4Var;
-            } else if (i == 1) {
-                pc4Var.q(R.string.obfuscated_res_0x7f0f0131);
-                pc4Var.m(R.drawable.obfuscated_res_0x7f0800f4);
-                return pc4Var;
-            } else if (i == 0) {
-                return null;
-            } else {
-                return pc4Var;
-            }
-        }
-        return (pc4) invokeLI.objValue;
-    }
-
-    public final void w(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || this.f == null) {
-            return;
-        }
-        this.g.clear();
-        k(41);
-        pc4 v = v(h(38), i);
-        if (v != null && v.j()) {
-            this.g.add(v);
-        }
-        k(48);
-        k(45);
-        k(4);
-        k(101);
-        pc4 h = h(35);
-        if (h != null && h.j()) {
-            this.g.add(h);
-        }
-        k(39);
-        k(42);
-        k(9);
-        if (!this.a) {
-            this.o = this.g.size() - 1;
-        }
-        k(37);
-        if (this.n) {
-            k(43);
-        }
-        pc4 z2 = z(h(5), z);
-        if (z2 != null && z2.j()) {
-            this.g.add(z2);
-        }
-        k(46);
-        k(47);
-        k(51);
-        k(49);
-        k(50);
-        jc4 jc4Var = this.m;
-        if (jc4Var != null) {
-            jc4Var.f(this.d, this.f, new b(this));
-        }
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048600, this) != null) || this.m == null) {
-            return;
-        }
-        this.f.clear();
-        List<pc4> b2 = rc4.b(this.d);
-        this.f = b2;
-        this.m.d(this.d, b2);
-        this.m.e(this.d, this.f);
-        if (this.m.a()) {
-            this.m.c(this.d, this.f);
-        }
-        u();
-        j();
-    }
-
-    public void y(JSONObject jSONObject) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, jSONObject) == null) {
-            int optInt = jSONObject.optInt(Constants.EXTRA_PA_TYPE);
-            Long valueOf = Long.valueOf(jSONObject.optLong("pa_unread_sums"));
-            if (optInt != 7) {
-                if (optInt != 666) {
-                    if (optInt != 888) {
-                        if (optInt != 999) {
-                            i = -1;
-                        } else {
-                            i = 48;
-                        }
-                    } else {
-                        i = 47;
-                    }
-                } else {
-                    i = 46;
-                }
-            } else {
-                i = 45;
-            }
-            if (i < 0) {
-                return;
-            }
-            for (pc4 pc4Var : this.g) {
-                if (pc4Var.c() == i) {
-                    valueOf = Long.valueOf(valueOf.longValue() + pc4Var.e());
-                    if (valueOf.longValue() > 0) {
-                        i2 = 1;
-                    } else {
-                        i2 = 0;
-                    }
-                    pc4Var.o(i2);
-                    pc4Var.n(valueOf.longValue());
-                }
-            }
-        }
+        return invokeF.floatValue;
     }
 }

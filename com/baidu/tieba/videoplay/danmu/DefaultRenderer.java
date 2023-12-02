@@ -14,13 +14,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.as6;
 import com.baidu.tieba.au6;
-import com.baidu.tieba.bs6;
-import com.baidu.tieba.iu6;
-import com.baidu.tieba.ur6;
-import com.baidu.tieba.v07;
-import com.baidu.tieba.wt6;
+import com.baidu.tieba.es6;
+import com.baidu.tieba.eu6;
+import com.baidu.tieba.fs6;
+import com.baidu.tieba.mu6;
+import com.baidu.tieba.yr6;
+import com.baidu.tieba.z07;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import kotlinx.coroutines.CoroutineScopeKt;
 import kotlinx.coroutines.Dispatchers;
 @Metadata(d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\r\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 \u001d2\u00020\u0001:\u0001\u001dB\u0005¢\u0006\u0002\u0010\u0002J(\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016J\u001e\u0010\u0015\u001a\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u00182\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u0019\u001a\u00020\u0004J \u0010\u001a\u001a\u00020\u001b2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016J \u0010\u001c\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001e"}, d2 = {"Lcom/baidu/tieba/videoplay/danmu/DefaultRenderer;", "Lcom/baidu/tieba/danmu/render/DanmakuRenderer;", "()V", "SELF_SEND_LEFT_PADDING", "", "SELF_SEND_TOP_PADDING", "borderPaint", "Landroid/graphics/Paint;", "strokePaint", "Landroid/text/TextPaint;", "textPaint", "draw", "", "item", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "canvas", "Landroid/graphics/Canvas;", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "makeLayout", "Landroid/text/StaticLayout;", "charSequence", "", "width", "measure", "Lcom/baidu/tieba/danmu/utils/Size;", "updatePaint", "Companion", "danmu_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class DefaultRenderer implements wt6 {
+public final class DefaultRenderer implements au6 {
     public static /* synthetic */ Interceptable $ic;
     public static final a f;
     public static final Map<Float, Float> g;
@@ -145,8 +145,8 @@ public final class DefaultRenderer implements wt6 {
         this.e = paint;
     }
 
-    @Override // com.baidu.tieba.wt6
-    public iu6 a(as6 item, au6 displayer, ur6 config) {
+    @Override // com.baidu.tieba.au6
+    public mu6 a(es6 item, eu6 displayer, yr6 config) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
@@ -154,8 +154,8 @@ public final class DefaultRenderer implements wt6 {
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
             i(item, displayer, config);
-            bs6 e = item.e();
-            int b = v07.b(e.c());
+            fs6 e = item.e();
+            int b = z07.b(e.c());
             float textSize = b * (this.c.getTextSize() + UtilHelper.getDimenPixelSize(R.dimen.tbds6));
             String replace = new Regex("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)").replace(e.c(), "");
             if (TextUtils.isEmpty(replace)) {
@@ -167,13 +167,13 @@ public final class DefaultRenderer implements wt6 {
             if (e.g() == 8) {
                 measureText += this.b * 2;
             }
-            return new iu6(MathKt__MathJVMKt.roundToInt(measureText) + 6, MathKt__MathJVMKt.roundToInt(f.b(this.c)) + MathKt__MathJVMKt.roundToInt(34.86f));
+            return new mu6(MathKt__MathJVMKt.roundToInt(measureText) + 6, MathKt__MathJVMKt.roundToInt(f.b(this.c)) + MathKt__MathJVMKt.roundToInt(34.86f));
         }
-        return (iu6) invokeLLL.objValue;
+        return (mu6) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.wt6
-    public void b(as6 item, Canvas canvas, au6 displayer, ur6 config) {
+    @Override // com.baidu.tieba.au6
+    public void b(es6 item, Canvas canvas, eu6 displayer, yr6 config) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
@@ -182,7 +182,7 @@ public final class DefaultRenderer implements wt6 {
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
             i(item, displayer, config);
-            bs6 e = item.e();
+            fs6 e = item.e();
             if (e.d().length() > 0) {
                 z = true;
             } else {
@@ -217,14 +217,14 @@ public final class DefaultRenderer implements wt6 {
         return (StaticLayout) invokeLLI.objValue;
     }
 
-    public void i(as6 item, au6 displayer, ur6 config) {
+    public void i(es6 item, eu6 displayer, yr6 config) {
         Typeface typeface;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, item, displayer, config) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(displayer, "displayer");
             Intrinsics.checkNotNullParameter(config, "config");
-            bs6 e = item.e();
+            fs6 e = item.e();
             float clamp = MathUtils.clamp(e.o(), 12.0f, 25.0f) * (displayer.b() - 0.6f);
             this.c.setColor(e.n() | Color.argb(255, 0, 0, 0));
             this.c.setTextSize(clamp * config.v());

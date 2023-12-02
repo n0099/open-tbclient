@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ck0 implements mf1 {
+public class ck0 implements pf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,7 +25,7 @@ public class ck0 implements mf1 {
         }
     }
 
-    @Override // com.baidu.tieba.mf1
+    @Override // com.baidu.tieba.pf1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

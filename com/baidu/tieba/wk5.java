@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.WorkerThread;
-import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
+import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
 /* loaded from: classes8.dex */
 public interface wk5 {
-    @WorkerThread
-    void a(long j, int i, String str, IChatRoomEnterListener.ChatRoomInfo chatRoomInfo);
+    void a(int i, String str, PersonFetchMsgResponse personFetchMsgResponse);
 }

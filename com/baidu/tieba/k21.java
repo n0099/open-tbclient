@@ -1,111 +1,43 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.provider.Settings;
-import android.view.Window;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class k21 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+/* loaded from: classes6.dex */
+public final class k21 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947861087, "Lcom/baidu/tieba/k21;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947861087, "Lcom/baidu/tieba/k21;");
-        }
-    }
-
-    public static int c(int i, int i2, int i3) {
-        InterceptResult invokeIII;
+    @Nullable
+    public static byte[] a(@NonNull byte[] bArr, PublicKey publicKey) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
-            if (i < i2) {
-                i = i2;
-            }
-            return i > i3 ? i3 : i;
-        }
-        return invokeIII.intValue;
-    }
-
-    public static int a(Activity activity) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null) {
-                float f = activity.getWindow().getAttributes().screenBrightness;
-                if (f < 0.0f) {
-                    i = b(activity);
-                } else {
-                    i = (int) (f * 255.0f);
-                }
-                int i2 = a;
-                if (i2 >= 0 && i <= 50) {
-                    return i2;
-                }
-                return i;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, publicKey)) == null) {
             try {
-                return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(1, publicKey);
+                return cipher.doFinal(bArr);
+            } catch (Exception unused) {
+                return null;
             }
         }
-        return invokeL.intValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    public static void f(Activity activity) {
+    public static PublicKey b(@NonNull byte[] bArr) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, activity) == null) {
-            e(activity, -1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr));
         }
-    }
-
-    public static void d(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) && activity != null) {
-            a = c(i, 0, 255);
-            int c = c(i, 50, 255);
-            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-            attributes.screenBrightness = Float.valueOf(c).floatValue() * 0.003921569f;
-            activity.getWindow().setAttributes(attributes);
-        }
-    }
-
-    public static void e(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65541, null, activity, i) == null) && activity != null) {
-            Window window = activity.getWindow();
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.screenBrightness = i;
-            window.setAttributes(attributes);
-        }
+        return (PublicKey) invokeL.objValue;
     }
 }

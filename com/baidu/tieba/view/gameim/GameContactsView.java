@@ -10,7 +10,7 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aw8;
+import com.baidu.tieba.ew8;
 import com.baidu.tieba.im.data.GameMatchUser;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -157,7 +157,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
                 if (gameContactsItemView != null) {
                     gameContactsItemView.setGameMatchUser(gameMatchUser);
                     gameContactsItemView.setVisibility(0);
-                    if (gameMatchUser.getPos() != this.d && (h = aw8.n().h(gameMatchUser.getUserId(), 2)) != null && h.getUnread_count() > 0) {
+                    if (gameMatchUser.getPos() != this.d && (h = ew8.n().h(gameMatchUser.getUserId(), 2)) != null && h.getUnread_count() > 0) {
                         gameContactsItemView.g(h.getUnread_count());
                     }
                 }

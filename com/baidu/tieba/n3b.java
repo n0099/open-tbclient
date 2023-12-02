@@ -1,37 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.switchs.FunnySpriteSwitch;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.oq6;
-import com.baidu.tieba.r05;
-import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
-import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
-import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
-import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public final class n3b extends r05 {
+public class n3b {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
-    public static long g;
+    public static final Map<String, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SpriteTipHttpResponseMessage c;
-    public final HomePageSpriteBottomTipView d;
-    public final oq6.e e;
 
     static {
         InterceptResult invokeClinit;
@@ -46,172 +30,89 @@ public final class n3b extends r05 {
                 return;
             }
         }
-        f = new a(null);
+        a = new ConcurrentHashMap();
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-                return invokeV.longValue;
-            }
-            return n3b.g;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n3b(Activity activity, SpriteTipHttpResponseMessage data, HomePageSpriteBottomTipView tipView, oq6.e eVar) {
-        super(activity);
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, data, tipView, eVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (a.containsKey(str) && (a.get(str) instanceof Boolean)) {
+                return ((Boolean) a.get(str)).booleanValue();
             }
-        }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(tipView, "tipView");
-        this.c = data;
-        this.d = tipView;
-        this.e = eVar;
-    }
-
-    public /* synthetic */ n3b(Activity activity, SpriteTipHttpResponseMessage spriteTipHttpResponseMessage, HomePageSpriteBottomTipView homePageSpriteBottomTipView, oq6.e eVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(activity, spriteTipHttpResponseMessage, homePageSpriteBottomTipView, (i & 8) != 0 ? null : eVar);
-    }
-
-    @Override // com.baidu.tieba.r05
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            oq6.e eVar = this.e;
-            if (eVar != null) {
-                eVar.onDismiss();
-            }
-            this.d.e();
-        }
-    }
-
-    @Override // com.baidu.tieba.r05
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.f();
-            oq6.e eVar = this.e;
-            if (eVar != null) {
-                eVar.onDismiss();
-            }
-        }
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c.isSuccess() && this.c.getScene() != 2 && HomeSpriteEdgeFloatManager.l.b()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final void i(n3b this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            oq6.e eVar = this$0.e;
-            if (eVar != null) {
-                eVar.onDismiss();
-            }
-            this$0.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.r05
-    public void d(r05.a shouldShowCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
-            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
-            if (!a2b.j.a().g() && !a2b.j.a().j()) {
-                if (h()) {
-                    shouldShowCallback.callback(true);
-                    return;
-                }
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.e("SpriteTip", "not show Tip switch:" + FunnySpriteSwitch.Companion.isOn() + " isAllResExist:" + FunnySpriteResDownloadUtil.k().invoke().booleanValue() + " canShowSpriteAndTip:" + HomeSpriteEdgeFloatManager.l.b());
-                shouldShowCallback.callback(false);
-                return;
-            }
-            if (h()) {
-                hsa.b.a().c(this.c);
-            }
-            DefaultLog.getInstance().e("SpriteTip", "not show Tip because home easter egg is showing");
-            shouldShowCallback.callback(false);
-        }
-    }
-
-    @Override // com.baidu.tieba.r05
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (2 == a2b.j.a().c().a().c && 1 == a2b.j.a().c().b().c && 6 == a2b.j.a().c().c().c) {
-                DefaultLog.getInstance().i("SpriteTip", "show responseTip：直播tab不展示轻互动");
-                c();
-                return;
-            }
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("SpriteTip", "show responseTip:" + this.c.getText());
-            g = System.currentTimeMillis();
-            String string = SharedPrefHelper.getInstance().getString("key_sprite_speech_version", "");
-            String version = this.c.getVersion();
-            if (!TextUtils.isEmpty(version) && !Intrinsics.areEqual(string, version)) {
-                SharedPrefHelper.getInstance().putString("key_sprite_speech_version", version);
-            }
-            this.d.setDataAndShow(this.c, new oq6.e() { // from class: com.baidu.tieba.l3b
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.oq6.e
-                public final void onDismiss() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        n3b.i(n3b.this);
+            Bundle bundle = null;
+            boolean z = false;
+            if (context != null && str != null) {
+                try {
+                    ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                    if (applicationInfo != null) {
+                        bundle = applicationInfo.metaData;
                     }
+                    if (bundle != null) {
+                        z = bundle.getBoolean(str);
+                    }
+                } catch (PackageManager.NameNotFoundException unused) {
                 }
-            });
+                a.put(str, Boolean.valueOf(z));
+            }
+            return z;
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static int b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            if (a.containsKey(str) && (a.get(str) instanceof Integer)) {
+                return ((Integer) a.get(str)).intValue();
+            }
+            Bundle bundle = null;
+            int i = 0;
+            if (context != null && str != null) {
+                try {
+                    ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                    if (applicationInfo != null) {
+                        bundle = applicationInfo.metaData;
+                    }
+                    if (bundle != null) {
+                        i = bundle.getInt(str);
+                    }
+                } catch (PackageManager.NameNotFoundException unused) {
+                }
+                a.put(str, Integer.valueOf(i));
+            }
+            return i;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static String c(Context context, String str) {
+        InterceptResult invokeLL;
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (a.containsKey(str) && (a.get(str) instanceof String)) {
+                return (String) a.get(str);
+            }
+            String str2 = null;
+            if (context != null && str != null) {
+                try {
+                    ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                    if (applicationInfo != null) {
+                        bundle = applicationInfo.metaData;
+                    } else {
+                        bundle = null;
+                    }
+                    if (bundle != null) {
+                        str2 = bundle.getString(str);
+                    }
+                } catch (PackageManager.NameNotFoundException unused) {
+                }
+                a.put(str, str2);
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
     }
 }

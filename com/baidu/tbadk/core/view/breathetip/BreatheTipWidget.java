@@ -8,12 +8,12 @@ import com.airbnb.lottie.L;
 import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
+import com.baidu.tieba.a65;
+import com.baidu.tieba.b65;
+import com.baidu.tieba.c65;
 import com.baidu.tieba.sa;
 import com.baidu.tieba.ta;
-import com.baidu.tieba.u55;
 import com.baidu.tieba.ua;
-import com.baidu.tieba.v55;
-import com.baidu.tieba.w55;
 import com.baidu.tieba.x55;
 import com.baidu.tieba.y55;
 import com.baidu.tieba.z55;
@@ -31,10 +31,10 @@ public class BreatheTipWidget {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public ta b;
-    public y55 c;
+    public b65 c;
     public BreatheTipView d;
     public View e;
-    public z55 f;
+    public c65 f;
     public FromType g;
     public boolean h;
     public final Runnable i;
@@ -456,26 +456,26 @@ public class BreatheTipWidget {
         }
     }
 
-    public BreatheTipWidget h(v55 v55Var, u55 u55Var) {
+    public BreatheTipWidget h(y55 y55Var, x55 x55Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v55Var, u55Var)) == null) {
-            PointType pointType = u55Var.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, y55Var, x55Var)) == null) {
+            PointType pointType = x55Var.a;
             if (pointType == PointType.LOTTIE) {
-                this.c = new w55(this.a);
+                this.c = new z55(this.a);
             } else if (pointType == PointType.DRAWABLE) {
-                this.c = new x55(this.a);
+                this.c = new a65(this.a);
             }
             if (this.d == null) {
                 this.d = new BreatheTipView(this.a);
             }
-            y55 y55Var = this.c;
-            if (y55Var != null) {
-                y55Var.a(u55Var);
+            b65 b65Var = this.c;
+            if (b65Var != null) {
+                b65Var.a(x55Var);
             }
             BreatheTipView breatheTipView = this.d;
             if (breatheTipView != null) {
-                breatheTipView.setData(v55Var);
+                breatheTipView.setData(y55Var);
             }
             return this;
         }
@@ -490,9 +490,9 @@ public class BreatheTipWidget {
                 return false;
             }
             j = true;
-            z55 z55Var = new z55();
-            this.f = z55Var;
-            z55Var.h(this.d, this.c, this.e);
+            c65 c65Var = new c65();
+            this.f = c65Var;
+            c65Var.h(this.d, this.c, this.e);
             ua uaVar = new ua();
             uaVar.c(0);
             uaVar.k(this.e);

@@ -50,11 +50,11 @@ public class zt extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: x */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, cw4Var) == null) && (smartAppBottomLayout = this.h) != null) {
-            smartAppBottomLayout.onBindDataToView(cw4Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, fw4Var) == null) && (smartAppBottomLayout = this.h) != null) {
+            smartAppBottomLayout.onBindDataToView(fw4Var);
         }
     }
 

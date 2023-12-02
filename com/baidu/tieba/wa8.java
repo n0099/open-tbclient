@@ -1,98 +1,296 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.cu;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.homepage.concern.adapter.ConcernEmotionTipAdapter;
+import com.baidu.tieba.homepage.concern.adapter.ConcernTipAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class wa8 extends ci<cc8, ThreadCardViewHolder<cc8>> implements a26 {
+public class wa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TbPageContext<?> b;
-    public vi c;
+    public sb8 A;
+    public db8 B;
+    public pb8 C;
+    public eb8 D;
+    public qb8 E;
+    public ConcernEmotionTipAdapter F;
+    public ac8 G;
+    public ArrayList<ci> H;
+    public List<pi> I;
+    public List<ci> a;
+    public BdTypeRecyclerView b;
+    public TbPageContext<?> c;
+    public ConcernTipAdapter d;
+    public ConcernEmotionTipAdapter e;
+    public bb8 f;
+    public vb8 g;
+    public ArrayList<rb8> h;
+    public xb8 i;
+    public xb8 j;
+    public jb8 k;
+    public wb8 l;
+    public lb8 m;
+    public ub8 n;
+    public ib8 o;
+    public hb8 p;
+    public gb8 q;
+    public fb8 r;
+    public yb8 s;
+    public kb8 t;
+    public mb8 u;
+    public nb8 v;
+    public tb8 w;
+    public ob8 x;
+    public zb8 y;
+    public ab8 z;
 
-    @Override // com.baidu.tieba.a26
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wa8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public wa8(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {context, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
+        this.h = new ArrayList<>();
+        this.a = new ArrayList();
+        this.b = bdTypeRecyclerView;
+        this.c = (TbPageContext) a5.a(context);
+        b(context);
+        i(bdTypeRecyclerView);
+        bdTypeRecyclerView.addAdapters(this.a);
     }
 
-    public void x(BdUniqueId bdUniqueId) {
+    public List<pi> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.I;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void d() {
+        BdTypeRecyclerView bdTypeRecyclerView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bdTypeRecyclerView = this.b) != null) {
+            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: t */
-    public ThreadCardViewHolder<cc8> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            cu.b bVar = new cu.b(this.b.getPageActivity(), false);
-            bVar.n(new li8(this.b, this.a));
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().i(0);
-            ThreadCardViewHolder<cc8> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
-            threadCardViewHolder.i(this.a);
-            am6.b().a(lm6.c("c13620", 2));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, cc8 cc8Var, ThreadCardViewHolder<cc8> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cc8Var, threadCardViewHolder})) == null) {
-            if (cc8Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null) {
-                threadCardViewHolder.e(cc8Var);
-                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-                return threadCardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            for (int i = 0; i < um6.O.size(); i++) {
+                for (int i2 = 0; i2 < um6.P.size(); i2++) {
+                    this.h.add(new rb8(this.c, um6.Q[i][i2], um6.O.get(i), um6.P.get(i2)));
+                }
             }
-            return null;
+            this.i = new xb8(this.c, ThreadData.TYPE_VIDEO, um6.D);
+            this.j = new xb8(this.c, ThreadData.TYPE_VIDEO_WITH_FORUM_HEADER, um6.E);
+            this.k = new jb8(this.c, ThreadData.TYPE_FAKE_VIDEO, um6.D);
+            this.l = new wb8(this.c, dn6.E0);
+            this.m = new lb8(this.c, dn6.F0);
+            this.t = new kb8(this.c, dn6.M0);
+            this.u = new mb8(this.c, dn6.N0);
+            this.n = new ub8(this.c, dn6.L0);
+            this.o = new ib8(this.c, dn6.G0);
+            this.p = new hb8(this.c, dn6.H0);
+            this.q = new gb8(this.c, dn6.I0);
+            this.s = new yb8(this.c, en6.U);
+            this.B = new db8(this.c, xm6.S0);
+            this.r = new fb8(this.c, dn6.J0);
+            this.A = new sb8(this.c, bz4.e);
+            this.v = new nb8(this.c, dn6.O0);
+            this.w = new tb8(this.c, dn6.P0);
+            this.x = new ob8(this.c, dn6.Q0);
+            this.y = new zb8(this.c, ThreadData.TYPE_CONTENT_VOICE_ROOM);
+            this.a.addAll(this.h);
+            this.a.add(this.i);
+            this.a.add(this.j);
+            this.a.add(this.k);
+            this.a.add(this.l);
+            this.a.add(this.m);
+            this.a.add(this.t);
+            this.a.add(this.u);
+            this.a.add(this.n);
+            this.a.add(this.o);
+            this.a.add(this.p);
+            this.a.add(this.q);
+            this.a.add(this.s);
+            this.a.add(this.r);
+            this.a.add(this.A);
+            this.a.add(this.v);
+            this.a.add(this.w);
+            this.a.add(this.x);
+            this.a.add(this.y);
+            this.d = new ConcernTipAdapter(this.c.getContext());
+            this.e = new ConcernEmotionTipAdapter(this.c);
+            this.f = new bb8(this.c, cn6.S0);
+            this.z = new ab8(this.c, gc8.b);
+            this.g = new vb8(this.c, dn6.u0);
+            this.C = new pb8(this.c, dn6.v0);
+            this.D = new eb8(this.c, dn6.w0);
+            this.E = new qb8(this.c, dn6.x0);
+            this.F = new ConcernEmotionTipAdapter(this.c, hc8.f);
+            this.G = new ac8(this.c, dn6.z0, (byte) 4);
+            this.a.add(this.d);
+            this.a.add(this.e);
+            this.a.add(this.f);
+            this.a.add(this.z);
+            this.a.add(this.g);
+            this.a.add(this.C);
+            this.a.add(this.D);
+            this.a.add(this.E);
+            this.a.add(this.B);
+            this.a.add(this.F);
+            this.a.add(this.G);
+            g("page_concern");
+            c();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (!ThreadData.isRecAppLoaded.get()) {
+                AdvertAppInfo.x.set(false);
+                return;
+            }
+            this.H = new ArrayList<>();
+            ci<?, ?> h = vha.m().h(this.c, AdvertAppInfo.A, "CONCERN");
+            ci<?, ?> h2 = vha.m().h(this.c, AdvertAppInfo.B, "CONCERN");
+            ci<?, ?> h3 = vha.m().h(this.c, AdvertAppInfo.C, "CONCERN");
+            ci<?, ?> h4 = vha.m().h(this.c, AdvertAppInfo.D, "CONCERN");
+            ci<?, ?> h5 = vha.m().h(this.c, AdvertAppInfo.E, "CONCERN");
+            ci<?, ?> h6 = vha.m().h(this.c, AdvertAppInfo.G, "CONCERN");
+            ci<?, ?> h7 = vha.m().h(this.c, AdvertAppInfo.F, "CONCERN");
+            this.H.add(h);
+            this.H.add(h2);
+            this.H.add(h3);
+            this.H.add(h4);
+            this.H.add(h5);
+            this.H.add(h6);
+            this.H.add(h7);
+            this.a.addAll(this.H);
+            AdvertAppInfo.x.set(true);
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            d();
+        }
+    }
+
+    public final void g(String str) {
+        List<ci> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || (list = this.a) == null) {
+            return;
+        }
+        for (ci ciVar : list) {
+            if (ciVar instanceof e26) {
+                ((e26) ciVar).g(str);
+            }
+        }
+    }
+
+    public void j(List<pi> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            this.I = list;
+            this.b.setData(list);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || dg9.e(this.I)) {
+            return;
+        }
+        Iterator<ci> it = this.H.iterator();
+        while (it.hasNext()) {
+            ci next = it.next();
+            if (next instanceof lha) {
+                ((lha) next).onDestroy();
+            }
+        }
+    }
+
+    public void h(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
+            Iterator<rb8> it = this.h.iterator();
+            while (it.hasNext()) {
+                it.next().a = bdUniqueId;
+            }
+            this.f.a = bdUniqueId;
+            this.g.a = bdUniqueId;
+            this.E.a = bdUniqueId;
+            this.C.a = bdUniqueId;
+            this.D.a = bdUniqueId;
+            this.B.a = bdUniqueId;
+            this.r.a = bdUniqueId;
+            this.A.a = bdUniqueId;
+            this.G.b = bdUniqueId;
+            this.y.a = bdUniqueId;
+            this.z.x(bdUniqueId);
+        }
+    }
+
+    public final void i(vi viVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viVar) == null) {
+            Iterator<rb8> it = this.h.iterator();
+            while (it.hasNext()) {
+                it.next().K(viVar);
+            }
+            this.i.F(viVar);
+            this.j.F(viVar);
+            this.k.A(viVar);
+            this.l.A(viVar);
+            this.m.B(viVar);
+            this.t.A(viVar);
+            this.u.A(viVar);
+            this.n.A(viVar);
+            this.A.y(viVar);
+            this.v.x(viVar);
+            this.w.y(viVar);
+            this.x.x(viVar);
+            this.y.A(viVar);
+            this.o.A(viVar);
+            this.p.A(viVar);
+            this.q.A(viVar);
+            this.s.D(viVar);
+            this.r.B(viVar);
+            this.B.B(viVar);
+            this.D.A(viVar);
+            this.C.B(viVar);
+            this.E.B(viVar);
+            this.G.x(viVar);
+        }
     }
 }

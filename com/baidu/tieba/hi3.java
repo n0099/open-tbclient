@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.util.BaiduIdentityManager;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,223 +11,253 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.Sets;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class hi3 {
+public final class hi3 implements ei3, gi3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<fi3<?>, Set<b>> l;
 
     /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static String f = "%s/%s";
-        public static String g = "%s-%s/%s";
-        public static String h = "(Baidu; P1 %s)";
-        public static String i = "%s/%s";
+    public interface b extends dl3<Set<fi3<?>>> {
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
+        public final /* synthetic */ Set a;
+        public final /* synthetic */ Set b;
+
+        public a(hi3 hi3Var, Set set, Set set2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hi3Var, set, set2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = set;
+            this.b = set2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (b bVar : this.a) {
+                    bVar.a(this.b);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final hi3 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-746289702, "Lcom/baidu/tieba/hi3$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-746289702, "Lcom/baidu/tieba/hi3$a;");
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-746289640, "Lcom/baidu/tieba/hi3$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-746289640, "Lcom/baidu/tieba/hi3$c;");
+                    return;
                 }
             }
-        }
-
-        public final boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return TextUtils.equals(BaiduIdentityManager.VALUE_OSNAME, this.c);
-            }
-            return invokeV.booleanValue;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String format = String.format(f, this.a, this.b);
-                String format2 = String.format(g, this.a, this.c, this.d);
-                String format3 = String.format(i, this.c, this.d);
-                String format4 = String.format(h, this.e);
-                if (e()) {
-                    return String.format("%s %s %s %s", format, format2, format3, format4);
-                }
-                return String.format("%s %s %s", format, format2, format4);
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.a = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.e = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            a = new hi3();
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947824631, "Lcom/baidu/tieba/hi3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947824631, "Lcom/baidu/tieba/hi3;");
+    public hi3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = sm1.a;
+        this.l = new HashMap();
     }
 
-    public static Context a() {
+    public static hi3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return op2.c();
+            return c.a;
         }
-        return (Context) invokeV.objValue;
+        return (hi3) invokeV.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str)) {
-                return com.baidu.mobads.sdk.internal.cj.d;
-            }
-            return str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return e(SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return e("swan");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e(String str) {
+    public final <T> boolean b(T... tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            String a2 = op2.n().a();
-            a aVar = new a();
-            aVar.b(str);
-            aVar.g(tm1.a());
-            aVar.c(a2);
-            aVar.d(f());
-            aVar.f(b());
-            return aVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tArr)) == null) {
+            if (tArr == null || tArr.length < 1) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static String f() {
-        InterceptResult invokeV;
+    public hi3 e(fi3<?>... fi3VarArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (!TextUtils.isEmpty(b)) {
-                return b;
-            }
-            try {
-                String str = a().getPackageManager().getPackageInfo(a().getPackageName(), 0).versionName;
-                b = str;
-                return str;
-            } catch (PackageManager.NameNotFoundException e) {
-                if (a) {
-                    e.printStackTrace();
-                    return "0.8";
-                }
-                return "0.8";
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fi3VarArr)) == null) {
+            c(Sets.newHashSet(fi3VarArr));
+            return this;
         }
-        return (String) invokeV.objValue;
+        return (hi3) invokeL.objValue;
+    }
+
+    public hi3 f(di3 di3Var) {
+        InterceptResult invokeL;
+        String di3Var2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, di3Var)) == null) {
+            if (di3Var == null) {
+                di3Var2 = "";
+            } else {
+                di3Var2 = di3Var.toString();
+            }
+            if (ei3.a) {
+                Log.i("Tracer-ErrCode", di3Var2);
+            }
+            k32.c("Tracer-ErrCode", di3Var2);
+            return this;
+        }
+        return (hi3) invokeL.objValue;
+    }
+
+    public final Set<b> i(@NonNull fi3<?> fi3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, fi3Var)) == null) {
+            Set<b> set = this.l.get(fi3Var);
+            if (set == null) {
+                HashSet hashSet = new HashSet();
+                this.l.put(fi3Var, hashSet);
+                return hashSet;
+            }
+            return set;
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    public hi3 c(Set<fi3<?>> set) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set)) == null) {
+            if (set.isEmpty()) {
+                return this;
+            }
+            HashSet hashSet = new HashSet();
+            synchronized (this.l) {
+                for (fi3<?> fi3Var : set) {
+                    hashSet.addAll(i(fi3Var));
+                }
+            }
+            d(hashSet, set);
+            return this;
+        }
+        return (hi3) invokeL.objValue;
+    }
+
+    public hi3 h(fi3<?>... fi3VarArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fi3VarArr)) == null) {
+            synchronized (this.l) {
+                for (fi3<?> fi3Var : fi3VarArr) {
+                    if (!this.l.containsKey(fi3Var)) {
+                        this.l.put(fi3Var, new HashSet());
+                    }
+                }
+            }
+            return this;
+        }
+        return (hi3) invokeL.objValue;
+    }
+
+    public final hi3 d(Set<b> set, Set<fi3<?>> set2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, set, set2)) == null) {
+            c03.j().i(new a(this, set, set2));
+            return this;
+        }
+        return (hi3) invokeLL.objValue;
+    }
+
+    public hi3 g(b bVar, fi3<?>... fi3VarArr) {
+        InterceptResult invokeLL;
+        Set<fi3<?>> newHashSet;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bVar, fi3VarArr)) == null) {
+            if (bVar != null) {
+                synchronized (this.l) {
+                    if (b(fi3VarArr)) {
+                        newHashSet = this.l.keySet();
+                    } else {
+                        newHashSet = Sets.newHashSet(fi3VarArr);
+                    }
+                    for (fi3<?> fi3Var : newHashSet) {
+                        if (fi3Var != null) {
+                            i(fi3Var).add(bVar);
+                        }
+                    }
+                    d(Sets.newHashSet(bVar), newHashSet);
+                }
+            }
+            return this;
+        }
+        return (hi3) invokeLL.objValue;
+    }
+
+    public hi3 j(b bVar, fi3<?>... fi3VarArr) {
+        InterceptResult invokeLL;
+        Set<fi3<?>> newHashSet;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar, fi3VarArr)) == null) {
+            if (bVar != null) {
+                synchronized (this.l) {
+                    if (b(fi3VarArr)) {
+                        newHashSet = this.l.keySet();
+                    } else {
+                        newHashSet = Sets.newHashSet(fi3VarArr);
+                    }
+                    for (fi3<?> fi3Var : newHashSet) {
+                        if (fi3Var != null) {
+                            i(fi3Var).remove(bVar);
+                        }
+                    }
+                }
+            }
+            return this;
+        }
+        return (hi3) invokeLL.objValue;
     }
 }

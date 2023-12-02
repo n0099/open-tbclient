@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mga;
+import com.baidu.tieba.qga;
 import com.baidu.tieba.qrcode.lib.core.QRCodeView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +16,7 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ZXingView extends QRCodeView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class ZXingView extends QRCodeView {
         p();
     }
 
-    @Override // com.baidu.tieba.lga.a
+    @Override // com.baidu.tieba.pga.a
     public String a(byte[] bArr, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Result result;
@@ -102,7 +102,7 @@ public class ZXingView extends QRCodeView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MultiFormatReader multiFormatReader = new MultiFormatReader();
             this.j = multiFormatReader;
-            multiFormatReader.setHints(mga.a);
+            multiFormatReader.setHints(qga.a);
         }
     }
 }

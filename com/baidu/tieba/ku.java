@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class ku extends os<cw4> implements lda {
+public abstract class ku extends os<fw4> implements pda {
     public static /* synthetic */ Interceptable $ic;
     public static final int v;
     public static int w;
@@ -41,11 +41,11 @@ public abstract class ku extends os<cw4> implements lda {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public cw4 h;
+    public fw4 h;
     public RoundCornerFrameLayout i;
     public RoundRelativeLayout j;
     public AbsDownloadGuide k;
-    public hea l;
+    public lea l;
     public String m;
     public String n;
     public BdUniqueId o;
@@ -56,7 +56,7 @@ public abstract class ku extends os<cw4> implements lda {
     public final View.OnClickListener t;
     public nu.b u;
 
-    public abstract hea t();
+    public abstract lea t();
 
     public void x() {
         Interceptable interceptable = $ic;
@@ -100,8 +100,8 @@ public abstract class ku extends os<cw4> implements lda {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                cw4 cw4Var = this.b.h;
-                if (cw4Var != null && cw4Var.getThreadData().getThreadVideoInfo().is_vertical.intValue() != 1) {
+                fw4 fw4Var = this.b.h;
+                if (fw4Var != null && fw4Var.getThreadData().getThreadVideoInfo().is_vertical.intValue() != 1) {
                     this.a.width = this.b.f.getWidth();
                     this.a.height = (this.b.f.getWidth() / 16) * 9;
                 }
@@ -136,18 +136,18 @@ public abstract class ku extends os<cw4> implements lda {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            cw4 cw4Var;
+            fw4 fw4Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (cw4Var = this.a.h) != null && cw4Var.getThreadData() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (fw4Var = this.a.h) != null && fw4Var.getThreadData() != null) {
                 ku kuVar = this.a;
-                if (!o36.a(kuVar.b, kuVar.h.getThreadData())) {
+                if (!s36.a(kuVar.b, kuVar.h.getThreadData())) {
                     Rect computeViewArea = ThreadCardUtils.computeViewArea(this.a.i);
                     ku kuVar2 = this.a;
                     Context context = kuVar2.b;
                     ThreadData threadData = kuVar2.h.getThreadData();
                     ku kuVar3 = this.a;
                     String str = kuVar3.m;
-                    ut5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, kuVar3.h.getThreadData().isJumpToFrsVideoTabPlay);
+                    yt5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, kuVar3.h.getThreadData().isJumpToFrsVideoTabPlay);
                 }
             }
         }
@@ -252,26 +252,26 @@ public abstract class ku extends os<cw4> implements lda {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (aVar.b() == 1) {
                     ku kuVar = this.a;
-                    tl6.l(kuVar.g, kuVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    xl6.l(kuVar.g, kuVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (aVar.b() == 2) {
-                    hea heaVar = this.a.l;
-                    if (heaVar != null) {
-                        heaVar.onScroll();
+                    lea leaVar = this.a.l;
+                    if (leaVar != null) {
+                        leaVar.onScroll();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 3) {
-                    hea heaVar2 = this.a.l;
-                    if (heaVar2 != null) {
-                        heaVar2.onVolumeUp();
+                    lea leaVar2 = this.a.l;
+                    if (leaVar2 != null) {
+                        leaVar2.onVolumeUp();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 6) {
-                    hea heaVar3 = this.a.l;
-                    if (heaVar3 != null) {
-                        return heaVar3.onBackPress();
+                    lea leaVar3 = this.a.l;
+                    if (leaVar3 != null) {
+                        return leaVar3.onBackPress();
                     }
                     return false;
                 } else if (aVar.b() == 7) {
@@ -346,11 +346,11 @@ public abstract class ku extends os<cw4> implements lda {
         }
     }
 
-    public void B(cea ceaVar) {
-        hea heaVar;
+    public void B(gea geaVar) {
+        lea leaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ceaVar) == null) && (heaVar = this.l) != null) {
-            heaVar.setStatistic(ceaVar);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, geaVar) == null) && (leaVar = this.l) != null) {
+            leaVar.setStatistic(geaVar);
         }
     }
 
@@ -366,9 +366,9 @@ public abstract class ku extends os<cw4> implements lda {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.m = str;
-            hea heaVar = this.l;
-            if (heaVar != null) {
-                heaVar.setFrom(str);
+            lea leaVar = this.l;
+            if (leaVar != null) {
+                leaVar.setFrom(str);
             }
         }
     }
@@ -377,9 +377,9 @@ public abstract class ku extends os<cw4> implements lda {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.n = str;
-            hea heaVar = this.l;
-            if (heaVar != null) {
-                heaVar.setStageType(str);
+            lea leaVar = this.l;
+            if (leaVar != null) {
+                leaVar.setStageType(str);
             }
         }
     }
@@ -405,7 +405,7 @@ public abstract class ku extends os<cw4> implements lda {
                 this.g = (TextView) this.f.findViewById(R.id.video_seg_title);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
                 this.j = (RoundRelativeLayout) this.f.findViewById(R.id.download_guide_layout);
-                hea t = t();
+                lea t = t();
                 this.l = t;
                 t.setUniqueId(this.o);
                 this.l.setFrom(this.m);
@@ -416,7 +416,7 @@ public abstract class ku extends os<cw4> implements lda {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -426,13 +426,13 @@ public abstract class ku extends os<cw4> implements lda {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            cw4 cw4Var = this.h;
-            if (cw4Var != null && cw4Var.getThreadData() != null) {
+            fw4 fw4Var = this.h;
+            if (fw4Var != null && fw4Var.getThreadData() != null) {
                 return this.h.getThreadData().getVideoUrl();
             }
             return null;
@@ -440,7 +440,7 @@ public abstract class ku extends os<cw4> implements lda {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -450,21 +450,21 @@ public abstract class ku extends os<cw4> implements lda {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            hea heaVar = this.l;
-            if (heaVar == null) {
+            lea leaVar = this.l;
+            if (leaVar == null) {
                 return false;
             }
-            return heaVar.isFullScreen();
+            return leaVar.isFullScreen();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -474,7 +474,7 @@ public abstract class ku extends os<cw4> implements lda {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -484,16 +484,16 @@ public abstract class ku extends os<cw4> implements lda {
         return invokeV.booleanValue;
     }
 
-    public hea s() {
+    public lea s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.l;
         }
-        return (hea) invokeV.objValue;
+        return (lea) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
@@ -504,7 +504,7 @@ public abstract class ku extends os<cw4> implements lda {
         }
     }
 
-    @Override // com.baidu.tieba.lda
+    @Override // com.baidu.tieba.pda
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -527,10 +527,10 @@ public abstract class ku extends os<cw4> implements lda {
 
     @Override // com.baidu.tieba.jt
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        cw4 cw4Var;
+        fw4 fw4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048588, this, tbPageContext, i) == null) && (cw4Var = this.h) != null && cw4Var.getThreadData() != null) {
-            tl6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        if ((interceptable == null || interceptable.invokeLI(1048588, this, tbPageContext, i) == null) && (fw4Var = this.h) != null && fw4Var.getThreadData() != null) {
+            xl6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.i.c(i);
             this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
             AbsDownloadGuide absDownloadGuide = this.k;
@@ -544,7 +544,7 @@ public abstract class ku extends os<cw4> implements lda {
         RoundRelativeLayout roundRelativeLayout;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, threadData) == null) && threadData != null && this.i != null && (roundRelativeLayout = this.j) != null) {
-            AbsDownloadGuide c2 = oxa.c(this.b, threadData, roundRelativeLayout, this.k);
+            AbsDownloadGuide c2 = nxa.c(this.b, threadData, roundRelativeLayout, this.k);
             this.k = c2;
             if (c2 == null) {
                 this.i.setCornerId(R.string.J_X05);
@@ -572,11 +572,11 @@ public abstract class ku extends os<cw4> implements lda {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         boolean z2;
         boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, cw4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, fw4Var) == null) {
             int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
             if (equipmentWidth != this.p) {
                 int equipmentWidth2 = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
@@ -587,10 +587,10 @@ public abstract class ku extends os<cw4> implements lda {
                 z = i / 3;
                 this.p = equipmentWidth;
             }
-            this.h = cw4Var;
-            if (cw4Var != null && cw4Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
-                this.l.setData(cw4Var.getThreadData());
-                r(cw4Var.getThreadData());
+            this.h = fw4Var;
+            if (fw4Var != null && fw4Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
+                this.l.setData(fw4Var.getThreadData());
+                r(fw4Var.getThreadData());
                 ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
                 int i2 = layoutParams.width;
                 int i3 = layoutParams.height;

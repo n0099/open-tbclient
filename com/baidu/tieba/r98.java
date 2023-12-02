@@ -6,13 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetGiftList.PresentNumInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetGiftList.PresentCategoryList;
 /* loaded from: classes8.dex */
 public class r98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
+    public ArrayList<Integer> c;
 
     public r98() {
         Interceptable interceptable = $ic;
@@ -28,30 +31,45 @@ public class r98 {
         }
     }
 
-    public String a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
     }
 
-    public void c(PresentNumInfo presentNumInfo) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, presentNumInfo) != null) || presentNumInfo == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ArrayList<Integer> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void d(PresentCategoryList presentCategoryList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, presentCategoryList) != null) || presentCategoryList == null) {
             return;
         }
-        this.a = presentNumInfo.num.intValue();
-        this.b = presentNumInfo.name;
+        this.a = presentCategoryList.category_id.intValue();
+        this.b = presentCategoryList.category_name;
+        List<Integer> list = presentCategoryList.gift_ids;
+        if (list != null && list.size() > 0) {
+            ArrayList<Integer> arrayList = new ArrayList<>();
+            this.c = arrayList;
+            arrayList.addAll(presentCategoryList.gift_ids);
+        }
     }
 }

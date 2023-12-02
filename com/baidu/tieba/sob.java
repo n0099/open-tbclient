@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,16 +10,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.net.UploadDataProvider;
 import com.baidu.turbonet.net.UploadDataSink;
 import java.io.IOException;
-import java.net.ProtocolException;
+import java.net.HttpRetryException;
 import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public final class sob extends xob {
+public final class sob extends wob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int d;
-    public final UploadDataProvider e;
-    public ByteBuffer f;
-    public boolean g;
+    public final uob d;
+    public final xob e;
+    public final ByteBuffer f;
+    public final UploadDataProvider g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -26,10 +30,17 @@ public final class sob extends xob {
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.baidu.tieba.xob
+    @Override // com.baidu.tieba.wob
     public void e() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.wob
+    public void g() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
@@ -38,6 +49,16 @@ public final class sob extends xob {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sob a;
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return -1L;
+            }
+            return invokeV.longValue;
+        }
 
         public b(sob sobVar) {
             Interceptable interceptable = $ic;
@@ -61,8 +82,7 @@ public final class sob extends xob {
         public void c(UploadDataSink uploadDataSink) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
-                this.a.f.position(0);
-                uploadDataSink.c();
+                uploadDataSink.b(new HttpRetryException("Cannot retry streamed Http body", -1));
             }
         }
 
@@ -71,154 +91,137 @@ public final class sob extends xob {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
-        public long a() {
-            InterceptResult invokeV;
-            int position;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.d == -1) {
-                    if (this.a.g) {
-                        position = this.a.f.limit();
-                    } else {
-                        position = this.a.f.position();
-                    }
-                    return position;
-                }
-                return this.a.d;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
         public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
-                int remaining = byteBuffer.remaining();
-                if (remaining < this.a.f.remaining()) {
-                    byteBuffer.put(this.a.f.array(), this.a.f.position(), remaining);
-                    this.a.f.position(this.a.f.position() + remaining);
-                } else {
+                if (byteBuffer.remaining() >= this.a.f.remaining()) {
                     byteBuffer.put(this.a.f);
+                    this.a.f.clear();
+                    uploadDataSink.a(this.a.h);
+                    if (!this.a.h) {
+                        this.a.e.quit();
+                        return;
+                    } else if (this.a.i) {
+                        this.a.e.quit();
+                        return;
+                    } else {
+                        return;
+                    }
                 }
+                int limit = this.a.f.limit();
+                this.a.f.limit(this.a.f.position() + byteBuffer.remaining());
+                byteBuffer.put(this.a.f);
+                this.a.f.limit(limit);
                 uploadDataSink.a(false);
             }
         }
     }
 
-    public sob(vob vobVar) {
+    public sob(uob uobVar, int i, xob xobVar, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vobVar};
+            Object[] objArr = {uobVar, Integer.valueOf(i), xobVar, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new b(this, null);
-        if (vobVar != null) {
-            this.d = -1;
-            this.f = ByteBuffer.allocate(16384);
-            return;
-        }
-        throw null;
-    }
-
-    public sob(vob vobVar, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vobVar, Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        this.g = new b(this, null);
+        if (uobVar != null) {
+            if (i > 0) {
+                this.f = ByteBuffer.allocate(i);
+                this.d = uobVar;
+                this.e = xobVar;
+                this.i = z;
+                this.j = z2;
                 return;
             }
+            throw new IllegalArgumentException("chunkLength should be greater than 0");
         }
-        this.e = new b(this, null);
-        if (vobVar != null) {
-            if (j <= 2147483647L) {
-                if (j >= 0) {
-                    int i3 = (int) j;
-                    this.d = i3;
-                    this.f = ByteBuffer.allocate(i3);
-                    return;
-                }
-                throw new IllegalArgumentException("Content length < 0.");
-            }
-            throw new IllegalArgumentException("Use setFixedLengthStreamingMode() or setChunkedStreamingMode() for requests larger than 2GB.");
-        }
-        throw new NullPointerException("Argument connection cannot be null.");
+        throw null;
     }
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            c();
-            o(1);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            p();
             this.f.put((byte) i);
         }
     }
 
-    @Override // com.baidu.tieba.xob
+    @Override // com.baidu.tieba.wob, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.close();
+            if (!this.h) {
+                this.h = true;
+                this.f.flip();
+                if (this.i) {
+                    this.e.b(this.d.getReadTimeout());
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wob
     public UploadDataProvider f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
         }
         return (UploadDataProvider) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xob
-    public void g() throws IOException {
+    @Override // java.io.OutputStream, java.io.Flushable
+    public void flush() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g = true;
-            if (this.f.position() >= this.d) {
-                this.f.flip();
-                return;
-            }
-            throw new ProtocolException("Content received is less than Content-Length");
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.j && this.f.position() > 0) {
+            q();
         }
     }
 
-    public final void o(int i) throws IOException {
+    public final void p() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (this.d != -1 && this.f.position() + i > this.d) {
-                throw new ProtocolException("exceeded content-length limit of " + this.d + " bytes");
-            } else if (!this.g) {
-                if (this.d != -1 || this.f.limit() - this.f.position() > i) {
-                    return;
-                }
-                ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.f.capacity() * 2, this.f.capacity() + i));
-                this.f.flip();
-                allocate.put(this.f);
-                this.f = allocate;
-            } else {
-                throw new IllegalStateException("Use setFixedLengthStreamingMode() or setChunkedStreamingMode() for writing after connect");
-            }
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.f.hasRemaining()) {
+            q();
+        }
+    }
+
+    public final void q() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            c();
+            this.f.flip();
+            this.e.b(this.d.getReadTimeout());
+            a();
         }
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2) == null) {
             c();
-            o(i2);
-            this.f.put(bArr, i, i2);
+            if (bArr.length - i >= i2 && i >= 0 && i2 >= 0) {
+                int i3 = i2;
+                while (i3 > 0) {
+                    int min = Math.min(i3, this.f.remaining());
+                    this.f.put(bArr, (i + i2) - i3, min);
+                    i3 -= min;
+                    p();
+                }
+                return;
+            }
+            throw new IndexOutOfBoundsException();
         }
     }
 }

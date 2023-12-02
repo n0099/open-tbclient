@@ -1,93 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipBasicList;
-import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes5.dex */
-public class cm9 implements pi {
+public class cm9 extends ue5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public dm9 a;
-    public List<VipSpecialItem> b;
-    public int c;
-    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947679706, "Lcom/baidu/tieba/cm9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947679706, "Lcom/baidu/tieba/cm9;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public List<VipSpecialItem> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pi
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public cm9(VipBasicList vipBasicList) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cm9(Context context) {
+        super(context, context.getString(R.string.editor_privilege), 12);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipBasicList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 0;
-        this.d = "";
-        if (vipBasicList != null && vipBasicList.item.size() > 0) {
-            this.d = vipBasicList.card_id;
-            this.c = vipBasicList.card_type.intValue();
-            dm9 dm9Var = new dm9();
-            this.a = dm9Var;
-            dm9Var.e(5);
-            this.a.d(vipBasicList.class_name);
-            this.a.f(vipBasicList.class_url_name);
-            this.a.g(vipBasicList.class_url);
-            this.b = new ArrayList();
-            for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
-                this.b.add(vipSpecialItem);
-            }
+        this.d = R.drawable.icon_pure_post_bubble24;
+        this.h = R.drawable.icon_pure_post_more_bubble64;
+        this.e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.r = R.drawable.icon_pure_pic_vip64;
+        this.i = false;
+        this.j = true;
+        this.o = true;
+        CommonTabHost commonTabHost = new CommonTabHost(context);
+        this.m = commonTabHost;
+        commonTabHost.h(new bm9());
+        this.n = 6;
+        this.p = new int[]{1};
+    }
+
+    @Override // com.baidu.tieba.ue5
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            TiebaStatic.log(new StatisticItem("c15104").param("uid", TbadkCoreApplication.getCurrentAccount()));
+            return super.a();
         }
+        return invokeV.booleanValue;
     }
 }

@@ -1,99 +1,53 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ComponentInfo;
+import android.content.pm.ResolveInfo;
+import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class jd1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static NetworkInfo a() {
-        InterceptResult invokeV;
-        ConnectivityManager connectivityManager;
+    public static Intent a(Context context) {
+        InterceptResult invokeL;
+        List<ResolveInfo> queryIntentActivities;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = ld1.a();
-            if (a == null || (connectivityManager = (ConnectivityManager) a.getSystemService("connectivity")) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
                 return null;
             }
-            return connectivityManager.getActiveNetworkInfo();
-        }
-        return (NetworkInfo) invokeV.objValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            NetworkInfo a = a();
-            if (a != null && a.isConnected()) {
-                return true;
+            try {
+                queryIntentActivities = context.getPackageManager().queryIntentActivities(new Intent("baidu.intent.action.account.AUTH_WIDGET_FOR_CASHIER"), 32);
+            } catch (Throwable th) {
+                kd1.d(th);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            switch (i) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return "1";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return "2";
-                case 13:
-                case 18:
-                case 19:
-                    break;
-                default:
-                    if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
-                        return "unknown";
+            if (queryIntentActivities != null && queryIntentActivities.size() != 0) {
+                for (ResolveInfo resolveInfo : queryIntentActivities) {
+                    String str = resolveInfo.activityInfo.permission;
+                    ActivityInfo activityInfo = resolveInfo.activityInfo;
+                    Intent intent = new Intent("baidu.intent.action.account.AUTH_WIDGET_FOR_CASHIER");
+                    intent.setClassName(((ComponentInfo) activityInfo).packageName, ((ComponentInfo) activityInfo).name);
+                    if (Build.VERSION.SDK_INT > 11) {
+                        intent.addFlags(32);
                     }
-                    break;
-            }
-            return "3";
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            NetworkInfo a = a();
-            if (a != null && a.isConnected()) {
-                if (a.getType() == 1) {
-                    return "4";
+                    if (TextUtils.isEmpty(str) || context.checkCallingOrSelfPermission(str) == 0) {
+                        if (intent.getComponent() != null && context.getPackageName().equals(intent.getComponent().getPackageName())) {
+                            return intent;
+                        }
+                    }
                 }
-                if (a.getType() == 0) {
-                    return b(a.getSubtype(), a.getSubtypeName());
-                }
-                return "unknown";
+                return null;
             }
-            return "0";
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (Intent) invokeL.objValue;
     }
 }

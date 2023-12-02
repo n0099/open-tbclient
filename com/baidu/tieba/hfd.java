@@ -1,56 +1,52 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import android.widget.ImageView;
+import android.app.Activity;
+import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.activity.PayCommonWebActivity;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes6.dex */
 public class hfd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2, ImageView imageView) {
-        ObjectAnimator objectAnimator;
+    public static void a(PayFlowType payFlowType, int i, int i2, PayUIKitConfig payUIKitConfig, Activity activity, String str, String str2) {
+        String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, view2, imageView) == null) && view2 != null && imageView != null) {
-            view2.setVisibility(8);
-            if (imageView.getTag() != null) {
-                objectAnimator = (ObjectAnimator) imageView.getTag();
-            } else {
-                objectAnimator = null;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{payFlowType, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig, activity, str, str2}) == null) {
+            boolean z = false;
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                if (TextUtils.isEmpty(str)) {
+                    RLog.error("PayWebActivityUtils", "startPayWebActivity error url null", new Object[0]);
+                    return;
+                }
+                if (str2 != null && !str2.isEmpty()) {
+                    str3 = str2;
+                } else {
+                    str3 = "";
+                }
+                Intent intent = new Intent(activity, PayCommonWebActivity.class);
+                intent.putExtra(H5PayConstant.EXTRA_TITLE, str3);
+                intent.putExtra(H5PayConstant.EXTRA_URL, str);
+                intent.putExtra(H5PayConstant.EXTRA_APP_ID, i);
+                intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, i2);
+                if (str.equals(sed.f(payUIKitConfig))) {
+                    intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 1);
+                    z = true;
+                }
+                RLog.info("PayWebActivityUtils", "startPayWebActivity payFlowType:" + payFlowType + " isWalletActivity:" + z);
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = xfd.a(str);
+                }
+                PayCommonWebActivity.B(activity, payFlowType, intent, i, i2, str2);
+                return;
             }
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-                imageView.setTag(null);
-                RLog.debug("ObjectAnimatorUtils", "hideDialogLoading->oldRotateAnimator.cancel()");
-            }
-        }
-    }
-
-    public static void b(View view2, ImageView imageView) {
-        ObjectAnimator objectAnimator;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, view2, imageView) == null) && view2 != null && imageView != null) {
-            if (imageView.getTag() != null) {
-                objectAnimator = (ObjectAnimator) imageView.getTag();
-            } else {
-                objectAnimator = null;
-            }
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-                imageView.setTag(null);
-                RLog.debug("ObjectAnimatorUtils", "showDialogLoading->oldRotateAnimator.cancel()");
-            }
-            view2.setVisibility(0);
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "rotation", 0.0f, 360.0f);
-            ofFloat.setDuration(1000L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            ofFloat.setRepeatCount(-1);
-            ofFloat.start();
-            imageView.setTag(ofFloat);
+            RLog.error("PayWebActivityUtils", "startPayWebActivity error mPayUIKitConfig null", new Object[0]);
         }
     }
 }

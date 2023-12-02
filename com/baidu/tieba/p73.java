@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -16,19 +16,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes7.dex */
-public class p73 extends e83 {
+public class p73 extends h83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public os1 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p73(e73 e73Var) {
-        super(e73Var, "/swanAPI/getSlaveIdSync");
+    public p73(h73 h73Var) {
+        super(h73Var, "/swanAPI/getAppInfoSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e73Var};
+            Object[] objArr = {h73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,38 +41,35 @@ public class p73 extends e83 {
         }
     }
 
-    @Override // com.baidu.tieba.e83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h63 h63Var) {
+    @Override // com.baidu.tieba.h83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k63 k63Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h63Var)) == null) {
-            if (e83.b) {
-                Log.d("GetSlaveIdSyncAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, k63Var)) == null) {
+            if (h83.b) {
+                Log.d("GetAppInfoSyncAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            if (this.c == null) {
+            if (k63Var == null) {
+                k32.c(DI.APP_INFO_NAME, "swanApp is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("slaveId", this.c.a());
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                JSONObject E = kw1.E(k63Var, context);
+                if (h83.b && E != null) {
+                    Log.d("GetAppInfoSyncAction", "data: " + E.toString());
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(E, 0);
                 return true;
             } catch (JSONException e) {
-                if (e83.b) {
-                    Log.d("GetSlaveIdSyncAction", Log.getStackTraceString(e));
+                if (h83.b) {
+                    Log.d("GetAppInfoSyncAction", Log.getStackTraceString(e));
                 }
+                k32.c(DI.APP_INFO_NAME, Log.getStackTraceString(e));
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
         }
         return invokeLLLL.booleanValue;
-    }
-
-    public void j(os1 os1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, os1Var) == null) {
-            this.c = os1Var;
-        }
     }
 }

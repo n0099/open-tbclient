@@ -13,9 +13,9 @@ import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.hk5;
-import com.baidu.tieba.it7;
-import com.baidu.tieba.pd8;
+import com.baidu.tieba.kk5;
+import com.baidu.tieba.mt7;
+import com.baidu.tieba.td8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,19 +24,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class GameVideoFragment extends BaseFragment implements it7 {
+public class GameVideoFragment extends BaseFragment implements mt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pd8 a;
+    public td8 a;
 
-    @Override // com.baidu.tieba.it7
+    @Override // com.baidu.tieba.mt7
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.it7
+    @Override // com.baidu.tieba.mt7
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -64,7 +64,7 @@ public class GameVideoFragment extends BaseFragment implements it7 {
         }
     }
 
-    @Override // com.baidu.tieba.it7
+    @Override // com.baidu.tieba.mt7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -72,21 +72,21 @@ public class GameVideoFragment extends BaseFragment implements it7 {
         }
     }
 
-    @Override // com.baidu.tieba.it7
+    @Override // com.baidu.tieba.mt7
     public void T() {
-        pd8 pd8Var;
+        td8 td8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (pd8Var = this.a) != null) {
-            pd8Var.y();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (td8Var = this.a) != null) {
+            td8Var.y();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void notifyColourHeaderData() {
-        pd8 pd8Var;
+        td8 td8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (pd8Var = this.a) != null) {
-            pd8Var.v();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (td8Var = this.a) != null) {
+            td8Var.v();
         }
     }
 
@@ -95,11 +95,11 @@ public class GameVideoFragment extends BaseFragment implements it7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            pd8 pd8Var = this.a;
-            if (pd8Var != null) {
-                pd8Var.w();
+            td8 td8Var = this.a;
+            if (td8Var != null) {
+                td8Var.w();
             }
-            hk5.e().b();
+            kk5.e().b();
         }
     }
 
@@ -108,9 +108,9 @@ public class GameVideoFragment extends BaseFragment implements it7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onLazyLoad();
-            pd8 pd8Var = this.a;
-            if (pd8Var != null) {
-                pd8Var.t();
+            td8 td8Var = this.a;
+            if (td8Var != null) {
+                td8Var.t();
             }
         }
     }
@@ -120,9 +120,9 @@ public class GameVideoFragment extends BaseFragment implements it7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPause();
-            pd8 pd8Var = this.a;
-            if (pd8Var != null) {
-                pd8Var.x();
+            td8 td8Var = this.a;
+            if (td8Var != null) {
+                td8Var.x();
             }
         }
     }
@@ -154,9 +154,9 @@ public class GameVideoFragment extends BaseFragment implements it7 {
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            pd8 pd8Var = this.a;
-            if (pd8Var != null) {
-                pd8Var.z(isPrimary());
+            td8 td8Var = this.a;
+            if (td8Var != null) {
+                td8Var.z(isPrimary());
             }
         }
     }
@@ -166,9 +166,9 @@ public class GameVideoFragment extends BaseFragment implements it7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            pd8 pd8Var = this.a;
-            if (pd8Var != null) {
-                pd8Var.n();
+            td8 td8Var = this.a;
+            if (td8Var != null) {
+                td8Var.n();
             }
         }
     }
@@ -180,7 +180,7 @@ public class GameVideoFragment extends BaseFragment implements it7 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5042);
             super.onCreate(bundle);
             if (this.a == null) {
-                this.a = new pd8(this, getPageContext(), getUniqueId());
+                this.a = new td8(this, getPageContext(), getUniqueId());
             }
             this.a.s();
             SpeedStatsManager.getInstance().addStatsTimeStamp(5043);
@@ -195,8 +195,8 @@ public class GameVideoFragment extends BaseFragment implements it7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5044);
-            pd8 pd8Var = this.a;
-            if (pd8Var != null && pd8Var.r() != null) {
+            td8 td8Var = this.a;
+            if (td8Var != null && td8Var.r() != null) {
                 if (this.a.r().getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.a.r().getParent()).removeView(this.a.r());
                 }

@@ -4,14 +4,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardHeadView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.feed.component.BrowseLocationView;
+import com.baidu.tieba.feed.component.uistate.BrowseLocationUiState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fc7 extends wa7<CardHeadView, k47> {
+public class fc7 extends ab7<BrowseLocationView, BrowseLocationUiState> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +37,27 @@ public class fc7 extends wa7<CardHeadView, k47> {
         }
     }
 
-    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
+    @Override // com.baidu.tieba.ab7, com.baidu.tieba.qb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            fd7.k(a, 0);
+            jd7.h(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mb7
+    @Override // com.baidu.tieba.qb7
     /* renamed from: e */
-    public void b(@NonNull CardHeadView cardHeadView, @NonNull k47 k47Var) {
+    public void b(@NonNull BrowseLocationView browseLocationView, @NonNull BrowseLocationUiState browseLocationUiState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadView, k47Var) == null) {
-            cardHeadView.g(k47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, browseLocationView, browseLocationUiState) == null) {
+            em6.b().a(new StatisticItem("c11272"));
+            browseLocationView.c(browseLocationUiState);
         }
     }
 }

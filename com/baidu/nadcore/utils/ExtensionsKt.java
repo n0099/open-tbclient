@@ -12,7 +12,7 @@ import androidx.annotation.Px;
 import androidx.core.content.ContextCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.tieba.hf0;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.w11;
 import java.util.Set;
 import kotlin.Metadata;
 import kotlin.Result;
@@ -87,7 +87,7 @@ public final class ExtensionsKt {
     @Px
     public static final int d(int i, Context context) {
         Intrinsics.checkNotNullParameter(context, "context");
-        return u11.c.a(context, i);
+        return w11.c.a(context, i);
     }
 
     public static final void f(View isVisible, boolean z) {

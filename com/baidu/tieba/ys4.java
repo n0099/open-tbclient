@@ -1,226 +1,199 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.text.TextUtils;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.mutiprocess.HybridNotify.HybridNotifyEvent;
-import com.baidu.tbadk.mutiprocess.MutiProcessManager;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.messageCenter.SignManager;
+import com.baidu.tieba.push.PushGuideManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class ys4 implements mj6 {
+public abstract class ys4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.mj6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        lj6.a(this, webView, str, jSONObject);
-    }
+    /* loaded from: classes9.dex */
+    public static abstract class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public cga a;
 
-    @Override // com.baidu.tieba.mj6
-    public /* synthetic */ void onDestroy() {
-        lj6.b(this);
-    }
+        public abstract String a();
 
-    public ys4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+        public abstract void c(@NonNull TbPageContext<?> tbPageContext);
 
-    @Override // com.baidu.tieba.mj6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.GAME_PUSH.equals(str2)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str3);
-                    jsPromptResult.confirm(c(webView, jSONObject.optString("gameId"), jSONObject.optString("gameName"), jSONObject.optString("gameTime"), jSONObject.optString("gameType")).a());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return true;
-            } else if (CommonTbJsBridge.GAME_PUSH_STATUS.equals(str2)) {
-                jsPromptResult.confirm(e(webView).a());
-                return true;
-            } else {
+            }
+            this.a = PushGuideManager.j(a());
+        }
+
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                cga cgaVar = this.a;
+                if (cgaVar != null && cgaVar.i()) {
+                    return true;
+                }
                 return false;
             }
+            return invokeV.booleanValue;
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public gxa c(WebView webView, String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, str4)) == null) {
-            gxa gxaVar = new gxa();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("gameId", str);
-                jSONObject.put("gameName", str2);
-                jSONObject.put("gameTime", str3);
-                jSONObject.put("gameType", str4);
-            } catch (JSONException e) {
-                e.printStackTrace();
+    /* loaded from: classes9.dex */
+    public static class b extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ys4.a
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "sign" : (String) invokeV.objValue;
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            String jSONObject2 = jSONObject.toString();
-            if (!TextUtils.isEmpty(jSONObject2)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, jSONObject2));
-                return gxaVar;
+        }
+
+        @Override // com.baidu.tieba.ys4.a
+        public void c(@NonNull TbPageContext<?> tbPageContext) {
+            Activity pageActivity;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) && (pageActivity = tbPageContext.getPageActivity()) != null && this.a != null) {
+                SignManager.getInstance().checkAndShowTimePicker(4, tbPageContext, (ViewGroup) pageActivity.getWindow().getDecorView(), false);
+                this.a.g();
             }
-            gxaVar.p();
-            return gxaVar;
         }
-        return (gxa) invokeLLLLL.objValue;
     }
 
-    @NonNull
-    public gxa d(WebView webView, @NonNull String str, @Nullable String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
-            gxa gxaVar = new gxa();
-            gxaVar.y(0);
-            gxaVar.o(hv5.b().c(str, str2));
-            return gxaVar;
+    /* loaded from: classes9.dex */
+    public static class c extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ys4.a
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "user_follow" : (String) invokeV.objValue;
         }
-        return (gxa) invokeLLL.objValue;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ys4.a
+        public void c(@NonNull TbPageContext<?> tbPageContext) {
+            cga cgaVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) && (cgaVar = this.a) != null) {
+                cgaVar.j(tbPageContext);
+            }
+        }
     }
 
-    public gxa e(WebView webView) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948340719, "Lcom/baidu/tieba/ys4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948340719, "Lcom/baidu/tieba/ys4;");
+                return;
+            }
+        }
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put("oneClickSign.pushGuidePopup", new b());
+        a.put("usercenter.pushGuidePopup", new c());
+    }
+
+    public static boolean a(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, webView)) == null) {
-            gxa gxaVar = new gxa();
-            String string = SharedPrefHelper.getInstance().getString("key_match_id_list_football", "");
-            String string2 = SharedPrefHelper.getInstance().getString("key_match_id_list_basketball", "");
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
-                jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + string2 + PreferencesUtil.RIGHT_MOUNT);
-                gxaVar.o(jSONObject.toString());
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            return gxaVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return a.containsKey(str);
         }
-        return (gxa) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public gxa f(WebView webView, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
+    public static void b(@NonNull String str, @NonNull String str2, @NonNull fxa fxaVar) {
+        a aVar;
+        TbPageContext currentPageContext;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, Boolean.valueOf(z)})) == null) {
-            gxa gxaVar = new gxa();
-            if (!str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_CREATE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_DISSLOVE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_MANAGE)) {
-                if (CommonTbJsBridge.KEY_GROUP_CHAT_CHANGE_NAME.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921779, str2));
-                } else if (CommonTbJsBridge.KEY_GROUP_CHAT_CHANGE_AVATAR.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921780, str2));
-                } else if (CommonTbJsBridge.KEY_SPRING_FESTIVAL_PICK_FORUM.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921725, Boolean.TRUE));
-                } else if ("showFunnySprite".equals(str)) {
-                    try {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921797, Integer.valueOf(new JSONObject(str2).optInt("spriteShowType"))));
-                    } catch (JSONException e) {
-                        TbLog defaultLog = DefaultLog.getInstance();
-                        defaultLog.e("SpriteTip", "JSONException:" + e);
-                    }
-                } else if (CommonTbJsBridge.KEY_GROUP_CHAT_NOTIFY_REFTESH.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921795, str2));
-                } else {
-                    boolean z2 = false;
-                    if ("pbFirstFloorWebViewRefresh".equalsIgnoreCase(str)) {
-                        if (webView instanceof MonitorWebView) {
-                            try {
-                                JSONObject jSONObject = new JSONObject(str2);
-                                ((MonitorWebView) webView).x(jSONObject.optInt("success", 0), jSONObject.optDouble("height", 0.0d));
-                            } catch (Exception unused) {
-                                ((MonitorWebView) webView).x(0, webView.getContentHeight());
-                            }
-                        }
-                    } else if ("setGroupChatBubble".equals(str)) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921799, str2));
-                    } else if ("officialPushMsgStatus".equals(str)) {
-                        try {
-                            int optInt = new JSONObject(str2).optInt("status");
-                            if (optInt == 1) {
-                                z2 = true;
-                            }
-                            SharedPrefHelper.getInstance().putBoolean("official_push_switch", z2);
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921754, Integer.valueOf(optInt)));
-                        } catch (JSONException e2) {
-                            TbLog defaultLog2 = DefaultLog.getInstance();
-                            defaultLog2.e("officialPushMsgStatus", "JSONException:" + e2);
-                        }
-                    } else if ("personCenterlikeUser".equals(str)) {
-                        HashMap hashMap = new HashMap();
-                        hashMap.put("uniqueKey", "personCenterlikeUser");
-                        hashMap.put("data", new HashMap(DataExt.toMapSafe(str2)));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921542, hashMap));
-                    } else if (vs4.a(str)) {
-                        vs4.b(str, str2, gxaVar);
-                    } else if ("changeOftenForumList".equals(str)) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921811, str2));
-                    } else if ("na.oneClickSignRefresh".equals(str)) {
-                        try {
-                            if (new JSONObject(str2).optInt("signStatus") == 1) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921822, Boolean.TRUE));
-                            }
-                        } catch (JSONException e3) {
-                            TbLog defaultLog3 = DefaultLog.getInstance();
-                            defaultLog3.e("OneKeySign", "JSONException:" + e3);
-                        }
-                    }
-                }
-            } else {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921778));
-            }
-            iu4.a().b(webView, str, str2);
-            HybridNotifyEvent hybridNotifyEvent = new HybridNotifyEvent();
-            hybridNotifyEvent.key = str;
-            hybridNotifyEvent.data = str2;
-            MutiProcessManager.publishEvent(hybridNotifyEvent);
-            if (z) {
-                try {
-                    nj6.a().g(str, new JSONObject(str2), webView);
-                } catch (Exception e4) {
-                    TbLog hybridLog = HybridLog.getInstance();
-                    hybridLog.e("NotifyDataChanged", "H5通知H5异常:" + e4);
-                }
-            }
-            return gxaVar;
+        if ((interceptable != null && interceptable.invokeLLL(65538, null, str, str2, fxaVar) != null) || (aVar = a.get(str)) == null) {
+            return;
         }
-        return (gxa) invokeCommon.objValue;
+        try {
+            String optString = new JSONObject(str2).optString("type");
+            if (TextUtils.equals(optString, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE)) {
+                JSONObject jSONObject = new JSONObject();
+                if (aVar.b()) {
+                    str3 = "1";
+                } else {
+                    str3 = "0";
+                }
+                jSONObject.put("isOpen", str3);
+                fxaVar.o(jSONObject.toString());
+            } else if (TextUtils.equals(optString, "set") && (currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
+                aVar.c(currentPageContext);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

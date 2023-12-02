@@ -1,41 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tieba.vj3;
+import androidx.annotation.ColorInt;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
 /* loaded from: classes8.dex */
 public class wi3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static File a() {
-        InterceptResult invokeV;
+    public static boolean a(@ColorInt int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            List<vj3.a> d = zq2.d();
-            if (d != null && d.size() > 0) {
-                File file = new File(d.get(0).a, "/debug/");
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                return file;
-            }
-            return null;
-        }
-        return (File) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? ((int) (((((double) ((16711680 & i) >> 16)) * 0.299d) + (((double) ((65280 & i) >> 8)) * 0.587d)) + (((double) (i & 255)) * 0.114d))) >= 220 : invokeI.booleanValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new File(zq2.d().get(0).a, "/debug/").getAbsolutePath();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return V8Engine.toColorRGBA(str);
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

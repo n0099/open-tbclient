@@ -4,112 +4,98 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class xu1 extends lu1 {
+public class xu1 extends ou1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.lu1
+    @Override // com.baidu.tieba.ou1
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "HostDownloadManager" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Favorite" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lu1
+    @Override // com.baidu.tieba.ou1
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "HostDownloadManagerApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FollowStatusApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes9.dex */
-    public class a implements yu1 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k63 a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ xu1 d;
 
-        public a(xu1 xu1Var, String str) {
+        public a(xu1 xu1Var, k63 k63Var, JSONObject jSONObject, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xu1Var, str};
+                Object[] objArr = {xu1Var, k63Var, jSONObject, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.d = xu1Var;
+            this.a = k63Var;
+            this.b = jSONObject;
+            this.c = str;
         }
-    }
 
-    /* loaded from: classes9.dex */
-    public class b implements yu1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(xu1 xu1Var, String str) {
+        @Override // java.lang.Runnable
+        public void run() {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xu1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String P = this.a.P();
+                try {
+                    JSONObject jSONObject = this.b;
+                    if (id2.n(P)) {
+                        str = "1";
+                    } else {
+                        str = "0";
+                    }
+                    jSONObject.put("isFavor", str);
+                } catch (JSONException unused) {
+                    k32.c("FollowStatusApi", "json put data fail");
                 }
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements yu1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(xu1 xu1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xu1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                this.d.d(this.c, new ly1(0, this.b));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xu1(@NonNull ju1 ju1Var) {
-        super(ju1Var);
+    public xu1(@NonNull mu1 mu1Var) {
+        super(mu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ju1Var};
+            Object[] objArr = {mu1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ju1) newInitContext.callArgs[0]);
+                super((mu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -117,128 +103,36 @@ public class xu1 extends lu1 {
         }
     }
 
-    public iy1 A(String str) {
+    public ly1 y(String str) {
         InterceptResult invokeL;
-        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            r("#openFile", false);
-            if (h63.c0() == null) {
-                return new iy1(1001);
-            }
-            Pair<iy1, JSONObject> t = t(str);
-            iy1 iy1Var = (iy1) t.first;
-            if (iy1Var.isSuccess() && (obj = t.second) != null) {
-                JSONObject jSONObject = (JSONObject) obj;
-                String optString = jSONObject.optString("taskID");
-                if (TextUtils.isEmpty(optString)) {
-                    return new iy1(202, "taskId is empty");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new iy1(202, "cb is empty");
-                }
-                SwanAppActivity activity = ur2.V().getActivity();
-                if (activity == null) {
-                    return new iy1(1001);
-                }
-                ar1 z = op2.z();
-                if (z != null) {
-                    z.c(activity, optString, new c(this, optString2));
-                }
-                return iy1.f();
-            }
-            h32.c("HostDownloadManagerApi", "parse fail");
-            return iy1Var;
-        }
-        return (iy1) invokeL.objValue;
-    }
-
-    public iy1 B(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            r("#query", false);
-            if (h63.c0() == null) {
-                return new iy1(1001);
-            }
-            Pair<iy1, JSONObject> t = t(str);
-            iy1 iy1Var = (iy1) t.first;
-            if (iy1Var.isSuccess() && (obj = t.second) != null) {
-                JSONObject jSONObject = (JSONObject) obj;
-                String optString = jSONObject.optString("taskID");
-                if (TextUtils.isEmpty(optString)) {
-                    return new iy1(202, "taskId is empty");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new iy1(202, "cb is empty");
-                }
-                ar1 z = op2.z();
-                if (z != null) {
-                    z.b(optString, new b(this, optString2));
-                }
-                return iy1.f();
-            }
-            h32.c("HostDownloadManagerApi", "parse fail");
-            return iy1Var;
-        }
-        return (iy1) invokeL.objValue;
-    }
-
-    public iy1 y(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            h63 c0 = h63.c0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            k63 c0 = k63.c0();
             if (c0 == null) {
-                return new iy1(1001);
-            }
-            if (c0.w() == null) {
-                return new iy1(1001);
-            }
-            Pair<iy1, JSONObject> t = t(str);
-            iy1 iy1Var = (iy1) t.first;
-            if (iy1Var.isSuccess() && (obj = t.second) != null) {
-                JSONObject jSONObject = (JSONObject) obj;
-                String optString = jSONObject.optString("url");
+                k32.c("FollowStatusApi", "swan app is null");
+                return new ly1(1001, "swan app is null");
+            } else if (c0.w() == null) {
+                k32.c("FollowStatusApi", "swan activity is null");
+                return new ly1(1001, "swan activity is null");
+            } else {
+                Pair<ly1, JSONObject> t = t(str);
+                ly1 ly1Var = (ly1) t.first;
+                if (!ly1Var.isSuccess()) {
+                    k32.c("FollowStatusApi", "json str parse fail");
+                    return ly1Var;
+                }
+                String optString = ((JSONObject) t.second).optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    return new iy1(202, ExceptionMessage.URL_EMPTY);
+                    k32.c("FollowStatusApi", "cb is empty");
+                    return new ly1(202, "cb is empty");
                 }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new iy1(202, "cb is empty");
+                if (c0.N().e(rp2.c())) {
+                    SwanFavorDataManager.h().d();
                 }
-                String optString3 = jSONObject.optString("name");
-                JSONObject optJSONObject = jSONObject.optJSONObject("header");
-                ar1 z = op2.z();
-                if (z != null) {
-                    z.d(optString, optString3, optJSONObject, new a(this, optString2));
-                }
-                return iy1.f();
+                ej3.k(new a(this, c0, new JSONObject(), optString), "getFavorStatus");
+                return new ly1(0);
             }
-            h32.c("HostDownloadManagerApi", "parse fail");
-            return iy1Var;
         }
-        return (iy1) invokeL.objValue;
-    }
-
-    public iy1 z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            r("#openDownloadCenter", false);
-            if (h63.c0() == null) {
-                return new iy1(1001);
-            }
-            ar1 z = op2.z();
-            if (z != null) {
-                z.a();
-            }
-            return iy1.f();
-        }
-        return (iy1) invokeV.objValue;
+        return (ly1) invokeL.objValue;
     }
 }

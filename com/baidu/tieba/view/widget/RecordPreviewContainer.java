@@ -15,8 +15,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kxb;
-import com.baidu.tieba.mab;
+import com.baidu.tieba.jxb;
+import com.baidu.tieba.lab;
 import com.baidu.tieba.view.capture.camera.AspectGLSurfaceView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -450,11 +450,11 @@ public class RecordPreviewContainer extends FrameLayout {
             if (motionEvent.getAction() == 1) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y > this.c || x < kxb.k(R.dimen.obfuscated_res_0x7f070258)) {
+                if (y > this.c || x < jxb.k(R.dimen.obfuscated_res_0x7f070258)) {
                     return true;
                 }
-                int a2 = mab.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
-                int a3 = mab.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
+                int a2 = lab.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
+                int a3 = lab.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
                 f fVar = this.u;
                 if (fVar != null) {
                     fVar.b(motionEvent, 308, 308, a2, a3);

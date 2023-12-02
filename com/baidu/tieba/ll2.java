@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class ll2 extends bk2<sm2> {
+public class ll2 extends ek2<vm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bk2
+    @Override // com.baidu.tieba.ek2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableCamera" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableAgc" : (String) invokeV.objValue;
     }
 
     public ll2() {
@@ -36,16 +36,16 @@ public class ll2 extends bk2<sm2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bk2
+    @Override // com.baidu.tieba.ek2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull sm2 sm2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull vm2 vm2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, sm2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, vm2Var) == null) {
             String str = command.what;
-            d(sm2Var, str, "" + command.obj, true);
+            d(vm2Var, str, "" + command.obj, true);
             Object obj = command.obj;
             if (obj instanceof Boolean) {
-                sm2Var.g(((Boolean) obj).booleanValue());
+                vm2Var.l0(((Boolean) obj).booleanValue());
             }
         }
     }

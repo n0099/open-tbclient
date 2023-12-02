@@ -1,127 +1,103 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ec1 {
+public class ec1 implements gc1 {
     public static /* synthetic */ Interceptable $ic;
+    public static ec1 b;
+    public static ic1 c;
+    public static mc1 d;
+    public static lc1 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:? */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x0029 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r3v1 */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v3 */
-    /* JADX WARN: Type inference failed for: r3v5, types: [java.io.BufferedInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.Closeable[]] */
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
-        ?? r3;
+    public ec1(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Bitmap bitmap = null;
-            try {
-                r3 = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream(), 8192);
-                try {
-                    try {
-                        bitmap = BitmapFactory.decodeStream(r3);
-                        fd1.a(new Closeable[]{r3});
-                    } catch (Exception e) {
-                        e = e;
-                        e.printStackTrace();
-                        fd1.a(new Closeable[]{r3});
-                        return bitmap;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    bitmap = r3;
-                    fd1.a(new Closeable[]{bitmap});
-                    throw th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                r3 = 0;
-            } catch (Throwable th2) {
-                th = th2;
-                fd1.a(new Closeable[]{bitmap});
-                throw th;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return bitmap;
         }
-        return (Bitmap) invokeL.objValue;
+        this.a = context.getApplicationContext();
+        d = new mc1();
+        e = new lc1(context);
+        c = new ic1();
     }
 
-    public static boolean b(String str, OutputStream outputStream) {
-        InterceptResult invokeLL;
-        Throwable th;
-        BufferedOutputStream bufferedOutputStream;
-        IOException e;
-        BufferedInputStream bufferedInputStream;
+    public static lc1 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, outputStream)) == null) {
-            BufferedInputStream bufferedInputStream2 = null;
-            try {
-                bufferedInputStream = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream());
-                try {
-                    bufferedOutputStream = new BufferedOutputStream(outputStream);
-                } catch (IOException e2) {
-                    e = e2;
-                    bufferedOutputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedOutputStream = null;
-                }
-            } catch (IOException e3) {
-                e = e3;
-                bufferedOutputStream = null;
-            } catch (Throwable th3) {
-                th = th3;
-                bufferedOutputStream = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (e == null) {
+                e = new lc1(context);
             }
-            try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    int read = bufferedInputStream.read(bArr);
-                    if (read != -1) {
-                        bufferedOutputStream.write(bArr, 0, read);
-                    } else {
-                        fd1.a(bufferedInputStream, bufferedOutputStream);
-                        return true;
+            return e;
+        }
+        return (lc1) invokeL.objValue;
+    }
+
+    public static ec1 d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (b == null) {
+                synchronized (ec1.class) {
+                    if (b == null) {
+                        b = new ec1(context);
                     }
                 }
-            } catch (IOException e4) {
-                e = e4;
-                bufferedInputStream2 = bufferedInputStream;
-                try {
-                    e.printStackTrace();
-                    fd1.a(bufferedInputStream2, bufferedOutputStream);
-                    return false;
-                } catch (Throwable th4) {
-                    th = th4;
-                    fd1.a(bufferedInputStream2, bufferedOutputStream);
-                    throw th;
-                }
-            } catch (Throwable th5) {
-                th = th5;
-                bufferedInputStream2 = bufferedInputStream;
-                fd1.a(bufferedInputStream2, bufferedOutputStream);
-                throw th;
             }
-        } else {
-            return invokeLL.booleanValue;
+            return b;
+        }
+        return (ec1) invokeL.objValue;
+    }
+
+    public static mc1 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                d = new mc1();
+            }
+            return d;
+        }
+        return (mc1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gc1
+    public void a(ImageView imageView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) {
+            e(imageView, str, 0, 0);
+        }
+    }
+
+    public void e(ImageView imageView, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, str, i, i2) == null) {
+            imageView.setTag(str);
+            Bitmap c2 = d.c(str);
+            if (c2 != null) {
+                imageView.setImageBitmap(c2);
+            } else {
+                cd1.a(new kc1(this.a, c, str, imageView, i, i2));
+            }
         }
     }
 }

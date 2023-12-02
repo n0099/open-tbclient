@@ -6,7 +6,7 @@ import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.data.JSONLikeSerializable;
-import com.baidu.tieba.mu4;
+import com.baidu.tieba.pu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,7 +89,7 @@ public final class PersonCenterH5Helper {
             if (lightEmotionJsonStr != null) {
                 hashMap.put("interact_memes", lightEmotionJsonStr);
             }
-            mu4 j = mu4.j(TbadkCoreApplication.getInst(), PERSON_CENTER_MAIN_URL);
+            pu4 j = pu4.j(TbadkCoreApplication.getInst(), PERSON_CENTER_MAIN_URL);
             j.f(hashMap);
             j.p();
             return true;

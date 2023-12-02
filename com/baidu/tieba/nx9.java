@@ -1,128 +1,134 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import android.view.MotionEvent;
-import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class nx9 implements View.OnTouchListener {
+public final class nx9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final nx9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public b d;
-    public long e;
-    public Handler f;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a();
-
-        void b();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nx9 a;
-
-        public a(nx9 nx9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948017978, "Lcom/baidu/tieba/nx9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nx9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = nx9Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i != 2) {
-                    if (i == 1 && this.a.a == 1) {
-                        if (this.a.d != null) {
-                            this.a.d.a();
-                        }
-                        this.a.a = 0;
-                        this.a.b = 0L;
-                        this.a.c = 0L;
-                        return;
-                    }
-                    return;
-                }
-                this.a.a = 0;
-                this.a.b = 0L;
-                this.a.c = 0L;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948017978, "Lcom/baidu/tieba/nx9;");
+                return;
             }
         }
+        a = new nx9();
     }
 
-    public nx9(b bVar) {
+    public nx9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = 0;
-        this.b = 0L;
-        this.c = 0L;
-        this.e = 500L;
-        this.f = new a(this);
-        this.d = bVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
+    @JvmStatic
+    public static final void b(String tid, String pid, boolean z, boolean z2) {
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                if (this.d == null) {
-                    return false;
-                }
-                int i = this.a + 1;
-                this.a = i;
-                if (i == 1) {
-                    this.b = System.currentTimeMillis();
-                    this.f.sendEmptyMessageDelayed(1, this.e);
-                } else if (i == 2) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    this.c = currentTimeMillis;
-                    if (currentTimeMillis - this.b < this.e) {
-                        this.d.b();
-                    }
-                    this.f.sendEmptyMessage(2);
-                }
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tid, pid, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(pid, "pid");
+            nx9 nx9Var = a;
+            if (z) {
+                i = 1;
+            } else {
+                i = 2;
             }
-            return true;
+            if (z2) {
+                i2 = 1;
+            } else {
+                i2 = 2;
+            }
+            nx9Var.a(tid, pid, 2, i, i2);
         }
-        return invokeLL.booleanValue;
+    }
+
+    @JvmStatic
+    public static final void c(String tid, String pid, boolean z, boolean z2) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{tid, pid, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(pid, "pid");
+            nx9 nx9Var = a;
+            if (z) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            if (z2) {
+                i2 = 1;
+            } else {
+                i2 = 2;
+            }
+            nx9Var.a(tid, pid, 1, i, i2);
+        }
+    }
+
+    @JvmStatic
+    public static final void e(String tid, String pid, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, tid, pid, i) == null) {
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(pid, "pid");
+            a.d("c15453", tid, pid).param("obj_type", i).eventStat();
+        }
+    }
+
+    @JvmStatic
+    public static final void f(String tid, String pid, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65541, null, tid, pid, i) == null) {
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(pid, "pid");
+            a.d("c15452", tid, pid).param("obj_type", i).eventStat();
+        }
+    }
+
+    public final StatisticItem d(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
+            StatisticItem param = new StatisticItem(str).param("tid", str2).param("post_id", str3);
+            Intrinsics.checkNotNullExpressionValue(param, "StatisticItem(key)\n     …atic.Params.POST_ID, pid)");
+            return param;
+        }
+        return (StatisticItem) invokeLLL.objValue;
+    }
+
+    public final void a(String str, String str2, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            d("c15448", str, str2).param("obj_locate", i).param("obj_type", i2).param("obj_source", i3).eventStat();
+        }
     }
 }

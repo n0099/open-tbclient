@@ -1,115 +1,162 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.SparseIntArray;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tieba.pb.pb.main.PbBjhRecommendViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class vz9<T, V extends TypeAdapter.ViewHolder> extends ci<T, V> {
+public class vz9 extends zz9<xw4, PbBjhRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d6a a;
-    public PbFragment b;
-    public AbsVideoPbFragment c;
-    public int d;
-    public boolean e;
-    public SparseIntArray f;
+    public zv9 g;
+    public int h;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public vz9(d6a d6aVar, BdUniqueId bdUniqueId) {
-        super(r0, bdUniqueId);
-        AbsPbActivity u0;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vz9(h6a h6aVar, BdUniqueId bdUniqueId) {
+        super(h6aVar, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d6aVar, bdUniqueId};
+            Object[] objArr = {h6aVar, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((h6a) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (d6aVar == null) {
-            u0 = null;
-        } else {
-            u0 = d6aVar.u0();
-        }
-        this.d = 3;
-        this.e = false;
-        this.f = new SparseIntArray();
-        u(d6aVar);
     }
 
+    public void A(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void B(zv9 zv9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zv9Var) == null) {
+            this.g = zv9Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
+    /* renamed from: y */
+    public PbBjhRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0183, (ViewGroup) null), this.a.u0());
+            x(pbBjhRecommendViewHolder);
+            return pbBjhRecommendViewHolder;
+        }
+        return (PbBjhRecommendViewHolder) invokeL.objValue;
+    }
+
+    public final void x(PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, pbBjhRecommendViewHolder) != null) || pbBjhRecommendViewHolder == null) {
+            return;
+        }
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (pbBjhRecommendViewHolder.a != skinType) {
+            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.h, R.color.CAM_X0204, skinType);
+            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.v, R.color.CAM_X0203, skinType);
+            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.q, R.color.CAM_X0204, skinType);
+            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.s, R.color.CAM_X0302, 1, skinType);
+            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.l, R.color.CAM_X0105, 1, skinType);
+            pbBjhRecommendViewHolder.n.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.o, R.color.CAM_X0101, 1, skinType);
+            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.t, R.color.CAM_X0109, 1, skinType);
+            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.u, R.color.CAM_X0109, 1, skinType);
+            SkinManager.setBackgroundSelector(pbBjhRecommendViewHolder.g, R.color.CAM_X0302, R.color.CAM_X0204, skinType);
+            EMManager.from(pbBjhRecommendViewHolder.g).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0204);
+            TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha0, R.color.CAM_X0105).cornerRadius(BdUtilHelper.getDimens(this.a.u0(), R.dimen.tbds10)).into(pbBjhRecommendViewHolder.k);
+        }
+        pbBjhRecommendViewHolder.a = skinType;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zz9, com.baidu.tieba.ci
+    /* renamed from: z */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xw4 xw4Var, PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            this.d = TbadkCoreApplication.getInst().getSkinType();
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xw4Var, pbBjhRecommendViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) xw4Var, (xw4) pbBjhRecommendViewHolder);
+            if (xw4Var == null) {
+                return null;
+            }
+            x(pbBjhRecommendViewHolder);
+            pbBjhRecommendViewHolder.f(xw4Var);
+            pbBjhRecommendViewHolder.g(this.h);
+            zv9 zv9Var = this.g;
+            if (zv9Var != null) {
+                pbBjhRecommendViewHolder.k(zv9Var.T());
+                pbBjhRecommendViewHolder.i(this.g.y0());
+                if (this.g.R() != null && this.g.R().getBaijiahaoData() != null) {
+                    pbBjhRecommendViewHolder.h(this.g.R().getBaijiahaoData().oriUgcNid);
+                }
+                int i2 = this.h;
+                int i3 = 3;
+                if (i2 == 2) {
+                    i3 = 1;
+                } else if (i2 == 1) {
+                    i3 = 2;
+                } else if (i2 != 3) {
+                    i3 = 4;
+                }
+                if (xw4Var.threadType == 40) {
+                    StatisticItem.make("c13536").param("tid", xw4Var.getTid()).param("fid", xw4Var.getFid()).param("obj_source", i3).param("obj_locate", xw4Var.c()).param("obj_id", this.g.T()).param("obj_type", xw4Var.isBjhDynamicThread() ? 1 : 0).eventStat();
+                } else {
+                    StatisticItem.make("c13533").param("tid", xw4Var.getTid()).param("fid", xw4Var.getFid()).param("obj_source", i3).param("obj_locate", xw4Var.c()).param("obj_id", this.g.T()).eventStat();
+                }
+                if (this.g.y0()) {
+                    StatisticItem statisticItem = new StatisticItem("c13588");
+                    if (xw4Var.getForumData() != null) {
+                        statisticItem.param("fid", xw4Var.getForumData().b());
+                    }
+                    statisticItem.param("tid", xw4Var.getTid());
+                    statisticItem.param("obj_param1", xw4Var.mRecomWeight);
+                    statisticItem.param("obj_source", xw4Var.mRecomSource);
+                    statisticItem.param("obj_locate", xw4Var.c());
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
+                    statisticItem.param("obj_id", this.g.T());
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                    if (xw4Var.getThreadData().getBaijiahaoData() != null) {
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, xw4Var.getThreadData().getBaijiahaoData().oriUgcNid);
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, xw4Var.getThreadData().getBaijiahaoData().oriUgcVid);
+                    }
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, xw4Var.getVideoRecStaticticType());
+                    statisticItem.param("ab_tag", xw4Var.mRecomAbTag);
+                    statisticItem.param("extra", xw4Var.mRecomExtra);
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+            return view2;
         }
         return (View) invokeCommon.objValue;
-    }
-
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public int t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int i2 = this.f.get(i, -1);
-            if (i2 != -1) {
-                return i2;
-            }
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            this.f.put(i, dimensionPixelSize);
-            return dimensionPixelSize;
-        }
-        return invokeI.intValue;
-    }
-
-    public void u(d6a d6aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, d6aVar) == null) && d6aVar != null) {
-            this.a = d6aVar;
-            this.b = d6aVar.v2();
-            AbsVideoPbFragment h0 = d6aVar.h0();
-            this.c = h0;
-            PbFragment pbFragment = this.b;
-            if (pbFragment != null) {
-                this.mContext = pbFragment.getActivity();
-            } else if (h0 != null) {
-                this.mContext = h0.getActivity();
-            } else {
-                this.mContext = null;
-            }
-        }
     }
 }

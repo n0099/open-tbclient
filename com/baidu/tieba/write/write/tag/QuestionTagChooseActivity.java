@@ -7,18 +7,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.hq5;
-import com.baidu.tieba.plb;
+import com.baidu.tieba.lq5;
+import com.baidu.tieba.olb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public plb k;
+    public olb k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public void v1() {
@@ -27,7 +27,7 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +79,9 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            plb plbVar = this.k;
-            if (plbVar != null) {
-                plbVar.onDestroy();
+            olb olbVar = this.k;
+            if (olbVar != null) {
+                olbVar.onDestroy();
             }
         }
     }
@@ -97,7 +97,7 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public hq5 m1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public lq5 m1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         String str;
         String str2;
@@ -118,13 +118,13 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
                 if (str3 != null) {
                     str4 = str3;
                 }
-                plb plbVar = new plb(linearLayout, navigationBar, this, str4);
-                this.k = plbVar;
-                plbVar.G(str2);
+                olb olbVar = new olb(linearLayout, navigationBar, this, str4);
+                this.k = olbVar;
+                olbVar.G(str2);
                 this.k.F(str);
             }
             return this.k;
         }
-        return (hq5) invokeLL.objValue;
+        return (lq5) invokeLL.objValue;
     }
 }

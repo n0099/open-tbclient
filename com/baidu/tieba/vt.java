@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vt extends os<uy4> {
+public class vt extends os<xy4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecommendForumLayout f;
@@ -66,10 +66,10 @@ public class vt extends os<uy4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: r */
-    public void onBindDataToView(uy4 uy4Var) {
+    public void onBindDataToView(xy4 xy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, uy4Var) == null) {
-            this.f.setData(uy4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, xy4Var) == null) {
+            this.f.setData(xy4Var);
         }
     }
 
@@ -87,10 +87,10 @@ public class vt extends os<uy4> {
         }
     }
 
-    public void u(xu4<ty4> xu4Var) {
+    public void u(av4<wy4> av4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, xu4Var) == null) {
-            this.f.setOnItemCoverListener(xu4Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, av4Var) == null) {
+            this.f.setOnItemCoverListener(av4Var);
         }
     }
 

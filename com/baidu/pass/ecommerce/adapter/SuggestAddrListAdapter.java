@@ -28,9 +28,9 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
 
         public AddrListItemViewHolder(View view2) {
             super(view2);
-            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f092183);
-            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f092182);
-            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f09217f);
+            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f092185);
+            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f092184);
+            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f092181);
             Resources resources = view2.getContext().getResources();
             if (SuggestAddrListAdapter.this.isDarkMode) {
                 view2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609cf));

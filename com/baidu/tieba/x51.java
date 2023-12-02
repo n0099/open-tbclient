@@ -1,14 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
 /* loaded from: classes9.dex */
 public interface x51 {
-    boolean B();
-
-    Activity getActivity();
-
-    Intent getIntent();
-
-    void n();
+    boolean a(Context context, String str, String str2, String str3, String str4, long j, String str5);
 }

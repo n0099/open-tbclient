@@ -70,15 +70,15 @@ public final class g extends e {
         }
         AdInfo dP = com.kwad.sdk.core.response.b.e.dP(this.Df.mAdTemplate);
         if (com.kwad.components.ad.splashscreen.f.c.z(dP)) {
-            i = R.id.obfuscated_res_0x7f091403;
+            i = R.id.obfuscated_res_0x7f091404;
         } else {
-            i = R.id.obfuscated_res_0x7f091402;
+            i = R.id.obfuscated_res_0x7f091403;
         }
         j(findViewById(i), x(dP));
         if (com.kwad.components.ad.splashscreen.f.c.z(dP)) {
-            j(findViewById(R.id.obfuscated_res_0x7f0914c4), com.kwad.sdk.d.a.a.getStatusBarHeight(getActivity()) + com.kwad.sdk.d.a.a.a(getContext(), 12.0f));
-            j(findViewById(R.id.obfuscated_res_0x7f0914cf), com.kwad.sdk.d.a.a.getStatusBarHeight(getActivity()) + com.kwad.sdk.d.a.a.a(getContext(), 32.0f));
-            j(findViewById(R.id.obfuscated_res_0x7f0914a8), com.kwad.sdk.d.a.a.getStatusBarHeight(getActivity()));
+            j(findViewById(R.id.obfuscated_res_0x7f0914c5), com.kwad.sdk.d.a.a.getStatusBarHeight(getActivity()) + com.kwad.sdk.d.a.a.a(getContext(), 12.0f));
+            j(findViewById(R.id.obfuscated_res_0x7f0914d0), com.kwad.sdk.d.a.a.getStatusBarHeight(getActivity()) + com.kwad.sdk.d.a.a.a(getContext(), 32.0f));
+            j(findViewById(R.id.obfuscated_res_0x7f0914a9), com.kwad.sdk.d.a.a.getStatusBarHeight(getActivity()));
         }
     }
 }

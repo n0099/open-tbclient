@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,17 +13,15 @@ public class dq5 extends k6 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dq5(int i) {
-        super(i);
+    public dq5() {
+        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -42,21 +37,11 @@ public class dq5 extends k6 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001536) {
-                return httpResponsedMessage;
+            if (httpResponsedMessage == null) {
+                return null;
             }
-            if (httpResponsedMessage instanceof JsonHttpResponsedMessage) {
-                HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
-                ReloginManager g = ReloginManager.g();
-                if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
-                    if (httpMessage.removeParam("reloin_key") == null) {
-                        httpMessage.addParam("reloin_key", "reloin_value");
-                        g.l((HttpMessage) httpResponsedMessage.getOrginalMessage());
-                    } else {
-                        g.f(null);
-                    }
-                    return null;
-                }
+            if (httpResponsedMessage.getError() == 2260104) {
+                ut5.a();
             }
             return httpResponsedMessage;
         }

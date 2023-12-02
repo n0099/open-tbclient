@@ -113,7 +113,7 @@ public class RecommendForumInfoView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0888, this);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0889, this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             setOrientation(0);
             setLayoutParams(layoutParams);
@@ -135,7 +135,7 @@ public class RecommendForumInfoView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f091f59);
+            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f091f5b);
             this.a = barImageView;
             barImageView.setPlaceHolder(1);
             this.a.setShowOval(true);
@@ -144,9 +144,9 @@ public class RecommendForumInfoView extends LinearLayout {
             this.a.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.a.setStrokeColorResId(R.color.CAM_X0401);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f091f5a);
+            this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f091f5c);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09031b);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09261c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09261e);
             this.e = (FollowUserButton) findViewById(R.id.like_button);
             e();
         }

@@ -6,15 +6,15 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.AdapterViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
-import com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qj8 extends ci<SpecialColumnListData, AdapterViewHolder<SpecialTopicLayout>> implements yi8 {
+public class qj8 extends ci<bk8, AdapterViewHolder<HotTopicRankLayout>> implements cj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -28,7 +28,7 @@ public class qj8 extends ci<SpecialColumnListData, AdapterViewHolder<SpecialTopi
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qj8(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), SpecialColumnListData.TYPE);
+        super(tbPageContext.getPageActivity(), qe8.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +48,7 @@ public class qj8 extends ci<SpecialColumnListData, AdapterViewHolder<SpecialTopi
         this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.yi8
+    @Override // com.baidu.tieba.cj8
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -59,13 +59,11 @@ public class qj8 extends ci<SpecialColumnListData, AdapterViewHolder<SpecialTopi
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: t */
-    public AdapterViewHolder<SpecialTopicLayout> onCreateViewHolder(ViewGroup viewGroup) {
+    public AdapterViewHolder<HotTopicRankLayout> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            SpecialTopicLayout specialTopicLayout = new SpecialTopicLayout(this.a);
-            specialTopicLayout.setShowMore(true);
-            return new AdapterViewHolder<>(specialTopicLayout);
+            return new AdapterViewHolder<>(new HotTopicRankLayout(viewGroup.getContext()));
         }
         return (AdapterViewHolder) invokeL.objValue;
     }
@@ -73,14 +71,18 @@ public class qj8 extends ci<SpecialColumnListData, AdapterViewHolder<SpecialTopi
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, SpecialColumnListData specialColumnListData, AdapterViewHolder<SpecialTopicLayout> adapterViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bk8 bk8Var, AdapterViewHolder<HotTopicRankLayout> adapterViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, specialColumnListData, adapterViewHolder})) == null) {
-            SpecialTopicLayout a = adapterViewHolder.a();
-            a.setTabCode(this.b);
-            a.onBindDataToView(specialColumnListData);
-            return adapterViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bk8Var, adapterViewHolder})) == null) {
+            if (bk8Var != null && adapterViewHolder != null) {
+                HotTopicRankLayout a = adapterViewHolder.a();
+                a.setTabCode(this.b);
+                a.onBindDataToView(bk8Var);
+                a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+                return adapterViewHolder.getView();
+            }
+            return null;
         }
         return (View) invokeCommon.objValue;
     }

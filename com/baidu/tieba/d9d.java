@@ -1,60 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ActBtn;
-import tbclient.DetailInfo;
-import tbclient.TPointPost;
-import tbclient.Timgs;
-import tbclient.VideoInfo;
+import tbclient.TabMenu;
 /* loaded from: classes5.dex */
-public class d9d extends ltc {
+public class d9d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TPointPost tPointPost) {
+    public static JSONObject b(@NonNull TabMenu tabMenu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tPointPost)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tabMenu)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "is_tuiguang", tPointPost.is_tuiguang);
-            ltc.a(jSONObject, CriusAttrConstants.POSITION, tPointPost.position);
-            ltc.a(jSONObject, "template_id", tPointPost.template_id);
-            ltc.a(jSONObject, "template_type", tPointPost.template_type);
-            if (tPointPost.act_btn != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ActBtn actBtn : tPointPost.act_btn) {
-                    jSONArray.put(ptc.b(actBtn));
-                }
-                ltc.a(jSONObject, "act_btn", jSONArray);
-            }
-            if (tPointPost.t_imgs != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (Timgs timgs : tPointPost.t_imgs) {
-                    jSONArray2.put(fad.b(timgs));
-                }
-                ltc.a(jSONObject, "t_imgs", jSONArray2);
-            }
-            DetailInfo detailInfo = tPointPost.detail_info;
-            if (detailInfo != null) {
-                ltc.a(jSONObject, "detail_info", nwc.b(detailInfo));
-            }
-            ltc.a(jSONObject, "monitor_id", tPointPost.monitor_id);
-            ltc.a(jSONObject, "hidden_day", tPointPost.hidden_day);
-            VideoInfo videoInfo = tPointPost.t_video;
-            if (videoInfo != null) {
-                ltc.a(jSONObject, "t_video", dbd.b(videoInfo));
-            }
-            ltc.a(jSONObject, PushConstants.SUB_TAGS_STATUS_NAME, tPointPost.tag_name);
-            ltc.a(jSONObject, "tag_name_url", tPointPost.tag_name_url);
-            ltc.a(jSONObject, "tag_name_wh", tPointPost.tag_name_wh);
+            ktc.a(jSONObject, "class_id", tabMenu.class_id);
+            ktc.a(jSONObject, ForumSquareActivityConfig.FORUM_CLASS_NAME, tabMenu.class_name);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

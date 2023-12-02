@@ -33,7 +33,7 @@ import com.xiaomi.push.service.bg;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public class y {
     public static Intent a(byte[] bArr, long j) {
         id a = a(bArr);

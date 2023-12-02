@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
-public class ws extends os<cw4> {
+/* loaded from: classes8.dex */
+public class ws extends os<fw4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static int o;
@@ -35,7 +35,7 @@ public class ws extends os<cw4> {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public cw4 h;
+    public fw4 h;
     public RoundCornerFrameLayout i;
     public FakeVideoContainer j;
     public int k;
@@ -49,7 +49,7 @@ public class ws extends os<cw4> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class ws extends os<cw4> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b implements nu.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,10 +208,10 @@ public class ws extends os<cw4> {
 
     @Override // com.baidu.tieba.jt
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        cw4 cw4Var;
+        fw4 fw4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) && (cw4Var = this.h) != null && cw4Var.getThreadData() != null) {
-            tl6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        if ((interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) && (fw4Var = this.h) != null && fw4Var.getThreadData() != null) {
+            xl6.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             this.i.c(i);
             this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
         }
@@ -235,11 +235,11 @@ public class ws extends os<cw4> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cw4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, fw4Var) == null) {
             int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
             if (equipmentWidth != this.k) {
                 int equipmentWidth2 = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
@@ -250,9 +250,9 @@ public class ws extends os<cw4> {
                 r = i / 3;
                 this.k = equipmentWidth;
             }
-            this.h = cw4Var;
-            if (cw4Var != null && cw4Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
-                this.j.setData(cw4Var.getThreadData());
+            this.h = fw4Var;
+            if (fw4Var != null && fw4Var.getThreadData() != null && this.h.getThreadData().getThreadVideoInfo() != null) {
+                this.j.setData(fw4Var.getThreadData());
                 ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
                 int i2 = layoutParams.width;
                 int i3 = layoutParams.height;

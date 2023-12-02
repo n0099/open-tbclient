@@ -19,7 +19,7 @@ public final class j extends e {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        findViewById(R.id.obfuscated_res_0x7f092361).setVisibility(0);
+        findViewById(R.id.obfuscated_res_0x7f092363).setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

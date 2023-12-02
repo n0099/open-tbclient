@@ -1,28 +1,32 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedLiveComponent;
+import tbclient.FeedMaskLayer;
+import tbclient.MaskLayerText;
 /* loaded from: classes8.dex */
-public class vxc extends ltc {
+public class vxc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedLiveComponent feedLiveComponent) {
+    public static JSONObject b(@NonNull FeedMaskLayer feedMaskLayer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedLiveComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedMaskLayer)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "top_label", feedLiveComponent.top_label);
-            ltc.a(jSONObject, "bottom_label", feedLiveComponent.bottom_label);
-            ltc.a(jSONObject, "audience_label", feedLiveComponent.audience_label);
-            ltc.a(jSONObject, NetDiskFileMsg.NetDiskFile.JSON_KEY_COVER_URL, feedLiveComponent.cover_url);
-            ltc.a(jSONObject, "schema", feedLiveComponent.schema);
+            ktc.a(jSONObject, "topright_text", feedMaskLayer.topright_text);
+            if (feedMaskLayer.button_texts != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (MaskLayerText maskLayerText : feedMaskLayer.button_texts) {
+                    jSONArray.put(z4d.b(maskLayerText));
+                }
+                ktc.a(jSONObject, "button_texts", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,102 +1,82 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lego.card.utils.ColorUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Iterator;
 /* loaded from: classes9.dex */
 public class yf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
 
-    public yf9(JSONObject jSONObject) {
+    public static xf9 a(AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeL;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
+            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof xf9)) {
+                return null;
+            }
+            return (xf9) iLegoAdvert;
+        }
+        return (xf9) invokeL.objValue;
+    }
+
+    public static void b(xf9 xf9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, xf9Var) == null) && xf9Var != null && xf9Var.getParallelCharge() != null) {
+            ez0.b(xf9Var.getParallelCharge().b);
+            Iterator<String> it = xf9Var.getParallelCharge().c.iterator();
+            while (it.hasNext()) {
+                ez0.b(it.next());
             }
         }
-        if (jSONObject != null) {
-            this.a = jSONObject.optString("moreText");
-            this.b = ColorUtils.parseColor(jSONObject.optString("moreColor", ""));
-            this.c = ColorUtils.parseColor(jSONObject.optString("moreColorNight", ""));
-            this.d = jSONObject.optString("moreScheme");
-            return;
-        }
-        this.a = "";
-        this.b = Integer.MAX_VALUE;
-        this.c = Integer.MAX_VALUE;
-        this.d = "";
     }
 
-    public static yf9 a(JSONObject jSONObject) {
+    public static void c(AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).p(advertAppInfo.g);
+            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
+            if (iLegoAdvert != null) {
+                clogBuilder.m(String.valueOf(iLegoAdvert.getGoodsStyle()));
+            }
+            dz0.e(clogBuilder);
+        }
+    }
+
+    public static boolean d(xf9 xf9Var) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return new yf9(jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, xf9Var)) == null) {
+            if (xf9Var == null || xf9Var.getParallelCharge() == null) {
+                return false;
+            }
+            String str = xf9Var.getParallelCharge().a;
+            ez0.b(str);
+            if (!TextUtils.isEmpty(str)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Iterator<String> it = xf9Var.getParallelCharge().d.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!z && TextUtils.isEmpty(next)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                ez0.b(next);
+            }
+            return z;
         }
-        return (yf9) invokeL.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
-        }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

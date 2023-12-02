@@ -24,7 +24,7 @@ public interface tj0 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return du0.a();
+                return fu0.a();
             }
             return (tj0) invokeV.objValue;
         }

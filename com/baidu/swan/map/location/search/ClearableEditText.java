@@ -7,10 +7,10 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.appcompat.widget.AppCompatEditText;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yj3;
+import com.baidu.tieba.bk3;
 /* loaded from: classes4.dex */
 public class ClearableEditText extends AppCompatEditText {
-    public static final int b = yj3.g(10.0f);
+    public static final int b = bk3.g(10.0f);
     public Drawable a;
 
     public final void init() {

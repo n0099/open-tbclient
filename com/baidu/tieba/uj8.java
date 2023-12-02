@@ -5,25 +5,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.AdapterViewHolder;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.tabfeed.view.NearbyForumFriendCardView;
+import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
+import com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class uj8 extends ci<zp9, AdapterViewHolder<NearbyForumFriendCardView>> {
+public class uj8 extends ci<SpecialColumnListData, AdapterViewHolder<SpecialTopicLayout>> implements cj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public AdapterViewHolder<NearbyForumFriendCardView> b;
+    public String b;
+
+    public void x(vi viVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, viVar) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public uj8(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), zp9.d);
+        super(tbPageContext.getPageActivity(), SpecialColumnListData.TYPE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,38 +48,38 @@ public class uj8 extends ci<zp9, AdapterViewHolder<NearbyForumFriendCardView>> {
         this.a = tbPageContext;
     }
 
+    @Override // com.baidu.tieba.cj8
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.b = str;
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: t */
-    public AdapterViewHolder<NearbyForumFriendCardView> onCreateViewHolder(ViewGroup viewGroup) {
+    public AdapterViewHolder<SpecialTopicLayout> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder = new AdapterViewHolder<>(new NearbyForumFriendCardView(this.a.getPageActivity()));
-            this.b = adapterViewHolder;
-            return adapterViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            SpecialTopicLayout specialTopicLayout = new SpecialTopicLayout(this.a);
+            specialTopicLayout.setShowMore(true);
+            return new AdapterViewHolder<>(specialTopicLayout);
         }
         return (AdapterViewHolder) invokeL.objValue;
-    }
-
-    public void x(boolean z) {
-        AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (adapterViewHolder = this.b) != null) {
-            adapterViewHolder.a().setNeedCompleteProfile(z);
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zp9 zp9Var, AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, SpecialColumnListData specialColumnListData, AdapterViewHolder<SpecialTopicLayout> adapterViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zp9Var, adapterViewHolder})) == null) {
-            NearbyForumFriendCardView a = adapterViewHolder.a();
-            a.onBindDataToView(zp9Var);
-            a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, specialColumnListData, adapterViewHolder})) == null) {
+            SpecialTopicLayout a = adapterViewHolder.a();
+            a.setTabCode(this.b);
+            a.onBindDataToView(specialColumnListData);
             return adapterViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

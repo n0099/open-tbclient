@@ -1,51 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class mt5 {
+public final class mt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ViewGroup a;
+    public final int b;
 
-    @NonNull
-    public static Fragment a(@NonNull FragmentManager fragmentManager, int i, @NonNull Fragment fragment) {
-        InterceptResult invokeLIL;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, fragmentManager, i, fragment)) == null) {
-            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
-            beginTransaction.add(i, fragment, fragment.getClass().getCanonicalName());
-            beginTransaction.commitAllowingStateLoss();
-            return fragment;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof mt5) {
+                mt5 mt5Var = (mt5) obj;
+                return Intrinsics.areEqual(this.a, mt5Var.a) && this.b == mt5Var.b;
+            }
+            return false;
         }
-        return (Fragment) invokeLIL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @NonNull
-    public static Fragment c(@NonNull FragmentManager fragmentManager, int i, @NonNull Fragment fragment) {
-        InterceptResult invokeLIL;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, fragmentManager, i, fragment)) == null) {
-            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
-            beginTransaction.replace(i, fragment, fragment.getClass().getCanonicalName());
-            beginTransaction.commitAllowingStateLoss();
-            return fragment;
-        }
-        return (Fragment) invokeLIL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b : invokeV.intValue;
     }
 
-    @Nullable
-    public static <T extends Fragment> T b(@NonNull FragmentManager fragmentManager, @NonNull Class<T> cls) {
-        InterceptResult invokeLL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, fragmentManager, cls)) == null) {
-            return (T) fragmentManager.findFragmentByTag(cls.getCanonicalName());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "DetailViewInfo(parent=" + this.a + ", childIndex=" + this.b + ')';
         }
-        return (T) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public mt5(ViewGroup parent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parent, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(parent, "parent");
+        this.a = parent;
+        this.b = i;
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final ViewGroup b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ViewGroup) invokeV.objValue;
     }
 }

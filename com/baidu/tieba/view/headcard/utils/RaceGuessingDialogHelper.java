@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qbb;
-import com.baidu.tieba.uua;
+import com.baidu.tieba.pbb;
+import com.baidu.tieba.tua;
 import com.baidu.tieba.view.headcard.utils.RaceGuessingDialogHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -165,7 +165,7 @@ public final class RaceGuessingDialogHelper {
         }
     }
 
-    public final String a(qbb.a aVar) {
+    public final String a(pbb.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
@@ -177,16 +177,16 @@ public final class RaceGuessingDialogHelper {
         return (String) invokeL.objValue;
     }
 
-    public final SpannableString b(ArrayList<qbb.a> arrayList, Activity activity) {
+    public final SpannableString b(ArrayList<pbb.a> arrayList, Activity activity) {
         InterceptResult invokeLL;
         boolean z;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, activity)) == null) {
             StringBuilder sb = new StringBuilder();
-            Iterator<qbb.a> it = arrayList.iterator();
+            Iterator<pbb.a> it = arrayList.iterator();
             while (it.hasNext()) {
-                qbb.a next = it.next();
+                pbb.a next = it.next();
                 if (!StringUtils.isNull(next.b())) {
                     sb.append(next.b());
                 }
@@ -196,9 +196,9 @@ public final class RaceGuessingDialogHelper {
             }
             SpannableString spannableString = new SpannableString(sb);
             StringBuilder sb2 = new StringBuilder();
-            Iterator<qbb.a> it2 = arrayList.iterator();
+            Iterator<pbb.a> it2 = arrayList.iterator();
             while (it2.hasNext()) {
-                qbb.a contentBean = it2.next();
+                pbb.a contentBean = it2.next();
                 Intrinsics.checkNotNullExpressionValue(contentBean, "contentBean");
                 String a = a(contentBean);
                 boolean z2 = false;
@@ -209,7 +209,7 @@ public final class RaceGuessingDialogHelper {
                         z = true;
                     }
                     if (!z) {
-                        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(uua.f(a));
+                        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(tua.f(a));
                         int length = sb2.length();
                         int length2 = sb2.length();
                         String b = contentBean.b();
@@ -232,14 +232,14 @@ public final class RaceGuessingDialogHelper {
     }
 
     @JvmOverloads
-    public final void d(Activity activity, qbb raceGuessingDialogData, final IDialogClickCallback iDialogClickCallback) {
+    public final void d(Activity activity, pbb raceGuessingDialogData, final IDialogClickCallback iDialogClickCallback) {
         boolean z;
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, raceGuessingDialogData, iDialogClickCallback) == null) {
             Intrinsics.checkNotNullParameter(activity, "activity");
             Intrinsics.checkNotNullParameter(raceGuessingDialogData, "raceGuessingDialogData");
-            ArrayList<qbb.a> a = raceGuessingDialogData.a();
+            ArrayList<pbb.a> a = raceGuessingDialogData.a();
             if (ListUtils.isEmpty(a)) {
                 return;
             }
@@ -263,7 +263,7 @@ public final class RaceGuessingDialogHelper {
                 alertDialog = cancelable.show();
             }
             if (alertDialog != null) {
-                operateBtnConfig.setListener(new View.OnClickListener() { // from class: com.baidu.tieba.bcb
+                operateBtnConfig.setListener(new View.OnClickListener() { // from class: com.baidu.tieba.acb
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -275,7 +275,7 @@ public final class RaceGuessingDialogHelper {
                         }
                     }
                 });
-                operateBtnConfig2.setListener(new View.OnClickListener() { // from class: com.baidu.tieba.ccb
+                operateBtnConfig2.setListener(new View.OnClickListener() { // from class: com.baidu.tieba.bcb
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

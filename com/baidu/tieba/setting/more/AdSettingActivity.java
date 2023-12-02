@@ -24,13 +24,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
 import com.baidu.tbadk.data.CloseAdData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.hna;
+import com.baidu.tieba.f05;
+import com.baidu.tieba.lna;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.tieba.setting.im.more.MemberCloseAdHttpResponseMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdRequestMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdSocketResponseMessage;
-import com.baidu.tieba.wva;
+import com.baidu.tieba.vva;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +46,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public static int f = 1;
     public static int g = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public hna a;
+    public lna a;
     public int b;
     public BlueCircleProgressDialog c;
     public NetMessageListener d;
@@ -67,7 +67,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements c05.e {
+    public class a implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdSettingActivity a;
@@ -90,18 +90,18 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             this.a = adSettingActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
                 PayPanelUtils.launchPayPanel(this.a.getPageContext(), IMConstants.IM_MSG_TYPE_ADVISORY_ASK_OTHER_HIT_KEY_WORD, MemberPayStatistic.REFER_PAGE_SITE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-                c05Var.dismiss();
+                f05Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements c05.e {
+    public class b implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdSettingActivity a;
@@ -124,11 +124,11 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             this.a = adSettingActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
+                f05Var.dismiss();
             }
         }
     }
@@ -253,7 +253,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new hna(this);
+            this.a = new lna(this);
             M0();
             registerListener(this.d);
             initData();
@@ -276,8 +276,8 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            wva.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
-            wva.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
+            vva.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
+            vva.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -338,12 +338,12 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public final void T0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c05 c05Var = new c05(getPageContext().getPageActivity());
-            c05Var.setMessageId(R.string.mebmer_close_ad_dialog_message);
-            c05Var.setButtonTextColor(R.color.CAM_X0305);
-            c05Var.setPositiveButton(R.string.open_now, new a(this));
-            c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new b(this));
-            c05Var.create(getPageContext()).show();
+            f05 f05Var = new f05(getPageContext().getPageActivity());
+            f05Var.setMessageId(R.string.mebmer_close_ad_dialog_message);
+            f05Var.setButtonTextColor(R.color.CAM_X0305);
+            f05Var.setPositiveButton(R.string.open_now, new a(this));
+            f05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new b(this));
+            f05Var.create(getPageContext()).show();
         }
     }
 }

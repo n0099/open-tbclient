@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import java.io.File;
-/* loaded from: classes8.dex */
+import java.util.List;
+/* loaded from: classes7.dex */
 public interface qn1 {
-    File a(String str, String str2);
+    List<h83> a(h73 h73Var);
 
-    File b();
+    List<h83> b(h73 h73Var);
 
-    String c();
+    List<h83> c(h73 h73Var);
 }

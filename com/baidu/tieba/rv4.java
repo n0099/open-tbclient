@@ -1,88 +1,140 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.ArrayMap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.security.cert.CertificateException;
-import javax.security.cert.X509Certificate;
-import org.json.JSONArray;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class rv4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, List<String>> a;
+    public static final Map<String, Boolean> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public rv4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                rv4.f();
             }
         }
     }
 
-    public String a(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        InterceptResult invokeLL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
-                JSONArray jSONArray = new JSONArray();
-                byte[] bytes = str2.getBytes("UTF-8");
-                if (bytes.length % 116 == 0) {
-                    length = bytes.length / 116;
-                } else {
-                    length = (bytes.length / 116) + 1;
-                }
-                for (int i = 0; i < length; i++) {
-                    if (1 == length) {
-                        jSONArray.put(kd.j(b(publicKey, bytes)));
-                    } else if (i != length - 1) {
-                        byte[] bArr = new byte[116];
-                        System.arraycopy(bytes, i * 116, bArr, 0, 116);
-                        jSONArray.put(kd.j(b(publicKey, bArr)));
-                    } else {
-                        int i2 = i * 116;
-                        int length2 = bytes.length - i2;
-                        byte[] bArr2 = new byte[length2];
-                        System.arraycopy(bytes, i2, bArr2, 0, length2);
-                        jSONArray.put(kd.j(b(publicKey, bArr2)));
-                    }
-                }
-                return kd.j(jSONArray.toString().getBytes("UTF-8"));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948135065, "Lcom/baidu/tieba/rv4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948135065, "Lcom/baidu/tieba/rv4;");
+                return;
+            }
         }
-        return (String) invokeLL.objValue;
+        a = new ArrayMap();
+        b = new ArrayMap();
+        c();
     }
 
-    public final byte[] b(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        InterceptResult invokeLL;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key, bArr)) == null) {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(1, key);
-            return cipher.doFinal(bArr);
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            MessageManager.getInstance().registerListener(new a(2001167));
         }
-        return (byte[]) invokeLL.objValue;
+    }
+
+    public static synchronized void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            synchronized (rv4.class) {
+                if (b.get(str) != null && b.get(str).booleanValue()) {
+                    return;
+                }
+                if (a.get(str) == null) {
+                    a.put(str, new ArrayList());
+                }
+                a.get(str).add(str2);
+            }
+        }
+    }
+
+    public static synchronized void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            synchronized (rv4.class) {
+                b.put(str, Boolean.FALSE);
+                a.remove(str);
+            }
+        }
+    }
+
+    public static synchronized void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            synchronized (rv4.class) {
+                if (b.get(str) != null && b.get(str).booleanValue()) {
+                    return;
+                }
+                b.put(str, Boolean.TRUE);
+                List<String> list = a.get(str);
+                if (list != null && list.size() < 100) {
+                    TiebaStatic.log(new StatisticItem("TiebaTracer").param("obj_name", str).param("obj_param1", TextUtils.join("_", list)));
+                    a.remove(str);
+                }
+            }
+        }
+    }
+
+    public static synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            synchronized (rv4.class) {
+                for (Map.Entry<String, List<String>> entry : a.entrySet()) {
+                    e(entry.getKey());
+                }
+            }
+        }
     }
 }

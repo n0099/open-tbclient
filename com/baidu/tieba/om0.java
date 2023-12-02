@@ -51,7 +51,7 @@ public final class om0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, pm0Var, context, intent)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            int b = e51.b(context.getApplicationContext(), null);
+            int b = g51.b(context.getApplicationContext(), null);
             if (b == 0) {
                 return false;
             }

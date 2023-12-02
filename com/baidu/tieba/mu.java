@@ -24,15 +24,15 @@ public class mu extends vs {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cw4 a;
+        public final /* synthetic */ fw4 a;
         public final /* synthetic */ mu b;
 
-        public a(mu muVar, cw4 cw4Var) {
+        public a(mu muVar, fw4 fw4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {muVar, cw4Var};
+                Object[] objArr = {muVar, fw4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,7 +43,7 @@ public class mu extends vs {
                 }
             }
             this.b = muVar;
-            this.a = cw4Var;
+            this.a = fw4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -80,13 +80,13 @@ public class mu extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: A */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cw4Var) == null) {
-            if (z(cw4Var)) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, fw4Var) == null) {
+            if (z(fw4Var)) {
                 this.j.setVisibility(0);
-                this.j.setThreadData(cw4Var.getThreadData());
-                this.j.setOnItemClickListener(new a(this, cw4Var));
+                this.j.setThreadData(fw4Var.getThreadData());
+                this.j.setOnItemClickListener(new a(this, fw4Var));
                 return;
             }
             this.j.setVisibility(8);
@@ -126,11 +126,11 @@ public class mu extends vs {
         }
     }
 
-    public final boolean z(cw4 cw4Var) {
+    public final boolean z(fw4 fw4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cw4Var)) == null) {
-            if (cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().getPollData() != null && cw4Var.getThreadData().getPollData().getOptions() != null && cw4Var.getThreadData().getPollData().getOptions().size() > 0 && !cw4Var.getThreadData().isVideoThreadType()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fw4Var)) == null) {
+            if (fw4Var != null && fw4Var.getThreadData() != null && fw4Var.getThreadData().getPollData() != null && fw4Var.getThreadData().getPollData().getOptions() != null && fw4Var.getThreadData().getPollData().getOptions().size() > 0 && !fw4Var.getThreadData().isVideoThreadType()) {
                 return true;
             }
             return false;

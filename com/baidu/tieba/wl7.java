@@ -1,20 +1,18 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.forum.data.SortItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class wl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<SortItem> a;
-    public int b;
+    public final vl7 a;
+    public final si7 b;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -25,7 +23,7 @@ public final class wl7 {
             }
             if (obj instanceof wl7) {
                 wl7 wl7Var = (wl7) obj;
-                return Intrinsics.areEqual(this.a, wl7Var.a) && this.b == wl7Var.b;
+                return Intrinsics.areEqual(this.a, wl7Var.a) && Intrinsics.areEqual(this.b, wl7Var.b);
             }
             return false;
         }
@@ -35,53 +33,58 @@ public final class wl7 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            si7 si7Var = this.b;
+            return hashCode + (si7Var == null ? 0 : si7Var.hashCode());
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "SortTabData(sortTabList=" + this.a + ", selectIndex=" + this.b + ')';
+            return "InitData(headData=" + this.a + ", firstPageData=" + this.b + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public wl7(List<SortItem> sortTabList, int i) {
+    public wl7(vl7 headData, si7 si7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sortTabList, Integer.valueOf(i)};
+            Object[] objArr = {headData, si7Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(sortTabList, "sortTabList");
-        this.a = sortTabList;
-        this.b = i;
+        Intrinsics.checkNotNullParameter(headData, "headData");
+        this.a = headData;
+        this.b = si7Var;
     }
 
-    public final int a() {
+    public final si7 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return invokeV.intValue;
+        return (si7) invokeV.objValue;
     }
 
-    public final List<SortItem> b() {
+    public final vl7 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (List) invokeV.objValue;
+        return (vl7) invokeV.objValue;
     }
 }

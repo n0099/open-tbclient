@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class id7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final id7 a;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,35 +30,102 @@ public final class id7 {
                 return;
             }
         }
-        a = new id7();
+        a = new a(null);
     }
 
-    public id7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    public final int a(String resName) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resName)) == null) {
-            Intrinsics.checkNotNullParameter(resName, "resName");
-            try {
-                return r27.a.getResources().getIdentifier(resName, EMABTest.TYPE_STRING, r27.a.getPackageName());
-            } catch (Exception e) {
-                BdLog.e(e);
+        public final int a(e67 colorData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, colorData)) == null) {
+                Intrinsics.checkNotNullParameter(colorData, "colorData");
+                int c = colorData.c();
+                if (c != 1) {
+                    if (c == 2) {
+                        return SkinManager.getColor(v27.a.getResources().getIdentifier(colorData.b(), "color", v27.a.getPackageName()));
+                    }
+                } else {
+                    int currentSkinType = SkinManager.getCurrentSkinType();
+                    if (currentSkinType != 0) {
+                        if (currentSkinType == 4) {
+                            return tua.f(colorData.a());
+                        }
+                    } else {
+                        return tua.f(colorData.b());
+                    }
+                }
                 return 0;
             }
+            return invokeL.intValue;
         }
-        return invokeL.intValue;
+
+        public final int c(e67 colorData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, colorData)) == null) {
+                Intrinsics.checkNotNullParameter(colorData, "colorData");
+                int c = colorData.c();
+                if (c != 1) {
+                    if (c != 2) {
+                        return 0;
+                    }
+                    return SkinManager.getColor(4, v27.a.getResources().getIdentifier(colorData.b(), "color", v27.a.getPackageName()));
+                }
+                return tua.f(colorData.a());
+            }
+            return invokeL.intValue;
+        }
+
+        public final int b(e67 colorData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, colorData)) == null) {
+                Intrinsics.checkNotNullParameter(colorData, "colorData");
+                if (colorData.c() == 2) {
+                    return v27.a.getResources().getIdentifier(colorData.b(), "color", v27.a.getPackageName());
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public final int d(e67 colorData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, colorData)) == null) {
+                Intrinsics.checkNotNullParameter(colorData, "colorData");
+                int c = colorData.c();
+                if (c != 1) {
+                    if (c != 2) {
+                        return 0;
+                    }
+                    return SkinManager.getColor(0, v27.a.getResources().getIdentifier(colorData.b(), "color", v27.a.getPackageName()));
+                }
+                return tua.f(colorData.b());
+            }
+            return invokeL.intValue;
+        }
     }
 }

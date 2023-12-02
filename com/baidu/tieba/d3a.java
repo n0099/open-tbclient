@@ -1,24 +1,30 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tieba.os;
-import com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d3a extends BaseOriginalThreadView {
+public abstract class d3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public mm6 b;
+    public os.a c;
+    public OriginalThreadInfo d;
+    public int e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public abstract View a();
+
+    public abstract void b(TbPageContext tbPageContext, int i);
+
+    public abstract void c(OriginalThreadInfo originalThreadInfo);
+
     public d3a(TbPageContext tbPageContext) {
-        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,51 +34,26 @@ public class d3a extends BaseOriginalThreadView {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = 3;
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.z2a
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            super.a();
-            l().addView(k().g());
-            l().addView(i(false));
-            return l();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.z2a
-    public void b(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            super.b(tbPageContext, i);
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.z2a
-    public void c(OriginalThreadInfo originalThreadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            super.c(originalThreadInfo);
-            k().onBindDataToView(f());
-        }
-    }
-
-    @Override // com.baidu.tieba.z2a
     public void d(os.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            super.d(aVar);
-            k().A(aVar);
-            m();
+            this.c = aVar;
+        }
+    }
+
+    public void e(mm6 mm6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mm6Var) == null) {
+            this.b = mm6Var;
         }
     }
 }

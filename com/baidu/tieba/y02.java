@@ -1,64 +1,60 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes9.dex */
-public class y02 implements Cloneable {
+public class y02 extends rz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public wz1 d;
+    public Paint.Align a;
 
-    public y02(JSONArray jSONArray) {
+    public y02() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        b(jSONArray);
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rz1
+    public void a(sz1 sz1Var, Canvas canvas) {
+        Paint.Align align;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            wz1 wz1Var = this.d;
-            if (wz1Var != null && wz1Var.d()) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, sz1Var, canvas) == null) && (align = this.a) != null) {
+            sz1Var.e.setTextAlign(align);
         }
-        return invokeV.booleanValue;
     }
 
+    @Override // com.baidu.tieba.rz1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
-                if (jSONArray.length() > 3) {
-                    this.a = yj3.g((float) jSONArray.optDouble(0));
-                    this.b = yj3.g((float) jSONArray.optDouble(1));
-                    this.c = jSONArray.optInt(2);
-                    this.d = new wz1(jSONArray.optJSONArray(3));
+                if (jSONArray.length() > 0) {
+                    String optString = jSONArray.optString(0);
+                    if (TextUtils.equals(optString, "left")) {
+                        this.a = Paint.Align.LEFT;
+                    } else if (TextUtils.equals(optString, "center")) {
+                        this.a = Paint.Align.CENTER;
+                    } else if (TextUtils.equals(optString, "right")) {
+                        this.a = Paint.Align.RIGHT;
+                    }
                 }
             } catch (Exception e) {
-                if (sm1.a) {
+                if (vm1.a) {
                     e.printStackTrace();
                 }
             }

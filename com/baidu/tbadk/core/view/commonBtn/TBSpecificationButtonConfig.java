@@ -44,7 +44,7 @@ public abstract class TBSpecificationButtonConfig {
     public GradientDrawable.Orientation t;
     public a u;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
 
@@ -56,7 +56,7 @@ public abstract class TBSpecificationButtonConfig {
     public abstract Drawable a(float f);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class IconType {
         public static final /* synthetic */ IconType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -124,7 +124,7 @@ public abstract class TBSpecificationButtonConfig {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class WebpType {
         public static final /* synthetic */ WebpType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

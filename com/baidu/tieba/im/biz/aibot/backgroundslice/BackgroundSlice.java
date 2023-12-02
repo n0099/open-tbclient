@@ -21,15 +21,15 @@ import com.baidu.tbadk.module.imaibot.AibotArgs;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.br8;
-import com.baidu.tieba.gr8;
+import com.baidu.tieba.fr8;
+import com.baidu.tieba.i5b;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.biz.aibot.backgroundslice.BackgroundSlice;
 import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
 import com.baidu.tieba.impersonal.databinding.AibotBgListBinding;
-import com.baidu.tieba.j5b;
-import com.baidu.tieba.uq8;
-import com.baidu.tieba.vq8;
-import com.baidu.tieba.xq8;
+import com.baidu.tieba.kr8;
+import com.baidu.tieba.yq8;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,10 +51,10 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0094\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 N2\u00020\u00012\u00020\u0002:\u0002NOB\u0017\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\u0014\u0010#\u001a\u00020$2\f\u0010%\u001a\b\u0012\u0004\u0012\u00020'0&J\"\u0010(\u001a\u00020$2\b\u0010)\u001a\u0004\u0018\u00010\u001a2\b\u0010*\u001a\u0004\u0018\u00010\u001a2\u0006\u0010+\u001a\u00020\u0011J\u0006\u0010,\u001a\u00020$J\u000e\u0010-\u001a\u00020$2\u0006\u0010.\u001a\u00020/J\u0006\u00100\u001a\u00020$J\b\u00101\u001a\u0004\u0018\u000102J\b\u00103\u001a\u00020\u0011H\u0002J\u0010\u00104\u001a\u00020$2\u0006\u00105\u001a\u00020\u0014H\u0002J\u0016\u00104\u001a\u00020$2\u0006\u00106\u001a\u00020\u001a2\u0006\u00105\u001a\u00020\u0014J \u00104\u001a\u00020$2\u0006\u00106\u001a\u00020\u001a2\u0006\u00105\u001a\u00020\u00142\u0006\u00107\u001a\u00020\u0011H\u0002J\u000e\u00108\u001a\u00020$2\u0006\u00109\u001a\u00020\u001aJ\u000e\u0010:\u001a\u00020$2\u0006\u00109\u001a\u00020\u001aJ\u0010\u0010;\u001a\u00020$2\u0006\u0010<\u001a\u00020=H\u0016J\"\u0010>\u001a\u00020\u00142\u0006\u0010?\u001a\u00020@2\u0006\u0010A\u001a\u00020B2\b\u0010C\u001a\u0004\u0018\u00010DH\u0016J\b\u0010E\u001a\u00020$H\u0016J\b\u0010F\u001a\u00020$H\u0016J\u0010\u0010G\u001a\u00020$2\u0006\u0010H\u001a\u00020IH\u0016J\u0018\u0010J\u001a\u00020$2\u0006\u0010K\u001a\u00020\t2\u0006\u0010L\u001a\u00020\u0011H\u0016J\u0006\u0010M\u001a\u00020$R\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000bR\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0013\u001a\u00020\u0014X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018R\u0010\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001c\u001a\u0004\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u001e\u001a\u00020\u0014X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u001f\u0010\u0016\"\u0004\b \u0010\u0018R\u0010\u0010!\u001a\u0004\u0018\u00010\"X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006P"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/backgroundslice/BackgroundSlice;", "Lcom/baidu/tieba/im/base/core/slice/Slice;", "Lcom/baidu/tieba/im/biz/aibot/IPageChangeNotify;", "wrapper", "Lcom/baidu/tieba/im/biz/aibot/AibotChatPageWrapper;", WebChromeClient.KEY_ARG_ARRAY, "Lcom/baidu/tbadk/module/imaibot/AibotArgs;", "(Lcom/baidu/tieba/im/biz/aibot/AibotChatPageWrapper;Lcom/baidu/tbadk/module/imaibot/AibotArgs;)V", "DEFAULT_BG", "", "getDEFAULT_BG", "()I", "bgAdapter", "Lcom/baidu/tieba/im/biz/aibot/backgroundslice/AibotBgAdapter;", "botsBgViewBinding", "Lcom/baidu/tieba/impersonal/databinding/AibotBgListBinding;", "canLoadDefaultBg", "", "canStatPersonPageExp", "chatBgView", "Landroid/view/View;", "getChatBgView", "()Landroid/view/View;", "setChatBgView", "(Landroid/view/View;)V", "mChatBgUrl", "", "mPageState", "mPersonBgColor", "mPicBgLoaded", "personBgView", "getPersonBgView", "setPersonBgView", "scrollHelper", "Lcom/baidu/tieba/im/biz/aibot/backgroundslice/ViewPager2SlowScrollHelper;", "bindBotData", "", "bots", "", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail$BotList;", "bindData", "chatBgUrl", "personBgColor", "needDelayed", "changePageState", "dragScroll", "offset", "", "endDragScroll", "getBgCurrentViewBitmap", "Landroid/graphics/Bitmap;", "isPersonPageState", "loadPicUrl", "targetView", "backgroundUrl", "fromNet", "location", "uk", "locationWithoutAnim", "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_PAUSE, "onResume", "onSetChatDetail", "chatDetail", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail;", "onSetPageState", "state", "refreshPage", "startDragScroll", "Companion", "FitTopTransformation", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class BackgroundSlice extends Slice implements xq8 {
+public final class BackgroundSlice extends Slice implements br8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final uq8 j;
+    public final yq8 j;
     public final AibotArgs k;
     public View l;
     public View m;
@@ -67,7 +67,7 @@ public final class BackgroundSlice extends Slice implements xq8 {
     public final int t;
     public AibotBgListBinding u;
     public AibotBgAdapter v;
-    public br8 w;
+    public fr8 w;
 
     static {
         InterceptResult invokeClinit;
@@ -195,7 +195,7 @@ public final class BackgroundSlice extends Slice implements xq8 {
                     SafeHandler inst = SafeHandler.getInst();
                     final BackgroundSlice backgroundSlice = this.b;
                     final View view2 = this.a;
-                    inst.post(new Runnable() { // from class: com.baidu.tieba.zq8
+                    inst.post(new Runnable() { // from class: com.baidu.tieba.dr8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -220,7 +220,7 @@ public final class BackgroundSlice extends Slice implements xq8 {
         }
     }
 
-    public BackgroundSlice(uq8 wrapper, AibotArgs aibotArgs) {
+    public BackgroundSlice(yq8 wrapper, AibotArgs aibotArgs) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -251,7 +251,7 @@ public final class BackgroundSlice extends Slice implements xq8 {
         }
     }
 
-    @Override // com.baidu.tieba.xq8
+    @Override // com.baidu.tieba.br8
     public void O(AibotChatDetail chatDetail) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatDetail) == null) {
@@ -322,7 +322,7 @@ public final class BackgroundSlice extends Slice implements xq8 {
         }
     }
 
-    @Override // com.baidu.tieba.xq8
+    @Override // com.baidu.tieba.br8
     public void e2(int i, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) != null) || this.p == i) {
@@ -352,8 +352,8 @@ public final class BackgroundSlice extends Slice implements xq8 {
                     this$0.s0().setBackgroundColor(Color.parseColor(str));
                 } catch (Exception e) {
                     if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                        vq8 vq8Var = vq8.a;
-                        vq8Var.a("BackgroundSlice 色值解析异常" + e.getMessage());
+                        zq8 zq8Var = zq8.a;
+                        zq8Var.a("BackgroundSlice 色值解析异常" + e.getMessage());
                         return;
                     }
                     throw new IllegalArgumentException("颜色解析异常");
@@ -389,7 +389,7 @@ public final class BackgroundSlice extends Slice implements xq8 {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
             if (this.r && t0()) {
-                gr8.a.c(1);
+                kr8.a.c(1);
             }
         }
     }
@@ -461,9 +461,9 @@ public final class BackgroundSlice extends Slice implements xq8 {
                 }
                 ViewPager2 viewPager2 = aibotBgListBinding2.b;
                 Intrinsics.checkNotNullExpressionValue(viewPager2, "botsBgViewBinding.aibotBgPager");
-                this.w = new br8(viewPager2);
+                this.w = new fr8(viewPager2);
             } catch (Exception unused) {
-                vq8.a.a("ViewPager2SlowScrollHelper 初始化异常");
+                zq8.a.a("ViewPager2SlowScrollHelper 初始化异常");
             }
             this.v = new AibotBgAdapter(this);
             AibotBgListBinding aibotBgListBinding3 = this.u;
@@ -510,7 +510,7 @@ public final class BackgroundSlice extends Slice implements xq8 {
                 public void onPageScrollStateChanged(int i) {
                     AibotBgListBinding aibotBgListBinding5;
                     AibotBgAdapter aibotBgAdapter2;
-                    uq8 uq8Var;
+                    yq8 yq8Var;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                         super.onPageScrollStateChanged(i);
@@ -530,8 +530,8 @@ public final class BackgroundSlice extends Slice implements xq8 {
                             }
                             AibotChatDetail.BotList botList = (AibotChatDetail.BotList) ListUtils.getItem(aibotBgAdapter3.l(), currentItem);
                             if (botList != null) {
-                                uq8Var = this.a.j;
-                                uq8Var.v0(botList.getUk());
+                                yq8Var = this.a.j;
+                                yq8Var.v0(botList.getUk());
                             }
                         }
                     }
@@ -539,12 +539,12 @@ public final class BackgroundSlice extends Slice implements xq8 {
 
                 @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
                 public void onPageScrolled(int i, float f, int i2) {
-                    uq8 uq8Var;
+                    yq8 yq8Var;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
                         super.onPageScrolled(i, f, i2);
-                        uq8Var = this.a.j;
-                        uq8Var.R();
+                        yq8Var = this.a.j;
+                        yq8Var.R();
                     }
                 }
             });
@@ -608,7 +608,7 @@ public final class BackgroundSlice extends Slice implements xq8 {
         if (t0()) {
             r0().setVisibility(4);
             s0().setVisibility(0);
-            s0().postDelayed(new Runnable() { // from class: com.baidu.tieba.yq8
+            s0().postDelayed(new Runnable() { // from class: com.baidu.tieba.cr8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -620,12 +620,12 @@ public final class BackgroundSlice extends Slice implements xq8 {
                     }
                 }
             }, j);
-            gr8.a.c(1);
+            kr8.a.c(1);
         } else {
             s0().setVisibility(4);
             r0().setVisibility(0);
         }
-        r0().postDelayed(new Runnable() { // from class: com.baidu.tieba.ar8
+        r0().postDelayed(new Runnable() { // from class: com.baidu.tieba.er8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -676,12 +676,12 @@ public final class BackgroundSlice extends Slice implements xq8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (t0()) {
-                j5b.b(r0(), 240);
-                j5b.d(s0(), 240);
+                i5b.b(r0(), 240);
+                i5b.d(s0(), 240);
                 return;
             }
-            j5b.b(s0(), 240);
-            j5b.d(r0(), 240);
+            i5b.b(s0(), 240);
+            i5b.d(r0(), 240);
         }
     }
 
@@ -720,12 +720,12 @@ public final class BackgroundSlice extends Slice implements xq8 {
                     }
                     aibotBgListBinding2.b.endFakeDrag();
                 } else {
-                    br8 br8Var = this.w;
-                    Intrinsics.checkNotNull(br8Var);
-                    br8Var.a();
+                    fr8 fr8Var = this.w;
+                    Intrinsics.checkNotNull(fr8Var);
+                    fr8Var.a();
                 }
             } catch (Exception unused) {
-                vq8.a.a("ViewPager2SlowScrollHelper", "endFakeDrag() 执行异常");
+                zq8.a.a("ViewPager2SlowScrollHelper", "endFakeDrag() 执行异常");
                 AibotBgListBinding aibotBgListBinding3 = this.u;
                 if (aibotBgListBinding3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("botsBgViewBinding");
@@ -765,7 +765,7 @@ public final class BackgroundSlice extends Slice implements xq8 {
                 }
                 aibotBgListBinding.b.setCurrentItem(n, true);
             } catch (Exception unused) {
-                vq8.a.a("BackgroundSlice", "location() 执行，drag状态异常");
+                zq8.a.a("BackgroundSlice", "location() 执行，drag状态异常");
             }
         }
     }

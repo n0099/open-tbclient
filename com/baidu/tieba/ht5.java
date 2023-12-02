@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.RemoveViewNPE;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,74 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ht5 {
+public final class ht5 {
     public static /* synthetic */ Interceptable $ic;
-    public static ht5 c;
+    public static final ht5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public b b;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onResult(boolean z);
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends BdAsyncTask<String, Integer, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ht5 a;
-
-        public c(ht5 ht5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ht5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ht5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                return Boolean.valueOf(this.a.d());
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && this.a.b != null && bool != null) {
-                this.a.b.onResult(bool.booleanValue());
-            }
-        }
-
-        public /* synthetic */ c(ht5 ht5Var, a aVar) {
-            this(ht5Var);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -97,7 +36,7 @@ public class ht5 {
                 return;
             }
         }
-        c = new ht5();
+        a = new ht5();
     }
 
     public ht5() {
@@ -114,56 +53,45 @@ public class ht5 {
         }
     }
 
-    public static ht5 e() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final void a(BdRecyclerView viewGroup, int i, NullPointerException e) {
+        mt5 mt5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return c;
+        if (interceptable == null || interceptable.invokeLIL(65538, null, viewGroup, i, e) == null) {
+            Intrinsics.checkNotNullParameter(viewGroup, "viewGroup");
+            Intrinsics.checkNotNullParameter(e, "e");
+            View childAt = viewGroup.getChildAt(i);
+            Intrinsics.checkNotNullExpressionValue(childAt, "viewGroup.getChildAt(index)");
+            if (childAt instanceof ViewGroup) {
+                mt5Var = a.b((ViewGroup) childAt);
+            } else {
+                mt5Var = null;
+            }
+            if (mt5Var != null) {
+                String str = "BdRecyclerView removeViewAt() NPE at index: " + i + ", the out parent is: [class: " + childAt.getClass().getSimpleName() + ", id: " + childAt.getId() + "], internal parent is: [class: " + mt5Var.b().getClass().getSimpleName() + ", id: " + mt5Var.b().getId() + "], child index is: " + mt5Var.a();
+                Throwable initCause = new RemoveViewNPE().initCause(new Throwable(str, e));
+                BdLog.detailException(initCause);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", str));
+                initCause.printStackTrace();
+            }
         }
-        return (ht5) invokeV.objValue;
     }
 
-    public void c(b bVar) {
+    public final mt5 b(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.b = bVar;
-            c cVar = this.a;
-            if (cVar != null) {
-                cVar.cancel();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int childCount = viewGroup.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = viewGroup.getChildAt(i);
+                if (childAt instanceof ViewGroup) {
+                    b((ViewGroup) childAt);
+                } else if (childAt == null) {
+                    return new mt5(viewGroup, i);
+                }
             }
-            c cVar2 = new c(this, null);
-            this.a = cVar2;
-            cVar2.setPriority(4);
-            this.a.execute(new String[0]);
+            return null;
         }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        String str;
-        String[] split;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] GetFileData = FileHelper.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
-            if (GetFileData != null) {
-                str = new String(GetFileData);
-            } else {
-                str = null;
-            }
-            long j = StringUtils.getyyyyMMddHHTimeForNow();
-            long j2 = 0;
-            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null || split.length != 2) {
-                i = 0;
-            } else {
-                i = JavaTypesHelper.toInt(split[0], 0);
-                j2 = JavaTypesHelper.toLong(split[1], j);
-            }
-            if (j2 == j && i > 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (mt5) invokeL.objValue;
     }
 }

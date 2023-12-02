@@ -51,11 +51,11 @@ public final class ForumNavBarSecondFloorBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f092225;
-            TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f092225);
+            int i = R.id.obfuscated_res_0x7f092227;
+            TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f092227);
             if (tbImage != null) {
-                i = R.id.obfuscated_res_0x7f092227;
-                MessageRedDotView messageRedDotView = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f092227);
+                i = R.id.obfuscated_res_0x7f092229;
+                MessageRedDotView messageRedDotView = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f092229);
                 if (messageRedDotView != null) {
                     return new ForumNavBarSecondFloorBinding((FrameLayout) view2, tbImage, messageRedDotView);
                 }

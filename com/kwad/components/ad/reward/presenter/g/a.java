@@ -67,9 +67,9 @@ public final class a extends com.kwad.components.ad.reward.presenter.b implement
             com.kwad.sdk.core.e.c.d("LandPageOpenTaskPresenter", "initBottomActionBar screen is horizontal");
             return;
         }
-        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09141b)).inflate();
-        KSFrameLayout kSFrameLayout = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091412);
-        kSFrameLayout.setRadius(getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704fd));
+        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09141c)).inflate();
+        KSFrameLayout kSFrameLayout = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091413);
+        kSFrameLayout.setRadius(getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704fe));
         if (d.dG(this.qn.mAdTemplate).size() == 0) {
             kSFrameLayout.setRatio(0.0f);
             com.kwad.sdk.d.a.a.m(kSFrameLayout, com.kwad.sdk.d.a.a.a(getContext(), 136.0f));
@@ -77,7 +77,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.b implement
             kSFrameLayout.setRatio(0.0f);
             com.kwad.sdk.d.a.a.m(kSFrameLayout, com.kwad.sdk.d.a.a.a(getContext(), 155.0f));
         }
-        ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091411);
+        ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091412);
         this.wJ = viewGroup;
         viewGroup.setClickable(true);
         new f(this.wJ, this);
@@ -85,14 +85,14 @@ public final class a extends com.kwad.components.ad.reward.presenter.b implement
         this.wL = cVar;
         cVar.a(this);
         this.wL.c(this.qn.mAdTemplate, true);
-        e eVar = new e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091410), this.wJ, null, this);
+        e eVar = new e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091411), this.wJ, null, this);
         this.wK = eVar;
         eVar.a(this.qn.mAdTemplate, adBaseFrameLayout);
     }
 
     private void c(View view2, boolean z) {
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f091411 || id == R.id.obfuscated_res_0x7f0912db) {
+        if (id == R.id.obfuscated_res_0x7f091412 || id == R.id.obfuscated_res_0x7f0912dc) {
             e(z, 2);
         }
     }
@@ -135,8 +135,8 @@ public final class a extends com.kwad.components.ad.reward.presenter.b implement
         this.pq = jx;
         this.qn.pq = jx;
         com.kwad.components.ad.reward.b.fa().a(this.mRewardVerifyListener);
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09148f);
-        ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912db);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091490);
+        ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912dc);
         this.wH = viewGroup;
         if (viewGroup != null) {
             viewGroup.setClickable(true);
@@ -146,8 +146,8 @@ public final class a extends com.kwad.components.ad.reward.presenter.b implement
             this.wM = cVar;
             cVar.a(this);
             this.wM.c(this.qn.mAdTemplate, false);
-            ((KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09148c)).setWidthBasedRatio(false);
-            q qVar = new q((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09148b), this.wH, null, this);
+            ((KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09148d)).setWidthBasedRatio(false);
+            q qVar = new q((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09148c), this.wH, null, this);
             this.wI = qVar;
             qVar.a(this.qn.mAdTemplate, adBaseFrameLayout);
         }

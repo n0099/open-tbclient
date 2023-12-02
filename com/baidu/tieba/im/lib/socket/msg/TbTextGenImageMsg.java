@@ -3,8 +3,8 @@ package com.baidu.tieba.im.lib.socket.msg;
 import android.text.SpannableStringBuilder;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nv8;
-import com.baidu.tieba.tv8;
+import com.baidu.tieba.rv8;
+import com.baidu.tieba.xv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,11 +18,11 @@ public class TbTextGenImageMsg extends TbSingleTextImageMsg {
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     @SerializedName("sec_gen_msg")
-    @nv8
+    @rv8
     public String lastPrompt;
     @SerializedName("sec_gen_config")
-    @nv8
-    public tv8 subSkillConfig;
+    @rv8
+    public xv8 subSkillConfig;
 
     public TbTextGenImageMsg() {
         Interceptable interceptable = $ic;
@@ -51,13 +51,13 @@ public class TbTextGenImageMsg extends TbSingleTextImageMsg {
     }
 
     @Nullable
-    public tv8 getSubSkillConfig() {
+    public xv8 getSubSkillConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.subSkillConfig;
         }
-        return (tv8) invokeV.objValue;
+        return (xv8) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.lib.socket.msg.TbSingleTextImageMsg

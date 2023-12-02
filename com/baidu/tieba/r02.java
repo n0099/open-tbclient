@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class r02 extends oz1 {
+public class r02 extends rz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public Paint.Cap a;
 
     public r02() {
         Interceptable interceptable = $ic;
@@ -23,26 +25,31 @@ public class r02 extends oz1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
     }
 
-    @Override // com.baidu.tieba.oz1
-    public void a(pz1 pz1Var, Canvas canvas) {
-        int i;
+    @Override // com.baidu.tieba.rz1
+    public void a(sz1 sz1Var, Canvas canvas) {
+        Paint.Cap cap;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, pz1Var, canvas) == null) && (i = this.a) >= 0) {
-            pz1Var.c.setStrokeWidth(i);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, sz1Var, canvas) == null) && (cap = this.a) != null) {
+            sz1Var.c.setStrokeCap(cap);
         }
     }
 
-    @Override // com.baidu.tieba.oz1
+    @Override // com.baidu.tieba.rz1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = yj3.g((float) jSONArray.optDouble(0));
+            String optString = jSONArray.optString(0);
+            if (TextUtils.equals(optString, "butt")) {
+                this.a = Paint.Cap.BUTT;
+            } else if (TextUtils.equals(optString, "round")) {
+                this.a = Paint.Cap.ROUND;
+            } else if (TextUtils.equals(optString, "square")) {
+                this.a = Paint.Cap.SQUARE;
+            }
         }
     }
 }

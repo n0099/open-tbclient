@@ -138,11 +138,11 @@ public class LiveLoadMoreView extends LiveBaseItemView {
             }
         }
         LayoutInflater.from(getContext()).inflate(i, this);
-        this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092069);
-        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0916fe);
+        this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09206b);
+        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0916ff);
         this.i = lottieAnimationView;
         lottieAnimationView.loop(true);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0916ff);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091700);
     }
 
     public void g(String str) {

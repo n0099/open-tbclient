@@ -27,8 +27,8 @@ import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.base.core.slice.SliceActivity;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.tieba.mt5;
-import com.baidu.tieba.vc5;
+import com.baidu.tieba.qt5;
+import com.baidu.tieba.yc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class GroupChatActivity extends SliceActivity {
     public View b;
     public String c;
     public GroupChatFragment d;
-    public vc5 e;
+    public yc5 e;
     public boolean f;
     public CustomMessageListener g;
 
@@ -247,21 +247,21 @@ public class GroupChatActivity extends SliceActivity {
             super.onCreate(bundle);
             getWindow().setSoftInputMode(48);
             setContentView(R.layout.obfuscated_res_0x7f0d003f);
-            this.b = findViewById(R.id.obfuscated_res_0x7f090c9c);
+            this.b = findViewById(R.id.obfuscated_res_0x7f090c9d);
             if (bundle == null) {
                 this.d = new GroupChatFragment();
                 Intent intent = getIntent();
                 if (intent != null) {
                     this.d.setArguments(intent.getExtras());
                 }
-                mt5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c9c, this.d);
+                qt5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c9d, this.d);
             } else {
-                this.d = (GroupChatFragment) mt5.b(getSupportFragmentManager(), GroupChatFragment.class);
+                this.d = (GroupChatFragment) qt5.b(getSupportFragmentManager(), GroupChatFragment.class);
             }
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra(IntentConfig.BACK_SCHEME);
                 if (getIntent().getBooleanExtra("show_chat_list_after_finish", false)) {
-                    this.e = new vc5(getIntent().getLongExtra("roomId", 0L), true);
+                    this.e = new yc5(getIntent().getLongExtra("roomId", 0L), true);
                 }
             }
             registerListener(this.g);

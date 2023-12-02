@@ -1,78 +1,106 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes8.dex */
-public abstract class tcc {
+public final class tcc {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "PBKDF2";
+    public static final String a = "SHA";
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948177845, "Lcom/baidu/tieba/tcc;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948177845, "Lcom/baidu/tieba/tcc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948177845, "Lcom/baidu/tieba/tcc;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948177845, "Lcom/baidu/tieba/tcc;");
-        }
+        b = new String[]{"SHA-256", "SHA-384", "SHA-512"};
     }
 
-    public static byte[] a(char[] cArr, byte[] bArr, int i, int i2, boolean z) {
-        SecretKeyFactory secretKeyFactory;
-        InterceptResult invokeCommon;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{cArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            try {
-                PBEKeySpec pBEKeySpec = new PBEKeySpec(cArr, bArr, i, i2);
-                if (z) {
-                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
-                } else {
-                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            for (String str2 : b) {
+                if (str2.equals(str)) {
+                    return true;
                 }
-                return secretKeyFactory.generateSecret(pBEKeySpec).getEncoded();
-            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-                String str = a;
-                bdc.c(str, "pbkdf exception : " + e.getMessage());
-                return new byte[0];
             }
+            return false;
         }
-        return (byte[]) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static byte[] b(char[] cArr, byte[] bArr, int i, int i2) {
-        InterceptResult invokeLLII;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, cArr, bArr, i, i2)) == null) {
-            return a(cArr, bArr, i, i2, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return c(str, "SHA-256");
         }
-        return (byte[]) invokeLLII.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static byte[] c(char[] cArr, byte[] bArr, int i, int i2) {
-        InterceptResult invokeLLII;
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, cArr, bArr, i, i2)) == null) {
-            byte[] bArr2 = new byte[0];
-            if (Build.VERSION.SDK_INT < 26) {
-                bdc.c(a, "system version not high than 26");
-                return bArr2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (!a(str2)) {
+                    adc.c(a, "algorithm is not safe or legal");
+                    return "";
+                }
+                try {
+                    bArr = str.getBytes("UTF-8");
+                } catch (UnsupportedEncodingException unused) {
+                    bArr = new byte[0];
+                    adc.c(a, "Error in generate SHA UnsupportedEncodingException");
+                }
+                return xcc.a(d(bArr, str2));
             }
-            return a(cArr, bArr, i, i2, true);
+            adc.c(a, "content or algorithm is null.");
+            return "";
         }
-        return (byte[]) invokeLLII.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static byte[] d(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
+            if (bArr != null && !TextUtils.isEmpty(str)) {
+                if (!a(str)) {
+                    adc.c(a, "algorithm is not safe or legal");
+                    return new byte[0];
+                }
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance(str);
+                    messageDigest.update(bArr);
+                    return messageDigest.digest();
+                } catch (NoSuchAlgorithmException unused) {
+                    adc.c(a, "Error in generate SHA NoSuchAlgorithmException");
+                    return new byte[0];
+                }
+            }
+            adc.c(a, "content or algorithm is null.");
+            return new byte[0];
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

@@ -1,68 +1,121 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.ImageMsg;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.impersonal.components.PersonalMsgContainer;
+import com.baidu.tieba.jb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
-public final class qd9 extends pd9<ImageMsg, mb9> {
+public abstract class qd9<T, V extends View, M extends jb9<T>> implements qb7<PersonalMsgContainer<T, V>, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    @Override // com.baidu.tieba.pd9
-    public int c() {
-        InterceptResult invokeV;
+    public abstract void d(V v, M m);
+
+    public void f(ViewGroup container) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 2;
+        if (interceptable == null || interceptable.invokeL(1048581, this, container) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
         }
-        return invokeV.intValue;
     }
 
-    public qd9() {
+    public abstract V g(ViewGroup viewGroup);
+
+    public qd9(String name) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(name, "name");
+        this.a = name;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pd9
+    @Override // com.baidu.tieba.qb7
+    /* renamed from: e */
+    public void b(PersonalMsgContainer<T, V> view2, M data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, data) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(data, "data");
+            view2.e(data);
+            d(view2.getChild(), data);
+            f(view2.getChildContainer());
+        }
+    }
+
+    @Override // com.baidu.tieba.qb7
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_left", false, 2, null);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_right", false, 2, null);
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qb7
     /* renamed from: h */
-    public ImageMsg e(mb9 mb9Var) {
+    public PersonalMsgContainer<T, V> a(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mb9Var)) == null) {
-            return new ImageMsg();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            if (i()) {
+                Context context = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer = new PersonalMsgContainer<>(true, context, null, 4, null);
+                personalMsgContainer.d(g(parent));
+                return personalMsgContainer;
+            } else if (j()) {
+                Context context2 = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer2 = new PersonalMsgContainer<>(false, context2, null, 4, null);
+                personalMsgContainer2.d(g(parent));
+                return personalMsgContainer2;
+            } else {
+                throw new IllegalArgumentException("unknown template: " + c());
+            }
         }
-        return (ImageMsg) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pd9
-    /* renamed from: i */
-    public mb9 g(ImageMsg sdkMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            mb9 mb9Var = new mb9();
-            mb9Var.e(sdkMsg.getRemoteUrl());
-            mb9Var.g(sdkMsg.getThumbUrl());
-            mb9Var.d(StringsKt__StringsKt.trim((CharSequence) sdkMsg.getMsgContent().toString()).toString());
-            return mb9Var;
-        }
-        return (mb9) invokeL.objValue;
+        return (PersonalMsgContainer) invokeL.objValue;
     }
 }

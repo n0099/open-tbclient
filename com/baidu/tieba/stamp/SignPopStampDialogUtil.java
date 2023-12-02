@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tieba.lta;
 import com.baidu.tieba.mta;
 import com.baidu.tieba.nta;
-import com.baidu.tieba.ota;
 import com.baidu.tieba.stamp.SignPopStampDialogUtil;
 import com.baidu.tieba.stamp.view.NewStyleStampDialogView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -91,16 +91,16 @@ public class SignPopStampDialogUtil {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdDimDialog a;
-        public final /* synthetic */ mta b;
+        public final /* synthetic */ lta b;
         public final /* synthetic */ Activity c;
         public final /* synthetic */ SignPopStampDialogUtil d;
 
-        public b(SignPopStampDialogUtil signPopStampDialogUtil, BdDimDialog bdDimDialog, mta mtaVar, Activity activity) {
+        public b(SignPopStampDialogUtil signPopStampDialogUtil, BdDimDialog bdDimDialog, lta ltaVar, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {signPopStampDialogUtil, bdDimDialog, mtaVar, activity};
+                Object[] objArr = {signPopStampDialogUtil, bdDimDialog, ltaVar, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -112,7 +112,7 @@ public class SignPopStampDialogUtil {
             }
             this.d = signPopStampDialogUtil;
             this.a = bdDimDialog;
-            this.b = mtaVar;
+            this.b = ltaVar;
             this.c = activity;
         }
 
@@ -121,13 +121,13 @@ public class SignPopStampDialogUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.dismiss();
-                ota otaVar = new ota();
-                mta mtaVar = this.b;
-                if (mtaVar != null) {
-                    otaVar.g(mtaVar.a());
-                    otaVar.h(this.b.b());
+                nta ntaVar = new nta();
+                lta ltaVar = this.b;
+                if (ltaVar != null) {
+                    ntaVar.g(ltaVar.a());
+                    ntaVar.h(this.b.b());
                 }
-                new nta(this.c, otaVar).a();
+                new mta(this.c, ntaVar).a();
                 this.d.statisticStampShareClick();
                 if (this.d.mClickCallBack != null) {
                     this.d.mClickCallBack.shareBtn();
@@ -204,10 +204,10 @@ public class SignPopStampDialogUtil {
         }
     }
 
-    private BdDimDialog showStampDialog(mta mtaVar) {
+    private BdDimDialog showStampDialog(lta ltaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, mtaVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, ltaVar)) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             final TbPageContext tbPageContext = null;
             if (currentActivity == null) {
@@ -217,7 +217,7 @@ public class SignPopStampDialogUtil {
                 tbPageContext = ((TbPageContextSupport) currentActivity).getPageContext();
             }
             NewStyleStampDialogView newStyleStampDialogView = new NewStyleStampDialogView(currentActivity);
-            newStyleStampDialogView.setStampData(mtaVar);
+            newStyleStampDialogView.setStampData(ltaVar);
             final BdDimDialog bdDimDialog = new BdDimDialog(currentActivity);
             bdDimDialog.setContentView(newStyleStampDialogView);
             bdDimDialog.setOnDismissListener(this.onDismissListener);
@@ -229,7 +229,7 @@ public class SignPopStampDialogUtil {
             }
             statisticStampDialogShow();
             newStyleStampDialogView.getImgStampDialogCancelView().setOnClickListener(new a(this, bdDimDialog));
-            newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lta
+            newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kta
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -241,7 +241,7 @@ public class SignPopStampDialogUtil {
                     }
                 }
             });
-            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new b(this, bdDimDialog, mtaVar, currentActivity));
+            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new b(this, bdDimDialog, ltaVar, currentActivity));
             return bdDimDialog;
         }
         return (BdDimDialog) invokeL.objValue;
@@ -264,12 +264,12 @@ public class SignPopStampDialogUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconPopData)) == null) {
             if (iconPopData != null && iconPopData.getPic160() != null && iconPopData.getTitle() != null) {
-                mta mtaVar = new mta();
+                lta ltaVar = new lta();
                 String pic160 = iconPopData.getPic160();
-                mtaVar.d(iconPopData.getTitle());
-                mtaVar.c(pic160);
+                ltaVar.d(iconPopData.getTitle());
+                ltaVar.c(pic160);
                 PollingModel.setIconPopData(iconPopData, true);
-                return showStampDialog(mtaVar);
+                return showStampDialog(ltaVar);
             }
             return null;
         }

@@ -16,7 +16,7 @@ public class TiebaMainSdDatabaseHelper extends f5 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TiebaMainSdDatabaseHelper() {
-        super(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_DATABASE_NAME, 11);
+        super(FileHelper.EXTERNAL_STORAGE_PRIVATE_DIRECTORY + "/" + TbConfig.TMP_DATABASE_NAME, 11);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

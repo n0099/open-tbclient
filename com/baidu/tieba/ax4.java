@@ -1,42 +1,22 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.common.JSONKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-import tbclient.ChatroomSignInfo;
+import tbclient.CallRobotEntrance;
+import tbclient.StyleContentInfo;
 /* loaded from: classes5.dex */
 public final class ax4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final String b;
-    public final String c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947630540, "Lcom/baidu/tieba/ax4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947630540, "Lcom/baidu/tieba/ax4;");
-                return;
-            }
-        }
-        d = new a(null);
-    }
+    public final CallRobotEntrance a;
+    public final StyleContentInfo b;
+    public final StyleContentInfo c;
+    public final boolean d;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -47,128 +27,96 @@ public final class ax4 {
             }
             if (obj instanceof ax4) {
                 ax4 ax4Var = (ax4) obj;
-                return this.a == ax4Var.a && Intrinsics.areEqual(this.b, ax4Var.b) && Intrinsics.areEqual(this.c, ax4Var.c);
+                return Intrinsics.areEqual(this.a, ax4Var.a) && Intrinsics.areEqual(this.b, ax4Var.b) && Intrinsics.areEqual(this.c, ax4Var.c) && this.d == ax4Var.d;
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((c.a(this.a) * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            CallRobotEntrance callRobotEntrance = this.a;
+            int hashCode = (((((callRobotEntrance == null ? 0 : callRobotEntrance.hashCode()) * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
+            boolean z = this.d;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return hashCode + i;
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "ChatRoomGuideData(chatRoomId=" + this.a + ", jumpSchema=" + this.b + ", guideText=" + this.c + ')';
+            return "CallRobotEntranceData(robotEntrance=" + this.a + ", robotDayContentInfo=" + this.b + ", robotDarkContentInfo=" + this.c + ", isDefault=" + this.d + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final ax4 a(ChatroomSignInfo chatroomSignInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatroomSignInfo)) == null) {
-                Intrinsics.checkNotNullParameter(chatroomSignInfo, "chatroomSignInfo");
-                Long l = chatroomSignInfo.chatroom_id;
-                Intrinsics.checkNotNullExpressionValue(l, "chatroomSignInfo.chatroom_id");
-                long longValue = l.longValue();
-                String str = chatroomSignInfo.jump_scheme;
-                Intrinsics.checkNotNullExpressionValue(str, "chatroomSignInfo.jump_scheme");
-                String str2 = chatroomSignInfo.guide_text;
-                Intrinsics.checkNotNullExpressionValue(str2, "chatroomSignInfo.guide_text");
-                return new ax4(longValue, str, str2);
-            }
-            return (ax4) invokeL.objValue;
-        }
-    }
-
-    public ax4(long j, String jumpSchema, String guideText) {
+    public ax4(CallRobotEntrance callRobotEntrance, StyleContentInfo robotDayContentInfo, StyleContentInfo robotDarkContentInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), jumpSchema, guideText};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {callRobotEntrance, robotDayContentInfo, robotDarkContentInfo, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(jumpSchema, "jumpSchema");
-        Intrinsics.checkNotNullParameter(guideText, "guideText");
-        this.a = j;
-        this.b = jumpSchema;
-        this.c = guideText;
+        Intrinsics.checkNotNullParameter(robotDayContentInfo, "robotDayContentInfo");
+        Intrinsics.checkNotNullParameter(robotDarkContentInfo, "robotDarkContentInfo");
+        this.a = callRobotEntrance;
+        this.b = robotDayContentInfo;
+        this.c = robotDarkContentInfo;
+        this.d = z;
     }
 
-    public final long a() {
+    public final StyleContentInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return invokeV.longValue;
+        return (StyleContentInfo) invokeV.objValue;
     }
 
-    public final String b() {
+    public final StyleContentInfo b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (StyleContentInfo) invokeV.objValue;
     }
 
-    public final String c() {
+    public final CallRobotEntrance c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (CallRobotEntrance) invokeV.objValue;
     }
 
-    public final JSONObject d() {
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONKt.c(jSONObject, "chatroom_id", Long.valueOf(this.a));
-            JSONKt.c(jSONObject, "jump_scheme", this.b);
-            JSONKt.c(jSONObject, "guide_text", this.c);
-            return jSONObject;
+            return this.d;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

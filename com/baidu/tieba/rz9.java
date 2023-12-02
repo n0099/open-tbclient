@@ -1,162 +1,45 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tieba.pb.pb.main.PbBjhRecommendViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class rz9 extends vz9<uw4, PbBjhRecommendViewHolder> {
+public class rz9 extends qz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vv9 g;
-    public int h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rz9(d6a d6aVar, BdUniqueId bdUniqueId) {
-        super(d6aVar, bdUniqueId);
+    public rz9(py5 py5Var) {
+        super(py5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d6aVar, bdUniqueId};
+            Object[] objArr = {py5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((d6a) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((py5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    public void A(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void B(vv9 vv9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vv9Var) == null) {
-            this.g = vv9Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: y */
-    public PbBjhRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0183, (ViewGroup) null), this.a.u0());
-            x(pbBjhRecommendViewHolder);
-            return pbBjhRecommendViewHolder;
-        }
-        return (PbBjhRecommendViewHolder) invokeL.objValue;
-    }
-
-    public final void x(PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, pbBjhRecommendViewHolder) != null) || pbBjhRecommendViewHolder == null) {
-            return;
-        }
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (pbBjhRecommendViewHolder.a != skinType) {
-            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.h, R.color.CAM_X0204, skinType);
-            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.v, R.color.CAM_X0203, skinType);
-            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.q, R.color.CAM_X0204, skinType);
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.s, R.color.CAM_X0302, 1, skinType);
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.l, R.color.CAM_X0105, 1, skinType);
-            pbBjhRecommendViewHolder.n.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.o, R.color.CAM_X0101, 1, skinType);
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.t, R.color.CAM_X0109, 1, skinType);
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.u, R.color.CAM_X0109, 1, skinType);
-            SkinManager.setBackgroundSelector(pbBjhRecommendViewHolder.g, R.color.CAM_X0302, R.color.CAM_X0204, skinType);
-            EMManager.from(pbBjhRecommendViewHolder.g).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0204);
-            TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha0, R.color.CAM_X0105).cornerRadius(BdUtilHelper.getDimens(this.a.u0(), R.dimen.tbds10)).into(pbBjhRecommendViewHolder.k);
-        }
-        pbBjhRecommendViewHolder.a = skinType;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vz9, com.baidu.tieba.ci
-    /* renamed from: z */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, uw4 uw4Var, PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uw4Var, pbBjhRecommendViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) uw4Var, (uw4) pbBjhRecommendViewHolder);
-            if (uw4Var == null) {
-                return null;
-            }
-            x(pbBjhRecommendViewHolder);
-            pbBjhRecommendViewHolder.f(uw4Var);
-            pbBjhRecommendViewHolder.g(this.h);
-            vv9 vv9Var = this.g;
-            if (vv9Var != null) {
-                pbBjhRecommendViewHolder.k(vv9Var.T());
-                pbBjhRecommendViewHolder.i(this.g.y0());
-                if (this.g.R() != null && this.g.R().getBaijiahaoData() != null) {
-                    pbBjhRecommendViewHolder.h(this.g.R().getBaijiahaoData().oriUgcNid);
-                }
-                int i2 = this.h;
-                int i3 = 3;
-                if (i2 == 2) {
-                    i3 = 1;
-                } else if (i2 == 1) {
-                    i3 = 2;
-                } else if (i2 != 3) {
-                    i3 = 4;
-                }
-                if (uw4Var.threadType == 40) {
-                    StatisticItem.make("c13536").param("tid", uw4Var.getTid()).param("fid", uw4Var.getFid()).param("obj_source", i3).param("obj_locate", uw4Var.c()).param("obj_id", this.g.T()).param("obj_type", uw4Var.isBjhDynamicThread() ? 1 : 0).eventStat();
-                } else {
-                    StatisticItem.make("c13533").param("tid", uw4Var.getTid()).param("fid", uw4Var.getFid()).param("obj_source", i3).param("obj_locate", uw4Var.c()).param("obj_id", this.g.T()).eventStat();
-                }
-                if (this.g.y0()) {
-                    StatisticItem statisticItem = new StatisticItem("c13588");
-                    if (uw4Var.getForumData() != null) {
-                        statisticItem.param("fid", uw4Var.getForumData().b());
-                    }
-                    statisticItem.param("tid", uw4Var.getTid());
-                    statisticItem.param("obj_param1", uw4Var.mRecomWeight);
-                    statisticItem.param("obj_source", uw4Var.mRecomSource);
-                    statisticItem.param("obj_locate", uw4Var.c());
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
-                    statisticItem.param("obj_id", this.g.T());
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    if (uw4Var.getThreadData().getBaijiahaoData() != null) {
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, uw4Var.getThreadData().getBaijiahaoData().oriUgcNid);
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, uw4Var.getThreadData().getBaijiahaoData().oriUgcVid);
-                    }
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, uw4Var.getVideoRecStaticticType());
-                    statisticItem.param("ab_tag", uw4Var.mRecomAbTag);
-                    statisticItem.param("extra", uw4Var.mRecomExtra);
-                    TiebaStatic.log(statisticItem);
-                }
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
+        p(TbConfig.getContentLineSpace(), 1.0f);
+        j(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        A(0);
+        m(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
+        n(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
+        t(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44));
+        g(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
+        u(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32));
+        w(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds38));
+        k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
+        i(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
     }
 }

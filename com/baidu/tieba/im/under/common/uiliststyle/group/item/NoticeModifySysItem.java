@@ -116,7 +116,7 @@ public final class NoticeModifySysItem extends BaseItem<TbNoticeModifySysMsg> {
                 Intrinsics.checkNotNullParameter(op, "op");
                 Intrinsics.checkNotNullParameter(source, "source");
                 if (source.g() && baseItem != null && baseItem.getTbMsg() != null) {
-                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.yy8
+                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.cz8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 

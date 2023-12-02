@@ -107,7 +107,7 @@ public class ci0 {
             clogBuilder.z(str);
             clogBuilder.p(str2);
             clogBuilder.j(str3);
-            bz0.e(clogBuilder);
+            dz0.e(clogBuilder);
         }
     }
 
@@ -126,17 +126,17 @@ public class ci0 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, hashMap, bVar)) == null) {
             String str4 = "";
             try {
-                str = (String) ny0.b(hashMap, "pkgName");
-                str2 = (String) ny0.b(hashMap, "channelId");
-                str3 = (String) ny0.b(hashMap, "extraParams");
+                str = (String) py0.b(hashMap, "pkgName");
+                str2 = (String) py0.b(hashMap, "channelId");
+                str3 = (String) py0.b(hashMap, "extraParams");
             } catch (Exception unused) {
             }
             try {
-                String str5 = (String) ny0.b(hashMap, "scheduledTime");
-                String str6 = (String) ny0.b(hashMap, "requestUrl");
-                String str7 = (String) ny0.b(hashMap, "business");
-                String str8 = (String) ny0.b(hashMap, "source");
-                String str9 = (String) ny0.b(hashMap, "convertUrl");
+                String str5 = (String) py0.b(hashMap, "scheduledTime");
+                String str6 = (String) py0.b(hashMap, "requestUrl");
+                String str7 = (String) py0.b(hashMap, "business");
+                String str8 = (String) py0.b(hashMap, "source");
+                String str9 = (String) py0.b(hashMap, "convertUrl");
                 if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str6) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
                     di0 di0Var = new di0(str, str2, Long.valueOf(Long.parseLong(str5)), str3, str6);
                     if (!TextUtils.isEmpty(str7)) {
@@ -181,13 +181,13 @@ public class ci0 {
         }
         long currentTimeMillis = System.currentTimeMillis();
         String replace = str.replace("__PVID__", a(currentTimeMillis)).replace("__MICRO_TIME__", String.valueOf(currentTimeMillis)).replace("__TIME_STAMP__", String.valueOf(currentTimeMillis / 1000));
-        ip0 ip0Var = new ip0();
-        ip0Var.l(replace);
-        ip0Var.a("Content-Type", "application/json");
-        ip0Var.a("Origin", "feedScheduledDownload");
-        ip0Var.j(10000);
-        ip0Var.g(10000);
-        ip0Var.c();
-        po0.b().a().a(ip0Var, null);
+        kp0 kp0Var = new kp0();
+        kp0Var.l(replace);
+        kp0Var.a("Content-Type", "application/json");
+        kp0Var.a("Origin", "feedScheduledDownload");
+        kp0Var.j(10000);
+        kp0Var.g(10000);
+        kp0Var.c();
+        ro0.b().a().a(kp0Var, null);
     }
 }

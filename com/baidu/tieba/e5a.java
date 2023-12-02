@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.pb.report.UEGReportRequestMessage;
-import com.baidu.tieba.pb.pb.report.UEGReportResponsedMessage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes5.dex */
-public class e5a {
+public final class e5a extends cga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
+
+    @Override // com.baidu.tieba.cga
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "collect" : (String) invokeV.objValue;
+    }
 
     public e5a() {
         Interceptable interceptable = $ic;
@@ -28,38 +31,83 @@ public class e5a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UEG_REPORT, TbConfig.SERVER_ADDRESS + TbConfig.URL_UEG_REPORT);
-        tbHttpMessageTask.setResponsedClass(UEGReportResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void a(String str) {
+    @Override // com.baidu.tieba.cga
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            UEGReportRequestMessage uEGReportRequestMessage = new UEGReportRequestMessage();
-            uEGReportRequestMessage.setTag(this.a);
-            uEGReportRequestMessage.setPid(str);
-            MessageManager.getInstance().sendMessage(uEGReportRequestMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ia5.e().d();
         }
+        return invokeV.booleanValue;
     }
 
-    public void b(String str) {
+    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideThreadAbstract() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            UEGReportRequestMessage uEGReportRequestMessage = new UEGReportRequestMessage();
-            uEGReportRequestMessage.setTag(this.a);
-            uEGReportRequestMessage.setTUid(str);
-            MessageManager.getInstance().sendMessage(uEGReportRequestMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ThreadData)) {
+                d = null;
+            }
+            ThreadData threadData = (ThreadData) d;
+            if (threadData != null) {
+                str = threadData.getAbstract();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void c(BdUniqueId bdUniqueId) {
+    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideThreadId() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ThreadData)) {
+                d = null;
+            }
+            ThreadData threadData = (ThreadData) d;
+            if (threadData != null) {
+                str = threadData.getTid();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideThreadTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ThreadData)) {
+                d = null;
+            }
+            ThreadData threadData = (ThreadData) d;
+            if (threadData != null) {
+                str = threadData.getTitle();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,359 +1,192 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.adapter.CardAppLegoViewHolder;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public class vha extends ci<sm6, CardAppLegoViewHolder> implements hha, mha {
+public class vha implements sha {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<sha> a;
+    public static final sha b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
-    public boolean c;
-    public AdvertAppInfo.ILegoAdvert d;
-    public String e;
-    public Runnable f;
-    public CustomMessageListener g;
 
-    @Override // com.baidu.tieba.hha
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.hha
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements mf9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdvertAppInfo a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ String c;
-
-        public a(vha vhaVar, AdvertAppInfo advertAppInfo, int i, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948242170, "Lcom/baidu/tieba/vha;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vhaVar, advertAppInfo, Integer.valueOf(i), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = advertAppInfo;
-            this.b = i;
-            this.c = str;
-        }
-
-        @Override // com.baidu.tieba.mf9
-        public void a(int i, HashMap hashMap) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, hashMap) != null) || i == 0) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948242170, "Lcom/baidu/tieba/vha;");
                 return;
             }
-            if (sha.h(i)) {
-                gja.g(this.a, this.b, hashMap, i);
-            } else {
-                gja.n(this.a, this.b, this.c, null, hashMap);
-            }
-            uf9.c(this.a);
         }
+        a = new AtomicReference<>(null);
+        b = new vha();
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vha a;
-
-        public b(vha vhaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vhaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vhaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((CardAppLegoViewHolder) this.a.viewholder).a((int) TimeUnit.SECONDS.toSeconds(1L));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vha a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(vha vhaVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vhaVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vhaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.viewholder == null) {
-                return;
-            }
-            if (!(customResponsedMessage.getData() instanceof Boolean)) {
-                ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
-            } else if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
-            } else {
-                int c = ((CardAppLegoViewHolder) this.a.viewholder).c();
-                if (((CardAppLegoViewHolder) this.a.viewholder).b()) {
-                    if (c == -1) {
-                        SafeHandler.getInst().removeCallbacks(this.a.f);
-                        SafeHandler.getInst().postDelayed(this.a.f, 500L);
-                    }
-                } else if (c != -1) {
-                    ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vha(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public vha() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 3;
-        this.c = false;
-        this.d = null;
-        this.e = null;
-        this.f = new b(this);
-        this.g = new c(this, 2921517);
-        this.a = tbPageContext;
-        this.e = str;
-        if ((tbPageContext.getPageActivity() instanceof BaseFragmentActivity) && TextUtils.equals(str, "CONCERN")) {
-            if (bdUniqueId == AdvertAppInfo.E || bdUniqueId == AdvertAppInfo.G) {
-                MessageManager.getInstance().registerListener(this.g);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.mha
-    public void setIsFromCDN(boolean z) {
+    public static sha m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            sha shaVar = a.get();
+            if (shaVar == null) {
+                return b;
+            }
+            return shaVar;
         }
+        return (sha) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: C */
-    public View getView(int i, View view2, ViewGroup viewGroup, sm6 sm6Var) {
-        InterceptResult invokeCommon;
-        AdvertAppInfo advertAppInfo;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+    @Override // com.baidu.tieba.sha
+    public nha b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sm6Var})) == null) {
-            if (sm6Var != null && (advertAppInfo = sm6Var.a) != null && (iLegoAdvert = advertAppInfo.h) != null) {
-                this.d = iLegoAdvert;
-                if (D(view2)) {
-                    CardAppLegoViewHolder onCreateViewHolder = onCreateViewHolder(viewGroup);
-                    this.viewholder = onCreateViewHolder;
-                    if (onCreateViewHolder != null) {
-                        view2 = onCreateViewHolder.getView();
-                    }
-                }
-                View view3 = view2;
-                if (view3 != null) {
-                    view3 = onFillViewHolder(i, view3, viewGroup, sm6Var, (CardAppLegoViewHolder) view3.getTag());
-                    if (kha.class.isAssignableFrom(view3.getClass())) {
-                        ((CardAppLegoViewHolder) this.viewholder).d(((kha) view3).getVideoOrVrView());
-                    }
-                }
-                return view3;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BdLog.e("recapp plugin install failed!");
             return null;
         }
-        return (View) invokeCommon.objValue;
+        return (nha) invokeV.objValue;
     }
 
-    public final boolean D(View view2) {
-        InterceptResult invokeL;
-        V v;
+    @Override // com.baidu.tieba.sha
+    public iha d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == 0 || this.d == null || !((CardAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((CardAppLegoViewHolder) this.viewholder).getClass()) || !(view2.getTag(R.id.tag_first) instanceof AdvertAppInfo.ILegoAdvert)) {
-                return true;
-            }
-            return !this.d.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.tag_first));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
         }
-        return invokeL.booleanValue;
+        return (iha) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: E */
-    public CardAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        View view2;
+    @Override // com.baidu.tieba.sha
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            if (this.d == null || (view2 = (View) nf9.h().a(this.a, this.d, 2)) == null) {
-                return null;
-            }
-            view2.setTag(R.id.tag_first, this.d);
-            return new CardAppLegoViewHolder((hg9) view2);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            BdLog.e("recapp plugin install failed!");
         }
-        return (CardAppLegoViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: F */
-    public CardAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup, sm6 sm6Var) {
+    @Override // com.baidu.tieba.sha
+    public List<AdvertAppInfo> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sha
+    public pha j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (pha) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sha
+    public ci<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         InterceptResult invokeLL;
-        AdvertAppInfo advertAppInfo;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, sm6Var)) == null) {
-            if (sm6Var != null && (advertAppInfo = sm6Var.a) != null && (iLegoAdvert = advertAppInfo.h) != null) {
-                this.d = iLegoAdvert;
-                return onCreateViewHolder(viewGroup);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            BdLog.e("recapp plugin install failed!");
             return null;
         }
-        return (CardAppLegoViewHolder) invokeLL.objValue;
+        return (ci) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: G */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sm6 sm6Var, CardAppLegoViewHolder cardAppLegoViewHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
+    @Override // com.baidu.tieba.sha
+    public ci<?, ?> e(rha rhaVar, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sm6Var, cardAppLegoViewHolder})) == null) {
-            TbPageContext<?> tbPageContext = this.a;
-            if (tbPageContext != null && sm6Var != null && sm6Var.a != null) {
-                if (tbPageContext.getPageActivity() instanceof le0) {
-                    AdvertAppInfo advertAppInfo = sm6Var.a;
-                    advertAppInfo.s = ne0.b(advertAppInfo.s, (le0) this.a.getPageActivity(), cardAppLegoViewHolder.itemView);
-                }
-                AdvertAppInfo.ILegoAdvert iLegoAdvert = sm6Var.a.h;
-                this.d = iLegoAdvert;
-                if (iLegoAdvert != null && view2 != null) {
-                    if (this.viewholder == 0) {
-                        this.viewholder = cardAppLegoViewHolder;
-                    }
-                    hw4.e(sm6Var);
-                    BDLayoutMode layoutMode = this.a.getLayoutMode();
-                    if (this.b == 4) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    layoutMode.setNightMode(z);
-                    this.a.getLayoutMode().onModeChanged(view2);
-                    AdvertAppInfo c2 = sm6Var.c();
-                    c2.v = 1;
-                    hg9 hg9Var = (hg9) view2;
-                    this.d.setAdvertAppInfo(c2);
-                    hg9Var.setFromCDN(this.c);
-                    hg9Var.h(this.d);
-                    int i2 = sm6Var.c;
-                    String str = sm6Var.b;
-                    zia.e(sm6Var.c(), hg9Var, str, this.e, 1, -1);
-                    hg9Var.setAfterClickSchemeListener(new a(this, c2, i2, str));
-                    if (kha.class.isAssignableFrom(view2.getClass())) {
-                        cardAppLegoViewHolder.d(((kha) view2).getVideoOrVrView());
-                    }
-                    return view2;
-                }
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, rhaVar, bdUniqueId)) == null) {
+            BdLog.e("recapp plugin install failed!");
             return null;
         }
-        return (View) invokeCommon.objValue;
+        return (ci) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.hha
-    public void onDestroy() {
+    @Override // com.baidu.tieba.sha
+    public IAdBaseAsyncController i(IAdBaseAsyncController.Type type, IAdBaseAsyncController.a aVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.g);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, type, aVar)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (IAdBaseAsyncController) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sha
+    public void l(HashMap<String, String> hashMap, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, hashMap, context) == null) {
+            BdLog.e("recapp plugin install failed!");
+        }
+    }
+
+    @Override // com.baidu.tieba.sha
+    public void c(AdvertAppInfo advertAppInfo, lg9<?> lg9Var, String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{advertAppInfo, lg9Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            BdLog.e("recapp plugin install failed!");
+        }
+    }
+
+    @Override // com.baidu.tieba.sha
+    public ci<?, ?> h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, tbPageContext, bdUniqueId, str)) == null) {
+            BdLog.e("recapp plugin install failed!");
+            return null;
+        }
+        return (ci) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sha
+    public void k(AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, advertAppInfo) == null) {
+            BdLog.e("recapp plugin install failed!");
         }
     }
 }

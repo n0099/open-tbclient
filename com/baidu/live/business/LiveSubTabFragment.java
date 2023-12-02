@@ -278,7 +278,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             if (i == 904) {
                 LiveSubTabFragment.this.Q4();
                 View findViewByPosition = LiveSubTabFragment.this.u.getLayoutManager().findViewByPosition(LiveSubTabFragment.this.Y);
-                if (findViewByPosition != null && (liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f09163f)) != null) {
+                if (findViewByPosition != null && (liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091640)) != null) {
                     LiveSubTabFragment.this.a0.attachToContainer(liveFeedPageRoundRect);
                 }
             }
@@ -336,7 +336,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             if (i == 904) {
                 LiveSubTabFragment.this.S4();
                 View findViewByPosition = LiveSubTabFragment.this.u.getLayoutManager().findViewByPosition(LiveSubTabFragment.this.Z);
-                if (findViewByPosition != null && (liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f09163f)) != null) {
+                if (findViewByPosition != null && (liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091640)) != null) {
                     LiveSubTabFragment.this.b0.attachToContainer(liveFeedPageRoundRect);
                 }
             }
@@ -955,11 +955,11 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     }
 
     public final void t4() {
-        BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.t.findViewById(R.id.obfuscated_res_0x7f0923de);
+        BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.t.findViewById(R.id.obfuscated_res_0x7f0923e0);
         this.x = bdSwipeRefreshLayout;
         bdSwipeRefreshLayout.setScene(this.e);
         this.x.setOnRefreshListener(this.V);
-        RecyclerView recyclerView = (RecyclerView) this.t.findViewById(R.id.obfuscated_res_0x7f0923dd);
+        RecyclerView recyclerView = (RecyclerView) this.t.findViewById(R.id.obfuscated_res_0x7f0923df);
         this.u = recyclerView;
         recyclerView.setLayoutManager(new FixedStaggeredGridLayoutManager(2, 1));
         this.u.setItemAnimator(null);
@@ -975,17 +975,17 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         e60Var.v(this.e);
         this.x.setProgressView(this.w);
         this.w.u(this.e);
-        LoadingView loadingView = (LoadingView) this.t.findViewById(R.id.obfuscated_res_0x7f0923dc);
+        LoadingView loadingView = (LoadingView) this.t.findViewById(R.id.obfuscated_res_0x7f0923de);
         this.y = loadingView;
         loadingView.c(this.e);
-        ErrorView errorView = (ErrorView) this.t.findViewById(R.id.obfuscated_res_0x7f0923db);
+        ErrorView errorView = (ErrorView) this.t.findViewById(R.id.obfuscated_res_0x7f0923dd);
         this.z = errorView;
         errorView.c(this.e);
-        EmptyView emptyView = (EmptyView) this.t.findViewById(R.id.obfuscated_res_0x7f0923da);
+        EmptyView emptyView = (EmptyView) this.t.findViewById(R.id.obfuscated_res_0x7f0923dc);
         this.A = emptyView;
         emptyView.a(this.e);
         this.z.setActionCallback(new i());
-        this.v = this.t.findViewById(R.id.obfuscated_res_0x7f09164e);
+        this.v = this.t.findViewById(R.id.obfuscated_res_0x7f09164f);
         if (LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
             int b3 = g60.b(getContext(), 9.0f);
             this.u.setPadding(b3, 0, b3, 0);
@@ -1214,7 +1214,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         View findViewByPosition;
         RecyclerView recyclerView = this.u;
         if (recyclerView != null && recyclerView.getLayoutManager() != null && (findViewByPosition = this.u.getLayoutManager().findViewByPosition(this.Y)) != null && this.Y < this.C.size()) {
-            LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f09163f);
+            LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091640);
             LiveRoomEntity liveRoomEntity = (LiveRoomEntity) i80.b(this.C, this.Y);
             if (this.a0 == null) {
                 j70 a2 = k70.a(String.valueOf(this.J));
@@ -1259,7 +1259,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         View findViewByPosition;
         RecyclerView recyclerView = this.u;
         if (recyclerView != null && recyclerView.getLayoutManager() != null && (findViewByPosition = this.u.getLayoutManager().findViewByPosition(this.Z)) != null && this.Z < this.C.size()) {
-            LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f09163f);
+            LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091640);
             LiveRoomEntity liveRoomEntity = (LiveRoomEntity) i80.b(this.C, this.Z);
             if (this.b0 == null) {
                 j70 a2 = k70.a(String.valueOf(this.J));

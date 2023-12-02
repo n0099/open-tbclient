@@ -1,247 +1,76 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import android.webkit.WebView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.browser.proxy.OfflineBridgeData;
-import com.baidu.tbadk.browser.proxy.OfflineWebViewHttpReqMsg;
-import com.baidu.tbadk.browser.proxy.OfflineWebViewHttpResMsg;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class bu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BdUniqueId a;
-    public Map<String, Boolean> b;
-    public Map<String, String> c;
-    public Map<String, String> d;
-    public HttpMessageListener e;
+    public LinearLayout A;
+    public ImageView B;
+    public TextView C;
+    public LinearLayout D;
+    public ImageView E;
+    public TextView F;
+    public View G;
+    public View H;
+    public View I;
+    public final View a;
+    public final ThreadAchievementShareInfo.ParamBean b;
+    public final Context c;
+    public List<ThreadAchievementShareInfo.ThreadListBean> d;
+    public TextView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public View n;
+    public View o;
+    public View p;
+    public TextView q;
+    public TbImageView r;
+    public TbImageView s;
+    public TbImageView t;
+    public View u;
+    public View v;
+    public View w;
+    public LinearLayout x;
+    public ImageView y;
+    public TextView z;
 
-    /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bu4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(bu4 bu4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bu4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bu4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: boolean */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Removed duplicated region for block: B:27:0x009b  */
-        /* JADX WARN: Removed duplicated region for block: B:39:0x018b  */
-        /* JADX WARN: Removed duplicated region for block: B:40:0x018e  */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            String str;
-            String str2;
-            WebView webView;
-            String str3;
-            int i;
-            boolean z;
-            int i2;
-            String str4;
-            String str5;
-            String p;
-            StringBuilder sb;
-            String str6;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof OfflineWebViewHttpResMsg)) {
-                return;
-            }
-            OfflineWebViewHttpResMsg offlineWebViewHttpResMsg = (OfflineWebViewHttpResMsg) httpResponsedMessage;
-            int i3 = 0;
-            String str7 = null;
-            if (!(offlineWebViewHttpResMsg.getOrginalMessage() instanceof OfflineWebViewHttpReqMsg)) {
-                str = "";
-                str2 = null;
-                webView = null;
-                str3 = null;
-                i = 0;
-            } else {
-                OfflineWebViewHttpReqMsg offlineWebViewHttpReqMsg = (OfflineWebViewHttpReqMsg) offlineWebViewHttpResMsg.getOrginalMessage();
-                boolean z2 = offlineWebViewHttpReqMsg.isFromRequestByNative;
-                webView = offlineWebViewHttpReqMsg.webView;
-                if (StringUtils.isNull(offlineWebViewHttpReqMsg.url)) {
-                    str = "";
-                    str2 = null;
-                    str3 = null;
-                    i = z2;
-                } else {
-                    String str8 = offlineWebViewHttpReqMsg.url;
-                    str = offlineWebViewHttpReqMsg.module;
-                    str3 = offlineWebViewHttpReqMsg.urlSign;
-                    String str9 = offlineWebViewHttpReqMsg.jsCallbackMethod;
-                    if (TextUtils.isEmpty(str9) && z2 == 0) {
-                        str9 = (String) this.a.c.remove(str3);
-                        i3 = 1;
-                    }
-                    z = ((Boolean) this.a.b.remove(str3)).booleanValue();
-                    str7 = str9;
-                    str2 = str8;
-                    i2 = z2;
-                    if (!offlineWebViewHttpResMsg.isSuccess() && !TextUtils.isEmpty(offlineWebViewHttpResMsg.getResult())) {
-                        str5 = offlineWebViewHttpResMsg.getResult();
-                        str4 = BasicPushStatus.SUCCESS_CODE;
-                    } else {
-                        str4 = offlineWebViewHttpResMsg.getError() + "";
-                        str5 = "\"\"";
-                    }
-                    p = pga.n().p(str);
-                    if (p == null) {
-                        p = "0.0.0.0";
-                    }
-                    sb = new StringBuilder();
-                    sb.append("{");
-                    sb.append("\"status\":");
-                    sb.append("\"");
-                    sb.append(str4);
-                    sb.append("\"");
-                    sb.append(",");
-                    sb.append("\"data\":");
-                    sb.append(str5);
-                    sb.append(",");
-                    sb.append("\"cache_version\":");
-                    sb.append("\"");
-                    sb.append(p);
-                    sb.append("\"");
-                    sb.append(",");
-                    sb.append("\"cache\":");
-                    sb.append("\"");
-                    sb.append(i3);
-                    sb.append("\"");
-                    sb.append(",");
-                    sb.append("\"fromPreRequest\":");
-                    sb.append("\"");
-                    sb.append(i2 ^ 1);
-                    sb.append("\"");
-                    sb.append("}");
-                    zj6.a("OfflineWebHttpProxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
-                    if (i2 != 0 && !z) {
-                        if (StringUtils.isNull(str7)) {
-                            zj6.a("OfflineWebHttpProxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），缓存请求结果：url=" + str2);
-                            this.a.d.put(str3, sb.toString());
-                            return;
-                        }
-                        zj6.a("OfflineWebHttpProxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），开始回调js函数(" + str7 + ")：url=" + str2);
-                        this.a.l(webView, str7, sb.toString());
-                        return;
-                    }
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("请求完成：");
-                    if (i2 == 0) {
-                        str6 = "端能力";
-                    } else {
-                        str6 = "预请求";
-                    }
-                    sb2.append(str6);
-                    sb2.append("-收到网络请求结果（");
-                    sb2.append(httpResponsedMessage.getStatusCode());
-                    sb2.append("），开始回调端能力：url=");
-                    sb2.append(str2);
-                    zj6.a("OfflineWebHttpProxy", sb2.toString());
-                    this.a.i(webView, str2, sb.toString());
-                }
-            }
-            z = false;
-            i2 = i;
-            if (!offlineWebViewHttpResMsg.isSuccess()) {
-            }
-            str4 = offlineWebViewHttpResMsg.getError() + "";
-            str5 = "\"\"";
-            p = pga.n().p(str);
-            if (p == null) {
-            }
-            sb = new StringBuilder();
-            sb.append("{");
-            sb.append("\"status\":");
-            sb.append("\"");
-            sb.append(str4);
-            sb.append("\"");
-            sb.append(",");
-            sb.append("\"data\":");
-            sb.append(str5);
-            sb.append(",");
-            sb.append("\"cache_version\":");
-            sb.append("\"");
-            sb.append(p);
-            sb.append("\"");
-            sb.append(",");
-            sb.append("\"cache\":");
-            sb.append("\"");
-            sb.append(i3);
-            sb.append("\"");
-            sb.append(",");
-            sb.append("\"fromPreRequest\":");
-            sb.append("\"");
-            sb.append(i2 ^ 1);
-            sb.append("\"");
-            sb.append("}");
-            zj6.a("OfflineWebHttpProxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
-            if (i2 != 0) {
-            }
-            StringBuilder sb22 = new StringBuilder();
-            sb22.append("请求完成：");
-            if (i2 == 0) {
-            }
-            sb22.append(str6);
-            sb22.append("-收到网络请求结果（");
-            sb22.append(httpResponsedMessage.getStatusCode());
-            sb22.append("），开始回调端能力：url=");
-            sb22.append(str2);
-            zj6.a("OfflineWebHttpProxy", sb22.toString());
-            this.a.i(webView, str2, sb.toString());
-        }
-    }
-
-    public bu4() {
+    public bu4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, threadAchievementShareInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -251,185 +80,211 @@ public class bu4 {
                 return;
             }
         }
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = new HashMap();
-        this.e = new a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
-        BdUniqueId gen = BdUniqueId.gen();
-        this.a = gen;
-        this.e.setTag(gen);
-        this.e.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.e);
+        this.c = context;
+        this.a = LayoutInflater.from(context).inflate(R.layout.hot_thread_rank_list, (ViewGroup) null);
+        ThreadAchievementShareInfo.ParamBean params = threadAchievementShareInfo.getParams();
+        this.b = params;
+        if (params != null) {
+            this.d = params.getThread_list();
+        }
+        c();
+        b();
     }
 
-    public final void f(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z) {
-        String str2;
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z)}) == null) && offlineBridgeData != null && !StringUtils.isNull(offlineBridgeData.url) && !StringUtils.isNull(offlineBridgeData.type)) {
-            String g = g(offlineBridgeData.url);
-            String remove = this.d.remove(g);
-            if (!TextUtils.isEmpty(remove) && str != null) {
-                zj6.a("OfflineWebHttpProxy", "请求完成：命中预请求缓存-执行js回调，url=" + offlineBridgeData.url);
-                l(webView, str, remove);
-            } else if (!TextUtils.isEmpty(remove) && z) {
-                zj6.a("OfflineWebHttpProxy", "请求完成：命中预请求缓存-执行端能力回调，url=" + offlineBridgeData.url);
-                i(webView, offlineBridgeData.url, remove);
-            } else if (this.b.containsKey(g)) {
-                if (!TextUtils.isEmpty(str)) {
-                    zj6.a("OfflineWebHttpProxy", "加入等待队列：重复的请求-js回调函数-等待网络结果完成后回调，url=" + offlineBridgeData.url);
-                    this.c.put(g, str);
-                } else if (z) {
-                    zj6.a("OfflineWebHttpProxy", "加入等待队列：重复的请求-端能力-等待网络结果完成后回调，url=" + offlineBridgeData.url);
-                    this.b.put(g, Boolean.TRUE);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final void b() {
+        List<ThreadAchievementShareInfo.ThreadListBean> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != null && (list = this.d) != null && list.size() >= 2) {
+            int rank = this.b.getRank();
+            if (rank == 0) {
+                ThreadAchievementShareInfo.ThreadListBean threadListBean = this.d.get(rank);
+                threadListBean.setDuration(500);
+                int i = rank + 1;
+                e(i, threadListBean);
+                f(rank + 2, this.d.get(i));
+                this.u.setVisibility(8);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.w.getLayoutParams();
+                layoutParams.topMargin = 0;
+                layoutParams.bottomMargin = BdUtilHelper.getDimens(this.c, R.dimen.tbds8);
+            } else if (rank == 1) {
+                d(rank, this.d.get(rank - 1));
+                f(rank + 1, this.d.get(rank));
+                this.v.setVisibility(4);
+                ((RelativeLayout.LayoutParams) this.u.getLayoutParams()).topMargin = BdUtilHelper.getDimens(this.c, R.dimen.tbds5);
+                SkinManager.setBackgroundColor(this.k, R.color.CAM_X0310);
+                SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0310);
+                SkinManager.setBackgroundColor(this.p, R.color.cp_other_b_alpha20);
             } else {
-                StringBuilder sb = new StringBuilder();
-                if (z) {
-                    str2 = "端能力";
-                } else {
-                    str2 = "预请求";
-                }
-                sb.append(str2);
-                sb.append("-正在发起网络请求：");
-                sb.append(offlineBridgeData.url);
-                zj6.a("OfflineWebHttpProxy", sb.toString());
-                this.b.put(g, Boolean.valueOf(z));
-                m(webView, offlineBridgeData, str, z, g);
+                int i2 = rank - 1;
+                e(i2, this.d.get(rank - 2));
+                d(rank, this.d.get(i2));
+                ((RelativeLayout.LayoutParams) this.u.getLayoutParams()).topMargin = BdUtilHelper.getDimens(this.c, R.dimen.tbds230);
+                this.w.setVisibility(4);
             }
         }
     }
 
-    public final String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            try {
-                Uri parse = Uri.parse(str);
-                String str2 = parse.getScheme() + "://" + parse.getAuthority() + parse.getPath();
-                TreeSet<String> treeSet = new TreeSet(parse.getQueryParameterNames());
-                StringBuilder sb = new StringBuilder();
-                boolean z = true;
-                for (String str3 : treeSet) {
-                    if (z) {
-                        z = false;
-                        sb.append("?");
-                        sb.append(str3);
-                        sb.append("=");
-                        sb.append(parse.getQueryParameter(str3));
-                    } else {
-                        sb.append("&");
-                        sb.append(str3);
-                        sb.append("=");
-                        sb.append(parse.getQueryParameter(str3));
-                    }
-                }
-                return xd.c(str2 + ((Object) sb));
-            } catch (Exception unused) {
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void h() {
+    @SuppressLint({"CutPasteId"})
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.a);
-            MessageManager.getInstance().removeMessage(this.a);
-            this.b.clear();
-            this.b = null;
-            this.d.clear();
-            this.d = null;
-            this.c.clear();
-            this.c = null;
+            this.q = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092685);
+            this.e = (TextView) this.a.findViewById(R.id.first_rank_num);
+            this.f = (TextView) this.a.findViewById(R.id.first_thread_content);
+            this.r = (TbImageView) this.a.findViewById(R.id.first_thread_img);
+            this.g = (TextView) this.a.findViewById(R.id.first_heat_degree);
+            this.n = this.a.findViewById(R.id.first_heat_degree_bg);
+            this.h = (TextView) this.a.findViewById(R.id.second_rank_num);
+            this.i = (TextView) this.a.findViewById(R.id.second_thread_content);
+            this.s = (TbImageView) this.a.findViewById(R.id.second_thread_img);
+            this.j = (TextView) this.a.findViewById(R.id.second_heat_degree);
+            this.o = this.a.findViewById(R.id.second_heat_degree_bg);
+            this.k = (TextView) this.a.findViewById(R.id.current_rank_num);
+            this.l = (TextView) this.a.findViewById(R.id.current_thread_content);
+            this.t = (TbImageView) this.a.findViewById(R.id.current_thread_img);
+            this.m = (TextView) this.a.findViewById(R.id.current_heat_degree);
+            this.p = this.a.findViewById(R.id.current_heat_degree_bg);
+            this.v = this.a.findViewById(R.id.first_item_layout);
+            this.w = this.a.findViewById(R.id.second_item_layout);
+            this.u = this.a.findViewById(R.id.current_item_layout);
+            this.I = this.a.findViewById(R.id.first_thread_img_overlay);
+            this.H = this.a.findViewById(R.id.second_thread_img_overlay);
+            this.G = this.a.findViewById(R.id.current_thread_img_overlay);
+            this.x = (LinearLayout) this.a.findViewById(R.id.first_video_during_container);
+            this.y = (ImageView) this.a.findViewById(R.id.first_vidoe_play_iv);
+            this.z = (TextView) this.a.findViewById(R.id.first_video_during_tv);
+            this.A = (LinearLayout) this.a.findViewById(R.id.second_video_during_container);
+            this.B = (ImageView) this.a.findViewById(R.id.second_vidoe_play_iv);
+            this.C = (TextView) this.a.findViewById(R.id.second_video_during_tv);
+            this.D = (LinearLayout) this.a.findViewById(R.id.current_video_during_container);
+            this.E = (ImageView) this.a.findViewById(R.id.current_vidoe_play_iv);
+            this.F = (TextView) this.a.findViewById(R.id.current_video_during_tv);
+            this.r.setRadius(BdUtilHelper.getDimens(this.c, R.dimen.tbds10));
+            this.r.setConrers(15);
+            this.r.setPlaceHolder(2);
+            this.s.setRadius(BdUtilHelper.getDimens(this.c, R.dimen.tbds10));
+            this.s.setConrers(15);
+            this.s.setPlaceHolder(2);
+            this.t.setRadius(BdUtilHelper.getDimens(this.c, R.dimen.tbds10));
+            this.t.setConrers(15);
+            this.t.setPlaceHolder(2);
+            this.f.setLineSpacing(BdUtilHelper.getDimens(this.c, R.dimen.tbds13), 1.0f);
+            this.i.setLineSpacing(BdUtilHelper.getDimens(this.c, R.dimen.tbds13), 1.0f);
+            this.l.setLineSpacing(BdUtilHelper.getDimens(this.c, R.dimen.tbds13), 1.0f);
+            SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.e, R.drawable.cp_other_d_round_bg);
+            SkinManager.setBackgroundResource(this.n, R.drawable.cp_other_b_alpha20_round_bg);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0310);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.h, R.drawable.cp_link_tip_d_round_bg);
+            SkinManager.setBackgroundResource(this.o, R.drawable.cp_link_tip_d_alpha20_round_bg);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0305);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.k, R.drawable.cp_link_tip_d_round_bg);
+            SkinManager.setBackgroundResource(this.p, R.drawable.cp_link_tip_d_alpha20_round_bg);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0305);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+            TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(0).setBgColor(SkinManager.getResourceId(R.color.CAM_X0201)).setShadowColor(SkinManager.getResourceId(R.color.CAM_X0806)).setShadowSide(4112).setShadowRadius(BdUtilHelper.getDimens(this.c, R.dimen.tbds16)).setOffsetX(0).setOffsetY(BdUtilHelper.getDimens(this.c, R.dimen.tbds5)).into(this.u);
+            this.y.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+            this.B.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+            this.E.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+            SkinManager.setViewTextColor(this.z, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.C, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.F, (int) R.color.CAM_X0101);
         }
     }
 
-    public final void i(WebView webView, String str, String str2) {
+    public final void d(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, str, str2) == null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("result", str2);
-            linkedHashMap.put("NotificationKey", str);
-            nj6.a().d(webView, "RequestByNativeToH5", linkedHashMap);
-        }
-    }
-
-    public void j(WebView webView, OfflineBridgeData offlineBridgeData, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, offlineBridgeData, str) == null) {
-            zj6.a("OfflineWebHttpProxy", "预请求：" + offlineBridgeData.url);
-            f(webView, offlineBridgeData, str, false);
-        }
-    }
-
-    public void k(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z)}) == null) {
-            zj6.a("OfflineWebHttpProxy", "端能力请求：" + offlineBridgeData.url);
-            f(webView, offlineBridgeData, str, z);
-        }
-    }
-
-    public final void l(WebView webView, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048582, this, webView, str, str2) == null) && webView != null) {
-            webView.loadUrl("javascript:window." + str + "('" + str2 + "')");
-        }
-    }
-
-    public final void m(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z), str2}) == null) {
-            OfflineWebViewHttpReqMsg offlineWebViewHttpReqMsg = new OfflineWebViewHttpReqMsg();
-            offlineWebViewHttpReqMsg.url = offlineBridgeData.url;
-            offlineWebViewHttpReqMsg.urlSign = str2;
-            offlineWebViewHttpReqMsg.module = offlineBridgeData.module;
-            offlineWebViewHttpReqMsg.begin = offlineBridgeData.begin;
-            offlineWebViewHttpReqMsg.jsCallbackMethod = str;
-            offlineWebViewHttpReqMsg.webView = webView;
-            offlineWebViewHttpReqMsg.setTag(this.a);
-            offlineWebViewHttpReqMsg.isFromRequestByNative = z;
-            CookieSyncManager.createInstance(bj6.b());
-            String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
-            if (!TextUtils.isEmpty(cookie)) {
-                HashMap<String, String> headers = offlineWebViewHttpReqMsg.getHeaders();
-                if (headers != null) {
-                    String str3 = headers.get("Cookie");
-                    if (!TextUtils.isEmpty(str3)) {
-                        if (str3.endsWith(ParamableElem.DIVIDE_PARAM)) {
-                            cookie = str3 + cookie;
-                        } else {
-                            cookie = str3 + ParamableElem.DIVIDE_PARAM + cookie;
-                        }
-                    }
-                    offlineWebViewHttpReqMsg.addHeader("Cookie", cookie);
-                } else {
-                    offlineWebViewHttpReqMsg.addHeader("Cookie", cookie);
-                }
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, threadListBean) == null) {
+            this.u.setVisibility(0);
+            this.k.setText(String.valueOf(i));
+            this.l.setText(threadListBean.getTitle());
+            if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
+                this.p.setVisibility(0);
+                TextView textView = this.m;
+                textView.setText("热度 " + StringHelper.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
             }
-            offlineWebViewHttpReqMsg.setUserAgent(webView.getSettings().getUserAgentString());
-            offlineWebViewHttpReqMsg.addCookie("cache_version", pga.n().p(offlineBridgeData.module));
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, offlineBridgeData.url);
-            tbHttpMessageTask.setResponsedClass(OfflineWebViewHttpResMsg.class);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setPriority(4);
-            if (offlineBridgeData.type.toLowerCase().equals(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND)) {
-                Map<String, String> map = offlineBridgeData.data;
-                if (map != null && !map.isEmpty()) {
-                    for (Map.Entry<String, String> entry : offlineBridgeData.data.entrySet()) {
-                        offlineWebViewHttpReqMsg.addParam(entry.getKey(), entry.getValue());
-                    }
-                }
-                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-            } else {
-                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+            if (threadListBean.getDuration() > 0) {
+                this.D.setVisibility(0);
+                this.G.setVisibility(0);
+                this.F.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
             }
-            MessageManager.getInstance().sendMessage(offlineWebViewHttpReqMsg, tbHttpMessageTask);
+            if (!TextUtils.isEmpty(threadListBean.getImg())) {
+                this.t.setVisibility(0);
+                this.t.startLoad(threadListBean.getImg(), 10, false);
+                return;
+            }
+            this.t.setVisibility(8);
+            this.D.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.l.getLayoutParams()).rightMargin = BdUtilHelper.getDimens(this.c, R.dimen.tbds44);
+        }
+    }
+
+    public final void e(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, threadListBean) == null) {
+            this.v.setVisibility(0);
+            this.e.setText(String.valueOf(i));
+            this.f.setText(threadListBean.getTitle());
+            if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
+                this.n.setVisibility(0);
+                TextView textView = this.g;
+                textView.setText("热度 " + StringHelper.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
+            }
+            if (threadListBean.getDuration() > 0) {
+                this.x.setVisibility(0);
+                this.I.setVisibility(0);
+                this.z.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
+            }
+            if (!TextUtils.isEmpty(threadListBean.getImg())) {
+                this.r.setVisibility(0);
+                this.r.startLoad(threadListBean.getImg(), 10, false);
+                return;
+            }
+            this.r.setVisibility(8);
+            this.x.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.f.getLayoutParams()).rightMargin = BdUtilHelper.getDimens(this.c, R.dimen.tbds44);
+        }
+    }
+
+    public final void f(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, threadListBean) == null) {
+            this.w.setVisibility(0);
+            this.h.setText(String.valueOf(i));
+            this.i.setText(threadListBean.getTitle());
+            if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
+                this.o.setVisibility(0);
+                TextView textView = this.j;
+                textView.setText("热度 " + StringHelper.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
+            }
+            if (threadListBean.getDuration() > 0) {
+                this.A.setVisibility(0);
+                this.H.setVisibility(0);
+                this.C.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
+            }
+            if (!TextUtils.isEmpty(threadListBean.getImg())) {
+                this.s.setVisibility(0);
+                this.s.startLoad(threadListBean.getImg(), 10, false);
+                return;
+            }
+            this.s.setVisibility(8);
+            this.A.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.i.getLayoutParams()).rightMargin = BdUtilHelper.getDimens(this.c, R.dimen.tbds44);
         }
     }
 }

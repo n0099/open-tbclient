@@ -103,9 +103,9 @@ public class DealIntentService extends BdBaseService {
         public Intent a;
         public final /* synthetic */ DealIntentService b;
 
-        public final void b(int i) {
+        public final void c(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             }
         }
 
@@ -129,43 +129,14 @@ public class DealIntentService extends BdBaseService {
             this.a = intent;
         }
 
-        public final void c(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                if (i != 6) {
-                    if (i != 7) {
-                        if (i != 8) {
-                            if (i == 14) {
-                                TiebaStatic.log(TbadkCoreStatisticKey.NOTIFY_GROUP_EVENT_CLICK);
-                                return;
-                            }
-                            return;
-                        }
-                        TiebaStatic.eventStat(this.b, "notify_to_vote_list", "click");
-                        return;
-                    }
-                    TiebaStatic.eventStat(this.b, "notify_to_pk_end", "click");
-                    return;
-                }
-                TiebaStatic.eventStat(this.b, "notify_to_pk_before", "click");
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                super.cancel(true);
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
         public String doInBackground(String... strArr) {
             InterceptResult invokeL;
             int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 Intent intent = this.a;
                 if (intent == null || intent.getExtras() == null) {
                     return null;
@@ -227,7 +198,7 @@ public class DealIntentService extends BdBaseService {
                 param.param("obj_source", i);
                 TiebaStatic.log(param);
                 if (this.a.getExtras().getBoolean("is_notify", false)) {
-                    c(i2);
+                    d(i2);
                 }
                 String string = this.a.getExtras().getString("stat");
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
@@ -249,11 +220,41 @@ public class DealIntentService extends BdBaseService {
                     TiebaStatic.eventStat(this.b, "open_push", "start", 1, new Object[0]);
                 }
                 if (this.a.getExtras().getBoolean("is_notify", false)) {
-                    b(i2);
+                    c(i2);
                 }
                 return DealIntentService.ACTION_ON_POST_START;
             }
             return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.cancel(true);
+            }
+        }
+
+        public final void d(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                if (i != 6) {
+                    if (i != 7) {
+                        if (i != 8) {
+                            if (i == 14) {
+                                TiebaStatic.log(TbadkCoreStatisticKey.NOTIFY_GROUP_EVENT_CLICK);
+                                return;
+                            }
+                            return;
+                        }
+                        TiebaStatic.eventStat(this.b, "notify_to_vote_list", "click");
+                        return;
+                    }
+                    TiebaStatic.eventStat(this.b, "notify_to_pk_end", "click");
+                    return;
+                }
+                TiebaStatic.eventStat(this.b, "notify_to_pk_before", "click");
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */

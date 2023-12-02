@@ -170,8 +170,8 @@ public class BdContextMenuView extends FrameLayout implements BdMenu.OnMenuSetCh
                 if (view2 == null) {
                     view2 = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d064e, (ViewGroup) null);
                     viewHolder = new ViewHolder(this);
-                    viewHolder.mListIcon = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091234);
-                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091264);
+                    viewHolder.mListIcon = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091235);
+                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091265);
                     viewHolder.mListName = textView;
                     textView.setTextColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06065d));
                     setBackgroundSelector(view2, i);
@@ -187,17 +187,17 @@ public class BdContextMenuView extends FrameLayout implements BdMenu.OnMenuSetCh
                     viewHolder.mListIcon.setVisibility(0);
                     viewHolder.mListIcon.setImageDrawable(bdMenuItem.getIcon());
                     if (DeviceUtils.OSInfo.hasJellyBeanMR1()) {
-                        layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027f));
+                        layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070280));
                     } else {
-                        layoutParams.setMargins(this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027f), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
+                        layoutParams.setMargins(this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070280), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
                     }
                     viewHolder.mListName.setLayoutParams(layoutParams);
                 } else {
                     viewHolder.mListIcon.setVisibility(8);
                     if (DeviceUtils.OSInfo.hasJellyBeanMR1()) {
-                        layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027d));
+                        layoutParams.setMarginStart(this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027e));
                     } else {
-                        layoutParams.setMargins(this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027f), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
+                        layoutParams.setMargins(this.mContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070280), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
                     }
                     viewHolder.mListName.setLayoutParams(layoutParams);
                 }

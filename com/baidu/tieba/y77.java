@@ -1,38 +1,57 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class y77 implements ka7 {
+public final class y77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public long d;
-    public int e;
-    public boolean f;
-    public long g;
-    public long h;
-    public long i;
-    public i87 j;
-    @Nullable
-    public Object k;
-    public r57 l;
-    public List<d87> m;
-    public boolean n;
+    public final String a;
+    public final String b;
+    public q57 c;
 
-    public y77() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof y77) {
+                y77 y77Var = (y77) obj;
+                return Intrinsics.areEqual(this.a, y77Var.a) && Intrinsics.areEqual(this.b, y77Var.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "RecommendThreadItemData(forumId=" + this.a + ", threadId=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public y77(String forumId, String threadId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forumId, threadId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,34 +61,43 @@ public class y77 implements ka7 {
                 return;
             }
         }
-        this.j = new i87();
-        this.n = false;
+        Intrinsics.checkNotNullParameter(forumId, "forumId");
+        Intrinsics.checkNotNullParameter(threadId, "threadId");
+        this.a = forumId;
+        this.b = threadId;
     }
 
-    public boolean a() {
+    public final q57 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<d87> list = this.m;
-            if (list != null && list.size() > 0) {
-                return true;
-            }
-            return false;
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (q57) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ka7
-    public void d(@NonNull Object obj) {
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            i87 i87Var = this.j;
-            if (i87Var != null) {
-                i87Var.d(obj);
-            }
-            if (obj instanceof t57) {
-                this.n = ((t57) obj).a();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void d(q57 q57Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, q57Var) == null) {
+            this.c = q57Var;
         }
     }
 }

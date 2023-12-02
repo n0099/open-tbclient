@@ -35,8 +35,8 @@ import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMess
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.uba;
-import com.baidu.tieba.vba;
+import com.baidu.tieba.yba;
+import com.baidu.tieba.zba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,7 +71,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public uba mCardNullPolymericData;
+    public yba mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -1114,15 +1114,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new vba());
+            this.postList.add(new zba());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            uba ubaVar = new uba();
-            this.mCardNullPolymericData = ubaVar;
-            this.postList.add(ubaVar);
+            yba ybaVar = new yba();
+            this.mCardNullPolymericData = ybaVar;
+            this.postList.add(ybaVar);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {

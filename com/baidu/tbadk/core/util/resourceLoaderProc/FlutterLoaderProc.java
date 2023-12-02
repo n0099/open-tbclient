@@ -24,7 +24,7 @@ import com.baidu.tieba.k7;
 import com.baidu.tieba.nb;
 import com.baidu.tieba.o7;
 import com.baidu.tieba.sb;
-import com.baidu.tieba.st5;
+import com.baidu.tieba.wt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -183,8 +183,8 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i3, i4);
             }
-            st5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = st5.d(urlbyClientServerAddr);
+            wt5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = wt5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 urlbyClientServerAddr = (String) d.second;
                 z = true;

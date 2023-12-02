@@ -1,71 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class lb7 implements ya7 {
+public final class lb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Runnable> a;
-    public boolean b;
 
-    public lb7() {
+    public static final boolean a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Runnable runnable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference<Runnable> weakReference = this.a;
-            if (weakReference != null) {
-                runnable = weakReference.get();
-            } else {
-                runnable = null;
-            }
-            if (runnable != null) {
-                runnable.run();
-            }
-            if (runnable != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            Intrinsics.checkNotNullParameter(view2, "<this>");
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f092a49);
+            if ((tag instanceof Integer) && Intrinsics.areEqual(tag, Integer.valueOf(SkinManager.getCurrentSkinType()))) {
                 return true;
             }
+            view2.setTag(R.id.obfuscated_res_0x7f092a49, Integer.valueOf(SkinManager.getCurrentSkinType()));
             return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ya7
-    public final void a(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.b = true;
-            this.a = new WeakReference<>(runnable);
-        }
-    }
-
-    public final void e(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.a = new WeakReference<>(runnable);
-        }
+        return invokeL.booleanValue;
     }
 }

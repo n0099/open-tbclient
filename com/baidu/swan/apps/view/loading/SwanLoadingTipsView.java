@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bk3;
+import com.baidu.tieba.ek3;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -41,7 +41,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            bk3.b0(SwanLoadingTipsView.this.e, 2000L);
+            ek3.b0(SwanLoadingTipsView.this.e, 2000L);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -119,7 +119,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         this.a = null;
         Runnable runnable = this.e;
         if (runnable != null) {
-            bk3.d0(runnable);
+            ek3.d0(runnable);
         }
         ObjectAnimator objectAnimator = this.c;
         if (objectAnimator != null) {

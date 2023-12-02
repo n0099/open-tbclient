@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.lego.card.model.WebViewCard;
-import com.baidu.tieba.sj6;
+import com.baidu.tieba.wj6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -133,7 +133,7 @@ public class NewWebViewCardView extends BaseCardView<WebViewCard> {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements sj6 {
+    public class c implements wj6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewWebViewCardView a;
@@ -156,7 +156,7 @@ public class NewWebViewCardView extends BaseCardView<WebViewCard> {
             this.a = newWebViewCardView;
         }
 
-        @Override // com.baidu.tieba.sj6
+        @Override // com.baidu.tieba.wj6
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -239,7 +239,7 @@ public class NewWebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.hg9
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lg9
     public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, bdUniqueId) != null) || bdUniqueId == null) {
@@ -325,10 +325,10 @@ public class NewWebViewCardView extends BaseCardView<WebViewCard> {
             int container = webViewCard.getContainer();
             if (container != 1) {
                 if (container == 2) {
-                    setWebviewHeight(equipmentHeight - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703bc));
+                    setWebviewHeight(equipmentHeight - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703bd));
                 }
             } else {
-                setWebviewHeight(equipmentHeight - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703a0));
+                setWebviewHeight(equipmentHeight - BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703a1));
             }
         }
         if (!TextUtils.isEmpty(webViewCard.getPageUrl())) {

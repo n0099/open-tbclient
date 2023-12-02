@@ -1,35 +1,32 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import androidx.fragment.app.FragmentActivity;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.reflect.KClass;
 /* loaded from: classes8.dex */
-public final class vh7 extends sh7 {
+public final class vh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FragmentActivity b;
+    public Map<KClass<? extends wh7>, ? extends wh7> a;
 
-    public static final void p(HashMap hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, hashMap) == null) {
-        }
-    }
-
-    public vh7(FragmentActivity activity) {
+    public vh7(Map<KClass<? extends wh7>, ? extends wh7> controllerMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {controllerMap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,30 +36,140 @@ public final class vh7 extends sh7 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        this.b = activity;
+        Intrinsics.checkNotNullParameter(controllerMap, "controllerMap");
+        this.a = controllerMap;
     }
 
-    @Override // com.baidu.tieba.sh7
-    public void k(Bundle bundle, ActivityForumBinding binding) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, binding) == null) {
-            Intrinsics.checkNotNullParameter(binding, "binding");
-            super.k(bundle, binding);
-            Uri uri = (Uri) this.b.getIntent().getParcelableExtra(IntentConfig.KEY_URI);
-            if (uri != null) {
-                BdUniDispatchSchemeController.getInstance().parseFrsScheme(uri, new BdUniDispatchSchemeController.OnSchemeParsedCallback() { // from class: com.baidu.tieba.mg7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            for (KClass<? extends wh7> kClass : this.a.keySet()) {
+                wh7 wh7Var = this.a.get(kClass);
+                if (wh7Var != null) {
+                    wh7Var.i(i);
+                }
+            }
+        }
+    }
 
-                    @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.OnSchemeParsedCallback
-                    public final void onCallBack(HashMap hashMap) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap) == null) {
-                            vh7.p(hashMap);
-                        }
-                    }
-                });
+    public void f(Configuration newConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, newConfig) == null) {
+            Intrinsics.checkNotNullParameter(newConfig, "newConfig");
+            for (KClass<? extends wh7> kClass : this.a.keySet()) {
+                wh7 wh7Var = this.a.get(kClass);
+                if (wh7Var != null) {
+                    wh7Var.j(newConfig);
+                }
+            }
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (KClass<? extends wh7> kClass : this.a.keySet()) {
+                wh7 wh7Var = this.a.get(kClass);
+                if (wh7Var != null) {
+                    wh7Var.e();
+                }
+            }
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Iterator<KClass<? extends wh7>> it = this.a.keySet().iterator();
+            do {
+                z = false;
+                if (!it.hasNext()) {
+                    return false;
+                }
+                wh7 wh7Var = this.a.get(it.next());
+                if (wh7Var != null && wh7Var.h()) {
+                    z = true;
+                    continue;
+                }
+            } while (!z);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            for (KClass<? extends wh7> kClass : this.a.keySet()) {
+                wh7 wh7Var = this.a.get(kClass);
+                if (wh7Var != null) {
+                    wh7Var.l();
+                }
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            for (KClass<? extends wh7> kClass : this.a.keySet()) {
+                wh7 wh7Var = this.a.get(kClass);
+                if (wh7Var != null) {
+                    wh7Var.m();
+                }
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            for (KClass<? extends wh7> kClass : this.a.keySet()) {
+                wh7 wh7Var = this.a.get(kClass);
+                if (wh7Var != null) {
+                    wh7Var.n();
+                }
+            }
+        }
+    }
+
+    public final <T extends wh7> T b(KClass<T> clazz) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, clazz)) == null) {
+            Intrinsics.checkNotNullParameter(clazz, "clazz");
+            wh7 wh7Var = this.a.get(clazz);
+            if (wh7Var instanceof wh7) {
+                return (T) wh7Var;
+            }
+            return null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public void c(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+            for (KClass<? extends wh7> kClass : this.a.keySet()) {
+                wh7 wh7Var = this.a.get(kClass);
+                if (wh7Var != null) {
+                    wh7Var.g(i, i2, intent);
+                }
+            }
+        }
+    }
+
+    public void g(Bundle bundle, ActivityForumBinding binding) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, bundle, binding) == null) {
+            Intrinsics.checkNotNullParameter(binding, "binding");
+            for (KClass<? extends wh7> kClass : this.a.keySet()) {
+                wh7 wh7Var = this.a.get(kClass);
+                if (wh7Var != null) {
+                    wh7Var.k(bundle, binding);
+                }
             }
         }
     }

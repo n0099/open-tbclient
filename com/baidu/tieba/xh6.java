@@ -1,128 +1,82 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.Regex;
-import kotlin.text.StringsKt__StringsKt;
+import java.io.File;
+import java.io.InputStream;
+import okio.Okio;
 /* loaded from: classes9.dex */
-public final class xh6 {
+public class xh6 implements wh6<String, Pair<InputStream, Long>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashSet<String> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948300419, "Lcom/baidu/tieba/xh6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948300419, "Lcom/baidu/tieba/xh6;");
-                return;
-            }
-        }
-        b = new a(null);
-    }
-
-    public /* synthetic */ xh6(String str, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str);
-    }
-
-    @JvmStatic
-    public static final xh6 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? b.a(str) : (xh6) invokeL.objValue;
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final xh6 a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return new xh6(str, null);
-            }
-            return (xh6) invokeL.objValue;
-        }
-    }
-
-    public xh6(String str) {
+    public xh6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        this.a = new HashSet<>();
-        if (str != null && StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "&", false, 2, (Object) null)) {
-            this.a.addAll(new Regex("[?&]").split(str, 0));
-        } else {
-            this.a.add(str);
         }
     }
 
-    public boolean equals(Object obj) {
+    public final File c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof xh6)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            File file = new File(Uri.parse(str).getPath());
+            if (file.exists() && file.isFile()) {
+                return file;
             }
-            return Intrinsics.areEqual(this.a, ((xh6) obj).a);
+            return null;
         }
-        return invokeL.booleanValue;
+        return (File) invokeL.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wh6
+    @Nullable
+    /* renamed from: d */
+    public Pair<InputStream, Long> a(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.hashCode();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            File c = c(str);
+            if (c != null) {
+                return Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length()));
+            }
+            return null;
         }
-        return invokeV.intValue;
+        return (Pair) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wh6
+    /* renamed from: e */
+    public void b(String str, soc<Pair<InputStream, Long>, Exception> socVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, socVar) == null) {
+            try {
+                File c = c(str);
+                if (c != null) {
+                    socVar.a(Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length())), null);
+                } else {
+                    socVar.a(null, new IllegalArgumentException(str + "file not exist !"));
+                }
+            } catch (Exception e) {
+                socVar.a(null, e);
+            }
+        }
     }
 }

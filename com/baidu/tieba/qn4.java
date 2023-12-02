@@ -1,80 +1,180 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tieba.hr2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public final class qn4 {
+/* loaded from: classes7.dex */
+public class qn4 extends on4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948097586, "Lcom/baidu/tieba/qn4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948097586, "Lcom/baidu/tieba/qn4;");
-                return;
-            }
+    @Override // com.baidu.tieba.on4, com.baidu.tieba.vo2
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        g = sm1.a;
     }
 
-    public qn4() {
+    @Override // com.baidu.tieba.on4, com.baidu.tieba.vo2
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vo2
+    public void N(ZeusPluginFactory.Invoker invoker) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, invoker) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vo2
+    public void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vo2
+    public ZeusPluginFactory.Invoker e0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (ZeusPluginFactory.Invoker) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.on4, com.baidu.tieba.vo2
+    public void m0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qn4(ZeusPluginFactory.Invoker invoker, String str) {
+        super(invoker, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {invoker, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ZeusPluginFactory.Invoker) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.on4
+    public void B0(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
             try {
-                jSONObject.put("videoBitrate", this.a);
-                jSONObject.put("audioBitrate", this.b);
-                jSONObject.put("videoFPS", this.c);
-                jSONObject.put("netSpeed", this.d);
-                jSONObject.put("videoWidth", this.e);
-                jSONObject.put("videoHeight", this.f);
-                jSONObject2.putOpt("info", jSONObject);
-                return jSONObject2.toString();
-            } catch (JSONException e) {
-                if (g) {
-                    Log.e("LiveNetworkStatus", "toJSONObject failed: " + Log.getStackTraceString(e));
-                    return null;
+                JSONObject I0 = I0();
+                JSONObject J0 = J0();
+                J0.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, i);
+                J0.put("sub_errorNo", i2);
+                J0.put("errorInfo", str);
+                I0.put("ext", J0.toString());
+                pl4.m("36", I0);
+            } catch (Exception e) {
+                if (on4.x) {
+                    e.printStackTrace();
                 }
-                return null;
             }
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.on4
+    public void C0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                JSONObject I0 = I0();
+                I0.put("type", "first_frame");
+                I0.put("ext", J0().toString());
+                pl4.m(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SUCCESS, I0);
+            } catch (Exception e) {
+                if (on4.x) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @NonNull
+    public final JSONObject I0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", "video");
+                jSONObject.put("network", SwanAppNetworkUtils.e());
+            } catch (Exception e) {
+                if (on4.x) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @NonNull
+    public final JSONObject J0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext_from", "aiapp");
+                jSONObject.put("appid", k63.h0());
+                jSONObject.put("url", this.b);
+                jSONObject.put("vid", this.b);
+                jSONObject.put("isInline", true);
+                String str = "";
+                k63 M = k63.M();
+                if (M != null) {
+                    if (M.x0()) {
+                        str = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
+                    } else {
+                        str = "swan";
+                    }
+                    hr2.a Z = M.Z();
+                    if (Z != null && Z.v1() > 0) {
+                        jSONObject.put("ext_start", Z.v1());
+                    }
+                }
+                jSONObject.put("ext_page", str);
+            } catch (Exception e) {
+                if (on4.x) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

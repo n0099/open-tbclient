@@ -1,27 +1,31 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FeedHeadFigure;
+import tbclient.FeedHeadIcon;
 /* loaded from: classes7.dex */
-public class mxc extends ltc {
+public class mxc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedHeadFigure feedHeadFigure) {
+    public static JSONObject b(@NonNull FeedHeadIcon feedHeadIcon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadFigure)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadIcon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, BigdayActivityConfig.IMG_URL, feedHeadFigure.img_url);
-            ltc.a(jSONObject, "bg_type", feedHeadFigure.bg_type);
-            ltc.a(jSONObject, "bg_value", feedHeadFigure.bg_value);
-            ltc.a(jSONObject, "corner_url", feedHeadFigure.corner_url);
+            ktc.a(jSONObject, "url", feedHeadIcon.url);
+            ktc.a(jSONObject, "width", feedHeadIcon.width);
+            ktc.a(jSONObject, "height", feedHeadIcon.height);
+            ktc.a(jSONObject, "priority", feedHeadIcon.priority);
+            ktc.a(jSONObject, "can_degrade", feedHeadIcon.can_degrade);
+            ktc.a(jSONObject, "degrade_url", feedHeadIcon.degrade_url);
+            ktc.a(jSONObject, "degrade_width", feedHeadIcon.degrade_width);
+            ktc.a(jSONObject, "degrade_height", feedHeadIcon.degrade_height);
+            ktc.a(jSONObject, "degrade_priority", feedHeadIcon.degrade_priority);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

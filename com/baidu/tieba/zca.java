@@ -1,39 +1,30 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoListActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.horizonalList.widget.HTypeListView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes9.dex */
-public class zca extends jl6<yba> {
+public class zca extends nl6<xba> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long i;
+    public TbImageView i;
     public View j;
-    public TextView k;
-    public HTypeListView l;
-    public qaa m;
-    public View.OnClickListener n;
+    public View k;
 
-    @Override // com.baidu.tieba.jl6
+    @Override // com.baidu.tieba.nl6
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01e3 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01db : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -43,42 +34,8 @@ public class zca extends jl6<yba> {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zca a;
-
-        public a(zca zcaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zcaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zcaVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
-            }
-            this.a.r();
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zca(TbPageContext<?> tbPageContext) {
+    public zca(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -95,74 +52,44 @@ public class zca extends jl6<yba> {
                 return;
             }
         }
-        this.n = new a(this);
-        this.h = 4;
         View i3 = i();
         this.j = i3;
-        this.k = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f090669);
-        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f09066a);
-        this.l = hTypeListView;
-        this.m = new qaa(this.b, hTypeListView);
-    }
-
-    public final List<pi> y(List<pi> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
-            int count = ListUtils.getCount(list);
-            if (count <= 0) {
-                return list;
-            }
-            List<pi> arrayList = new ArrayList<>(list);
-            int dimens = BdUtilHelper.getDimens(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0703e8);
-            int dimens2 = BdUtilHelper.getDimens(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
-            if (count > 3) {
-                arrayList = arrayList.subList(0, 3);
-                tba tbaVar = new tba();
-                tbaVar.a = BdUtilHelper.getDimens(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070364);
-                tbaVar.b = BdUtilHelper.getDimens(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0703d4);
-                ListUtils.add(arrayList, tbaVar);
-            }
-            b7a b7aVar = new b7a(dimens2, dimens);
-            ListUtils.add(arrayList, 0, b7aVar);
-            ListUtils.add(arrayList, b7aVar);
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.jl6
-    public void k(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || i == this.a) {
-            return;
-        }
-        this.a = i;
-        SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(this.c).createNormalCfg(this.i, "personal")));
-        }
+        this.i = (TbImageView) i3.findViewById(R.id.obfuscated_res_0x7f0906df);
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f09187a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jl6
-    /* renamed from: s */
-    public void j(yba ybaVar) {
+    @Override // com.baidu.tieba.nl6
+    /* renamed from: p */
+    public void j(xba xbaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ybaVar) == null) {
-            if (ybaVar != null && !ListUtils.isEmpty(ybaVar.b)) {
-                this.i = ybaVar.a;
-                this.k.setText(R.string.video_title_str);
-                this.l.setData(y(ybaVar.b));
-                this.m.b(this.n);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xbaVar) == null) {
+            if (xbaVar == null) {
+                this.j.setVisibility(8);
             }
-            this.j.setVisibility(8);
+            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+            if (layoutParams != null) {
+                if (layoutParams.width > 0) {
+                    layoutParams.width = xbaVar.a;
+                }
+                if (layoutParams.height > 0) {
+                    layoutParams.height = xbaVar.b;
+                }
+            }
+            this.k.setLayoutParams(layoutParams);
+            this.j.setVisibility(0);
+            k(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
+    }
+
+    @Override // com.baidu.tieba.nl6
+    public void k(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        SkinManager.setImageResource(this.i, R.drawable.icon_mine_more);
+        SkinManager.setBackgroundResource(this.j, R.drawable.btn_look_more_selector);
     }
 }

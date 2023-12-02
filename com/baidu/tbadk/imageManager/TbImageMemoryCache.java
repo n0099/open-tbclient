@@ -10,11 +10,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dx5;
-import com.baidu.tieba.f26;
+import com.baidu.tieba.cx5;
+import com.baidu.tieba.hx5;
+import com.baidu.tieba.j26;
 import com.baidu.tieba.ob;
 import com.baidu.tieba.pb;
-import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,11 +29,11 @@ public class TbImageMemoryCache implements LifecycleObserver {
     public transient /* synthetic */ FieldHolder $fh;
     public ob<String, BdImage> a;
     public ob<String, BdImage> b;
-    public f26<String, BdImage> c;
+    public j26<String, BdImage> c;
     public ob<String, Bitmap> d;
     public ob<String, BdImage> e;
-    public pb<yw5> f;
-    public dx5 g;
+    public pb<cx5> f;
+    public hx5 g;
 
     /* loaded from: classes5.dex */
     public class a extends ob<String, BdImage> {
@@ -196,7 +196,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
     }
 
     public void J() {
-        pb<yw5> pbVar;
+        pb<cx5> pbVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (pbVar = this.f) != null) {
             pbVar.g(0);
@@ -241,7 +241,7 @@ public class TbImageMemoryCache implements LifecycleObserver {
         this.d = null;
         this.e = null;
         this.a = new a(this, 0);
-        this.c = new f26<>();
+        this.c = new j26<>();
         this.b = new b(this, 0);
         this.d = new c(this, 0);
         this.e = new ob<>(Integer.MAX_VALUE);
@@ -350,20 +350,20 @@ public class TbImageMemoryCache implements LifecycleObserver {
         return (Bitmap) invokeL.objValue;
     }
 
-    public pb<yw5> G(int i) {
+    public pb<cx5> G(int i) {
         InterceptResult invokeI;
-        dx5 dx5Var;
+        hx5 hx5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.f != null && (dx5Var = this.g) != null) {
-                if (dx5Var.g() == i) {
+            if (this.f != null && (hx5Var = this.g) != null) {
+                if (hx5Var.g() == i) {
                     return this.f;
                 }
                 this.g.j(i);
                 this.f.c();
             }
             if (this.g == null) {
-                this.g = new dx5(i);
+                this.g = new hx5(i);
             }
             if (this.f == null) {
                 this.f = new pb<>(this.g, 6, 0);

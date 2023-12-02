@@ -88,7 +88,7 @@ public final class a extends g implements j {
 
     @Override // com.kwad.components.ad.reward.presenter.f.g
     public final int hK() {
-        return R.id.obfuscated_res_0x7f09139c;
+        return R.id.obfuscated_res_0x7f09139d;
     }
 
     private i hL() {

@@ -13,7 +13,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.lang.reflect.Field;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class k6c extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public class k6c extends BaseAdRipper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                c7c c7cVar = (c7c) obj;
-                if (c7cVar != null) {
-                    Object obj3 = c7cVar.a;
+                b7c b7cVar = (b7c) obj;
+                if (b7cVar != null) {
+                    Object obj3 = b7cVar.a;
                     String[] strArr = {"mAdTemplate"};
                     Field field = null;
                     for (int i = 0; i < 1; i++) {
@@ -63,7 +63,7 @@ public class k6c extends BaseAdRipper {
                     if (field == null || (obj2 = field.get(obj3)) == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
                         return null;
                     }
-                    return p6c.a(adInfo);
+                    return o6c.a(adInfo);
                 }
                 return null;
             } catch (Exception e) {

@@ -1,155 +1,81 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.novel.NovelMemberCardView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.go5;
+import com.baidu.tieba.lo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class no5 {
+public class no5<D, S extends go5, H extends lo5<D, S>> extends mo5<D, S, H> {
     public static /* synthetic */ Interceptable $ic;
-    public static no5 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
+    public final Class<H> n;
+    public final int o;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948009205, "Lcom/baidu/tieba/no5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948009205, "Lcom/baidu/tieba/no5;");
-        }
-    }
-
-    public no5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public no5(TbPageContext<?> tbPageContext, Class<H> cls, int i, ViewEventCenter viewEventCenter) {
+        super(tbPageContext, viewEventCenter);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, cls, Integer.valueOf(i), viewEventCenter};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewEventCenter) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.e = true;
-        this.f = true;
-        this.a = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds144);
-        this.b = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
+        this.o = i;
+        this.n = cls;
     }
 
-    public static no5 a() {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public final int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (this.g && c()) {
+                return -1;
+            }
+            return super.getItemViewType(i);
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2, viewGroup)) == null) {
+            if (this.g && c()) {
+                return a();
+            }
+            b();
+            return d(view2, i, this.n, this.o);
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public final int getViewTypeCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (no5.class) {
-                    if (g == null) {
-                        g = new no5();
-                    }
-                }
-            }
-            return g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.getViewTypeCount() + 1;
         }
-        return (no5) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            g = null;
-            this.c = true;
-            this.d = true;
-            this.e = true;
-            this.f = true;
-        }
-    }
-
-    public boolean b(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
-            }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int i = iArr[1];
-            if (i <= 0 || i >= this.b - this.a) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(String str, String str2, cd5 cd5Var, NovelMemberCardView novelMemberCardView, int i, String str3, String str4) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, cd5Var, novelMemberCardView, Integer.valueOf(i), str3, str4}) == null) && cd5Var != null && novelMemberCardView != null && novelMemberCardView.getVisibility() == 0) {
-            String valueOf = String.valueOf(cd5Var.h());
-            String d = cd5Var.d();
-            if (cd5Var.j()) {
-                i2 = 2;
-            } else {
-                i2 = 1;
-            }
-            if (b(novelMemberCardView.getNovelReadMoreButton()) && !cd5Var.j()) {
-                if (this.c) {
-                    this.c = false;
-                    qo5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, i2, valueOf, str, str2, i, str3, str4, d);
-                }
-            } else {
-                this.c = true;
-            }
-            if (b(novelMemberCardView.getNovelPaidButton()) && cd5Var.j()) {
-                if (this.d) {
-                    this.d = false;
-                    qo5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, i2, valueOf, str, str2, i, str3, str4, d);
-                }
-            } else {
-                this.d = true;
-            }
-            if (b(novelMemberCardView.getNovelCoverPage()) && !cd5Var.j()) {
-                if (this.e) {
-                    this.e = false;
-                    qo5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 4, valueOf, str, str2, i, str3, str4, d);
-                }
-            } else {
-                this.e = true;
-            }
-            if (b(novelMemberCardView.getNovelStoryChannelBtn())) {
-                if (this.f) {
-                    this.f = false;
-                    qo5.c(CommonStatisticKey.KEY_PB_NOVEL_JUMP_STORY_CHANNEL_SHOW, valueOf, str, str3, str4, d);
-                    return;
-                }
-                return;
-            }
-            this.f = true;
-        }
+        return invokeV.intValue;
     }
 }

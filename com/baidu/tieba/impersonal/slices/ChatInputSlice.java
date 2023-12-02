@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
-import com.baidu.tieba.bd9;
-import com.baidu.tieba.eb9;
+import com.baidu.tieba.fd9;
+import com.baidu.tieba.ib9;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.impersonal.components.inputview.ImPersonInputView;
 import com.baidu.tieba.impersonal.data.BehaviorExt;
@@ -25,12 +25,12 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ChatInputSlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bd9 j;
+    public final fd9 j;
     public final BehaviorExt k;
     public ImPersonInputView l;
     public SlicePersonalInputBinding m;
 
-    public ChatInputSlice(bd9 repo, BehaviorExt behaviorExt) {
+    public ChatInputSlice(fd9 repo, BehaviorExt behaviorExt) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +64,7 @@ public final class ChatInputSlice extends Slice {
             ImPersonInputView imPersonInputView = slicePersonalInputBinding.b;
             this.l = imPersonInputView;
             if (imPersonInputView != null) {
-                new eb9(K().getPageContext(), imPersonInputView, this.j, this.k);
+                new ib9(K().getPageContext(), imPersonInputView, this.j, this.k);
             }
         }
     }

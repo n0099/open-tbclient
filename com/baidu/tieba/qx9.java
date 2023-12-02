@@ -1,85 +1,36 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.EditText;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
-import com.baidu.tieba.wx9;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
-public abstract class qx9<V extends wx9, D extends IBaseDialogData> implements vx9 {
+/* loaded from: classes7.dex */
+public final class qx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
-    public TbPageContext b;
-    public Context c;
-    public DialogInterface.OnKeyListener d;
-    public DialogInterface.OnCancelListener e;
-    public int f;
-    public boolean g;
-    public V h;
+    @Inject
+    public final sf1<lm5> a;
 
-    /* loaded from: classes8.dex */
-    public class a implements ViewHelper.ViewCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicBoolean a;
-
-        public a(qx9 qx9Var, AtomicBoolean atomicBoolean) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qx9Var, atomicBoolean};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = atomicBoolean;
-        }
-
-        @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
-        public boolean onViewFound(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (view2 instanceof EditText) {
-                    this.a.set(true);
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            qf1 b = qf1.b();
+            this.a = b;
+            b.a(new mm5());
         }
     }
 
-    public qx9(TbPageContext tbPageContext, V v, D d) {
+    public qx9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, v, d};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,83 +40,90 @@ public abstract class qx9<V extends wx9, D extends IBaseDialogData> implements v
                 return;
             }
         }
-        this.f = -1;
-        this.g = false;
-        this.b = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
-        this.h = v;
-        d(d);
+        f();
     }
 
-    public void d(D d) {
-        V v;
+    public final lm5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, d) == null) && (v = this.h) != null) {
-            v.c(d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            sf1<lm5> sf1Var = this.a;
+            if (sf1Var != null) {
+                return sf1Var.get();
+            }
+            return null;
+        }
+        return (lm5) invokeV.objValue;
+    }
+
+    public final BaseFragment b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            lm5 a = a();
+            if (a != null) {
+                return a.F();
+            }
+            return null;
+        }
+        return (BaseFragment) invokeV.objValue;
+    }
+
+    public final long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            lm5 a = a();
+            if (a != null) {
+                return a.u();
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            lm5 a = a();
+            if (a != null && a.E()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void d(int i, int i2, Intent intent) {
+        lm5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) && (a = a()) != null) {
+            a.B(i, i2, intent);
         }
     }
 
-    @Override // com.baidu.tieba.vx9
-    public void dismiss() {
-        AlertDialog alertDialog;
+    public final void g(boolean z) {
+        lm5 a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.a) != null) {
-            yb.a(alertDialog, this.b.getPageActivity());
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (a = a()) != null) {
+            a.G(z);
         }
     }
 
-    @Override // com.baidu.tieba.vx9
-    public void show() {
+    public final void h(BdUniqueId bdUniqueId) {
+        lm5 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            AlertDialog alertDialog = this.a;
-            if (alertDialog != null) {
-                yb.i(alertDialog, this.b.getPageActivity());
-                return;
-            }
-            if (this.g) {
-                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f100419).create();
-            } else {
-                this.a = new AlertDialog.Builder(this.c).create();
-            }
-            GreyUtil.grey(this.a);
-            this.a.setCanceledOnTouchOutside(c());
-            this.a.setCancelable(b());
-            this.a.setOnKeyListener(this.d);
-            DialogInterface.OnCancelListener onCancelListener = this.e;
-            if (onCancelListener != null) {
-                this.a.setOnCancelListener(onCancelListener);
-            }
-            yb.i(this.a, this.b.getPageActivity());
-            if (this.a.getWindow().getDecorView().getParent() == null) {
-                return;
-            }
-            Window window = this.a.getWindow();
-            if (this.f == -1) {
-                this.f = 17;
-            }
-            window.setGravity(this.f);
-            window.setBackgroundDrawableResource(R.drawable.transparent_bg);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.dimAmount = 0.7f;
-            attributes.width = -1;
-            DisplayMetrics screenSize = BdUtilHelper.getScreenSize(this.b.getPageActivity());
-            if (screenSize != null) {
-                int a2 = a();
-                if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
-                    attributes.width = screenSize.heightPixels - (a2 * 2);
-                } else {
-                    attributes.width = screenSize.widthPixels - (a2 * 2);
-                }
-            }
-            attributes.height = -2;
-            window.setAttributes(attributes);
-            window.setContentView(this.h.getViewGroup());
-            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ViewHelper.processAllViewsIn(this.h.getViewGroup(), false, new a(this, atomicBoolean));
-            if (atomicBoolean.get()) {
-                window.clearFlags(131080);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) && (a = a()) != null) {
+            a.setUniqueId(bdUniqueId);
+        }
+    }
+
+    public final void i(boolean z) {
+        lm5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (a = a()) != null) {
+            a.setUserVisibleHint(z);
         }
     }
 }

@@ -41,8 +41,8 @@ public final class R {
 
     /* loaded from: classes9.dex */
     public static final class dimen {
-        public static final int exo_media_button_height = 0x7f070449;
-        public static final int exo_media_button_width = 0x7f07044a;
+        public static final int exo_media_button_height = 0x7f07044a;
+        public static final int exo_media_button_width = 0x7f07044b;
     }
 
     /* loaded from: classes9.dex */
@@ -62,31 +62,31 @@ public final class R {
 
     /* loaded from: classes9.dex */
     public static final class id {
-        public static final int exo_artwork = 0x7f090ae4;
-        public static final int exo_content_frame = 0x7f090ae5;
-        public static final int exo_controller = 0x7f090ae6;
-        public static final int exo_controller_placeholder = 0x7f090ae7;
-        public static final int exo_duration = 0x7f090ae8;
-        public static final int exo_ffwd = 0x7f090ae9;
-        public static final int exo_next = 0x7f090aea;
-        public static final int exo_overlay = 0x7f090aeb;
-        public static final int exo_pause = 0x7f090aec;
-        public static final int exo_play = 0x7f090aed;
-        public static final int exo_position = 0x7f090aee;
-        public static final int exo_prev = 0x7f090aef;
-        public static final int exo_progress = 0x7f090af0;
-        public static final int exo_repeat_toggle = 0x7f090af1;
-        public static final int exo_rew = 0x7f090af2;
-        public static final int exo_shuffle = 0x7f090af3;
-        public static final int exo_shutter = 0x7f090af4;
-        public static final int exo_subtitles = 0x7f090af5;
-        public static final int fill = 0x7f090b65;
-        public static final int fit = 0x7f090b84;
-        public static final int fixed_height = 0x7f090b92;
-        public static final int fixed_width = 0x7f090b93;
-        public static final int none = 0x7f091a7f;
-        public static final int surface_view = 0x7f09240c;
-        public static final int texture_view = 0x7f0925cb;
+        public static final int exo_artwork = 0x7f090ae5;
+        public static final int exo_content_frame = 0x7f090ae6;
+        public static final int exo_controller = 0x7f090ae7;
+        public static final int exo_controller_placeholder = 0x7f090ae8;
+        public static final int exo_duration = 0x7f090ae9;
+        public static final int exo_ffwd = 0x7f090aea;
+        public static final int exo_next = 0x7f090aeb;
+        public static final int exo_overlay = 0x7f090aec;
+        public static final int exo_pause = 0x7f090aed;
+        public static final int exo_play = 0x7f090aee;
+        public static final int exo_position = 0x7f090aef;
+        public static final int exo_prev = 0x7f090af0;
+        public static final int exo_progress = 0x7f090af1;
+        public static final int exo_repeat_toggle = 0x7f090af2;
+        public static final int exo_rew = 0x7f090af3;
+        public static final int exo_shuffle = 0x7f090af4;
+        public static final int exo_shutter = 0x7f090af5;
+        public static final int exo_subtitles = 0x7f090af6;
+        public static final int fill = 0x7f090b66;
+        public static final int fit = 0x7f090b85;
+        public static final int fixed_height = 0x7f090b93;
+        public static final int fixed_width = 0x7f090b94;
+        public static final int none = 0x7f091a81;
+        public static final int surface_view = 0x7f09240e;
+        public static final int texture_view = 0x7f0925cd;
     }
 
     /* loaded from: classes9.dex */

@@ -209,10 +209,10 @@ public abstract class a implements c {
     public void B(Context context) {
         View a = l.a(context, this.BI, null, false);
         this.BB = a;
-        this.BC = (ImageView) a.findViewById(R.id.obfuscated_res_0x7f09150d);
-        this.mLogoView = (KsLogoView) this.BB.findViewById(R.id.obfuscated_res_0x7f09150a);
-        this.BD = (com.kwad.components.ad.widget.tailframe.appbar.a) this.BB.findViewById(R.id.obfuscated_res_0x7f0914e2);
-        this.BE = (TailFrameBarH5View) this.BB.findViewById(R.id.obfuscated_res_0x7f0914f8);
+        this.BC = (ImageView) a.findViewById(R.id.obfuscated_res_0x7f09150e);
+        this.mLogoView = (KsLogoView) this.BB.findViewById(R.id.obfuscated_res_0x7f09150b);
+        this.BD = (com.kwad.components.ad.widget.tailframe.appbar.a) this.BB.findViewById(R.id.obfuscated_res_0x7f0914e3);
+        this.BE = (TailFrameBarH5View) this.BB.findViewById(R.id.obfuscated_res_0x7f0914f9);
     }
 
     @Override // com.kwad.sdk.widget.c

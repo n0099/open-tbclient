@@ -53,8 +53,8 @@ public final class SpriteMemeGenerateViewLayoutBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0908cc;
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908cc);
+            int i = R.id.obfuscated_res_0x7f0908cd;
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908cd);
             if (textView != null) {
                 i = R.id.img_view;
                 ImageView imageView = (ImageView) view2.findViewById(R.id.img_view);

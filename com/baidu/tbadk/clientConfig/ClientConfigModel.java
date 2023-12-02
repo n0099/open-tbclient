@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bv4;
+import com.baidu.tieba.ev4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import tbclient.GetClientConfig.DataRes;
 public class ClientConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bv4 a;
+    public ev4 a;
     public final NetMessageListener b;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -90,7 +90,7 @@ public class ClientConfigModel extends BdBaseModel {
                     }
                 } else {
                     String errorString = responsedMessage.getErrorString();
-                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e6f);
+                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e70);
                     if (StringUtils.isNull(errorString)) {
                         errorString = string;
                     }
@@ -103,13 +103,13 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, bv4 bv4Var) {
+    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, ev4 ev4Var) {
         super(bdBaseFragmentActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdBaseFragmentActivity, bv4Var};
+            Object[] objArr = {bdBaseFragmentActivity, ev4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -122,7 +122,7 @@ public class ClientConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = bv4Var;
+        this.a = ev4Var;
         registerListener(aVar);
     }
 
@@ -148,9 +148,9 @@ public class ClientConfigModel extends BdBaseModel {
                 }
                 return;
             }
-            bv4 bv4Var = this.a;
-            if (bv4Var != null) {
-                bv4Var.a(dataRes);
+            ev4 ev4Var = this.a;
+            if (ev4Var != null) {
+                ev4Var.a(dataRes);
             }
         }
     }

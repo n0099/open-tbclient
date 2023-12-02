@@ -46,11 +46,11 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0306, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c14);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c15);
             this.a = linearLayout;
-            this.b = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090c16);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c15);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0912da);
+            this.b = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090c17);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c16);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0912db);
             this.b.setText(R.string.subscribe_bar_title);
             this.c.setText(R.string.obfuscated_res_0x7f0f0797);
             this.d.setText(R.string.obfuscated_res_0x7f0f0b86);

@@ -1,22 +1,33 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tieba.pb.bot.BotEntranceManager;
+import com.baidu.tieba.pb.bot.RequestBotSkillHelper;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class k4a {
+import tbclient.PbContent;
+import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
+/* loaded from: classes6.dex */
+public class k4a {
     public static /* synthetic */ Interceptable $ic;
-    public static final k4a a;
+    public static List<mwa> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,90 +43,93 @@ public final class k4a {
                 return;
             }
         }
-        a = new k4a();
+        a = new ArrayList();
     }
 
-    public k4a() {
+    public static void a(TbPageContext<BaseFragmentActivity> tbPageContext, @NonNull String str, long j, @NonNull String str2, @NonNull String str3, @NonNull String str4, FastRequest.b<Void> bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, str, Long.valueOf(j), str2, str3, str4, bVar}) == null) {
+            new RequestBotSkillHelper(tbPageContext).b(new RequestBotSkillHelper.BotRequest(str, j, str2, str3, str4), bVar);
         }
     }
 
-    @JvmStatic
-    public static final boolean a(List<i05> list, m05 m05Var, nwa nwaVar, rv9 rv9Var, boolean z) {
+    public static void b(PbModel pbModel, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, pbModel, str) != null) || pbModel == null) {
+            return;
+        }
+        zv9 s1 = pbModel.s1();
+        zv9 zv9Var = new zv9();
+        ArrayList<mwa> I = zv9Var.I();
+        mwa mwaVar = new mwa();
+        mwaVar.w1(System.currentTimeMillis());
+        ArrayList arrayList = new ArrayList();
+        PbContent.Builder builder = new PbContent.Builder();
+        List<RobotSkillInfo> list = s1.N().robot_skill_info;
+        List<RobotSkill> list2 = s1.N().bottom_bar_robot_skill;
+        if (list != null && list2 != null) {
+            builder.text = BotEntranceManager.g().c(list, list2).style_conf.android_extra.bot_loading_content;
+        }
+        if (TextUtils.isEmpty(builder.text)) {
+            builder.text = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f080a);
+        }
+        arrayList.add(builder.build(true));
+        mwaVar.r1(new TbRichText(arrayList, pbModel.M1(), false));
+        mwaVar.W0(1);
+        if (s1 != null && s1.B() != null) {
+            mwaVar.Z0(s1.I().size() + 1);
+        }
+        if (s1 != null && s1.R() != null) {
+            zv9Var.T0(s1.R());
+            zv9Var.R().setReply_num(zv9Var.R().getReply_num() + 1);
+        }
+        MetaData metaData = new MetaData();
+        UserData Y = pbModel.s1().Y();
+        metaData.setName_show(Y.getName_show());
+        metaData.setPortrait(Y.getPortrait());
+        metaData.setUserId(Y.getUserId());
+        metaData.setLevel_id(Y.getLevel_id());
+        metaData.setLevelName(Y.getLevelName());
+        metaData.setIconInfo(Y.getIconInfo());
+        mwaVar.T0(metaData);
+        mwaVar.U0(str);
+        I.clear();
+        I.add(mwaVar);
+        a.add(mwaVar);
+        pbModel.E2(zv9Var, 8, false, 0, "", false, 0, 0L, 0L, true);
+    }
+
+    public static String c(String str, String str2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, m05Var, nwaVar, rv9Var, Boolean.valueOf(z)})) == null) {
-            if (list == null || nwaVar == null || rv9Var == null || !z || !d(rv9Var) || !TbadkCoreApplication.isLogin() || e4a.h(nwaVar) || rv9Var.a()) {
-                return false;
-            }
-            i05 i05Var = new i05(9, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0371), m05Var);
-            list.add(i05Var);
-            e5b.f(i05Var.d, nwaVar);
-            return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            return xd.c(str + str2 + j);
         }
-        return invokeCommon.booleanValue;
+        return (String) invokeCommon.objValue;
     }
 
-    @JvmStatic
-    public static final boolean b(SparseArray<?> sparseArray, int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static void d(String str, String str2, String str3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{sparseArray, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (sparseArray == null) {
-                return z;
-            }
-            if (sparseArray.get(i) instanceof Boolean) {
-                Object obj = sparseArray.get(i);
-                if (obj != null) {
-                    return ((Boolean) obj).booleanValue();
+        if ((interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, i) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            for (mwa mwaVar : a) {
+                if (str.equals(mwaVar.z()) && mwaVar.l() == 1) {
+                    ArrayList arrayList = new ArrayList();
+                    PbContent.Builder builder = new PbContent.Builder();
+                    builder.text = str2;
+                    arrayList.add(builder.build(true));
+                    mwaVar.r1(new TbRichText(arrayList, "", false));
+                    mwaVar.f1(str3);
+                    mwaVar.W0(i);
+                    return;
                 }
-                throw new NullPointerException("null cannot be cast to non-null type kotlin.Boolean");
             }
-            return z;
         }
-        return invokeCommon.booleanValue;
     }
 
-    @JvmStatic
-    public static final String c(SparseArray<?> sparseArray, int i, String def) {
-        InterceptResult invokeLIL;
+    public static void e(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, sparseArray, i, def)) == null) {
-            Intrinsics.checkNotNullParameter(def, "def");
-            if (sparseArray == null) {
-                return def;
-            }
-            if (sparseArray.get(i) instanceof String) {
-                Object obj = sparseArray.get(i);
-                if (obj != null) {
-                    return (String) obj;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type kotlin.String");
-            }
-            return def;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            BdToast.makeText(TbadkCoreApplication.getInst().getContext(), str).show();
         }
-        return (String) invokeLIL.objValue;
-    }
-
-    @JvmStatic
-    public static final boolean d(rv9 rv9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, rv9Var)) == null) {
-            if (rv9Var != null) {
-                return rv9Var.b();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

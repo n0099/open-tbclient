@@ -1,64 +1,115 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class sf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull bh4 bh4Var, @Nullable List<hf4> list, @Nullable List<if4> list2, @NonNull ce4 ce4Var) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, bh4Var, list, list2, ce4Var) == null) {
-            mg4 b = uf4.b(bh4Var, ce4Var);
-            if (list != null && !list.isEmpty()) {
-                uf4.a(b, lg4.h(list, ce4Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            String a = sm4.a(sm4.a(sm4.a(sm4.a(sm4.a(sm4.a(sm4.a(sm4.a(sm4.a(sm4.a(sm4.a(str, "cuid", vd4.b().g()), "uuid", vd4.b().e()), "ut", vd4.b().I()), "ua", sm4.b(vd4.b().h())), "host_app", vd4.b().c()), "host_app_ver", vd4.b().h()), "host_os", km4.f()), "host_os_ver", km4.g()), "network", km4.e()), "sdk_ver", vd4.b().b()), "ut_score", String.valueOf(vd4.b().a()));
+            String q = vd4.b().q();
+            if (!TextUtils.isEmpty(q)) {
+                return sm4.a(a, "sid", q);
             }
-            if (list2 != null && !list2.isEmpty()) {
-                uf4.a(b, lg4.e(list2, ce4Var));
+            return a;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+            if (map != null) {
+                for (String str2 : map.keySet()) {
+                    if (!TextUtils.isEmpty(map.get(str2))) {
+                        str = sm4.a(str, str2, map.get(str2));
+                    }
+                }
             }
-            b.e();
+            return str;
         }
+        return (String) invokeLL.objValue;
     }
 
-    public static void b(ch4 ch4Var, ce4 ce4Var) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, ch4Var, ce4Var) == null) {
-            uf4.c(ch4Var, ce4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return h() + "/getopenbundleid";
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void c(dh4 dh4Var, ce4 ce4Var) {
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, dh4Var, ce4Var) == null) {
-            uf4.d(dh4Var, ce4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return h() + "/fetchpkglist";
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void d(eh4 eh4Var, ce4 ce4Var) {
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, eh4Var, ce4Var) == null) {
-            uf4.e(eh4Var, ce4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return h() + "/getpkg";
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void e(zi4 zi4Var, ce4 ce4Var) {
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, zi4Var, ce4Var) == null) {
-            uf4.f(zi4Var, ce4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return h() + "/getplugin";
         }
+        return (String) invokeV.objValue;
     }
 
-    public static synchronized void f(List<if4> list, ce4 ce4Var) {
+    public static String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, list, ce4Var) == null) {
-            synchronized (sf4.class) {
-                uf4.g(list, ce4Var);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return h() + "/updatecore";
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return vd4.b().E();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return a(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String j(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, map)) == null) {
+            return b(a(str), map);
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -48,14 +48,14 @@ public class yt extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: z */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cw4Var) == null) {
-            if (!y(cw4Var) && cw4Var != null && cw4Var.getThreadData() != null && !x(cw4Var) && ListUtils.getCount(cw4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(cw4Var.getThreadData().getGoodsDataList()) == 1) {
-                if (cw4Var.getThreadData().getLinkDataList().size() >= 1) {
-                    this.h.a((rm6) ListUtils.getItem(cw4Var.getThreadData().getLinkDataList(), 0));
-                } else if (cw4Var.getThreadData().getGoodsDataList().size() >= 1) {
-                    this.h.a((rm6) ListUtils.getItem(cw4Var.getThreadData().getGoodsDataList(), 0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, fw4Var) == null) {
+            if (!y(fw4Var) && fw4Var != null && fw4Var.getThreadData() != null && !x(fw4Var) && ListUtils.getCount(fw4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(fw4Var.getThreadData().getGoodsDataList()) == 1) {
+                if (fw4Var.getThreadData().getLinkDataList().size() >= 1) {
+                    this.h.a((vm6) ListUtils.getItem(fw4Var.getThreadData().getLinkDataList(), 0));
+                } else if (fw4Var.getThreadData().getGoodsDataList().size() >= 1) {
+                    this.h.a((vm6) ListUtils.getItem(fw4Var.getThreadData().getGoodsDataList(), 0));
                 }
                 this.h.setVisibility(0);
                 return;
@@ -74,11 +74,11 @@ public class yt extends vs {
         return (View) invokeV.objValue;
     }
 
-    public final boolean x(cw4 cw4Var) {
+    public final boolean x(fw4 fw4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cw4Var)) == null) {
-            if (cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().isVideoThreadType() && cw4Var.getThreadData().getThreadVideoInfo() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fw4Var)) == null) {
+            if (fw4Var != null && fw4Var.getThreadData() != null && fw4Var.getThreadData().isVideoThreadType() && fw4Var.getThreadData().getThreadVideoInfo() != null) {
                 return true;
             }
             return false;
@@ -94,11 +94,11 @@ public class yt extends vs {
         }
     }
 
-    public final boolean y(cw4 cw4Var) {
+    public final boolean y(fw4 fw4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cw4Var)) == null) {
-            if (cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().getPollData() != null && cw4Var.getThreadData().getPollData().getOptions() != null && cw4Var.getThreadData().getPollData().getOptions().size() > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fw4Var)) == null) {
+            if (fw4Var != null && fw4Var.getThreadData() != null && fw4Var.getThreadData().getPollData() != null && fw4Var.getThreadData().getPollData().getOptions() != null && fw4Var.getThreadData().getPollData().getOptions().size() > 0) {
                 return true;
             }
             return false;

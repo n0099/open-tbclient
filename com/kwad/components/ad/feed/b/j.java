@@ -92,10 +92,10 @@ public final class j extends a implements View.OnClickListener, com.kwad.sdk.wid
 
     @Override // com.kwad.components.core.widget.b
     public final void bc() {
-        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09133b)).setRatio(0.5600000023841858d);
-        this.eB = (TextView) findViewById(R.id.obfuscated_res_0x7f0912df);
-        this.eC = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ee);
-        this.eD = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912e2);
-        this.mLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091368);
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09133c)).setRatio(0.5600000023841858d);
+        this.eB = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e0);
+        this.eC = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ef);
+        this.eD = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912e3);
+        this.mLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091369);
     }
 }

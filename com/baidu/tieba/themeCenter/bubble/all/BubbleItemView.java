@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.v2b;
+import com.baidu.tieba.u2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class BubbleItemView extends LinearLayout {
     public ImageView h;
     public TbImageView i;
     public DressItemData j;
-    public v2b k;
+    public u2b k;
     public boolean l;
     public View.OnClickListener m;
 
@@ -142,10 +142,10 @@ public class BubbleItemView extends LinearLayout {
         f();
     }
 
-    public void setController(v2b v2bVar) {
+    public void setController(u2b u2bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, v2bVar) == null) {
-            this.k = v2bVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, u2bVar) == null) {
+            this.k = u2bVar;
         }
     }
 
@@ -223,20 +223,20 @@ public class BubbleItemView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0196, this);
             this.b = inflate;
-            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091765);
+            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091766);
             this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090409);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c7a);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c7c);
             this.f = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
             this.f.setDefaultBgResource(R.drawable.transparent_bg);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0923c4);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0923c6);
             this.g = tbImageView2;
             tbImageView2.setDefaultResource(R.drawable.transparent_bg);
             this.g.setDefaultBgResource(R.drawable.transparent_bg);
             this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090740);
             this.e = new TextView(this.a);
             this.d.setOnClickListener(this.m);
-            this.i = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091079);
+            this.i = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09107a);
         }
     }
 }

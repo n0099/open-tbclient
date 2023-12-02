@@ -166,8 +166,8 @@ public class AdWebViewVideoActivityProxy extends f {
 
     private void initView() {
         String str;
-        this.mProgressbar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091519);
-        this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091518);
+        this.mProgressbar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09151a);
+        this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091519);
         final AdInfo dP = e.dP(this.mAdTemplate);
         if (com.kwad.sdk.core.response.b.a.aF(dP)) {
             this.mWebDownloadContainer.setVisibility(0);
@@ -224,7 +224,7 @@ public class AdWebViewVideoActivityProxy extends f {
         } else {
             str = "详情页面";
         }
-        com.kwad.components.core.b.a aVar = new com.kwad.components.core.b.a((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913a7));
+        com.kwad.components.core.b.a aVar = new com.kwad.components.core.b.a((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913a8));
         this.mTitleBarHelper = aVar;
         aVar.a(new a.InterfaceC0632a() { // from class: com.kwad.components.core.page.AdWebViewVideoActivityProxy.3
             @Override // com.kwad.components.core.b.a.InterfaceC0632a
@@ -244,13 +244,13 @@ public class AdWebViewVideoActivityProxy extends f {
             com.kwad.components.core.page.splitLandingPage.a at = com.kwad.components.core.page.splitLandingPage.a.at(this.mAdTemplate);
             this.mSplitLandingPage = at;
             at.setApkDownloadHelper(this.mApkDownloadHelper);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09140e, this.mSplitLandingPage).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09140f, this.mSplitLandingPage).commitAllowingStateLoss();
             return;
         }
         b ar = b.ar(this.mAdTemplate);
         this.mFragment = ar;
         ar.setApkDownloadHelper(this.mApkDownloadHelper);
-        getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09140e, this.mFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09140f, this.mFragment).commitAllowingStateLoss();
     }
 
     public static void launch(Context context, AdTemplate adTemplate) {

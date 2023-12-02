@@ -1,25 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
 /* loaded from: classes7.dex */
-public class ot0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ot0 {
+    void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z);
 
-    @NonNull
-    @Inject(force = false)
-    public static dt0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return tt0.a();
-        }
-        return (dt0) invokeV.objValue;
-    }
+    void b(BdThumbSeekBar bdThumbSeekBar);
+
+    void c(BdThumbSeekBar bdThumbSeekBar);
 }

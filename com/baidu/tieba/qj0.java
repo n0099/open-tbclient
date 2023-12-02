@@ -18,17 +18,17 @@ public final class qj0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new ut0();
+            return new wt0();
         }
         return (pj0) invokeV.objValue;
     }
 
-    public static mw0 b() {
+    public static ow0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             return a().create();
         }
-        return (mw0) invokeV.objValue;
+        return (ow0) invokeV.objValue;
     }
 }

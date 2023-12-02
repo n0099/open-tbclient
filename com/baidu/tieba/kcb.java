@@ -1,41 +1,88 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.utils.FileUtils;
 /* loaded from: classes7.dex */
 public class kcb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public Handler b;
+    public final HandlerThread c;
 
-    public static String a(String str) {
+    public kcb(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        HandlerThread handlerThread = new HandlerThread("VideoFrameDiskCacheSaveTask");
+        this.c = handlerThread;
+        handlerThread.start();
+    }
+
+    public Bitmap a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return str + ".jpg";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str, long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            if (i == 0) {
-                return cxb.b(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return cxb.b(str) + "_" + j;
+            String c = jcb.c(this.a, str);
+            if (!FileUtils.isExists(c)) {
+                return null;
+            }
+            Bitmap f = twb.f(c);
+            if (f != null) {
+                rcb.f().g().b(str, f);
+            }
+            return f;
         }
-        return (String) invokeCommon.objValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            return str + File.separator + str2 + ".jpg";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public void c(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) {
+            if (this.b == null) {
+                this.b = new Handler(this.c.getLooper());
+            }
+            this.b.post(new scb(this.a, str, bitmap));
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
+        }
     }
 }

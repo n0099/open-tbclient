@@ -17,14 +17,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw4;
+import com.baidu.tieba.fw4;
 import com.baidu.tieba.it;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class RichTextLayout extends LinearLayout implements it<cw4>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements it<fw4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -178,15 +178,15 @@ public class RichTextLayout extends LinearLayout implements it<cw4>, View.OnClic
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: c */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cw4Var) == null) && cw4Var != null && cw4Var.getThreadData() != null) {
-            ThreadData threadData = cw4Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fw4Var) == null) && fw4Var != null && fw4Var.getThreadData() != null) {
+            ThreadData threadData = fw4Var.getThreadData();
             OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
             if (originalThreadInfo != null && this.e) {
                 this.b.setVisibility(8);
                 EMManager.from(this.c).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X07);
-                if (!originalThreadInfo.m && !cw4Var.getThreadData().shouldShowBlockedState()) {
+                if (!originalThreadInfo.m && !fw4Var.getThreadData().shouldShowBlockedState()) {
                     SpannableString c = originalThreadInfo.c();
                     ThreadCardUtils.setAbstract(this.c, this.b, c, threadData, this.a, this.e, this.g);
                     if (c != null) {

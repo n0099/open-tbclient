@@ -28,13 +28,13 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c05;
+import com.baidu.tieba.f05;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.w4;
-import com.baidu.tieba.yva;
+import com.baidu.tieba.xva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -53,7 +53,7 @@ public class ItemFootNavView extends LinearLayout {
     public View g;
     public RecommendForumInfo h;
     public boolean i;
-    public c05 j;
+    public f05 j;
     public LikeModel k;
     public AntiHelper.k l;
 
@@ -64,14 +64,14 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements c05.e {
+    public class e implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseActivity a;
         public final /* synthetic */ ItemFootNavView b;
 
         /* loaded from: classes6.dex */
-        public class a implements yva.a {
+        public class a implements xva.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -94,7 +94,7 @@ public class ItemFootNavView extends LinearLayout {
                 this.a = eVar;
             }
 
-            @Override // com.baidu.tieba.yva.a
+            @Override // com.baidu.tieba.xva.a
             public void a(String str, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -110,7 +110,7 @@ public class ItemFootNavView extends LinearLayout {
                 }
             }
 
-            @Override // com.baidu.tieba.yva.a
+            @Override // com.baidu.tieba.xva.a
             public void b(String str, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -147,15 +147,15 @@ public class ItemFootNavView extends LinearLayout {
             this.a = baseActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
                 this.b.j.dismiss();
-                yva yvaVar = new yva();
-                yvaVar.a(BarDetailForDirSwitch.BAR_DETAIL_DIR);
-                yvaVar.b(new a(this));
-                yvaVar.c(this.b.h.forum_name, this.b.h.forum_id.longValue());
+                xva xvaVar = new xva();
+                xvaVar.a(BarDetailForDirSwitch.BAR_DETAIL_DIR);
+                xvaVar.b(new a(this));
+                xvaVar.c(this.b.h.forum_name, this.b.h.forum_id.longValue());
             }
         }
     }
@@ -185,17 +185,17 @@ public class ItemFootNavView extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(c05 c05Var) {
+        public void onNavigationButtonClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(c05 c05Var) {
+        public void onPositiveButtonClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f05Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
             }
         }
@@ -341,7 +341,7 @@ public class ItemFootNavView extends LinearLayout {
                             }
                         }
                         ForumDetailActivity forumDetailActivity = this.a;
-                        forumDetailActivity.showToast(forumDetailActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e6f));
+                        forumDetailActivity.showToast(forumDetailActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e70));
                         return;
                     }
                 }
@@ -352,7 +352,7 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class f implements c05.e {
+    public class f implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ItemFootNavView a;
@@ -375,10 +375,10 @@ public class ItemFootNavView extends LinearLayout {
             this.a = itemFootNavView;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
                 this.a.j.dismiss();
             }
         }
@@ -435,9 +435,9 @@ public class ItemFootNavView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseActivity, z) == null) {
             if (this.j == null) {
-                c05 c05Var = new c05(baseActivity.getPageContext().getPageActivity());
-                this.j = c05Var;
-                c05Var.setMessageId(R.string.obfuscated_res_0x7f0f07b8);
+                f05 f05Var = new f05(baseActivity.getPageContext().getPageActivity());
+                this.j = f05Var;
+                f05Var.setMessageId(R.string.obfuscated_res_0x7f0f07b8);
                 this.j.setPositiveButton(R.string.alert_yes_button, new e(this, baseActivity));
                 this.j.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new f(this));
                 this.j.setCanceledOnTouchOutside(true);
@@ -514,11 +514,11 @@ public class ItemFootNavView extends LinearLayout {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0309, (ViewGroup) this, true);
             setOrientation(1);
             setVisibility(8);
-            this.c = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090bd1);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd2);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091070);
-            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090bd3);
-            this.g = findViewById(R.id.obfuscated_res_0x7f090bf7);
+            this.c = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090bd2);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd3);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091071);
+            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090bd4);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090bf8);
         }
     }
 

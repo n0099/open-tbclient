@@ -1,47 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.u11;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes6.dex */
 public class i31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    @NonNull
+    @Inject(force = false)
+    public static g31 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
-            return u11.c.a(hf0.b(), f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return g31.a;
         }
-        return invokeF.intValue;
+        return (g31) invokeV.objValue;
     }
 
-    public static int b(float f) {
-        InterceptResult invokeF;
+    @NonNull
+    @Inject(force = false)
+    public static h31 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            return u11.c.a(hf0.b(), f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return h31.a;
         }
-        return invokeF.intValue;
-    }
-
-    public static int c(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) {
-            return Math.round(f / 1.5f);
-        }
-        return invokeF.intValue;
-    }
-
-    public static int d(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
-            return b(f / 1.5f);
-        }
-        return invokeF.intValue;
+        return (h31) invokeV.objValue;
     }
 }

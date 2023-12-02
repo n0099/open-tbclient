@@ -535,12 +535,12 @@ public final class e extends KSRelativeLayout implements com.kwad.sdk.core.h.c {
 
     private void initView() {
         com.kwad.sdk.m.l.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04ee, this);
-        AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f09148f);
+        AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f091490);
         this.mH = adBasePvFrameLayout;
-        this.mF = (ImageView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f0913b0);
-        this.eL = (KSRelativeLayout) this.mH.findViewById(R.id.obfuscated_res_0x7f0913b1);
-        this.mG = (RelativeLayout) this.mH.findViewById(R.id.obfuscated_res_0x7f0913d1);
-        KsAdWebView ksAdWebView = (KsAdWebView) this.mH.findViewById(R.id.obfuscated_res_0x7f091516);
+        this.mF = (ImageView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f0913b1);
+        this.eL = (KSRelativeLayout) this.mH.findViewById(R.id.obfuscated_res_0x7f0913b2);
+        this.mG = (RelativeLayout) this.mH.findViewById(R.id.obfuscated_res_0x7f0913d2);
+        KsAdWebView ksAdWebView = (KsAdWebView) this.mH.findViewById(R.id.obfuscated_res_0x7f091517);
         this.mAdWebView = ksAdWebView;
         ksAdWebView.setBackgroundColor(0);
         this.eU = (com.kwad.components.core.n.a.a.a) com.kwad.sdk.components.c.f(com.kwad.components.core.n.a.a.a.class);

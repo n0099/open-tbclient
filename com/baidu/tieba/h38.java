@@ -2,33 +2,30 @@ package com.baidu.tieba;
 
 import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import tbclient.ThemeElement;
 /* loaded from: classes6.dex */
-public class h38 implements i38 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface h38 {
+    @Nullable
+    <T> T a(@NonNull LogicField logicField);
 
-    @Override // com.baidu.tieba.i38
-    public void a(@NonNull View view2, @NonNull View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, onClickListener) == null) {
-        }
-    }
+    void b(@NonNull ThemeElement themeElement);
 
-    public h38() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(float f);
+
+    void d(int i, boolean z);
+
+    @NonNull
+    NavigationBar e();
+
+    void f(boolean z);
+
+    int g();
+
+    void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener);
+
+    void onChangeSkinType(int i);
 }

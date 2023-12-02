@@ -1,77 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class pvb {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public boolean g;
-    public String h;
 
-    public pvb() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948076909, "Lcom/baidu/tieba/pvb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948076909, "Lcom/baidu/tieba/pvb;");
         }
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
-        JSONObject jSONObject;
-        JSONException e;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", this.a);
-                    jSONObject.put("doReport", this.b);
-                    jSONObject.put("name", this.c);
-                    jSONObject.put("code", this.d);
-                    jSONObject.put("msg", this.e);
-                    jSONObject.put("data", this.f);
-                    jSONObject.put("isShowSpecialToast", this.g);
-                    jSONObject.put("specialToast", this.h);
-                } catch (JSONException e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    return jSONObject;
-                }
-            } catch (JSONException e3) {
-                jSONObject = null;
-                e = e3;
-            }
-            return jSONObject;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a) {
+            Log.d(str, "-----------------" + str2);
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "type:" + this.a + "name:" + this.c + "code:" + this.d + "msg:" + this.e + "data" + this.f + "doReport : " + this.b;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && a) {
+            Log.d("muxer_publish_progress", str + "---" + str2);
         }
-        return (String) invokeV.objValue;
     }
 }

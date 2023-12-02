@@ -358,7 +358,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
         @NonNull
         private Drawable createThemedBackground() {
-            float dimension = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070641);
+            float dimension = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070644);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
             gradientDrawable.setCornerRadius(dimension);

@@ -1,62 +1,47 @@
 package com.baidu.tieba;
 
+import android.app.Dialog;
 import android.content.Context;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.style.AbsoluteSizeSpan;
-import android.view.LayoutInflater;
+import android.content.DialogInterface;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ae1;
+import com.baidu.poly.widget.coupon.CouponListView;
+import com.baidu.tieba.de1;
+import com.baidu.tieba.td1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class be1 extends BaseAdapter {
+public class be1 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ae1.a> a;
-    public Context b;
+    public CouponListView a;
+    public ImageView b;
+    public FrameLayout c;
+    public d d;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a(boolean z, de1.a aVar);
     }
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-        public TextView d;
-        public ImageView e;
-        public LinearLayout f;
-        public LinearLayout g;
-        public TextView h;
-        public ImageView i;
+        public final /* synthetic */ be1 a;
 
-        public a(View view2) {
+        public a(be1 be1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
+                Object[] objArr = {be1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,19 +51,117 @@ public class be1 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090840);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09083f);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092249);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090691);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090841);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09083d);
-            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09083a);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09083e);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092253);
+            this.a = be1Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.a != null && this.a.d != null) {
+                    this.a.d.a(false, this.a.a.getSelectedItem());
+                }
+                this.a.dismiss();
+            }
         }
     }
 
+    /* loaded from: classes5.dex */
+    public class b implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ be1 a;
+
+        public b(be1 be1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {be1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = be1Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.a.a != null && this.a.d != null) {
+                this.a.d.a(false, this.a.a.getSelectedItem());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements CouponListView.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ be1 a;
+
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void onDetach() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        public c(be1 be1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {be1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = be1Var;
+        }
+
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void b(de1.a aVar, td1 td1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, td1Var) == null) {
+                td1.a aVar2 = new td1.a();
+                aVar2.a = 0;
+                td1Var.a(aVar2);
+            }
+        }
+
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void c(boolean z, de1.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, aVar) == null) {
+                this.a.dismiss();
+                if (this.a.d != null) {
+                    this.a.d.a(z, aVar);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public be1(Context context) {
+        this(context, R.style.obfuscated_res_0x7f100103);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,110 +171,71 @@ public class be1 extends BaseAdapter {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = context;
     }
 
-    public final String a(long j) {
-        InterceptResult invokeJ;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public be1(Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return new DecimalFormat("0").format((j * 1.0d) / 100.0d);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public ae1.a getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < this.a.size()) {
-                return this.a.get(i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return null;
         }
-        return (ae1.a) invokeI.objValue;
+        c();
     }
 
-    public void c(List<ae1.a> list) {
+    public void d(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            this.d = dVar;
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void e(List<de1.a> list) {
+        CouponListView couponListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ae1.a> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (couponListView = this.a) != null) {
+            couponListView.u(list);
+            this.a.setListener(new c(this));
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        boolean z;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            ae1.a item = getItem(i);
-            if (item == null) {
-                return view2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d0273);
+            Window window = getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003c3);
+                window.setLayout(-1, -2);
             }
-            boolean z2 = false;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0241, (ViewGroup) null, false);
-                view2.setTag(new a(view2));
-            }
-            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
-                a aVar = (a) view2.getTag();
-                if (item.a == -1) {
-                    aVar.g.setVisibility(8);
-                    aVar.f.setVisibility(0);
-                    aVar.h.setText(item.d);
-                    ImageView imageView = aVar.i;
-                    if (item.h == 1) {
-                        z2 = true;
-                    }
-                    imageView.setSelected(z2);
-                } else {
-                    aVar.g.setVisibility(0);
-                    aVar.f.setVisibility(8);
-                    aVar.a.setText(item.d);
-                    if (TextUtils.isEmpty(item.e)) {
-                        aVar.b.setVisibility(8);
-                    } else {
-                        aVar.b.setVisibility(0);
-                        aVar.b.setText(item.e);
-                    }
-                    ImageView imageView2 = aVar.c;
-                    if (item.h == 1) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    imageView2.setSelected(z);
-                    SpannableString spannableString = new SpannableString("￥" + a(item.g.longValue()));
-                    spannableString.setSpan(new AbsoluteSizeSpan(cd1.a(this.b, 14.0f)), 0, 1, 33);
-                    aVar.d.setText(spannableString);
-                }
-            }
-            return view2;
+            this.a = (CouponListView) findViewById(R.id.obfuscated_res_0x7f090692);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090693);
+            this.c = frameLayout;
+            frameLayout.setVisibility(8);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091285);
+            this.b = imageView;
+            imageView.setOnClickListener(new a(this));
+            setOnCancelListener(new b(this));
         }
-        return (View) invokeILL.objValue;
     }
 }

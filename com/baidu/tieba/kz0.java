@@ -1,28 +1,65 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class kz0 {
+public class kz0 extends iz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> int a(T[] tArr, T t) {
-        InterceptResult invokeLL;
+    public kz0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tArr, t)) == null) {
-            if (tArr == null) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int length = tArr.length;
-            for (int i = 0; i < length; i++) {
-                if (tArr[i] == t) {
-                    return i;
-                }
-            }
-            return -1;
         }
-        return invokeLL.intValue;
+        d(TiePlusStat.RichTextType.STAT_KEY, "every");
+    }
+
+    @Override // com.baidu.tieba.iz0, com.baidu.tieba.jz0
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String sb = this.a.toString();
+            if (!TextUtils.isEmpty(sb) && sb.contains("c_id")) {
+                return super.isValid();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public kz0 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            d("c_id", str);
+            return this;
+        }
+        return (kz0) invokeL.objValue;
+    }
+
+    public kz0 h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            d("extra_param", str);
+            return this;
+        }
+        return (kz0) invokeL.objValue;
     }
 }

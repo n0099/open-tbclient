@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.NoticeInfo;
+import tbclient.NoticeMask;
 /* loaded from: classes7.dex */
-public class o5d extends ltc {
+public class o5d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull NoticeInfo noticeInfo) {
+    public static JSONObject b(@NonNull NoticeMask noticeMask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, noticeInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, noticeMask)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "notice", noticeInfo.notice);
-            ltc.a(jSONObject, "pullCommentFrequence", noticeInfo.pullCommentFrequence);
+            ktc.a(jSONObject, "attr_type", noticeMask.attr_type);
+            ktc.a(jSONObject, "attr_value", noticeMask.attr_value);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

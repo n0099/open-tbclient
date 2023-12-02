@@ -49,8 +49,8 @@ public final class e extends FrameLayout {
     private void init(Context context) {
         com.kwad.sdk.m.l.inflate(context, R.layout.obfuscated_res_0x7f0d04c9, this);
         setClickable(false);
-        this.fp = findViewById(R.id.obfuscated_res_0x7f091369);
-        this.fq = (ImageView) findViewById(R.id.obfuscated_res_0x7f09136a);
+        this.fp = findViewById(R.id.obfuscated_res_0x7f09136a);
+        this.fq = (ImageView) findViewById(R.id.obfuscated_res_0x7f09136b);
     }
 
     public final void setOnViewEventListener(com.kwad.sdk.widget.c cVar) {

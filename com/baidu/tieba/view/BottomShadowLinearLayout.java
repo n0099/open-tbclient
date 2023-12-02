@@ -108,7 +108,7 @@ public class BottomShadowLinearLayout extends LinearLayout {
             this.f.setStyle(Paint.Style.FILL);
             this.f.setDither(true);
             this.c = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701d5);
-            this.d = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703a5);
+            this.d = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0703a6);
             setLayerType(1, this.e);
             b();
         }

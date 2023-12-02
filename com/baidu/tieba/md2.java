@@ -1,52 +1,62 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.swan.apps.database.subscribe.SwanAppSubscribeMsgProvider;
+import android.net.Uri;
+import com.baidu.searchbox.downloads.DownloadConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public final class md2 {
+public class md2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS swanapp_subscribe_msg(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,templateId varchar(50) NOT NULL,title varchar(100) NOT NULL,tips TEXT,result TINYINT default 0);");
-            } catch (Exception e) {
-                h32.d("SwanAppSubscribeMsg", "createTable", e);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947968750, "Lcom/baidu/tieba/md2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        }
-    }
-
-    @WorkerThread
-    public static void b(@Nullable String... strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, strArr) == null) {
-            Application c = op2.c();
-            if (c != null && strArr != null) {
-                StringBuilder sb = new StringBuilder();
-                int length = strArr.length;
-                for (int i = 0; i < length; i++) {
-                    String str = strArr[i];
-                    if (!TextUtils.isEmpty(str)) {
-                        sb.append(str);
-                        if (i < length - 1) {
-                            sb.append(",");
-                        }
-                    }
-                }
-                int delete = c.getContentResolver().delete(SwanAppSubscribeMsgProvider.c, "appKey in (?)", new String[]{sb.toString()});
-                h32.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + delete + ", appKey=" + sb.toString());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947968750, "Lcom/baidu/tieba/md2;");
                 return;
             }
-            h32.o("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
         }
+        a = DownloadConstants.LOCAL_DATA_URI_PREFIX + jd2.b + "/history_with_app";
+        b = DownloadConstants.LOCAL_DATA_URI_PREFIX + jd2.b + "/history";
+        c = DownloadConstants.LOCAL_DATA_URI_PREFIX + jd2.b + "/history_with_aps_pms";
+    }
+
+    public static Uri a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return Uri.parse(b);
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public static Uri b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Uri.parse(a);
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public static Uri c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Uri.parse(c);
+        }
+        return (Uri) invokeV.objValue;
     }
 }

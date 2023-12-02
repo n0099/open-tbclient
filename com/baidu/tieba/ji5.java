@@ -7,11 +7,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class ji5 extends fi5 {
+public class ji5 extends ii5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
+    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public short g;
+    public short h;
+    public byte i;
+    public byte j;
 
     static {
         InterceptResult invokeClinit;
@@ -26,7 +35,7 @@ public class ji5 extends fi5 {
                 return;
             }
         }
-        c = fi5.a("IEND");
+        k = ii5.a("fcTL");
     }
 
     public ji5() {
@@ -40,6 +49,22 @@ public class ji5 extends fi5 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.ii5
+    public void b(pi5 pi5Var) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pi5Var) == null) {
+            pi5Var.e();
+            this.c = pi5Var.e();
+            this.d = pi5Var.e();
+            this.e = pi5Var.e();
+            this.f = pi5Var.e();
+            this.g = pi5Var.f();
+            this.h = pi5Var.f();
+            this.i = pi5Var.peek();
+            this.j = pi5Var.peek();
         }
     }
 }

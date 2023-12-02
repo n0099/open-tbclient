@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,139 +11,157 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class n74 {
+public class n74 extends q74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rd2 a;
-    public l74 b;
 
-    public n74(rd2 rd2Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n74(ud2 ud2Var) {
+        super(ud2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rd2Var};
+            Object[] objArr = {ud2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ud2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = rd2Var;
-        this.b = new l74();
     }
 
-    @NonNull
-    public r74 c(String str) {
+    public final void g(JsObject jsObject, String str, String str2, u74 u74Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jsObject, str, str2, u74Var) == null) {
+            sy1 n = n(jsObject);
+            t04 t04Var = new t04();
+            boolean g = u74Var.g();
+            t04Var.errMsg = u74Var.c(str, str2);
+            w84.a(n, g, t04Var);
+            if (!g) {
+                e74.i(str2, t04Var.errMsg);
+            }
+        }
+    }
+
+    public void h(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+            g(jsObject, "clearStorage", "", a());
+        }
+    }
+
+    public final JsSerializeValue i(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (str == null) {
-                return r74.b("parameter error: the key cannot be null.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject)) == null) {
+            for (int i = 0; i < jsObject.length(); i++) {
+                if ("data".equals(jsObject.getPropertyName(i))) {
+                    return jsObject.toSerializeValue(i);
+                }
             }
-            Object obj = null;
-            String p = this.b.p(str, null);
-            if (p != null) {
-                obj = this.a.z(Base64.decode(p, 2), true);
-            }
-            if (obj == null) {
-                obj = r74.h();
-            }
-            return r74.i(obj);
+            return null;
         }
-        return (r74) invokeL.objValue;
+        return (JsSerializeValue) invokeL.objValue;
     }
 
-    @NonNull
-    public r74 a() {
-        InterceptResult invokeV;
+    public void l(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.b.j();
-            di3.h.b();
-            return r74.i(null);
-        }
-        return (r74) invokeV.objValue;
-    }
-
-    @NonNull
-    public q74 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String[] n = this.b.n();
-            q74 q74Var = new q74();
-            q74Var.keys = n;
-            q74Var.currentSize = this.b.m() / 1024;
-            q74Var.limitSize = this.b.s() / 1024;
-            q74Var.errMsg = o74.b("getStorageInfoSync");
-            return q74Var;
-        }
-        return (q74) invokeV.objValue;
-    }
-
-    public final void d(JsSerializeValue jsSerializeValue) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, jsSerializeValue) == null) && jsSerializeValue != null) {
-            jsSerializeValue.release();
+        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
+            sy1 n = n(jsObject);
+            t74 b = b();
+            b.errMsg = r74.b("getStorageInfo");
+            w84.a(n, true, b);
         }
     }
 
     @NonNull
-    public r74 e(String str) {
+    public final sy1 n(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str == null) {
-                return r74.b("parameter error: the key cannot be null.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jsObject)) == null) {
+            sy1 G = sy1.G(jsObject);
+            if (G == null) {
+                return new sy1();
             }
-            this.b.u(str);
-            di3.h.b();
-            return r74.i(null);
+            return G;
         }
-        return (r74) invokeL.objValue;
+        return (sy1) invokeL.objValue;
     }
 
-    @NonNull
-    public r74 f(String str, JsSerializeValue jsSerializeValue) {
+    public void o(JsObject jsObject) {
+        String m;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) != null) || (m = m(jsObject, "removeStorage")) == null) {
+            return;
+        }
+        g(jsObject, "removeStorage", m, e(m));
+    }
+
+    public void p(JsObject jsObject) {
+        String m;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, jsObject) != null) || (m = m(jsObject, "setStorage")) == null) {
+            return;
+        }
+        g(jsObject, "setStorage", m, f(m, i(jsObject)));
+    }
+
+    public final u74 j(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jsObject)) == null) {
+            for (int i = 0; i < jsObject.length(); i++) {
+                if ("key".equals(jsObject.getPropertyName(i))) {
+                    int propertyType = jsObject.getPropertyType(i);
+                    if (propertyType == 7) {
+                        return u74.i(jsObject.toString(i));
+                    }
+                    return u74.b(String.format("parameter error: the key must be string instead of %s.", u74.f(propertyType)));
+                }
+            }
+            return u74.b("parameter error: the parameter key is necessary.");
+        }
+        return (u74) invokeL.objValue;
+    }
+
+    public void k(JsObject jsObject) {
+        String m;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jsObject) != null) || (m = m(jsObject, "getStorage")) == null) {
+            return;
+        }
+        u74 c = c(m);
+        if (c.g()) {
+            s74 s74Var = new s74();
+            s74Var.errMsg = r74.b("getStorage");
+            Object d = c.d();
+            s74Var.data = d;
+            if (d instanceof JsSerializeValue) {
+                ((JsSerializeValue) d).setAutoRelease(false);
+            }
+            w84.a(n(jsObject), true, s74Var);
+            return;
+        }
+        g(jsObject, "getStorage", m, c);
+    }
+
+    public final String m(JsObject jsObject, String str) {
         InterceptResult invokeLL;
-        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, jsSerializeValue)) == null) {
-            if (str == null) {
-                d(jsSerializeValue);
-                return r74.b("parameter error: the key cannot be null.");
-            } else if (jsSerializeValue == null) {
-                return r74.i(null);
-            } else {
-                byte[] H = this.a.H(jsSerializeValue, true);
-                d(jsSerializeValue);
-                if (H == null) {
-                    return r74.b("parameter error: the data parse failed.");
-                }
-                String encodeToString = Base64.encodeToString(H, 2);
-                String p = this.b.p(str, null);
-                int length2 = str.getBytes().length;
-                int length3 = encodeToString.length() + length2;
-                if (p == null) {
-                    length = 0;
-                } else {
-                    length = p.length() + length2;
-                }
-                if (this.b.s() - this.b.m() < length3 - length) {
-                    return r74.b("storage error: the storage space insufficient.");
-                }
-                boolean t = this.b.t(str, encodeToString);
-                di3.h.b();
-                if (t) {
-                    return r74.i(null);
-                }
-                return r74.b("storage error: the storage is invalid.");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, jsObject, str)) == null) {
+            u74 j = j(jsObject);
+            if (!j.g()) {
+                g(jsObject, str, "", j);
+                return null;
             }
+            return (String) j.d();
         }
-        return (r74) invokeLL.objValue;
+        return (String) invokeLL.objValue;
     }
 }

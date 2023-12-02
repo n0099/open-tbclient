@@ -115,7 +115,7 @@ public class ng0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return (wg0) ny0.b(this.a, str);
+            return (wg0) py0.b(this.a, str);
         }
         return (wg0) invokeL.objValue;
     }
@@ -132,13 +132,13 @@ public class ng0 {
         if ((interceptable != null && interceptable.invokeL(1048581, this, wg0Var) != null) || wg0Var == null) {
             return;
         }
-        ny0.e(this.a, wg0Var.e(), wg0Var);
+        py0.e(this.a, wg0Var.e(), wg0Var);
     }
 
-    public void h(@NonNull zy0 zy0Var) {
+    public void h(@NonNull bz0 bz0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zy0Var) == null) {
-            og0.f().b(zy0Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, bz0Var) == null) {
+            og0.f().b(bz0Var);
         }
     }
 
@@ -146,17 +146,17 @@ public class ng0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             List<wg0> a2 = og0.f().a();
-            if (ly0.g(a2)) {
+            if (ny0.g(a2)) {
                 return;
             }
-            int l = ly0.l(a2);
+            int l = ny0.l(a2);
             for (int i = 0; i != l; i++) {
-                wg0 wg0Var = (wg0) ly0.d(a2, i);
+                wg0 wg0Var = (wg0) ny0.d(a2, i);
                 if (wg0Var != null) {
                     if (wg0Var.c == AdDownloadStatus.DOWNLOADING) {
                         wg0Var.c = AdDownloadStatus.PAUSE;
                     }
-                    ny0.e(this.a, wg0Var.e(), wg0Var);
+                    py0.e(this.a, wg0Var.e(), wg0Var);
                 }
             }
         }

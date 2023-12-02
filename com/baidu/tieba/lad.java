@@ -5,29 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.PkModule;
-import tbclient.TopicModule;
+import tbclient.TshowInfo;
 /* loaded from: classes7.dex */
-public class lad extends ltc {
+public class lad extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TopicModule topicModule) {
+    public static JSONObject b(@NonNull TshowInfo tshowInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topicModule)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tshowInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "topic_id", topicModule.topic_id);
-            ltc.a(jSONObject, "topic_name", topicModule.topic_name);
-            ltc.a(jSONObject, "topic_desc", topicModule.topic_desc);
-            ltc.a(jSONObject, "discuss_num", topicModule.discuss_num);
-            ltc.a(jSONObject, "topic_image", topicModule.topic_image);
-            PkModule pkModule = topicModule.pk_module;
-            if (pkModule != null) {
-                ltc.a(jSONObject, "pk_module", l6d.b(pkModule));
-            }
-            ltc.a(jSONObject, "topic_avatar", topicModule.topic_avatar);
+            ktc.a(jSONObject, "icon", tshowInfo.icon);
+            ktc.a(jSONObject, "name", tshowInfo.name);
+            ktc.a(jSONObject, "url", tshowInfo.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

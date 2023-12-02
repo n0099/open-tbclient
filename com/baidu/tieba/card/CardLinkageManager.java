@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.cw4;
+import com.baidu.tieba.fw4;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.ss5;
 import com.baidu.tieba.vi;
+import com.baidu.tieba.ws5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,8 +89,8 @@ public final class CardLinkageManager {
         if ((interceptable != null && interceptable.invokeLL(1048576, this, viVar, baseCardInfo) != null) || !baseCardInfo.isHighLight()) {
             return;
         }
-        if (baseCardInfo instanceof cw4) {
-            ((cw4) baseCardInfo).getThreadData().cancelHighLight();
+        if (baseCardInfo instanceof fw4) {
+            ((fw4) baseCardInfo).getThreadData().cancelHighLight();
         }
         if (viVar != null && viVar.getListAdapter() != null) {
             viVar.getListAdapter().notifyDataSetChanged();
@@ -175,7 +175,7 @@ public final class CardLinkageManager {
         BaseCardInfo baseCardInfo = (BaseCardInfo) item;
         for (int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition(); firstVisiblePosition <= lastVisiblePosition; firstVisiblePosition++) {
             Object item2 = ListUtils.getItem(data, firstVisiblePosition - headerViewsCount);
-            if (!ss5.p(item2)) {
+            if (!ws5.p(item2)) {
                 if (!(item2 instanceof BaseCardInfo)) {
                     if ((item2 instanceof pi) && (findViewByPosition2 = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
                         findViewByPosition2.setTranslationY(f);

@@ -5,22 +5,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.PubCardFreq;
+import tbclient.PubHeadCardCover;
 /* loaded from: classes5.dex */
-public class a7d extends ltc {
+public class a7d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PubCardFreq pubCardFreq) {
+    public static JSONObject b(@NonNull PubHeadCardCover pubHeadCardCover) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pubCardFreq)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "start_time", pubCardFreq.start_time);
-            ltc.a(jSONObject, "end_time", pubCardFreq.end_time);
-            ltc.a(jSONObject, "show_times", pubCardFreq.show_times);
-            return jSONObject;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pubHeadCardCover)) == null) {
+            return new JSONObject();
         }
         return (JSONObject) invokeL.objValue;
     }

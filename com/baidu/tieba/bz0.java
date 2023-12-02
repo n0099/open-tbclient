@@ -1,137 +1,288 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.net.request.BodyStyle;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bz0 {
+public final class bz0 extends wz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final cz0 a;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hz0 a;
-        public final /* synthetic */ ap0 b;
-
-        public a(hz0 hz0Var, ap0 ap0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hz0Var, ap0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hz0Var;
-            this.b = ap0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                bz0.g(this.a, this.b);
-            }
-        }
-    }
-
-    public static <T> void f(@NonNull hz0 hz0Var, @Nullable ap0<T> ap0Var) {
+    public bz0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, hz0Var, ap0Var) == null) {
-            hz0Var.a();
-            c01.c(new a(hz0Var, ap0Var), "als_async_executor", 2);
-        }
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return hf0.d().A() + "/clog/clog";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return hf0.d().A() + "/elog/plog";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static Boolean d() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!y01.a) {
-                return Boolean.FALSE;
-            }
-            a11 a11Var = (a11) x01.a().a(a11.class);
-            if (a11Var != null && a11Var.a()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            return Boolean.valueOf(z);
-        }
-        return (Boolean) invokeV.objValue;
-    }
-
-    public static void e(@NonNull hz0 hz0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hz0Var) == null) {
-            f(hz0Var, null);
-        }
-    }
-
-    public static <T> void g(hz0 hz0Var, @Nullable ap0<T> ap0Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, hz0Var, ap0Var) == null) && hz0Var != null && hz0Var.isValid()) {
-            String hz0Var2 = hz0Var.toString();
-            if (hz0Var instanceof ClogBuilder) {
-                if (d().booleanValue()) {
-                    str = b();
-                } else {
-                    str = "https://als.baidu.com/clog/clog";
-                }
-            } else if (hz0Var instanceof iz0) {
-                if (d().booleanValue()) {
-                    str = c();
-                } else {
-                    str = "https://als.baidu.com/elog/plog";
-                }
-            } else if (hz0Var instanceof fz0) {
-                str = "https://afd.baidu.com/afd/close";
-            } else {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            hp0 hp0Var = new hp0();
-            hp0Var.h(hz0Var2);
-            hp0Var.k(BodyStyle.STRING);
-            hp0Var.i("application/x-www-form-urlencoded");
-            ip0 ip0Var = new ip0();
-            ip0Var.l(str);
-            ip0Var.f(hp0Var);
-            po0.b().a().a(ip0Var, ap0Var);
         }
+        this.a = new cz0();
+    }
+
+    public String A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.e.getValue();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.h.getValue();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.wz0
+    public vz0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (vz0) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.l.getValue();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.m.getValue();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.f.getValue();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a.j.getValue();
+        }
+        return invokeV.longValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a.a.getValue();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a.k.getValue();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a.d.getValue();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.g.getValue();
+        }
+        return invokeV.intValue;
+    }
+
+    public long x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return this.a.i.getValue();
+        }
+        return invokeV.longValue;
+    }
+
+    public int y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.a.c.getValue();
+        }
+        return invokeV.intValue;
+    }
+
+    public int z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.a.b.getValue();
+        }
+        return invokeV.intValue;
+    }
+
+    public bz0 k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            this.a.l.setValue(str);
+            return this;
+        }
+        return (bz0) invokeL.objValue;
+    }
+
+    public bz0 l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            this.a.m.setValue(str);
+            return this;
+        }
+        return (bz0) invokeL.objValue;
+    }
+
+    public bz0 m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            this.a.f.setValue(str);
+            return this;
+        }
+        return (bz0) invokeL.objValue;
+    }
+
+    public bz0 n(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) {
+            this.a.j.setValue(j);
+            return this;
+        }
+        return (bz0) invokeJ.objValue;
+    }
+
+    public bz0 o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            this.a.a.setValue(str);
+            return this;
+        }
+        return (bz0) invokeL.objValue;
+    }
+
+    public bz0 p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            this.a.k.setValue(str);
+            return this;
+        }
+        return (bz0) invokeL.objValue;
+    }
+
+    public bz0 q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+            this.a.d.setValue(str);
+            return this;
+        }
+        return (bz0) invokeL.objValue;
+    }
+
+    public bz0 r(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            this.a.g.setValue(i);
+            return this;
+        }
+        return (bz0) invokeI.objValue;
+    }
+
+    public bz0 s(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
+            this.a.i.setValue(j);
+            return this;
+        }
+        return (bz0) invokeJ.objValue;
+    }
+
+    public bz0 t(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            this.a.c.setValue(i);
+            return this;
+        }
+        return (bz0) invokeI.objValue;
+    }
+
+    public bz0 u(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            this.a.b.setValue(i);
+            return this;
+        }
+        return (bz0) invokeI.objValue;
+    }
+
+    public bz0 v(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+            this.a.e.setValue(str);
+            return this;
+        }
+        return (bz0) invokeL.objValue;
+    }
+
+    public bz0 w(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
+            this.a.h.setValue(i);
+            return this;
+        }
+        return (bz0) invokeI.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import java.util.Date;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface gz5 {
-    void a(Date date);
+    void a(View view2);
 }

@@ -541,7 +541,7 @@ public class BadgeView extends TextView {
                     layoutParams.width = -2;
                     if (this.bigTextHeight == 0 || this.bigTextSize == 0 || i2 != this.currentFontLevel) {
                         this.bigTextHeight = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07018b), 2);
-                        this.bigTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f0702e0, 2);
+                        this.bigTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f0702e1, 2);
                     }
                     layoutParams.height = this.bigTextHeight;
                     int i4 = this.mLrPaddingInBigTextType;
@@ -567,7 +567,7 @@ public class BadgeView extends TextView {
             layoutParams.height = i;
             if (this.smallTextBg == null || this.smallTextSize == 0 || i2 != this.currentFontLevel || this.mIsNormalSize) {
                 this.smallTextBg = createSmallTextBg();
-                this.smallTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f070338, 2);
+                this.smallTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f070339, 2);
             }
             setBackground(this.smallTextBg);
             setMinWidth(0);
@@ -600,7 +600,7 @@ public class BadgeView extends TextView {
             if (i != 2) {
                 if (i == 3) {
                     this.bigTextHeight = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07018b), 2);
-                    this.bigTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f0702e0, 2);
+                    this.bigTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f0702e1, 2);
                     layoutParams.height = this.bigTextHeight;
                     int scaledSize = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07018c), 2);
                     this.mLrPaddingInBigTextType = scaledSize;
@@ -611,7 +611,7 @@ public class BadgeView extends TextView {
                 return;
             }
             this.smallTextBg = createSmallTextBg();
-            this.smallTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f070338, 2);
+            this.smallTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f070339, 2);
             setBackground(this.smallTextBg);
             setTextSize(0, this.smallTextSize);
             return;

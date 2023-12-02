@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.ry4;
-import com.baidu.tieba.sua;
+import com.baidu.tieba.rua;
+import com.baidu.tieba.uy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -180,7 +180,7 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (intent = getIntent()) != null && (context = this.mContext) != null) {
             String simpleName = context.getClass().getSimpleName();
-            if (sua.g(simpleName)) {
+            if (rua.g(simpleName)) {
                 intent.putExtra("from_frs", true);
             } else {
                 intent.putExtra("from_frs", false);
@@ -403,11 +403,11 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         }
     }
 
-    public void setRecomData(ry4 ry4Var) {
+    public void setRecomData(uy4 uy4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048621, this, ry4Var) == null) && (intent = getIntent()) != null && ry4Var != null) {
-            ry4Var.c(intent);
+        if ((interceptable == null || interceptable.invokeL(1048621, this, uy4Var) == null) && (intent = getIntent()) != null && uy4Var != null) {
+            uy4Var.c(intent);
         }
     }
 

@@ -12,12 +12,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.editortools.meme.muti.MutiSpriteMemeEvent;
 import com.baidu.tbadk.mutiprocess.MutiProcessManager;
-import com.baidu.tieba.b05;
 import com.baidu.tieba.da;
-import com.baidu.tieba.ju5;
+import com.baidu.tieba.e05;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.nu5;
-import com.baidu.tieba.vf5;
+import com.baidu.tieba.ru5;
+import com.baidu.tieba.yf5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,7 +69,7 @@ public final class SpriteMemeShowStrategy {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
                 Intrinsics.checkNotNullParameter(params, "params");
                 SpriteMemeShowConfigData spriteMemeShowConfigData = new SpriteMemeShowConfigData();
-                da<String> n = b05.n("tb.sprite_meme_config", SpriteMemeShowStrategy.b);
+                da<String> n = e05.n("tb.sprite_meme_config", SpriteMemeShowStrategy.b);
                 if (n != null && !StringUtils.isNull(n.get("sprite_meme_config_cache"))) {
                     try {
                         String str = n.get("sprite_meme_config_cache");
@@ -145,7 +145,7 @@ public final class SpriteMemeShowStrategy {
     }
 
     /* loaded from: classes5.dex */
-    public static final class c extends ju5<Object> {
+    public static final class c extends nu5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -163,12 +163,12 @@ public final class SpriteMemeShowStrategy {
             }
         }
 
-        @Override // com.baidu.tieba.ju5
+        @Override // com.baidu.tieba.nu5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                da<String> n = b05.n("tb.sprite_meme_config", SpriteMemeShowStrategy.b);
+                da<String> n = e05.n("tb.sprite_meme_config", SpriteMemeShowStrategy.b);
                 if (n == null) {
                     return null;
                 }
@@ -213,7 +213,7 @@ public final class SpriteMemeShowStrategy {
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && k() && !c) {
             MutiProcessManager.publishEvent(new MutiSpriteMemeEvent(b, f()));
             DefaultLog.getInstance().e("sprite_meme_log", "开始更新 SpriteMeme 本地缓存配置");
-            nu5.b(new c(), null);
+            ru5.b(new c(), null);
         }
     }
 
@@ -244,7 +244,7 @@ public final class SpriteMemeShowStrategy {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return vf5.a.a().a();
+            return yf5.a.a().a();
         }
         return invokeV.longValue;
     }
@@ -253,7 +253,7 @@ public final class SpriteMemeShowStrategy {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return vf5.a.a().b();
+            return yf5.a.a().b();
         }
         return invokeV.intValue;
     }

@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.l95;
-import com.baidu.tieba.mya;
+import com.baidu.tieba.lya;
+import com.baidu.tieba.o95;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +34,7 @@ public class VcodeTool {
     @Nullable
     public static PostWriteCallBackData cachedCallbackData;
     @Nullable
-    public static l95 cachedVcodeInfoData;
+    public static o95 cachedVcodeInfoData;
     @Nullable
     public static WriteData cachedWriteData;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,9 +110,9 @@ public class VcodeTool {
                 if (postWriteCallBackData == null) {
                     return false;
                 }
-                mya.l().k(true, postWriteCallBackData, cachedVcodeInfoData, cachedWriteData, cachedAntiData);
+                lya.l().k(true, postWriteCallBackData, cachedVcodeInfoData, cachedWriteData, cachedAntiData);
             } else {
-                mya.l().k(false, cachedCallbackData, null, cachedWriteData, cachedAntiData);
+                lya.l().k(false, cachedCallbackData, null, cachedWriteData, cachedAntiData);
             }
             cachedCallbackData = null;
             cachedVcodeInfoData = null;
@@ -123,27 +123,27 @@ public class VcodeTool {
         return invokeIIL.booleanValue;
     }
 
-    public static boolean tryShowOnWriteScene(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable l95 l95Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
+    public static boolean tryShowOnWriteScene(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable o95 o95Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
         InterceptResult invokeLLLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, postWriteCallBackData, l95Var, writeData, antiData)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, postWriteCallBackData, o95Var, writeData, antiData)) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null && writeData != null && l95Var != null && !TextUtils.isEmpty(l95Var.c())) {
+            if (currentActivity != null && writeData != null && o95Var != null && !TextUtils.isEmpty(o95Var.c())) {
                 z = true;
             } else {
                 z = false;
             }
             if (z) {
                 cachedCallbackData = postWriteCallBackData;
-                cachedVcodeInfoData = l95Var;
+                cachedVcodeInfoData = o95Var;
                 cachedWriteData = writeData;
                 cachedAntiData = antiData;
-                writeData.setVcodeMD5(l95Var.b());
-                writeData.setVcodeUrl(l95Var.c());
-                writeData.setVcodeExtra(l95Var.a());
-                if (needVcode(l95Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, l95Var.d())));
+                writeData.setVcodeMD5(o95Var.b());
+                writeData.setVcodeUrl(o95Var.c());
+                writeData.setVcodeExtra(o95Var.a());
+                if (needVcode(o95Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, o95Var.d())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
                 }

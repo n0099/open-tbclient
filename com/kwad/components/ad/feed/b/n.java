@@ -296,7 +296,7 @@ public final class n extends com.kwad.components.core.widget.b<AdResultData, AdT
 
     @Override // com.kwad.components.core.widget.b
     public final void bc() {
-        this.gk = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09133b);
+        this.gk = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09133c);
     }
 
     @Override // com.kwad.components.core.widget.b

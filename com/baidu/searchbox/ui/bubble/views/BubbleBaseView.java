@@ -342,7 +342,7 @@ public class BubbleBaseView {
         this.mBubbleView = inflate;
         inflate.setVisibility(4);
         this.mBubbleContent = (ViewGroup) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090547);
-        this.mShadow = (MaskViewGroup) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f092287);
+        this.mShadow = (MaskViewGroup) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f092289);
         this.mArrowUp = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090542);
         this.mArrowDown = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09053f);
         this.mArrowLeft = (ArrowView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090540);

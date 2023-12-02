@@ -24,13 +24,13 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a2b;
 import com.baidu.tieba.ar6;
+import com.baidu.tieba.br6;
+import com.baidu.tieba.er6;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
-import com.baidu.tieba.nqa;
-import com.baidu.tieba.sc8;
-import com.baidu.tieba.wq6;
-import com.baidu.tieba.xq6;
+import com.baidu.tieba.mqa;
+import com.baidu.tieba.wc8;
+import com.baidu.tieba.z1b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     }
 
     /* loaded from: classes6.dex */
-    public class a extends ar6<sc8> {
+    public class a extends er6<wc8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomeTabBarView b;
@@ -87,11 +87,11 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ar6
-        public void onEvent(@NonNull sc8 sc8Var) {
+        @Override // com.baidu.tieba.er6
+        public void onEvent(@NonNull wc8 wc8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sc8Var) == null) {
-                this.b.g = sc8Var.a();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc8Var) == null) {
+                this.b.g = wc8Var.a();
                 if (!ListUtils.isEmpty(this.b.g) && this.b.f && !this.b.e) {
                     DefaultLog.getInstance().i("liveTipLog", "直播二楼数据返回更新并渲染直播tip");
                     this.b.q();
@@ -426,7 +426,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4008);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0424, (ViewGroup) this, true);
-            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090ff3);
+            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090ff4);
             this.a = pagerSlidingTabStrip;
             pagerSlidingTabStrip.A(BdUtilHelper.getDimens(context, R.dimen.T_X06), BdUtilHelper.getDimens(context, R.dimen.T_X04), BdUtilHelper.getDimens(context, R.dimen.tbds10), true);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
@@ -446,7 +446,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             DefaultLog.getInstance().i("liveTipLog", "注册直播二楼数据更新event");
-            xq6.b().b(new wq6(this.c, sc8.class), new a(this, sc8.class));
+            br6.b().b(new ar6(this.c, wc8.class), new a(this, wc8.class));
             if (this.h == null) {
                 this.h = new b(this);
                 ViewTreeObserver viewTreeObserver = getViewTreeObserver();
@@ -471,7 +471,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             View h = h(getConcernTabIndex());
-            if (!a2b.b().a() && LiveEnterForumTestHelper.isLiveEnterForumTestA() && !nqa.c().a() && h != null && this.a != null) {
+            if (!z1b.b().a() && LiveEnterForumTestHelper.isLiveEnterForumTestA() && !mqa.c().a() && h != null && this.a != null) {
                 this.e = true;
                 if (this.d == null) {
                     this.d = new LiveTipLabelView(getContext());

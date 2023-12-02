@@ -1,64 +1,96 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.module.frs.FrsService;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.PeiwanInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fi8 {
+public class fi8 extends BaseCardInfo implements kn6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public boolean b;
 
-    public static void a(ThreadData threadData) {
-        String str;
+    @Override // com.baidu.tieba.kn6
+    public void K(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, threadData) == null) && threadData != null && threadData.getPeiwanInfo() != null) {
-            PeiwanInfo peiwanInfo = threadData.getPeiwanInfo();
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HOME_PEI_WAN_CARD_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_locate", String.valueOf(threadData.floorPosition));
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, peiwanInfo.room_id.longValue());
-            if (threadData.isFromNet) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            statisticItem.addParam("obj_param1", str);
-            statisticItem.eventStat();
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
         }
     }
 
-    public static boolean b(TbPageContext<?> tbPageContext, pi piVar) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.kn6
+    public int getPosition() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, piVar)) == null) {
-            if (piVar instanceof qm6) {
-                qm6 qm6Var = (qm6) piVar;
-                ThreadData threadData = qm6Var.a;
-                if (threadData != null && threadData.getVoiceRoomData() != null && !StringUtils.isNull(qm6Var.a.getVoiceRoomData().room_name) && qm6Var.a.getVoiceRoomData().room_id.longValue() > 0) {
-                    ((FrsService) ServiceManager.getService(FrsService.Companion.getServiceReference())).navToVoiceRoom(tbPageContext, qm6Var.a.getVoiceRoomData().room_id.longValue());
-                    return true;
-                }
-                ThreadData threadData2 = qm6Var.a;
-                if (threadData2 != null && threadData2.getPeiwanInfo() != null && !StringUtils.isNull(qm6Var.a.getPeiwanInfo().scheme)) {
-                    UrlManager.getInstance().dealOneLink(qm6Var.a.getPeiwanInfo().scheme);
-                    a(qm6Var.a);
-                    return true;
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
         }
-        return invokeLL.booleanValue;
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.kn6
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.kn6
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947765204, "Lcom/baidu/tieba/fi8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947765204, "Lcom/baidu/tieba/fi8;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    public fi8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

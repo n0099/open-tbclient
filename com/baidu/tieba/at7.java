@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.collection.LongSparseArray;
+import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes5.dex */
 public class at7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final at7 b;
+    public static at7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LongSparseArray<LinkedList<String>> a;
+    public SparseArray<bt7> a;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +44,7 @@ public class at7 {
                 return;
             }
         }
-        this.a = new LongSparseArray<>();
+        this.a = new SparseArray<>();
     }
 
     public static at7 a() {
@@ -57,11 +56,12 @@ public class at7 {
         return (at7) invokeV.objValue;
     }
 
-    public void b(long j) {
-        LinkedList<String> linkedList;
+    public bt7 b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && (linkedList = this.a.get(j)) != null) {
-            linkedList.clear();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a.get(i);
         }
+        return (bt7) invokeI.objValue;
     }
 }

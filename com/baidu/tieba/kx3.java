@@ -1,92 +1,145 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushService;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class kx3 extends ny3 {
+public class kx3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile HashMap<String, List<dy3>> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947928419, "Lcom/baidu/tieba/kx3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947928419, "Lcom/baidu/tieba/kx3;");
-                return;
-            }
-        }
-        c = sm1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kx3() {
-        super("checkAppInstalled");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public synchronized void a(String str, dy3 dy3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, dy3Var) == null) {
+            synchronized (this) {
+                if (e(str, dy3Var)) {
+                    return;
+                }
+                List<dy3> c = c(str);
+                if (!c.contains(dy3Var)) {
+                    c.add(dy3Var);
+                }
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, c);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.ny3
-    public iy1 a(@NonNull JSONObject jSONObject, @NonNull lj2 lj2Var) {
+    public synchronized void b(String str, fy3 fy3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fy3Var) == null) {
+            synchronized (this) {
+                for (dy3 dy3Var : new ArrayList(c(str))) {
+                    if (dy3Var != null) {
+                        dy3Var.b(fy3Var);
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g(String str, dy3 dy3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, dy3Var) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (dy3Var == null) {
+                    this.a.remove(str);
+                    return;
+                }
+                List<dy3> c = c(str);
+                if (c.contains(dy3Var)) {
+                    c.remove(dy3Var);
+                    if (c.isEmpty()) {
+                        this.a.remove(str);
+                    }
+                }
+            }
+        }
+    }
+
+    public final List<dy3> c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new ArrayList();
+            }
+            List<dy3> list = this.a.get(str);
+            if (list == null) {
+                return new ArrayList();
+            }
+            return list;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                List<dy3> list = this.a.get(str);
+                if (list != null) {
+                    if (!list.isEmpty()) {
+                        z = true;
+                    }
+                }
+                return z;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                g(str, null);
+            }
+        }
+    }
+
+    public final boolean e(String str, dy3 dy3Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lj2Var)) == null) {
-            if (c) {
-                Log.d("checkAppInstalled", "handle: " + jSONObject);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, dy3Var)) == null) {
+            if (!TextUtils.isEmpty(str) && dy3Var != null) {
+                return false;
             }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                lj2Var.onFail(31010, "package name is empty");
-                return null;
-            }
-            try {
-                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
-                if (c) {
-                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
-                }
-                if (packageInfo != null) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put(PushService.APP_VERSION_NAME, packageInfo.versionName);
-                    jSONObject3.put(PushService.APP_VERSION_CODE, packageInfo.versionCode);
-                    jSONObject2.put("data", jSONObject3);
-                    lj2Var.onSuccess(jSONObject2);
-                } else {
-                    lj2Var.onFail(31016, "no package info");
-                }
-            } catch (Exception unused) {
-                lj2Var.onFail(31011, "app is not installed");
-            }
-            return null;
+            return true;
         }
-        return (iy1) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 }

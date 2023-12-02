@@ -1,42 +1,147 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
 public final class y67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final String f;
+    public final String g;
 
-    public static final x67 a(Map<String, String> businessInfo) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            try {
-                String str = businessInfo.get("forum_id");
-                jd7.b(str, null, 1, null);
-                String str2 = businessInfo.get("forum_name");
-                jd7.b(str2, null, 1, null);
-                String str3 = businessInfo.get("thread_id");
-                jd7.b(str3, null, 1, null);
-                String str4 = businessInfo.get("is_good");
-                jd7.b(str4, null, 1, null);
-                boolean areEqual = Intrinsics.areEqual(str4, "1");
-                String str5 = businessInfo.get("submit_text");
-                jd7.b(str5, null, 1, null);
-                String str6 = businessInfo.get(WriteImageActivityConfig.CANCEL_TEXT);
-                jd7.b(str6, null, 1, null);
-                String str7 = businessInfo.get("is_big_manager");
-                jd7.b(str7, null, 1, null);
-                return new x67(str, str2, str3, areEqual, str5, str6, Intrinsics.areEqual(str7, "1"));
-            } catch (Exception unused) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof y67) {
+                y67 y67Var = (y67) obj;
+                return Intrinsics.areEqual(this.a, y67Var.a) && Intrinsics.areEqual(this.b, y67Var.b) && Intrinsics.areEqual(this.c, y67Var.c) && Intrinsics.areEqual(this.d, y67Var.d) && Intrinsics.areEqual(this.e, y67Var.e) && Intrinsics.areEqual(this.f, y67Var.f) && Intrinsics.areEqual(this.g, y67Var.g);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (((((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.g.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "ForbidThreadItemData(forumId=" + this.a + ", forumName=" + this.b + ", threadId=" + this.c + ", mgrUid=" + this.d + ", userName=" + this.e + ", userPortrait=" + this.f + ", nameShow=" + this.g + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public y67(String forumId, String forumName, String threadId, String mgrUid, String userName, String userPortrait, String nameShow) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forumId, forumName, threadId, mgrUid, userName, userPortrait, nameShow};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (x67) invokeL.objValue;
+        Intrinsics.checkNotNullParameter(forumId, "forumId");
+        Intrinsics.checkNotNullParameter(forumName, "forumName");
+        Intrinsics.checkNotNullParameter(threadId, "threadId");
+        Intrinsics.checkNotNullParameter(mgrUid, "mgrUid");
+        Intrinsics.checkNotNullParameter(userName, "userName");
+        Intrinsics.checkNotNullParameter(userPortrait, "userPortrait");
+        Intrinsics.checkNotNullParameter(nameShow, "nameShow");
+        this.a = forumId;
+        this.b = forumName;
+        this.c = threadId;
+        this.d = mgrUid;
+        this.e = userName;
+        this.f = userPortrait;
+        this.g = nameShow;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
     }
 }

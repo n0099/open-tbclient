@@ -1,43 +1,35 @@
 package com.baidu.tieba;
 
+import android.graphics.Paint;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dl4 implements Runnable {
+public class dl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public dl4(int i) {
+    public static int a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            return view2.getLayerType();
         }
-        this.a = i;
+        return invokeL.intValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
+    public static void b(View view2, int i, Paint paint) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (i = this.a) < 0) {
-            return;
+        if (interceptable == null || interceptable.invokeLIL(65537, null, view2, i, paint) == null) {
+            view2.setLayerType(i, paint);
         }
-        try {
-            Thread.sleep(i);
-        } catch (Throwable unused) {
+    }
+
+    public static void c(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65538, null, view2, z) == null) {
+            view2.setSaveFromParentEnabled(z);
         }
     }
 }

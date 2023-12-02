@@ -1,69 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zc8;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.widget.timepicker.DatePickerHelper;
+import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
+import java.util.Date;
 /* loaded from: classes6.dex */
-public class ha8 implements xg9 {
+public class ha8 extends DatePickerHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zc8.c a;
+    public BaseActivity<?> a;
+    public b b;
+    public final OnTimeSelectListener c;
 
-    @Override // com.baidu.tieba.xg9
-    public void c(long j, String str, Message message, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(Date date, long j);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements OnTimeSelectListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ha8 a;
+
+        public a(ha8 ha8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ha8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ha8Var;
+        }
+
+        @Override // com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener
+        public void onTimeSelect(Date date, View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) && date != null && this.a.a != null) {
+                if (date.getTime() > System.currentTimeMillis()) {
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1099);
+                    return;
+                }
+                long time = date.getTime() / 1000;
+                if (this.a.b != null) {
+                    this.a.b.a(date, time);
+                }
+            }
         }
     }
 
-    public ha8(zc8.c cVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ha8(BaseActivity<?> baseActivity) {
+        super(baseActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = cVar;
+        this.c = new a(this);
+        this.a = baseActivity;
     }
 
-    @Override // com.baidu.tieba.xg9
-    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
+    public void c(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
-            ia8 ia8Var = new ia8();
-            qg9 qg9Var = new qg9();
-            qg9Var.a = j;
-            qg9Var.b = str;
-            mg9 a = vg9.d().a(qg9Var);
-            if (a != null) {
-                a.b(z, message, z2, i);
-            }
-            ia8Var.b(a);
-            zc8.c cVar = this.a;
-            if (cVar != null) {
-                cVar.d(z, ia8Var, z2, "", str, true);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xg9
-    public void b(long j, String str, String str2, int i) {
-        zc8.c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) && (cVar = this.a) != null) {
-            cVar.b(str, str2, i, true, 1);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.b = bVar;
+            super.showTimePicker(this.c);
         }
     }
 }

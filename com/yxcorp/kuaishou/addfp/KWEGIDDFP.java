@@ -18,7 +18,7 @@ import com.yxcorp.kuaishou.addfp.android.b.g;
 import java.util.LinkedHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public class KWEGIDDFP {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGID_LENGTH = 64;

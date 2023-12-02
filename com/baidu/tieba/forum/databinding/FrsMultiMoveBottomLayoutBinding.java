@@ -55,17 +55,17 @@ public final class FrsMultiMoveBottomLayoutBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090969;
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090969);
+            int i = R.id.obfuscated_res_0x7f09096a;
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09096a);
             if (findViewById != null) {
-                i = R.id.obfuscated_res_0x7f090d92;
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d92);
+                i = R.id.obfuscated_res_0x7f090d93;
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d93);
                 if (textView != null) {
-                    i = R.id.obfuscated_res_0x7f090d93;
-                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d93);
+                    i = R.id.obfuscated_res_0x7f090d94;
+                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d94);
                     if (textView2 != null) {
-                        i = R.id.obfuscated_res_0x7f09190f;
-                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09190f);
+                        i = R.id.obfuscated_res_0x7f091910;
+                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091910);
                         if (relativeLayout != null) {
                             return new FrsMultiMoveBottomLayoutBinding(view2, findViewById, textView, textView2, relativeLayout);
                         }

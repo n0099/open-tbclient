@@ -1,31 +1,47 @@
 package com.baidu.tieba;
 
-import android.os.Process;
-import android.os.SystemClock;
-import android.util.Log;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.Closeables;
-import com.baidu.android.util.soloader.SoLoader;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.launch.stats.ZygoteSpeedStats;
-import com.baidu.searchbox.launch.utils.LaunchNativeUtils;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.Closeable;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public final class tp5 {
+public class tp5 extends sp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
+    public long A;
+    public long B;
+    public long C;
+    public long D;
+    public HashMap<String, String> E;
+    public boolean b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
+    public long i;
+    public long j;
+    public long k;
+    public long l;
+    public long m;
+    public long n;
+    public long o;
+    public long p;
+    public long q;
+    public long r;
+    public boolean s;
+    public int t;
+    public long u;
+    public int v;
+    public long w;
+    public long x;
+    public boolean y;
+    public long z;
 
     public tp5() {
         Interceptable interceptable = $ic;
@@ -40,111 +56,111 @@ public final class tp5 {
                 return;
             }
         }
-        this.a = -1L;
-        this.b = -1L;
+        this.i = 0L;
+        this.j = 0L;
+        this.n = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.w = 0L;
+        this.x = 0L;
+        this.y = false;
+        this.E = new HashMap<>();
     }
 
-    public void a() {
+    public tp5(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = SystemClock.elapsedRealtime();
-            Process.getElapsedCpuTime();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), responsedMessage, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.i = 0L;
+        this.j = 0L;
+        this.n = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.w = 0L;
+        this.x = 0L;
+        this.y = false;
+        this.E = new HashMap<>();
+        if (responsedMessage == null) {
+            return;
+        }
+        this.a = i;
+        this.s = z;
+        if (z) {
+            this.r = responsedMessage.getDownSize();
+            this.A = responsedMessage.getOrginalMessage().getClientLogID();
+            this.z = responsedMessage.getOrginalMessage().getSquencedId();
+            x6 x6Var = responsedMessage.performanceData;
+            this.w = x6Var.k;
+            this.x = x6Var.l;
+            this.t = x6Var.i;
+            this.u = x6Var.j;
+        } else {
+            this.q = responsedMessage.getDownSize();
+            this.z = responsedMessage.getOrginalMessage().getSquencedId();
+        }
+        this.c = j;
+        this.d = j4;
+        this.e = j2;
+        this.o = j3;
+        this.m = j5;
+        this.b = !responsedMessage.hasError();
+        x6 x6Var2 = responsedMessage.performanceData;
+        this.f = x6Var2.a;
+        this.g = x6Var2.b;
+        this.h = x6Var2.c;
+        this.i = x6Var2.d;
+        this.j = x6Var2.e;
+        this.k = x6Var2.f;
+        this.l = x6Var2.g;
+        long j7 = x6Var2.h;
+        this.n = j7;
+        this.n = j7 + (responsedMessage.getProcessTime() - responsedMessage.getStartTime());
+        this.v = responsedMessage.getError();
+        this.y = z2;
+        this.p = j6;
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && !rd.isEmpty(str) && !rd.isEmpty(str2)) {
+            this.E.put(str, str2);
         }
     }
 
-    public long c() {
-        InterceptResult invokeV;
+    public void c() {
+        wp5 wp5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == -1) {
-                b();
-            }
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (wp5Var = (wp5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
+            wp5Var.a(this);
         }
-        return invokeV.longValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 6, insn: 0x00b5: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r6 I:??[OBJECT, ARRAY]), block:B:44:0x00b5 */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00ae  */
-    /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b() {
-        BufferedReader bufferedReader;
-        NumberFormatException e;
-        IOException e2;
-        FileNotFoundException e3;
-        Closeable closeable;
-        long j;
+    public void d(int i) {
+        wp5 wp5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            rp5.a().c();
-            Closeable closeable2 = null;
-            long j2 = -1;
-            try {
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/self/stat")), 1000);
-                    try {
-                        String[] split = bufferedReader.readLine().split(" ");
-                        if (split.length > 21 && split[0].equals(String.valueOf(Process.myPid()))) {
-                            String str = split[21];
-                            try {
-                                SoLoader.load(AppRuntime.getAppContext(), "launch_native");
-                                j = LaunchNativeUtils.getClkTck();
-                            } catch (UnsatisfiedLinkError e4) {
-                                Log.e(ZygoteSpeedStats.TAG, "load so failed, UnsatisfiedLinkError", e4);
-                                j = 0;
-                            }
-                            Log.d(ZygoteSpeedStats.TAG, "_SC_CLK_TCK " + j);
-                            if (j <= 0) {
-                                j = 100;
-                            }
-                            j2 = (Long.parseLong(str) * 1000) / j;
-                        }
-                    } catch (FileNotFoundException e5) {
-                        e3 = e5;
-                        Log.e(ZygoteSpeedStats.TAG, "can't read process status file", e3);
-                        Closeables.closeSafely(bufferedReader);
-                        if (j2 <= 0) {
-                        }
-                    } catch (IOException e6) {
-                        e2 = e6;
-                        Log.e(ZygoteSpeedStats.TAG, "read process status failed", e2);
-                        Closeables.closeSafely(bufferedReader);
-                        if (j2 <= 0) {
-                        }
-                    } catch (NumberFormatException e7) {
-                        e = e7;
-                        Log.e(ZygoteSpeedStats.TAG, "parse status file failed", e);
-                        Closeables.closeSafely(bufferedReader);
-                        if (j2 <= 0) {
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    closeable2 = closeable;
-                    Closeables.closeSafely(closeable2);
-                    throw th;
-                }
-            } catch (FileNotFoundException e8) {
-                bufferedReader = null;
-                e3 = e8;
-            } catch (IOException e9) {
-                bufferedReader = null;
-                e2 = e9;
-            } catch (NumberFormatException e10) {
-                bufferedReader = null;
-                e = e10;
-            } catch (Throwable th2) {
-                th = th2;
-                Closeables.closeSafely(closeable2);
-                throw th;
-            }
-            Closeables.closeSafely(bufferedReader);
-            if (j2 <= 0) {
-                this.b = this.a - j2;
-            }
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (wp5Var = (wp5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
+            wp5Var.b(this, i);
+        }
+    }
+
+    public void e(boolean z) {
+        wp5 wp5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (wp5Var = (wp5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
+            wp5Var.c(this, z);
         }
     }
 }

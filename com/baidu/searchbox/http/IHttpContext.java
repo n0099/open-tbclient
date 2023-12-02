@@ -11,7 +11,7 @@ import okhttp3.EventListener;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IHttpContext {
     public static final IHttpContext EMPTY = new IHttpContext() { // from class: com.baidu.searchbox.http.IHttpContext.1
         @Override // com.baidu.searchbox.http.IHttpContext

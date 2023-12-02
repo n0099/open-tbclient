@@ -8,11 +8,11 @@ import com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
-import com.baidu.tieba.izb;
+import com.baidu.tieba.hzb;
 import com.baidu.tieba.k40;
-import com.baidu.tieba.rf1;
+import com.baidu.tieba.uf1;
 import com.baidu.tieba.uw;
-import com.baidu.tieba.vf1;
+import com.baidu.tieba.yf1;
 import com.baidu.voyager.impl.service.VoyagerIPCManager;
 import com.baidu.yalog.LoggerManager;
 /* loaded from: classes4.dex */
@@ -43,17 +43,17 @@ public class YaLogInitManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        izb izbVar;
-        if (z && (izbVar = (izb) ServiceManager.getService(izb.a)) != null) {
-            izbVar.retry();
+        hzb hzbVar;
+        if (z && (hzbVar = (hzb) ServiceManager.getService(hzb.a)) != null) {
+            hzbVar.retry();
         }
     }
 
     public void initYaLogBaseContext(Application application) {
         if (application != null) {
             AppRuntimeInit.onApplicationattachBaseContext(application);
-            vf1.b(application);
-            if (rf1.g()) {
+            yf1.b(application);
+            if (uf1.g()) {
                 VoyagerIPCManager.b();
             }
             this.mApp = application;
@@ -61,7 +61,7 @@ public class YaLogInitManager {
     }
 
     public void initYaLog(boolean z, final boolean z2, final boolean z3, final String str) {
-        if (!rf1.g()) {
+        if (!uf1.g()) {
             return;
         }
         if (z) {

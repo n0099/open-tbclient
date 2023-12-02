@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cz8;
+import com.baidu.tieba.gz8;
 import com.baidu.tieba.im.base.core.uilist.BaseSysAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbNoticeModifySysMsg;
@@ -59,12 +59,12 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysItem, Hol
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a99);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910b4);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910b9);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f31);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a9c);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a9b);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a9b);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910b5);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910ba);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f32);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a9e);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a9d);
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
@@ -146,8 +146,8 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysItem, Hol
                     holder.b.setText(R.string.obfuscated_res_0x7f0f0985);
                 }
                 holder.d.setText(R.string.obfuscated_res_0x7f0f097a);
-                holder.e.setText(R.string.obfuscated_res_0x7f0f1856);
-                cz8.d("c15095", 2, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
+                holder.e.setText(R.string.obfuscated_res_0x7f0f1857);
+                gz8.d("c15095", 2, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
             }
         }
     }

@@ -1,17 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.squareup.wire.Message;
-import java.util.List;
 /* loaded from: classes7.dex */
 public interface mg9 {
-    int a();
+    void a(int i);
 
-    void b(boolean z, Message message, boolean z2, int i);
-
-    List<ICardInfo> c();
-
-    boolean d();
-
-    boolean hasMore();
+    void b(float f);
 }

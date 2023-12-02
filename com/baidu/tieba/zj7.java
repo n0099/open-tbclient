@@ -1,95 +1,99 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class zj7 {
+public final class zj7 extends cr6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final zj7 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final List<String> b;
+    public final int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948361954, "Lcom/baidu/tieba/zj7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948361954, "Lcom/baidu/tieba/zj7;");
-                return;
+            if (obj instanceof zj7) {
+                zj7 zj7Var = (zj7) obj;
+                return Intrinsics.areEqual(this.a, zj7Var.a) && Intrinsics.areEqual(this.b, zj7Var.b) && this.c == zj7Var.c;
             }
+            return false;
         }
-        a = new zj7();
+        return invokeL.booleanValue;
     }
 
-    public zj7() {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ThreadOperationEvent(context=" + this.a + ", threadIdList=" + this.b + ", type=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public zj7(Context context, List<String> threadIdList, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, threadIdList, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(threadIdList, "threadIdList");
+        this.a = context;
+        this.b = threadIdList;
+        this.c = i;
     }
 
-    public final void a() {
+    public final Context a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            wh5.h().i(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (Context) invokeV.objValue;
     }
 
-    public static final void c(Function1 function1, boolean z) {
+    public final List<String> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65538, null, function1, z) == null) {
-            if (z) {
-                wh5.h().o(true);
-            }
-            if (function1 != null) {
-                function1.invoke(Boolean.valueOf(z));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (List) invokeV.objValue;
     }
 
-    public final void b(vh5 view2, BaseFragmentActivity activity, final Function1<? super Boolean, Unit> function1) {
+    public final int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, activity, function1) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            wh5.h().m(view2);
-            wh5.h().n(85, 0, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds237));
-            if (wh5.h().j()) {
-                activity.getPageContext().getOrignalPage().grantWindowPermission(new fv4() { // from class: com.baidu.tieba.xj7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.fv4
-                    public final void onPermissionResult(boolean z) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                            zj7.c(Function1.this, z);
-                        }
-                    }
-                }, true);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 }

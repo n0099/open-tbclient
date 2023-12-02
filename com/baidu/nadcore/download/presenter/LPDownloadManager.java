@@ -16,20 +16,21 @@ import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah0;
-import com.baidu.tieba.bp0;
-import com.baidu.tieba.bz0;
 import com.baidu.tieba.ch0;
 import com.baidu.tieba.dh0;
+import com.baidu.tieba.dp0;
+import com.baidu.tieba.dz0;
 import com.baidu.tieba.gi0;
 import com.baidu.tieba.ih0;
 import com.baidu.tieba.mi0;
-import com.baidu.tieba.my0;
 import com.baidu.tieba.ng0;
-import com.baidu.tieba.ny0;
-import com.baidu.tieba.on0;
+import com.baidu.tieba.oy0;
 import com.baidu.tieba.ph0;
-import com.baidu.tieba.w01;
+import com.baidu.tieba.pn0;
+import com.baidu.tieba.py0;
 import com.baidu.tieba.wg0;
+import com.baidu.tieba.y01;
+import com.baidu.tieba.y11;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -47,14 +48,14 @@ public class LPDownloadManager {
     };
 
     /* loaded from: classes3.dex */
-    public class a extends bp0<dh0> {
+    public class a extends dp0<dh0> {
         public final /* synthetic */ RelativeLayout a;
         public final /* synthetic */ wg0 b;
         public final /* synthetic */ String c;
         public final /* synthetic */ int d;
         public final /* synthetic */ Context e;
 
-        @Override // com.baidu.tieba.zo0
+        @Override // com.baidu.tieba.bp0
         public void a(Exception exc, int i) {
         }
 
@@ -67,14 +68,14 @@ public class LPDownloadManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ap0
+        @Override // com.baidu.tieba.cp0
         /* renamed from: f */
         public dh0 d(Headers headers, String str, int i) {
-            return dh0.a(my0.c(str).optJSONObject("data"));
+            return dh0.a(oy0.c(str).optJSONObject("data"));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ap0
+        @Override // com.baidu.tieba.cp0
         /* renamed from: e */
         public void b(Headers headers, dh0 dh0Var, int i) {
             if (dh0Var == null) {
@@ -87,18 +88,22 @@ public class LPDownloadManager {
                 d.A(true);
                 d.l();
             } else if (i2 != 2 && i2 != 3) {
-                w01.a().a(this.e, R.string.nad_download_lp_forbid_tip);
+                if (y11.a()) {
+                    y01.a().a(this.e, R.string.obfuscated_res_0x7f0f0db6);
+                } else {
+                    y01.a().a(this.e, R.string.nad_download_lp_forbid_tip);
+                }
             } else {
-                on0 on0Var = dh0Var.b;
-                if (on0Var != null) {
+                pn0 pn0Var = dh0Var.b;
+                if (pn0Var != null) {
                     if (this.d == 1) {
-                        LPDownloadManager.g(this.b, on0Var);
+                        LPDownloadManager.g(this.b, pn0Var);
                         ih0 d2 = LPDownloadManager.d(this.a, this.b, this.c);
                         d2.z(dh0Var);
                         d2.A(false);
                         d2.C(this.a, dh0Var, this.e);
                     } else if (this.e instanceof Activity) {
-                        LPDownloadManager.g(this.b, on0Var);
+                        LPDownloadManager.g(this.b, pn0Var);
                         ih0 d3 = LPDownloadManager.d(this.a, this.b, this.c);
                         d3.z(dh0Var);
                         d3.A(false);
@@ -108,19 +113,19 @@ public class LPDownloadManager {
             }
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.FREE_SHOW).p(this.b.p.a).u(ClogBuilder.Page.DOWNLOAD_RECTIFY).k(String.valueOf(dh0Var.a)).l(this.c);
-            bz0.e(clogBuilder);
+            dz0.e(clogBuilder);
         }
     }
 
-    public static void g(@NonNull wg0 wg0Var, @NonNull on0 on0Var) {
-        wg0Var.g = on0Var.k;
+    public static void g(@NonNull wg0 wg0Var, @NonNull pn0 pn0Var) {
+        wg0Var.g = pn0Var.l;
         ah0 ah0Var = wg0Var.p;
-        ah0Var.g = on0Var.b;
-        ah0Var.h = on0Var.c;
+        ah0Var.g = pn0Var.b;
+        ah0Var.h = pn0Var.c;
     }
 
     public static wg0 c(@NonNull String str) {
-        JSONObject c2 = my0.c(str);
+        JSONObject c2 = oy0.c(str);
         String optString = c2.optString("key", "");
         if (TextUtils.isEmpty(optString)) {
             optString = c2.optString("lp_url", "");
@@ -163,7 +168,7 @@ public class LPDownloadManager {
         if (a == null) {
             a = new LruCache<>(32);
         }
-        ny0.e(a, wg0Var.e(), ih0Var);
+        py0.e(a, wg0Var.e(), ih0Var);
         return ih0Var;
     }
 
@@ -198,10 +203,10 @@ public class LPDownloadManager {
         if (c2.f()) {
             return false;
         }
-        JSONObject c3 = my0.c(str);
+        JSONObject c3 = oy0.c(str);
         String optString = c3.optString("lp_url", "");
         int optInt = c3.optInt("lp_check_mode", 0);
-        ih0 ih0Var = (ih0) ny0.b(a, c2.e());
+        ih0 ih0Var = (ih0) py0.b(a, c2.e());
         if (ih0Var != null) {
             if (z && c2.c != AdDownloadStatus.DOWNLOADING && ih0Var.x()) {
                 ih0Var.l();

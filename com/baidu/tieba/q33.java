@@ -1,246 +1,147 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.publisher.PublishParams;
-import com.baidu.tieba.l53;
-import com.baidu.tieba.q52;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.apps.publisher.ReplyEditorParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public final class q33 extends e83 {
+public class q33 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static q33 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public WeakReference<p33> b;
 
     /* loaded from: classes7.dex */
-    public static final class b implements DialogInterface.OnClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-538497446, "Lcom/baidu/tieba/q33$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-538497446, "Lcom/baidu/tieba/q33$b;");
-                    return;
-                }
-            }
-            a = new b();
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public final void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static final class a implements j33 {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ Context d;
+        public WeakReference<k63> a;
+        public WeakReference<s52> b;
+        public String c;
+        public MediaModel d;
 
-        public a(String str, q33 q33Var, h63 h63Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, Context context) {
+        public b(q33 q33Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, q33Var, h63Var, unitedSchemeEntity, callbackHandler, context};
+                Object[] objArr = {q33Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = unitedSchemeEntity;
-            this.c = callbackHandler;
-            this.d = context;
-        }
-
-        @Override // com.baidu.tieba.j33
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                if (jSONObject != null) {
-                    UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.a);
-                } else {
-                    UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.a);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.j33
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.a);
-            }
+        public /* synthetic */ b(q33 q33Var, a aVar) {
+            this(q33Var);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040856, "Lcom/baidu/tieba/q33;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948040856, "Lcom/baidu/tieba/q33;");
-                return;
-            }
-        }
-        c = sm1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q33(e73 dispatcher) {
-        super(dispatcher, "/swanAPI/community/openCommunityEditor");
+    public q33() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dispatcher};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(dispatcher, "dispatcher");
     }
 
-    @Override // com.baidu.tieba.e83
-    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, h63 h63Var) {
-        InterceptResult invokeLLLL;
-        boolean z;
+    public static q33 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, h63Var)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            if (h63Var != null) {
-                if (h63Var.o0()) {
-                    if (c) {
-                        Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (q33.class) {
+                    if (c == null) {
+                        c = new q33();
                     }
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                    return false;
                 }
-                ur2 V = ur2.V();
-                Intrinsics.checkNotNullExpressionValue(V, "SwanAppController.getInstance()");
-                q52 W = V.W();
-                if (W != null && (W.m() instanceof l33)) {
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(0);
-                    return true;
-                }
-                JSONObject d = hj3.d(entity.getParam("params"));
-                Intrinsics.checkNotNullExpressionValue(d, "SwanAppJSONUtils.parseString(params)");
-                String optString = d.optString("cb");
-                if (optString != null && optString.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    entity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                if (c) {
-                    Log.d("OpenPublisherAction", "调起参数:" + d);
-                }
-                a aVar = new a(optString, this, h63Var, entity, callbackHandler, context);
-                PublishParams a2 = k33.a(d);
-                if (a2 != null) {
-                    l33 l33Var = new l33();
-                    l33Var.K3(aVar);
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable("params", a2);
-                    l33Var.m1(bundle);
-                    ur2 controller = ur2.V();
-                    Intrinsics.checkNotNullExpressionValue(controller, "controller");
-                    q52 W2 = controller.W();
-                    if (W2 != null) {
-                        q52.b i = W2.i("navigateTo");
-                        i.n(q52.g, q52.i);
-                        i.j(l33Var);
-                        i.a();
-                        UnitedSchemeUtility.callCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        return true;
-                    }
-                    UnitedSchemeUtility.safeCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(1, "can get fragment manager").toString(), optString);
-                    return false;
-                }
-                if (c) {
-                    Log.d("OpenPublisherAction", "解析调起参数失败");
-                }
-                j(context);
-                return false;
             }
-            entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
+            return c;
+        }
+        return (q33) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            p33 p33Var = this.b.get();
+            if (p33Var != null) {
+                p33Var.H1();
+                return true;
+            }
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void j(Context context) {
+    public void d(String str, MediaModel mediaModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            l53.a aVar = new l53.a(context);
-            aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f15a8);
-            aVar.v(R.string.obfuscated_res_0x7f0f15ac);
-            aVar.O(R.string.obfuscated_res_0x7f0f0151, b.a);
-            aVar.X();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, mediaModel) == null) {
+            k63 M = k63.M();
+            s52 J = xr2.V().J();
+            if (M != null && J != null) {
+                b bVar = new b(this, null);
+                this.a = bVar;
+                bVar.a = new WeakReference<>(M);
+                this.a.b = new WeakReference<>(J);
+                b bVar2 = this.a;
+                bVar2.c = str;
+                bVar2.d = mediaModel;
+                return;
+            }
+            this.a = null;
+        }
+    }
+
+    public void e(k63 k63Var, ReplyEditorParams replyEditorParams, m33 m33Var) {
+        s52 J;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048579, this, k63Var, replyEditorParams, m33Var) == null) && (J = xr2.V().J()) != null && k63Var != null) {
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("params", replyEditorParams);
+            b bVar = this.a;
+            if (bVar != null && k63Var == bVar.a.get() && J == this.a.b.get()) {
+                bundle.putBoolean(MediaTrackConfig.AE_IMPORT_DRAFT, true);
+                bundle.putString("content", this.a.c);
+                bundle.putParcelable("image", this.a.d);
+            }
+            p33 p33Var = new p33();
+            p33Var.m1(bundle);
+            p33Var.V1(m33Var);
+            p33Var.x1(J.D(), "ReplyEditor");
+            this.b = new WeakReference<>(p33Var);
         }
     }
 }

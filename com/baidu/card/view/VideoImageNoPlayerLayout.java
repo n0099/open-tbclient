@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw4;
-import com.baidu.tieba.im6;
+import com.baidu.tieba.fw4;
 import com.baidu.tieba.it;
+import com.baidu.tieba.mm6;
 import com.baidu.tieba.su;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements it<cw4> {
+public class VideoImageNoPlayerLayout extends RelativeLayout implements it<fw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -44,8 +44,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements it<cw4> 
     public RelativeLayout j;
     public RelativeLayout k;
     public boolean l;
-    public im6<cw4> m;
-    public cw4 n;
+    public mm6<fw4> m;
+    public fw4 n;
     public View.OnClickListener o;
     public su p;
 
@@ -78,9 +78,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements it<cw4> 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.m != null) {
-                    im6 im6Var = this.a.m;
+                    mm6 mm6Var = this.a.m;
                     VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.a;
-                    im6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
+                    mm6Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
                 }
                 if (this.a.o != null) {
                     this.a.o.onClick(this.a.c);
@@ -153,10 +153,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements it<cw4> 
         }
     }
 
-    public void setData(cw4 cw4Var) {
+    public void setData(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cw4Var) == null) {
-            this.n = cw4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fw4Var) == null) {
+            this.n = fw4Var;
         }
     }
 
@@ -167,10 +167,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements it<cw4> 
         }
     }
 
-    public void setOnCardSubClickListener(im6<cw4> im6Var) {
+    public void setOnCardSubClickListener(mm6<fw4> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, im6Var) == null) {
-            this.m = im6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, mm6Var) == null) {
+            this.m = mm6Var;
         }
     }
 
@@ -211,10 +211,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements it<cw4> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: f */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cw4Var) == null) && cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().originalThreadData != null) {
-            OriginalThreadInfo originalThreadInfo = cw4Var.getThreadData().originalThreadData;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fw4Var) == null) && fw4Var != null && fw4Var.getThreadData() != null && fw4Var.getThreadData().originalThreadData != null) {
+            OriginalThreadInfo originalThreadInfo = fw4Var.getThreadData().originalThreadData;
             originalThreadInfo.r.is_vertical.intValue();
             String str = originalThreadInfo.f;
             originalThreadInfo.r.video_length.intValue();

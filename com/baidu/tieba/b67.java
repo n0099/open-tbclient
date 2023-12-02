@@ -1,94 +1,87 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
-import com.baidu.tieba.feed.log.FeedStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class b67 extends j57 implements c77, ka7, PreLoadImageProvider, sb7 {
+public final class b67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final String b;
 
-    @Override // com.baidu.tieba.nb7
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "common_card" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof b67) {
+                b67 b67Var = (b67) obj;
+                return this.a == b67Var.a && Intrinsics.areEqual(this.b, b67Var.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    public b67() {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "CardReadStatus(readStatus=" + this.a + ", tid=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public b67(int i, String tid) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), tid};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(tid, "tid");
+        this.a = i;
+        this.b = tid;
     }
 
-    @Override // com.baidu.tieba.ka7
-    public void d(@NonNull Object obj) {
-        s57<?> s57Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (s57Var = this.c) != null) {
-            s57Var.d(obj);
-        }
-    }
-
-    @Override // com.baidu.tieba.sb7
-    public void e(@NonNull FeedStat.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            for (nb7<? extends Object> nb7Var : this.c.c()) {
-                if (nb7Var.b() instanceof sb7) {
-                    ((sb7) nb7Var.b()).e(aVar);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.c77
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c.t(i);
-            for (nb7<? extends Object> nb7Var : this.c.c()) {
-                if (nb7Var.b() instanceof c77) {
-                    ((c77) nb7Var.b()).setPosition(i);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
+    public final boolean a() {
         InterceptResult invokeV;
-        ArrayList<PreLoadImageInfo> images;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.c != null) {
-                ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
-                for (nb7<? extends Object> nb7Var : this.c.c()) {
-                    if ((nb7Var instanceof PreLoadImageProvider) && (images = ((PreLoadImageProvider) nb7Var).getImages()) != null && images.size() > 0) {
-                        arrayList.addAll(images);
-                    }
-                }
-                return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == 2) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.a != 0 && z) {
+            this.a = 2;
+            xl6.a(this.b);
+        }
     }
 }

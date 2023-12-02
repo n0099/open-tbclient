@@ -12,17 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class q1b extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final tza b;
+    public final sza a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q1b(MainTabActivity mainTabActivity, fza fzaVar) {
-        super(2921579);
+    public q1b(MainTabActivity mainTabActivity) {
+        super(2921764);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, fzaVar};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,23 +32,22 @@ public class q1b extends CustomMessageListener {
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.a = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        tza tzaVar;
+        sza szaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (tzaVar = this.b) != null && tzaVar.g() != null) {
-            Runnable runnable = this.b.g().c;
-            SafeHandler.getInst().removeCallbacks(runnable);
-            int i = 0;
-            if (customResponsedMessage.getData() instanceof Integer) {
-                i = ((Integer) customResponsedMessage.getData()).intValue();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (szaVar = this.a) != null && szaVar.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                Runnable runnable = this.a.k().d;
+                SafeHandler.getInst().removeCallbacks(runnable);
+                SafeHandler.getInst().post(runnable);
+                return;
             }
-            SafeHandler.getInst().postDelayed(runnable, i * 1000);
+            SafeHandler.getInst().removeCallbacks(this.a.k().d);
         }
     }
 }

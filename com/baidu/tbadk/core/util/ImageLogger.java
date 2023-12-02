@@ -21,9 +21,9 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
 import com.baidu.tieba.ab;
 import com.baidu.tieba.nc;
-import com.baidu.tieba.pt5;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.rd;
+import com.baidu.tieba.tt5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -221,7 +221,7 @@ public class ImageLogger {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Boolean.valueOf(z), str2, bool, bdHttpStat, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && BdUtilHelper.isNetOk() && bdHttpStat != null) {
             String str9 = "";
-            boolean a = pt5.a(str2);
+            boolean a = tt5.a(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();

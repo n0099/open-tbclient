@@ -9,8 +9,7 @@ import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BdToastHelper;
-import com.baidu.tieba.pic;
-import com.baidu.tieba.qdb;
+import com.baidu.tieba.pdb;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,7 +56,7 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeL(65537, this, toast) != null) || toast == null) {
             return;
         }
-        BdToastHelper.toast(qdb.a(toast));
+        BdToastHelper.toast(pdb.a(toast));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,7 +74,7 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
             addThreadHttpResponse.resultJSON = new JSONObject();
             DataRes dataRes = addThreadResIdl.data;
             if (dataRes != null) {
-                BdToastData a = qdb.a(dataRes.toast);
+                BdToastData a = pdb.a(dataRes.toast);
                 if (a != null && (json = a.toJson()) != null) {
                     addThreadHttpResponse.resultJSON.put("toast", json);
                 }
@@ -142,7 +141,7 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
                 }
                 if (addThreadResIdl.data.advertisement != null) {
                     JSONObject jSONObject7 = new JSONObject();
-                    jSONObject7.put(pic.f, addThreadResIdl.data.advertisement.pic);
+                    jSONObject7.put("pic", addThreadResIdl.data.advertisement.pic);
                     jSONObject7.put("pic_click", addThreadResIdl.data.advertisement.pic_click);
                     jSONObject7.put("jump_link", addThreadResIdl.data.advertisement.jump_link);
                     jSONObject7.put("advertisement_id", addThreadResIdl.data.advertisement.advertisement_id);

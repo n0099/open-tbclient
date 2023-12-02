@@ -1,30 +1,27 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qi8 extends os<cw4> {
+public class qi8 extends us {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nk8 f;
-    public int g;
+    public lea B;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qi8(Context context, TbPageContext<?> tbPageContext) {
+    public qi8(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, tbPageContext};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,46 +32,33 @@ public class qi8 extends os<cw4> {
                 return;
             }
         }
-        this.g = 3;
-        this.f = new nk8(tbPageContext);
     }
 
-    @Override // com.baidu.tieba.os
-    public View g() {
+    @Override // com.baidu.tieba.us, com.baidu.tieba.ku
+    public lea t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f.p();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.it
-    /* renamed from: r */
-    public void onBindDataToView(cw4 cw4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, cw4Var) == null) && (cw4Var instanceof kk8)) {
-            this.f.j((kk8) cw4Var);
-        }
-    }
-
-    public void s(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.f.n(bdUniqueId);
-        }
-    }
-
-    @Override // com.baidu.tieba.jt
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.k(tbPageContext, i);
-                p(g(), 3);
+            if (!TextUtils.isEmpty(this.m) && this.m.equals("index")) {
+                this.B = new si8(this.b, this.i);
+            } else {
+                this.B = new ri8(this.b, this.i);
             }
-            this.g = i;
+            this.B.setStageType("2001");
+            return this.B;
+        }
+        return (lea) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ku
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.y();
+            lea leaVar = this.l;
+            if (leaVar instanceof si8) {
+                ((si8) leaVar).e();
+            }
         }
     }
 }

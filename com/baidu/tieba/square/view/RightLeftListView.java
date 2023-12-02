@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.qsa;
+import com.baidu.tieba.psa;
 import com.baidu.tieba.square.adapter.LeftAdapter;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public class RightLeftListView {
     public BdListView.p mOnRightScrollToBottomListener;
     public BdListView.p mOnScrollToBottomListener;
     public TbPageContext<?> mPageContext;
-    public qsa mRightAdapterManager;
+    public psa mRightAdapterManager;
     public RelativeLayout mRightContainer;
     public LinearLayoutManager mRightLayoutManager;
     public final View mRoot;
@@ -188,7 +188,7 @@ public class RightLeftListView {
             LeftAdapter leftAdapter = new LeftAdapter(this.mPageContext.getPageActivity());
             this.mLeftAdapter = leftAdapter;
             this.mRvLeft.setAdapter(leftAdapter);
-            this.mRightAdapterManager = new qsa(this.mPageContext, this.mRvRight);
+            this.mRightAdapterManager = new psa(this.mPageContext, this.mRvRight);
             LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this.mPageContext.getPageActivity());
             this.mRightLayoutManager = linearLayoutManager2;
             this.mRvRight.setLayoutManager(linearLayoutManager2);
@@ -212,8 +212,8 @@ public class RightLeftListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mRightContainer = (RelativeLayout) this.mRoot.findViewById(R.id.right_container);
-            this.mRvLeft = (RecyclerView) this.mRoot.findViewById(R.id.obfuscated_res_0x7f0920a0);
-            this.mRvRight = (BdTypeRecyclerView) this.mRoot.findViewById(R.id.obfuscated_res_0x7f0920a2);
+            this.mRvLeft = (RecyclerView) this.mRoot.findViewById(R.id.obfuscated_res_0x7f0920a2);
+            this.mRvRight = (BdTypeRecyclerView) this.mRoot.findViewById(R.id.obfuscated_res_0x7f0920a4);
         }
     }
 
@@ -338,9 +338,9 @@ public class RightLeftListView {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            qsa qsaVar = this.mRightAdapterManager;
-            if (qsaVar != null) {
-                qsaVar.b();
+            psa psaVar = this.mRightAdapterManager;
+            if (psaVar != null) {
+                psaVar.b();
             }
             LeftAdapter leftAdapter = this.mLeftAdapter;
             if (leftAdapter != null) {
@@ -366,7 +366,7 @@ public class RightLeftListView {
         if (this.mLoadingView == null) {
             LoadingView loadingView = new LoadingView(this.mPageContext.getPageActivity());
             this.mLoadingView = loadingView;
-            loadingView.setTopMargin(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ac));
+            loadingView.setTopMargin(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ad));
         }
         this.mLoadingView.onChangeSkinType();
         this.mLoadingView.attachView(this.mRightContainer, z);

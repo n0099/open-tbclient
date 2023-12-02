@@ -1,211 +1,163 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.core.view.ViewGroupKt;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.sequences.Sequence;
 /* loaded from: classes5.dex */
-public class bv5 {
+public final class bv5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final bv5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(Wire wire, Class<? extends Message> cls) {
-        File[] listFiles;
-        String name;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, wire, cls) == null) && wire != null && cls != null) {
-            String str = "wire_" + cls.getName();
-            File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + "_" + TbConfig.getVersion());
-            byte[] bArr = null;
-            try {
-                if (file.exists() && (bArr = b(file)) != null) {
-                    wire.parseFrom(bArr, cls);
-                }
-                if (bArr == null) {
-                    byte[] bArr2 = (byte[]) s7.c(cls, "toByteArray", new Object[0]).invoke(c(cls, new HashSet()), new Object[0]);
-                    wire.parseFrom(bArr2, cls);
-                    d(file, bArr2);
-                }
-            } catch (Throwable th) {
-                BdLog.detailException(th);
-                try {
-                    file.delete();
-                } catch (Throwable unused) {
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947658440, "Lcom/baidu/tieba/bv5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
-            if (cacheDir == null || (listFiles = cacheDir.listFiles()) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947658440, "Lcom/baidu/tieba/bv5;");
                 return;
             }
-            for (File file2 : listFiles) {
-                if (file2 != null && (name = file2.getName()) != null && name.startsWith(str) && !file.getName().equals(name)) {
-                    try {
-                        file2.delete();
-                    } catch (Throwable unused2) {
-                    }
-                }
+        }
+        a = new bv5();
+    }
+
+    public bv5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static byte[] b(File file) {
+    @JvmStatic
+    public static final void a(View view2, View view3, View view4, View view5, UserIconBox userIconBox, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{view2, view3, view4, view5, userIconBox, Integer.valueOf(i)}) == null) {
+            ArrayList arrayList = new ArrayList(4);
+            arrayList.add(view2);
+            arrayList.add(view3);
+            arrayList.add(view4);
+            arrayList.add(view5);
+            b(arrayList, userIconBox, i);
+        }
+    }
+
+    @JvmStatic
+    public static final void b(List<? extends View> views, UserIconBox userIconBox, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, views, userIconBox, i) == null) {
+            Intrinsics.checkNotNullParameter(views, "views");
+            new StatisticItem("c15270").addParam("obj_locate", a.e(views).toString()).addParam("obj_type", a.d(userIconBox).toString()).addParam("obj_source", i).eventStat();
+        }
+    }
+
+    @JvmStatic
+    public static final void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", str2);
+            statisticItem.param("obj_locate", str3);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final StringBuilder d(UserIconBox userIconBox) {
         InterceptResult invokeL;
-        ByteArrayOutputStream byteArrayOutputStream;
-        FileInputStream fileInputStream;
+        Sequence<View> children;
+        TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            byte[] bArr = null;
-            if (file == null) {
-                return null;
-            }
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                    try {
-                        byte[] bArr2 = new byte[1024];
-                        while (true) {
-                            int read = fileInputStream.read(bArr2, 0, 1024);
-                            if (read == -1) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr2, 0, read);
-                        }
-                        bArr = byteArrayOutputStream.toByteArray();
-                    } catch (Throwable th) {
-                        th = th;
-                        try {
-                            BdLog.e(th.getMessage());
-                            return bArr;
-                        } finally {
-                            sd.e(fileInputStream);
-                            sd.f(byteArrayOutputStream);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userIconBox)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (userIconBox != null && (children = ViewGroupKt.getChildren(userIconBox)) != null) {
+                int i = 0;
+                for (View view2 : children) {
+                    int i2 = i + 1;
+                    if (i < 0) {
+                        CollectionsKt__CollectionsKt.throwIndexOverflow();
+                    }
+                    View view3 = view2;
+                    if (view3 instanceof TbImageView) {
+                        tbImageView = (TbImageView) view3;
+                    } else {
+                        tbImageView = null;
+                    }
+                    if (tbImageView != null && tbImageView.getVisibility() == 0) {
+                        sb.append(tbImageView.getUrl());
+                        if (i != userIconBox.getChildCount() - 1) {
+                            sb.append(",");
                         }
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    byteArrayOutputStream = null;
+                    i = i2;
                 }
-            } catch (Throwable th3) {
-                th = th3;
-                byteArrayOutputStream = null;
-                fileInputStream = null;
             }
-            return bArr;
+            return sb;
         }
-        return (byte[]) invokeL.objValue;
+        return (StringBuilder) invokeL.objValue;
     }
 
-    public static final Object c(Class<?> cls, HashSet<Class<?>> hashSet) {
-        InterceptResult invokeLL;
-        Field[] declaredFields;
-        Type[] actualTypeArguments;
+    public final StringBuilder e(List<? extends View> list) {
+        InterceptResult invokeL;
+        boolean z;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, hashSet)) == null) {
-            if (hashSet != null && !hashSet.contains(cls)) {
-                hashSet.add(cls);
-                try {
-                    Class<?> cls2 = Class.forName(cls.getName() + "$Builder");
-                    Method declaredMethod = cls2.getDeclaredMethod("build", Boolean.TYPE);
-                    Object newInstance = cls2.newInstance();
-                    for (Field field : cls2.getDeclaredFields()) {
-                        Class<?> type = field.getType();
-                        if (type != null) {
-                            if (s7.e(type, Message.class)) {
-                                Object c = c(type, hashSet);
-                                if (c != null) {
-                                    if (s7.e(c.getClass(), Message.class)) {
-                                        field.setAccessible(true);
-                                        field.set(newInstance, c);
-                                    } else {
-                                        BdLog.e("");
-                                    }
-                                }
-                            } else if (s7.e(type, List.class)) {
-                                Type genericType = field.getGenericType();
-                                if ((genericType instanceof ParameterizedType) && (actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments()) != null && actualTypeArguments.length > 0) {
-                                    try {
-                                        Class cls3 = (Class) actualTypeArguments[0];
-                                        if (s7.e(cls3, Message.class)) {
-                                            ArrayList arrayList = new ArrayList();
-                                            Object c2 = c(cls3, hashSet);
-                                            if (c2 != null) {
-                                                if (s7.e(c2.getClass(), Message.class)) {
-                                                    arrayList.add(c2);
-                                                } else {
-                                                    BdLog.e("");
-                                                }
-                                                field.setAccessible(true);
-                                                field.set(newInstance, arrayList);
-                                            }
-                                        }
-                                    } catch (Throwable unused) {
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    return declaredMethod.invoke(newInstance, Boolean.TRUE);
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int i = 0;
+            for (Object obj : list) {
+                int i2 = i + 1;
+                if (i < 0) {
+                    CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
+                View view2 = (View) obj;
+                if (view2 != null && view2.getVisibility() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                sb.append(str);
+                if (i != list.size() - 1) {
+                    sb.append(",");
+                }
+                i = i2;
             }
-            return null;
+            return sb;
         }
-        return invokeLL.objValue;
-    }
-
-    public static final boolean d(File file, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, file, bArr)) == null) {
-            if (file == null || bArr == null) {
-                return false;
-            }
-            FileOutputStream fileOutputStream = null;
-            try {
-                if (file.exists() && !file.delete()) {
-                    return false;
-                }
-                if (!file.createNewFile()) {
-                    return false;
-                }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                try {
-                    fileOutputStream2.write(bArr, 0, bArr.length);
-                    fileOutputStream2.flush();
-                    sd.f(fileOutputStream2);
-                    return true;
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    try {
-                        BdLog.e(th.getMessage());
-                        return false;
-                    } finally {
-                        sd.f(fileOutputStream);
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return invokeLL.booleanValue;
-        }
+        return (StringBuilder) invokeL.objValue;
     }
 }

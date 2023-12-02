@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArraySet;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,139 +15,90 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArrayList;
-import org.json.JSONArray;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class z63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean t;
+    public static final y63<z63> u;
+    public static final x63<z63> v;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public boolean f;
+    public String g;
+    public boolean h;
+    public boolean i;
+    public String j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public String q;
+    public String r;
+    public String s;
 
     /* loaded from: classes9.dex */
-    public static class a implements Runnable {
+    public static class a extends y63<z63> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-        public final /* synthetic */ String b;
 
-        public a(d dVar, String str) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = dVar;
-            this.b = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.y63
+        /* renamed from: c */
+        public void b(@NonNull z63 z63Var, @NonNull qp2 qp2Var) throws Exception {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h32.k("WebSafeWhiteListMgr", "async read webDomains");
-                z63.o(this.a, this.b);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z63Var, qp2Var) == null) {
+                qp2Var.writeInt(z63Var.a);
+                qp2Var.f(z63Var.b);
+                qp2Var.f(z63Var.c);
+                qp2Var.f(z63Var.d);
+                qp2Var.writeInt(z63Var.e);
+                qp2Var.writeBoolean(z63Var.f);
+                qp2Var.f(z63Var.g);
+                qp2Var.writeBoolean(z63Var.h);
+                qp2Var.writeBoolean(z63Var.i);
+                qp2Var.f(z63Var.j);
+                qp2Var.writeBoolean(z63Var.k);
+                qp2Var.writeBoolean(z63Var.l);
+                qp2Var.writeBoolean(z63Var.m);
+                qp2Var.writeBoolean(z63Var.n);
+                qp2Var.writeBoolean(z63Var.o);
+                qp2Var.writeBoolean(z63Var.p);
+                qp2Var.f(z63Var.q);
+                qp2Var.f(z63Var.r);
+                qp2Var.f(z63Var.s);
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public static class b implements Runnable {
+    public static class b extends x63<z63> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
 
-        public b(d dVar, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-            this.b = str;
-            this.c = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h32.k("WebSafeWhiteListMgr", "async read serverDomains");
-                z63.p(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-        public final /* synthetic */ String b;
-
-        public c(d dVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h32.k("WebSafeWhiteListMgr", "async read webActions");
-                z63.o(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public List<String> b;
-        public long c;
-
-        public d() {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,61 +108,40 @@ public class z63 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = new CopyOnWriteArrayList();
         }
 
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.b.clear();
-            }
-        }
-
-        @NonNull
-        public static List<String> d(JSONArray jSONArray) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.x63
+        /* renamed from: c */
+        public z63 b(@NonNull pp2 pp2Var) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
-                ArrayList arrayList = new ArrayList();
-                if (jSONArray != null && jSONArray.length() > 0) {
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        arrayList.add(jSONArray.optString(i));
-                    }
-                }
-                return arrayList;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pp2Var)) == null) {
+                z63 z63Var = new z63();
+                z63Var.a = pp2Var.readInt();
+                z63Var.b = pp2Var.g();
+                z63Var.c = pp2Var.g();
+                z63Var.d = pp2Var.g();
+                z63Var.e = pp2Var.readInt();
+                z63Var.f = pp2Var.readBoolean();
+                z63Var.g = pp2Var.g();
+                z63Var.h = pp2Var.readBoolean();
+                z63Var.i = pp2Var.readBoolean();
+                z63Var.j = pp2Var.g();
+                z63Var.k = pp2Var.readBoolean();
+                z63Var.l = pp2Var.readBoolean();
+                z63Var.m = pp2Var.readBoolean();
+                z63Var.n = pp2Var.readBoolean();
+                z63Var.o = pp2Var.readBoolean();
+                z63Var.p = pp2Var.readBoolean();
+                z63Var.q = pp2Var.g();
+                z63Var.r = pp2Var.g();
+                z63Var.s = pp2Var.g();
+                return z63Var;
             }
-            return (List) invokeL.objValue;
-        }
-
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optString("token");
-            this.b.addAll(d(jSONObject.optJSONArray("data")));
-        }
-
-        public void b(JSONObject jSONObject, String str) {
-            JSONObject optJSONObject;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-                return;
-            }
-            this.b.addAll(d(optJSONObject.optJSONArray(str)));
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "WebSafeData{token='" + this.a + "', data=" + this.b + ", lastModifiedTime=" + this.c + '}';
-            }
-            return (String) invokeV.objValue;
+            return (z63) invokeL.objValue;
         }
     }
 
@@ -230,350 +158,179 @@ public class z63 {
                 return;
             }
         }
-        a = sm1.a;
+        t = vm1.a;
+        u = new a();
+        v = new b();
     }
 
-    public static List<String> d() {
-        InterceptResult invokeV;
+    public z63() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("swanAPI/installApp4Ad");
-            arrayList.add("swanAPI/openApp4Ad");
-            arrayList.add("swanAPI/checkAppInstalled");
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return c("", "aiapps_folder/cloud_config", "global_web_actions.json");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void v(@NonNull d dVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65558, null, dVar, str) == null) {
-            File file = new File(str);
-            if (file.exists()) {
-                dVar.c = file.lastModified();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.l = false;
+        this.m = false;
+        this.n = true;
+        this.o = false;
+        this.p = false;
+        this.a = -16777216;
+        this.c = "#ffffff";
+        this.j = "default";
+        this.e = -1;
+        this.f = false;
     }
 
-    @NonNull
-    public static String c(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
-            String path = AppRuntime.getAppContext().getFilesDir().getPath();
-            if (TextUtils.isEmpty(str)) {
-                return path + File.separator + str2 + File.separator + str3;
-            }
-            return path + File.separator + str2 + File.separator + str + "_" + str3;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static boolean u(String str, String str2, JSONArray jSONArray) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65557, null, str, str2, jSONArray)) == null) {
-            if (!TextUtils.isEmpty(str) && jSONArray != null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    if (!TextUtils.isEmpty(str2)) {
-                        jSONObject.put("token", str2);
-                    }
-                    jSONObject.put("data", jSONArray);
-                    String m = m(str);
-                    boolean b2 = kp2.b(m, jSONObject.toString(), false);
-                    h32.k("WebSafeWhiteListMgr", "save WebDomains: result=" + b2 + " filePath=" + m + " appId= " + str + " token=" + str2 + " data=" + jSONArray);
-                    return b2;
-                } catch (JSONException e) {
-                    if (a) {
-                        Log.e("WebSafeWhiteListMgr", Log.getStackTraceString(e));
-                    }
-                    return false;
-                }
-            }
-            if (a) {
-                Log.w("WebSafeWhiteListMgr", "saveWebDomains: appId or data is empty");
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static String e() {
+    public static z63 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + "aiapps_folder/cloud_config";
+            if (t) {
+                Log.w("WindowConfig", "WindowConfig#createNullObject stack=" + Log.getStackTraceString(new Exception()));
+            }
+            return new z63();
         }
-        return (String) invokeV.objValue;
+        return (z63) invokeV.objValue;
     }
 
-    @NonNull
-    public static im4 f(@NonNull String str) {
+    public static z63 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return ve3.b(str + "_domain_config");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d();
+            }
+            return c(jSONObject);
         }
-        return (im4) invokeL.objValue;
+        return (z63) invokeL.objValue;
     }
 
-    @Nullable
-    public static Set<String> g(@NonNull String str) {
+    public static boolean f(z63 z63Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            return f(str).getStringSet("prelink", null);
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    @NonNull
-    public static String i(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            return c(str, "aiapps_folder/cloud_config", "server_domains.json");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public static String m(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            return c(str, "aiapps_folder/cloud_config", "web_domains.json");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
-            return new File(m(str)).exists();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, z63Var)) == null) {
+            if (z63Var == null) {
+                return false;
+            }
+            if (!z63Var.h && !TextUtils.equals(z63Var.j, ExceptionHandlerImpl.KEY_CUSTOM)) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static String q(String str) {
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.p) {
+            this.p = true;
+        }
+    }
+
+    public static z63 b(String str, @NonNull z63 z63Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, z63Var)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return z63Var;
+            }
+            try {
+                return e(new JSONObject(str), z63Var);
+            } catch (JSONException e) {
+                if (t) {
+                    Log.d("WindowConfig", "buildPageWindowConfig jsonString failed: " + Log.getStackTraceString(e));
+                }
+                return z63Var;
+            }
+        }
+        return (z63) invokeLL.objValue;
+    }
+
+    public static z63 c(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
-            h32.k("WebSafeWhiteListMgr", "read data from: " + str);
-            return kp2.a(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject(ApkCheckUBCManagerKt.VALUE_WINDOW);
+            if (optJSONObject == null) {
+                return d();
+            }
+            z63 z63Var = new z63();
+            String optString = optJSONObject.optString("navigationBarBackgroundColor");
+            if (TextUtils.isEmpty(optString)) {
+                optString = "#000000";
+            }
+            z63Var.a = SwanAppConfigData.t(optString);
+            String optString2 = optJSONObject.optString("navigationBarTextStyle");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = "white";
+            }
+            z63Var.c = optString2;
+            z63Var.b = optJSONObject.optString("navigationBarTitleText");
+            z63Var.d = optJSONObject.optString("backgroundTextStyle", "black");
+            z63Var.e = SwanAppConfigData.t(optJSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
+            z63Var.f = optJSONObject.optBoolean("enablePullDownRefresh");
+            z63Var.g = optJSONObject.optString("onReachBottomDistance");
+            z63Var.h = optJSONObject.optBoolean("enableOpacityNavigationBar");
+            z63Var.i = optJSONObject.optBoolean("enableOpacityNavigationBarText");
+            z63Var.j = optJSONObject.optString("navigationStyle", "default");
+            z63Var.k = optJSONObject.optBoolean("navigationHomeButtonHidden");
+            z63Var.q = optJSONObject.optString("textSizeAdjust");
+            z63Var.s = optJSONObject.optString("htmlFontSize");
+            optJSONObject.optJSONArray("fontFace");
+            return z63Var;
         }
-        return (String) invokeL.objValue;
+        return (z63) invokeL.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void h(boolean z, String str, String str2, @NonNull d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), str, str2, dVar}) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.w("WebSafeWhiteListMgr", "get serverDomains: appId is empty");
-                }
-            } else if (dVar == null) {
-                if (!a) {
-                    return;
-                }
-                throw new RuntimeException("Please init webSafeData first!");
-            } else {
-                String i = i(str);
-                if (z) {
-                    ExecutorUtilsExt.postOnElastic(new b(dVar, i, str2), "load-ServerDomains", 2);
-                } else {
-                    p(dVar, i, str2);
-                }
-            }
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void k(boolean z, @NonNull d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65547, null, z, dVar) == null) {
-            if (dVar == null) {
-                if (!a) {
-                    return;
-                }
-                throw new RuntimeException("Please init webSafeData first!");
-            }
-            String j = j();
-            if (z) {
-                ExecutorUtilsExt.postOnElastic(new c(dVar, j), "load-WebActions", 2);
-            } else {
-                o(dVar, j);
-            }
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void l(boolean z, String str, @NonNull d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Boolean.valueOf(z), str, dVar}) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.w("WebSafeWhiteListMgr", "getWebDomains: appId is empty");
-                }
-            } else if (dVar == null) {
-                if (!a) {
-                    return;
-                }
-                throw new RuntimeException("Please init webSafeData first!");
-            } else {
-                String m = m(str);
-                if (z) {
-                    ExecutorUtilsExt.postOnElastic(new a(dVar, m), "load-WebDomains", 2);
-                } else {
-                    o(dVar, m);
-                }
-            }
-        }
-    }
-
-    public static void p(d dVar, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65552, null, dVar, str, str2) == null) {
-            if (dVar == null) {
-                h32.k("WebSafeWhiteListMgr", "webSafeData == null");
-                return;
-            }
-            h32.k("WebSafeWhiteListMgr", "update webSafeData(before): " + dVar);
-            try {
-                dVar.b(new JSONObject(q(str)), str2);
-                v(dVar, str);
-                h32.k("WebSafeWhiteListMgr", "update webSafeData(after): " + dVar);
-            } catch (Exception e) {
-                h32.k("WebSafeWhiteListMgr", Log.getStackTraceString(e));
-            }
-        }
-    }
-
-    public static void o(@NonNull d dVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, dVar, str) == null) {
-            if (dVar == null) {
-                h32.k("WebSafeWhiteListMgr", "webSafeData == null");
-                return;
-            }
-            h32.k("WebSafeWhiteListMgr", "update webSafeData(before): " + dVar);
-            try {
-                dVar.a(new JSONObject(q(str)));
-                v(dVar, str);
-                h32.k("WebSafeWhiteListMgr", "update webSafeData(after): " + dVar);
-            } catch (Exception e) {
-                h32.k("WebSafeWhiteListMgr", Log.getStackTraceString(e));
-            }
-        }
-    }
-
-    public static void r(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65554, null, str, str2) == null) {
-            JSONArray optJSONArray = hj3.d(str2).optJSONArray("prelink");
-            if (optJSONArray != null) {
-                ArraySet arraySet = new ArraySet();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    String optString = optJSONArray.optString(i);
-                    if (!TextUtils.isEmpty(optString)) {
-                        arraySet.add(optString);
-                    }
-                }
-                w(str, arraySet);
-            }
-            if (a) {
-                Log.d("WebSafeWhiteListMgr", "saveDomainConfig appId=" + str + ", domainConfig=" + str2);
-            }
-        }
-    }
-
-    public static void w(@NonNull String str, @Nullable Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65559, null, str, set) == null) {
-            if (set != null) {
-                ArrayList arrayList = new ArrayList(set.size());
-                ArraySet arraySet = new ArraySet(set.size());
-                for (String str2 : set) {
-                    String e = xv1.e(str2);
-                    if (e != null && !arrayList.contains(e)) {
-                        arraySet.add(str2);
-                        arrayList.add(e);
-                    }
-                }
-                set = arraySet;
-            }
-            f(str).putStringSet("prelink", set);
-        }
-    }
-
-    public static boolean s(String str, JSONObject jSONObject) {
+    public static z63 e(JSONObject jSONObject, @NonNull z63 z63Var) {
         InterceptResult invokeLL;
+        int t2;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, str, jSONObject)) == null) {
-            if (!TextUtils.isEmpty(str) && jSONObject != null) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("data", jSONObject);
-                    String i = i(str);
-                    boolean b2 = kp2.b(i, jSONObject2.toString(), false);
-                    h32.k("WebSafeWhiteListMgr", "save serverDomains: result=" + b2 + " filePath=" + i + " appId= " + str + " data=" + jSONObject);
-                    return b2;
-                } catch (JSONException e) {
-                    if (a) {
-                        Log.e("WebSafeWhiteListMgr", Log.getStackTraceString(e));
-                    }
-                    return false;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, z63Var)) == null) {
+            z63 z63Var2 = new z63();
+            String optString = jSONObject.optString("navigationBarBackgroundColor");
+            if (TextUtils.isEmpty(optString)) {
+                t2 = z63Var.a;
+            } else {
+                t2 = SwanAppConfigData.t(optString);
             }
-            if (a) {
-                Log.d("WebSafeWhiteListMgr", "save serverDomains: appId or data is empty");
+            z63Var2.a = t2;
+            z63Var2.b = jSONObject.optString("navigationBarTitleText", z63Var.b);
+            String optString2 = jSONObject.optString("navigationBarTextStyle");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = z63Var.c;
             }
-            return false;
+            z63Var2.c = optString2;
+            z63Var2.d = jSONObject.optString("backgroundTextStyle", z63Var.d);
+            if (jSONObject.has(TtmlNode.ATTR_TTS_BACKGROUND_COLOR)) {
+                i = SwanAppConfigData.t(jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
+            } else {
+                i = z63Var.e;
+            }
+            z63Var2.e = i;
+            z63Var2.f = jSONObject.optBoolean("enablePullDownRefresh", z63Var.f);
+            z63Var2.g = jSONObject.optString("onReachBottomDistance", z63Var.g);
+            z63Var2.h = jSONObject.optBoolean("enableOpacityNavigationBar", z63Var.h);
+            z63Var2.i = jSONObject.optBoolean("enableOpacityNavigationBarText", z63Var.i);
+            z63Var2.j = jSONObject.optString("navigationStyle", z63Var.j);
+            z63Var2.k = jSONObject.optBoolean("navigationHomeButtonHidden", z63Var.k);
+            z63Var2.l = jSONObject.optBoolean("disableSwipeBack", false);
+            z63Var2.m = jSONObject.optBoolean("disableFullscreenSwipeBack", false);
+            z63Var2.n = jSONObject.optBoolean("pageFavoriteEnable", true);
+            z63Var2.o = jSONObject.optBoolean("_hasVideo", false);
+            z63Var2.r = jSONObject.optString("viewMode", z63Var.r);
+            z63Var2.s = jSONObject.optString("htmlFontSize", z63Var.s);
+            jSONObject.optJSONArray("fontFace");
+            return z63Var2;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean t(String str, JSONArray jSONArray) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, str, jSONArray)) == null) {
-            if (jSONArray == null) {
-                if (a) {
-                    Log.w("WebSafeWhiteListMgr", "saveWebActions: data is empty");
-                }
-                return false;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("token", str);
-                }
-                jSONObject.put("data", jSONArray);
-                String j = j();
-                boolean b2 = kp2.b(j, jSONObject.toString(), false);
-                h32.k("WebSafeWhiteListMgr", "save webActions: result=" + b2 + " filePath=" + j + " token=" + str + " data=" + jSONArray);
-                return b2;
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("WebSafeWhiteListMgr", Log.getStackTraceString(e));
-                }
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
+        return (z63) invokeLL.objValue;
     }
 }

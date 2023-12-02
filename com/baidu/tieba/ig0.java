@@ -83,21 +83,21 @@ public class ig0 {
                 return;
             }
             String str = wg0Var.d;
-            xg0Var.p = t11.c(j, System.currentTimeMillis());
+            xg0Var.p = v11.c(j, System.currentTimeMillis());
             ClogBuilder n = new ClogBuilder().y(ClogBuilder.LogType.DOWNLOAD_KEEP).p(wg0Var.p.a).k(str).n(String.valueOf(wg0Var.q.p));
             JSONObject jSONObject = new JSONObject();
             try {
                 PackageInfo packageInfo = hf0.b().getPackageManager().getPackageInfo(str, 0);
                 n.l(packageInfo.versionName).m(String.valueOf(packageInfo.versionCode));
-                my0.d(jSONObject, "installed", 1);
+                oy0.d(jSONObject, "installed", 1);
             } catch (PackageManager.NameNotFoundException unused) {
-                my0.d(jSONObject, "installed", 0);
+                oy0.d(jSONObject, "installed", 0);
                 wg0Var.q.q = -2L;
             } catch (Throwable unused2) {
                 return;
             }
             n.o(jSONObject.toString());
-            bz0.e(n);
+            dz0.e(n);
             ng0.b().f(wg0Var);
         }
     }

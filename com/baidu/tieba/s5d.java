@@ -7,46 +7,62 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.NovelInfo;
+import tbclient.NovelRecomCard;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes8.dex */
-public class s5d extends ltc {
+public class s5d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull NovelInfo novelInfo) {
+    public static JSONObject b(@NonNull NovelRecomCard novelRecomCard) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, novelInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, novelRecomCard)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "novel_id", novelInfo.novel_id);
-            ltc.a(jSONObject, "img", novelInfo.img);
-            ltc.a(jSONObject, "name", novelInfo.name);
-            ltc.a(jSONObject, NotificationCompat.CarExtender.KEY_AUTHOR, novelInfo.author);
-            ltc.a(jSONObject, "desc", novelInfo.desc);
-            ltc.a(jSONObject, "discount_price", novelInfo.discount_price);
-            ltc.a(jSONObject, "percent", novelInfo.percent);
-            ltc.a(jSONObject, "h5_url", novelInfo.h5_url);
-            ltc.a(jSONObject, "is_pay", novelInfo.is_pay);
-            ltc.a(jSONObject, "chapters", novelInfo.chapters);
-            ltc.a(jSONObject, "member_text", novelInfo.member_text);
-            ltc.a(jSONObject, "member_img", novelInfo.member_img);
-            ltc.a(jSONObject, "buy_url", novelInfo.buy_url);
-            if (novelInfo.category != null) {
+            ktc.a(jSONObject, "icon_url", novelRecomCard.icon_url);
+            ktc.a(jSONObject, "title", novelRecomCard.title);
+            if (novelRecomCard.title_labels != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (String str : novelInfo.category) {
-                    jSONArray.put(str);
+                for (ThemeColorInfo themeColorInfo : novelRecomCard.title_labels) {
+                    jSONArray.put(s9d.b(themeColorInfo));
                 }
-                ltc.a(jSONObject, "category", jSONArray);
+                ktc.a(jSONObject, "title_labels", jSONArray);
             }
-            ltc.a(jSONObject, "story_channel_text", novelInfo.story_channel_text);
-            ltc.a(jSONObject, "story_channel_url", novelInfo.story_channel_url);
-            ltc.a(jSONObject, "tourist_text", novelInfo.tourist_text);
-            ltc.a(jSONObject, "tourist_url", novelInfo.tourist_url);
-            ltc.a(jSONObject, "reader_text", novelInfo.reader_text);
-            ltc.a(jSONObject, "from", novelInfo.from);
-            ltc.a(jSONObject, "yab_type", novelInfo.yab_type);
-            ltc.a(jSONObject, "bottom_text", novelInfo.bottom_text);
+            ktc.a(jSONObject, NotificationCompat.CarExtender.KEY_AUTHOR, novelRecomCard.author);
+            ktc.a(jSONObject, "abstract", novelRecomCard._abstract);
+            ktc.a(jSONObject, "chapter_name", novelRecomCard.chapter_name);
+            ktc.a(jSONObject, "chapter_time", novelRecomCard.chapter_time);
+            ThemeColorInfo themeColorInfo2 = novelRecomCard.chapter_new_labels;
+            if (themeColorInfo2 != null) {
+                ktc.a(jSONObject, "chapter_new_labels", s9d.b(themeColorInfo2));
+            }
+            ktc.a(jSONObject, "button_name", novelRecomCard.button_name);
+            ktc.a(jSONObject, "button_scheme", novelRecomCard.button_scheme);
+            ktc.a(jSONObject, "card_scheme", novelRecomCard.card_scheme);
+            ktc.a(jSONObject, "bottom_title", novelRecomCard.bottom_title);
+            ThemeColorInfo themeColorInfo3 = novelRecomCard.bottom_left_icon;
+            if (themeColorInfo3 != null) {
+                ktc.a(jSONObject, "bottom_left_icon", s9d.b(themeColorInfo3));
+            }
+            ktc.a(jSONObject, "bottom_scheme", novelRecomCard.bottom_scheme);
+            ktc.a(jSONObject, "bottom_guide", novelRecomCard.bottom_guide);
+            ThemeColorInfo themeColorInfo4 = novelRecomCard.bottom_right_icon;
+            if (themeColorInfo4 != null) {
+                ktc.a(jSONObject, "bottom_right_icon", s9d.b(themeColorInfo4));
+            }
+            ThemeColorInfo themeColorInfo5 = novelRecomCard.chapter_bg_color;
+            if (themeColorInfo5 != null) {
+                ktc.a(jSONObject, "chapter_bg_color", s9d.b(themeColorInfo5));
+            }
+            ThemeColorInfo themeColorInfo6 = novelRecomCard.chapter_name_color;
+            if (themeColorInfo6 != null) {
+                ktc.a(jSONObject, "chapter_name_color", s9d.b(themeColorInfo6));
+            }
+            ThemeColorInfo themeColorInfo7 = novelRecomCard.bottom_right_icon_2;
+            if (themeColorInfo7 != null) {
+                ktc.a(jSONObject, "bottom_right_icon_2", s9d.b(themeColorInfo7));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

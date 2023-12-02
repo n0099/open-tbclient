@@ -32,7 +32,7 @@ public final class ViewGroupCompat {
         if (Build.VERSION.SDK_INT >= 21) {
             return viewGroup.isTransitionGroup();
         }
-        Boolean bool = (Boolean) viewGroup.getTag(R.id.obfuscated_res_0x7f0924f6);
+        Boolean bool = (Boolean) viewGroup.getTag(R.id.obfuscated_res_0x7f0924f8);
         if ((bool == null || !bool.booleanValue()) && viewGroup.getBackground() == null && ViewCompat.getTransitionName(viewGroup) == null) {
             return false;
         }
@@ -59,7 +59,7 @@ public final class ViewGroupCompat {
         if (Build.VERSION.SDK_INT >= 21) {
             viewGroup.setTransitionGroup(z);
         } else {
-            viewGroup.setTag(R.id.obfuscated_res_0x7f0924f6, Boolean.valueOf(z));
+            viewGroup.setTag(R.id.obfuscated_res_0x7f0924f8, Boolean.valueOf(z));
         }
     }
 }

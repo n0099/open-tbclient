@@ -21,14 +21,14 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
-import com.baidu.tieba.x76;
+import com.baidu.tieba.b86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements x76 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements b86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -41,7 +41,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements x76 {
     public PollingModel h;
     public CustomMessageListener i;
 
-    @Override // com.baidu.tieba.x76
+    @Override // com.baidu.tieba.b86
     public boolean Q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements x76 {
         this.i = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.x76
+    @Override // com.baidu.tieba.b86
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -193,7 +193,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements x76 {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0338);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0919aa);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0919ac);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0802));

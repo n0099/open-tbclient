@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,16 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class sbb implements pi {
+public final class sbb implements pi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
+    @JvmField
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public mbb b;
-    public int c;
-    public String d;
-    public String e;
+    public final List<mbb> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +35,9 @@ public class sbb implements pi {
                 return;
             }
         }
-        f = BdUniqueId.gen();
+        BdUniqueId gen = BdUniqueId.gen();
+        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
+        b = gen;
     }
 
     public sbb() {
@@ -50,83 +53,51 @@ public class sbb implements pi {
                 return;
             }
         }
-        this.a = false;
-        this.c = 0;
+        this.a = new ArrayList();
     }
 
-    public String a() {
+    public final List<mbb> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            return this.a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public mbb c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (mbb) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void e(mbb mbbVar) {
+    public final void b(lbb lbbVar, int i, String fid, String fname) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, mbbVar) != null) || mbbVar == null) {
-            return;
-        }
-        this.a = false;
-        this.b = mbbVar;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lbbVar, i, fid, fname) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            Intrinsics.checkNotNullParameter(fname, "fname");
+            if (lbbVar == null) {
+                return;
+            }
+            this.a.clear();
+            if (!ListUtils.isEmpty(lbbVar.l())) {
+                List<mbb> list = this.a;
+                ArrayList<mbb> l = lbbVar.l();
+                Intrinsics.checkNotNull(l);
+                list.addAll(l);
+                for (mbb mbbVar : this.a) {
+                    mbbVar.v(i);
+                    mbbVar.t(fid);
+                    mbbVar.u(fname);
+                    Integer g = lbbVar.g();
+                    Intrinsics.checkNotNull(g);
+                    mbbVar.z(g.intValue());
+                }
+            }
         }
     }
 }

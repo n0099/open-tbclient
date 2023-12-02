@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.zb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class gla extends ila {
+public final class gla implements zb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ub7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CommonStatisticKey.KEY_HOME_PAGE_YY_LIVE_AVATER_CLICK : (String) invokeV.objValue;
-    }
 
     public gla() {
         Interceptable interceptable = $ic;
@@ -30,5 +26,59 @@ public final class gla extends ila {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.yb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return zb7.a.b(this);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb7
+    public Map<String, String> a(v57 v57Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v57Var)) == null) {
+            return zb7.a.a(this, v57Var);
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zb7
+    public String c(v57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
+                return "";
+            }
+            String str = businessInfo.a().get("pic_type");
+            if (str == null) {
+                str = "normal";
+            }
+            int hashCode = str.hashCode();
+            if (hashCode != -1039745817) {
+                if (hashCode != 3322092) {
+                    if (hashCode != 112202875 || !str.equals("video")) {
+                        return "";
+                    }
+                    return "live_mix_card_video_image_click";
+                } else if (!str.equals("live")) {
+                    return "";
+                } else {
+                    return "live_mix_card_live_image_click";
+                }
+            } else if (!str.equals("normal")) {
+                return "";
+            } else {
+                return "live_mix_card_normal_image_click";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

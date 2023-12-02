@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import android.view.View;
 /* loaded from: classes8.dex */
 public interface ucd {
-    void a(int i, String str, PayCallBackBean payCallBackBean);
+    void a(View view2);
+
+    void b(View view2);
 }

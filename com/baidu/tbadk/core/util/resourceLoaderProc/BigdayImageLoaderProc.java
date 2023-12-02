@@ -17,8 +17,8 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.k7;
 import com.baidu.tieba.o7;
 import com.baidu.tieba.sb;
-import com.baidu.tieba.st5;
 import com.baidu.tieba.tb;
+import com.baidu.tieba.wt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -163,7 +163,7 @@ public class BigdayImageLoaderProc implements tb<BdImage> {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            st5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
+            wt5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
             WebClient webClient = new WebClient();
             if (sbVar != null) {
                 sbVar.a = webClient;

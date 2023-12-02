@@ -277,7 +277,7 @@ public class e70 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (d == 0) {
-                d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705a3);
+                d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705a7);
             }
             return d;
         }

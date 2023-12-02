@@ -156,7 +156,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f14b4));
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f14b5));
             statisticItem.param("obj_type", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -166,16 +166,16 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0927af);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0927b2);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(BdUtilHelper.getDimens(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0927b0);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092a87);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0915f5);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0915f6);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09227f);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092280);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0927b1);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0927b3);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092a8a);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0915f6);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0915f7);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092281);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092282);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0927b4);
             this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090776);
         }
     }

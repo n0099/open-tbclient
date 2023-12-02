@@ -17,7 +17,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.data.ReplyEmojiMsgInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.ChatActivityInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatConf;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatResource;
-import com.baidu.tieba.sv8;
+import com.baidu.tieba.wv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,7 +63,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public List<AbilityItem> longPressMsgBtn;
     @Nullable
     @SerializedName("mask_info")
-    public List<sv8> maskInfoList;
+    public List<wv8> maskInfoList;
     public String prologue;
     @Nullable
     @SerializedName("quick_talk")
@@ -609,7 +609,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     }
 
     @Nullable
-    public List<sv8> getMaskInfoList() {
+    public List<wv8> getMaskInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {

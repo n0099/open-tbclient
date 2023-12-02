@@ -1,31 +1,24 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.BawuThrones;
+import tbclient.BazhuSign;
 /* loaded from: classes6.dex */
-public class fvc extends ltc {
+public class fvc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull BawuThrones bawuThrones) {
+    public static JSONObject b(@NonNull BazhuSign bazhuSign) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bawuThrones)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bazhuSign)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "total_recommend_num", bawuThrones.total_recommend_num);
-            ltc.a(jSONObject, "used_recommend_num", bawuThrones.used_recommend_num);
-            ltc.a(jSONObject, IMUserExtraData.KEY_BAZHU_LEVEL, bawuThrones.bazhu_level);
-            ltc.a(jSONObject, "used_bcast_cnt", bawuThrones.used_bcast_cnt);
-            ltc.a(jSONObject, "total_bcast_cnt", bawuThrones.total_bcast_cnt);
-            ltc.a(jSONObject, "newest_bcast_pv", bawuThrones.newest_bcast_pv);
-            ltc.a(jSONObject, "has_send_bcast", bawuThrones.has_send_bcast);
-            ltc.a(jSONObject, "newest_bcast_pushuser_cnt", bawuThrones.newest_bcast_pushuser_cnt);
+            ktc.a(jSONObject, "desc", bazhuSign.desc);
+            ktc.a(jSONObject, "level", bazhuSign.level);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

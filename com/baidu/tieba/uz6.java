@@ -1,41 +1,35 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.p05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class uz6 {
+public class uz6 extends n05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public RoundRelativeLayout c;
-    public ImageView d;
-    public ImageView e;
-    public ImageView f;
-    public TextView g;
-    public TextView h;
-    public int i;
-    public int j;
-    public boolean k;
+    public TbPageContext l;
+    public Context m;
+    public ViewEventCenter n;
+    public final p05 o;
+    public rx6 p;
+    public final List<l05> q;
+    public final p05.f r;
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public class a implements p05.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ uz6 a;
@@ -58,107 +52,100 @@ public class uz6 {
             this.a = uz6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            int i;
+        @Override // com.baidu.tieba.p05.f
+        public void E0(p05 p05Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                dx6.b(this.a.a, null);
-                StatisticItem statisticItem = new StatisticItem("c13645");
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                int i2 = 1;
-                statisticItem.param("obj_locate", 1);
-                if (this.a.k) {
-                    i = 5;
-                } else {
-                    i = 1;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, p05Var, i, view2) == null) {
+                this.a.dismiss();
+                if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                    BdUtilHelper.showToast(this.a.m, (int) R.string.network_not_available);
+                } else if (i == 2) {
+                    this.a.n.dispatchMvcEvent(new eo5(4, this.a.p, null, null));
+                } else if (i == 1) {
+                    this.a.n.dispatchMvcEvent(new eo5(13, this.a.p, null, null));
                 }
-                statisticItem.param("obj_type", i);
-                if (!this.a.k) {
-                    i2 = 3;
-                }
-                statisticItem.param("obj_source", i2);
-                TiebaStatic.log(statisticItem);
             }
         }
     }
 
-    public uz6(TbPageContext<?> tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uz6(TbPageContext tbPageContext, ViewEventCenter viewEventCenter) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0336, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092386);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09239c);
-        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0923a2);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923a4);
-        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092388);
-        this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0912b6);
-        this.g.setText(R.string.forum_square_title);
-        this.h.setText(R.string.forum_square_desc);
-        this.b.setOnClickListener(new a(this));
-        this.i = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds90);
-        this.j = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds58);
-        RoundRelativeLayout roundRelativeLayout = this.c;
-        int i3 = this.i;
-        roundRelativeLayout.setRoundLayoutRadius(new float[]{i3, i3, i3, i3, i3, i3, i3, i3});
+        this.r = new a(this);
+        this.l = tbPageContext;
+        this.m = tbPageContext.getPageActivity();
+        this.n = viewEventCenter;
+        this.q = new ArrayList();
+        p05 p05Var = new p05(this.m);
+        this.o = p05Var;
+        p05Var.r(this.r);
+        h(this.o);
     }
 
-    public void e(boolean z) {
+    public void s(rx6 rx6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.k = z;
+        if (interceptable == null || interceptable.invokeL(1048579, this, rx6Var) == null) {
+            this.p = rx6Var;
+            p();
         }
     }
 
-    public void c(gx6 gx6Var) {
+    public final void p() {
+        List<l05> list;
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gx6Var) == null) {
-            if (gx6Var.isTop()) {
-                if (this.c.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
-                    int i = marginLayoutParams.bottomMargin;
-                    int i2 = this.j;
-                    if (i != i2) {
-                        marginLayoutParams.bottomMargin = i2;
-                        this.c.requestLayout();
-                    }
-                }
-            } else if (this.c.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
-                if (marginLayoutParams2.bottomMargin != 0) {
-                    marginLayoutParams2.bottomMargin = 0;
-                    this.c.requestLayout();
-                }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.p != null && (list = this.q) != null && this.o != null) {
+            list.clear();
+            if (this.p.g() == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0206);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.d, R.drawable.obfuscated_res_0x7f0807f6, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setImageResource(this.e, R.drawable.pic_mask_square_circle);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
+            if (z) {
+                i = R.string.cancel_top;
+            } else {
+                i = R.string.obfuscated_res_0x7f0f1719;
+            }
+            this.q.add(new l05(1, q(i, new Object[0]), this.o));
+            this.q.add(new l05(2, q(R.string.obfuscated_res_0x7f0f055b, new Object[0]), this.o));
+            this.o.m(this.q);
         }
     }
 
-    public View d() {
-        InterceptResult invokeV;
+    public final String q(int i, Object... objArr) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, objArr)) == null) {
+            Context context = this.m;
+            if (context == null) {
+                return null;
+            }
+            return context.getString(i, objArr);
         }
-        return (View) invokeV.objValue;
+        return (String) invokeIL.objValue;
+    }
+
+    public void r() {
+        p05 p05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (p05Var = this.o) != null) {
+            p05Var.k();
+        }
     }
 }

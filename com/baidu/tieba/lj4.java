@@ -1,78 +1,62 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 /* loaded from: classes7.dex */
 public class lj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            SharedPreferences a = tj4.a();
+            return a.getLong("latest_update_time" + i, 0L);
         }
-        return (String) invokeLLZ.objValue;
+        return invokeI.longValue;
     }
 
-    public static String b(File file, boolean z) {
-        InterceptResult invokeLZ;
-        FileInputStream fileInputStream;
+    public static long b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
-            FileInputStream fileInputStream2 = null;
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read > 0) {
-                            messageDigest.update(bArr, 0, read);
-                        } else {
-                            String a = a(messageDigest.digest(), "", z);
-                            km4.d(fileInputStream);
-                            return a;
-                        }
-                    }
-                } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
-                    km4.d(fileInputStream);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    km4.d(fileInputStream2);
-                    throw th;
-                }
-            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            SharedPreferences a = tj4.a();
+            return a.getLong("max_age" + i, 0L);
+        }
+        return invokeI.longValue;
+    }
+
+    public static boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if ((System.currentTimeMillis() - a(i)) / 1000 > b(i)) {
+                return true;
             }
-        } else {
-            return (String) invokeLZ.objValue;
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static void d(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            SharedPreferences.Editor edit = tj4.a().edit();
+            edit.putLong("latest_update_time" + i, j).apply();
+        }
+    }
+
+    public static void e(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (j <= 0 || j >= 259200) {
+                j = 0;
+            }
+            tj4.a().edit().putLong("max_age" + i, j).apply();
         }
     }
 }

@@ -27,7 +27,7 @@ public class kt extends ku implements View.OnClickListener {
     public InterviewLiveLayout A;
     public int B;
     public TextView C;
-    public im6<cw4> D;
+    public mm6<fw4> D;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kt(Context context) {
@@ -69,7 +69,7 @@ public class kt extends ku implements View.OnClickListener {
             this.C = (TextView) this.f.findViewById(R.id.video_seg_abstract);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
             this.A = (InterviewLiveLayout) this.f.findViewById(R.id.frame_interview_no_video);
-            hea t = t();
+            lea t = t();
             this.l = t;
             t.getMainView().setBackgroundResource(R.color.transparent);
             this.C.setOnClickListener(this);
@@ -85,21 +85,21 @@ public class kt extends ku implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.os
-    public void n(im6<cw4> im6Var) {
+    public void n(mm6<fw4> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, im6Var) == null) {
-            this.D = im6Var;
-            this.A.setSubClickListener(im6Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, mm6Var) == null) {
+            this.D = mm6Var;
+            this.A.setSubClickListener(mm6Var);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        im6<cw4> im6Var;
+        mm6<fw4> mm6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            if ((view2 == this.C || view2 == this.g) && (im6Var = this.D) != null) {
-                im6Var.a(view2, this.h);
+            if ((view2 == this.C || view2 == this.g) && (mm6Var = this.D) != null) {
+                mm6Var.a(view2, this.h);
             }
         }
     }
@@ -115,15 +115,15 @@ public class kt extends ku implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.ku
-    public hea t() {
+    public lea t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            iea ieaVar = new iea(this.b, this.i);
-            ieaVar.setStageType("2003");
-            return ieaVar;
+            mea meaVar = new mea(this.b, this.i);
+            meaVar.setStageType("2003");
+            return meaVar;
         }
-        return (hea) invokeV.objValue;
+        return (lea) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ku, com.baidu.tieba.jt
@@ -141,17 +141,17 @@ public class kt extends ku implements View.OnClickListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ku, com.baidu.tieba.it
     /* renamed from: u */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cw4Var) == null) {
-            this.h = cw4Var;
-            if (cw4Var != null && cw4Var.getThreadData() != null) {
-                ThreadData threadData = cw4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048585, this, fw4Var) == null) {
+            this.h = fw4Var;
+            if (fw4Var != null && fw4Var.getThreadData() != null) {
+                ThreadData threadData = fw4Var.getThreadData();
                 if (threadData.getThreadVideoInfo() != null) {
                     this.A.setVisibility(8);
                     this.i.setVisibility(0);
                     this.C.setVisibility(8);
-                    super.onBindDataToView(cw4Var);
+                    super.onBindDataToView(fw4Var);
                     return;
                 }
                 this.i.setVisibility(8);
@@ -163,7 +163,7 @@ public class kt extends ku implements View.OnClickListener {
                     return;
                 }
                 this.A.setVisibility(0);
-                this.A.onBindDataToView(cw4Var);
+                this.A.onBindDataToView(fw4Var);
             }
         }
     }

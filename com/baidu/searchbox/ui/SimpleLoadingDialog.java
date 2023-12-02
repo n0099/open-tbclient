@@ -33,9 +33,9 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
     public void initView() {
         int i;
         setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0252);
-        this.mRootView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092072);
-        this.mProgressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091705);
-        this.mMsgTxtView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09181a);
+        this.mRootView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092074);
+        this.mProgressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091706);
+        this.mMsgTxtView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09181b);
         this.mCloseImgView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090776);
         this.mMsgTxtView.setText(this.mMsgText);
         this.mCloseImgView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ui.SimpleLoadingDialog.1
@@ -66,16 +66,16 @@ public class SimpleLoadingDialog extends BaseLoadingDialog {
     public void setFontResources() {
         SmoothProgressBar smoothProgressBar = this.mProgressBar;
         if (smoothProgressBar != null) {
-            FontSizeViewExtKt.setScaledSizeRes(smoothProgressBar, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f0707a2, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070798);
+            FontSizeViewExtKt.setScaledSizeRes(smoothProgressBar, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f0707a6, com.baidu.tieba.R.dimen.obfuscated_res_0x7f07079c);
             this.mProgressBar.setIndeterminateDrawable(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080582));
         }
         TextView textView = this.mMsgTxtView;
         if (textView != null) {
-            FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f0707a1);
+            FontSizeTextViewExtKt.setScaledSizeRes(textView, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f0707a5);
         }
         ImageView imageView = this.mCloseImgView;
         if (imageView != null) {
-            FontSizeViewExtKt.setScaledSizeRes(imageView, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f07079b, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070799);
+            FontSizeViewExtKt.setScaledSizeRes(imageView, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f07079f, com.baidu.tieba.R.dimen.obfuscated_res_0x7f07079d);
             this.mCloseImgView.setBackground(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080584));
         }
     }

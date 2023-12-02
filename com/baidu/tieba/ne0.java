@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.clickinfo.NadTouchInfoModel;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.w11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -109,7 +109,7 @@ public final class ne0 implements ke0 {
             }
             String[] strArr = new String[9];
             strArr[0] = DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX;
-            if (u11.c.j()) {
+            if (w11.c.l()) {
                 str = "1";
             } else {
                 str = "0";
@@ -132,11 +132,11 @@ public final class ne0 implements ke0 {
     public final void c() {
         View view2;
         me0 me0Var;
-        e11 e11Var;
+        g11 g11Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && y01.a && (view2 = this.c.get()) != null && (me0Var = this.b.get()) != null && (e11Var = (e11) x01.a().a(e11.class)) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && a11.a && (view2 = this.c.get()) != null && (me0Var = this.b.get()) != null && (g11Var = (g11) z01.a().a(g11.class)) != null) {
             int[] iArr = me0Var.b;
-            e11Var.a(view2, iArr[0], iArr[1]);
+            g11Var.a(view2, iArr[0], iArr[1]);
         }
     }
 

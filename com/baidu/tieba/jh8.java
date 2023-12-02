@@ -1,105 +1,119 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.AlaLiveInfo;
-import tbclient.Personalized.UserFollowLive;
+import tbclient.Personalized.CardForum;
+import tbclient.Personalized.PersonalForum;
 /* loaded from: classes6.dex */
-public class jh8 extends cw4 {
+public class jh8 extends bn6 implements kn6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AlaLiveInfo> a;
+    public CardForum e;
 
-    @Override // com.baidu.tieba.cw4
-    public NegativeFeedBackData getNegFeedBackData() {
-        InterceptResult invokeV;
+    public static boolean h(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (NegativeFeedBackData) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 1 : invokeI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.cw4
-    public ThreadData getThreadData() {
+    @Override // com.baidu.tieba.kn6
+    public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
         }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947883407, "Lcom/baidu/tieba/jh8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947883407, "Lcom/baidu/tieba/jh8;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
+        return invokeV.booleanValue;
     }
 
     public jh8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new ArrayList();
     }
 
-    public List<AlaLiveInfo> c() {
+    @Override // com.baidu.tieba.kn6
+    public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            CardForum cardForum = this.e;
+            if (cardForum != null) {
+                return cardForum.position.intValue();
+            }
+            return 0;
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
-    public BdUniqueId getType() {
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (ListUtils.getCount(getDataList()) <= 0) {
+                return false;
+            }
+            return true;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void d(UserFollowLive userFollowLive) {
+    @Override // com.baidu.tieba.kn6
+    public void K(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userFollowLive) == null) {
-            this.a.clear();
-            if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !ListUtils.isEmpty(userFollowLive.user_follow_live)) {
-                this.a.addAll(userFollowLive.user_follow_live);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.showBottomDivider = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.kn6
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.showTopDivider = z;
+        }
+    }
+
+    public void l(CardForum cardForum) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, cardForum) == null) && cardForum != null) {
+            this.e = cardForum;
+            this.mGroupTitle = cardForum.card_title;
+            if (cardForum.position != null) {
+                g(e() + cardForum.position.intValue());
+            } else {
+                g(e() + 0);
+            }
+            if (ListUtils.getCount(cardForum.forum_list) > 0) {
+                for (PersonalForum personalForum : cardForum.forum_list) {
+                    if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
+                        an6 an6Var = new an6();
+                        an6Var.b = personalForum.avatar;
+                        an6Var.c = personalForum.forum_name;
+                        an6Var.d = JavaTypesHelper.toInt("" + personalForum.forum_id, -1);
+                        boolean z = true;
+                        if (personalForum.is_like.intValue() != 1) {
+                            z = false;
+                        }
+                        an6Var.e = z;
+                        c(an6Var);
+                    }
+                }
             }
         }
     }

@@ -381,11 +381,11 @@ public final class nx {
             String str = Build.MANUFACTURER;
             String string = weakReference.get().getString(R.string.obfuscated_res_0x7f0f04ad);
             if ("vivo".equalsIgnoreCase(str)) {
-                string = weakReference.get().getString(R.string.obfuscated_res_0x7f0f186f);
+                string = weakReference.get().getString(R.string.obfuscated_res_0x7f0f1870);
             } else if ("OPPO".equalsIgnoreCase(str)) {
-                string = weakReference.get().getString(R.string.obfuscated_res_0x7f0f0f50);
+                string = weakReference.get().getString(R.string.obfuscated_res_0x7f0f0f51);
             } else if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(str)) {
-                string = weakReference.get().getString(R.string.obfuscated_res_0x7f0f1924);
+                string = weakReference.get().getString(R.string.obfuscated_res_0x7f0f1925);
             }
             new BdAlertDialog.Builder(weakReference.get()).setTitle(R.string.obfuscated_res_0x7f0f0adb).setMessage(weakReference.get().getString(R.string.obfuscated_res_0x7f0f0ada, new Object[]{string})).setButton(new BdAlertDialog.ButtonItem(weakReference.get().getString(R.string.obfuscated_res_0x7f0f05f5), new f())).setButton(new BdAlertDialog.ButtonItem(weakReference.get().getString(R.string.obfuscated_res_0x7f0f05f6), new e())).setOnDismissListener(new d()).create().show();
         }

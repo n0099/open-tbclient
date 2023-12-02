@@ -1,55 +1,49 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.view.headcard.data.QuizCardRespondedMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.QuizInfo;
 /* loaded from: classes8.dex */
 public final class wbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<BaseFragmentActivity> a;
-    public FastRequest b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public vbb<QuizCardRespondedMessage.a> h;
+    public final String a;
+    public a b;
+    public BdUniqueId c;
+    public final b d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948266226, "Lcom/baidu/tieba/wbb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948266226, "Lcom/baidu/tieba/wbb;");
-        }
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(QuizInfo quizInfo, pbb pbbVar);
+
+        void onError(int i, String str);
     }
 
     /* loaded from: classes8.dex */
-    public static final class a extends FastRequest.b<QuizCardRespondedMessage.a> {
+    public static final class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wbb d;
+        public final /* synthetic */ wbb a;
 
-        public a(wbb wbbVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(wbb wbbVar) {
+            super(CmdConfigHttp.CMD_HTTP_FORUM_QUIZ_CARD_RESULT);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,134 +53,147 @@ public final class wbb {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = wbbVar;
+            this.a = wbbVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: m */
-        public void i(QuizCardRespondedMessage.a result) {
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
-                Intrinsics.checkNotNullParameter(result, "result");
-                vbb<QuizCardRespondedMessage.a> a = this.d.a();
-                if (a != null) {
-                    String errorMsg = a();
-                    Intrinsics.checkNotNullExpressionValue(errorMsg, "errorMsg");
-                    a.a(errorMsg);
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003579 && (httpResponsedMessage instanceof QuizCardRespondedMessage)) {
+                    QuizCardRespondedMessage quizCardRespondedMessage = (QuizCardRespondedMessage) httpResponsedMessage;
+                    if (quizCardRespondedMessage.getError() != 0) {
+                        a a = this.a.a();
+                        if (a != null) {
+                            int error = quizCardRespondedMessage.getError();
+                            String errorString = quizCardRespondedMessage.getErrorString();
+                            Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
+                            a.onError(error, errorString);
+                        }
+                        TbLog defaultLog = DefaultLog.getInstance();
+                        String b = this.a.b();
+                        defaultLog.i(b, "请求结束，返回错误，错误码为：" + quizCardRespondedMessage.getError());
+                        return;
+                    }
+                    TbLog defaultLog2 = DefaultLog.getInstance();
+                    String b2 = this.a.b();
+                    defaultLog2.i(b2, "请求结束，返回数据，quzi：" + quizCardRespondedMessage.getQuizInfo() + "，dialog：" + quizCardRespondedMessage.getDialogData());
+                    a a2 = this.a.a();
+                    if (a2 != null) {
+                        a2.a(quizCardRespondedMessage.getQuizInfo(), quizCardRespondedMessage.getDialogData());
+                        return;
+                    }
+                    return;
                 }
-                super.i(result);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: l */
-        public void e(int i, String errMsg, Exception exc, QuizCardRespondedMessage.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), errMsg, exc, aVar}) == null) {
-                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                vbb<QuizCardRespondedMessage.a> a = this.d.a();
-                if (a != null) {
-                    a.b(errMsg, i, aVar);
+                a a3 = this.a.a();
+                if (a3 != null) {
+                    a3.onError(-1, "");
                 }
-                super.f(i, errMsg, aVar);
+                DefaultLog.getInstance().i(this.a.b(), "请求结束，数据不合法");
             }
         }
     }
 
-    public wbb(TbPageContext<BaseFragmentActivity> pageContext) {
+    public wbb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        this.a = pageContext;
+        this.a = "QuizInfoModel";
+        this.d = new b(this);
+        e();
     }
 
-    public final vbb<QuizCardRespondedMessage.a> a() {
+    public final a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
+            return this.b;
         }
-        return (vbb) invokeV.objValue;
+        return (a) invokeV.objValue;
     }
 
-    public final void b() {
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.b == null) {
-                this.b = new FastRequest(this.a, CmdConfigHttp.CMD_HTTP_APPLY_MATCH_GUESS, "c/c/matchActivity/applyMatchGuessing");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            BdUniqueId bdUniqueId = this.c;
+            if (bdUniqueId != null) {
+                this.d.setTag(bdUniqueId);
+                this.d.setSelfListener(true);
             }
-            if (TbadkCoreApplication.getCurrentAccount() != null) {
-                FastRequest fastRequest = this.b;
-                Intrinsics.checkNotNull(fastRequest);
-                fastRequest.P("product", Long.valueOf(this.c));
-                fastRequest.P("user_id", Long.valueOf(this.d));
-                fastRequest.P("quiz_id", Long.valueOf(this.e));
-                fastRequest.P("pour_count", Long.valueOf(this.f));
-                fastRequest.P("option_id", Long.valueOf(this.g));
-                fastRequest.R(new a(this));
-                fastRequest.Q();
+            MessageManager.getInstance().registerListener(this.d);
+        }
+    }
+
+    public final void c(String quizId, String product, String quizOptionId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, quizId, product, quizOptionId) == null) {
+            Intrinsics.checkNotNullParameter(quizId, "quizId");
+            Intrinsics.checkNotNullParameter(product, "product");
+            Intrinsics.checkNotNullParameter(quizOptionId, "quizOptionId");
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_FORUM_QUIZ_CARD_RESULT);
+            httpMessage.addParam("quiz_id", quizId);
+            httpMessage.addParam("product", product);
+            httpMessage.addParam("quiz_option_id", quizOptionId);
+            BdUniqueId bdUniqueId = this.c;
+            if (bdUniqueId != null) {
+                httpMessage.setTag(bdUniqueId);
             }
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public final void c(vbb<QuizCardRespondedMessage.a> vbbVar) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vbbVar) == null) {
-            this.h = vbbVar;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_FORUM_QUIZ_CARD_RESULT, TbConfig.SERVER_ADDRESS + "c/f/matchActivity/quiz");
+            tbHttpMessageTask.setResponsedClass(QuizCardRespondedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    public final void d(long j) {
+    public final void g(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.g = j;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 
-    public final void e(long j) {
+    public final void h(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f = j;
-        }
-    }
-
-    public final void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public final void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.e = j;
-        }
-    }
-
-    public final void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.d = j;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
+            this.c = bdUniqueId;
         }
     }
 }

@@ -1,69 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class kd1 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = null;
+    public static String b = null;
+    public static int c = 0;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, context, bundle) != null) || bundle == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947909137, "Lcom/baidu/tieba/kd1;")) == null) {
             return;
         }
-        try {
-            String string = bundle.getString("zid");
-            if (!TextUtils.isEmpty(string)) {
-                bundle.remove("zid");
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("c", bundle.getString("cuid"));
-                jSONObject.put("z", string);
-                jSONObject.put("mac", ad1.c());
-                jSONObject.put("app", "android");
-                jSONObject.put("ver", bd1.a(context));
-                bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
-            }
-        } catch (Exception e) {
-            hd1.b(e.getMessage());
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947909137, "Lcom/baidu/tieba/kd1;");
         }
     }
 
-    public static Bundle b(Context context, Bundle bundle) {
-        InterceptResult invokeLL;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bundle)) == null) {
-            if (bundle == null) {
-                return new Bundle();
-            }
-            yc1.a = bundle.getString("bduss");
-            yc1.b = bundle.getString("tpOrderId");
-            yc1.g = bundle.getString("nativeAppId");
-            yc1.h = bundle.getString("sceneSource");
-            yc1.c = bundle.getString("appKey");
-            yc1.d = bundle.getString("dealId");
-            bundle.putString("deviceType", "ANDROID");
-            bundle.putString("channel", "cashiersdk");
-            bundle.putString(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
-            String[] stringArray = bundle.getStringArray("blockedPayChannels");
-            if (stringArray != null && stringArray.length > 0) {
-                bundle.remove("blockedPayChannels");
-                JSONArray jSONArray = new JSONArray();
-                for (String str : stringArray) {
-                    jSONArray.put(str);
-                }
-                bundle.putString("bannedChannels", jSONArray.toString());
-            }
-            a(context, bundle);
-            return bundle;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return Thread.currentThread().getName() + PreferencesUtil.LEFT_MOUNT + a + ":" + b + ":" + c + PreferencesUtil.RIGHT_MOUNT + str;
         }
-        return (Bundle) invokeLL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || !d) {
+            return;
+        }
+        Log.d("CashierSdk", str);
+    }
+
+    public static void d(Object... objArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr) != null) || !d) {
+            return;
+        }
+        e(new Throwable().getStackTrace());
+        Log.e("CashierSdk", f(objArr));
+    }
+
+    public static void e(StackTraceElement[] stackTraceElementArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, stackTraceElementArr) == null) {
+            a = stackTraceElementArr[1].getFileName();
+            b = stackTraceElementArr[1].getMethodName();
+            c = stackTraceElementArr[1].getLineNumber();
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || !d) {
+            return;
+        }
+        Log.i("CashierSdk", str);
+    }
+
+    public static void c(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65539, null, str, th) != null) || !d) {
+            return;
+        }
+        e(new Throwable().getStackTrace());
+        Log.e("CashierSdk", f(str), th);
+    }
+
+    public static String f(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
+            if (objArr == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            for (Object obj : objArr) {
+                if (obj != null) {
+                    sb.append(obj.toString());
+                }
+            }
+            return a(sb.toString());
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -57,9 +57,9 @@ public final class o extends b implements View.OnClickListener, com.kwad.compone
         if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams2;
             if (layoutParams.height == -1) {
-                marginLayoutParams.bottomMargin = this.sy.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07053e);
+                marginLayoutParams.bottomMargin = this.sy.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07053f);
             } else {
-                int dimensionPixelSize = this.sy.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07053d);
+                int dimensionPixelSize = this.sy.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07053e);
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
                     View view2 = null;
@@ -120,7 +120,7 @@ public final class o extends b implements View.OnClickListener, com.kwad.compone
     public Animator hw() {
         ValueAnimator valueAnimator;
         AnimatorSet animatorSet = new AnimatorSet();
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.sy, Key.TRANSLATION_X, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070540));
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.sy, Key.TRANSLATION_X, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070541));
         Drawable background = this.fq.getBackground();
         if (background instanceof ColorDrawable) {
             final ColorDrawable colorDrawable = (ColorDrawable) background;
@@ -144,10 +144,10 @@ public final class o extends b implements View.OnClickListener, com.kwad.compone
         if (viewGroup == null) {
             return;
         }
-        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913f7);
+        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913f8);
         this.fq = imageView;
         imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0607a5));
-        this.sz = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913f8);
+        this.sz = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f0913f9);
         this.sy.setOnClickListener(this);
     }
 
@@ -184,16 +184,16 @@ public final class o extends b implements View.OnClickListener, com.kwad.compone
     public final void aj() {
         super.aj();
         if (this.sy == null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0913fd);
+            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0913fe);
             if (viewStub != null) {
                 this.sy = (ViewGroup) viewStub.inflate();
             } else {
-                this.sy = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913fc);
+                this.sy = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913fd);
             }
             initView();
         }
         if (this.qn.fE()) {
-            a(new ViewGroup.LayoutParams(-1, this.sy.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070527)));
+            a(new ViewGroup.LayoutParams(-1, this.sy.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070528)));
         } else {
             this.qn.oL.a(this);
         }

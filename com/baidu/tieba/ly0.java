@@ -1,215 +1,104 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.rotation.NadSensorAbsHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class ly0 {
+public final class ly0 extends NadSensorAbsHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float g;
+    public int h;
 
-    public static boolean f(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? obj == null : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
     }
 
-    public static void o(Exception exc) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ly0(Context context, jy0 listener) {
+        super(context, listener);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, exc) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, listener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (jy0) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(listener, "listener");
+        this.g = 1.0f;
     }
 
-    public static <T> void a(List<T> list, T t, int i) {
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, list, t, i) != null) || f(list) || !e(list, i)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int c = c().c();
+            if (c >= 0 && 66 >= c) {
+                return 1;
+            }
+            if ((67 <= c && 199 >= c) || c < 200) {
+                return 2;
+            }
+            return 3;
         }
-        try {
-            list.add(i, t);
-        } catch (Exception e) {
-            o(e);
-        }
+        return invokeV.intValue;
     }
 
-    public static <T> boolean b(List<T> list, T t) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public void i(SensorEvent sensorEvent) {
+        Sensor sensor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, t)) == null) {
-            if (f(list)) {
-                return false;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
+            float[] fArr = sensorEvent.values;
+            float f = fArr[0];
+            if (Math.pow(f, 2.0d) + Math.pow(fArr[1], 2.0d) + Math.pow(fArr[2], 2.0d) < Math.pow(c().b(), 2.0d)) {
+                return;
             }
-            try {
-                return list.add(t);
-            } catch (Exception e) {
-                o(e);
-                return false;
+            if (this.g * f >= 0) {
+                this.g = f;
+                return;
             }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.Collection<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void c(Collection<T> collection, Collection<T> collection2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, collection, collection2) == null) && collection2 != 0 && collection != null) {
-            collection.addAll(collection2);
-        }
-    }
-
-    @Nullable
-    public static <T> T d(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
-            if (g(list) || !e(list, i)) {
-                return null;
+            this.g = f;
+            int i = this.h + 1;
+            this.h = i;
+            if (i >= c().a()) {
+                b().h();
             }
-            try {
-                return list.get(i);
-            } catch (Exception e) {
-                o(e);
-                return null;
-            }
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> boolean e(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i)) == null) {
-            if (f(list) || i < 0) {
-                return false;
-            }
-            try {
-                if (i >= list.size()) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                o(e);
-                return false;
-            }
-        }
-        return invokeLI.booleanValue;
-    }
-
-    @Nullable
-    public static <T> T i(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, list, i)) == null) {
-            if (g(list) || !e(list, i)) {
-                return null;
-            }
-            try {
-                return list.remove(i);
-            } catch (Exception e) {
-                o(e);
-                return null;
-            }
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> boolean j(List<T> list, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, t)) == null) {
-            if (g(list)) {
-                return false;
-            }
-            try {
-                return list.remove(t);
-            } catch (Exception e) {
-                o(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> boolean k(List<T> list, Collection<?> collection) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, list, collection)) == null) {
-            if (f(list)) {
-                return false;
-            }
-            try {
-                return list.removeAll(collection);
-            } catch (Exception e) {
-                Log.e("CollectionUtils", "throw exception when List removeAll");
-                o(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> void n(List<T> list, Comparator<? super T> comparator) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65549, null, list, comparator) != null) || f(list)) {
-            return;
-        }
-        try {
-            Collections.sort(list, comparator);
-        } catch (Exception e) {
-            Log.e("CollectionUtils", "throw exception when List sort");
-            o(e);
         }
     }
 
-    public static <T> boolean g(List<T> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            if (!f(list) && !list.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <K, V> boolean h(Map<K, V> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
-            if (!f(map) && !map.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <T> int l(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
-            if (!f(list) && !list.isEmpty()) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static <T extends Comparable<? super T>> void m(List<T> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, list) == null) {
-            n(list, null);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.o();
+            this.h = 0;
+            this.g = 1.0f;
         }
     }
 }

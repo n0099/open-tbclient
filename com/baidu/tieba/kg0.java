@@ -47,7 +47,7 @@ public class kg0 implements sh0 {
         if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) != null) || j < 0 || j2 <= 0 || j > j2) {
             return;
         }
-        this.a.i = (float) oy0.a(j, j2);
+        this.a.i = (float) qy0.a(j, j2);
         this.a.c = AdDownloadStatus.DOWNLOADING;
         jg0.c().g(AdDownloadAction.PROGRESS_UPDATE, this.a);
     }

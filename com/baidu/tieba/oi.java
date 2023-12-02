@@ -199,7 +199,7 @@ public class oi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             if (i > 0) {
-                return ss5.p(this.a.getItem(i - this.a.getHeaderViewsCount()));
+                return ws5.p(this.a.getItem(i - this.a.getHeaderViewsCount()));
             }
             return false;
         }
@@ -278,8 +278,8 @@ public class oi {
                 if (item instanceof BaseCardInfo) {
                     return ((BaseCardInfo) item).position;
                 }
-                if (item instanceof vx4) {
-                    return ((vx4) item).m();
+                if (item instanceof yx4) {
+                    return ((yx4) item).m();
                 }
             }
             return -1;

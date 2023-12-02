@@ -63,11 +63,11 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
             this.mSuggestWidth = min;
             this.mSuggestHeight = (int) (min * 1.6f);
         } else if (i == 15) {
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070387);
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070388);
             this.mSuggestHeight = dimensionPixelSize;
             this.mSuggestWidth = dimensionPixelSize;
         } else if (i == 16) {
-            int dimensionPixelSize2 = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070383);
+            int dimensionPixelSize2 = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070384);
             this.mSuggestHeight = dimensionPixelSize2;
             this.mSuggestWidth = dimensionPixelSize2;
         } else if (i == 21) {

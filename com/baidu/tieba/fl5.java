@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-/* loaded from: classes6.dex */
+import com.baidu.android.imsdk.chatmessage.request.IMEmojiReplyListListener;
+import java.util.ArrayList;
+import java.util.Map;
+/* loaded from: classes5.dex */
 public interface fl5 {
-    void a(String str, ChatMsg chatMsg);
+    void onFailure(int i, String str);
 
-    void b(int i, String str, String str2, ChatMsg chatMsg);
+    void onSuccess(Map<Long, ? extends ArrayList<IMEmojiReplyListListener.IMEmojiItem>> map);
 }

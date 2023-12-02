@@ -1,115 +1,172 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.util.io.DocumentOpenUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
 /* loaded from: classes9.dex */
-public class yi3 {
+public final class yi3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<Integer> a;
+    public static final Set<Integer> b;
+    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948331078, "Lcom/baidu/tieba/yi3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (!TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str)) {
-                return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948331078, "Lcom/baidu/tieba/yi3;");
+                return;
             }
-            return true;
         }
-        return invokeL.booleanValue;
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        a.add(5);
+        a.add(6);
+        b.add(7);
+        b.add(1);
+        c.addAll(a);
+        c.addAll(b);
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public static Date a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            String lowerCase = str.toLowerCase();
-            char c = 65535;
-            switch (lowerCase.hashCode()) {
-                case 99640:
-                    if (lowerCase.equals("doc")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 110834:
-                    if (lowerCase.equals("pdf")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 111220:
-                    if (lowerCase.equals("ppt")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 118783:
-                    if (lowerCase.equals("xls")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 3088960:
-                    if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3447940:
-                    if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 3682393:
-                    if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    str2 = DocumentOpenUtil.PDF_TYPE;
-                    break;
-                case 1:
-                    str2 = DocumentOpenUtil.WORD_TYPE;
-                    break;
-                case 2:
-                    str2 = DocumentOpenUtil.DOCUMENT_TYPE;
-                    break;
-                case 3:
-                    str2 = DocumentOpenUtil.EXCEL_TYPE;
-                    break;
-                case 4:
-                    str2 = DocumentOpenUtil.SHEET_TYPE;
-                    break;
-                case 5:
-                    str2 = DocumentOpenUtil.PPT_TYPE;
-                    break;
-                case 6:
-                    str2 = DocumentOpenUtil.PRESENT_TYPE;
-                    break;
-                default:
-                    str2 = "";
-                    break;
-            }
-            if (!a(str2)) {
-                return "";
-            }
-            return str2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new Date();
         }
-        return (String) invokeL.objValue;
+        return (Date) invokeV.objValue;
+    }
+
+    public static String b(Date date, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, date, str)) == null) {
+            if (date == null) {
+                return "";
+            }
+            try {
+                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "";
+                }
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Date c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                return new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(str);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+        }
+        return (Date) invokeLL.objValue;
+    }
+
+    public static Date d(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
+            Date date = null;
+            if (!TextUtils.isEmpty(str) && strArr != null) {
+                for (String str2 : strArr) {
+                    try {
+                        date = new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (date != null) {
+                        break;
+                    }
+                }
+            }
+            return date;
+        }
+        return (Date) invokeLL.objValue;
+    }
+
+    public static String e(Date date, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, date, str)) == null) {
+            if (date == null) {
+                return "";
+            }
+            try {
+                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "";
+                }
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String g(long j, String str) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65543, null, j, str)) == null) {
+            try {
+                return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(j));
+            } catch (NumberFormatException e) {
+                if (vm1.a) {
+                    e.printStackTrace();
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeJL.objValue;
+    }
+
+    public static boolean f(Long l, Long l2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, l, l2)) == null) {
+            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

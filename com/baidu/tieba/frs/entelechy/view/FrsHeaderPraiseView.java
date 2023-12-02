@@ -139,9 +139,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = findViewById(R.id.divider_top);
             this.b = findViewById(R.id.divider_bottom);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090db1);
-            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090db0);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090dae);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090db2);
+            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090db1);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090daf);
             this.e = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
         }
@@ -177,7 +177,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                     headImageView.setBorderWidth(BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
                     headImageView.startLoad(((SimpleUser) arrayList.get(size)).portrait, 12, false);
                     if (size != arrayList.size() - 1) {
-                        layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041c));
+                        layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07041d));
                     }
                     layoutParams.gravity = 5;
                     this.d.addView(headImageView, layoutParams);

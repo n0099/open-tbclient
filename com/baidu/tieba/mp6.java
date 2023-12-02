@@ -1,25 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import com.squareup.wire.Message;
+import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes7.dex */
-public final class mp6 implements ub7 {
+public class mp6 implements a97<Message> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ub7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
-    }
 
     public mp6() {
         Interceptable interceptable = $ic;
@@ -35,16 +26,22 @@ public final class mp6 implements ub7 {
         }
     }
 
-    @Override // com.baidu.tieba.ub7
-    public Map<String, String> a(r57 businessInfo) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.a97
+    /* renamed from: a */
+    public rb7<?> b(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            hashMap.put("obj_locate", "2");
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+            if (!(message instanceof LiveAnswer)) {
+                return null;
+            }
+            rh8 rh8Var = new rh8();
+            rh8Var.c((LiveAnswer) message);
+            u77 u77Var = new u77();
+            u77Var.a = rh8Var;
+            return new sb7(new i37(u77Var), "recommend_banner");
         }
-        return (Map) invokeL.objValue;
+        return (rb7) invokeL.objValue;
     }
 }

@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class fi2 {
+public class fi2 extends k23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gi2 a;
-    public String b;
-    public Map<String, Object> c;
 
     public fi2() {
         Interceptable interceptable = $ic;
@@ -24,6 +23,14 @@ public class fi2 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.k23
+    public void b(@NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            SwanFavorDataManager.h().m(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
         }
     }
 }

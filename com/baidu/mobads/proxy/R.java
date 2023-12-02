@@ -44,17 +44,17 @@ public final class R {
         public static final int btn_action = 0x7f0904e3;
         public static final int button1 = 0x7f09055e;
         public static final int button2 = 0x7f09055f;
-        public static final int content_layout = 0x7f090819;
-        public static final int content_status = 0x7f09081e;
-        public static final int content_text = 0x7f09081f;
-        public static final int desc = 0x7f0908cc;
-        public static final int icon = 0x7f09106a;
-        public static final int left_icon = 0x7f0915af;
-        public static final int notification_container = 0x7f091a9e;
-        public static final int notification_title = 0x7f091aa1;
-        public static final int progress = 0x7f091e5a;
-        public static final int progress_bar = 0x7f091e61;
-        public static final int title = 0x7f092683;
+        public static final int content_layout = 0x7f09081a;
+        public static final int content_status = 0x7f09081f;
+        public static final int content_text = 0x7f090820;
+        public static final int desc = 0x7f0908cd;
+        public static final int icon = 0x7f09106b;
+        public static final int left_icon = 0x7f0915b0;
+        public static final int notification_container = 0x7f091aa0;
+        public static final int notification_title = 0x7f091aa3;
+        public static final int progress = 0x7f091e5c;
+        public static final int progress_bar = 0x7f091e63;
+        public static final int title = 0x7f092685;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

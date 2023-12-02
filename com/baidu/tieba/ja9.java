@@ -1,179 +1,247 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
-import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
-import com.baidu.tieba.immessagecenter.msgtab.obs.NewsRemindMsgMonitor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ja9 {
+public abstract class ja9 implements IUiIntent {
     public static /* synthetic */ Interceptable $ic;
-    public static final ja9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947876711, "Lcom/baidu/tieba/ja9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    public /* synthetic */ ja9(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a extends ja9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final TbPageContext<BaseFragmentActivity> a;
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                return (obj instanceof a) && Intrinsics.areEqual(this.a, ((a) obj).a);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.hashCode() : invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return "FetchAndMergeUiIntent(context=" + this.a + ')';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(TbPageContext<BaseFragmentActivity> context) {
+            super(null);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947876711, "Lcom/baidu/tieba/ja9;");
-                return;
+            Intrinsics.checkNotNullParameter(context, "context");
+            this.a = context;
+        }
+
+        public final TbPageContext<BaseFragmentActivity> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
             }
-        }
-        a = new ja9();
-    }
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            return (TbPageContext) invokeV.objValue;
         }
     }
 
-    public final String k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? i > 0 ? "1" : "2" : (String) invokeI.objValue;
+    /* loaded from: classes6.dex */
+    public static final class b extends ja9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final TbPageContext<BaseFragmentActivity> a;
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                return (obj instanceof b) && Intrinsics.areEqual(this.a, ((b) obj).a);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.hashCode() : invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return "FetchAndRefreshUiIntent(context=" + this.a + ')';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(TbPageContext<BaseFragmentActivity> context) {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(context, "context");
+            this.a = context;
+        }
+
+        public final TbPageContext<BaseFragmentActivity> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (TbPageContext) invokeV.objValue;
+        }
     }
 
-    public final String l(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? i > 0 ? "1" : z ? "3" : "2" : (String) invokeCommon.objValue;
+    /* loaded from: classes6.dex */
+    public static final class c extends ja9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final TbPageContext<?> a;
+        public final String b;
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj instanceof c) {
+                    c cVar = (c) obj;
+                    return Intrinsics.areEqual(this.a, cVar.a) && Intrinsics.areEqual(this.b, cVar.b);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return "StartWebUiIntent(context=" + this.a + ", scheme=" + this.b + ')';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(TbPageContext<?> context, String scheme) {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, scheme};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(scheme, "scheme");
+            this.a = context;
+            this.b = scheme;
+        }
+
+        public final TbPageContext<?> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (TbPageContext) invokeV.objValue;
+        }
+
+        public final String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
     public ja9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MSG_TAB_EDIT_ITEM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()));
-        }
-    }
-
-    public final void b(Long l) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l) == null) {
-            a("msgCenterChannelTabMC:" + l);
-            if (l != null) {
-                TiebaStatic.log(new StatisticItem("c15334").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", l.longValue()));
-            }
-        }
-    }
-
-    public final void j(List<h79> data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            try {
-                int c = ForumChannelDataObs.b.a().c();
-                for (h79 h79Var : data) {
-                    if (h79Var.b() == 3) {
-                        a.c(h79Var.a(), c);
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void c(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            a("msgCenterChannelTabMV:forumId=" + j + "+,frsCount=" + i);
-            TiebaStatic.log(new StatisticItem("c15333").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", j).param("obj_source", i));
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int chatCount = NewsRemindMsgMonitor.f.a().m().getChatCount();
-            boolean hasChatRemind = NewsRemindMsgMonitor.f.a().m().hasChatRemind();
-            a("msgCenterChatTabMC:" + chatCount);
-            StatisticItem statisticItem = new StatisticItem("c15331");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_type", l(chatCount, hasChatRemind));
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
-            boolean hasChatRemind = NewsRemindMsgMonitor.f.a().m().hasChatRemind();
-            a("msgCenterChatTabPV:" + m);
-            StatisticItem statisticItem = new StatisticItem("c15332");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_type", l(m.getChatCount(), hasChatRemind));
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
-            int notificationCount = m.getNotificationCount() + m.getMsgCount();
-            a("msgCenterNotifyTabMC:" + notificationCount);
-            TiebaStatic.log(new StatisticItem("c15329").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", k(notificationCount)));
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
-            a("msgCenterNotifyTabPV:" + m);
-            TiebaStatic.log(new StatisticItem("c15330").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", k(m.getNotificationCount() + m.getMsgCount())));
-        }
-    }
-
-    public final void i(int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
-            if (!m.hasChatRemind() && !m.hasMsgRemind() && !m.hasNotificationRemind()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_NEW_MSG_TAB_EXPLORE);
-            statisticItem.addParam("obj_type", l(m.getChatCount() + m.getMsgCount() + m.getNotificationCount(), z));
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_locate", i);
-            TiebaStatic.log(statisticItem);
         }
     }
 }

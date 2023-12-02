@@ -4,37 +4,35 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.cu;
+import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ac8 extends ci<gc8, ThreadCardViewHolder<cw4>> {
+public class ac8 extends ci<RecommendBarCardModel, ThreadCardViewHolder<RecommendBarCardModel>> implements e26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
-    @JvmField
+    public TbPageContext<?> a;
     public BdUniqueId b;
-    public vi<?> c;
+    public vi c;
+    public String d;
+    public byte e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac8(TbPageContext<?> mPageContext, BdUniqueId bdUniqueId) {
-        super(mPageContext.getPageActivity(), bdUniqueId);
+    public ac8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,13 +44,21 @@ public final class ac8 extends ci<gc8, ThreadCardViewHolder<cw4>> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(mPageContext, "mPageContext");
-        this.a = mPageContext;
+        this.a = tbPageContext;
+        this.e = b;
     }
 
-    public final void x(vi<?> viVar) {
+    @Override // com.baidu.tieba.e26
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, viVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void x(vi viVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, viVar) == null) {
             this.c = viVar;
         }
     }
@@ -60,24 +66,17 @@ public final class ac8 extends ci<gc8, ThreadCardViewHolder<cw4>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: t */
-    public ThreadCardViewHolder<cw4> onCreateViewHolder(ViewGroup parent) {
+    public ThreadCardViewHolder<RecommendBarCardModel> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parent)) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.a.getPageActivity(), false);
-            rc8 rc8Var = new rc8(this.a);
-            rc8Var.o(this.b);
-            bVar.n(rc8Var);
-            bVar.l().j(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+            bVar.n(new rc8(this.a, this.b, this.e));
             bVar.l().c(0);
             bVar.l().g(0);
             bVar.l().f(0);
-            bVar.l().e(0);
             bVar.l().i(0);
-            cu k = bVar.k(BaseCardInfo.SupportType.CONTENT, parent, this.c);
-            Intrinsics.checkNotNullExpressionValue(k, "builder.build(BaseCardIn…, parent, mITypeListView)");
-            ThreadCardViewHolder<cw4> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            ThreadCardViewHolder<RecommendBarCardModel> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
             threadCardViewHolder.i(this.b);
             return threadCardViewHolder;
         }
@@ -87,17 +86,17 @@ public final class ac8 extends ci<gc8, ThreadCardViewHolder<cw4>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gc8 gc8Var, ThreadCardViewHolder<cw4> viewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, RecommendBarCardModel recommendBarCardModel, ThreadCardViewHolder<RecommendBarCardModel> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gc8Var, viewHolder})) == null) {
-            Intrinsics.checkNotNullParameter(viewHolder, "viewHolder");
-            viewHolder.e(gc8Var);
-            if (viewHolder.a() != null) {
-                viewHolder.a().s(i);
-                viewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, recommendBarCardModel, threadCardViewHolder})) == null) {
+            threadCardViewHolder.e(recommendBarCardModel);
+            if (threadCardViewHolder.a() != null) {
+                threadCardViewHolder.a().s(i);
+                threadCardViewHolder.a().b(this.d);
+                threadCardViewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
             }
-            return viewHolder.getView();
+            return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

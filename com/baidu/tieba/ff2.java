@@ -1,6 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.ir2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,55 +16,117 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ff2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ff2 a;
+    public static final boolean a;
+    public static long b;
+    public static String c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ff2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+
+        public a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bundle;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ir2.a aVar = (ir2.a) new ir2.a().s(this.a);
+                nd3 nd3Var = new nd3();
+                nd3Var.a = dd3.n(0);
+                nd3Var.b = "launch";
+                nd3Var.e = "repeatlaunch";
+                nd3Var.a("launchInterval", Long.valueOf(aVar.k("launch_interval", -1L)));
+                nd3Var.j(aVar);
+                nd3Var.d(aVar.t0().getString("ubc"));
+                nd3Var.b(dd3.k(aVar.X()));
+                dd3.onEvent(nd3Var);
             }
         }
     }
 
-    public static ff2 a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947762135, "Lcom/baidu/tieba/ff2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947762135, "Lcom/baidu/tieba/ff2;");
+                return;
+            }
+        }
+        a = vm1.a;
+    }
+
+    public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (ff2.class) {
-                    if (a == null) {
-                        a = new ff2();
-                    }
-                }
+            return System.currentTimeMillis() - b;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            b = System.currentTimeMillis();
+        }
+    }
+
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - b;
+            if (currentTimeMillis < 800 && TextUtils.equals(c, str) && TextUtils.equals(d, str2)) {
+                z = true;
+            } else {
+                z = false;
             }
-            return a;
+            if (a && z) {
+                Log.d("SeriesLaunchChecker", "CurrentLaunchInterval:" + currentTimeMillis + ",PreventSeriesLaunchInterval:800");
+            }
+            return z;
         }
-        return (ff2) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public void c() {
+    public static void d(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h32.k("SwanRecoveryManager", "RecoverPlatform");
-            nf2 nf2Var = new nf2();
-            nf2Var.a = 1;
-            df2.c(nf2Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
+            ExecutorUtilsExt.postOnElastic(new a(bundle), "SeriesLaunchChecker", 3);
         }
     }
 
-    public int b(int i) {
-        InterceptResult invokeI;
+    public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return lf2.c(i);
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c = str;
+            d = str2;
         }
-        return invokeI.intValue;
     }
 }

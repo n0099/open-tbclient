@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oba;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.rba;
+import com.baidu.tieba.sba;
+import com.baidu.tieba.vba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public oba b;
+    public sba b;
     public TextView c;
     public ListViewPager d;
     public View e;
@@ -39,7 +39,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0816 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0817 : invokeV.intValue;
     }
 
     /* loaded from: classes7.dex */
@@ -185,7 +185,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<rba> e = this.a.e(i);
+                List<vba> e = this.a.e(i);
                 if (!ListUtils.isEmpty(e)) {
                     PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.a.a);
                     personCommonForumCardView.setForumItemViewBdObjectPool(this.a.g);
@@ -228,11 +228,11 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0816, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0817, this);
             this.e = inflate;
             this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907c4);
             this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f0907c5);
-            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f090957);
+            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f090958);
             this.d.setOffscreenPageLimit(1);
         }
     }
@@ -285,18 +285,18 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         f(context);
     }
 
-    public final List<rba> e(int i) {
+    public final List<vba> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            oba obaVar = this.b;
-            if (obaVar != null && !ListUtils.isEmpty(obaVar.a)) {
+            sba sbaVar = this.b;
+            if (sbaVar != null && !ListUtils.isEmpty(sbaVar.a)) {
                 ArrayList arrayList = new ArrayList();
                 int i2 = i * 4;
                 for (int i3 = i2; i3 < i2 + 4; i3++) {
-                    rba rbaVar = (rba) ListUtils.getItem(this.b.a, i3);
-                    if (rbaVar != null) {
-                        arrayList.add(rbaVar);
+                    vba vbaVar = (vba) ListUtils.getItem(this.b.a, i3);
+                    if (vbaVar != null) {
+                        arrayList.add(vbaVar);
                     }
                 }
                 return arrayList;

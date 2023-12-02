@@ -1,221 +1,103 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbCornersImageView;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d29 implements e29 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int n;
-    public static final int o;
+public class d29 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "1";
+    public static String b = "2";
+    public static String c = "3";
+    public static String d = "1";
+    public static String e = "2";
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public FrameLayout b;
-    public FrameLayout c;
-    public HeadImageView d;
-    public TbCornersImageView e;
-    public BarImageView f;
-    public RelativeLayout g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public LinearLayout k;
-    public TextView l;
-    public d29 m;
-
-    @Override // com.baidu.tieba.e29
-    public void a(@NonNull z29 z29Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, z29Var) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947652798, "Lcom/baidu/tieba/d29;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947652798, "Lcom/baidu/tieba/d29;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947652798, "Lcom/baidu/tieba/d29;")) == null) {
+            return;
         }
-        n = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds4);
-        o = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds450);
-    }
-
-    public d29() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947652798, "Lcom/baidu/tieba/d29;");
         }
     }
 
-    @Override // com.baidu.tieba.e29
-    public HeadImageView b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.m.d;
-        }
-        return (HeadImageView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.e29
-    public TextView c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.m.l;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.e29
-    public TextView d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.m.i;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.e29
-    public TextView e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.m.j;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.e29
-    public TextView f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.m.h;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.e29
-    public FrameLayout g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.m.c;
-        }
-        return (FrameLayout) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.e29
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return o;
-        }
-        return invokeV.intValue;
-    }
-
-    public static d29 k(@NonNull View view2) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            d29 d29Var = new d29();
-            d29Var.c = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f0b);
-            d29Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f08);
-            d29Var.b = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f2b);
-            d29Var.d = (HeadImageView) view2.findViewById(R.id.chat_head);
-            d29Var.e = (TbCornersImageView) view2.findViewById(R.id.svg_head);
-            d29Var.f = (BarImageView) view2.findViewById(R.id.forum_head);
-            d29Var.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090efb);
-            d29Var.h = (TextView) view2.findViewById(R.id.chat_name);
-            d29Var.i = (TextView) view2.findViewById(R.id.last_chat_content);
-            d29Var.j = (TextView) view2.findViewById(R.id.new_message);
-            d29Var.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090efd);
-            d29Var.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090701);
-            d29Var.m = d29Var;
-            return d29Var;
-        }
-        return (d29) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.e29
-    public void h(@NonNull z29 z29Var) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, z29Var) == null) {
-            EMManager.from(this.m.h).setTextSize(R.dimen.T_X07).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0105);
-            if (z29Var.a() != null && z29Var.a().isLocationScrolled()) {
-                i = R.color.CAM_X0313;
-                i2 = R.string.A_X03;
-            } else {
-                i = R.color.CAM_X0201;
-                i2 = R.string.A_X06;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if ("frs".equals(str)) {
+                return d;
             }
-            EMManager.from(this.m.a).setCorner(R.string.J_X06).setAlpha(i2).setBackGroundColor(i);
-            EMManager.from(this.m.j).setTextSize(R.dimen.T_X10).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0108);
-            EMManager.from(this.m.i).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X08);
-            this.m.d.setBorderWidth(n);
-            this.m.d.setBorderColor(SkinManager.getColor(R.color.CAM_X0211));
-            this.m.d.setIsRound(true);
-            this.m.d.setDrawBorder(true);
-            this.m.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.m.d.setPlaceHolder(1);
-            this.m.d.setDrawBorder(true);
-            EMManager.from(this.m.l).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0301);
+            if ("message_tab".equals(str)) {
+                return e;
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if ("frs".equals(str)) {
+                return a;
+            }
+            if ("message_tab".equals(str)) {
+                return c;
+            }
+            return c;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(65539, null, j, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_LIST_CREATE_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.tieba.e29
-    public void j() {
+    public static void e(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.m.i.setMaxLines(1);
-            this.m.i.setEllipsize(TextUtils.TruncateAt.END);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(3, R.id.chat_name);
-            layoutParams.topMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_H_X001);
-            layoutParams.bottomMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_H_X001);
-            layoutParams.rightMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds162);
-            this.m.k.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeJL(65541, null, j, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_LIST_MANAGE_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void d(long j, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), str, str2, str3}) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_DIALOG_SHOW);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("fname", str);
+            statisticItem.param("obj_source", b(str2));
+            statisticItem.param("obj_locate", a(str2));
+            statisticItem.param("room_id", str3);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

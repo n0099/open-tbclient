@@ -52,8 +52,8 @@ public final class d extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.OP = findViewById(R.id.obfuscated_res_0x7f09151c);
-        this.OQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09151d);
+        this.OP = findViewById(R.id.obfuscated_res_0x7f09151d);
+        this.OQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09151e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

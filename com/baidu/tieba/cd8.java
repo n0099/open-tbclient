@@ -1,47 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.widget.FrameLayout;
+import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* loaded from: classes5.dex */
-public abstract class cd8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+public interface cd8 {
+    void a();
 
-    public abstract void b();
+    void b(ScrollFragmentTabHost.s sVar);
 
-    public abstract void c();
+    void c();
 
-    public cd8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int d(int i);
 
-    public final int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
+    void e(ScrollFragmentTabHost.s sVar);
 
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
-        }
-    }
+    void f(boolean z);
+
+    int getCurrentTabType();
+
+    FrameLayout getFrameLayout();
+
+    void setOnTabSelectedListener(ScrollFragmentTabHost.t tVar);
 }

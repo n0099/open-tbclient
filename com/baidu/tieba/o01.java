@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
 public class o01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public BaseExecutorCell a;
-    @NonNull
-    public BaseExecutorCell b;
-    @NonNull
-    public BaseExecutorCell c;
+    public LinkedList<ElasticTask> a;
 
     public o01() {
         Interceptable interceptable = $ic;
@@ -32,33 +29,61 @@ public class o01 {
                 return;
             }
         }
-        this.a = BaseExecutorCell.b(b01.d, BaseExecutorCell.ExecutorType.ARTERY);
-        this.b = BaseExecutorCell.b(b01.e, BaseExecutorCell.ExecutorType.ARTERY);
-        this.c = BaseExecutorCell.b(b01.f, BaseExecutorCell.ExecutorType.ARTERY);
+        this.a = new LinkedList<>();
     }
 
-    public boolean a(ElasticTask elasticTask) {
-        InterceptResult invokeL;
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
-            int b = elasticTask.b();
-            if (b != 0 && b != 1) {
-                if (b == 2) {
-                    if (this.b.c(elasticTask)) {
-                        return true;
-                    }
-                    return this.c.c(elasticTask);
-                } else if (b == 3) {
-                    return this.c.c(elasticTask);
-                } else {
-                    return false;
-                }
-            } else if (this.a.c(elasticTask) || this.b.c(elasticTask)) {
-                return true;
-            } else {
-                return this.c.c(elasticTask);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Iterator<ElasticTask> it = this.a.iterator();
+            long j = 0;
+            while (it.hasNext()) {
+                j += it.next().d();
             }
+            return j;
         }
-        return invokeL.booleanValue;
+        return invokeV.longValue;
+    }
+
+    public ElasticTask b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a.isEmpty()) {
+                return null;
+            }
+            return this.a.get(0);
+        }
+        return (ElasticTask) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, runnable, str, i) == null) {
+            if (runnable != null && !TextUtils.isEmpty(str)) {
+                ElasticTask a = u01.b().a(runnable, str, i);
+                this.a.add(a);
+                a.f();
+                return;
+            }
+            throw new IllegalArgumentException("illegal params");
+        }
+    }
+
+    public void e(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
+            this.a.remove(elasticTask);
+        }
     }
 }

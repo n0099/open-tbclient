@@ -19,7 +19,7 @@ public class fu extends vs {
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout h;
     public BjhArticleLayout i;
-    public cw4 j;
+    public fw4 j;
     public int k;
 
     /* loaded from: classes6.dex */
@@ -79,13 +79,13 @@ public class fu extends vs {
     }
 
     @Override // com.baidu.tieba.os
-    public void n(im6<cw4> im6Var) {
+    public void n(mm6<fw4> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, im6Var) == null) {
-            super.n(im6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mm6Var) == null) {
+            super.n(mm6Var);
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.setSubClickListener(im6Var);
+                bjhArticleLayout.setSubClickListener(mm6Var);
             }
         }
     }
@@ -93,13 +93,13 @@ public class fu extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: y */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cw4Var) == null) {
-            this.j = cw4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fw4Var) == null) {
+            this.j = fw4Var;
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.onBindDataToView(cw4Var);
+                bjhArticleLayout.onBindDataToView(fw4Var);
             }
         }
     }

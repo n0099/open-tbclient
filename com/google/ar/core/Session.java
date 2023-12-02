@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
 import android.content.Context;
-import com.baidu.tieba.l8c;
-import com.baidu.tieba.q8c;
+import com.baidu.tieba.k8c;
+import com.baidu.tieba.p8c;
 import com.google.ar.core.exceptions.AnchorNotSupportedForHostingException;
 import com.google.ar.core.exceptions.CameraNotAvailableException;
 import com.google.ar.core.exceptions.CloudAnchorsNotConfiguredException;
@@ -28,7 +28,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 /* loaded from: classes10.dex */
 public class Session {
-    public final q8c b = new q8c();
+    public final p8c b = new p8c();
     public long a = 0;
 
     private native long[] nativeAcquireAllAnchors(long j);
@@ -81,13 +81,13 @@ public class Session {
         public static final /* synthetic */ c[] i;
         public final int b;
         public final Class<?> h;
-        public static final c c = new ad("BASE_TRACKABLE", 0, 1095893248, l8c.class);
+        public static final c c = new ad("BASE_TRACKABLE", 0, 1095893248, k8c.class);
         public static final c a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
         public static final c d = new af("PLANE", 2, 1095893249, Plane.class);
         public static final c e = new ag("POINT", 3, 1095893250, Point.class);
         public static final c f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
 
-        public abstract l8c a(long j, Session session);
+        public abstract k8c a(long j, Session session);
 
         static {
             ai aiVar = new ai("FACE", 5, 1095893253, AugmentedFace.class);
@@ -104,7 +104,7 @@ public class Session {
             this(str, i2, i3, cls);
         }
 
-        public static c a(Class<? extends l8c> cls) {
+        public static c a(Class<? extends k8c> cls) {
             c[] values;
             for (c cVar : values()) {
                 Class<?> cls2 = cVar.h;

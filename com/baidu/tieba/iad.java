@@ -1,47 +1,45 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
+import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Toast;
-import tbclient.ToastContent;
+import tbclient.TogetherHi;
 /* loaded from: classes6.dex */
-public class iad extends ltc {
+public class iad extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Toast toast) {
+    public static JSONObject b(@NonNull TogetherHi togetherHi) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, toast)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, togetherHi)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "icon_type", toast.icon_type);
-            if (toast.content != null) {
+            ktc.a(jSONObject, "album_name", togetherHi.album_name);
+            ktc.a(jSONObject, GroupInfoData.SHARE_KEY_ALBUM_ID, togetherHi.album_id);
+            ktc.a(jSONObject, "start_time", togetherHi.start_time);
+            ktc.a(jSONObject, "end_time", togetherHi.end_time);
+            ktc.a(jSONObject, "location", togetherHi.location);
+            ktc.a(jSONObject, "num_signup", togetherHi.num_signup);
+            if (togetherHi.potraits != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (ToastContent toastContent : toast.content) {
-                    jSONArray.put(had.b(toastContent));
+                for (String str : togetherHi.potraits) {
+                    jSONArray.put(str);
                 }
-                ltc.a(jSONObject, "content", jSONArray);
+                ktc.a(jSONObject, "potraits", jSONArray);
             }
-            ltc.a(jSONObject, "url", toast.url);
-            ltc.a(jSONObject, NotificationCompat.WearableExtender.KEY_BACKGROUND, toast.background);
-            ltc.a(jSONObject, "icon_url", toast.icon_url);
-            ltc.a(jSONObject, "icon_url_dark", toast.icon_url_dark);
-            if (toast.task_ids != null) {
+            ktc.a(jSONObject, "num_join", togetherHi.num_join);
+            if (togetherHi.pic_urls != null) {
                 JSONArray jSONArray2 = new JSONArray();
-                for (Integer num : toast.task_ids) {
-                    jSONArray2.put(num.intValue());
+                for (String str2 : togetherHi.pic_urls) {
+                    jSONArray2.put(str2);
                 }
-                ltc.a(jSONObject, "task_ids", jSONArray2);
+                ktc.a(jSONObject, "pic_urls", jSONArray2);
             }
-            ltc.a(jSONObject, "icon_width", toast.icon_width);
-            ltc.a(jSONObject, "icon_height", toast.icon_height);
-            ltc.a(jSONObject, "hud_width", toast.hud_width);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

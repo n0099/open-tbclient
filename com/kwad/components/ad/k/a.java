@@ -173,8 +173,8 @@ public final class a {
     private void fi() {
         this.da.removeAllViews();
         this.da.setVisibility(4);
-        this.Hz = (AdBaseFrameLayout) ((ViewGroup) com.kwad.sdk.d.a.a.a((ViewGroup) this.da, (int) R.layout.obfuscated_res_0x7f0d04b0, true)).findViewById(R.id.obfuscated_res_0x7f091515);
-        KsAdWebView ksAdWebView = (KsAdWebView) this.da.findViewById(R.id.obfuscated_res_0x7f091516);
+        this.Hz = (AdBaseFrameLayout) ((ViewGroup) com.kwad.sdk.d.a.a.a((ViewGroup) this.da, (int) R.layout.obfuscated_res_0x7f0d04b0, true)).findViewById(R.id.obfuscated_res_0x7f091516);
+        KsAdWebView ksAdWebView = (KsAdWebView) this.da.findViewById(R.id.obfuscated_res_0x7f091517);
         this.Hw = ksAdWebView;
         ksAdWebView.setBackgroundColor(-1);
         y.b bVar = new y.b();
@@ -191,7 +191,7 @@ public final class a {
                 }
             }
         });
-        ImageView imageView = (ImageView) this.Hz.findViewById(R.id.obfuscated_res_0x7f09135d);
+        ImageView imageView = (ImageView) this.Hz.findViewById(R.id.obfuscated_res_0x7f09135e);
         this.mBackIcon = imageView;
         imageView.setVisibility(8);
         this.mBackIcon.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.k.a.2

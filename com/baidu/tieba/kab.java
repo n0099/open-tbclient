@@ -1,102 +1,206 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.camera2.CameraCharacteristics;
+import android.media.CamcorderProfile;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class kab {
+import java.util.Objects;
+/* loaded from: classes6.dex */
+public class kab implements Comparable<kab> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Matrix a;
-    public RectF b;
+    public final int a;
+    public final int b;
+    public int c;
 
-    public kab(CameraCharacteristics cameraCharacteristics, RectF rectF) {
-        int intValue;
-        boolean z;
+    public kab(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cameraCharacteristics, rectF};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (a(rectF)) {
-            Rect rect = (Rect) cameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
-            Integer num = (Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
-            if (num == null) {
-                intValue = 90;
-            } else {
-                intValue = num.intValue();
-            }
-            this.b = new RectF(rect);
-            Integer num2 = (Integer) cameraCharacteristics.get(CameraCharacteristics.LENS_FACING);
-            if (num2 != null && num2.intValue() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.a = b(z, intValue, rectF);
-            return;
-        }
-        throw new IllegalArgumentException("previewRect");
+        this.c = 30;
+        this.a = i;
+        this.b = i2;
     }
 
-    public final boolean a(RectF rectF) {
+    public kab(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = 30;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(@NonNull kab kabVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rectF)) == null) {
-            if (rectF.width() != 0.0f && rectF.height() != 0.0f) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kabVar)) == null) {
+            int i = this.a;
+            int i2 = this.b;
+            int i3 = i * i2;
+            int i4 = kabVar.a;
+            int i5 = kabVar.b;
+            if (i3 == i4 * i5) {
+                return this.c - kabVar.c;
+            }
+            return (i * i2) - (i4 * i5);
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return g(this, i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public CamcorderProfile b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == 720 && this.b == 480) {
+                return CamcorderProfile.get(4);
+            }
+            if (this.a == 1280 && this.b == 720) {
+                return CamcorderProfile.get(5);
+            }
+            if (this.a == 1920 && this.b == 1080) {
+                return CamcorderProfile.get(6);
+            }
+            if (this.a == 3840 && this.b == 2160) {
+                return CamcorderProfile.get(8);
+            }
+            return CamcorderProfile.get(5);
+        }
+        return (CamcorderProfile) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (obj == null) {
+                return false;
+            }
+            if (this == obj) {
                 return true;
             }
-            return false;
+            if (!(obj instanceof kab)) {
+                return false;
+            }
+            kab kabVar = (kab) obj;
+            if (this.a != kabVar.a || this.b != kabVar.b || this.c != kabVar.c) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public RectF c(RectF rectF) {
-        InterceptResult invokeL;
+    public boolean g(kab kabVar, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rectF)) == null) {
-            RectF rectF2 = new RectF();
-            this.a.mapRect(rectF2, rectF);
-            return rectF2;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, kabVar, i)) == null) {
+            if (kabVar.e() == 720 && kabVar.d() == 480) {
+                return CamcorderProfile.hasProfile(i, 2002);
+            }
+            if (kabVar.e() == 1280 && kabVar.d() == 720) {
+                return CamcorderProfile.hasProfile(i, 2003);
+            }
+            if (kabVar.e() == 1920 && kabVar.d() == 1080) {
+                return CamcorderProfile.hasProfile(i, 2004);
+            }
+            if (kabVar.e() == 3840 && kabVar.d() == 2160) {
+                return CamcorderProfile.hasProfile(i, 2005);
+            }
+            return false;
         }
-        return (RectF) invokeL.objValue;
+        return invokeLI.booleanValue;
     }
 
-    public final Matrix b(boolean z, int i, RectF rectF) {
-        InterceptResult invokeCommon;
-        float f;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rectF})) == null) {
-            Matrix matrix = new Matrix();
-            if (z) {
-                f = -1.0f;
-            } else {
-                f = 1.0f;
-            }
-            matrix.setScale(f, 1.0f);
-            matrix.postRotate(-i);
-            matrix.mapRect(rectF);
-            Matrix matrix2 = new Matrix();
-            matrix2.setRectToRect(rectF, this.b, Matrix.ScaleToFit.FILL);
-            matrix.setConcat(matrix2, matrix);
-            return matrix;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return Objects.hash(Integer.valueOf(e()), Integer.valueOf(d()), Integer.valueOf(c()));
         }
-        return (Matrix) invokeCommon.objValue;
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a + "x" + this.b + " " + this.c + "p";
+        }
+        return (String) invokeV.objValue;
     }
 }

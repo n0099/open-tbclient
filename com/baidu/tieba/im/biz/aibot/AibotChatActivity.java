@@ -9,11 +9,11 @@ import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.module.imaibot.AibotArgs;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cs8;
 import com.baidu.tieba.im.base.core.slice.SliceActivity;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.tieba.mt5;
-import com.baidu.tieba.vq8;
-import com.baidu.tieba.yr8;
+import com.baidu.tieba.qt5;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -97,7 +97,7 @@ public final class AibotChatActivity extends SliceActivity {
                 intent.putExtra(AiBotChatDispatcher.AI_SINGLE_IS_ANIMATION, aibotArgs.isAnimation());
                 intent.putExtra("botUk", botUk);
                 intent.putExtra("argsData", aibotArgs);
-                vq8.a.a("navTo", paid, botUk, aibotArgs);
+                zq8.a.a("navTo", paid, botUk, aibotArgs);
                 if (aibotArgs.getRequestCode() != 0 && (context instanceof Activity)) {
                     ((Activity) context).startActivityForResult(intent, aibotArgs.getRequestCode());
                 } else {
@@ -173,7 +173,7 @@ public final class AibotChatActivity extends SliceActivity {
                 this.d = getIntent().getStringExtra("botUk");
                 aibotChatFragment.setArguments(getIntent().getExtras());
             }
-            mt5.c(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c9c, aibotChatFragment);
+            qt5.c(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c9d, aibotChatFragment);
         }
     }
 
@@ -183,7 +183,7 @@ public final class AibotChatActivity extends SliceActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d002b);
-            yr8.d.a().g();
+            cs8.d.a().g();
             setSwipeBackEnabled(false);
             if (bundle == null) {
                 n1();
@@ -196,16 +196,11 @@ public final class AibotChatActivity extends SliceActivity {
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
-        String str;
+        String stringExtra;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
             super.onNewIntent(intent);
-            if (intent != null) {
-                str = intent.getStringExtra("botUk");
-            } else {
-                str = null;
-            }
-            if (str != null && !Intrinsics.areEqual(str, this.d)) {
+            if (intent != null && (stringExtra = intent.getStringExtra("botUk")) != null && !Intrinsics.areEqual(stringExtra, this.d)) {
                 setIntent(intent);
                 n1();
             }

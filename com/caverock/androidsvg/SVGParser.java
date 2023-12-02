@@ -21,8 +21,8 @@ import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.f0c;
 import com.baidu.tieba.g0c;
-import com.baidu.tieba.h0c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1440,7 +1440,7 @@ public class SVGParser {
         public String a;
         public int b;
         public int c;
-        public h0c d;
+        public g0c d;
 
         public boolean j(int i) {
             InterceptResult invokeI;
@@ -1471,7 +1471,7 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new h0c();
+            this.d = new g0c();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -4061,7 +4061,7 @@ public class SVGParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             int i = 5;
             if (str.charAt(0) == '#') {
-                g0c b2 = g0c.b(str, 1, str.length());
+                f0c b2 = f0c.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 != 4) {
@@ -4584,7 +4584,7 @@ public class SVGParser {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new h0c().b(str, i, i2);
+            float b2 = new g0c().b(str, i, i2);
             if (!Float.isNaN(b2)) {
                 return b2;
             }
@@ -4651,7 +4651,7 @@ public class SVGParser {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x0091, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0090, code lost:
         continue;
      */
     /*
@@ -5367,7 +5367,7 @@ public class SVGParser {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:73:0x00d4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x00d3, code lost:
         continue;
      */
     /*

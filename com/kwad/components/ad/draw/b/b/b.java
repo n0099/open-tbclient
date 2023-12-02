@@ -89,9 +89,9 @@ public final class b extends com.kwad.components.ad.draw.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.co = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912f8);
-        this.cI = (DrawCardApp) findViewById(R.id.obfuscated_res_0x7f09131b);
-        this.cJ = (DrawCardH5) findViewById(R.id.obfuscated_res_0x7f091324);
+        this.co = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912f9);
+        this.cI = (DrawCardApp) findViewById(R.id.obfuscated_res_0x7f09131c);
+        this.cJ = (DrawCardH5) findViewById(R.id.obfuscated_res_0x7f091325);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

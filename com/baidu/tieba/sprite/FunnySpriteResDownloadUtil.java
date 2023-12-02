@@ -8,9 +8,9 @@ import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.tieba.d45;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.eh;
+import com.baidu.tieba.g45;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -406,7 +406,7 @@ public final class FunnySpriteResDownloadUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
             String str3 = a + File.separator + str;
-            boolean b2 = d45.b(a + File.separator + str2, str3 + "_temp");
+            boolean b2 = g45.b(a + File.separator + str2, str3 + "_temp");
             DefaultLog.getInstance().i("SpriteResDownload", "Sprite Res UnZip State in unzipResFile: " + b2);
             if (b2) {
                 File file = new File(str3);

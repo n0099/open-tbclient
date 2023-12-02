@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.VoteSchema;
+import tbclient.WapRn;
 /* loaded from: classes7.dex */
-public class lbd extends ltc {
+public class lbd extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull VoteSchema voteSchema) {
+    public static JSONObject b(@NonNull WapRn wapRn) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, voteSchema)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wapRn)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "text_before_vote", voteSchema.text_before_vote);
-            ltc.a(jSONObject, "text_after_vote", voteSchema.text_after_vote);
-            ltc.a(jSONObject, BigdayActivityConfig.JUMP_URL, voteSchema.jump_url);
+            ktc.a(jSONObject, "frsrn", wapRn.frsrn);
+            ktc.a(jSONObject, "pbrn", wapRn.pbrn);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

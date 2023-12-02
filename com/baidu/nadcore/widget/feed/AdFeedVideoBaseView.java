@@ -3,11 +3,11 @@ package com.baidu.nadcore.widget.feed;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.nn0;
-import com.baidu.tieba.yp0;
+import com.baidu.tieba.aq0;
+import com.baidu.tieba.on0;
 /* loaded from: classes3.dex */
 public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
-    public yp0 h;
+    public aq0 h;
 
     public AdFeedVideoBaseView(@NonNull Context context) {
         super(context);
@@ -21,25 +21,25 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public AdFeedVideoBaseView(Context context, AttributeSet attributeSet, int i, nn0 nn0Var) {
+    public AdFeedVideoBaseView(Context context, AttributeSet attributeSet, int i, on0 on0Var) {
         super(context, attributeSet, i);
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
     public void b() {
         super.b();
-        yp0 yp0Var = this.h;
-        if (yp0Var != null) {
-            yp0Var.release();
+        aq0 aq0Var = this.h;
+        if (aq0Var != null) {
+            aq0Var.release();
             this.h = null;
         }
     }
 
     public long getVideoPosMs() {
-        yp0 yp0Var = this.h;
-        if (yp0Var == null) {
+        aq0 aq0Var = this.h;
+        if (aq0Var == null) {
             return -1L;
         }
-        return yp0Var.b();
+        return aq0Var.b();
     }
 }

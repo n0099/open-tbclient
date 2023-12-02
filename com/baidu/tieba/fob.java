@@ -1,45 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.impl.VersionSafeCallbacks;
-/* loaded from: classes6.dex */
-public class fob extends eob {
+import java.nio.ByteBuffer;
+/* loaded from: classes5.dex */
+public final class fob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VersionSafeCallbacks.c n;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fob(Context context) {
-        super(context);
+    public static void a(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeL(65536, null, byteBuffer) != null) || byteBuffer.isDirect()) {
+            return;
         }
+        throw new IllegalArgumentException("byteBuffer must be a direct ByteBuffer.");
     }
 
-    @Override // com.baidu.tieba.onb
-    public VersionSafeCallbacks.c w() {
-        InterceptResult invokeV;
+    public static void b(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.n;
+        if ((interceptable != null && interceptable.invokeL(65537, null, byteBuffer) != null) || byteBuffer.hasRemaining()) {
+            return;
         }
-        return (VersionSafeCallbacks.c) invokeV.objValue;
+        throw new IllegalArgumentException("ByteBuffer is already full.");
     }
 }

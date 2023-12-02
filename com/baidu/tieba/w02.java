@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class w02 extends oz1 {
+public class w02 extends rz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public b12 a;
 
     public w02() {
         Interceptable interceptable = $ic;
@@ -25,42 +23,24 @@ public class w02 extends oz1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
     }
 
-    @Override // com.baidu.tieba.oz1
-    public void a(pz1 pz1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.rz1
+    public void a(sz1 sz1Var, Canvas canvas) {
+        b12 b12Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, pz1Var, canvas) == null) {
-            pz1Var.k = this.a;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, sz1Var, canvas) == null) && (b12Var = this.a) != null && b12Var.a()) {
+            sz1Var.i = this.a;
         }
     }
 
-    @Override // com.baidu.tieba.oz1
+    @Override // com.baidu.tieba.rz1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    String optString = jSONArray.optString(0);
-                    if (TextUtils.equals(optString, "top")) {
-                        this.a = 1;
-                    } else if (TextUtils.equals(optString, NativeConstants.MIDDLE)) {
-                        this.a = 2;
-                    } else if (TextUtils.equals(optString, "bottom")) {
-                        this.a = 3;
-                    } else {
-                        this.a = 0;
-                    }
-                }
-            } catch (Exception e) {
-                if (sm1.a) {
-                    e.printStackTrace();
-                }
-            }
+            this.a = new b12(jSONArray);
         }
     }
 }

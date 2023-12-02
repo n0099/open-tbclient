@@ -8,8 +8,8 @@ import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.keyboardheight.KeyboardLifecycleHelper;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.f45;
-import com.baidu.tieba.g45;
+import com.baidu.tieba.i45;
+import com.baidu.tieba.j45;
 import com.baidu.tieba.n;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,9 +23,9 @@ public final class KeyboardLifecycleHelper implements DefaultLifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Activity a;
-    public final f45 b;
+    public final i45 b;
     public boolean c;
-    public g45 d;
+    public j45 d;
     public final Runnable e;
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
@@ -38,7 +38,7 @@ public final class KeyboardLifecycleHelper implements DefaultLifecycleObserver {
         n.$default$onStop(this, lifecycleOwner);
     }
 
-    public KeyboardLifecycleHelper(Activity activity, f45 observer) {
+    public KeyboardLifecycleHelper(Activity activity, i45 observer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +57,7 @@ public final class KeyboardLifecycleHelper implements DefaultLifecycleObserver {
         Intrinsics.checkNotNullParameter(observer, "observer");
         this.a = activity;
         this.b = observer;
-        this.e = new Runnable() { // from class: com.baidu.tieba.e45
+        this.e = new Runnable() { // from class: com.baidu.tieba.h45
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,23 +78,23 @@ public final class KeyboardLifecycleHelper implements DefaultLifecycleObserver {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (!this$0.a.isFinishing()) {
                 if (this$0.d == null) {
-                    this$0.d = new g45(this$0.a);
+                    this$0.d = new j45(this$0.a);
                 }
-                g45 g45Var = this$0.d;
-                if (g45Var != null) {
-                    g45Var.h();
+                j45 j45Var = this$0.d;
+                if (j45Var != null) {
+                    j45Var.h();
                 }
                 if (this$0.c) {
-                    g45 g45Var2 = this$0.d;
-                    if (g45Var2 != null) {
-                        g45Var2.g(this$0.b);
+                    j45 j45Var2 = this$0.d;
+                    if (j45Var2 != null) {
+                        j45Var2.g(this$0.b);
                         return;
                     }
                     return;
                 }
-                g45 g45Var3 = this$0.d;
-                if (g45Var3 != null) {
-                    g45Var3.g(null);
+                j45 j45Var3 = this$0.d;
+                if (j45Var3 != null) {
+                    j45Var3.g(null);
                 }
             }
         }
@@ -114,9 +114,9 @@ public final class KeyboardLifecycleHelper implements DefaultLifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, owner) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
-            g45 g45Var = this.d;
-            if (g45Var != null) {
-                g45Var.c();
+            j45 j45Var = this.d;
+            if (j45Var != null) {
+                j45Var.c();
             }
             SafeHandler.getInst().removeCallbacks(this.e);
             n.$default$onDestroy(this, owner);
@@ -130,9 +130,9 @@ public final class KeyboardLifecycleHelper implements DefaultLifecycleObserver {
             Intrinsics.checkNotNullParameter(owner, "owner");
             n.$default$onPause(this, owner);
             this.c = false;
-            g45 g45Var = this.d;
-            if (g45Var != null) {
-                g45Var.g(null);
+            j45 j45Var = this.d;
+            if (j45Var != null) {
+                j45Var.g(null);
             }
         }
     }
@@ -144,9 +144,9 @@ public final class KeyboardLifecycleHelper implements DefaultLifecycleObserver {
             Intrinsics.checkNotNullParameter(owner, "owner");
             n.$default$onResume(this, owner);
             this.c = true;
-            g45 g45Var = this.d;
-            if (g45Var != null) {
-                g45Var.g(this.b);
+            j45 j45Var = this.d;
+            if (j45Var != null) {
+                j45Var.g(this.b);
             }
         }
     }

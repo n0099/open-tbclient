@@ -5,25 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ActivityInfo;
+import tbclient.ActivitySponsor;
 /* loaded from: classes8.dex */
-public class utc extends ltc {
+public class utc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ActivityInfo activityInfo) {
+    public static JSONObject b(@NonNull ActivitySponsor activitySponsor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activityInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activitySponsor)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "activity_id", activityInfo.activity_id);
-            ltc.a(jSONObject, "main_title", activityInfo.main_title);
-            ltc.a(jSONObject, "sub_title", activityInfo.sub_title);
-            ltc.a(jSONObject, "back_pic", activityInfo.back_pic);
-            ltc.a(jSONObject, "back_pic_width", activityInfo.back_pic_width);
-            ltc.a(jSONObject, "back_pic_height", activityInfo.back_pic_height);
-            ltc.a(jSONObject, "subpage_link", activityInfo.subpage_link);
+            ktc.a(jSONObject, "is_sponsor", activitySponsor.is_sponsor);
+            ktc.a(jSONObject, "sponsor_url", activitySponsor.sponsor_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

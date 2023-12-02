@@ -25,11 +25,11 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel;
-import com.baidu.tieba.eq6;
-import com.baidu.tieba.fq6;
-import com.baidu.tieba.gq6;
-import com.baidu.tieba.m55;
-import com.baidu.tieba.n55;
+import com.baidu.tieba.iq6;
+import com.baidu.tieba.jq6;
+import com.baidu.tieba.kq6;
+import com.baidu.tieba.p55;
+import com.baidu.tieba.q55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,8 +48,8 @@ public class SigleRecordsFragment extends BaseFragment {
     public int e;
     public LinearLayout f;
     public BdListView g;
-    public n55 h;
-    public gq6 i;
+    public q55 h;
+    public kq6 i;
     public NoDataView j;
     public TextView k;
     public TbImageView l;
@@ -95,9 +95,9 @@ public class SigleRecordsFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel.b
-        public void b(int i, String str, ArrayList<eq6> arrayList, fq6 fq6Var, boolean z) {
+        public void b(int i, String str, ArrayList<iq6> arrayList, jq6 jq6Var, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, arrayList, fq6Var, Boolean.valueOf(z)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, arrayList, jq6Var, Boolean.valueOf(z)}) == null) {
                 this.a.d = z;
                 SigleRecordsFragment sigleRecordsFragment = this.a;
                 sigleRecordsFragment.hideLoadingView(sigleRecordsFragment.f);
@@ -114,11 +114,11 @@ public class SigleRecordsFragment extends BaseFragment {
                         this.a.i.h(arrayList);
                         this.a.i.notifyDataSetChanged();
                         return;
-                    } else if (fq6Var == null) {
+                    } else if (jq6Var == null) {
                         this.a.Z2();
                         return;
                     } else {
-                        this.a.a3(fq6Var);
+                        this.a.a3(jq6Var);
                         return;
                     }
                 }
@@ -136,7 +136,7 @@ public class SigleRecordsFragment extends BaseFragment {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements m55.g {
+    public class b implements p55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SigleRecordsFragment a;
@@ -159,7 +159,7 @@ public class SigleRecordsFragment extends BaseFragment {
             this.a = sigleRecordsFragment;
         }
 
-        @Override // com.baidu.tieba.m55.g
+        @Override // com.baidu.tieba.p55.g
         public void g(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -205,15 +205,15 @@ public class SigleRecordsFragment extends BaseFragment {
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fq6 a;
+        public final /* synthetic */ jq6 a;
         public final /* synthetic */ SigleRecordsFragment b;
 
-        public d(SigleRecordsFragment sigleRecordsFragment, fq6 fq6Var) {
+        public d(SigleRecordsFragment sigleRecordsFragment, jq6 jq6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sigleRecordsFragment, fq6Var};
+                Object[] objArr = {sigleRecordsFragment, jq6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -224,7 +224,7 @@ public class SigleRecordsFragment extends BaseFragment {
                 }
             }
             this.b = sigleRecordsFragment;
-            this.a = fq6Var;
+            this.a = jq6Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -333,18 +333,18 @@ public class SigleRecordsFragment extends BaseFragment {
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
-                        i = R.string.obfuscated_res_0x7f0f0ebd;
+                        i = R.string.obfuscated_res_0x7f0f0ebe;
                     } else {
-                        i = R.string.obfuscated_res_0x7f0f0ebb;
+                        i = R.string.obfuscated_res_0x7f0f0ebc;
                     }
                 } else {
-                    i = R.string.obfuscated_res_0x7f0f0ea2;
+                    i = R.string.obfuscated_res_0x7f0f0ea3;
                 }
             } else {
-                i = R.string.obfuscated_res_0x7f0f0e97;
+                i = R.string.obfuscated_res_0x7f0f0e98;
             }
             if (this.j == null) {
-                this.j = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.f, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0703bc)), NoDataViewFactory.e.a(i), null);
+                this.j = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.f, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0703bd)), NoDataViewFactory.e.a(i), null);
             }
             this.j.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(i)));
             this.j.f(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
@@ -354,17 +354,17 @@ public class SigleRecordsFragment extends BaseFragment {
         }
     }
 
-    public final void a3(fq6 fq6Var) {
+    public final void a3(jq6 jq6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, fq6Var) == null) && fq6Var != null && this.f != null) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, jq6Var) == null) && jq6Var != null && this.f != null) {
             if (this.l == null) {
                 this.l = new TbImageView(getActivity());
                 this.l.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
                 this.l.setScaleType(ImageView.ScaleType.FIT_CENTER);
             }
-            this.l.startLoad(fq6Var.a(), 10, false);
+            this.l.startLoad(jq6Var.a(), 10, false);
             this.l.setVisibility(0);
-            this.l.setOnClickListener(new d(this, fq6Var));
+            this.l.setOnClickListener(new d(this, jq6Var));
             U2();
             V2();
             this.f.addView(this.l);
@@ -385,9 +385,9 @@ public class SigleRecordsFragment extends BaseFragment {
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0108);
             }
-            n55 n55Var = this.h;
-            if (n55Var != null) {
-                n55Var.D(i);
+            q55 q55Var = this.h;
+            if (q55Var != null) {
+                q55Var.D(i);
             }
             if (this.i != null && (bdListView = this.g) != null) {
                 SkinManager.setBackgroundColor(bdListView, R.color.CAM_X0204);
@@ -423,16 +423,16 @@ public class SigleRecordsFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
-            LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08f2, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08f3, (ViewGroup) null);
             this.f = linearLayout;
-            this.g = (BdListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f76);
-            this.h = new n55(this.a.getPageContext());
-            gq6 gq6Var = new gq6(this.a.getPageContext(), this.e);
-            this.i = gq6Var;
-            this.g.setAdapter((ListAdapter) gq6Var);
+            this.g = (BdListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f78);
+            this.h = new q55(this.a.getPageContext());
+            kq6 kq6Var = new kq6(this.a.getPageContext(), this.e);
+            this.i = kq6Var;
+            this.g.setAdapter((ListAdapter) kq6Var);
             this.g.setPullRefresh(this.h);
             TextView textView = new TextView(this.a.getActivity());
-            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070383)));
+            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070384)));
             this.g.w(textView, 0);
             this.h.a(new b(this));
             this.g.setOnSrollToBottomListener(new c(this));

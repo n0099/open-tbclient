@@ -1,277 +1,319 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Handler;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.DialogFragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.support.v4.app.Fragment;
-import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
 /* loaded from: classes5.dex */
-public abstract class bk4<E> extends zj4 {
+public class bk4 extends Fragment implements DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public final Context b;
-    public final Handler c;
-    public final dk4 d;
-    public sk4<String, gk4> e;
-    public hk4 f;
-    public boolean g;
-    public boolean h;
+    public int b0;
+    public int c0;
+    public boolean d0;
+    public boolean e0;
+    public int f0;
+    public Dialog g0;
+    public boolean h0;
+    public boolean i0;
+    public boolean j0;
 
-    public abstract void m(Fragment fragment);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dialogInterface) == null) {
+        }
+    }
 
-    public abstract void n(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
-
-    public abstract LayoutInflater o();
-
-    public abstract int p();
-
-    public abstract boolean q();
-
-    public abstract void r(@NonNull Fragment fragment, @NonNull String[] strArr, int i);
-
-    public abstract boolean s(Fragment fragment);
-
-    public abstract void t(Fragment fragment, Intent intent, int i);
-
-    public abstract void u();
-
-    public bk4(Activity activity, Context context, Handler handler, int i) {
+    public bk4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, context, handler, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new dk4();
-        this.a = activity;
-        this.b = context;
-        this.c = handler;
+        this.b0 = 0;
+        this.c0 = 0;
+        this.d0 = true;
+        this.e0 = true;
+        this.f0 = -1;
     }
 
-    public void f(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void E0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, fileDescriptor, printWriter, strArr) == null) {
-            printWriter.print(str);
-            printWriter.print("mLoadersStarted=");
-            printWriter.println(this.h);
-            if (this.f != null) {
-                printWriter.print(str);
-                printWriter.print("Loader Manager ");
-                printWriter.print(Integer.toHexString(System.identityHashCode(this.f)));
-                printWriter.println(":");
-                hk4 hk4Var = this.f;
-                hk4Var.h(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.E0();
+            Dialog dialog = this.g0;
+            if (dialog != null) {
+                this.h0 = true;
+                dialog.dismiss();
+                this.g0 = null;
             }
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public bk4(FragmentActivity fragmentActivity) {
-        this(fragmentActivity, fragmentActivity, fragmentActivity.a, 0);
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void F0() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Activity) objArr2[0], (Context) objArr2[1], (Handler) objArr2[2], ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.F0();
+            if (!this.j0 && !this.i0) {
+                this.i0 = true;
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void O0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.O0();
+            Dialog dialog = this.g0;
+            if (dialog != null) {
+                this.h0 = false;
+                dialog.show();
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void P0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.P0();
+            Dialog dialog = this.g0;
+            if (dialog != null) {
+                dialog.hide();
+            }
+        }
+    }
+
+    public void r1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            s1(false);
+        }
+    }
+
+    public Dialog t1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.g0;
+        }
+        return (Dialog) invokeV.objValue;
+    }
+
+    @StyleRes
+    public int u1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.c0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public LayoutInflater E(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            if (!this.e0) {
+                return super.E(bundle);
+            }
+            Dialog v1 = v1(bundle);
+            this.g0 = v1;
+            if (v1 != null) {
+                w1(v1, this.b0);
+                return (LayoutInflater) this.g0.getContext().getSystemService("layout_inflater");
+            }
+            return (LayoutInflater) this.t.h().getSystemService("layout_inflater");
+        }
+        return (LayoutInflater) invokeL.objValue;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void N0(Bundle bundle) {
+        Bundle onSaveInstanceState;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.N0(bundle);
+            Dialog dialog = this.g0;
+            if (dialog != null && (onSaveInstanceState = dialog.onSaveInstanceState()) != null) {
+                bundle.putBundle(DialogFragment.SAVED_DIALOG_STATE_TAG, onSaveInstanceState);
+            }
+            int i = this.b0;
+            if (i != 0) {
+                bundle.putInt(DialogFragment.SAVED_STYLE, i);
+            }
+            int i2 = this.c0;
+            if (i2 != 0) {
+                bundle.putInt(DialogFragment.SAVED_THEME, i2);
+            }
+            boolean z = this.d0;
+            if (!z) {
+                bundle.putBoolean(DialogFragment.SAVED_CANCELABLE, z);
+            }
+            boolean z2 = this.e0;
+            if (!z2) {
+                bundle.putBoolean(DialogFragment.SAVED_SHOWS_DIALOG, z2);
+            }
+            int i3 = this.f0;
+            if (i3 != -1) {
+                bundle.putInt(DialogFragment.SAVED_BACK_STACK_ID, i3);
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void s0(Bundle bundle) {
+        Bundle bundle2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            super.s0(bundle);
+            if (!this.e0) {
                 return;
             }
-        }
-    }
-
-    public void c() {
-        hk4 hk4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (hk4Var = this.f) == null) {
-            return;
-        }
-        hk4Var.b();
-    }
-
-    public Activity g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    public Context h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public dk4 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (dk4) invokeV.objValue;
-    }
-
-    public Handler j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.h) {
-            return;
-        }
-        this.h = true;
-        hk4 hk4Var = this.f;
-        if (hk4Var != null) {
-            hk4Var.f();
-        } else if (!this.g) {
-            hk4 k = k("(root)", true, false);
-            this.f = k;
-            if (k != null && !k.d) {
-                k.f();
+            View i0 = i0();
+            if (i0 != null) {
+                if (i0.getParent() == null) {
+                    this.g0.setContentView(i0);
+                } else {
+                    throw new IllegalStateException("DialogFragment can not be attached to a container view");
+                }
             }
-        }
-        this.g = true;
-    }
-
-    public void v() {
-        sk4<String, gk4> sk4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (sk4Var = this.e) != null) {
-            int size = sk4Var.size();
-            hk4[] hk4VarArr = new hk4[size];
-            for (int i = size - 1; i >= 0; i--) {
-                hk4VarArr[i] = (hk4) this.e.k(i);
-            }
-            for (int i2 = 0; i2 < size; i2++) {
-                hk4 hk4Var = hk4VarArr[i2];
-                hk4Var.i();
-                hk4Var.d();
+            this.g0.setOwnerActivity(n());
+            this.g0.setCancelable(this.d0);
+            this.g0.setOnCancelListener(this);
+            this.g0.setOnDismissListener(this);
+            if (bundle != null && (bundle2 = bundle.getBundle(DialogFragment.SAVED_DIALOG_STATE_TAG)) != null) {
+                this.g0.onRestoreInstanceState(bundle2);
             }
         }
     }
 
-    public void e(boolean z) {
-        hk4 hk4Var;
+    public void s1(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || (hk4Var = this.f) == null || !this.h) {
+        if ((interceptable != null && interceptable.invokeZ(1048586, this, z) != null) || this.i0) {
             return;
         }
-        this.h = false;
+        this.i0 = true;
+        this.j0 = false;
+        Dialog dialog = this.g0;
+        if (dialog != null) {
+            dialog.dismiss();
+            this.g0 = null;
+        }
+        this.h0 = true;
+        if (this.f0 >= 0) {
+            D().e(this.f0, 1);
+            this.f0 = -1;
+            return;
+        }
+        hk4 a = D().a();
+        a.h(this);
         if (z) {
-            hk4Var.e();
+            a.f();
         } else {
-            hk4Var.g();
+            a.e();
         }
     }
 
-    public void l(String str) {
-        sk4<String, gk4> sk4Var;
-        hk4 hk4Var;
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void x0(@Nullable Bundle bundle) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && (sk4Var = this.e) != null && (hk4Var = (hk4) sk4Var.get(str)) != null && !hk4Var.e) {
-            hk4Var.b();
-            this.e.remove(str);
-        }
-    }
-
-    public void w(sk4<String, gk4> sk4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, sk4Var) == null) {
-            this.e = sk4Var;
-        }
-    }
-
-    public hk4 k(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (this.e == null) {
-                this.e = new sk4<>();
+        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
+            super.x0(bundle);
+            if (this.x == 0) {
+                z = true;
+            } else {
+                z = false;
             }
-            hk4 hk4Var = (hk4) this.e.get(str);
-            if (hk4Var == null) {
-                if (z2) {
-                    hk4 hk4Var2 = new hk4(str, this, z);
-                    this.e.put(str, hk4Var2);
-                    return hk4Var2;
+            this.e0 = z;
+            if (bundle != null) {
+                this.b0 = bundle.getInt(DialogFragment.SAVED_STYLE, 0);
+                this.c0 = bundle.getInt(DialogFragment.SAVED_THEME, 0);
+                this.d0 = bundle.getBoolean(DialogFragment.SAVED_CANCELABLE, true);
+                this.e0 = bundle.getBoolean(DialogFragment.SAVED_SHOWS_DIALOG, this.e0);
+                this.f0 = bundle.getInt(DialogFragment.SAVED_BACK_STACK_ID, -1);
+            }
+        }
+    }
+
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, dialogInterface) == null) && !this.h0) {
+            s1(true);
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void u0(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
+            super.u0(activity);
+            if (!this.j0) {
+                this.i0 = false;
+            }
+        }
+    }
+
+    @NonNull
+    public Dialog v1(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bundle)) == null) {
+            return new Dialog(n(), u1());
+        }
+        return (Dialog) invokeL.objValue;
+    }
+
+    public void w1(Dialog dialog, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048591, this, dialog, i) == null) {
+            if (i != 1 && i != 2) {
+                if (i == 3) {
+                    dialog.getWindow().addFlags(24);
+                } else {
+                    return;
                 }
-                return hk4Var;
             }
-            hk4Var.k(this);
-            return hk4Var;
+            dialog.requestWindowFeature(1);
         }
-        return (hk4) invokeCommon.objValue;
     }
 
-    public sk4<String, gk4> x() {
-        InterceptResult invokeV;
+    public void x1(fk4 fk4Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            sk4<String, gk4> sk4Var = this.e;
-            int i = 0;
-            if (sk4Var != null) {
-                int size = sk4Var.size();
-                hk4[] hk4VarArr = new hk4[size];
-                for (int i2 = size - 1; i2 >= 0; i2--) {
-                    hk4VarArr[i2] = (hk4) this.e.k(i2);
-                }
-                int i3 = 0;
-                while (i < size) {
-                    hk4 hk4Var = hk4VarArr[i];
-                    if (hk4Var.e) {
-                        i3 = 1;
-                    } else {
-                        hk4Var.b();
-                        this.e.remove(hk4Var.c);
-                    }
-                    i++;
-                }
-                i = i3;
-            }
-            if (i != 0) {
-                return this.e;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, fk4Var, str) == null) {
+            this.i0 = false;
+            this.j0 = true;
+            hk4 a = fk4Var.a();
+            a.c(this, str);
+            a.e();
         }
-        return (sk4) invokeV.objValue;
     }
 }

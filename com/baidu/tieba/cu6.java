@@ -1,30 +1,30 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.Comparable;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
+import java.util.Arrays;
+import java.util.Map;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.properties.ReadWriteProperty;
-import kotlin.reflect.KProperty;
 /* loaded from: classes5.dex */
-public final class cu6<T extends Comparable<? super T>> implements ReadWriteProperty<Object, T> {
+public class cu6 implements au6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function1<T, Unit> a;
-    public T b;
+    public final au6 a;
+    public final Map<Integer, au6> b;
 
-    public cu6(T initial, Function1<? super T, Unit> onChange) {
+    public cu6(au6 defaultRenderer, Pair<Integer, ? extends au6>... renderers) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {initial, onChange};
+            Object[] objArr = {defaultRenderer, renderers};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,49 +34,52 @@ public final class cu6<T extends Comparable<? super T>> implements ReadWriteProp
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(initial, "initial");
-        Intrinsics.checkNotNullParameter(onChange, "onChange");
-        this.a = onChange;
-        this.b = initial;
+        Intrinsics.checkNotNullParameter(defaultRenderer, "defaultRenderer");
+        Intrinsics.checkNotNullParameter(renderers, "renderers");
+        this.a = defaultRenderer;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.properties.ReadWriteProperty, kotlin.properties.ReadOnlyProperty
-    /* renamed from: a */
-    public T getValue(Object thisRef, KProperty<?> property) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.au6
+    public mu6 a(es6 item, eu6 displayer, yr6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, property)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Intrinsics.checkNotNullParameter(property, "property");
-            return this.b;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.properties.ReadWriteProperty
-    /* renamed from: b */
-    public void setValue(Object thisRef, KProperty<?> property, T value) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef, property, value) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Intrinsics.checkNotNullParameter(property, "property");
-            Intrinsics.checkNotNullParameter(value, "value");
-            T t = this.b;
-            this.b = value;
-            if (!Intrinsics.areEqual(t, value)) {
-                this.a.invoke(value);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            au6 au6Var = this.b.get(Integer.valueOf(c(item)));
+            if (au6Var == null) {
+                au6Var = this.a;
             }
+            return au6Var.a(item, displayer, config);
+        }
+        return (mu6) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.au6
+    public void b(es6 item, Canvas canvas, eu6 displayer, yr6 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(canvas, "canvas");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            au6 au6Var = this.b.get(Integer.valueOf(c(item)));
+            if (au6Var == null) {
+                au6Var = this.a;
+            }
+            au6Var.b(item, canvas, displayer, config);
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public int c(es6 item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            return item.e().g();
         }
-        return (String) invokeV.objValue;
+        return invokeL.intValue;
     }
 }

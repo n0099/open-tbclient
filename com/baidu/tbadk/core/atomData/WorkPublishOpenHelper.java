@@ -179,15 +179,13 @@ public final class WorkPublishOpenHelper {
                 workPublishActivityConfig.getIntent().setFlags(67108864);
                 workPublishActivityConfig.setVideoInfo(videoInfo);
                 workPublishActivityConfig.setNeedClosePrePage(z);
-                String forumId = intent.getStringExtra("forum_id");
-                if (StringUtils.isNotNull(forumId)) {
-                    Intrinsics.checkNotNullExpressionValue(forumId, "forumId");
-                    workPublishActivityConfig.setBarId(forumId);
+                String stringExtra = intent.getStringExtra("forum_id");
+                if (stringExtra != null && StringUtils.isNotNull(stringExtra)) {
+                    workPublishActivityConfig.setBarId(stringExtra);
                 }
-                String forumName = intent.getStringExtra("forum_name");
-                if (!TextUtils.isEmpty(forumName)) {
-                    Intrinsics.checkNotNullExpressionValue(forumName, "forumName");
-                    workPublishActivityConfig.setBarName(forumName);
+                String stringExtra2 = intent.getStringExtra("forum_name");
+                if (stringExtra2 != null && !TextUtils.isEmpty(stringExtra2)) {
+                    workPublishActivityConfig.setBarName(stringExtra2);
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, workPublishActivityConfig));
                 if (z2) {
@@ -206,7 +204,7 @@ public final class WorkPublishOpenHelper {
                 PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
                 permissionJudgePolicy.clearRequestPermissionList();
                 permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                permissionJudgePolicy.setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.tv4
+                permissionJudgePolicy.setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.wv4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

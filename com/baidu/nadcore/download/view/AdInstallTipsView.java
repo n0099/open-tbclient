@@ -14,7 +14,7 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
 import com.baidu.tieba.li0;
 import com.baidu.tieba.ni0;
-import com.baidu.tieba.s21;
+import com.baidu.tieba.u21;
 /* loaded from: classes3.dex */
 public class AdInstallTipsView extends LinearLayout implements ni0, View.OnClickListener {
     public ImageView a;
@@ -84,7 +84,7 @@ public class AdInstallTipsView extends LinearLayout implements ni0, View.OnClick
         this.c.setOnClickListener(this);
         this.f.setOnClickListener(this);
         setOnClickListener(this);
-        s21.a(getContext(), this.c, 10.0f);
+        u21.a(getContext(), this.c, 10.0f);
     }
 
     @Override // android.view.View.OnClickListener

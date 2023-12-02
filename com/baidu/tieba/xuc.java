@@ -5,22 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.AwardInfo;
+import tbclient.AwardUser;
 /* loaded from: classes9.dex */
-public class xuc extends ltc {
+public class xuc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AwardInfo awardInfo) {
+    public static JSONObject b(@NonNull AwardUser awardUser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, awardInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, awardUser)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "award_id", awardInfo.award_id);
-            ltc.a(jSONObject, "award_act_id", awardInfo.award_act_id);
-            ltc.a(jSONObject, "award_name", awardInfo.award_name);
-            ltc.a(jSONObject, "award_imgsrc", awardInfo.award_imgsrc);
+            ktc.a(jSONObject, "user_id", awardUser.user_id);
+            ktc.a(jSONObject, "user_name", awardUser.user_name);
+            ktc.a(jSONObject, "award_name", awardUser.award_name);
+            ktc.a(jSONObject, "award_time", awardUser.award_time);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

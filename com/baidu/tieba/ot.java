@@ -20,11 +20,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ot extends os<cw4> {
+public class ot extends os<fw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgMutiPicLayout f;
-    public cw4 g;
+    public fw4 g;
     public int h;
     public String i;
     public boolean j;
@@ -98,7 +98,7 @@ public class ot extends os<cw4> {
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (nv4.c().g()) {
+                    if (qv4.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -140,7 +140,7 @@ public class ot extends os<cw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.k);
-                boolean g = nv4.c().g();
+                boolean g = qv4.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -235,7 +235,7 @@ public class ot extends os<cw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
                 gifView.setTag(null);
-                if (nv4.c().g()) {
+                if (qv4.c().g()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -256,7 +256,7 @@ public class ot extends os<cw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 GifView gifView = new GifView(this.a.k);
-                boolean g = nv4.c().g();
+                boolean g = qv4.c().g();
                 gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     gifView.setAdjustViewBounds(false);
@@ -302,11 +302,11 @@ public class ot extends os<cw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    tl6.a(this.a.g.getThreadData().getId());
+                    xl6.a(this.a.g.getThreadData().getId());
                     TextView textView = this.a.f.a;
                     TextView textView2 = this.a.f.b;
-                    tl6.l(textView, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    tl6.l(textView2, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    xl6.l(textView, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    xl6.l(textView2, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -354,10 +354,10 @@ public class ot extends os<cw4> {
     }
 
     @Override // com.baidu.tieba.os
-    public void n(im6<cw4> im6Var) {
+    public void n(mm6<fw4> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, im6Var) == null) {
-            this.f.setSubClickListener(im6Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, mm6Var) == null) {
+            this.f.setSubClickListener(mm6Var);
         }
     }
 
@@ -371,13 +371,13 @@ public class ot extends os<cw4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: u */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cw4Var) == null) {
-            this.g = cw4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fw4Var) == null) {
+            this.g = fw4Var;
             this.f.setSupportClickImage(this.j);
             this.f.setFrom(this.i);
-            this.f.onBindDataToView(cw4Var);
+            this.f.onBindDataToView(fw4Var);
         }
     }
 

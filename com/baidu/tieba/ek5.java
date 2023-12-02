@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ek5 implements zj5 {
+public class ek5 implements ck5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,20 +25,18 @@ public class ek5 implements zj5 {
         }
     }
 
-    @Override // com.baidu.tieba.zj5
+    @Override // com.baidu.tieba.ck5
     public void a(View view2, View view3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
-            FrameLayout frameLayout = (FrameLayout) view2;
+            LinearLayout linearLayout = (LinearLayout) view2;
             if (z) {
-                frameLayout.addView(view3, 0);
+                linearLayout.addView(view3, 0);
             } else {
-                frameLayout.addView(view3);
+                linearLayout.addView(view3);
             }
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view3.getLayoutParams();
-            layoutParams.width = -2;
-            layoutParams.height = -2;
-            layoutParams.gravity = 17;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view3.getLayoutParams();
+            layoutParams.gravity = 1;
             view3.setLayoutParams(layoutParams);
         }
     }

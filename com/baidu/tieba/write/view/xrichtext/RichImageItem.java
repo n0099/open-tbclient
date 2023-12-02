@@ -19,10 +19,10 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj5;
 import com.baidu.tieba.gj5;
-import com.baidu.tieba.qj5;
+import com.baidu.tieba.jj5;
 import com.baidu.tieba.rd;
+import com.baidu.tieba.tj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,7 +126,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes8.dex */
-    public class c implements dj5 {
+    public class c implements gj5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -149,7 +149,7 @@ public class RichImageItem extends FrameLayout {
             this.a = richImageItem;
         }
 
-        @Override // com.baidu.tieba.dj5
+        @Override // com.baidu.tieba.gj5
         public void a(BdImage bdImage, String str, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLLZ(1048576, this, bdImage, str, z) != null) || bdImage == null) {
@@ -322,8 +322,8 @@ public class RichImageItem extends FrameLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08a4, this);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091274);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08a5, this);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091275);
             this.a = tbImageView;
             tbImageView.setTagTextSize(BdUtilHelper.getDimens(getContext(), R.dimen.T_X10));
             this.a.setDrawBorder(true);
@@ -331,8 +331,8 @@ public class RichImageItem extends FrameLayout {
             this.a.setAutoChangeStyle(true);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0908c5);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908be);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0908c6);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908bf);
             this.a.setVisibility(0);
             findViewById.setVisibility(0);
             this.a.setGifIconSupport(true);
@@ -367,12 +367,12 @@ public class RichImageItem extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setIsLongPic(this.d.isLong());
             int i = this.e;
-            ImageOperation g = qj5.g(i, i * 2);
+            ImageOperation g = tj5.g(i, i * 2);
             this.d.clearPageActions();
             this.d.addPageAction(g);
             if (this.d.getImageType() == 0) {
                 this.a.setTag(this.d.toCachedKey(true));
-                BdImage d2 = new gj5().d(this.d, new c(this), true);
+                BdImage d2 = new jj5().d(this.d, new c(this), true);
                 if (d2 != null && d2.getWidth() > 0 && d2.getHeight() > 0) {
                     post(new d(this, d2));
                 }

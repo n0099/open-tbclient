@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public final class ncc<TResult> implements ecc<TResult> {
+public final class ncc<TResult> implements dcc<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fcc<TResult> a;
+    public fcc a;
     public Executor b;
     public final Object c;
 
@@ -18,15 +18,15 @@ public final class ncc<TResult> implements ecc<TResult> {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ icc a;
+        public final /* synthetic */ hcc a;
         public final /* synthetic */ ncc b;
 
-        public a(ncc nccVar, icc iccVar) {
+        public a(ncc nccVar, hcc hccVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nccVar, iccVar};
+                Object[] objArr = {nccVar, hccVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,7 +37,7 @@ public final class ncc<TResult> implements ecc<TResult> {
                 }
             }
             this.b = nccVar;
-            this.a = iccVar;
+            this.a = hccVar;
         }
 
         @Override // java.lang.Runnable
@@ -46,14 +46,14 @@ public final class ncc<TResult> implements ecc<TResult> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this.b.c) {
                     if (this.b.a != null) {
-                        this.b.a.onComplete(this.a);
+                        this.b.a.onFailure(this.a.d());
                     }
                 }
             }
         }
     }
 
-    public ncc(Executor executor, fcc<TResult> fccVar) {
+    public ncc(Executor executor, fcc fccVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public final class ncc<TResult> implements ecc<TResult> {
         this.b = executor;
     }
 
-    @Override // com.baidu.tieba.ecc
+    @Override // com.baidu.tieba.dcc
     public final void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -83,11 +83,12 @@ public final class ncc<TResult> implements ecc<TResult> {
         }
     }
 
-    @Override // com.baidu.tieba.ecc
-    public final void onComplete(icc<TResult> iccVar) {
+    @Override // com.baidu.tieba.dcc
+    public final void onComplete(hcc<TResult> hccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iccVar) == null) {
-            this.b.execute(new a(this, iccVar));
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hccVar) == null) || hccVar.h() || hccVar.f()) {
+            return;
         }
+        this.b.execute(new a(this, hccVar));
     }
 }

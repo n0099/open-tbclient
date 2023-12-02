@@ -25,26 +25,26 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.ctc;
-import com.baidu.tieba.e79;
-import com.baidu.tieba.eoc;
-import com.baidu.tieba.fk6;
-import com.baidu.tieba.h79;
-import com.baidu.tieba.htc;
+import com.baidu.tieba.btc;
+import com.baidu.tieba.cu8;
+import com.baidu.tieba.doc;
+import com.baidu.tieba.gtc;
+import com.baidu.tieba.i79;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.mention.MessageCenterActivity;
 import com.baidu.tieba.immessagecenter.msgtab.obs.MainTabChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
 import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgCenterContainerView;
-import com.baidu.tieba.ja9;
-import com.baidu.tieba.m4b;
-import com.baidu.tieba.nxb;
-import com.baidu.tieba.soc;
-import com.baidu.tieba.v05;
+import com.baidu.tieba.jk6;
+import com.baidu.tieba.l4b;
+import com.baidu.tieba.l79;
+import com.baidu.tieba.mxb;
+import com.baidu.tieba.na9;
+import com.baidu.tieba.roc;
+import com.baidu.tieba.woc;
 import com.baidu.tieba.xoc;
-import com.baidu.tieba.yoc;
-import com.baidu.tieba.yt8;
+import com.baidu.tieba.y05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,13 +57,13 @@ import kotlin.Pair;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000w\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001\u000f\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\u001d\u001a\u00020\u001eH\u0016J\b\u0010\u001f\u001a\u00020\u001eH\u0016J\b\u0010 \u001a\u00020\u001eH\u0016J\b\u0010!\u001a\u00020\u001eH\u0016J\f\u0010\"\u001a\b\u0012\u0004\u0012\u00020\n0#J\u0012\u0010$\u001a\u00020%2\b\u0010&\u001a\u0004\u0018\u00010'H\u0016J&\u0010(\u001a\u0004\u0018\u00010)2\u0006\u0010*\u001a\u00020+2\b\u0010,\u001a\u0004\u0018\u00010-2\b\u0010&\u001a\u0004\u0018\u00010'H\u0017J\b\u0010.\u001a\u00020%H\u0016J\b\u0010/\u001a\u00020%H\u0016J\b\u00100\u001a\u00020%H\u0016J\b\u00101\u001a\u00020%H\u0016J\b\u00102\u001a\u00020%H\u0002R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0005X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0005X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0005X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u000b\u001a\n \r*\u0004\u0018\u00010\f0\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0010R\u001d\u0010\u0011\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00140\u00130\u0012¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0016R2\u0010\u0017\u001a&\u0012\f\u0012\n \r*\u0004\u0018\u00010\n0\n \r*\u0012\u0012\f\u0012\n \r*\u0004\u0018\u00010\n0\n\u0018\u00010\u00120\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001b\u001a\u0004\u0018\u00010\u001cX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00063"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/tracker/interfaces/ITraceable;", "()V", "ROBOT_MALL_EMTRANCE_EXPLORE", "", "SOURCE_FROM_BOTTOM_NAVIGATION", "SOURCE_FROM_FRS", "SOURCE_FROM_PUSH_OTHER", "isFirstEnter", "", "mBdUniqueId", "Lcom/baidu/adp/BdUniqueId;", "kotlin.jvm.PlatformType", "mChannelListChangedListener", "com/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment$mChannelListChangedListener$1", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment$mChannelListChangedListener$1;", "mDataChangedBs", "Lrx/subjects/BehaviorSubject;", "", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "getMDataChangedBs", "()Lrx/subjects/BehaviorSubject;", "mFragmentVisibleBs", "mHasCallInitMethod", "mRootView", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgCenterContainerView;", "mSubscription", "Lrx/subscriptions/CompositeSubscription;", "getCurrentPageKey", "", "getTraceId", "getTraceScene", "getTraceSource", "getVisibleObs", "Lrx/Observable;", "onCreate", "", "savedInstanceState", "Landroid/os/Bundle;", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onPrimary", "onResume", "setRobotMallStatistic", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgCenterContainerFragment extends BaseFragment implements m4b {
+public final class MsgCenterContainerFragment extends BaseFragment implements l4b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MsgCenterContainerView a;
-    public htc b;
-    public final ctc<List<h79>> c;
-    public final ctc<Boolean> d;
+    public gtc b;
+    public final btc<List<l79>> c;
+    public final btc<Boolean> d;
     public final BdUniqueId e;
     public final int f;
     public boolean g;
@@ -86,14 +86,14 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "a079" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m4b
+    @Override // com.baidu.tieba.l4b
     public String l2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "msg_tab" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m4b
+    @Override // com.baidu.tieba.l4b
     public String z2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -154,10 +154,10 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
                 return;
             }
         }
-        ctc<List<h79>> Q = ctc.Q();
+        btc<List<l79>> Q = btc.Q();
         Intrinsics.checkNotNullExpressionValue(Q, "create()");
         this.c = Q;
-        this.d = ctc.R(Boolean.FALSE);
+        this.d = btc.R(Boolean.FALSE);
         this.e = BdUniqueId.gen();
         this.f = 1;
         this.h = 1;
@@ -172,7 +172,7 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             RobotMallConfig robotMallConfig = TbSingleton.getInstance().getRobotMallConfig();
             Intrinsics.checkNotNullExpressionValue(robotMallConfig, "getInstance().robotMallConfig");
-            if (e79.a.a() && !nxb.a(robotMallConfig.getAiChatEntranceImage()) && !nxb.a(robotMallConfig.getAiChatEntranceUrl())) {
+            if (i79.a.a() && !mxb.a(robotMallConfig.getAiChatEntranceImage()) && !mxb.a(robotMallConfig.getAiChatEntranceUrl())) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ROBOT_MALL_ENTRANCE_EXPLORE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f));
             }
         }
@@ -181,10 +181,10 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
     public static final void N2(Pair pair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, pair) == null) {
-            ja9 ja9Var = ja9.a;
+            na9 na9Var = na9.a;
             Object second = pair.getSecond();
             Intrinsics.checkNotNullExpressionValue(second, "it.second");
-            ja9Var.j((List) second);
+            na9Var.j((List) second);
         }
     }
 
@@ -243,7 +243,7 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, pair)) == null) {
             Object first = pair.getFirst();
             Intrinsics.checkNotNullExpressionValue(first, "it.first");
-            if (((Boolean) first).booleanValue() && !fk6.a((Collection) pair.getSecond())) {
+            if (((Boolean) first).booleanValue() && !jk6.a((Collection) pair.getSecond())) {
                 z = true;
             } else {
                 z = false;
@@ -265,40 +265,40 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
                     z = true;
                 }
                 if (!z) {
-                    ja9.a.i(this$0.j);
+                    na9.a.i(this$0.j);
                     this$0.Q2();
                 }
             }
             if (this$0.getActivity() instanceof MessageCenterActivity) {
-                ja9.a.i(this$0.i);
+                na9.a.i(this$0.i);
             } else {
-                ja9.a.i(this$0.h);
+                na9.a.i(this$0.h);
             }
             this$0.Q2();
         }
     }
 
-    public final ctc<List<h79>> H2() {
+    public final btc<List<l79>> H2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (ctc) invokeV.objValue;
+        return (btc) invokeV.objValue;
     }
 
-    public final eoc<Boolean> I2() {
+    public final doc<Boolean> I2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            eoc<Boolean> g = this.d.a().g();
+            doc<Boolean> g = this.d.a().g();
             Intrinsics.checkNotNullExpressionValue(g, "mFragmentVisibleBs.asObs…().distinctUntilChanged()");
             return g;
         }
-        return (eoc) invokeV.objValue;
+        return (doc) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m4b
+    @Override // com.baidu.tieba.l4b
     public String getTraceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -314,7 +314,7 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
             this.d.onNext(Boolean.FALSE);
-            YunDialogManager.onHidden(v05.l);
+            YunDialogManager.onHidden(y05.l);
         }
     }
 
@@ -339,14 +339,14 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
             }
             this.a = new MsgCenterContainerView(baseFragmentActivity, this, l);
             MessageManager.getInstance().registerListener(this.l);
-            htc htcVar = new htc();
-            this.b = htcVar;
-            if (htcVar != null) {
-                htcVar.a(MainTabChangedMonitor.c.a().d().g().H(new soc() { // from class: com.baidu.tieba.u79
+            gtc gtcVar = new gtc();
+            this.b = gtcVar;
+            if (gtcVar != null) {
+                gtcVar.a(MainTabChangedMonitor.c.a().d().g().H(new roc() { // from class: com.baidu.tieba.y79
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.soc
+                    @Override // com.baidu.tieba.roc
                     public final void call(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -355,43 +355,43 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
                     }
                 }));
             }
-            htc htcVar2 = this.b;
-            if (htcVar2 != null) {
-                htcVar2.a(eoc.c(this.c, I2(), new yoc() { // from class: com.baidu.tieba.y79
+            gtc gtcVar2 = this.b;
+            if (gtcVar2 != null) {
+                gtcVar2.a(doc.c(this.c, I2(), new xoc() { // from class: com.baidu.tieba.c89
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.yoc
+                    @Override // com.baidu.tieba.xoc
                     public final Object a(Object obj, Object obj2) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? MsgCenterContainerFragment.K2((List) obj, (Boolean) obj2) : invokeLL.objValue;
                     }
-                }).D(1).h(new yoc() { // from class: com.baidu.tieba.x79
+                }).D(1).h(new xoc() { // from class: com.baidu.tieba.b89
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.yoc
+                    @Override // com.baidu.tieba.xoc
                     public final Object a(Object obj, Object obj2) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? MsgCenterContainerFragment.L2((Pair) obj, (Pair) obj2) : invokeLL.objValue;
                     }
-                }).k(new xoc() { // from class: com.baidu.tieba.a89
+                }).k(new woc() { // from class: com.baidu.tieba.e89
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.xoc
+                    @Override // com.baidu.tieba.woc
                     public final Object call(Object obj) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? MsgCenterContainerFragment.M2((Pair) obj) : invokeL.objValue;
                     }
-                }).w().H(new soc() { // from class: com.baidu.tieba.c89
+                }).w().H(new roc() { // from class: com.baidu.tieba.g89
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.soc
+                    @Override // com.baidu.tieba.roc
                     public final void call(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -400,13 +400,13 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
                     }
                 }));
             }
-            htc htcVar3 = this.b;
-            if (htcVar3 != null) {
-                htcVar3.a(I2().k(new xoc() { // from class: com.baidu.tieba.p79
+            gtc gtcVar3 = this.b;
+            if (gtcVar3 != null) {
+                gtcVar3.a(I2().k(new woc() { // from class: com.baidu.tieba.t79
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.xoc
+                    @Override // com.baidu.tieba.woc
                     public final Object call(Object obj) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
@@ -417,11 +417,11 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
                         }
                         return invokeL.objValue;
                     }
-                }).x().H(new soc() { // from class: com.baidu.tieba.z79
+                }).x().H(new roc() { // from class: com.baidu.tieba.d89
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.soc
+                    @Override // com.baidu.tieba.roc
                     public final void call(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -457,15 +457,15 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.l);
-            yt8.l().c();
+            cu8.l().c();
             this.a = null;
-            htc htcVar = this.b;
-            if (htcVar != null) {
-                htcVar.unsubscribe();
+            gtc gtcVar = this.b;
+            if (gtcVar != null) {
+                gtcVar.unsubscribe();
             }
-            htc htcVar2 = this.b;
-            if (htcVar2 != null) {
-                htcVar2.c();
+            gtc gtcVar2 = this.b;
+            if (gtcVar2 != null) {
+                gtcVar2.c();
             }
             this.b = null;
         }
@@ -480,12 +480,12 @@ public final class MsgCenterContainerFragment extends BaseFragment implements m4
             if (isPrimary()) {
                 Context context = getContext();
                 if (context != null) {
-                    YunDialogManager.onShow(context, v05.l);
+                    YunDialogManager.onShow(context, y05.l);
                     return;
                 }
                 return;
             }
-            YunDialogManager.onHidden(v05.l);
+            YunDialogManager.onHidden(y05.l);
         }
     }
 

@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes6.dex */
-public interface fu2 {
-    void onMove(int i, int i2);
+public interface fu2<T> {
+    void e(String str);
+
+    void f(List<T> list);
 }

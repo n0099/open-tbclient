@@ -103,10 +103,10 @@ public class TbErrInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int x = nd.x();
-            if (x != 1) {
-                if (x != 2) {
-                    if (x != 3) {
+            int y = nd.y();
+            if (y != 1) {
+                if (y != 2) {
+                    if (y != 3) {
                         return 0;
                     }
                     return -25;
@@ -201,9 +201,9 @@ public class TbErrInfo {
                             return resources.getString(R.string.tb_err_unknown);
                         }
                     }
-                    return resources.getString(R.string.obfuscated_res_0x7f0f0e6f);
+                    return resources.getString(R.string.obfuscated_res_0x7f0f0e70);
                 }
-                return resources.getString(R.string.obfuscated_res_0x7f0f187d);
+                return resources.getString(R.string.obfuscated_res_0x7f0f187e);
             }
             return resources.getString(R.string.tb_err_location_failed);
         }

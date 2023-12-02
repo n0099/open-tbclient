@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.util.Date;
+/* loaded from: classes6.dex */
 public class k68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
+    public String a;
+    public String b;
 
-    public k68() {
+    public k68(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,7 +32,8 @@ public class k68 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
+        this.a = str;
+        this.b = str2;
     }
 
     public final boolean a(String str, String str2) {
@@ -43,28 +48,31 @@ public class k68 {
         return invokeLL.booleanValue;
     }
 
-    public long b(String str, String str2) {
-        InterceptResult invokeLL;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (!a(str, str2)) {
-                return 0L;
-            }
-            return this.a.getLong(str + '_' + str2 + "_show_time", 0L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a + "_" + this.b;
         }
-        return invokeLL.longValue;
+        return (String) invokeV.objValue;
     }
 
-    public void c(String str, String str2, long j, boolean z) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) != null) || !a(str, str2)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!a(this.a, this.b)) {
+                return false;
+            }
+            String b = b();
+            Date date = new Date(SharedPrefHelper.getInstance().getLong(b, 0L));
+            long currentTimeMillis = System.currentTimeMillis();
+            if (TimeHelper.getDayDifference(new Date(currentTimeMillis), date) < 2) {
+                return false;
+            }
+            SharedPrefHelper.getInstance().putLong(b, currentTimeMillis);
+            return true;
         }
-        SharedPreferences.Editor edit = this.a.edit();
-        edit.putLong(str + '_' + str2 + "_show_time", j);
-        if (z) {
-            edit.putBoolean(str + '_' + str2 + "_show", true);
-        }
-        edit.apply();
+        return invokeV.booleanValue;
     }
 }

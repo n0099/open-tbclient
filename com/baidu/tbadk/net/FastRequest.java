@@ -29,9 +29,9 @@ import com.baidu.tbadk.util.CookieHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c7;
-import com.baidu.tieba.cu5;
-import com.baidu.tieba.fk6;
-import com.baidu.tieba.wva;
+import com.baidu.tieba.gu5;
+import com.baidu.tieba.jk6;
+import com.baidu.tieba.vva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -143,14 +143,14 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
                 super.decodeLogicInBackGround(i, jSONObject);
                 Object extra = getmOrginalMessage().getExtra();
-                cu5.d(extra instanceof c);
+                gu5.d(extra instanceof c);
                 c cVar = (c) extra;
                 Type type = cVar.a;
                 e eVar = cVar.b;
                 String str = cVar.c;
                 String str2 = cVar.d;
                 int i2 = cVar.e;
-                cu5.b(type);
+                gu5.b(type);
                 if (jSONObject == null) {
                     jSONObject = new JSONObject();
                     setError(-1);
@@ -411,7 +411,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
         this.d = new HashMap();
         this.h = null;
         this.k = false;
-        TbHttpMessageTask e2 = wva.e(i, str, ResponseMessage.class, false, true, true, true);
+        TbHttpMessageTask e2 = vva.e(i, str, ResponseMessage.class, false, true, true, true);
         this.a = e2;
         this.j = e2.getUrl();
         d dVar = new d(this, i, true);
@@ -564,7 +564,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
             }
             if (this.k) {
                 Map<String, String> b2 = CookieHelper.b();
-                if (!fk6.b(b2)) {
+                if (!jk6.b(b2)) {
                     for (Map.Entry<String, String> entry2 : b2.entrySet()) {
                         httpMessage.addCookie(entry2.getKey(), entry2.getValue());
                     }

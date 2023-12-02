@@ -1174,10 +1174,10 @@ public class TextInputLayout extends LinearLayout {
         setHint(obtainTintedStyledAttributes.getText(2));
         this.hintAnimationEnabled = obtainTintedStyledAttributes.getBoolean(37, true);
         this.shapeAppearanceModel = ShapeAppearanceModel.builder(context2, attributeSet, i, DEF_STYLE_RES).build();
-        this.boxLabelCutoutPaddingPx = context2.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070648);
+        this.boxLabelCutoutPaddingPx = context2.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07064b);
         this.boxCollapsedPaddingTopPx = obtainTintedStyledAttributes.getDimensionPixelOffset(5, 0);
-        this.boxStrokeWidthDefaultPx = obtainTintedStyledAttributes.getDimensionPixelSize(12, context2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070649));
-        this.boxStrokeWidthFocusedPx = obtainTintedStyledAttributes.getDimensionPixelSize(13, context2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07064a));
+        this.boxStrokeWidthDefaultPx = obtainTintedStyledAttributes.getDimensionPixelSize(12, context2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07064c));
+        this.boxStrokeWidthFocusedPx = obtainTintedStyledAttributes.getDimensionPixelSize(13, context2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07064d));
         this.boxStrokeWidthPx = this.boxStrokeWidthDefaultPx;
         float dimension = obtainTintedStyledAttributes.getDimension(9, -1.0f);
         float dimension2 = obtainTintedStyledAttributes.getDimension(8, -1.0f);
@@ -1329,14 +1329,14 @@ public class TextInputLayout extends LinearLayout {
         }
         AppCompatTextView appCompatTextView = new AppCompatTextView(context2);
         this.prefixTextView = appCompatTextView;
-        appCompatTextView.setId(R.id.obfuscated_res_0x7f0925c9);
+        appCompatTextView.setId(R.id.obfuscated_res_0x7f0925cb);
         this.prefixTextView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
         ViewCompat.setAccessibilityLiveRegion(this.prefixTextView, 1);
         this.startLayout.addView(this.startIconView);
         this.startLayout.addView(this.prefixTextView);
         AppCompatTextView appCompatTextView2 = new AppCompatTextView(context2);
         this.suffixTextView = appCompatTextView2;
-        appCompatTextView2.setId(R.id.obfuscated_res_0x7f0925ca);
+        appCompatTextView2.setId(R.id.obfuscated_res_0x7f0925cc);
         this.suffixTextView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 80));
         ViewCompat.setAccessibilityLiveRegion(this.suffixTextView, 1);
         this.endLayout.addView(this.suffixTextView);
@@ -2322,7 +2322,7 @@ public class TextInputLayout extends LinearLayout {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
             this.placeholderTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f0925c8);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f0925ca);
             ViewCompat.setAccessibilityLiveRegion(this.placeholderTextView, 1);
             setPlaceholderTextAppearance(this.placeholderTextAppearance);
             setPlaceholderTextColor(this.placeholderTextColor);
@@ -2712,14 +2712,14 @@ public class TextInputLayout extends LinearLayout {
             if (z) {
                 AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
                 this.counterView = appCompatTextView;
-                appCompatTextView.setId(R.id.obfuscated_res_0x7f0925c5);
+                appCompatTextView.setId(R.id.obfuscated_res_0x7f0925c7);
                 Typeface typeface = this.typeface;
                 if (typeface != null) {
                     this.counterView.setTypeface(typeface);
                 }
                 this.counterView.setMaxLines(1);
                 this.indicatorViewController.addIndicator(this.counterView, 2);
-                MarginLayoutParamsCompat.setMarginStart((ViewGroup.MarginLayoutParams) this.counterView.getLayoutParams(), getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07064b));
+                MarginLayoutParamsCompat.setMarginStart((ViewGroup.MarginLayoutParams) this.counterView.getLayoutParams(), getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07064e));
                 updateCounterTextAppearanceAndColor();
                 updateCounter();
             } else {

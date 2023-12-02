@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g64 {
+public class g64 extends t04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String videoPath;
 
     public g64(String str) {
         Interceptable interceptable = $ic;
@@ -27,6 +24,6 @@ public class g64 {
                 return;
             }
         }
-        this.videoPath = str;
+        this.errMsg = str;
     }
 }

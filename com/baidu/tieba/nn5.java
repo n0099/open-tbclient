@@ -1,58 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.mutiprocess.MutiProcessManager;
-import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.share.InitWeiboSdkEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nn5 extends cg1<zg> {
+public class nn5 implements om5<InitWeiboSdkEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b implements zg {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.zg
-        public void a(@NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                SoLoaderEvent soLoaderEvent = new SoLoaderEvent();
-                soLoaderEvent.name = str;
-                MutiProcessManager.publishEvent(soLoaderEvent);
-            }
-        }
-    }
 
     public nn5() {
         Interceptable interceptable = $ic;
@@ -69,14 +29,18 @@ public class nn5 extends cg1<zg> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cg1
+    @Override // com.baidu.tieba.om5
     /* renamed from: a */
-    public zg createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public boolean onEvent(InitWeiboSdkEvent initWeiboSdkEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new b(null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, initWeiboSdkEvent)) == null) {
+            if (!sm5.l()) {
+                return false;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
+            return true;
         }
-        return (zg) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

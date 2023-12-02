@@ -78,7 +78,7 @@ public final class R {
 
         /* renamed from: logo */
         public static final int obfuscated = 0x7f080fc4;
-        public static final int shape_corner = 0x7f0813fa;
+        public static final int shape_corner = 0x7f0813fd;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -106,18 +106,18 @@ public final class R {
         public static final int confirm = 0x7f0907ea;
 
         /* renamed from: crtSizeSp */
-        public static final int obfuscated = 0x7f09086b;
+        public static final int obfuscated = 0x7f09086c;
 
         /* renamed from: crtSizeTv */
-        public static final int obfuscated = 0x7f09086c;
-        public static final int isFullscreenCheckBox = 0x7f091210;
-        public static final int isFullscreenTv = 0x7f091211;
+        public static final int obfuscated = 0x7f09086d;
+        public static final int isFullscreenCheckBox = 0x7f091211;
+        public static final int isFullscreenTv = 0x7f091212;
 
         /* renamed from: msg */
-        public static final int obfuscated = 0x7f091887;
-        public static final int msg_title = 0x7f0918ea;
-        public static final int productTypeTv = 0x7f091e56;
-        public static final int title = 0x7f092683;
+        public static final int obfuscated = 0x7f091888;
+        public static final int msg_title = 0x7f0918eb;
+        public static final int productTypeTv = 0x7f091e58;
+        public static final int title = 0x7f092685;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -170,10 +170,10 @@ public final class R {
         /* renamed from: msg */
         public static final int obfuscated = 0x7f0f0cef;
         public static final int msg_tile = 0x7f0f0d0b;
-        public static final int product_type = 0x7f0f11a9;
+        public static final int product_type = 0x7f0f11aa;
 
         /* renamed from: title */
-        public static final int obfuscated = 0x7f0f16fd;
+        public static final int obfuscated = 0x7f0f16fe;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

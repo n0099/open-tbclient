@@ -1,49 +1,124 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class kn1 extends o23 {
+public class kn1 implements gn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iu3 c;
-    public DownloadParams.SwanAppDownloadType d;
+    public String a;
+    public String b;
+    public rv3 c;
+    public hn1 d;
+    public av3 e;
+    public List<fn1> f;
+    public fn1 g;
+    public fn1 h;
+    public Map<String, String> i;
+    public qv3 j;
 
-    @Override // com.baidu.tieba.m23
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0L;
+    /* loaded from: classes7.dex */
+    public class a implements qv3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kn1 a;
+
+        @Override // com.baidu.tieba.qv3
+        public void onClick(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            }
         }
-        return invokeV.longValue;
+
+        public a(kn1 kn1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kn1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kn1Var;
+        }
+
+        @Override // com.baidu.tieba.qv3
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.a.d.c(jn1.b(str));
+                tv3.k(this.a.i, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.qv3
+        public void a(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
+                if (z) {
+                    this.a.d.b();
+                    this.a.g.a(0);
+                    for (fn1 fn1Var : this.a.f) {
+                        fn1Var.a(0);
+                        if (this.a.f.contains(fn1Var)) {
+                            this.a.f.remove(fn1Var);
+                        }
+                    }
+                    return;
+                }
+                this.a.g.a(1001);
+                for (fn1 fn1Var2 : this.a.f) {
+                    fn1Var2.a(1001);
+                    if (this.a.f.contains(fn1Var2)) {
+                        this.a.f.remove(fn1Var2);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qv3
+        public void b(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
+                if (z) {
+                    this.a.h.a(0);
+                } else {
+                    this.a.h.a(1001);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qv3
+        public void c(boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+                this.a.d.a(jn1.a(z));
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.m23
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public kn1(iu3 iu3Var, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType) {
+    public kn1(@NonNull JSONObject jSONObject, hn1 hn1Var, fn1 fn1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iu3Var, swanAppDownloadType};
+            Object[] objArr = {jSONObject, hn1Var, fn1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,26 +128,51 @@ public class kn1 extends o23 {
                 return;
             }
         }
-        this.c = iu3Var;
-        this.d = swanAppDownloadType;
+        this.a = "";
+        this.i = new TreeMap();
+        this.j = new a(this);
+        if (jSONObject != null && !TextUtils.isEmpty(jSONObject.optString("adUnitId")) && !TextUtils.isEmpty(jSONObject.optString("appSid"))) {
+            this.a = jSONObject.optString("adUnitId");
+            String optString = jSONObject.optString("appSid");
+            this.b = optString;
+            this.i = tv3.a("video", "app", optString, this.a, false);
+            this.e = new ln1();
+            rv3 rv3Var = new rv3(xr2.V().getActivity(), this.b, this.a, false, this.j, this.e);
+            this.c = rv3Var;
+            rv3Var.k0(this.i);
+            this.f = new CopyOnWriteArrayList();
+            b(jSONObject, fn1Var, hn1Var);
+            return;
+        }
+        fn1Var.a(202);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o23, com.baidu.tieba.m23
-    public void onEvent(@NonNull k23 k23Var) {
-        Bundle a;
+    @Override // com.baidu.tieba.gn1
+    public synchronized void a(JSONObject jSONObject, fn1 fn1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k23Var) == null) && (a = k23Var.a()) != null && this.c != null) {
-            int i = a.getInt("state", DownloadState.NOT_START.value());
-            int i2 = a.getInt("progress", 0);
-            this.c.c(DownloadState.convert(i), i2);
-            this.c.a(i2);
-            String string = a.getString("packageName", "");
-            if (!TextUtils.isEmpty(string)) {
-                this.c.d(string);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, fn1Var) == null) {
+            synchronized (this) {
+                if (this.c != null) {
+                    this.h = fn1Var;
+                    this.c.l0();
+                }
             }
-            if (this.d == DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
-                this.c.f(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.gn1
+    public synchronized void b(JSONObject jSONObject, fn1 fn1Var, hn1 hn1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, fn1Var, hn1Var) == null) {
+            synchronized (this) {
+                this.d = hn1Var;
+                if (this.c != null) {
+                    this.g = fn1Var;
+                    if (fn1Var != null && !this.f.contains(fn1Var)) {
+                        this.f.add(fn1Var);
+                    }
+                    this.c.c0();
+                }
             }
         }
     }

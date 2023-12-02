@@ -1,11 +1,23 @@
 package com.baidu.tieba;
 
-import android.opengl.EGLContext;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public interface pwb {
-    void a(EGLContext eGLContext);
 
-    void b(int i, int i2, int i3);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void onCompletion();
+
+        boolean onError(int i, int i2, Object obj);
+
+        boolean onInfo(int i, int i2, Object obj);
+    }
 
     void release();
+
+    void setListener(a aVar);
+
+    void setSource(ArrayList<String> arrayList);
+
+    void start();
 }

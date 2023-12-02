@@ -1,72 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.NoDataItemViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecomTopicList;
 /* loaded from: classes7.dex */
-public class ne8 {
+public class ne8 extends ci<yi, NoDataItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
-    public int d;
-    public boolean e;
-    public int f;
-    public long g;
+    public int a;
 
-    public ne8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ne8(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), yi.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = true;
+        this.a = 3;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: t */
+    public NoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false);
+            inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+            return new NoDataItemViewHolder(inflate);
         }
-        return invokeV.booleanValue;
+        return (NoDataItemViewHolder) invokeL.objValue;
     }
 
-    public ne8(@NonNull RecomTopicList recomTopicList, int i) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.ci
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yi yiVar, NoDataItemViewHolder noDataItemViewHolder) {
+        u(i, view2, viewGroup, yiVar, noDataItemViewHolder);
+        return view2;
+    }
+
+    public View u(int i, View view2, ViewGroup viewGroup, yi yiVar, NoDataItemViewHolder noDataItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recomTopicList, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yiVar, noDataItemViewHolder})) == null) {
+            noDataItemViewHolder.a.setText(yiVar.a);
+            if (this.a != TbadkCoreApplication.getInst().getSkinType()) {
+                SkinManager.setImageResource(noDataItemViewHolder.b, yiVar.b);
+                SkinManager.setViewTextColor(noDataItemViewHolder.a, (int) R.color.CAM_X0109);
+                this.a = TbadkCoreApplication.getInst().getSkinType();
             }
+            return view2;
         }
-        this.a = recomTopicList.topic_id.longValue();
-        this.b = recomTopicList.topic_name;
-        this.c = recomTopicList.tag.intValue();
-        this.d = i + 1;
-        this.f = recomTopicList.is_video_topic.intValue();
-        this.g = recomTopicList.discuss_num.longValue();
+        return (View) invokeCommon.objValue;
     }
 }

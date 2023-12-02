@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mp7;
-import com.baidu.tieba.xp7;
+import com.baidu.tieba.bq7;
+import com.baidu.tieba.qp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
     public String cacheKey;
     public boolean isNeedUpdateCache;
     public BawuTeam mBawuTeamInfo;
-    public xp7 mComplaintBarlordData;
+    public bq7 mComplaintBarlordData;
     public int mIsPrivateForum;
     public ManagerApplyInfo mManagerApplyInfo;
 
@@ -60,7 +60,7 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
         if (bawuTeamRequestMessage != null) {
             this.cacheKey = "" + bawuTeamRequestMessage.getForumId();
         }
-        new mp7().c(this.cacheKey, bArr);
+        new qp7().c(this.cacheKey, bArr);
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -85,9 +85,9 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
                 DataRes dataRes2 = getBawuInfoResIdl.data;
                 this.mManagerApplyInfo = dataRes2.manager_apply_info;
                 if (dataRes2.manager_complain_info != null) {
-                    xp7 xp7Var = new xp7();
-                    this.mComplaintBarlordData = xp7Var;
-                    xp7Var.c(getBawuInfoResIdl.data.manager_complain_info);
+                    bq7 bq7Var = new bq7();
+                    this.mComplaintBarlordData = bq7Var;
+                    bq7Var.c(getBawuInfoResIdl.data.manager_complain_info);
                 } else {
                     this.mComplaintBarlordData = null;
                 }
@@ -107,13 +107,13 @@ public class BawuTeamSocketResponseMessage extends SocketResponsedMessage {
         return (BawuTeam) invokeV.objValue;
     }
 
-    public xp7 getComplaintBarlordData() {
+    public bq7 getComplaintBarlordData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mComplaintBarlordData;
         }
-        return (xp7) invokeV.objValue;
+        return (bq7) invokeV.objValue;
     }
 
     public ManagerApplyInfo getManagerApplyInfo() {

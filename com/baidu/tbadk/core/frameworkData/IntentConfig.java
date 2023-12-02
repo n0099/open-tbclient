@@ -34,10 +34,10 @@ import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pageStayDuration.IPageStayDuration;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.j35;
+import com.baidu.tieba.ap5;
+import com.baidu.tieba.bp5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.to5;
-import com.baidu.tieba.wo5;
+import com.baidu.tieba.m35;
 import com.baidu.tieba.xb;
 import com.baidu.tieba.xo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -382,7 +382,7 @@ public class IntentConfig extends OrmObject {
         ArrayList<String> c2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            to5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            xo5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
             if (currentVisiblePageExtra == null) {
                 c2 = null;
             } else {
@@ -578,12 +578,12 @@ public class IntentConfig extends OrmObject {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
             BdPageContextSupport<?> b2 = a5.b(context);
-            xo5 xo5Var = null;
-            if (b2 instanceof wo5) {
-                xo5Var = ((wo5) b2).getTbPageInfo();
+            bp5 bp5Var = null;
+            if (b2 instanceof ap5) {
+                bp5Var = ((ap5) b2).getTbPageInfo();
             }
-            if (xo5Var != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", xo5Var.a());
+            if (bp5Var != null) {
+                this.mIntent.putExtra("tb_page_tag_source_trace", bp5Var.a());
             }
         }
     }
@@ -610,7 +610,7 @@ public class IntentConfig extends OrmObject {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mIntent != null) {
             Context context = this.mContext;
-            if ((context instanceof Application) && j35.a.a()) {
+            if ((context instanceof Application) && m35.a.a()) {
                 context = TbadkCoreApplication.getInst().getCurrentActivity();
             }
             BdPageContextSupport<?> b2 = a5.b(context);

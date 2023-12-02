@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class eu extends os<cw4> {
+public class eu extends os<fw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int f;
     public int g;
     public ThreadCommentAndPraiseInfoLayout h;
-    public cw4 i;
+    public fw4 i;
 
     /* loaded from: classes5.dex */
     public class c implements nu.b {
@@ -244,19 +244,19 @@ public class eu extends os<cw4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: B */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cw4Var) == null) {
-            this.i = cw4Var;
-            this.h.setData(cw4Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fw4Var) == null) {
+            this.i = fw4Var;
+            this.h.setData(fw4Var.getThreadData());
             A();
         }
     }
 
-    public void C(iw4 iw4Var) {
+    public void C(lw4 lw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iw4Var) == null) {
-            this.h.setAgreeStatisticData(iw4Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lw4Var) == null) {
+            this.h.setAgreeStatisticData(lw4Var);
         }
     }
 

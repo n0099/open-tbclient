@@ -78,10 +78,10 @@ public final class f extends com.kwad.components.ad.f.a.a implements View.OnClic
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.mZ = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914e4);
-        this.dE = (ImageView) findViewById(R.id.obfuscated_res_0x7f091306);
-        this.dF = (TextView) findViewById(R.id.obfuscated_res_0x7f091308);
-        this.na = (TextView) findViewById(R.id.obfuscated_res_0x7f091303);
+        this.mZ = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914e5);
+        this.dE = (ImageView) findViewById(R.id.obfuscated_res_0x7f091307);
+        this.dF = (TextView) findViewById(R.id.obfuscated_res_0x7f091309);
+        this.na = (TextView) findViewById(R.id.obfuscated_res_0x7f091304);
     }
 
     @Override // com.kwad.components.ad.f.a.a, com.kwad.sdk.mvp.Presenter

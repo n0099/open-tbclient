@@ -6,26 +6,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FeedMaskLayer;
-import tbclient.MaskLayerText;
-/* loaded from: classes9.dex */
-public class wxc extends ltc {
+import tbclient.FeedContentResource;
+import tbclient.FeedItem;
+import tbclient.FeedOriginComponent;
+import tbclient.FeedOriginPic;
+import tbclient.VideoField;
+/* loaded from: classes8.dex */
+public class wxc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedMaskLayer feedMaskLayer) {
+    public static JSONObject b(@NonNull FeedOriginComponent feedOriginComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedMaskLayer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedOriginComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "topright_text", feedMaskLayer.topright_text);
-            if (feedMaskLayer.button_texts != null) {
+            if (feedOriginComponent._abstract != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (MaskLayerText maskLayerText : feedMaskLayer.button_texts) {
-                    jSONArray.put(a5d.b(maskLayerText));
+                for (FeedContentResource feedContentResource : feedOriginComponent._abstract) {
+                    jSONArray.put(dxc.b(feedContentResource));
                 }
-                ltc.a(jSONObject, "button_texts", jSONArray);
+                ktc.a(jSONObject, "abstract", jSONArray);
+            }
+            FeedOriginPic feedOriginPic = feedOriginComponent.pic_info;
+            if (feedOriginPic != null) {
+                ktc.a(jSONObject, "pic_info", xxc.b(feedOriginPic));
+            }
+            VideoField videoField = feedOriginComponent.video;
+            if (videoField != null) {
+                ktc.a(jSONObject, "video", bbd.b(videoField));
+            }
+            ktc.a(jSONObject, "schema", feedOriginComponent.schema);
+            FeedItem feedItem = feedOriginComponent.item;
+            if (feedItem != null) {
+                ktc.a(jSONObject, "item", qxc.b(feedItem));
             }
             return jSONObject;
         }

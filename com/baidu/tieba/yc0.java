@@ -76,15 +76,15 @@ public class yc0 extends re0 {
                 return true;
             }
             HashMap<String, String> d = ve0Var.d();
-            if (TextUtils.isEmpty((CharSequence) ny0.b(d, "mn_program_type"))) {
+            if (TextUtils.isEmpty((CharSequence) py0.b(d, "mn_program_type"))) {
                 c(ze0Var, ve0Var, 202, false);
                 return true;
             }
             WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
-            req.userName = (String) ny0.b(d, "user_name");
-            req.path = (String) ny0.b(d, "path");
-            req.miniprogramType = Integer.parseInt((String) ny0.b(d, "mn_program_type"));
-            String str2 = (String) ny0.b(d, MigrateStatisticUtils.EXT_INFO);
+            req.userName = (String) py0.b(d, "user_name");
+            req.path = (String) py0.b(d, "path");
+            req.miniprogramType = Integer.parseInt((String) py0.b(d, "mn_program_type"));
+            String str2 = (String) py0.b(d, MigrateStatisticUtils.EXT_INFO);
             IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, a);
             boolean sendReq = createWXAPI.sendReq(req);
             if (!sendReq) {
@@ -94,7 +94,7 @@ public class yc0 extends re0 {
                     str = "1002";
                 }
                 e("URL", str2, str);
-                return qe0.e((String) ny0.b(d, "web_url"), context, map, ze0Var);
+                return qe0.e((String) py0.b(d, "web_url"), context, map, ze0Var);
             }
             e(ClogBuilder.Area.APP.type, str2, null);
             c(ze0Var, ve0Var, 0, sendReq);
@@ -114,7 +114,7 @@ public class yc0 extends re0 {
             if (!TextUtils.isEmpty(str3)) {
                 clogBuilder.k(str3);
             }
-            bz0.e(clogBuilder);
+            dz0.e(clogBuilder);
         }
     }
 }

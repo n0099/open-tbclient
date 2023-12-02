@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.ShareIMCommonCardData;
-import com.baidu.tieba.nwa;
-import com.baidu.tieba.ny0;
+import com.baidu.tieba.mwa;
+import com.baidu.tieba.py0;
 import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -309,10 +309,10 @@ public class ShareItem {
             return (ForwardInfo) invokeLI.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, nwa nwaVar) {
+        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, mwa mwaVar) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, nwaVar)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, mwaVar)) == null) {
                 String str = null;
                 if (threadData == null) {
                     return null;
@@ -334,8 +334,8 @@ public class ShareItem {
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
                     forwardInfo.originalTid = originalThreadInfo.f;
                     if (i == 1) {
-                        if (nwaVar != null && nwaVar.f0() != null) {
-                            str = nwaVar.f0().toString();
+                        if (mwaVar != null && mwaVar.f0() != null) {
+                            str = mwaVar.f0().toString();
                         } else if (threadData.getAbstract() != null) {
                             str = threadData.getAbstractText().toString();
                         }
@@ -348,8 +348,8 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && nwaVar != null && rd.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && nwaVar.u() != null) {
-                        forwardInfo.transmitThreadAuthorNameShow = nwaVar.u().getName_show();
+                    if (i == 1 && mwaVar != null && rd.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && mwaVar.u() != null) {
+                        forwardInfo.transmitThreadAuthorNameShow = mwaVar.u().getName_show();
                     }
                     if (i == 2 && rd.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
@@ -427,7 +427,29 @@ public class ShareItem {
                 return;
             }
         }
-        IMAGE_DATA_FILE = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+        IMAGE_DATA_FILE = FileHelper.EXTERNAL_STORAGE_DCIM_DIRECTORY + "/share/shared_image.png";
+    }
+
+    public byte[] getCompressedImageData() {
+        InterceptResult invokeV;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            WeakReference<Bitmap> weakReference = this.imageData;
+            byte[] bArr = null;
+            if (weakReference != null && (bitmap = weakReference.get()) != null && !bitmap.isRecycled()) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                if (bitmap.compress(Bitmap.CompressFormat.PNG, 85, byteArrayOutputStream)) {
+                    bArr = byteArrayOutputStream.toByteArray();
+                }
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException unused) {
+                }
+            }
+            return bArr;
+        }
+        return (byte[]) invokeV.objValue;
     }
 
     public ShareItem() {
@@ -747,7 +769,7 @@ public class ShareItem {
             if (TextUtils.isEmpty(this.shareToken)) {
                 return Boolean.FALSE;
             }
-            if (ny0.c(this.outsideShareDisableMap)) {
+            if (py0.c(this.outsideShareDisableMap)) {
                 return Boolean.FALSE;
             }
             if (!this.outsideShareDisableMap.containsKey(str)) {
@@ -756,28 +778,6 @@ public class ShareItem {
             return this.outsideShareDisableMap.get(str);
         }
         return (Boolean) invokeL.objValue;
-    }
-
-    public byte[] getCompressedImageData() {
-        InterceptResult invokeV;
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            WeakReference<Bitmap> weakReference = this.imageData;
-            byte[] bArr = null;
-            if (weakReference != null && (bitmap = weakReference.get()) != null && !bitmap.isRecycled()) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                if (bitmap.compress(Bitmap.CompressFormat.PNG, 85, byteArrayOutputStream)) {
-                    bArr = byteArrayOutputStream.toByteArray();
-                }
-                try {
-                    byteArrayOutputStream.close();
-                } catch (IOException unused) {
-                }
-            }
-            return bArr;
-        }
-        return (byte[]) invokeV.objValue;
     }
 
     public void saveImageDataIfNecessary() {

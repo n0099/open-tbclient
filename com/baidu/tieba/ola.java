@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,45 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ola implements ub7, b77 {
+public abstract class ola implements yb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ub7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a implements z77 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.z77
-        public void a(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-                Intrinsics.checkNotNullParameter(map, "map");
-                xq6.b().c(new zja(map.get("fname"), map.get("tid"), map.get("fid")));
-            }
-        }
-    }
 
     public ola() {
         Interceptable interceptable = $ic;
@@ -64,39 +29,56 @@ public final class ola implements ub7, b77 {
         }
     }
 
-    @Override // com.baidu.tieba.b77
-    public z77 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new a();
-        }
-        return (z77) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ub7
-    public Map<String, String> a(r57 businessInfo) {
+    @Override // com.baidu.tieba.yb7
+    public Map<String, String> a(v57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
-            String str = businessInfo.a().get("forum_name");
+            Map<String, String> a = businessInfo.a();
+            String str = a.get("live_type");
             String str2 = "";
             if (str == null) {
                 str = "";
             }
-            hashMap.put("fname", str);
-            String str3 = businessInfo.a().get("forum_id");
+            hashMap.put("obj_type", str);
+            String str3 = a.get("live_app_id");
             if (str3 == null) {
                 str3 = "";
             }
-            hashMap.put("fid", str3);
-            String str4 = businessInfo.a().get("thread_id");
-            if (str4 != null) {
-                str2 = str4;
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str3);
+            String str4 = a.get("abtest_tag");
+            if (str4 == null) {
+                str4 = "";
             }
-            hashMap.put("tid", str2);
+            hashMap.put("ab_tag", str4);
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null) {
+                currentAccount = "";
+            }
+            hashMap.put("uid", currentAccount);
+            String str5 = a.get("extra");
+            if (str5 == null) {
+                str5 = "";
+            }
+            hashMap.put("obj_param1", str5);
+            String str6 = a.get("source");
+            if (str6 == null) {
+                str6 = "";
+            }
+            hashMap.put("obj_source", str6);
+            String str7 = a.get("position_from_1");
+            if (str7 == null) {
+                str7 = "";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_FLOOR, str7);
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM4, "0");
+            String cuid = TbadkCoreApplication.getInst().getCuid();
+            if (cuid != null) {
+                str2 = cuid;
+            }
+            hashMap.put("cuid", str2);
             return hashMap;
         }
         return (Map) invokeL.objValue;

@@ -1,52 +1,42 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.so.SoLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dc3 {
+public final class dc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(JSONObject jSONObject, @Nullable String str) {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, jSONObject, str) == null) {
-            gc3.l(true, str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("stability_config");
-            if (optJSONObject == null) {
-                return;
-            }
-            h32.b("SwanAppStabilityConfig", "stabilityConfigJo=" + optJSONObject);
-            gc3.n(str, optJSONObject.optInt("_SwanStartupStability_"));
-            gc3.k(str, optJSONObject.optInt("obtain_interval_ms", 500));
-            int optInt = optJSONObject.optInt("auto_obtain_data_len", 0);
-            if (optInt > 0) {
-                gc3.i(str, true);
-                gc3.j(str, optInt);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return rp2.e0().c();
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void b(@Nullable String str) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            gc3.m(true, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return SoLoader.load(AppRuntime.getAppContext(), "audioengine");
         }
+        return invokeV.booleanValue;
     }
 
-    public static void c(JSONObject jSONObject, @Nullable String str) {
+    public static fc3 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65538, null, jSONObject, str) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!rp2.w0().d()) {
+                return kc2.c(false);
+            }
+            return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
         }
-        String optString = jSONObject.optString("performance_type");
-        if (TextUtils.equals(optString, CloudStabilityUBCUtils.VALUE_TYPE)) {
-            a(jSONObject, str);
-        } else if (TextUtils.equals(optString, "stabilityProfile")) {
-            b(str);
-        }
+        return (fc3) invokeV.objValue;
     }
 }

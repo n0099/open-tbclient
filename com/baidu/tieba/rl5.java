@@ -9,18 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public interface rl5 {
     public static final a a = a.a;
 
-    fr6 a();
+    boolean a();
 
-    String b();
-
-    String c();
-
-    String d();
+    boolean b();
 
     /* loaded from: classes8.dex */
     public static final class a {
@@ -43,7 +40,7 @@ public interface rl5 {
                 }
             }
             a = new a();
-            b = new ServiceReference("module_home", "SpriteResourceService");
+            b = new ServiceReference("module_home", "SpriteStateService");
         }
 
         public a() {
@@ -60,6 +57,7 @@ public interface rl5 {
             }
         }
 
+        @JvmStatic
         public final rl5 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

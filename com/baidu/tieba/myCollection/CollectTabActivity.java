@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cp4;
-import com.baidu.tieba.cv4;
-import com.baidu.tieba.np9;
-import com.baidu.tieba.op9;
-import com.baidu.tieba.pp9;
+import com.baidu.tieba.fp4;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.rp9;
+import com.baidu.tieba.sp9;
+import com.baidu.tieba.tp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import org.apache.commons.codec.language.bm.ResourceConstants;
 public class CollectTabActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public np9 a;
+    public rp9 a;
     public CustomMessageListener b;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
@@ -126,7 +126,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
-            op9.b().f(false);
+            sp9.b().f(false);
         }
     }
 
@@ -154,9 +154,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d021d);
-            np9 np9Var = new np9(this);
-            this.a = np9Var;
-            np9Var.l();
+            rp9 rp9Var = new rp9(this);
+            this.a = rp9Var;
+            rp9Var.l();
             registerListener(this.b);
             n1();
             m1(getIntent());
@@ -201,7 +201,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
             Map<String, String> paramPair = UrlManager.getParamPair(decode);
             if (paramPair != null) {
                 StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                cp4.b(param, paramPair);
+                fp4.b(param, paramPair);
                 TiebaStatic.log(param);
             }
         }
@@ -210,17 +210,17 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void n1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            cv4 cv4Var = new cv4(getPageContext().getPageActivity());
+            fv4 fv4Var = new fv4(getPageContext().getPageActivity());
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-            cv4Var.a(threadDelegateStatic);
-            if (cv4Var.b() != null) {
+            fv4Var.a(threadDelegateStatic);
+            if (fv4Var.b() != null) {
                 FragmentTabStructure fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure();
                 if (fragmentTabStructure == null) {
                     return;
                 }
                 fragmentTabStructure.frag.setArguments(new Bundle());
             }
-            this.a.i(cv4Var.c());
+            this.a.i(fv4Var.c());
         }
     }
 
@@ -229,9 +229,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            pp9.a("c14061");
-            op9.b().f(true);
-            op9.b().e(false);
+            tp9.a("c14061");
+            sp9.b().f(true);
+            sp9.b().e(false);
             NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
         }
     }

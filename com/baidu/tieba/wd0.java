@@ -43,7 +43,7 @@ public final class wd0 implements vj0 {
     @Override // com.baidu.tieba.vj0
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !h21.b()) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !j21.b()) {
             return;
         }
         vd0.f().c(new sd0());

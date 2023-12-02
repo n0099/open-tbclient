@@ -35,16 +35,16 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.cga;
-import com.baidu.tieba.ega;
-import com.baidu.tieba.fga;
-import com.baidu.tieba.l5b;
-import com.baidu.tieba.nma;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.f05;
+import com.baidu.tieba.gga;
+import com.baidu.tieba.iga;
+import com.baidu.tieba.jga;
+import com.baidu.tieba.k5b;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.s4b;
+import com.baidu.tieba.qv4;
+import com.baidu.tieba.r4b;
+import com.baidu.tieba.rma;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.view.festivalview.FestivalTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,16 +56,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PushDialogActivity extends BaseActivity<PushDialogActivity> implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ega a;
-    public cga b;
-    public l5b c;
+    public iga a;
+    public gga b;
+    public k5b c;
     public pb<ImageView> d;
     public pb<TextView> e;
     public pb<GifView> f;
     public pb<View> g;
     public pb<LinearLayout> h;
     public pb<RelativeLayout> i;
-    public s4b j;
+    public r4b j;
     public boolean k;
     public HomeWatcherReceiver l;
     public String m;
@@ -105,7 +105,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     public int V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? R.id.obfuscated_res_0x7f091eb9 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? R.id.obfuscated_res_0x7f091ebb : invokeV.intValue;
     }
 
     public void Y1(Context context, String str) {
@@ -158,7 +158,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         public final /* synthetic */ PushDialogActivity a;
 
         /* loaded from: classes7.dex */
-        public class a implements c05.e {
+        public class a implements f05.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -178,11 +178,11 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 }
             }
 
-            @Override // com.baidu.tieba.c05.e
-            public void onClick(c05 c05Var) {
+            @Override // com.baidu.tieba.f05.e
+            public void onClick(f05 f05Var) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) && c05Var != null && c05Var.isShowing()) {
-                    c05Var.dismiss();
+                if ((interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) && f05Var != null && f05Var.isShowing()) {
+                    f05Var.dismiss();
                 }
             }
         }
@@ -218,10 +218,10 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             }
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(this.a.getPageContext().getUniqueId()) && !updateAttentionMessage.getData().isSucc) {
-                c05 c05Var = new c05(this.a);
-                c05Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f11df));
-                c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04d2, new a(this));
-                c05Var.create(this.a.getPageContext()).show();
+                f05 f05Var = new f05(this.a);
+                f05Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f11e0));
+                f05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04d2, new a(this));
+                f05Var.create(this.a.getPageContext()).show();
             }
         }
     }
@@ -370,7 +370,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (nv4.c().g()) {
+                    if (qv4.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -412,7 +412,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a);
-                boolean g = nv4.c().g();
+                boolean g = qv4.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -783,24 +783,24 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         this.o = new b(this, 2001115);
     }
 
-    public l5b I0() {
+    public k5b I0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.c;
         }
-        return (l5b) invokeV.objValue;
+        return (k5b) invokeV.objValue;
     }
 
     public String K0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            cga cgaVar = this.b;
-            if (cgaVar == null) {
+            gga ggaVar = this.b;
+            if (ggaVar == null) {
                 return null;
             }
-            return cgaVar.d();
+            return ggaVar.d();
         }
         return (String) invokeV.objValue;
     }
@@ -916,18 +916,18 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         return (pb) invokeV.objValue;
     }
 
-    public void L0(boolean z, fga fgaVar) {
+    public void L0(boolean z, jga jgaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048581, this, z, fgaVar) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048581, this, z, jgaVar) == null) {
             String str = this.m + "_3";
             this.m = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
             int i = 1;
             this.k = true;
-            if (z && fgaVar != null) {
-                ega egaVar = this.a;
-                if (egaVar != null) {
-                    egaVar.i(fgaVar);
+            if (z && jgaVar != null) {
+                iga igaVar = this.a;
+                if (igaVar != null) {
+                    igaVar.i(jgaVar);
                     TiebaStatic.log(new StatisticItem("c13197").param("tid", K0()));
                     StatisticItem param = new StatisticItem("c13196").param("obj_type", 2);
                     if (this.b.c() != 0) {
@@ -978,9 +978,9 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             this.m = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
             super.onCreate(bundle);
-            this.c = nma.j().d;
+            this.c = rma.j().d;
             if (this.j == null) {
-                this.j = new s4b();
+                this.j = new r4b();
             }
             this.j.g(true);
             setSwipeBackEnabled(false);
@@ -990,10 +990,10 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 window.addFlags(524288);
             }
             getWindow().getDecorView().setDrawingCacheEnabled(false);
-            this.a = new ega(this, R.layout.obfuscated_res_0x7f0d0066);
-            cga cgaVar = new cga(this);
-            this.b = cgaVar;
-            cgaVar.e();
+            this.a = new iga(this, R.layout.obfuscated_res_0x7f0d0066);
+            gga ggaVar = new gga(this);
+            this.b = ggaVar;
+            ggaVar.e();
             registerListener(this.n);
             this.l = new HomeWatcherReceiver(this);
             IntentFilter intentFilter = new IntentFilter();
@@ -1021,9 +1021,9 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             if (homeWatcherReceiver != null) {
                 unregisterReceiver(homeWatcherReceiver);
             }
-            s4b s4bVar = this.j;
-            if (s4bVar != null) {
-                s4bVar.g(false);
+            r4b r4bVar = this.j;
+            if (r4bVar != null) {
+                r4bVar.g(false);
             }
         }
     }

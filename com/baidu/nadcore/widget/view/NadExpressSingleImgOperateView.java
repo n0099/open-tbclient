@@ -8,8 +8,8 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nn0;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.on0;
+import com.baidu.tieba.w11;
 /* loaded from: classes3.dex */
 public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
     public int k;
@@ -29,16 +29,16 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void g(LayoutInflater layoutInflater, nn0 nn0Var) {
+    public void g(LayoutInflater layoutInflater, on0 on0Var) {
         int i = R.layout.nad_single_image;
-        if (nn0Var != null) {
-            int a = nn0Var.a(AdBaseModel.STYLE.SMALL_IMAGE);
+        if (on0Var != null) {
+            int a = on0Var.a(AdBaseModel.STYLE.SMALL_IMAGE);
             if (a != 0) {
                 i = a;
-            } else if (nn0Var.b) {
+            } else if (on0Var.b) {
                 i = R.layout.nad_single_image_for_img_right;
             }
-            nn0.a aVar = nn0Var.e;
+            on0.a aVar = on0Var.e;
             if (aVar != null) {
                 this.k = aVar.a;
                 this.l = aVar.b;
@@ -54,8 +54,8 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public NadExpressSingleImgOperateView(Context context, AttributeSet attributeSet, int i, nn0 nn0Var) {
-        super(context, attributeSet, i, nn0Var);
+    public NadExpressSingleImgOperateView(Context context, AttributeSet attributeSet, int i, on0 on0Var) {
+        super(context, attributeSet, i, on0Var);
         this.k = 15;
         this.l = 15;
         this.m = 0;
@@ -72,9 +72,9 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
             return;
         }
         if (this.o > 0) {
-            e = u11.c.a(getContext(), this.o);
+            e = w11.c.a(getContext(), this.o);
         } else {
-            e = (((((u11.c.e(context) - u11.c.a(getContext(), this.k)) - u11.c.a(getContext(), this.l)) - u11.c.a(getContext(), this.m)) - u11.c.a(getContext(), this.n)) - (u11.c.a(getContext(), 6.0f) * 2)) / 3;
+            e = (((((w11.c.e(context) - w11.c.a(getContext(), this.k)) - w11.c.a(getContext(), this.l)) - w11.c.a(getContext(), this.m)) - w11.c.a(getContext(), this.n)) - (w11.c.a(getContext(), 6.0f) * 2)) / 3;
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.p.getLayoutParams();
         layoutParams.width = e;

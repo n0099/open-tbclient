@@ -1,32 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sso.q.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class em1 {
+public class em1 implements fm1 {
     public static /* synthetic */ Interceptable $ic;
+    public static em1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public com.baidu.sso.q.c b;
-    public ServiceConnection c;
-    public dm1 d;
+    public fm1 a;
+    public boolean b;
 
-    public em1(Context context) {
+    public em1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,18 +30,36 @@ public class em1 {
             }
         }
         this.a = null;
-        this.a = context;
+        this.b = false;
     }
 
+    public static em1 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (em1.class) {
+                    if (c == null) {
+                        c = new em1();
+                    }
+                }
+            }
+            return c;
+        }
+        return (em1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fm1
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                if (this.b != null) {
-                    return ((c.a.C0195a) this.b).a();
-                }
+            fm1 fm1Var = this.a;
+            if (fm1Var == null) {
                 return null;
+            }
+            try {
+                return fm1Var.a();
             } catch (Throwable unused) {
                 return null;
             }
@@ -56,58 +67,35 @@ public class em1 {
         return (String) invokeV.objValue;
     }
 
-    public void b() {
+    @Override // com.baidu.tieba.fm1
+    public void a(Context context, gm1 gm1Var) {
+        fm1 im1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new a(this);
-            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
-            intent.setPackage("com.huawei.hwid");
-            this.a.bindService(intent, this.c, 1);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements ServiceConnection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ em1 a;
-
-        public a(em1 em1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {em1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, gm1Var) == null) {
+            try {
+                if (this.b) {
                     return;
                 }
-            }
-            this.a = em1Var;
-        }
-
-        @Override // android.content.ServiceConnection
-        public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                synchronized (this) {
-                    this.a.b = c.a.a(iBinder);
-                    dm1 dm1Var = this.a.d;
+                this.b = true;
+                int ordinal = com.baidu.sso.u.a.a(Build.MANUFACTURER).ordinal();
+                if (ordinal != 0) {
+                    if (ordinal == 1) {
+                        im1Var = new im1();
+                    } else if (ordinal == 2) {
+                        im1Var = new qm1();
+                    } else if (ordinal == 3) {
+                        im1Var = new om1();
+                    } else if (ordinal == 4) {
+                        im1Var = new km1();
+                    }
+                    this.a = im1Var;
+                } else {
+                    this.a = null;
                 }
-            }
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                em1 em1Var = this.a;
-                em1Var.b = null;
-                dm1 dm1Var = em1Var.d;
+                if (this.a != null) {
+                    this.a.a(context, gm1Var);
+                }
+            } catch (Throwable unused) {
             }
         }
     }

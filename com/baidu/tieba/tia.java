@@ -1,12 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class tia {
@@ -14,6 +13,10 @@ public class tia {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
 
     public tia() {
         Interceptable interceptable = $ic;
@@ -29,8 +32,7 @@ public class tia {
         }
     }
 
-    @Nullable
-    public static tia a(@Nullable JSONObject jSONObject) {
+    public static tia a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
@@ -38,8 +40,14 @@ public class tia {
                 return null;
             }
             tia tiaVar = new tia();
-            tiaVar.a = jSONObject.optString("text");
-            tiaVar.b = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
+            jSONObject.optString("brand_name");
+            tiaVar.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+            tiaVar.b = jSONObject.optString("button_scheme");
+            tiaVar.c = jSONObject.optString("cmd_scheme");
+            jSONObject.optString("icon");
+            tiaVar.d = jSONObject.optString("operate_recommend_reason");
+            tiaVar.e = jSONObject.optLong("trans_animation_delay", 0L);
+            tiaVar.f = jSONObject.optInt("layout_upgrade", 0);
             return tiaVar;
         }
         return (tia) invokeL.objValue;

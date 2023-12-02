@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.af6;
 import com.baidu.tieba.barselect.view.BazhuHeadView;
-import com.baidu.tieba.hf6;
-import com.baidu.tieba.ye6;
+import com.baidu.tieba.cf6;
+import com.baidu.tieba.ef6;
+import com.baidu.tieba.lf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -67,10 +67,10 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            ye6 ye6Var;
+            cf6 cf6Var;
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (ye6Var = this.a.c) != null && ye6Var.l() != 0) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (cf6Var = this.a.c) != null && cf6Var.l() != 0) {
                 long j = JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
                 long l = this.a.c.l();
                 if ((this.a.getContext() instanceof Activity) && this.a.c.f() != 2) {
@@ -138,11 +138,11 @@ public class CandidateInfoLayout extends CardBasicLayout {
             if (bazhuHeadView.getHeadView() != null) {
                 this.e.getHeadView().setIsRound(true);
             }
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09293c);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09293f);
             this.g = (TextView) findViewById(R.id.user_name);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092ac1);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092ac4);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09017f);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee2);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee3);
         }
     }
 
@@ -167,9 +167,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
             SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1, i);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1, i);
-            ye6 ye6Var = this.c;
-            if (ye6Var != null) {
-                setGrade(ye6Var.d());
+            cf6 cf6Var = this.c;
+            if (cf6Var != null) {
+                setGrade(cf6Var.d());
             }
         }
     }
@@ -182,14 +182,14 @@ public class CandidateInfoLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, af6 af6Var) {
+    public void setData(int i, ef6 ef6Var) {
         int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, af6Var) == null) {
-            super.setData(i, af6Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, ef6Var) == null) {
+            super.setData(i, ef6Var);
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == hf6.c) {
+                if (i2 == lf6.c) {
                     int dimens = BdUtilHelper.getDimens(this.d, R.dimen.tbds191);
                     int dimens2 = BdUtilHelper.getDimens(this.d, R.dimen.tbds157);
                     int dimens3 = BdUtilHelper.getDimens(this.d, R.dimen.tbds6);
@@ -199,7 +199,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
                     layoutParams.setMargins(layoutParams.leftMargin - dimens3, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
                     this.e.setLayoutParams(layoutParams);
                     this.e.p(true);
-                    this.e.setBawuLogoView(R.drawable.obfuscated_res_0x7f081220);
+                    this.e.setBawuLogoView(R.drawable.obfuscated_res_0x7f081223);
                     this.e.setPendantView(R.drawable.obfuscated_res_0x7f0808a5);
                     this.g.setTextSize(0, BdUtilHelper.getDimens(this.d, R.dimen.tbfontsize46));
                     setGravity(16);

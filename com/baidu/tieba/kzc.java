@@ -1,26 +1,40 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.BrandBook;
+import tbclient.FrsPage.BrandForumInfo;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.OriForumInfo;
 /* loaded from: classes7.dex */
-public class kzc extends ltc {
+public class kzc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull BrandBook brandBook) {
+    public static JSONObject b(@NonNull BrandForumInfo brandForumInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, brandBook)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, brandForumInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "is_book", brandBook.is_book);
-            ltc.a(jSONObject, "book_num", brandBook.book_num);
-            ltc.a(jSONObject, "end_time", brandBook.end_time);
-            ltc.a(jSONObject, "ext", brandBook.ext);
+            if (brandForumInfo.relation_forum != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (OriForumInfo oriForumInfo : brandForumInfo.relation_forum) {
+                    jSONArray.put(t5d.b(oriForumInfo));
+                }
+                ktc.a(jSONObject, "relation_forum", jSONArray);
+            }
+            HeadImgs headImgs = brandForumInfo.head_imgs;
+            if (headImgs != null) {
+                ktc.a(jSONObject, "head_imgs", q0d.c(headImgs));
+            }
+            ktc.a(jSONObject, "brand_desc", brandForumInfo.brand_desc);
+            ktc.a(jSONObject, BigdayActivityConfig.JUMP_URL, brandForumInfo.jump_url);
+            ktc.a(jSONObject, "jump_desc", brandForumInfo.jump_desc);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

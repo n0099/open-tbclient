@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.frs.utils.BubbleFrequencyData;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,190 +11,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CopyOnWriteArrayList;
-import kotlin.Unit;
+import java.util.Collection;
+import java.util.List;
 import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.functions.Function1;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
 public final class h68 {
     public static /* synthetic */ Interceptable $ic;
-    public static final h68 a;
-    public static final CopyOnWriteArrayList<String> b;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static final class a extends ju5<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        public void a() {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                da<String> n = b05.n("tb.forum_to_pb_count_cache", TbadkCoreApplication.getCurrentAccount());
-                String a = i68.a(this.a);
-                BubbleFrequencyData.Companion companion = BubbleFrequencyData.b;
-                if (n != null) {
-                    str = n.get(a);
-                } else {
-                    str = null;
-                }
-                BubbleFrequencyData a2 = companion.a(str);
-                if (a2 == null) {
-                    a2 = new BubbleFrequencyData(0);
-                }
-                a2.a();
-                n.g(a, a2.c());
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.ju5
-        public /* bridge */ /* synthetic */ Unit doInBackground() {
-            a();
-            return Unit.INSTANCE;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b extends ju5<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.ju5
-        public /* bridge */ /* synthetic */ Unit doInBackground() {
-            a();
-            return Unit.INSTANCE;
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = b05.n("tb.forum_to_pb_count_cache", TbadkCoreApplication.getCurrentAccount()).get("key_frs_to_pb_check_list");
-                if (rd.isEmpty(str)) {
-                    return;
-                }
-                h68.b.clear();
-                CopyOnWriteArrayList copyOnWriteArrayList = h68.b;
-                Intrinsics.checkNotNullExpressionValue(str, "str");
-                copyOnWriteArrayList.addAll(StringsKt__StringsKt.split$default((CharSequence) str, new String[]{","}, false, 0, 6, (Object) null));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class c extends ju5<BubbleFrequencyData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ju5
-        /* renamed from: a */
-        public BubbleFrequencyData doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return BubbleFrequencyData.b.a(b05.n("tb.forum_to_pb_count_cache", TbadkCoreApplication.getCurrentAccount()).get(i68.a(this.a)));
-            }
-            return (BubbleFrequencyData) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class d extends ju5<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                da<String> n = b05.n("tb.forum_to_pb_count_cache", TbadkCoreApplication.getCurrentAccount());
-                n.g("key_frs_to_pb_check_list", CollectionsKt___CollectionsKt.joinToString$default(h68.b, ",", null, null, 0, null, null, 62, null));
-                n.g(i68.a(this.a), new BubbleFrequencyData(0).c());
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.ju5
-        public /* bridge */ /* synthetic */ Unit doInBackground() {
-            a();
-            return Unit.INSTANCE;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -208,102 +37,237 @@ public final class h68 {
                 return;
             }
         }
-        a = new h68();
-        b = new CopyOnWriteArrayList<>();
+        a = new a(null);
     }
 
-    public h68() {
+    @JvmStatic
+    public static final boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.a(str) : invokeL.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a.b(str) : invokeL.booleanValue;
+    }
+
+    @JvmStatic
+    public static final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            a.c();
         }
     }
 
-    public final void c() {
+    @JvmStatic
+    public static final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            nu5.b(new b(), null);
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.d() : invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            a.e();
         }
     }
 
-    public static final void f(Function1 callback, BubbleFrequencyData bubbleFrequencyData) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, callback, bubbleFrequencyData) == null) {
-            Intrinsics.checkNotNullParameter(callback, "$callback");
-            if (bubbleFrequencyData != null) {
-                i = bubbleFrequencyData.b();
-            } else {
-                i = 0;
-            }
-            callback.invoke(Integer.valueOf(i));
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-    }
 
-    public final void e(String fName, final Function1<? super Integer, Unit> callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, fName, callback) == null) {
-            Intrinsics.checkNotNullParameter(fName, "fName");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            if (!b.contains(fName)) {
-                return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            nu5.b(new c(fName), new ot5() { // from class: com.baidu.tieba.v58
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+        }
 
-                @Override // com.baidu.tieba.ot5
-                public final void onReturnDataInUI(Object obj) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        h68.f(Function1.this, (BubbleFrequencyData) obj);
+        @JvmStatic
+        public final boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_has_show"), false);
+            }
+            return invokeV.booleanValue;
+        }
+
+        @JvmStatic
+        public final void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("forum_group_feed_card_has_show"), true);
+            }
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
+            r2 = com.baidu.tieba.i68.j();
+         */
+        @JvmStatic
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean a(String str) {
+            InterceptResult invokeL;
+            boolean z;
+            int j;
+            String h;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z || j <= 0) {
+                    return false;
+                }
+                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
+                h = i68.h();
+                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
+                List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null);
+                if (split$default.size() > 1 && Intrinsics.areEqual(valueOf, split$default.get(0))) {
+                    int i = 0;
+                    for (String str2 : split$default) {
+                        if (Intrinsics.areEqual(str2, str)) {
+                            i++;
+                        }
+                    }
+                    if (i >= j) {
+                        return false;
                     }
                 }
-            });
-        }
-    }
-
-    public final void b(String fName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fName) == null) {
-            Intrinsics.checkNotNullParameter(fName, "fName");
-            if (!b.contains(fName)) {
-                return;
+                return true;
             }
-            nu5.b(new a(fName), null);
+            return invokeL.booleanValue;
         }
-    }
 
-    public final void d(String fName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fName) == null) {
-            Intrinsics.checkNotNullParameter(fName, "fName");
-            b.remove(fName);
-            g(fName);
+        @JvmStatic
+        public final void f(String str) {
+            boolean z;
+            String h;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z) {
+                    return;
+                }
+                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
+                h = i68.h();
+                Intrinsics.checkNotNullExpressionValue(h, "feedCardHasShowArrayStr()");
+                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) h, new String[]{"_"}, false, 0, 6, (Object) null));
+                if (mutableList.isEmpty()) {
+                    mutableList.add(valueOf);
+                } else if (mutableList.size() == 1) {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                } else if (!Intrinsics.areEqual(valueOf, mutableList.get(0))) {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                }
+                mutableList.add(str);
+                i68.l(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+            }
         }
-    }
 
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !b.contains(str)) {
-            return;
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
+            r2 = com.baidu.tieba.i68.i();
+         */
+        @JvmStatic
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean b(String str) {
+            InterceptResult invokeL;
+            boolean z;
+            int i;
+            String g;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (z || i <= 0) {
+                    return false;
+                }
+                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
+                g = i68.g();
+                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
+                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
+                if (mutableList.isEmpty()) {
+                    mutableList.add(valueOf);
+                    mutableList.add(str);
+                    i68.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+                    return true;
+                } else if (mutableList.size() == 1) {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                    mutableList.add(str);
+                    i68.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+                    return true;
+                } else if (Intrinsics.areEqual(valueOf, mutableList.get(0))) {
+                    if (mutableList.contains(str) || mutableList.size() - 1 >= i) {
+                        return false;
+                    }
+                    mutableList.add(str);
+                    i68.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+                    return true;
+                } else {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                    mutableList.add(str);
+                    i68.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+                    return true;
+                }
+            }
+            return invokeL.booleanValue;
         }
-        nu5.b(new d(str), null);
-    }
 
-    public final void h(String fName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fName) == null) {
-            Intrinsics.checkNotNullParameter(fName, "fName");
-            b.add(fName);
-            g(fName);
+        @JvmStatic
+        public final void c() {
+            int i;
+            String g;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                String valueOf = String.valueOf(StringHelper.getyyyyMMddTimeForNow());
+                g = i68.g();
+                Intrinsics.checkNotNullExpressionValue(g, "entranceGuideHasShowArrayStr()");
+                List mutableList = CollectionsKt___CollectionsKt.toMutableList((Collection) StringsKt__StringsKt.split$default((CharSequence) g, new String[]{"_"}, false, 0, 6, (Object) null));
+                if (mutableList.isEmpty()) {
+                    mutableList.add(valueOf);
+                } else if (mutableList.size() == 1) {
+                    mutableList.clear();
+                    mutableList.add(valueOf);
+                }
+                for (i = i68.i(); -1 < i; i--) {
+                    mutableList.add(String.valueOf(i));
+                }
+                i68.k(CollectionsKt___CollectionsKt.joinToString$default(mutableList, "_", null, null, 0, null, null, 62, null));
+            }
         }
     }
 }

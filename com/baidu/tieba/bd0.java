@@ -89,7 +89,7 @@ public class bd0 {
                         if (this.j.d == 1) {
                             clogBuilder.k("deferred");
                         }
-                        bz0.e(clogBuilder);
+                        dz0.e(clogBuilder);
                     }
                     c cVar = this.a;
                     if (cVar != null) {
@@ -147,7 +147,7 @@ public class bd0 {
                         clogBuilder.y(ClogBuilder.LogType.DEEP_LINK);
                         clogBuilder.j("MARKET");
                         clogBuilder.p(this.d.c);
-                        bz0.e(clogBuilder);
+                        dz0.e(clogBuilder);
                     }
                     c cVar = this.a;
                     if (cVar != null) {
@@ -234,7 +234,7 @@ public class bd0 {
                 if (this.d == 1) {
                     clogBuilder.k("deferred");
                 }
-                bz0.e(clogBuilder);
+                dz0.e(clogBuilder);
             }
             if (!str.startsWith(hf0.a().s()) && !str.startsWith("nadcorevendor://")) {
                 if (!str.startsWith("http") && !str.startsWith("https")) {

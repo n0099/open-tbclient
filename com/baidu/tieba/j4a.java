@@ -1,127 +1,86 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class j4a {
+public class j4a {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public View b;
-    public TBLottieAnimationView c;
-    public TextView d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947834706, "Lcom/baidu/tieba/j4a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947834706, "Lcom/baidu/tieba/j4a;");
-        }
-    }
-
-    public j4a(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947834706, "Lcom/baidu/tieba/j4a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947834706, "Lcom/baidu/tieba/j4a;");
                 return;
             }
         }
-        this.a = activity;
+        a = SharedPrefHelper.getSharedPrefKeyWithAccount("key_show_god_agree_tips_count");
+        b = SharedPrefHelper.getSharedPrefKeyWithAccount("key_show_god_agree_tips_timestamp");
     }
 
-    public final void b(int i) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null) {
-                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_full_screen_refresh);
-            }
-            TextView textView = this.d;
-            if (textView != null) {
-                EMManager.from(textView).setTextColor(R.color.CAM_X0108);
-            }
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && !b()) {
+            SharedPrefHelper.getInstance().putLong(b, System.currentTimeMillis());
+            SharedPrefHelper.getInstance().putInt(a, 0);
         }
     }
 
-    public final void a() {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null && tBLottieAnimationView.isAnimating()) {
-                tBLottieAnimationView.cancelAnimation();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = SharedPrefHelper.getInstance().getLong(b, 0L);
+            if (j >= 0) {
+                return TimeHelper.isSameDay(currentTimeMillis, j);
             }
-            View view2 = this.b;
-            if (view2 != null) {
-                view2.setVisibility(8);
-            }
-            DefaultLog.getInstance().i("PbFragmentLoadingManager", "隐藏最上层loading");
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void c(View view2) {
+    public static boolean c(zv9 zv9Var) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.c;
-            if (tBLottieAnimationView != null) {
-                Intrinsics.checkNotNull(tBLottieAnimationView);
-                if (tBLottieAnimationView.isAnimating()) {
-                    return;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, zv9Var)) == null) {
+            if (zv9Var == null || zv9Var.R() == null || !TbadkCoreApplication.isLogin() || !zv9Var.R().isExcellentThread() || zv9Var.R().getHasAgree() == 1) {
+                return false;
             }
-            if (view2 != null) {
-                this.b = view2;
-                if (view2 != null) {
-                    view2.setVisibility(0);
-                }
-                TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f092902);
-                this.c = tBLottieAnimationView2;
-                if (tBLottieAnimationView2 != null) {
-                    SkinManager.setLottieAnimation(tBLottieAnimationView2, R.raw.lottie_full_screen_refresh);
-                    TBLottieAnimationView tBLottieAnimationView3 = this.c;
-                    if (tBLottieAnimationView3 != null) {
-                        tBLottieAnimationView3.setRepeatCount(-1);
-                    }
-                    TBLottieAnimationView tBLottieAnimationView4 = this.c;
-                    if (tBLottieAnimationView4 != null) {
-                        tBLottieAnimationView4.setSpeed(1.2f);
-                    }
-                    TBLottieAnimationView tBLottieAnimationView5 = this.c;
-                    if (tBLottieAnimationView5 != null) {
-                        tBLottieAnimationView5.playAnimation();
-                    }
-                }
-                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092903);
+            if (b()) {
+                i = SharedPrefHelper.getInstance().getInt(a, 0);
+            } else {
+                i = 0;
             }
-            DefaultLog.getInstance().i("PbFragmentLoadingManager", "显示最上层loading");
+            if (i >= 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(Context context, View view2, zv9 zv9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, view2, zv9Var) != null) || bu9.c() || c(zv9Var)) {
         }
     }
 }

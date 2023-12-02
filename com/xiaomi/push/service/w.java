@@ -6,7 +6,7 @@ import com.xiaomi.push.gg;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.bg;
 import java.util.Collection;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public class w extends XMPushService.j {
     public XMPushService a;
 

@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.thread.executor.BaseExecutorCell;
 import com.baidu.nadcore.thread.task.ElasticTask;
@@ -12,8 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class r01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m01 a;
-    public BaseExecutorCell b;
+    public volatile g01 a;
+    public volatile g01 b;
+    public volatile g01 c;
+    public int d;
+    public long e;
 
     public r01() {
         Interceptable interceptable = $ic;
@@ -28,37 +32,147 @@ public class r01 {
                 return;
             }
         }
-        this.a = new m01();
-        this.b = BaseExecutorCell.b(1, BaseExecutorCell.ExecutorType.SERIAL);
+        this.d = 0;
+        this.e = 0L;
     }
 
-    public boolean a() {
+    public g01 d() {
         InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.c == null) {
+                synchronized (this) {
+                    if (this.c == null) {
+                        this.c = (g01) BaseExecutorCell.b(d01.i, BaseExecutorCell.ExecutorType.DREDGE_DISASTER);
+                    }
+                }
+            }
+            return this.c;
+        }
+        return (g01) invokeV.objValue;
+    }
+
+    public g01 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == null) {
+                synchronized (this) {
+                    if (this.a == null) {
+                        this.a = (g01) BaseExecutorCell.b(d01.g, BaseExecutorCell.ExecutorType.DREDGE_NORMAL);
+                    }
+                }
+            }
+            return this.a;
+        }
+        return (g01) invokeV.objValue;
+    }
+
+    public g01 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b == null) {
+                synchronized (this) {
+                    if (this.b == null) {
+                        this.b = (g01) BaseExecutorCell.b(d01.h, BaseExecutorCell.ExecutorType.DREDGE_NORMAL);
+                    }
+                }
+            }
+            return this.b;
+        }
+        return (g01) invokeV.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ((h01) this.b).j();
+            double a = s01.f().g().a();
+            if (a >= d01.j && 3 != this.d) {
+                if (a >= d01.k) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z || SystemClock.elapsedRealtime() - this.e > d01.m) {
+                    g();
+                    this.e = SystemClock.elapsedRealtime();
+                    s01.f().j(d01.m + 10);
+                    return 1;
+                }
+            }
+            if (this.d == 0 || a >= d01.l || SystemClock.elapsedRealtime() - this.e <= d01.n) {
+                return 0;
+            }
+            b();
+            this.e = SystemClock.elapsedRealtime();
+            s01.f().j(d01.n + 10);
+            return -1;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ElasticTask b = this.a.b();
-            if (b == null || !this.b.c(b)) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.d;
+            if (1 == i) {
+                e().j();
+                this.d = 0;
+            } else if (2 == i) {
+                f().j();
+                this.d = 1;
+            } else if (3 == i) {
+                d().j();
+                this.d = 2;
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int i = this.d;
+            if (i == 0) {
+                e().i();
+                this.d = 1;
+            } else if (1 == i) {
+                f().i();
+                this.d = 2;
+            } else if (2 == i) {
+                d().i();
+                this.d = 3;
+            }
+        }
+    }
+
+    public boolean c(ElasticTask elasticTask) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask)) == null) {
+            int i = this.d;
+            if (i == 0) {
                 return false;
             }
-            this.a.e(b);
-            return true;
+            if (i == 1) {
+                return e().c(elasticTask);
+            }
+            if (i == 2) {
+                if (e().c(elasticTask)) {
+                    return true;
+                }
+                return f().c(elasticTask);
+            } else if (i != 3) {
+                return false;
+            } else {
+                if (e().c(elasticTask) || f().c(elasticTask)) {
+                    return true;
+                }
+                return d().c(elasticTask);
+            }
         }
-        return invokeV.booleanValue;
-    }
-
-    public void b(Runnable runnable, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str, i) == null) {
-            this.a.c(runnable, str, i);
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.AlaShareInfo;
+import tbclient.AlaStageDislikeInfo;
 /* loaded from: classes7.dex */
-public class kuc extends ltc {
+public class kuc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AlaShareInfo alaShareInfo) {
+    public static JSONObject b(@NonNull AlaStageDislikeInfo alaStageDislikeInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaShareInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaStageDislikeInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "content", alaShareInfo.content);
-            ltc.a(jSONObject, "share_user_count", alaShareInfo.share_user_count);
-            ltc.a(jSONObject, "share_count", alaShareInfo.share_count);
-            ltc.a(jSONObject, "record_tid", alaShareInfo.record_tid);
+            ktc.a(jSONObject, "dislike_reason", alaStageDislikeInfo.dislike_reason);
+            ktc.a(jSONObject, "dislike_id", alaStageDislikeInfo.dislike_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

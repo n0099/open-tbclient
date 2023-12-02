@@ -1,49 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.WebView;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class exa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
-    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
+public class exa {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, List<fxa>> mAsyncCallBackMethodList;
-    public HashSet<String> mNotificationNameList;
-
-    public gxa dispatch(WebView webView, ixa ixaVar, gxa gxaVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, ixaVar, gxaVar)) == null) {
-            return null;
-        }
-        return (gxa) invokeLLL.objValue;
-    }
-
-    @Nullable
-    public mj6 getJsBridge() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (mj6) invokeV.objValue;
-    }
-
-    public abstract List<gxa> processNotification(WebView webView, String str, HashMap hashMap);
+    public String a;
+    public boolean b;
+    public String c;
 
     public exa() {
         Interceptable interceptable = $ic;
@@ -59,75 +28,51 @@ public abstract class exa {
         }
     }
 
-    public final void onDestroy() {
-        mj6 jsBridge;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (jsBridge = getJsBridge()) != null) {
-            jsBridge.onDestroy();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
         }
     }
 
-    public gxa addObserver(WebView webView, String str, gxa gxaVar, boolean z) {
-        InterceptResult invokeCommon;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{webView, str, gxaVar, Boolean.valueOf(z)})) == null) {
-            if (gxaVar == null) {
-                gxaVar = new gxa();
-            }
-            if (this.mNotificationNameList.contains(str)) {
-                gxaVar.n(false);
-                gxaVar.t(true);
-                List<fxa> list = this.mAsyncCallBackMethodList.get(str);
-                if (list == null) {
-                    list = new ArrayList<>();
-                }
-                fxa fxaVar = new fxa();
-                fxaVar.e(gxaVar.c());
-                fxaVar.d(z);
-                fxaVar.f(gxaVar.e());
-                list.add(fxaVar);
-                this.mAsyncCallBackMethodList.put(str, list);
-                if (webView instanceof jj6) {
-                    ((jj6) webView).a(str, fxaVar.a());
-                }
-            }
-            return gxaVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
         }
-        return (gxa) invokeCommon.objValue;
     }
 
-    public gxa addObserver(String str, gxa gxaVar, boolean z) {
-        InterceptResult invokeLLZ;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, gxaVar, z)) == null) {
-            return addObserver(null, str, gxaVar, z);
-        }
-        return (gxa) invokeLLZ.objValue;
-    }
-
-    public gxa dispatch(ixa ixaVar, gxa gxaVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, ixaVar, gxaVar)) == null) {
-            return dispatch(null, ixaVar, gxaVar);
-        }
-        return (gxa) invokeLL.objValue;
-    }
-
-    public void removeObserverBridge(List<Pair<String, String>> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && list != null && !list.isEmpty()) {
-            for (Pair<String, String> pair : list) {
-                List<fxa> list2 = this.mAsyncCallBackMethodList.get(pair.first);
-                if (list2 != null && !list2.isEmpty()) {
-                    Iterator<fxa> it = list2.iterator();
-                    while (it.hasNext()) {
-                        if (TextUtils.equals(it.next().a(), pair.second)) {
-                            it.remove();
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.c = str;
         }
     }
 }

@@ -1,14 +1,14 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.bpc;
-import com.baidu.tieba.crc;
-import com.baidu.tieba.dpc;
-import com.baidu.tieba.eoc;
-import com.baidu.tieba.goc;
+import com.baidu.tieba.apc;
+import com.baidu.tieba.brc;
+import com.baidu.tieba.cpc;
+import com.baidu.tieba.doc;
+import com.baidu.tieba.foc;
+import com.baidu.tieba.joc;
 import com.baidu.tieba.koc;
-import com.baidu.tieba.loc;
-import com.baidu.tieba.usc;
-import com.baidu.tieba.wqc;
+import com.baidu.tieba.tsc;
+import com.baidu.tieba.vqc;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,37 +18,37 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.CompositeException;
 /* loaded from: classes2.dex */
-public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
-    public final eoc<? extends T>[] a;
-    public final Iterable<? extends eoc<? extends T>> b;
-    public final bpc<? extends R> c;
+public final class OnSubscribeCombineLatest<T, R> implements doc.a<R> {
+    public final doc<? extends T>[] a;
+    public final Iterable<? extends doc<? extends T>> b;
+    public final apc<? extends R> c;
     public final int d;
     public final boolean e;
 
     /* loaded from: classes2.dex */
-    public static final class LatestCoordinator<T, R> extends AtomicInteger implements goc, loc {
+    public static final class LatestCoordinator<T, R> extends AtomicInteger implements foc, koc {
         public static final Object MISSING = new Object();
         public static final long serialVersionUID = 8567835998786448817L;
         public int active;
-        public final koc<? super R> actual;
+        public final joc<? super R> actual;
         public final int bufferSize;
         public volatile boolean cancelled;
-        public final bpc<? extends R> combiner;
+        public final apc<? extends R> combiner;
         public int complete;
         public final boolean delayError;
         public volatile boolean done;
         public final AtomicReference<Throwable> error;
         public final Object[] latest;
-        public final crc<Object> queue;
+        public final brc<Object> queue;
         public final AtomicLong requested;
         public final a<T, R>[] subscribers;
 
-        @Override // com.baidu.tieba.loc
+        @Override // com.baidu.tieba.koc
         public boolean isUnsubscribed() {
             return this.cancelled;
         }
 
-        @Override // com.baidu.tieba.loc
+        @Override // com.baidu.tieba.koc
         public void unsubscribe() {
             if (!this.cancelled) {
                 this.cancelled = true;
@@ -58,16 +58,16 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
             }
         }
 
-        public LatestCoordinator(koc<? super R> kocVar, bpc<? extends R> bpcVar, int i, int i2, boolean z) {
-            this.actual = kocVar;
-            this.combiner = bpcVar;
+        public LatestCoordinator(joc<? super R> jocVar, apc<? extends R> apcVar, int i, int i2, boolean z) {
+            this.actual = jocVar;
+            this.combiner = apcVar;
             this.bufferSize = i2;
             this.delayError = z;
             Object[] objArr = new Object[i];
             this.latest = objArr;
             Arrays.fill(objArr, MISSING);
             this.subscribers = new a[i];
-            this.queue = new crc<>(i2);
+            this.queue = new brc<>(i2);
             this.requested = new AtomicLong();
             this.error = new AtomicReference<>();
         }
@@ -79,12 +79,12 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
             }
         }
 
-        @Override // com.baidu.tieba.goc
+        @Override // com.baidu.tieba.foc
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0) {
-                    dpc.b(this.requested, j);
+                    cpc.b(this.requested, j);
                     drain();
                     return;
                 }
@@ -93,7 +93,7 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
             throw new IllegalArgumentException("n >= required but it was " + j);
         }
 
-        public void subscribe(eoc<? extends T>[] eocVarArr) {
+        public void subscribe(doc<? extends T>[] docVarArr) {
             a<T, R>[] aVarArr = this.subscribers;
             int length = aVarArr.length;
             for (int i = 0; i < length; i++) {
@@ -103,11 +103,11 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
             this.actual.b(this);
             this.actual.f(this);
             for (int i2 = 0; i2 < length && !this.cancelled; i2++) {
-                eocVarArr[i2].F(aVarArr[i2]);
+                docVarArr[i2].F(aVarArr[i2]);
             }
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, koc<?> kocVar, Queue<?> queue, boolean z3) {
+        public boolean checkTerminated(boolean z, boolean z2, joc<?> jocVar, Queue<?> queue, boolean z3) {
             if (this.cancelled) {
                 cancel(queue);
                 return true;
@@ -116,9 +116,9 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
                     if (z2) {
                         Throwable th = this.error.get();
                         if (th != null) {
-                            kocVar.onError(th);
+                            jocVar.onError(th);
                         } else {
-                            kocVar.onCompleted();
+                            jocVar.onCompleted();
                         }
                         return true;
                     }
@@ -127,10 +127,10 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
                 Throwable th2 = this.error.get();
                 if (th2 != null) {
                     cancel(queue);
-                    kocVar.onError(th2);
+                    jocVar.onError(th2);
                     return true;
                 } else if (z2) {
-                    kocVar.onCompleted();
+                    jocVar.onCompleted();
                     return true;
                 } else {
                     return false;
@@ -192,7 +192,7 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
             if (r13 == Long.MAX_VALUE) goto L36;
          */
         /* JADX WARN: Code restructure failed: missing block: B:35:0x009e, code lost:
-            com.baidu.tieba.dpc.g(r10, r3);
+            com.baidu.tieba.cpc.g(r10, r3);
          */
         /* JADX WARN: Code restructure failed: missing block: B:36:0x00a1, code lost:
             r12 = addAndGet(-r12);
@@ -212,47 +212,47 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
             if (getAndIncrement() != 0) {
                 return;
             }
-            crc<Object> crcVar = this.queue;
-            koc<? super R> kocVar = this.actual;
+            brc<Object> brcVar = this.queue;
+            joc<? super R> jocVar = this.actual;
             boolean z2 = this.delayError;
             AtomicLong atomicLong = this.requested;
             int i = 1;
-            while (!checkTerminated(this.done, crcVar.isEmpty(), kocVar, crcVar, z2)) {
+            while (!checkTerminated(this.done, brcVar.isEmpty(), jocVar, brcVar, z2)) {
                 long j2 = atomicLong.get();
                 long j3 = 0;
                 while (true) {
                     if (j3 != j2) {
                         boolean z3 = this.done;
-                        a aVar = (a) crcVar.peek();
+                        a aVar = (a) brcVar.peek();
                         if (aVar == null) {
                             z = true;
                         } else {
                             z = false;
                         }
                         long j4 = j3;
-                        if (checkTerminated(z3, z, kocVar, crcVar, z2)) {
+                        if (checkTerminated(z3, z, jocVar, brcVar, z2)) {
                             return;
                         }
                         if (z) {
                             j = j4;
                             break;
                         }
-                        crcVar.poll();
-                        Object[] objArr = (Object[]) crcVar.poll();
+                        brcVar.poll();
+                        Object[] objArr = (Object[]) brcVar.poll();
                         if (objArr == null) {
                             this.cancelled = true;
-                            cancel(crcVar);
-                            kocVar.onError(new IllegalStateException("Broken queue?! Sender received but not the array."));
+                            cancel(brcVar);
+                            jocVar.onError(new IllegalStateException("Broken queue?! Sender received but not the array."));
                             return;
                         }
                         try {
-                            kocVar.onNext((R) this.combiner.call(objArr));
+                            jocVar.onNext((R) this.combiner.call(objArr));
                             aVar.g(1L);
                             j3 = j4 + 1;
                         } catch (Throwable th) {
                             this.cancelled = true;
-                            cancel(crcVar);
-                            kocVar.onError(th);
+                            cancel(brcVar);
+                            jocVar.onError(th);
                             return;
                         }
                     } else {
@@ -285,7 +285,7 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class a<T, R> extends koc<T> {
+    public static final class a<T, R> extends joc<T> {
         public final LatestCoordinator<T, R> e;
         public final int f;
         public boolean g;
@@ -300,10 +300,10 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
             e(j);
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.eoc
         public void onError(Throwable th) {
             if (this.g) {
-                usc.j(th);
+                tsc.j(th);
                 return;
             }
             this.e.onError(th);
@@ -311,7 +311,7 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
             this.e.combine(null, this.f);
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.eoc
         public void onNext(T t) {
             if (this.g) {
                 return;
@@ -319,7 +319,7 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
             this.e.combine(NotificationLite.i(t), this.f);
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.eoc
         public void onCompleted() {
             if (this.g) {
                 return;
@@ -329,14 +329,14 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
         }
     }
 
-    public OnSubscribeCombineLatest(Iterable<? extends eoc<? extends T>> iterable, bpc<? extends R> bpcVar) {
-        this(null, iterable, bpcVar, wqc.c, false);
+    public OnSubscribeCombineLatest(Iterable<? extends doc<? extends T>> iterable, apc<? extends R> apcVar) {
+        this(null, iterable, apcVar, vqc.c, false);
     }
 
-    public OnSubscribeCombineLatest(eoc<? extends T>[] eocVarArr, Iterable<? extends eoc<? extends T>> iterable, bpc<? extends R> bpcVar, int i, boolean z) {
-        this.a = eocVarArr;
+    public OnSubscribeCombineLatest(doc<? extends T>[] docVarArr, Iterable<? extends doc<? extends T>> iterable, apc<? extends R> apcVar, int i, boolean z) {
+        this.a = docVarArr;
         this.b = iterable;
-        this.c = bpcVar;
+        this.c = apcVar;
         this.d = i;
         this.e = z;
     }
@@ -344,45 +344,45 @@ public final class OnSubscribeCombineLatest<T, R> implements eoc.a<R> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Removed duplicated region for block: B:18:0x0049  */
     /* JADX WARN: Removed duplicated region for block: B:20:0x004d  */
-    @Override // com.baidu.tieba.soc
+    @Override // com.baidu.tieba.roc
     /* renamed from: a */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void call(koc<? super R> kocVar) {
+    public void call(joc<? super R> jocVar) {
         int length;
         int i;
-        eoc<? extends T>[] eocVarArr = this.a;
-        if (eocVarArr == null) {
-            Iterable<? extends eoc<? extends T>> iterable = this.b;
+        doc<? extends T>[] docVarArr = this.a;
+        if (docVarArr == null) {
+            Iterable<? extends doc<? extends T>> iterable = this.b;
             if (iterable instanceof List) {
                 List list = (List) iterable;
-                eocVarArr = (eoc[]) list.toArray(new eoc[list.size()]);
-                length = eocVarArr.length;
+                docVarArr = (doc[]) list.toArray(new doc[list.size()]);
+                length = docVarArr.length;
             } else {
-                eoc<? extends T>[] eocVarArr2 = new eoc[8];
+                doc<? extends T>[] docVarArr2 = new doc[8];
                 int i2 = 0;
-                for (eoc<? extends T> eocVar : iterable) {
-                    if (i2 == eocVarArr2.length) {
-                        eoc<? extends T>[] eocVarArr3 = new eoc[(i2 >> 2) + i2];
-                        System.arraycopy(eocVarArr2, 0, eocVarArr3, 0, i2);
-                        eocVarArr2 = eocVarArr3;
+                for (doc<? extends T> docVar : iterable) {
+                    if (i2 == docVarArr2.length) {
+                        doc<? extends T>[] docVarArr3 = new doc[(i2 >> 2) + i2];
+                        System.arraycopy(docVarArr2, 0, docVarArr3, 0, i2);
+                        docVarArr2 = docVarArr3;
                     }
-                    eocVarArr2[i2] = eocVar;
+                    docVarArr2[i2] = docVar;
                     i2++;
                 }
-                eocVarArr = eocVarArr2;
+                docVarArr = docVarArr2;
                 i = i2;
                 if (i != 0) {
-                    kocVar.onCompleted();
+                    jocVar.onCompleted();
                     return;
                 } else {
-                    new LatestCoordinator(kocVar, this.c, i, this.d, this.e).subscribe(eocVarArr);
+                    new LatestCoordinator(jocVar, this.c, i, this.d, this.e).subscribe(docVarArr);
                     return;
                 }
             }
         } else {
-            length = eocVarArr.length;
+            length = docVarArr.length;
         }
         i = length;
         if (i != 0) {

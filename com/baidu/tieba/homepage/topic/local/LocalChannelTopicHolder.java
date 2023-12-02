@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.EllipsizeTagTitleView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gk8;
 import com.baidu.tieba.jt;
+import com.baidu.tieba.kk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,21 +45,21 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements j
                 return;
             }
         }
-        this.a = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f092776);
-        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092753);
-        this.c = (EllipsizeTagTitleView) view2.findViewById(R.id.obfuscated_res_0x7f092789);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09274a);
+        this.a = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f092778);
+        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092755);
+        this.c = (EllipsizeTagTitleView) view2.findViewById(R.id.obfuscated_res_0x7f09278b);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09274c);
     }
 
-    public void a(gk8 gk8Var) {
+    public void a(kk8 kk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gk8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, kk8Var) == null) {
             this.b.setConrers(15);
             this.b.setPlaceHolder(1);
-            this.b.startLoad(gk8Var.d, 10, false);
-            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.local_channel_topic_wrap, gk8Var.a), gk8Var.c);
-            if (!TextUtils.isEmpty(gk8Var.b)) {
-                this.d.setText(gk8Var.b);
+            this.b.startLoad(kk8Var.d, 10, false);
+            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.local_channel_topic_wrap, kk8Var.a), kk8Var.c);
+            if (!TextUtils.isEmpty(kk8Var.b)) {
+                this.d.setText(kk8Var.b);
                 this.d.setVisibility(0);
                 return;
             }

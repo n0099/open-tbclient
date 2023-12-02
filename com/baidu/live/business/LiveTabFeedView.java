@@ -1552,29 +1552,29 @@ public final class LiveTabFeedView extends FrameLayout {
 
     public final void G() {
         this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d060e, (ViewGroup) this, true);
-        this.b = findViewById(R.id.obfuscated_res_0x7f09177a);
-        this.c = findViewById(R.id.obfuscated_res_0x7f091846);
-        this.d = (MinorView) findViewById(R.id.obfuscated_res_0x7f0916a2);
-        this.e = findViewById(R.id.obfuscated_res_0x7f0916a4);
-        this.f = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f09169a);
-        this.o = (Space) findViewById(R.id.obfuscated_res_0x7f09169d);
-        this.p = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09169c);
-        this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0916ad);
-        this.j = findViewById(R.id.obfuscated_res_0x7f0916ab);
-        this.k = (SmartTabLayout) findViewById(R.id.obfuscated_res_0x7f0916aa);
-        this.l = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0916af);
-        this.m = (LiveFeedFollowView) findViewById(R.id.obfuscated_res_0x7f0916a5);
-        this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09169b);
-        this.u = findViewById(R.id.obfuscated_res_0x7f0916a6);
-        this.v = findViewById(R.id.obfuscated_res_0x7f0916ac);
-        this.w = findViewById(R.id.obfuscated_res_0x7f0916ae);
-        this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916a7);
-        this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f0916a8);
-        this.B = findViewById(R.id.obfuscated_res_0x7f0916a9);
-        this.A = (FakeStartLiveButton) findViewById(R.id.obfuscated_res_0x7f091637);
-        this.r = (LoadingView) findViewById(R.id.obfuscated_res_0x7f0916a1);
-        this.E = (ImageView) findViewById(R.id.obfuscated_res_0x7f09169f);
-        this.x = (LiveExpandTabView) findViewById(R.id.obfuscated_res_0x7f09162e);
+        this.b = findViewById(R.id.obfuscated_res_0x7f09177b);
+        this.c = findViewById(R.id.obfuscated_res_0x7f091847);
+        this.d = (MinorView) findViewById(R.id.obfuscated_res_0x7f0916a3);
+        this.e = findViewById(R.id.obfuscated_res_0x7f0916a5);
+        this.f = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f09169b);
+        this.o = (Space) findViewById(R.id.obfuscated_res_0x7f09169e);
+        this.p = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09169d);
+        this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0916ae);
+        this.j = findViewById(R.id.obfuscated_res_0x7f0916ac);
+        this.k = (SmartTabLayout) findViewById(R.id.obfuscated_res_0x7f0916ab);
+        this.l = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0916b0);
+        this.m = (LiveFeedFollowView) findViewById(R.id.obfuscated_res_0x7f0916a6);
+        this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09169c);
+        this.u = findViewById(R.id.obfuscated_res_0x7f0916a7);
+        this.v = findViewById(R.id.obfuscated_res_0x7f0916ad);
+        this.w = findViewById(R.id.obfuscated_res_0x7f0916af);
+        this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916a8);
+        this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f0916a9);
+        this.B = findViewById(R.id.obfuscated_res_0x7f0916aa);
+        this.A = (FakeStartLiveButton) findViewById(R.id.obfuscated_res_0x7f091638);
+        this.r = (LoadingView) findViewById(R.id.obfuscated_res_0x7f0916a2);
+        this.E = (ImageView) findViewById(R.id.obfuscated_res_0x7f0916a0);
+        this.x = (LiveExpandTabView) findViewById(R.id.obfuscated_res_0x7f09162f);
         MinorView minorView = this.d;
         if (minorView != null) {
             minorView.c(this.F);
@@ -1587,7 +1587,7 @@ public final class LiveTabFeedView extends FrameLayout {
         if (fakeStartLiveButton != null) {
             fakeStartLiveButton.setOnClickListener(new k());
         }
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091638);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091639);
         this.C = imageView;
         if (imageView != null) {
             imageView.setOnClickListener(new l());
@@ -1617,7 +1617,7 @@ public final class LiveTabFeedView extends FrameLayout {
         if (imageView3 != null) {
             imageView3.setOnClickListener(new m());
         }
-        LiveFeedPageToolFloatLayout liveFeedPageToolFloatLayout = (LiveFeedPageToolFloatLayout) findViewById(R.id.obfuscated_res_0x7f091654);
+        LiveFeedPageToolFloatLayout liveFeedPageToolFloatLayout = (LiveFeedPageToolFloatLayout) findViewById(R.id.obfuscated_res_0x7f091655);
         this.D = liveFeedPageToolFloatLayout;
         if (liveFeedPageToolFloatLayout != null) {
             liveFeedPageToolFloatLayout.setCallback(new n());
@@ -1632,7 +1632,7 @@ public final class LiveTabFeedView extends FrameLayout {
         if (recyclerView != null) {
             recyclerView.setLayoutManager(staggeredGridLayoutManager);
         }
-        NestedNoScrollViewPager nestedNoScrollViewPager = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f0916b0);
+        NestedNoScrollViewPager nestedNoScrollViewPager = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f0916b1);
         LiveFeedPageSdk liveFeedPageSdk = LiveFeedPageSdk.getInstance();
         Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk, "LiveFeedPageSdk.getInstance()");
         if (Intrinsics.areEqual(LiveFeedPageSdk.HOST_HAOKAN, liveFeedPageSdk.getHost())) {
@@ -1749,7 +1749,7 @@ public final class LiveTabFeedView extends FrameLayout {
         if (smartTabLayout5 != null) {
             smartTabLayout5.setOnScrollChangeListener(new h());
         }
-        ErrorView errorView = (ErrorView) findViewById(R.id.obfuscated_res_0x7f09169e);
+        ErrorView errorView = (ErrorView) findViewById(R.id.obfuscated_res_0x7f09169f);
         this.s = errorView;
         if (errorView != null) {
             errorView.setActionCallback(new i());

@@ -32,7 +32,7 @@ public final class OpenAppDeepLinkCheck extends OpenAppBaseCheck implements IDee
 
     @Override // com.baidu.searchbox.schemedispatch.monitor.OpenAppBaseCheck
     public void loadWhiteListAsync() {
-        ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.tieba.ej1
+        ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.tieba.hj1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

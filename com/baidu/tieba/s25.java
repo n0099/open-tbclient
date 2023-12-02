@@ -1,189 +1,161 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.SharedPreferences;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.dialog.yun.strategy.FrequenceDialogStrategy;
 import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.collections.SetsKt___SetsKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__IndentKt;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class s25 {
     public static /* synthetic */ Interceptable $ic;
+    public static final s25 a;
+    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.r25.a(java.lang.String):void] */
-    public static final /* synthetic */ void a(List list) {
-        c(list);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948099539, "Lcom/baidu/tieba/s25;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948099539, "Lcom/baidu/tieba/s25;");
+                return;
+            }
+        }
+        a = new s25();
+        b = TbadkCoreApplication.getInst().getSharedPreferences("new_frequency_strategy_helper_sp", 0);
     }
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.r25.a(java.lang.String):void] */
-    public static final /* synthetic */ void b(List list, List list2) {
-        d(list, list2);
-    }
-
-    public static final void c(List<? extends DialogStrategiesData> list) {
-        Map<String, Object> data;
+    public s25() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, list) == null) {
-            for (DialogStrategiesData dialogStrategiesData : list) {
-                try {
-                    DialogStrategiesData.StrategiesConfigData e = e(dialogStrategiesData, "NEW_FREQUENCE_STRATEGY");
-                    if (e != null && (data = e.P()) != null) {
-                        Intrinsics.checkNotNullExpressionValue(data, "data");
-                        FrequenceDialogStrategy.Data data2 = (FrequenceDialogStrategy.Data) DataExt.toEntity(data, FrequenceDialogStrategy.Data.class);
-                        if (data2 != null) {
-                            p25 p25Var = p25.a;
-                            String dialogName = dialogStrategiesData.getDialogName();
-                            Intrinsics.checkNotNullExpressionValue(dialogName, "it.dialogName");
-                            int b = p25Var.b(dialogName);
-                            int i = data2.frequenceClearVersion;
-                            if (i != b) {
-                                TbLog yunDialogLog = YunDialogLog.getInstance();
-                                yunDialogLog.i(YunDialogManager.LOG_KEY, "云弹窗 " + dialogStrategiesData.getDialogName() + " 频次重置版本更新，准备重置频次");
-                                p25 p25Var2 = p25.a;
-                                String dialogName2 = dialogStrategiesData.getDialogName();
-                                Intrinsics.checkNotNullExpressionValue(dialogName2, "it.dialogName");
-                                p25Var2.f(dialogName2, i);
-                            }
-                        }
-                    }
-                } catch (Exception e2) {
-                    if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                        TbLog yunDialogLog2 = YunDialogLog.getInstance();
-                        yunDialogLog2.e(YunDialogManager.LOG_KEY, "新版云弹窗频次重置策略异常" + e2.getMessage());
-                        e2.printStackTrace();
-                    } else {
-                        throw e2;
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e6, code lost:
-        if (f(r3, r4) == true) goto L39;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final void d(List<? extends DialogStrategiesData> list, List<? extends DialogStrategiesData> list2) {
-        DialogStrategiesData.StrategiesConfigData strategiesConfigData;
-        Object obj;
-        Object obj2;
+    public final int a(String dialogName) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, list, list2) == null) {
-            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-            for (DialogStrategiesData dialogStrategiesData : list) {
-                arrayList.add(dialogStrategiesData.getDialogName());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogName)) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String str = "";
+            String string = b.getString(c(dialogName), "");
+            if (string != null) {
+                str = string;
             }
-            Set set = CollectionsKt___CollectionsKt.toSet(arrayList);
-            ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list2, 10));
-            for (DialogStrategiesData dialogStrategiesData2 : list2) {
-                arrayList2.add(dialogStrategiesData2.getDialogName());
+            if (StringUtils.isNotNull(str)) {
+                return e(str, "count");
             }
-            for (String name : SetsKt___SetsKt.plus(set, (Iterable) CollectionsKt___CollectionsKt.toSet(arrayList2))) {
-                Iterator<T> it = list.iterator();
-                while (true) {
-                    strategiesConfigData = null;
-                    if (it.hasNext()) {
-                        obj = it.next();
-                        if (Intrinsics.areEqual(((DialogStrategiesData) obj).getDialogName(), name)) {
-                            break;
-                        }
-                    } else {
-                        obj = null;
-                        break;
-                    }
-                }
-                DialogStrategiesData dialogStrategiesData3 = (DialogStrategiesData) obj;
-                Iterator<T> it2 = list2.iterator();
-                while (true) {
-                    if (it2.hasNext()) {
-                        obj2 = it2.next();
-                        if (Intrinsics.areEqual(((DialogStrategiesData) obj2).getDialogName(), name)) {
-                            break;
-                        }
-                    } else {
-                        obj2 = null;
-                        break;
-                    }
-                }
-                DialogStrategiesData dialogStrategiesData4 = (DialogStrategiesData) obj2;
-                if (dialogStrategiesData3 == null || dialogStrategiesData4 == null) {
-                    YunDialogLog.getInstance().i(YunDialogManager.LOG_KEY, "本地或远程没有弹窗 " + name + " ，准备重置频次");
-                    q25 q25Var = q25.a;
-                    Intrinsics.checkNotNullExpressionValue(name, "name");
-                    q25Var.b(name);
-                }
-                boolean z = true;
-                if (dialogStrategiesData3 != null && (r3 = e(dialogStrategiesData3, "FREQUENCE_STRATEGY")) != null) {
-                    if (dialogStrategiesData4 != null) {
-                        strategiesConfigData = e(dialogStrategiesData4, "FREQUENCE_STRATEGY");
-                    }
-                }
-                z = false;
-                if (z) {
-                    YunDialogLog.getInstance().i(YunDialogManager.LOG_KEY, "云弹窗 " + name + " 频次配置更新，准备重置频次");
-                    q25 q25Var2 = q25.a;
-                    Intrinsics.checkNotNullExpressionValue(name, "name");
-                    q25Var2.b(name);
-                }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public final int b(String dialogName) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogName)) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String str = "";
+            String string = b.getString(c(dialogName), "");
+            if (string != null) {
+                str = string;
             }
+            if (StringUtils.isNotNull(str)) {
+                return e(str, "version");
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return SharedPrefHelper.getSharedPrefKeyWithAccount("KEY_NEW_FREQUENCE_DIALOG_STRATEGY_COUNTER") + '_' + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String d(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            return StringsKt__IndentKt.trimIndent("\n        {\"version\":" + i + ",\"count\":" + i2 + "}\n    ");
+        }
+        return (String) invokeII.objValue;
+    }
+
+    public final void g(String dialogName, int i) {
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, dialogName, i) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String c = c(dialogName);
+            if (StringUtils.isNull(b.getString(c, ""))) {
+                d = d(i, 1);
+            } else {
+                d = d(i, a(dialogName) + 1);
+            }
+            SharedPreferences.Editor edit = b.edit();
+            edit.putString(c, d);
+            edit.apply();
         }
     }
 
-    public static final DialogStrategiesData.StrategiesConfigData e(DialogStrategiesData dialogStrategiesData, String str) {
-        InterceptResult invokeLL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, dialogStrategiesData, str)) == null) {
-            List<DialogStrategiesData.StrategiesConfigData> dialogStrategy = dialogStrategiesData.getDialogStrategy();
-            Intrinsics.checkNotNullExpressionValue(dialogStrategy, "dialogStrategy");
-            Iterator<T> it = dialogStrategy.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    obj = it.next();
-                    if (Intrinsics.areEqual(str, ((DialogStrategiesData.StrategiesConfigData) obj).getType())) {
-                        break;
-                    }
-                } else {
-                    obj = null;
-                    break;
-                }
-            }
-            return (DialogStrategiesData.StrategiesConfigData) obj;
-        }
-        return (DialogStrategiesData.StrategiesConfigData) invokeLL.objValue;
-    }
-
-    public static final boolean f(DialogStrategiesData.StrategiesConfigData strategiesConfigData, DialogStrategiesData.StrategiesConfigData strategiesConfigData2) {
+    public final int e(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, strategiesConfigData, strategiesConfigData2)) == null) {
-            if (strategiesConfigData2 != null) {
-                if (!Intrinsics.areEqual(strategiesConfigData.P().get("startTimestamp"), strategiesConfigData2.P().get("startTimestamp")) || !Intrinsics.areEqual(strategiesConfigData.P().get("endTimestamp"), strategiesConfigData2.P().get("endTimestamp")) || !Intrinsics.areEqual(strategiesConfigData.P().get("frequence"), strategiesConfigData2.P().get("frequence"))) {
-                    return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            try {
+                return new JSONObject(str).optInt(str2);
+            } catch (Exception e) {
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    TbLog yunDialogLog = YunDialogLog.getInstance();
+                    yunDialogLog.e(YunDialogManager.LOG_KEY, "读取缓存频次json失败" + e.getMessage());
+                    e.printStackTrace();
+                    return 0;
                 }
-                return false;
+                throw e;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return invokeLL.intValue;
+    }
+
+    public final void f(String dialogName, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, dialogName, i) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            TbLog yunDialogLog = YunDialogLog.getInstance();
+            yunDialogLog.i(YunDialogManager.LOG_KEY, "重置弹窗 " + dialogName + " 的本地频次记录");
+            String c = c(dialogName);
+            SharedPreferences.Editor edit = b.edit();
+            edit.putString(c, a.d(i, 0));
+            edit.apply();
+        }
     }
 }

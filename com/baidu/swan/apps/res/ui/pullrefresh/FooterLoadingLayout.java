@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r03;
+import com.baidu.tieba.u03;
 /* loaded from: classes4.dex */
 public class FooterLoadingLayout extends LoadingLayout {
     public LoadingAnimView e;
@@ -22,8 +22,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091e9d);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091e9c);
+        this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091e9f);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091e9e);
         this.f = textView;
         textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060455));
         setState(ILoadingLayout$State.RESET);
@@ -44,7 +44,7 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        View b = r03.a().b(R.layout.obfuscated_res_0x7f0d00cd, viewGroup, false);
+        View b = u03.a().b(R.layout.obfuscated_res_0x7f0d00cd, viewGroup, false);
         b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f06045d));
         return b;
     }
@@ -63,7 +63,7 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public int getContentSize() {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091e9b);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091e9d);
         if (findViewById != null) {
             return findViewById.getHeight();
         }

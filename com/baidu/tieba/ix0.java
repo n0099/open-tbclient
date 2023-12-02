@@ -1,24 +1,32 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ix0 {
+public final class ix0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str) {
+    public static final String a(String[] array) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, array)) == null) {
+            Intrinsics.checkNotNullParameter(array, "array");
+            for (String str : array) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    return str;
+                }
             }
-            return new File(str).exists();
+            return "";
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

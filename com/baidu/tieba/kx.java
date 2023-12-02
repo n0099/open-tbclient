@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class kx implements dg1<IBoxDownloadDbOperator> {
+public final class kx implements gg1<IBoxDownloadDbOperator> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,7 +26,7 @@ public final class kx implements dg1<IBoxDownloadDbOperator> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dg1
+    @Override // com.baidu.tieba.gg1
     /* renamed from: a */
     public IBoxDownloadDbOperator getService() {
         InterceptResult invokeV;

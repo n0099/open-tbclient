@@ -943,9 +943,9 @@ public final class m extends com.kwad.components.core.widget.b<AdResultData, AdT
             return;
         }
         if (com.kwad.sdk.core.response.b.a.cJ(com.kwad.sdk.core.response.b.e.dP(adTemplate))) {
-            this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091513);
+            this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091514);
         } else {
-            this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091517);
+            this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091518);
         }
         this.fW = true;
     }
@@ -1089,12 +1089,12 @@ public final class m extends com.kwad.components.core.widget.b<AdResultData, AdT
     @Override // com.kwad.components.core.widget.b
     public final void bc() {
         com.kwad.components.ad.feed.monitor.b.aZ();
-        this.fy = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09133b);
-        this.eL = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0914e7);
-        this.fA = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914fa);
-        this.fB = (TextView) findViewById(R.id.obfuscated_res_0x7f0914f9);
-        this.eM = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914f7);
-        this.eX = findViewById(R.id.obfuscated_res_0x7f0913b2);
+        this.fy = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09133c);
+        this.eL = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0914e8);
+        this.fA = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914fb);
+        this.fB = (TextView) findViewById(R.id.obfuscated_res_0x7f0914fa);
+        this.eM = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914f8);
+        this.eX = findViewById(R.id.obfuscated_res_0x7f0913b3);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.database.FrsVisitedInfoManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 @Service
 /* loaded from: classes5.dex */
-public class a48 implements b25 {
+public class a48 implements tt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.b25
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_EXAM_STRATEGY" : (String) invokeV.objValue;
-    }
 
     public a48() {
         Interceptable interceptable = $ic;
@@ -34,13 +30,19 @@ public class a48 implements b25 {
         }
     }
 
-    @Override // com.baidu.tieba.b25
-    public z15 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.tt7
+    public void a(@NonNull String str, @NonNull Function1<? super Long, Unit> function1) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new z38();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, function1) == null) {
+            FrsVisitedInfoManager.f().g(str, function1);
         }
-        return (z15) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tt7
+    public void b(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            FrsVisitedInfoManager.f().i(str);
+        }
     }
 }

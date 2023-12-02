@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.personalize.view.LiveTipLabelView;
-import com.baidu.tieba.j5b;
+import com.baidu.tieba.i5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -174,7 +174,7 @@ public final class LiveTipLabelView extends EMTextView {
                 return c;
             }
         });
-        this.c = new Runnable() { // from class: com.baidu.tieba.ki8
+        this.c = new Runnable() { // from class: com.baidu.tieba.oi8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -268,8 +268,8 @@ public final class LiveTipLabelView extends EMTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3) == null) {
             DefaultLog.getInstance().i("liveTipLog", "红点切换，淡入淡出效果");
-            j5b.d(view3, 800);
-            j5b.b(view2, 800);
+            i5b.d(view3, 800);
+            i5b.b(view2, 800);
         }
     }
 
@@ -279,9 +279,9 @@ public final class LiveTipLabelView extends EMTextView {
             if (g() || f()) {
                 SafeHandler.getInst().removeCallbacks(this.c);
                 if (f()) {
-                    j5b.b(this, 500);
+                    i5b.b(this, 500);
                 } else if (g()) {
-                    j5b.b(getMRedDotTip(), 500);
+                    i5b.b(getMRedDotTip(), 500);
                 }
             }
         }
@@ -303,7 +303,7 @@ public final class LiveTipLabelView extends EMTextView {
         setTranslationX(f);
         setTranslationY(f2);
         viewGroup.addView(this);
-        j5b.e(this, 500, new a(this));
+        i5b.e(this, 500, new a(this));
     }
 
     public final void setViewLocation(ViewGroup viewGroup, float f, float f2) {

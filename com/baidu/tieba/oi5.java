@@ -1,47 +1,97 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import com.baidu.tieba.ui5;
-import com.baidu.tieba.wi5;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public abstract class oi5<R extends ui5, W extends wi5> {
+public class oi5 extends ri5<pi5, qi5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final R a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public final Rect g;
-    public final Rect h;
 
-    public abstract Bitmap a(Canvas canvas, Paint paint, int i, Bitmap bitmap, W w);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948033230, "Lcom/baidu/tieba/oi5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948033230, "Lcom/baidu/tieba/oi5;");
+        }
+    }
 
-    public oi5(R r) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oi5(pi5 pi5Var) {
+        super(pi5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {pi5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((xi5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = new Rect();
-        this.h = new Rect();
-        this.a = r;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ri5
+    /* renamed from: b */
+    public Bitmap a(Canvas canvas, Paint paint, int i, Bitmap bitmap, qi5 qi5Var) {
+        InterceptResult invokeCommon;
+        Bitmap decodeStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, paint, Integer.valueOf(i), bitmap, qi5Var})) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = false;
+            options.inSampleSize = i;
+            options.inMutable = true;
+            options.inBitmap = bitmap;
+            Bitmap bitmap2 = null;
+            try {
+                ((pi5) this.a).reset();
+                try {
+                    decodeStream = BitmapFactory.decodeStream(((pi5) this.a).a(), null, options);
+                } catch (IllegalArgumentException unused) {
+                    BitmapFactory.Options options2 = new BitmapFactory.Options();
+                    options2.inJustDecodeBounds = false;
+                    options2.inSampleSize = i;
+                    options2.inMutable = true;
+                    decodeStream = BitmapFactory.decodeStream(((pi5) this.a).a(), null, options2);
+                }
+            } catch (IOException e) {
+                e = e;
+            }
+            try {
+                paint.setXfermode(null);
+                canvas.drawBitmap(decodeStream, 0.0f, 0.0f, paint);
+                return decodeStream;
+            } catch (IOException e2) {
+                e = e2;
+                bitmap2 = decodeStream;
+                e.printStackTrace();
+                return bitmap2;
+            }
+        }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

@@ -1,23 +1,46 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface iya {
-    void a(TbPageContext<?> tbPageContext);
+public class iya {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str);
+    public static VoiceManager a(Context context) {
+        InterceptResult invokeL;
+        TbPageContext tbPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context instanceof VoiceManager.i) {
+                return ((VoiceManager.i) context).M0();
+            }
+            if ((a5.a(context) instanceof BdPageContext) && (tbPageContext = (TbPageContext) a5.a(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.i)) {
+                return ((VoiceManager.i) tbPageContext.getOrignalPage()).M0();
+            }
+            return null;
+        }
+        return (VoiceManager) invokeL.objValue;
+    }
 
-    boolean c(ge geVar, int i);
-
-    void cancelRecord();
-
-    void d(int i);
-
-    void e(ge geVar);
-
-    boolean f();
-
-    void release();
-
-    void stopRecord();
+    public static VoiceManager b(Context context) {
+        InterceptResult invokeL;
+        TbPageContext tbPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context instanceof VoiceManager.j) {
+                return ((VoiceManager.j) context).d1();
+            }
+            if ((a5.a(context) instanceof BdPageContext) && (tbPageContext = (TbPageContext) a5.a(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).d1();
+            }
+            return null;
+        }
+        return (VoiceManager) invokeL.objValue;
+    }
 }

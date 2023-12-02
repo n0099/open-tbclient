@@ -1,52 +1,42 @@
 package com.baidu.tieba;
 
-import android.util.ArrayMap;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.aperf.param.IAperfOverlayContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class soa {
+public class soa implements IAperfOverlayContext {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Long> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948159524, "Lcom/baidu/tieba/soa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948159524, "Lcom/baidu/tieba/soa;");
-                return;
+    public soa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new ArrayMap();
     }
 
-    public static void a(String str, boolean z) {
-        Long remove;
+    @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
+    public String getAppVersion() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65537, null, str, z) != null) || (remove = a.remove(str)) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbConfig.getVersion();
         }
-        StatisticItem addParam = new StatisticItem("shoubai_http_net_test").addParam("obj_name", str).addParam("obj_type", BdNetTypeUtil.getNetType()).addParam("obj_source", "true false");
-        TiebaStatic.log(addParam.addParam("obj_param1", z + "").addParam(TiebaStatic.Params.OBJ_PARAM2, SpeedStatsManager.getInstance().getDurationWithoutAD(remove.longValue(), System.currentTimeMillis())));
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a.put(str, Long.valueOf(System.currentTimeMillis()));
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -121,7 +121,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.b {
                         b.this.ph.a(b.this.qn, adLiveEndResultData.mQLivePushEndInfo, b.this.hj);
                         b.this.qn.ph = b.this.ph;
                         b bVar2 = b.this;
-                        bVar2.tO = bVar2.findViewById(R.id.obfuscated_res_0x7f0913be);
+                        bVar2.tO = bVar2.findViewById(R.id.obfuscated_res_0x7f0913bf);
                         b.this.tO.setVisibility(0);
                         b.this.hv();
                     }

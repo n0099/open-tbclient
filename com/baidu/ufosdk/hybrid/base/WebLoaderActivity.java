@@ -427,8 +427,8 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
             a aVar = new a(this);
             this.I = aVar;
             registerReceiver(aVar, new IntentFilter("com.baidu.ufosdk.ACTION_SIGN"));
-            setContentView(R.layout.obfuscated_res_0x7f0d09e7);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092081);
+            setContentView(R.layout.obfuscated_res_0x7f0d09e8);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092083);
             this.m = relativeLayout;
             int i10 = -15132391;
             if (this.b) {
@@ -437,7 +437,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
                 i = -1;
             }
             relativeLayout.setBackgroundColor(i);
-            FeedbackTitleBar feedbackTitleBar = (FeedbackTitleBar) findViewById(R.id.obfuscated_res_0x7f092af2);
+            FeedbackTitleBar feedbackTitleBar = (FeedbackTitleBar) findViewById(R.id.obfuscated_res_0x7f092af5);
             this.n = feedbackTitleBar;
             Resources resources = getResources();
             int i11 = R.color.obfuscated_res_0x7f060656;
@@ -452,22 +452,22 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
             }
             bdShimmerView.setBackgroundColor(i2);
             this.x.setType(b.m());
-            RelativeLayout relativeLayout2 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a0a);
+            RelativeLayout relativeLayout2 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a0c);
             this.p = relativeLayout2;
             Resources resources2 = getResources();
             if (this.b) {
                 i11 = R.color.obfuscated_res_0x7f060503;
             }
             relativeLayout2.setBackgroundColor(resources2.getColor(i11));
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a3d);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a3f);
             this.q = imageView;
             if (this.b) {
-                i3 = R.drawable.obfuscated_res_0x7f08111a;
+                i3 = R.drawable.obfuscated_res_0x7f08111d;
             } else {
-                i3 = R.drawable.obfuscated_res_0x7f081119;
+                i3 = R.drawable.obfuscated_res_0x7f08111c;
             }
             imageView.setBackgroundResource(i3);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a0e);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a10);
             this.r = textView;
             Resources resources3 = getResources();
             if (this.b) {
@@ -476,7 +476,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
                 i4 = R.color.obfuscated_res_0x7f060902;
             }
             textView.setTextColor(resources3.getColor(i4));
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091f96);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091f98);
             this.s = button;
             Resources resources4 = getResources();
             if (this.b) {
@@ -487,12 +487,12 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
             button.setTextColor(resources4.getColor(i5));
             Button button2 = this.s;
             if (this.b) {
-                i6 = R.drawable.obfuscated_res_0x7f081118;
+                i6 = R.drawable.obfuscated_res_0x7f08111b;
             } else {
-                i6 = R.drawable.obfuscated_res_0x7f081117;
+                i6 = R.drawable.obfuscated_res_0x7f08111a;
             }
             button2.setBackgroundResource(i6);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090957);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090958);
             this.t = findViewById;
             Resources resources5 = getResources();
             if (this.b) {

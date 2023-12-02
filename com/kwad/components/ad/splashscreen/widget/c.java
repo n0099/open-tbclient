@@ -118,20 +118,20 @@ public final class c extends AnimationDrawable {
         if (i2 != 0) {
             if (i2 != 1) {
                 if (i2 == 2) {
-                    this.GD = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070566);
-                    this.GC = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070565);
+                    this.GD = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070567);
+                    this.GC = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070566);
                     this.Gy = this.GD * 0.09f;
                     this.Gz = (-this.Gw) * 0.5f;
                 }
             } else {
-                this.GD = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070566);
-                this.GC = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070565);
+                this.GD = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070567);
+                this.GC = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070566);
                 this.Gy = this.GD * 0.09f;
                 this.Gz = (-this.Gw) * 0.2f;
             }
         } else {
-            this.GD = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070565);
-            int dimension = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070566);
+            this.GD = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070566);
+            int dimension = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070567);
             this.GC = dimension;
             this.Gy = (-this.Gx) * 0.22f;
             this.Gz = dimension * 0.08f;

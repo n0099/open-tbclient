@@ -5,13 +5,13 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dn7;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.tieba.forum.widget.TbBottomSheetView;
 import com.baidu.tieba.forum.widget.TbLinkageScrollView;
 import com.baidu.tieba.forum.widget.TbNestedScrollView;
 import com.baidu.tieba.forum.widget.ViewExtentionsKt;
-import com.baidu.tieba.uj7;
+import com.baidu.tieba.hn7;
+import com.baidu.tieba.yj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,13 +27,13 @@ import kotlin.jvm.internal.Intrinsics;
 public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final uj7.a C;
+    public final yj7.a C;
     public int D;
     public int E;
     public int F;
     public boolean G;
     public final int H;
-    public dn7 I;
+    public hn7 I;
     public final a J;
 
     @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy
@@ -47,7 +47,7 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements dn7 {
+    public static final class a implements hn7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NonFullWebLayoutStrategy a;
@@ -70,30 +70,30 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
             this.a = nonFullWebLayoutStrategy;
         }
 
-        @Override // com.baidu.tieba.dn7
+        @Override // com.baidu.tieba.hn7
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                dn7.a.a(this, i);
+                hn7.a.a(this, i);
             }
         }
 
-        @Override // com.baidu.tieba.dn7
+        @Override // com.baidu.tieba.hn7
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 NonFullWebLayoutStrategy nonFullWebLayoutStrategy = this.a;
                 nonFullWebLayoutStrategy.O(nonFullWebLayoutStrategy.E);
-                dn7 a0 = this.a.a0();
+                hn7 a0 = this.a.a0();
                 if (a0 != null) {
                     a0.a();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.dn7
+        @Override // com.baidu.tieba.hn7
         public void b() {
-            dn7 a0;
+            hn7 a0;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (a0 = this.a.a0()) != null) {
                 a0.b();
@@ -102,7 +102,7 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NonFullWebLayoutStrategy(ActivityForumBinding binding, uj7.a dataWrapper) {
+    public NonFullWebLayoutStrategy(ActivityForumBinding binding, yj7.a dataWrapper) {
         super(binding, (int) dataWrapper.c(), (int) dataWrapper.d());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -129,7 +129,7 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
         this.J = new a(this);
     }
 
-    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.en7
+    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.in7
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -203,7 +203,7 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.en7
+    @Override // com.baidu.tieba.in7
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -227,7 +227,7 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.en7
+    @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy, com.baidu.tieba.in7
     public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -238,7 +238,7 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.en7
+    @Override // com.baidu.tieba.in7
     /* renamed from: Z */
     public TbLinkageScrollView H() {
         InterceptResult invokeV;
@@ -251,13 +251,13 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
         return (TbLinkageScrollView) invokeV.objValue;
     }
 
-    public final dn7 a0() {
+    public final hn7 a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.I;
         }
-        return (dn7) invokeV.objValue;
+        return (hn7) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.forum.strategy.BaseLayoutStrategy
@@ -290,7 +290,7 @@ public final class NonFullWebLayoutStrategy extends BaseLayoutStrategy {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.en7
+    @Override // com.baidu.tieba.in7
     public float I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

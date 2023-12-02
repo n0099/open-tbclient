@@ -1,116 +1,154 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import tbclient.App;
-import tbclient.BannerList;
-import tbclient.Personalized.DataRes;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
 public class gi8 {
     public static /* synthetic */ Interceptable $ic;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static void a(String str, List<pi> list) {
-        lwa lwaVar;
+    /* loaded from: classes6.dex */
+    public class a extends nu5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ThreadInfo a;
+
+        public a(ThreadInfo threadInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadInfo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = threadInfo;
+        }
+
+        @Override // com.baidu.tieba.nu5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                String[] split = SharedPrefHelper.getInstance().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(",");
+                if (split.length != 2) {
+                    return null;
+                }
+                String str = split[0];
+                long j = JavaTypesHelper.toLong(split[1], 0L);
+                if (j != 0 && !StringUtils.isNull(str)) {
+                    SharedPrefHelper.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), this.a.tid + "," + j);
+                }
+                return null;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    public gi8() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) && list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
-            Iterator<pi> it = list.iterator();
-            int i = 0;
-            AdvertAppInfo advertAppInfo = null;
-            int i2 = 0;
-            int i3 = 0;
-            while (it.hasNext()) {
-                i++;
-                pi next = it.next();
-                if ((i2 + 1 == i || i3 + 1 == i) && (next instanceof h36)) {
-                    it.remove();
-                }
-                if (next instanceof eh8) {
-                    advertAppInfo = ((eh8) next).c();
-                } else if (next instanceof wx4) {
-                    wx4 wx4Var = (wx4) next;
-                    if (wx4Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
-                        advertAppInfo = ((AdvertAppInfo.ILegoAdvert) wx4Var.c()).getAdvertAppInfo();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static void d(long j, int i, List<ThreadInfo> list, List<pi> list2) {
+        ThreadInfo threadInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), list, list2}) == null) && j == b && !ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
+            if (i == 0) {
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    if (list2.get(i2) instanceof fi8) {
+                        list2.remove(i2);
+                        return;
                     }
-                } else if ((next instanceof ThreadData) && (lwaVar = ((ThreadData) next).funAdData) != null && lwaVar.i()) {
-                    it.remove();
-                    i3 = i;
                 }
-                if (advertAppInfo != null && str.equals(advertAppInfo.a)) {
-                    it.remove();
-                    advertAppInfo = null;
-                    i2 = i;
+                return;
+            }
+            int i3 = i + 1;
+            if (ListUtils.getCount(list) > i3 && (threadInfo = list.get(i3)) != null && threadInfo.tid.longValue() != 0) {
+                b = threadInfo.tid.longValue();
+                ru5.b(new a(threadInfo), null);
+            }
+        }
+    }
+
+    public void a(List<pi> list) {
+        um6 um6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || !TbadkCoreApplication.isLogin()) {
+            return;
+        }
+        if (this.a == null) {
+            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+            this.a = sharedPrefHelper.getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
+        }
+        if (StringUtils.isNull(this.a)) {
+            return;
+        }
+        String[] split = this.a.split(",");
+        if (split.length != 2) {
+            return;
+        }
+        String str = split[0];
+        long j = JavaTypesHelper.toLong(split[1], 0L);
+        if (j != 0 && !StringUtils.isNull(str) && !ListUtils.isEmpty(list)) {
+            for (int i = 0; i < list.size(); i++) {
+                if ((list.get(i) instanceof um6) && (um6Var = (um6) list.get(i)) != null && !StringUtils.isNull(um6Var.g) && um6Var.g.equals(str)) {
+                    fi8 fi8Var = new fi8();
+                    fi8Var.a = j;
+                    fi8Var.b = false;
+                    list.add(i, fi8Var);
+                    return;
                 }
             }
         }
     }
 
-    public static void b(List<pi> list, DataRes.Builder builder, of8 of8Var, bh8 bh8Var) {
-        lwa lwaVar;
+    public void b(ThreadInfo threadInfo) {
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, list, builder, of8Var, bh8Var) == null) {
-            if (list != null && list.size() > 0) {
-                Iterator<pi> it = list.iterator();
-                while (it.hasNext()) {
-                    pi next = it.next();
-                    if (!(next instanceof eh8) && !(next instanceof wx4) && !(next instanceof h36)) {
-                        if ((next instanceof ThreadData) && (lwaVar = ((ThreadData) next).funAdData) != null) {
-                            lwaVar.p(true);
-                            it.remove();
-                        }
-                    } else {
-                        it.remove();
-                    }
-                }
-            }
-            if (builder != null && ListUtils.getCount(builder.thread_list) > 0) {
-                BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
-                List<App> list2 = builder2.app;
-                if (list2 != null) {
-                    list2.clear();
-                }
-                builder.banner_list = builder2.build(false);
-                DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
-                builder3.banner_list = builder2.build(true);
-                if (of8Var != null) {
-                    of8Var.a(builder3);
-                }
-            }
-            if (bh8Var != null) {
-                bh8Var.B(list);
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) == null) && th8.a && threadInfo != null && threadInfo != null && (l = threadInfo.tid) != null && l.longValue() != 0) {
+            this.a = null;
+            b = threadInfo.tid.longValue();
+            SharedPrefHelper.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
         }
     }
 
-    public static void c(String str, DataRes.Builder builder, of8 of8Var) {
-        BannerList bannerList;
-        List<App> list;
+    public void c(boolean z, List<ThreadInfo> list) {
+        ThreadInfo threadInfo;
+        Long l;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, builder, of8Var) == null) && !TextUtils.isEmpty(str) && builder != null && (bannerList = builder.banner_list) != null && (list = bannerList.app) != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (App app : builder.banner_list.app) {
-                if (app != null && str.equals(vga.a(app))) {
-                    arrayList.add(app);
-                }
-            }
-            BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
-            List<App> list2 = builder2.app;
-            if (list2 != null) {
-                list2.removeAll(arrayList);
-            }
-            builder.banner_list = builder2.build(false);
-            DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
-            builder3.banner_list = builder2.build(true);
-            if (of8Var != null) {
-                of8Var.a(builder3);
-            }
+        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, list) == null) && TbadkCoreApplication.isLogin() && !ListUtils.isEmpty(list) && z && (threadInfo = (ThreadInfo) ListUtils.getItem(list, 0)) != null && (l = threadInfo.tid) != null && l.longValue() != 0) {
+            this.a = null;
+            b = threadInfo.tid.longValue();
+            SharedPrefHelper.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
         }
     }
 }

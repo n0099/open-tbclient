@@ -11,7 +11,7 @@ import com.baidu.mobads.sdk.internal.bf;
 import com.baidu.mobads.sdk.internal.bx;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ij0;
-import com.baidu.tieba.t61;
+import com.baidu.tieba.v61;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -66,7 +66,7 @@ public final class NadBrowserStateView extends FrameLayout {
 
     public final View a(ViewState viewState) {
         if (viewState != null) {
-            int i = t61.$EnumSwitchMapping$0[viewState.ordinal()];
+            int i = v61.$EnumSwitchMapping$0[viewState.ordinal()];
             if (i != 1) {
                 if (i == 2) {
                     return this.a;
@@ -81,7 +81,7 @@ public final class NadBrowserStateView extends FrameLayout {
     public final void b(ViewState viewState) {
         View view2;
         if (viewState != null) {
-            int i = t61.$EnumSwitchMapping$3[viewState.ordinal()];
+            int i = v61.$EnumSwitchMapping$3[viewState.ordinal()];
             if (i != 1) {
                 if (i == 2 && (view2 = this.a) != null) {
                     Intrinsics.checkNotNull(view2);
@@ -108,7 +108,7 @@ public final class NadBrowserStateView extends FrameLayout {
     public final void f(ViewState viewState) {
         View view2;
         if (viewState != null) {
-            int i = t61.$EnumSwitchMapping$2[viewState.ordinal()];
+            int i = v61.$EnumSwitchMapping$2[viewState.ordinal()];
             if (i != 1) {
                 if (i == 2 && (view2 = this.a) != null) {
                     Intrinsics.checkNotNull(view2);
@@ -195,7 +195,7 @@ public final class NadBrowserStateView extends FrameLayout {
     public final void setViewForState(View view2, ViewState viewState) {
         if (view2 != null) {
             if (viewState != null) {
-                int i = t61.$EnumSwitchMapping$1[viewState.ordinal()];
+                int i = v61.$EnumSwitchMapping$1[viewState.ordinal()];
                 if (i != 1) {
                     if (i == 2) {
                         View view3 = this.a;

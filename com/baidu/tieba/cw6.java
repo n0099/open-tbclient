@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.easteregg.data.EasterEggAdData;
-import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.PvThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-@Service
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes5.dex */
-public final class cw6 implements ta5 {
+public final class cw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bw6 a;
+    public long a;
+    public final boolean b;
 
     public cw6() {
         Interceptable interceptable = $ic;
@@ -30,29 +34,44 @@ public final class cw6 implements ta5 {
                 return;
             }
         }
-        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
-        this.a = new bw6(inst);
+        this.b = UbsABTestHelper.isAddExtraDuration();
     }
 
-    @Override // com.baidu.tieba.ta5
-    public void parseJson(JSONObject json) {
-        JSONObject optJSONObject;
+    public final void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            try {
-                JSONObject optJSONObject2 = json.optJSONObject("floating_icon");
-                if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("easter_egg")) != null) {
-                    EasterEggAdDataHolder.b.a().c(EasterEggAdData.Companion.b(optJSONObject));
-                    bw6 bw6Var = this.a;
-                    String jSONObject = optJSONObject.toString();
-                    Intrinsics.checkNotNullExpressionValue(jSONObject, "easterEggJsonObject.toString()");
-                    bw6Var.c(jSONObject);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (bw6.a.a() || !this.b) {
+                return;
             }
+            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
+                if (!(activity instanceof BaseActivity) && !(activity instanceof BaseFragmentActivity)) {
+                    String localClassName = activity.getLocalClassName();
+                    Intrinsics.checkNotNullExpressionValue(localClassName, "activity.localClassName");
+                    if (StringsKt__StringsKt.contains$default((CharSequence) localClassName, (CharSequence) "FlutterPageActivity", false, 2, (Object) null)) {
+                        return;
+                    }
+                } else {
+                    return;
+                }
+            }
+            long currentTimeMillis = (System.currentTimeMillis() - this.a) / 1000;
+            if (PermissionUtil.isAgreePrivacyPolicy() && currentTimeMillis > 0) {
+                PvThread pvThread = new PvThread("use", String.valueOf(currentTimeMillis));
+                pvThread.setPageName(activity.getLocalClassName());
+                pvThread.start();
+            }
+        }
+    }
+
+    public final void b(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (!this.b) {
+                return;
+            }
+            this.a = System.currentTimeMillis();
         }
     }
 }

@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a65;
-import com.baidu.tieba.fs9;
-import com.baidu.tieba.gs9;
-import com.baidu.tieba.ms9;
+import com.baidu.tieba.d65;
+import com.baidu.tieba.js9;
+import com.baidu.tieba.ks9;
+import com.baidu.tieba.qs9;
 import com.baidu.tieba.view.NoScrollGridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements fs9.a {
+public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements js9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View g;
@@ -36,7 +36,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public TextView j;
     public TextView k;
     public NoScrollGridView l;
-    public ms9 m;
+    public qs9 m;
 
     public InterestSelectionStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -88,22 +88,22 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public final void L2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g = this.d.findViewById(R.id.obfuscated_res_0x7f0911d8);
-            this.h = this.d.findViewById(R.id.obfuscated_res_0x7f0911da);
-            this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0911d9);
-            this.l = (NoScrollGridView) this.d.findViewById(R.id.obfuscated_res_0x7f0911dc);
-            this.b = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f0911d7);
-            this.j = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911de);
-            this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911db);
+            this.g = this.d.findViewById(R.id.obfuscated_res_0x7f0911d9);
+            this.h = this.d.findViewById(R.id.obfuscated_res_0x7f0911db);
+            this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0911da);
+            this.l = (NoScrollGridView) this.d.findViewById(R.id.obfuscated_res_0x7f0911dd);
+            this.b = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f0911d8);
+            this.j = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911df);
+            this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911dc);
             String[] strArr = this.f;
             if (strArr != null && strArr.length == 3) {
                 this.j.setText(strArr[0]);
                 this.k.setText(this.f[1]);
             }
-            a65 a65Var = new a65();
+            d65 d65Var = new d65();
             this.b.setTextSize(R.dimen.T_X06);
-            this.b.setConfig(a65Var);
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1399));
+            this.b.setConfig(d65Var);
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f139a));
             this.b.setEnabled(false);
             this.b.setOnClickListener(this);
             this.l.setColumnWidth(BdUtilHelper.getEquipmentWidth(getContext()) / 5);
@@ -147,9 +147,9 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            gs9 gs9Var = new gs9(null, getContext());
-            this.c = gs9Var;
-            this.m = new ms9(this, gs9Var);
+            ks9 ks9Var = new ks9(null, getContext());
+            this.c = ks9Var;
+            this.m = new qs9(this, ks9Var);
         }
     }
 

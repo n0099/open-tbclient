@@ -248,7 +248,7 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label, this).findViewById(R.id.obfuscated_res_0x7f092081);
+            this.k = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label, this).findViewById(R.id.obfuscated_res_0x7f092083);
         }
     }
 

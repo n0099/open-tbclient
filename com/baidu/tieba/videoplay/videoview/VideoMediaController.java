@@ -129,7 +129,7 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return View.inflate(context, R.layout.obfuscated_res_0x7f0d0a13, null);
+            return View.inflate(context, R.layout.obfuscated_res_0x7f0d0a14, null);
         }
         return (View) invokeL.objValue;
     }
@@ -167,7 +167,7 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.p = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091b87);
+            this.p = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091b89);
         }
     }
 

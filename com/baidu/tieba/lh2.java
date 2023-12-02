@@ -2,12 +2,11 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.mb3;
+import com.baidu.tieba.pb3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,12 +14,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class lh2 extends e83 {
+public class lh2 extends h83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements al3<kb3<mb3.e>> {
+    public class a implements dl3<nb3<pb3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
@@ -50,36 +49,45 @@ public class lh2 extends e83 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.al3
+        @Override // com.baidu.tieba.dl3
         /* renamed from: b */
-        public void a(kb3<mb3.e> kb3Var) {
+        public void a(nb3<pb3.e> nb3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kb3Var) == null) {
-                if (!fb3.h(kb3Var)) {
-                    fb3.p(kb3Var, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nb3Var) == null) {
+                if (!ib3.h(nb3Var)) {
+                    ib3.p(nb3Var, this.a, this.b);
                     return;
                 }
-                boolean b = vg2.b(this.c.optInt("emitReplaceSwanCore"));
-                if (b && !mf3.c()) {
-                    z53.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f017b).G();
-                    this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.d.getResources().getString(R.string.obfuscated_res_0x7f0f017b));
-                    return;
+                if (yg2.b(this.c.optInt("emitReplaceDependency"))) {
+                    if (zg2.l().isEmpty()) {
+                        Context context = this.d;
+                        if (context == null) {
+                            context = rp2.c();
+                        }
+                        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0178);
+                        c63.g(context, string).G();
+                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
+                        return;
+                    }
+                    zg2.n(true);
+                } else {
+                    zg2.n(false);
+                    zg2.c();
                 }
-                g23.M(b);
                 UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                g23.Z();
+                j23.Z();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lh2(e73 e73Var) {
-        super(e73Var, "/swanAPI/debug/setReplaceSwanCoreConfig");
+    public lh2(h73 h73Var) {
+        super(h73Var, "/swanAPI/debug/setReplaceDependencyConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e73Var};
+            Object[] objArr = {h73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -93,22 +101,22 @@ public class lh2 extends e83 {
         }
     }
 
-    @Override // com.baidu.tieba.e83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h63 h63Var) {
+    @Override // com.baidu.tieba.h83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k63 k63Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h63Var)) == null) {
-            JSONObject a2 = e83.a(unitedSchemeEntity, "params");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, k63Var)) == null) {
+            JSONObject a2 = h83.a(unitedSchemeEntity, "params");
             if (a2 == null) {
-                h32.c("setReplaceSwanCoreConfig", "params is null");
+                k32.c("setReplaceDependencyConfig", "params is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!a2.has("emitReplaceSwanCore")) {
-                h32.c("setReplaceSwanCoreConfig", "emitReplaceSwanCore is null");
+            } else if (!a2.has("emitReplaceDependency")) {
+                k32.c("setReplaceDependencyConfig", "emitReplaceDependency is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                h63Var.f0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
+                k63Var.f0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
                 return true;
             }
         }

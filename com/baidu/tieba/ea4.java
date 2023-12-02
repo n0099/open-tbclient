@@ -1,77 +1,107 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
-import androidx.annotation.NonNull;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o94;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ea4 implements p94 {
+public final class ea4 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p94 a;
+    public a a;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ r94 b;
-        public final /* synthetic */ o94.b c;
-        public final /* synthetic */ ea4 d;
+    public interface a {
+        void a();
 
-        public a(ea4 ea4Var, int i, r94 r94Var, o94.b bVar) {
+        void b();
+
+        void c();
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-839535501, "Lcom/baidu/tieba/ea4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-839535501, "Lcom/baidu/tieba/ea4$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ea4Var, Integer.valueOf(i), r94Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.d = ea4Var;
-            this.a = i;
-            this.b = r94Var;
-            this.c = bVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnTouchListener
+        public final boolean onTouch(View v, MotionEvent event) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Context b = b94.b();
-                if (b == null) {
-                    h32.c("RecommendButton", "context is null.");
-                    return;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, v, event)) == null) {
+                Intrinsics.checkNotNullExpressionValue(event, "event");
+                int action = event.getAction();
+                if (action != 0) {
+                    if (action == 1 || action == 3) {
+                        Intrinsics.checkNotNullExpressionValue(v, "v");
+                        v.setAlpha(1.0f);
+                        return false;
+                    }
+                    return false;
                 }
-                this.d.a = o94.c(this.a, b, this.b);
-                this.d.a.t(this.c);
+                Intrinsics.checkNotNullExpressionValue(v, "v");
+                v.setAlpha(0.2f);
+                return false;
             }
+            return invokeLL.booleanValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    public static final class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w94 a;
-        public final /* synthetic */ ea4 b;
+        public final /* synthetic */ ea4 a;
 
-        public b(ea4 ea4Var, w94 w94Var) {
+        public c(ea4 ea4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ea4Var, w94Var};
+                Object[] objArr = {ea4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -81,32 +111,31 @@ public class ea4 implements p94 {
                     return;
                 }
             }
-            this.b = ea4Var;
-            this.a = w94Var;
+            this.a = ea4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.e(this.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.c();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements Runnable {
+    public static final class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o94.b a;
-        public final /* synthetic */ ea4 b;
+        public final /* synthetic */ ea4 a;
 
-        public c(ea4 ea4Var, o94.b bVar) {
+        public d(ea4 ea4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ea4Var, bVar};
+                Object[] objArr = {ea4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -116,56 +145,21 @@ public class ea4 implements p94 {
                     return;
                 }
             }
-            this.b = ea4Var;
-            this.a = bVar;
+            this.a = ea4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.t(this.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.b();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ ea4 b;
-
-        public d(ea4 ea4Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ea4Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ea4Var;
-            this.a = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.m(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements Runnable {
+    public static final class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ea4 a;
@@ -188,144 +182,76 @@ public class ea4 implements p94 {
             this.a = ea4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.show();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.a();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ea4 a;
-
-        public f(ea4 ea4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ea4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ea4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.hide();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ea4 a;
-
-        public g(ea4 ea4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ea4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ea4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.destroy();
-            }
-        }
-    }
-
-    public ea4(int i, @NonNull r94 r94Var, o94.b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ea4(Context context) {
+        super(context, R.style.obfuscated_res_0x7f1001c2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), r94Var, bVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        bk3.e0(new a(this, i, r94Var, bVar));
+        Intrinsics.checkNotNullParameter(context, "context");
+        c();
     }
 
-    @Override // com.baidu.tieba.p94
-    public void e(w94 w94Var) {
+    public final void e(a onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w94Var) == null) {
-            bk3.e0(new b(this, w94Var));
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            Intrinsics.checkNotNullParameter(onClickListener, "onClickListener");
+            this.a = onClickListener;
         }
     }
 
-    @Override // com.baidu.tieba.p94
-    public void m(boolean z) {
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final View.OnTouchListener b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            bk3.e0(new d(this, z));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b.a;
+        }
+        return (View.OnTouchListener) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d00ca);
+            setCanceledOnTouchOutside(false);
+            d();
         }
     }
 
-    @Override // com.baidu.tieba.p94
-    public void t(o94.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            bk3.e0(new c(this, bVar));
-        }
-    }
-
-    @Override // com.baidu.tieba.n94
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bk3.e0(new g(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.n94
-    public void hide() {
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            bk3.e0(new f(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.n94
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            bk3.e0(new e(this));
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090ae4)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090ae4)).setOnClickListener(new c(this));
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f091102)).setOnTouchListener(b());
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f091102)).setOnClickListener(new d(this));
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090828)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090828)).setOnClickListener(new e(this));
         }
     }
 }

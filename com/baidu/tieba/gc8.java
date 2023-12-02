@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,19 +14,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-import tbclient.ClickBackCard;
-import tbclient.ClickBackCardItem;
+import tbclient.AlaLiveInfo;
+import tbclient.Userlike.UserFollowLive;
 /* loaded from: classes6.dex */
-public final class gc8 extends zm6 {
+public class gc8 extends fw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a U0;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String S0;
-    public List<b> T0;
+    public final List<AlaLiveInfo> a;
+
+    @Override // com.baidu.tieba.fw4
+    public NegativeFeedBackData getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (NegativeFeedBackData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fw4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -44,207 +56,7 @@ public final class gc8 extends zm6 {
                 return;
             }
         }
-        U0 = new a(null);
-    }
-
-    @JvmStatic
-    public static final boolean X(gc8 gc8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, gc8Var)) == null) ? U0.b(gc8Var) : invokeL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final boolean Z(gc8 gc8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gc8Var)) == null) ? U0.c(gc8Var) : invokeL.booleanValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                int i = SharedPrefHelper.getInstance().getInt("key_recom_topic_card_show_times", 0);
-                int i2 = SharedPrefHelper.getInstance().getInt("key_recom_topic_card_curr_show_times", 0);
-                long currentTimeMillis = System.currentTimeMillis();
-                long j = SharedPrefHelper.getInstance().getLong("key_recom_topic_card_last_show_time", 0L);
-                String tidString = SharedPrefHelper.getInstance().getString("key_recom_topic_card_curr_tid_builder", "");
-                StringBuilder sb = new StringBuilder(tidString);
-                if (StringHelper.isTaday(j) && i2 < i) {
-                    Intrinsics.checkNotNullExpressionValue(tidString, "tidString");
-                    if (!StringsKt__StringsKt.contains$default((CharSequence) tidString, (CharSequence) str, false, 2, (Object) null)) {
-                        SharedPrefHelper.getInstance().putInt("key_recom_topic_card_curr_show_times", i2 + 1);
-                        SharedPrefHelper.getInstance().putLong("key_recom_topic_card_last_show_time", currentTimeMillis);
-                        SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-                        sb.append(str);
-                        sharedPrefHelper.putString("key_recom_topic_card_curr_tid_builder", sb.toString());
-                        return true;
-                    }
-                }
-                if (StringHelper.isTaday(j) || i <= 0) {
-                    return false;
-                }
-                SharedPrefHelper.getInstance().putInt("key_recom_topic_card_curr_show_times", 1);
-                SharedPrefHelper.getInstance().putLong("key_recom_topic_card_last_show_time", currentTimeMillis);
-                SharedPrefHelper.getInstance().putString("key_recom_topic_card_curr_tid_builder", str);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @JvmStatic
-        public final boolean b(gc8 gc8Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gc8Var)) == null) {
-                if (gc8Var != null && !StringUtils.isNull(gc8Var.W()) && gc8Var.V() != null && !gc8Var.V().isEmpty()) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @JvmStatic
-        public final boolean c(gc8 gc8Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gc8Var)) == null) {
-                if (TbadkCoreApplication.isLogin() && gc8Var != null && ListUtils.isNotEmpty(gc8Var.V())) {
-                    String str = gc8Var.g;
-                    Intrinsics.checkNotNullExpressionValue(str, "data.tid");
-                    if (a(str)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b implements pi {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public long c;
-        public String d;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.c;
-            }
-            return invokeV.longValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.d;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.pi
-        public BdUniqueId getType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                BdUniqueId TYPE_RECOMMEND_TOPIC_CARD = zm6.C0;
-                Intrinsics.checkNotNullExpressionValue(TYPE_RECOMMEND_TOPIC_CARD, "TYPE_RECOMMEND_TOPIC_CARD");
-                return TYPE_RECOMMEND_TOPIC_CARD;
-            }
-            return (BdUniqueId) invokeV.objValue;
-        }
-
-        public final void e(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-                this.c = j;
-            }
-        }
-
-        public final void f(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                this.d = str;
-            }
-        }
-
-        public final void g(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                this.b = str;
-            }
-        }
-
-        public final void h(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                this.a = str;
-            }
-        }
+        b = BdUniqueId.gen();
     }
 
     public gc8() {
@@ -260,74 +72,35 @@ public final class gc8 extends zm6 {
                 return;
             }
         }
-        this.T0 = new ArrayList();
+        this.a = new ArrayList();
     }
 
-    public final List<b> V() {
+    public List<AlaLiveInfo> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.T0;
+            return this.a;
         }
         return (List) invokeV.objValue;
     }
 
-    public final String W() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.S0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String getTid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zm6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BdUniqueId TYPE_RECOMMEND_TOPIC_CARD = zm6.C0;
-            Intrinsics.checkNotNullExpressionValue(TYPE_RECOMMEND_TOPIC_CARD, "TYPE_RECOMMEND_TOPIC_CARD");
-            return TYPE_RECOMMEND_TOPIC_CARD;
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void Y(ClickBackCard clickBackCard) {
+    public void d(UserFollowLive userFollowLive) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, clickBackCard) != null) || clickBackCard == null) {
-            return;
-        }
-        this.S0 = clickBackCard.card_name;
-        this.T0.clear();
-        List<ClickBackCardItem> list = clickBackCard.card_list;
-        if (ListUtils.isNotEmpty(list)) {
-            for (ClickBackCardItem clickBackCardItem : list) {
-                b bVar = new b();
-                bVar.h(clickBackCardItem.text);
-                bVar.g(clickBackCardItem.jump_url);
-                Long l = clickBackCardItem.business_id;
-                Intrinsics.checkNotNullExpressionValue(l, "item.business_id");
-                bVar.e(l.longValue());
-                bVar.f(clickBackCardItem.business_type);
-                this.T0.add(bVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userFollowLive) == null) {
+            this.a.clear();
+            if (userFollowLive != null && !ListUtils.isEmpty(userFollowLive.user_follow_live)) {
+                this.a.addAll(userFollowLive.user_follow_live);
             }
-        }
-    }
-
-    public final void setTid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.g = str;
         }
     }
 }

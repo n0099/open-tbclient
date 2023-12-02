@@ -1,138 +1,107 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b74 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile b74 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public volatile ArrayList<a74> b;
 
-    public static void a(CallbackHandler callbackHandler, String str) {
+    public b74() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        i74 i74Var = new i74();
-        i74Var.a = str;
-        y64.c().a(new x64(50000, i74Var));
+        this.b = new ArrayList<>(20);
     }
 
-    public static void b(CallbackHandler callbackHandler, String str) {
+    public static b74 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (b74.class) {
+                    if (c == null) {
+                        c = new b74();
+                    }
+                }
+            }
+            return c;
         }
-        i74 i74Var = new i74();
-        i74Var.a = str;
-        y64.c().a(new x64(90000, i74Var));
+        return (b74) invokeV.objValue;
     }
 
-    public static void e(CallbackHandler callbackHandler, String str) {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        i74 i74Var = new i74();
-        i74Var.a = str;
-        y64.c().a(new x64(60000, i74Var));
-    }
-
-    public static void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65542, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        i74 i74Var = new i74();
-        i74Var.a = str;
-        y64.c().a(new x64(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, i74Var));
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            g74 g74Var = new g74();
-            g74Var.b = str;
-            g74Var.a = str2;
-            y64.c().a(new x64(30000, g74Var));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b.clear();
+                this.a = 0;
+            }
         }
     }
 
-    public static void c(String str, int i, String str2, boolean z) {
+    public synchronized void a(a74 a74Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            f74 f74Var = new f74();
-            f74Var.b = str;
-            f74Var.c = i;
-            f74Var.d = z ? 1 : 0;
-            f74Var.a = str2;
-            y64.c().a(new x64(DefaultOggSeeker.MATCH_BYTE_RANGE, f74Var));
+        if (interceptable == null || interceptable.invokeL(1048576, this, a74Var) == null) {
+            synchronized (this) {
+                if (a74Var == null) {
+                    return;
+                }
+                if (this.b.size() < 20) {
+                    this.b.add(a74Var);
+                } else {
+                    this.a++;
+                }
+            }
         }
     }
 
-    public static void h(String str, int i, String str2, boolean z) {
+    public synchronized JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            f74 f74Var = new f74();
-            f74Var.b = str;
-            f74Var.c = i;
-            f74Var.d = z ? 1 : 0;
-            f74Var.a = str2;
-            y64.c().a(new x64(70000, f74Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                int size = this.b.size();
+                if (size == 0) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("dropcnt", this.a);
+                    jSONObject.put("errorcnt", size);
+                    JSONArray jSONArray = new JSONArray();
+                    jSONObject.put("errors", jSONArray);
+                    Iterator<a74> it = this.b.iterator();
+                    while (it.hasNext()) {
+                        jSONArray.put(it.next().a());
+                    }
+                } catch (JSONException unused) {
+                }
+                this.b.clear();
+                return jSONObject;
+            }
         }
-    }
-
-    public static void k(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            f74 f74Var = new f74();
-            f74Var.b = str;
-            f74Var.c = i;
-            f74Var.d = z ? 1 : 0;
-            f74Var.a = str2;
-            y64.c().a(new x64(110000, f74Var));
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            i74 i74Var = new i74();
-            i74Var.a = str;
-            y64.c().a(new x64(20000, i74Var));
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            i74 i74Var = new i74();
-            i74Var.a = str;
-            y64.c().a(new x64(10000, i74Var));
-        }
-    }
-
-    public static void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            i74 i74Var = new i74();
-            i74Var.a = str;
-            y64.c().a(new x64(120000, i74Var));
-        }
-    }
-
-    public static void j(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
-            h74 h74Var = new h74();
-            h74Var.b = str;
-            h74Var.c = i;
-            h74Var.a = str2;
-            y64.c().a(new x64(80000, h74Var));
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.common.jscore.BridgeConfig_tbadkcore;
-import com.baidu.tieba.common.jscore.JsInterfaces_tbadkcore;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.MessageQueue;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ij6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,34 +14,138 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
 public class ij6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
-    public static boolean b;
+    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947855476, "Lcom/baidu/tieba/ij6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947855476, "Lcom/baidu/tieba/ij6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947855476, "Lcom/baidu/tieba/ij6;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Handler a;
+        public final Looper b;
+        public MessageQueue c;
+
+        public a(Looper looper) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947855476, "Lcom/baidu/tieba/ij6;");
-                return;
+            this.b = looper;
+            this.a = new Handler(looper);
+        }
+
+        public static /* synthetic */ boolean b(Runnable runnable) {
+            runnable.run();
+            return false;
+        }
+
+        public boolean c(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
+                if (a() == null) {
+                    return false;
+                }
+                return this.a.post(runnable);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public void e(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) && a() != null) {
+                this.a.removeCallbacks(runnable);
             }
         }
-        new HashSet();
-        a = new HashSet();
-        b = false;
+
+        public void f(final Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, runnable) != null) || a() == null) {
+                return;
+            }
+            this.c.addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.ej6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.os.MessageQueue.IdleHandler
+                public final boolean queueIdle() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? ij6.a.b(runnable) : invokeV.booleanValue;
+                }
+            });
+        }
+
+        @SuppressLint({"DiscouragedPrivateApi"})
+        public final synchronized MessageQueue a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                synchronized (this) {
+                    if (this.c != null) {
+                        return this.c;
+                    }
+                    if (Build.VERSION.SDK_INT >= 23) {
+                        MessageQueue queue = this.b.getQueue();
+                        this.c = queue;
+                        return queue;
+                    }
+                    try {
+                        Field declaredField = Looper.class.getDeclaredField("mQueue");
+                        declaredField.setAccessible(true);
+                        Object obj = declaredField.get(this.b);
+                        if (obj instanceof MessageQueue) {
+                            this.c = (MessageQueue) obj;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return this.c;
+                }
+            }
+            return (MessageQueue) invokeV.objValue;
+        }
+
+        public boolean d(Runnable runnable, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j)) == null) {
+                if (a() == null) {
+                    return false;
+                }
+                return this.a.postDelayed(runnable, j);
+            }
+            return invokeLJ.booleanValue;
+        }
     }
 
     public ij6() {
@@ -56,93 +162,19 @@ public class ij6 {
         }
     }
 
-    public static void a() {
+    public static a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || b) {
-            return;
-        }
-        synchronized (ij6.class) {
-            if (b) {
-                return;
-            }
-            try {
-                b();
-                b = true;
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            BridgeConfig_tbadkcore.register();
-            JsInterfaces_tbadkcore.register();
-        }
-    }
-
-    public static void c(String str) {
-        JSONArray jSONArray;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a.clear();
-            try {
-                jSONArray = new JSONArray(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONArray = null;
-            }
-            if (fk6.c(jSONArray)) {
-                return;
-            }
-            kg6 kg6Var = (kg6) ServiceManager.getService(kg6.a);
-            if (kg6Var != null) {
-                str2 = kg6Var.b();
-            } else {
-                str2 = com.kuaishou.weapon.p0.bq.e;
-            }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("limitVersion", "99.99.99.99");
-                    String optString2 = optJSONObject.optString("url", "");
-                    if (!TextUtils.isEmpty(optString2) && mk6.a(str2, optString)) {
-                        zj6.b("newHybrid", "我被加入到了黑名单:" + optString2);
-                        a.add(optString2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (ij6.class) {
+                    if (a == null) {
+                        a = new a(Looper.getMainLooper());
                     }
                 }
             }
+            return a;
         }
-    }
-
-    public static void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, jSONObject) == null) && jSONObject != null) {
-            try {
-                c(jSONObject.optString("wv_black_url_list", "[]"));
-                gj6.b(jSONObject.optString("wv_prefetch_config", "[]"));
-            } catch (Exception unused) {
-                zj6.b("newHybrid", "parseSupportUrlList error!");
-            }
-        }
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            kg6 kg6Var = (kg6) ServiceManager.getService(kg6.a);
-            if (kg6Var == null || !kg6Var.a() || TextUtils.isEmpty(str) || str.contains("https://unknown-tmp/") || str.contains("https://ad-tmp/")) {
-                return false;
-            }
-            for (String str2 : a) {
-                if (str.contains(str2)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (a) invokeV.objValue;
     }
 }

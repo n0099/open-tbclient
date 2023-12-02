@@ -1,84 +1,65 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.mobads.sdk.api.ExpressResponse;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.sdk.api.NativeResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class w2c extends BaseAdRipper {
+public class w2c implements v3c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NativeResponse a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w2c(Ssp.Pid pid) {
-        super(pid);
+    public w2c(NativeResponse nativeResponse) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {nativeResponse};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = nativeResponse;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        ExpressResponse expressResponse;
-        JSONArray optJSONArray;
+    @Override // com.baidu.tieba.v3c
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (!(obj instanceof t2c) || (expressResponse = ((t2c) obj).a) == null) {
-                    return null;
-                }
-                Field declaredField = expressResponse.getClass().getDeclaredField("f");
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(expressResponse);
-                if (obj2 == null) {
-                    return null;
-                }
-                Field declaredField2 = obj2.getClass().getSuperclass().getDeclaredField("n");
-                declaredField2.setAccessible(true);
-                String str = (String) declaredField2.get(obj2);
-                if (!TextUtils.isEmpty(str) && (optJSONArray = new JSONObject(str).optJSONArray("ad")) != null && optJSONArray.length() > 0) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(0);
-                    String optString = optJSONObject.optString("tit");
-                    String optString2 = optJSONObject.optString("desc");
-                    String optString3 = optJSONObject.optString("icon");
-                    String optString4 = optJSONObject.optString("curl");
-                    String optString5 = optJSONObject.optString("vurl");
-                    String optString6 = optJSONObject.optString("w_picurl");
-                    String optString7 = optJSONObject.optString("appname");
-                    String optString8 = optJSONObject.optString("publisher");
-                    RippedAd.Builder builder = new RippedAd.Builder();
-                    builder.setCorporation(optString8).setTitle(optString).setDescription(optString2).setIconUrl(optString3).setClickUrl(optString4).setVideoUrl(optString5).setImageUrl(optString6).setAppName(optString7);
-                    return builder.build();
-                }
-                return null;
-            } catch (Exception e) {
-                LogPrinter.e(e.getMessage(), new Object[0]);
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            NativeResponse nativeResponse = this.a;
+            return nativeResponse != null ? nativeResponse.getECPMLevel() : "0";
         }
-        return (RippedAd) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v3c
+    public void a(String str) {
+        NativeResponse nativeResponse;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (nativeResponse = this.a) == null) {
+            return;
+        }
+        nativeResponse.biddingSuccess(str);
+    }
+
+    @Override // com.baidu.tieba.v3c
+    public void a(String str, HashMap<String, Object> hashMap) {
+        NativeResponse nativeResponse;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap) == null) || (nativeResponse = this.a) == null) {
+            return;
+        }
+        nativeResponse.biddingFail(str, hashMap);
     }
 }

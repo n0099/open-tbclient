@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface gtb {
+    boolean available();
+
     int availableBytes();
+
+    void clearQueues();
 
     void close();
 
     void flush();
 
-    byte[] getOutPutBytes();
+    int getBytes(byte[] bArr, int i);
 
-    void init(int i, int i2);
+    void initVoiceChanger(int i, int i2, int i3, int i4);
 
     boolean putBytes(byte[] bArr, int i);
 
-    int receiveBytes(byte[] bArr, int i);
+    void setVoiceChangeType(int[] iArr);
 
-    void setSpeed(float f);
+    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
 }

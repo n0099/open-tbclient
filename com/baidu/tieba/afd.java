@@ -18,7 +18,7 @@ public class afd {
         if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
             IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
             if (revenue == null) {
-                RLog.error("PayUIEventStatisticsUtil", "getPayEventStatisticsApi error revenue null", new Object[0]);
+                RLog.error("PayUVEventStatisticsUtil", "getPayEventStatisticsApi error revenue null", new Object[0]);
                 return null;
             }
             return revenue.getPayEventStatisticApi();
@@ -26,26 +26,14 @@ public class afd {
         return (IPayEventStatisticsApi) invokeII.objValue;
     }
 
-    public static void b(int i, int i2, String str) {
+    public static void b(int i, int i2, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4}) == null) {
             IPayEventStatisticsApi a = a(i, i2);
             if (a == null) {
-                RLog.error("PayUIEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
+                RLog.error("PayUVEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
             } else {
-                a.reportUiEvent(str);
-            }
-        }
-    }
-
-    public static void c(int i, int i2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            IPayEventStatisticsApi a = a(i, i2);
-            if (a == null) {
-                RLog.error("PayUIEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
-            } else {
-                a.reportUiEvent(str, str2);
+                a.reportUvEvent(str, str2, str3, str4);
             }
         }
     }

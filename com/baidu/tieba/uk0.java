@@ -20,7 +20,7 @@ public interface uk0 {
 
     ViewGroup getView();
 
-    void setData(hn0 hn0Var);
+    void setData(in0 in0Var);
 
     void setOnReplayClickListener(Function0<Unit> function0);
 
@@ -62,17 +62,17 @@ public interface uk0 {
             }
         }
 
-        public final uk0 a(hn0 adModel, Context context) {
+        public final uk0 a(in0 adModel, Context context) {
             InterceptResult invokeLL;
             String str;
-            mn0 mn0Var;
+            nn0 nn0Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, adModel, context)) == null) {
                 Intrinsics.checkNotNullParameter(adModel, "adModel");
                 Intrinsics.checkNotNullParameter(context, "context");
-                kn0 kn0Var = adModel.j;
-                if (kn0Var != null && (mn0Var = kn0Var.i) != null) {
-                    str = mn0Var.a;
+                ln0 ln0Var = adModel.j;
+                if (ln0Var != null && (nn0Var = ln0Var.i) != null) {
+                    str = nn0Var.a;
                 } else {
                     str = null;
                 }

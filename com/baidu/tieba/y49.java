@@ -1,40 +1,62 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class y49 {
+public final class y49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TbPageContext<?> tbPageContext, String str, int i) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, tbPageContext, str, i) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("level", i);
-                jSONObject.put("success_jump_url", str);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("page", "pass/accountAuth");
-                jSONObject2.put(YunDialogManager.PAGE_PARAMS_KEY, jSONObject);
-                String jSONObject3 = jSONObject2.toString();
-                Uri.Builder builder = new Uri.Builder();
-                builder.scheme("tiebaapp").authority(DI.ROUTER_NAME).path("/portal").appendQueryParameter("params", jSONObject3);
-                str2 = builder.build().toString();
-            } catch (JSONException e) {
-                BdLog.e(e);
-                str2 = "";
-            }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str2});
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948280331, "Lcom/baidu/tieba/y49;")) == null) {
+            return;
         }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948280331, "Lcom/baidu/tieba/y49;");
+        }
+    }
+
+    @JvmStatic
+    public static final String a(List<? extends GroupChatRoomPojo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            Intrinsics.checkNotNull(list);
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                GroupChatRoomPojo groupChatRoomPojo = list.get(i);
+                HashMap hashMap = new HashMap();
+                hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
+                hashMap.put("msg_id", String.valueOf(groupChatRoomPojo.getLatestMsgId()));
+                hashMap.put("time", Long.valueOf(groupChatRoomPojo.getLastExitChatRoomTime()));
+                arrayList.add(hashMap);
+            }
+            if (ListUtils.isEmpty(arrayList)) {
+                return null;
+            }
+            return DataExt.toJson(arrayList);
+        }
+        return (String) invokeL.objValue;
     }
 }

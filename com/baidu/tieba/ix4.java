@@ -6,15 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
+import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes6.dex */
 public class ix4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public ex4 c;
+    public int b;
 
     public ix4() {
         Interceptable interceptable = $ic;
@@ -26,11 +24,8 @@ public class ix4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
     }
 
     public String a() {
@@ -42,32 +37,34 @@ public class ix4 {
         return (String) invokeV.objValue;
     }
 
-    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(ForumBookInfo forumBookInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumBookInfo) != null) || forumBookInfo == null) {
             return;
         }
-        forumHeadlineImgInfo.thread_id.longValue();
-        forumHeadlineImgInfo.thread_user_id.longValue();
-        String str = forumHeadlineImgInfo.thread_user_name;
-        forumHeadlineImgInfo.img_user_id.longValue();
-        String str2 = forumHeadlineImgInfo.img_user_name;
-        this.a = forumHeadlineImgInfo.img_url;
-        this.b = forumHeadlineImgInfo.headline_url;
-        this.c = new ex4();
-        ArrayList<hx4> arrayList = new ArrayList<>();
-        String str3 = this.a;
-        String str4 = "";
-        if (str3 == null) {
-            str3 = "";
-        }
-        String str5 = this.b;
-        if (str5 != null) {
-            str4 = str5;
-        }
-        hx4 hx4Var = new hx4(str3, str4, null);
-        hx4Var.r(true);
-        arrayList.add(hx4Var);
-        this.c.g(arrayList);
+        this.a = forumBookInfo.book_id;
+        this.b = forumBookInfo.book_type.intValue();
+        String str = forumBookInfo.book_title;
+        String str2 = forumBookInfo.book_cover;
+        String str3 = forumBookInfo.author;
+        String str4 = forumBookInfo.forum_pic;
+        String str5 = forumBookInfo.show_chapter_id;
+        String str6 = forumBookInfo.show_chapter_no;
+        String str7 = forumBookInfo.show_chapter_title;
+        forumBookInfo.history_page_id.longValue();
+        forumBookInfo.history_paragraph_id.longValue();
+        forumBookInfo.history_word_id.longValue();
+        forumBookInfo.history_percent.longValue();
+        forumBookInfo.show_page_id.longValue();
+        forumBookInfo.show_paragraph_id.longValue();
     }
 }

@@ -2,17 +2,19 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.f37;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.view.SingleLinkCardView;
+import com.baidu.tieba.j37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class fp6 implements f37.q {
+public class fp6 implements j37.n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,31 +32,53 @@ public final class fp6 implements f37.q {
         }
     }
 
-    @Override // com.baidu.tieba.f37.q
-    public void a(f37.r holder, x47 state) {
+    @Override // com.baidu.tieba.j37.s
+    public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, holder, state) == null) {
-            Intrinsics.checkNotNullParameter(holder, "holder");
-            Intrinsics.checkNotNullParameter(state, "state");
-            holder.j(state);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof SingleLinkCardView)) {
+            ((SingleLinkCardView) viewGroup).d();
         }
     }
 
-    @Override // com.baidu.tieba.f37.q
-    public f37.r b(Context context, ViewGroup rootView) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.j37.n
+    @NonNull
+    public ViewGroup create(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rootView)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(rootView, "rootView");
-            if (context instanceof TbadkCoreApplication) {
-                TbadkCoreApplication tbadkCoreApplication = (TbadkCoreApplication) context;
-                if ((tbadkCoreApplication.getCurrentActivity() instanceof Context) && (context = tbadkCoreApplication.getCurrentActivity()) == null) {
-                    throw new NullPointerException("null cannot be cast to non-null type android.content.Context");
-                }
-            }
-            return new ep6(context, rootView);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new SingleLinkCardView(context);
         }
-        return (f37.r) invokeLL.objValue;
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.j37.n
+    public void k(@NonNull ViewGroup viewGroup, @NonNull x47 x47Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, x47Var) == null) && (viewGroup instanceof SingleLinkCardView)) {
+            k77 d = x47Var.d();
+            if (d.i() == 6) {
+                PbGoodsData pbGoodsData = new PbGoodsData();
+                pbGoodsData.title = d.h();
+                pbGoodsData.picUrl = d.f();
+                pbGoodsData.price = d.c();
+                pbGoodsData.linkUrl = d.e();
+                pbGoodsData.sort = d.g();
+                pbGoodsData.linkFrom = d.d();
+                pbGoodsData.goodsUrlH5 = d.a();
+                ((SingleLinkCardView) viewGroup).a(pbGoodsData);
+                return;
+            }
+            PbLinkData pbLinkData = new PbLinkData();
+            pbLinkData.title = d.h();
+            pbLinkData.linkUrl = d.e();
+            pbLinkData.picUrl = d.f();
+            pbLinkData.linkFrom = d.d();
+            pbLinkData.extTxt = d.c();
+            pbLinkData.sort = d.g();
+            pbLinkData.urlType = d.i();
+            pbLinkData.content1 = d.a();
+            pbLinkData.content2 = d.b();
+            ((SingleLinkCardView) viewGroup).a(pbLinkData);
+        }
     }
 }

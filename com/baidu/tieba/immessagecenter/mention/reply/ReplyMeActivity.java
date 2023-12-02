@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a79;
 import com.baidu.tieba.immessagecenter.mention.ReplyMessageFragment;
-import com.baidu.tieba.w69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     public VoiceManager c;
     public boolean d;
     @Nullable
-    public w69 e;
+    public a79 e;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
     public VoiceManager.IPlayView V1(VoiceData.VoiceModel voiceModel) {
@@ -201,9 +201,9 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.finish();
-            w69 w69Var = this.e;
-            if (w69Var != null) {
-                w69Var.a(new a(this));
+            a79 a79Var = this.e;
+            if (a79Var != null) {
+                a79Var.a(new a(this));
             }
             if (this.d) {
                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
@@ -280,7 +280,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
                 str = "";
             }
             if (StringUtils.isNull(str)) {
-                this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f127c));
+                this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f127d));
             } else {
                 this.b.setCenterTextTitle(str);
             }
@@ -294,7 +294,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             this.c = d1;
             d1.onCreate(getPageContext());
             l1();
-            this.e = new w69(this, 3);
+            this.e = new a79(this, 3);
         }
     }
 }

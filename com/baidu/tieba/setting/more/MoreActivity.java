@@ -54,8 +54,10 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
 import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jna;
-import com.baidu.tieba.kna;
+import com.baidu.tieba.ai5;
+import com.baidu.tieba.bi5;
+import com.baidu.tieba.nna;
+import com.baidu.tieba.ona;
 import com.baidu.tieba.play.VideoPostionCacheManager;
 import com.baidu.tieba.setting.SecretSettingActivityConfig;
 import com.baidu.tieba.setting.SystemHelpSettingActivityConfig;
@@ -63,11 +65,9 @@ import com.baidu.tieba.setting.model.MoreDiscoveryModel;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
 import com.baidu.tieba.setting.model.imageWatermarkType.GetImageWatermarkTypeModel;
-import com.baidu.tieba.v4b;
-import com.baidu.tieba.vj5;
+import com.baidu.tieba.u4b;
 import com.baidu.tieba.w4;
-import com.baidu.tieba.xh5;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.yj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +79,7 @@ import java.util.List;
 public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kna a;
+    public ona a;
     public MoreModel b;
     public MoreDiscoveryModel c;
     public g d;
@@ -127,14 +127,14 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 if (!z && !(responsedMessage instanceof GetUserInfoSocketResponseMessage)) {
                     return;
                 }
-                xh5 xh5Var = null;
+                ai5 ai5Var = null;
                 if (z) {
-                    xh5Var = ((GetUserInfoHttpResponseMessage) responsedMessage).getData();
+                    ai5Var = ((GetUserInfoHttpResponseMessage) responsedMessage).getData();
                 } else if (responsedMessage instanceof GetUserInfoSocketResponseMessage) {
-                    xh5Var = ((GetUserInfoSocketResponseMessage) responsedMessage).getData();
+                    ai5Var = ((GetUserInfoSocketResponseMessage) responsedMessage).getData();
                 }
-                if (xh5Var != null && xh5Var.a() != null) {
-                    String portrait = xh5Var.a().getPortrait();
+                if (ai5Var != null && ai5Var.a() != null) {
+                    String portrait = ai5Var.a().getPortrait();
                     this.a.a.U(portrait, false);
                     PersonChangeData O = this.a.b.O();
                     if (O != null) {
@@ -228,7 +228,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     /* loaded from: classes8.dex */
-    public class d implements jna {
+    public class d implements nna {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreActivity a;
@@ -251,7 +251,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             this.a = moreActivity;
         }
 
-        @Override // com.baidu.tieba.jna
+        @Override // com.baidu.tieba.nna
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.w1(i)) {
@@ -285,7 +285,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 MessageManager.getInstance().runTask(2921330, null, this.a);
             } else if (i == 11) {
                 TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", true);
-                vj5.b(0, 0, 0, 2, 12);
+                yj5.b(0, 0, 0, 2, 12);
                 BdSocketLinkService.close("exit app");
                 VideoPostionCacheManager.getInstance().clear();
                 MainEntrance.goToMainTabRefresh(this.a.getPageContext().getPageActivity(), 12, false);
@@ -482,7 +482,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 BdLog.e(e2);
             }
             BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-            startActivity(v4b.a());
+            startActivity(u4b.a());
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_SUGGEST_FEEDBACK_CLICK);
             statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -545,12 +545,12 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void A(View view2, BdSwitchView.SwitchState switchState) {
-        kna knaVar;
+        ona onaVar;
         boolean z;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) && view2 != null && (knaVar = this.a) != null) {
-            if (view2 == knaVar.P()) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) && view2 != null && (onaVar = this.a) != null) {
+            if (view2 == onaVar.P()) {
                 this.a.R().h();
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     UtilHelper.showSkinChangeAnimation(this);
@@ -592,13 +592,13 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         }
     }
 
-    public final jna g1() {
+    public final nna g1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return new d(this);
         }
-        return (jna) invokeV.objValue;
+        return (nna) invokeV.objValue;
     }
 
     public final void h1() {
@@ -636,9 +636,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onDestroy();
             A1();
-            kna knaVar = this.a;
-            if (knaVar != null) {
-                knaVar.N();
+            ona onaVar = this.a;
+            if (onaVar != null) {
+                onaVar.N();
             }
         }
     }
@@ -657,9 +657,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onResume();
-            kna knaVar = this.a;
-            if (knaVar != null) {
-                knaVar.X();
+            ona onaVar = this.a;
+            if (onaVar != null) {
+                onaVar.X();
                 this.a.V();
             }
         }
@@ -686,7 +686,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     public final void y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            yh5.d().h();
+            bi5.d().h();
         }
     }
 
@@ -717,7 +717,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new kna(this, g1());
+            this.a = new ona(this, g1());
             v1(bundle);
             z1();
             registerListener(this.g);
@@ -743,9 +743,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 if (this.k != null) {
                     this.k = new GetImageWatermarkTypeModel(this);
                 }
-                kna knaVar = this.a;
-                if (knaVar != null) {
-                    knaVar.a0();
+                ona onaVar = this.a;
+                if (onaVar != null) {
+                    onaVar.a0();
                     this.a.c0();
                 }
             }

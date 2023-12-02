@@ -1,26 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.PollData;
-import com.baidu.tbadk.core.data.PollOptionData;
-import com.baidu.tbadk.core.view.VoteView;
-import com.baidu.tieba.f37;
+import com.baidu.tieba.da;
+import com.baidu.tieba.j37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class po6 implements f37.k {
+public final class po6 implements j37.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static final class a extends nu5<Unit> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ JSONObject d;
+
+        public a(String str, String str2, String str3, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+            this.d = jSONObject;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    e05.n(this.a, this.b).g(this.c, this.d.toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.nu5
+        public /* bridge */ /* synthetic */ Unit doInBackground() {
+            a();
+            return Unit.INSTANCE;
+        }
+    }
 
     public po6() {
         Interceptable interceptable = $ic;
@@ -36,101 +81,58 @@ public final class po6 implements f37.k {
         }
     }
 
-    public static final void l(ViewGroup view2, a57 state, View view3) {
+    @Override // com.baidu.tieba.j37.h
+    public void a(String spaceName, String uid, String key, JSONObject value) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, view2, state, view3) == null) {
-            Intrinsics.checkNotNullParameter(view2, "$view");
-            Intrinsics.checkNotNullParameter(state, "$state");
-            ua7.c(((VoteView) view2).getContext(), state.d().g());
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, spaceName, uid, key, value) == null) {
+            Intrinsics.checkNotNullParameter(spaceName, "spaceName");
+            Intrinsics.checkNotNullParameter(uid, "uid");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(value, "value");
+            ru5.b(new a(spaceName, uid, key, value), null);
         }
     }
 
-    @Override // com.baidu.tieba.f37.s
-    public void b(ViewGroup view2) {
-        VoteView voteView;
+    /* JADX WARN: Removed duplicated region for block: B:38:0x003f A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x001f A[SYNTHETIC] */
+    @Override // com.baidu.tieba.j37.h
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Map<String, JSONObject> b(String spaceName, String uid) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            if (view2 instanceof VoteView) {
-                voteView = (VoteView) view2;
-            } else {
-                voteView = null;
-            }
-            if (voteView == null) {
-                return;
-            }
-            voteView.D(TbadkApplication.getInst().getSkinType());
-        }
-    }
-
-    @Override // com.baidu.tieba.f37.k
-    public void c(final ViewGroup view2, final a57 state) {
-        VoteView voteView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, state) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(state, "state");
-            k87 d = state.d();
-            PollData pollData = new PollData();
-            pollData.setIsPolled(d.m());
-            pollData.setTotalNum(d.c());
-            pollData.setOptionsCount(d.e());
-            pollData.setEndTime(d.a());
-            pollData.setIsMulti(d.l());
-            pollData.setLastTime(d.d());
-            pollData.setTitle(d.i());
-            pollData.setEndTime(d.a());
-            pollData.setTotalPoll(d.j());
-            pollData.setPolledValue(d.f());
-            ArrayList arrayList = new ArrayList();
-            for (l87 l87Var : d.k()) {
-                PollOptionData pollOptionData = new PollOptionData();
-                pollOptionData.setId(l87Var.a());
-                pollOptionData.setNum(l87Var.b());
-                pollOptionData.setText(l87Var.c());
-                arrayList.add(pollOptionData);
-            }
-            pollData.setOptions(arrayList);
-            if (view2 instanceof VoteView) {
-                voteView = (VoteView) view2;
-            } else {
-                voteView = null;
-            }
-            if (voteView == null) {
-                return;
-            }
-            voteView.setData(pollData, state.d().h(), state.d().b());
-            voteView.setupLiveThreadVoteInfo(state.e());
-            voteView.setOnItemClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.co6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        po6.l(view2, state, view3);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, spaceName, uid)) == null) {
+            Intrinsics.checkNotNullParameter(spaceName, "spaceName");
+            Intrinsics.checkNotNullParameter(uid, "uid");
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            try {
+                for (da.b<String> bVar : wd.b(e05.n(spaceName, uid))) {
+                    if (bVar != null) {
+                        String str = bVar.a;
+                        boolean z2 = false;
+                        if (str != null && str.length() != 0) {
+                            z = false;
+                            if (!z) {
+                                String str2 = bVar.b;
+                                if (!((str2 == null || str2.length() == 0) ? true : true)) {
+                                    String str3 = bVar.a;
+                                    Intrinsics.checkNotNullExpressionValue(str3, "element.key");
+                                    linkedHashMap.put(str3, new JSONObject(bVar.b));
+                                }
+                            }
+                        }
+                        z = true;
+                        if (!z) {
+                        }
                     }
                 }
-            });
-        }
-    }
-
-    @Override // com.baidu.tieba.f37.k
-    public ViewGroup create(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            VoteView voteView = new VoteView(context);
-            if (context instanceof TbPageContextSupport) {
-                voteView.setPageContext(((TbPageContextSupport) context).getPageContext());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            if (context instanceof qr6) {
-                voteView.setPageContext(((qr6) context).getPageContext());
-            }
-            return voteView;
+            return linkedHashMap;
         }
-        return (ViewGroup) invokeL.objValue;
+        return (Map) invokeLL.objValue;
     }
 }

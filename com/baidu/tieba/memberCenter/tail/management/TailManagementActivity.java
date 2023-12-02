@@ -5,8 +5,8 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vn9;
-import com.baidu.tieba.yn9;
+import com.baidu.tieba.co9;
+import com.baidu.tieba.do9;
 import com.baidu.tieba.zn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vn9 a;
-    public yn9 b;
-    public zn9 c;
-    public vn9.f d;
+    public zn9 a;
+    public co9 b;
+    public do9 c;
+    public zn9.f d;
     public View.OnClickListener e;
 
     /* loaded from: classes7.dex */
-    public class a implements vn9.f {
+    public class a implements zn9.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailManagementActivity a;
@@ -46,7 +46,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             this.a = tailManagementActivity;
         }
 
-        @Override // com.baidu.tieba.vn9.f
+        @Override // com.baidu.tieba.zn9.f
         public void callback() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -57,11 +57,11 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     this.a.b.l(g);
                 }
                 TailManagementActivity tailManagementActivity = this.a;
-                zn9 zn9Var = tailManagementActivity.c;
+                do9 do9Var = tailManagementActivity.c;
                 if (tailManagementActivity.b.h().size() != 0) {
                     z = false;
                 }
-                zn9Var.e(g, z);
+                do9Var.e(g, z);
             }
         }
     }
@@ -101,11 +101,11 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     boolean z2 = !this.a.b.g();
                     this.a.b.l(z2);
                     TailManagementActivity tailManagementActivity = this.a;
-                    zn9 zn9Var = tailManagementActivity.c;
+                    do9 do9Var = tailManagementActivity.c;
                     if (tailManagementActivity.b.h().size() != 0) {
                         z = false;
                     }
-                    zn9Var.e(z2, z);
+                    do9Var.e(z2, z);
                     this.a.a.j();
                 }
             }
@@ -145,19 +145,19 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d099a);
-            this.b = new yn9(getPageContext());
-            this.a = new vn9(getPageContext(), this.b, this.d);
-            zn9 zn9Var = new zn9(this, this.e);
-            this.c = zn9Var;
-            zn9Var.d(this.a);
-            zn9 zn9Var2 = this.c;
+            setContentView(R.layout.obfuscated_res_0x7f0d099b);
+            this.b = new co9(getPageContext());
+            this.a = new zn9(getPageContext(), this.b, this.d);
+            do9 do9Var = new do9(this, this.e);
+            this.c = do9Var;
+            do9Var.d(this.a);
+            do9 do9Var2 = this.c;
             if (this.b.h().size() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            zn9Var2.e(false, z);
+            do9Var2.e(false, z);
             if (this.b.i(getIntent().getSerializableExtra("list"))) {
                 this.a.j();
             }

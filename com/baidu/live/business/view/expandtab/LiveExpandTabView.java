@@ -112,7 +112,7 @@ public final class LiveExpandTabView extends ConstraintLayout {
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05fa, (ViewGroup) this, true);
         setClickable(true);
         setDescendantFocusability(393216);
-        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091636);
+        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091637);
         setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0607c8));
         setOnClickListener(new a());
     }

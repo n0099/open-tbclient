@@ -97,17 +97,17 @@ public class FeedbackTitleBar extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0229, (ViewGroup) this, true);
-            this.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0926bf);
-            this.c = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919b5);
-            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919b4);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919b6);
-            this.d = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919d2);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919c1);
-            TextView textView2 = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919bf);
+            this.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0926c1);
+            this.c = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919b7);
+            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919b6);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919b8);
+            this.d = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919d4);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919c3);
+            TextView textView2 = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919c1);
             this.e = textView2;
             textView2.setTextColor(p1.a(-10066330, -5262406, -10066330, -10066330));
-            ImageView imageView2 = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919c0);
-            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919be);
+            ImageView imageView2 = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919c2);
+            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0919c0);
             this.f = (ProgressBar) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0907c8);
             setBackgroundColor(-65536);
             setGravity(16);

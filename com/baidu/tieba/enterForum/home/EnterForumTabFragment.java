@@ -18,10 +18,10 @@ import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationStat;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gv4;
-import com.baidu.tieba.v05;
-import com.baidu.tieba.yt8;
-import com.baidu.tieba.yx6;
+import com.baidu.tieba.cu8;
+import com.baidu.tieba.cy6;
+import com.baidu.tieba.jv4;
+import com.baidu.tieba.y05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,10 +30,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes5.dex */
-public class EnterForumTabFragment extends LazyBaseFragment implements gv4 {
+public class EnterForumTabFragment extends LazyBaseFragment implements jv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yx6 g;
+    public cy6 g;
     public NewPagerSlidingTabBaseStrip.c h;
     public CustomMessageListener i;
     public CustomMessageListener j;
@@ -266,14 +266,14 @@ public class EnterForumTabFragment extends LazyBaseFragment implements gv4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
-            yx6 yx6Var = this.g;
-            if (yx6Var != null) {
-                yx6Var.onChangeSkinType(i);
+            cy6 cy6Var = this.g;
+            if (cy6Var != null) {
+                cy6Var.onChangeSkinType(i);
             }
         }
     }
 
-    @Override // com.baidu.tieba.gv4
+    @Override // com.baidu.tieba.jv4
     public void o2(Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, intent) == null) && intent != null && this.g != null) {
@@ -299,9 +299,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements gv4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             super.onChangeSkinType(i);
-            yx6 yx6Var = this.g;
-            if (yx6Var != null) {
-                yx6Var.onChangeSkinType(this.mSkinType);
+            cy6 cy6Var = this.g;
+            if (cy6Var != null) {
+                cy6Var.onChangeSkinType(this.mSkinType);
             }
         }
     }
@@ -311,7 +311,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements gv4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
-            this.g = new yx6(this);
+            this.g = new cy6(this);
             registerListener(this.i);
             registerListener(this.j);
         }
@@ -322,9 +322,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements gv4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             super.setPrimary(z);
-            yx6 yx6Var = this.g;
-            if (yx6Var != null) {
-                yx6Var.g0(z);
+            cy6 cy6Var = this.g;
+            if (cy6Var != null) {
+                cy6Var.g0(z);
             }
         }
     }
@@ -372,9 +372,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements gv4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            yx6 yx6Var = this.g;
-            if (yx6Var != null) {
-                return yx6Var.L();
+            cy6 cy6Var = this.g;
+            if (cy6Var != null) {
+                return cy6Var.L();
             }
             return null;
         }
@@ -396,11 +396,11 @@ public class EnterForumTabFragment extends LazyBaseFragment implements gv4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            yt8.l().c();
+            cu8.l().c();
             MessageManager.getInstance().unRegisterListener(this.i);
-            yx6 yx6Var = this.g;
-            if (yx6Var != null) {
-                yx6Var.X();
+            cy6 cy6Var = this.g;
+            if (cy6Var != null) {
+                cy6Var.X();
             }
         }
     }
@@ -410,7 +410,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements gv4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPause();
-            YunDialogManager.onHidden(v05.k);
+            YunDialogManager.onHidden(y05.k);
         }
     }
 
@@ -443,9 +443,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements gv4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048585, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            yx6 yx6Var = this.g;
-            if (yx6Var != null) {
-                yx6Var.W(i, i2, intent);
+            cy6 cy6Var = this.g;
+            if (cy6Var != null) {
+                cy6Var.W(i, i2, intent);
             }
         }
     }
@@ -458,14 +458,14 @@ public class EnterForumTabFragment extends LazyBaseFragment implements gv4 {
             if (isPrimary() && getActivity() != null) {
                 M2(getActivity().getIntent(), null);
                 if (getContext() != null) {
-                    YunDialogManager.onShow(getContext(), v05.k);
+                    YunDialogManager.onShow(getContext(), y05.k);
                 }
             } else {
-                YunDialogManager.onHidden(v05.k);
+                YunDialogManager.onHidden(y05.k);
             }
-            yx6 yx6Var = this.g;
-            if (yx6Var != null) {
-                yx6Var.g0(isPrimary());
+            cy6 cy6Var = this.g;
+            if (cy6Var != null) {
+                cy6Var.g0(isPrimary());
             }
         }
     }

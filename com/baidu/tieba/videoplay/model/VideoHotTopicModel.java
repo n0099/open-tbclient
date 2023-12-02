@@ -9,9 +9,9 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.module.hottopic.VideoHotTopicParams;
-import com.baidu.tieba.gy4;
-import com.baidu.tieba.sl5;
+import com.baidu.tieba.jy4;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.vl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class VideoHotTopicModel extends BdBaseModel {
     @Nullable
     public b b;
     @NonNull
-    public sl5 c;
+    public vl5 c;
     @NonNull
     public List<Map<String, Object>> d;
     public int e;
@@ -61,7 +61,7 @@ public class VideoHotTopicModel extends BdBaseModel {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements sl5.a {
+    public class a implements vl5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoHotTopicParams a;
@@ -86,7 +86,7 @@ public class VideoHotTopicModel extends BdBaseModel {
             this.a = videoHotTopicParams;
         }
 
-        @Override // com.baidu.tieba.sl5.a
+        @Override // com.baidu.tieba.vl5.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
@@ -95,7 +95,7 @@ public class VideoHotTopicModel extends BdBaseModel {
             this.b.f = false;
         }
 
-        @Override // com.baidu.tieba.sl5.a
+        @Override // com.baidu.tieba.vl5.a
         public void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) && this.b.b != null && !list.isEmpty()) {
@@ -132,7 +132,7 @@ public class VideoHotTopicModel extends BdBaseModel {
                 return;
             }
         }
-        this.c = (sl5) ServiceManager.getService(sl5.a);
+        this.c = (vl5) ServiceManager.getService(vl5.a);
         this.d = new ArrayList();
         this.f = false;
         this.a = videoHotTopicParams;
@@ -164,8 +164,8 @@ public class VideoHotTopicModel extends BdBaseModel {
         }
         this.f = true;
         this.e = this.a.getCurrentPn() + 1;
-        gy4 gy4Var = new gy4();
-        gy4Var.k(this.e);
-        this.c.b(this.a.getSortType(), gy4Var, l.longValue());
+        jy4 jy4Var = new jy4();
+        jy4Var.k(this.e);
+        this.c.b(this.a.getSortType(), jy4Var, l.longValue());
     }
 }

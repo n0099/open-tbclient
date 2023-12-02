@@ -1,34 +1,33 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ioc;
+import com.baidu.tieba.doc;
+import com.baidu.tieba.hoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.CompositeException;
+import java.util.NoSuchElementException;
 /* loaded from: classes5.dex */
-public final class bqc<T> implements ioc.c<T> {
+public final class bqc<T> implements hoc.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ioc<T> a;
-    public final soc<? super T> b;
-    public final soc<Throwable> c;
+    public final doc.a<T> a;
 
     /* loaded from: classes5.dex */
     public static final class a<T> extends joc<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final joc<? super T> b;
-        public final soc<? super T> c;
-        public final soc<Throwable> d;
+        public final ioc<? super T> e;
+        public T f;
+        public int g;
 
-        public a(joc<? super T> jocVar, soc<? super T> socVar, soc<Throwable> socVar2) {
+        public a(ioc<? super T> iocVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jocVar, socVar, socVar2};
+                Object[] objArr = {iocVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,45 +37,60 @@ public final class bqc<T> implements ioc.c<T> {
                     return;
                 }
             }
-            this.b = jocVar;
-            this.c = socVar;
-            this.d = socVar2;
+            this.e = iocVar;
         }
 
-        @Override // com.baidu.tieba.joc
-        public void b(Throwable th) {
+        @Override // com.baidu.tieba.eoc
+        public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                try {
-                    this.d.call(th);
-                    this.b.b(th);
-                } catch (Throwable th2) {
-                    qoc.e(th2);
-                    this.b.b(new CompositeException(th, th2));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                if (this.g == 2) {
+                    tsc.j(th);
+                    return;
+                }
+                this.f = null;
+                this.e.b(th);
+            }
+        }
+
+        @Override // com.baidu.tieba.eoc
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                int i = this.g;
+                if (i == 0) {
+                    this.g = 1;
+                    this.f = t;
+                } else if (i == 1) {
+                    this.g = 2;
+                    this.e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
                 }
             }
         }
 
-        @Override // com.baidu.tieba.joc
-        public void c(T t) {
+        @Override // com.baidu.tieba.eoc
+        public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                try {
-                    this.c.call(t);
-                    this.b.c(t);
-                } catch (Throwable th) {
-                    qoc.h(th, this, t);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.g;
+                if (i == 0) {
+                    this.e.b(new NoSuchElementException());
+                } else if (i == 1) {
+                    this.g = 2;
+                    T t = this.f;
+                    this.f = null;
+                    this.e.c(t);
                 }
             }
         }
     }
 
-    public bqc(ioc<T> iocVar, soc<? super T> socVar, soc<Throwable> socVar2) {
+    public bqc(doc.a<T> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iocVar, socVar, socVar2};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,20 +100,18 @@ public final class bqc<T> implements ioc.c<T> {
                 return;
             }
         }
-        this.a = iocVar;
-        this.b = socVar;
-        this.c = socVar2;
+        this.a = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.soc
+    @Override // com.baidu.tieba.roc
     /* renamed from: a */
-    public void call(joc<? super T> jocVar) {
+    public void call(ioc<? super T> iocVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jocVar) == null) {
-            a aVar = new a(jocVar, this.b, this.c);
-            jocVar.a(aVar);
-            this.a.j(aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, iocVar) == null) {
+            a aVar = new a(iocVar);
+            iocVar.a(aVar);
+            this.a.call(aVar);
         }
     }
 }

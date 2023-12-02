@@ -1,43 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface bb7 {
+public abstract class bb7<T> implements rb7<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public n77 a;
+    @Nullable
+    public v57 b;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(View view2, nb7<?> nb7Var, mb7<?, ?> mb7Var);
+    public bb7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(@NonNull nb7<?> nb7Var, int i);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(@NonNull nb7<?> nb7Var, @NonNull mb7<?, ?> mb7Var, int i);
-
-        void b(@NonNull RecyclerView recyclerView);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        boolean a(View view2, nb7<?> nb7Var, mb7<?, ?> mb7Var);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(@NonNull Object obj);
-    }
-
-    void b(b bVar);
-
-    void d(c cVar);
-
-    void i(a aVar);
-
-    void k(e eVar);
 }

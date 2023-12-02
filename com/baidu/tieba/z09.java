@@ -1,56 +1,95 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.tieba.immessagecenter.arch.base.ReqState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class z09 {
+public class z09<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final z09 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948306278, "Lcom/baidu/tieba/z09;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948306278, "Lcom/baidu/tieba/z09;");
-                return;
-            }
-        }
-        a = new z09();
-    }
+    @SerializedName(CloudStabilityUBCUtils.KEY_ERROR_CODE)
+    public int a;
+    @SerializedName("errorMsg")
+    public String b;
+    @SerializedName("data")
+    public T c;
+    @SerializedName("state")
+    public ReqState d;
 
     public z09() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = -1;
+        this.d = ReqState.Error;
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final T b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final ReqState d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (ReqState) invokeV.objValue;
+    }
+
+    public final void e(ReqState reqState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, reqState) == null) {
+            Intrinsics.checkNotNullParameter(reqState, "<set-?>");
+            this.d = reqState;
         }
     }
 
-    public final void a(String tag, Exception exception) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, tag, exception) == null) {
-            Intrinsics.checkNotNullParameter(tag, "tag");
-            Intrinsics.checkNotNullParameter(exception, "exception");
-            Log.e("lt-log", "IMExceptionMonitor-report-" + tag + "-exception:" + exception.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "BaseData(code=" + this.a + ", msg=" + this.b + ", data=" + this.c + ", state=" + this.d + ')';
         }
+        return (String) invokeV.objValue;
     }
 }

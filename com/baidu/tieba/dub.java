@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import android.media.MediaFormat;
+import java.lang.reflect.Type;
 /* loaded from: classes5.dex */
 public interface dub {
-    void a(MediaFormat mediaFormat);
+    String a(Object obj);
+
+    <T> T b(String str, Class<T> cls);
+
+    <T> T c(String str, Type type);
 }

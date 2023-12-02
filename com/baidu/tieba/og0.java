@@ -26,7 +26,7 @@ import org.json.JSONObject;
 public class og0 implements rg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nz0 a;
+    public final pz0 a;
 
     /* loaded from: classes7.dex */
     public static class f {
@@ -42,9 +42,9 @@ public class og0 implements rg0 {
             public final /* synthetic */ Throwable a;
 
             @Override // com.baidu.tieba.rg0
-            public void b(zy0 zy0Var) {
+            public void b(bz0 bz0Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zy0Var) == null) {
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bz0Var) == null) {
                 }
             }
 
@@ -56,9 +56,9 @@ public class og0 implements rg0 {
             }
 
             @Override // com.baidu.tieba.rg0
-            public void d(zy0 zy0Var) {
+            public void d(bz0 bz0Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, zy0Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048579, this, bz0Var) == null) {
                 }
             }
 
@@ -80,9 +80,9 @@ public class og0 implements rg0 {
                 this.a = th;
                 if (this.a != null) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("v", "5.12.0.110");
+                    hashMap.put("v", "6.1.0.1");
                     hashMap.put("e", this.a.toString());
-                    bz0.e(new ClogBuilder().y(ClogBuilder.LogType.CHECK).k("12").l("4000").m(new JSONObject(hashMap).toString()));
+                    dz0.e(new ClogBuilder().y(ClogBuilder.LogType.CHECK).k("12").l("4000").m(new JSONObject(hashMap).toString()));
                 }
             }
 
@@ -111,7 +111,7 @@ public class og0 implements rg0 {
                 }
             }
             try {
-                if (h21.b()) {
+                if (j21.b()) {
                     a = new og0(null);
                 } else {
                     a = b(null);
@@ -165,9 +165,9 @@ public class og0 implements rg0 {
                 this.b.a.beginTransaction();
                 try {
                     for (String str : this.a) {
-                        zy0 zy0Var = new zy0();
-                        zy0Var.o(str);
-                        this.b.a.e(zy0Var, new lz0[0]);
+                        bz0 bz0Var = new bz0();
+                        bz0Var.o(str);
+                        this.b.a.e(bz0Var, new nz0[0]);
                     }
                     this.b.a.setTransactionSuccessful();
                 } finally {
@@ -212,9 +212,9 @@ public class og0 implements rg0 {
                     for (Map.Entry entry : this.a.entrySet()) {
                         wg0 wg0Var = (wg0) entry.getValue();
                         if (wg0Var != null) {
-                            zy0 a = pg0.a(wg0Var);
+                            bz0 a = pg0.a(wg0Var);
                             if (!TextUtils.isEmpty(a.g())) {
-                                this.b.a.a(a, new lz0[0]);
+                                this.b.a.a(a, new nz0[0]);
                             }
                         }
                     }
@@ -230,15 +230,15 @@ public class og0 implements rg0 {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zy0 a;
+        public final /* synthetic */ bz0 a;
         public final /* synthetic */ og0 b;
 
-        public c(og0 og0Var, zy0 zy0Var) {
+        public c(og0 og0Var, bz0 bz0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {og0Var, zy0Var};
+                Object[] objArr = {og0Var, bz0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -249,14 +249,14 @@ public class og0 implements rg0 {
                 }
             }
             this.b = og0Var;
-            this.a = zy0Var;
+            this.a = bz0Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.a(this.a, new lz0[0]);
+                this.b.a.a(this.a, new nz0[0]);
             }
         }
     }
@@ -265,15 +265,15 @@ public class og0 implements rg0 {
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zy0 a;
+        public final /* synthetic */ bz0 a;
         public final /* synthetic */ og0 b;
 
-        public d(og0 og0Var, zy0 zy0Var) {
+        public d(og0 og0Var, bz0 bz0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {og0Var, zy0Var};
+                Object[] objArr = {og0Var, bz0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -284,14 +284,14 @@ public class og0 implements rg0 {
                 }
             }
             this.b = og0Var;
-            this.a = zy0Var;
+            this.a = bz0Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.f(this.a, new lz0[0]);
+                this.b.a.f(this.a, new nz0[0]);
             }
         }
     }
@@ -363,30 +363,30 @@ public class og0 implements rg0 {
     }
 
     @Override // com.baidu.tieba.rg0
-    public void b(zy0 zy0Var) {
+    public void b(bz0 bz0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zy0Var) != null) || TextUtils.isEmpty(zy0Var.g())) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bz0Var) != null) || TextUtils.isEmpty(bz0Var.g())) {
             return;
         }
-        g(new d(this, zy0Var), "update_apk_data", 3);
+        g(new d(this, bz0Var), "update_apk_data", 3);
     }
 
     @Override // com.baidu.tieba.rg0
     public void c(HashMap<String, wg0> hashMap) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) != null) || ny0.c(hashMap)) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) != null) || py0.c(hashMap)) {
             return;
         }
         g(new b(this, hashMap), "update_apk_data", 3);
     }
 
     @Override // com.baidu.tieba.rg0
-    public void d(zy0 zy0Var) {
+    public void d(bz0 bz0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, zy0Var) != null) || TextUtils.isEmpty(zy0Var.g())) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, bz0Var) != null) || TextUtils.isEmpty(bz0Var.g())) {
             return;
         }
-        g(new c(this, zy0Var), "update_apk_data", 3);
+        g(new c(this, bz0Var), "update_apk_data", 3);
     }
 
     public static rg0 f() {
@@ -408,22 +408,22 @@ public class og0 implements rg0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            zy0 zy0Var = new zy0();
-            zz0 f2 = zz0.f();
-            f2.a("o", zy0Var.b().d());
-            f2.c("o", zy0Var);
+            bz0 bz0Var = new bz0();
+            b01 f2 = b01.f();
+            f2.a("o", bz0Var.b().d());
+            f2.c("o", bz0Var);
             HashSet hashSet = new HashSet();
             Cursor d2 = this.a.d(f2);
             try {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (d2.moveToFirst()) {
                     do {
-                        zy0 zy0Var2 = new zy0();
-                        sz0.b(zy0Var2, d2);
-                        if (zy0Var2.x() + ng0.b < currentTimeMillis) {
-                            hashSet.add(zy0Var2.g());
+                        bz0 bz0Var2 = new bz0();
+                        uz0.b(bz0Var2, d2);
+                        if (bz0Var2.x() + ng0.b < currentTimeMillis) {
+                            hashSet.add(bz0Var2.g());
                         } else {
-                            ly0.b(arrayList, pg0.b(zy0Var2));
+                            ny0.b(arrayList, pg0.b(bz0Var2));
                         }
                     } while (d2.moveToNext());
                     kf0.a(d2);
@@ -447,7 +447,7 @@ public class og0 implements rg0 {
     public final void g(@NonNull Runnable runnable, @NonNull String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048580, this, runnable, str, i) == null) {
-            c01.c(new e(this, runnable), str, i);
+            e01.c(new e(this, runnable), str, i);
         }
     }
 }

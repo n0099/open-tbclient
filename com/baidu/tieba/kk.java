@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class kk extends re5 {
+public class kk extends ue5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public class kk extends re5 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1606);
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1607);
         this.d = R.drawable.icon_pure_post_voice24;
         this.f = R.color.CAM_X0105;
         this.i = false;
@@ -74,7 +74,7 @@ public class kk extends re5 {
         this.p = new int[0];
     }
 
-    @Override // com.baidu.tieba.re5
+    @Override // com.baidu.tieba.ue5
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

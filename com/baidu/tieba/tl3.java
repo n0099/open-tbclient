@@ -1,67 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.PopupWindow;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.view.menu.SwanContextMenuView;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.menu.BaseMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class tl3 extends r53 {
+public class tl3 implements lc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrameLayout a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tl3(View view2) {
-        super(view2);
+    public tl3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        s(yj3.f(view2.getContext(), 178.0f));
-        p(true);
-        q(true);
+        this.a = null;
     }
 
-    @Override // com.baidu.tieba.r53
-    public void l(View view2, List<s53> list) {
+    @Override // com.baidu.tieba.lc4
+    public void a(BaseMenuView baseMenuView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
-            ((SwanContextMenuView) view2).c(list);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, baseMenuView) != null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            return;
+        }
+        if (rp2.M().a()) {
+            b(baseMenuView);
+        } else {
+            c(baseMenuView);
         }
     }
 
-    @Override // com.baidu.tieba.r53
-    public View m(Context context) {
-        InterceptResult invokeL;
+    public final void b(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new SwanContextMenuView(context);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof FrameLayout)) {
+            return;
         }
-        return (View) invokeL.objValue;
+        if (this.a == null) {
+            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
+            this.a = frameLayout;
+            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f060453);
+        }
+        viewGroup.removeView(this.a);
+        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
     }
 
-    @Override // com.baidu.tieba.r53
-    public void u(PopupWindow popupWindow) {
+    public final void c(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
-            popupWindow.showAtLocation(this.a, 17, 0, 0);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
+            viewGroup.removeView(frameLayout);
+            this.a = null;
         }
     }
 }

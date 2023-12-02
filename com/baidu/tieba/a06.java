@@ -1,256 +1,165 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import android.view.ViewConfiguration;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class a06 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a06 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
+    public View a;
+    public b b;
+    public VelocityTracker c;
+    public float d;
+    public float e;
+    public long f;
+    public long g;
+    public boolean h;
+    public boolean i;
     public int j;
+    public int k;
+    public int l;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947561410, "Lcom/baidu/tieba/a06;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947561410, "Lcom/baidu/tieba/a06;");
-                return;
-            }
-        }
-        k = new a06();
+    /* loaded from: classes5.dex */
+    public interface b {
+        void Y0(float f, float f2);
+
+        void onViewClick();
+
+        void onViewDragToRight();
     }
 
-    public a06() {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a06 a;
+
+        public a(a06 a06Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a06Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a06Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.i && this.a.h && this.a.b != null) {
+                this.a.b.onViewClick();
+            }
+        }
+    }
+
+    public a06(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicBoolean(false);
-    }
-
-    public static a06 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return k;
+        this.a = view2;
+        ViewConfiguration viewConfiguration = ViewConfiguration.get(view2.getContext());
+        if (viewConfiguration != null) {
+            this.l = viewConfiguration.getScaledPagingTouchSlop();
         }
-        return (a06) invokeV.objValue;
+        this.k = ViewConfiguration.getMaximumFlingVelocity();
+        this.j = ViewConfiguration.getMinimumFlingVelocity();
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public void f(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.b = bVar;
         }
-        return invokeV.intValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public boolean d(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("tieba_pic_ad_req_num", 3);
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_first_floor", 4);
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_floor_interval", 7);
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.g == 1) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (this.c == null) {
+                this.c = VelocityTracker.obtain();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("ad_photo_browser_insert_mode", -1) != 1) {
-                return false;
+            this.c.addMovement(motionEvent);
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 3) {
+                        e();
+                    }
+                } else {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (currentTimeMillis - this.f < 100 && currentTimeMillis - this.g < 500) {
+                        this.i = true;
+                    } else {
+                        this.i = false;
+                    }
+                    VelocityTracker velocityTracker = this.c;
+                    velocityTracker.computeCurrentVelocity(1000, this.k);
+                    if (Math.abs(velocityTracker.getYVelocity()) > this.j && Math.abs(this.e - motionEvent.getY()) > 50.0f) {
+                        this.i = false;
+                        this.h = false;
+                    }
+                    if (this.i) {
+                        b bVar2 = this.b;
+                        if (bVar2 != null) {
+                            bVar2.Y0(motionEvent.getRawX(), motionEvent.getRawY());
+                        }
+                    } else if (Math.abs(this.d - motionEvent.getX()) > this.l && (this.d - motionEvent.getX()) - 50.0f > Math.abs(this.e - motionEvent.getY()) && (bVar = this.b) != null) {
+                        bVar.onViewDragToRight();
+                    }
+                    if (!this.i && this.h && Math.abs(this.d - motionEvent.getX()) < 30.0f && Math.abs(this.e - motionEvent.getY()) < 30.0f) {
+                        this.a.postDelayed(new a(this), 300L);
+                    }
+                    this.g = currentTimeMillis;
+                    e();
+                }
+            } else {
+                this.d = motionEvent.getX();
+                this.e = motionEvent.getY();
+                this.f = System.currentTimeMillis();
+                this.h = true;
             }
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public final void e() {
+        VelocityTracker velocityTracker;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.b == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.j == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.h == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.d == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.i == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.e == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, jSONObject) == null) {
-            boolean z = this.a.get();
-            if (jSONObject != null && !z) {
-                this.a.set(true);
-                this.b = jSONObject.optInt("tieba_lazy_launch_switch", 1);
-                this.c = jSONObject.optInt("tieba_lazy_launch_internal", 60);
-                jSONObject.optInt("tieba_max_fake_progress", 50);
-                jSONObject.optInt("tieba_max_fake_time", 60);
-                jSONObject.optLong("tieba_max_fake_speed", 768000L);
-                SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0);
-                this.j = jSONObject.optInt("tieba_video_mobile_net_autoplay", 1);
-                this.g = jSONObject.optInt("tieba_12.4_download_path", 1);
-                jSONObject.optInt("tieba_landing_page_type_switch", -1);
-                this.d = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
-                this.e = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
-                this.f = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
-                jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
-                jSONObject.optInt("tieba_follow_up_expire_time", 7);
-                jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
-                jSONObject.optInt("tieba_follow_up_gap_time", 5);
-                this.h = jSONObject.optInt("tieba_video_ad_jump_switch", 0);
-                this.i = jSONObject.optInt("hide_landing_page_ad_download_tip", 0);
-                SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putInt("video_flow_first_floor", jSONObject.optInt("video_flow_first_floor", 4));
-                edit.putInt("video_flow_floor_interval", jSONObject.optInt("video_flow_floor_interval", 7));
-                int optInt = jSONObject.optInt("ad_photo_browser_insert_mode", -1);
-                if (optInt != -1) {
-                    edit.putInt("ad_photo_browser_insert_mode", optInt);
-                }
-                int optInt2 = jSONObject.optInt("tieba_pic_ad_req_num", -1);
-                if (optInt2 != -1) {
-                    edit.putInt("tieba_pic_ad_req_num", optInt2);
-                }
-                edit.commit();
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (velocityTracker = this.c) != null) {
+            velocityTracker.clear();
+            this.c.recycle();
+            this.c = null;
         }
     }
 }

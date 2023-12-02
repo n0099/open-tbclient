@@ -22,11 +22,11 @@ import com.baidu.poly.widget.PolyFrameLayout;
 import com.baidu.poly.widget.PopupWindow;
 import com.baidu.poly.widget.toast.ToastLoadingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ae1;
-import com.baidu.tieba.be1;
+import com.baidu.tieba.de1;
 import com.baidu.tieba.ee1;
-import com.baidu.tieba.hd1;
-import com.baidu.tieba.qd1;
+import com.baidu.tieba.he1;
+import com.baidu.tieba.kd1;
+import com.baidu.tieba.td1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,9 +43,9 @@ public class CouponListView extends FrameLayout {
     public ViewGroup d;
     public boolean e;
     public h f;
-    public be1 g;
-    public List<ae1.a> h;
-    public ae1.a i;
+    public ee1 g;
+    public List<de1.a> h;
+    public de1.a i;
     public ToastLoadingView j;
     public boolean k;
     public Runnable l;
@@ -54,18 +54,18 @@ public class CouponListView extends FrameLayout {
     public interface h {
         void a();
 
-        void b(ae1.a aVar, qd1 qd1Var);
+        void b(de1.a aVar, td1 td1Var);
 
-        void c(boolean z, ae1.a aVar);
+        void c(boolean z, de1.a aVar);
 
         void onDetach();
     }
 
     /* loaded from: classes3.dex */
-    public class e implements qd1 {
+    public class e implements td1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ae1.a a;
+        public final /* synthetic */ de1.a a;
         public final /* synthetic */ CouponListView b;
 
         /* loaded from: classes3.dex */
@@ -134,7 +134,7 @@ public class CouponListView extends FrameLayout {
             }
         }
 
-        public e(CouponListView couponListView, ae1.a aVar) {
+        public e(CouponListView couponListView, de1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,21 +153,21 @@ public class CouponListView extends FrameLayout {
             this.a = aVar;
         }
 
-        @Override // com.baidu.tieba.qd1
-        public void a(qd1.a aVar) {
+        @Override // com.baidu.tieba.td1
+        public void a(td1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 this.b.c.a(false);
                 CouponListView couponListView = this.b;
                 couponListView.removeCallbacks(couponListView.l);
-                ee1.b(this.b.j);
+                he1.b(this.b.j);
                 this.b.j = null;
                 if (aVar == null) {
                     return;
                 }
                 int i = aVar.a;
                 if (i == 0) {
-                    for (ae1.a aVar2 : this.b.h) {
+                    for (de1.a aVar2 : this.b.h) {
                         if (aVar2 != this.a) {
                             aVar2.h = 0;
                         } else {
@@ -180,8 +180,8 @@ public class CouponListView extends FrameLayout {
                 } else if (i == 1) {
                     View inflate = View.inflate(this.b.getContext(), R.layout.obfuscated_res_0x7f0d0256, null);
                     PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
-                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091dda)).setText(aVar.b);
-                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091dd2)).setOnClickListener(new a(this, popupWindow));
+                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ddc)).setText(aVar.b);
+                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091dd4)).setOnClickListener(new a(this, popupWindow));
                     popupWindow.z(new b(this));
                     popupWindow.C(this.b, 0, 0, 0);
                 } else {
@@ -222,7 +222,7 @@ public class CouponListView extends FrameLayout {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
                 CouponListView couponListView = this.a;
-                couponListView.j = ee1.c(couponListView.c, layoutParams, "加载中", -1L);
+                couponListView.j = he1.c(couponListView.c, layoutParams, "加载中", -1L);
             }
         }
     }
@@ -320,11 +320,11 @@ public class CouponListView extends FrameLayout {
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || ((ae1.a) this.a.h.get(i)).h == 1) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || ((de1.a) this.a.h.get(i)).h == 1) {
                 return;
             }
             CouponListView couponListView = this.a;
-            couponListView.t((ae1.a) couponListView.h.get(i));
+            couponListView.t((de1.a) couponListView.h.get(i));
         }
     }
 
@@ -521,7 +521,7 @@ public class CouponListView extends FrameLayout {
         }
     }
 
-    public final void t(ae1.a aVar) {
+    public final void t(de1.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048585, this, aVar) != null) || this.f == null) {
             return;
@@ -531,13 +531,13 @@ public class CouponListView extends FrameLayout {
         this.f.b(aVar, new e(this, aVar));
     }
 
-    public ae1.a getSelectedItem() {
+    public de1.a getSelectedItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.i;
         }
-        return (ae1.a) invokeV.objValue;
+        return (de1.a) invokeV.objValue;
     }
 
     public boolean r() {
@@ -562,7 +562,7 @@ public class CouponListView extends FrameLayout {
                 if (findViewById instanceof ViewGroup) {
                     ((ViewGroup) findViewById).addView(this);
                 }
-                hd1.g("CouponListView->attach()");
+                kd1.g("CouponListView->attach()");
                 return;
             }
             throw new IllegalStateException("can not attach to context " + getContext());
@@ -580,7 +580,7 @@ public class CouponListView extends FrameLayout {
             if (hVar != null) {
                 hVar.onDetach();
             }
-            hd1.g("CouponListView->detach()");
+            kd1.g("CouponListView->detach()");
         }
     }
 
@@ -603,8 +603,8 @@ public class CouponListView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0240, (ViewGroup) this, true);
             this.c = (PolyFrameLayout) findViewById(R.id.root_layout);
-            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09083b);
-            this.b = (ListView) findViewById(R.id.obfuscated_res_0x7f09083c);
+            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09083c);
+            this.b = (ListView) findViewById(R.id.obfuscated_res_0x7f09083d);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f09034f);
             this.a = findViewById;
             findViewById.setOnClickListener(new b(this));
@@ -626,16 +626,16 @@ public class CouponListView extends FrameLayout {
         }
     }
 
-    public void u(List<ae1.a> list) {
+    public void u(List<de1.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.h = list;
             if (this.g == null) {
-                this.g = new be1(getContext());
+                this.g = new ee1(getContext());
             }
             this.b.setAdapter((ListAdapter) this.g);
             this.g.c(this.h);
-            List<ae1.a> list2 = this.h;
+            List<de1.a> list2 = this.h;
             if (list2 != null && list2.size() > 0) {
                 int i = 0;
                 while (true) {

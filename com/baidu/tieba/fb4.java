@@ -1,116 +1,102 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PorterDuff;
-import android.graphics.RectF;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.bt2;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fb4 {
+public class fb4 extends wa4<ys2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rb4 a;
-        public final /* synthetic */ bt2 b;
-
-        public a(rb4 rb4Var, bt2 bt2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947758353, "Lcom/baidu/tieba/fb4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rb4Var, bt2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = rb4Var;
-            this.b = bt2Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947758353, "Lcom/baidu/tieba/fb4;");
+                return;
+            }
         }
+        boolean z = vm1.a;
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                mb4.a(this.a, this.b);
+    public fb4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static View a(rb4 rb4Var, bt2 bt2Var) {
-        InterceptResult invokeLL;
+    public static fb4 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rb4Var, bt2Var)) == null) {
-            h32.i("map", "creatCallout start");
-            Paint paint = new Paint();
-            paint.setAntiAlias(true);
-            paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint.setColor(bt2Var.i.b);
-            paint.setTextSize(bt2Var.i.c);
-            bt2.b bVar = bt2Var.i;
-            float f = bVar.e;
-            float f2 = bVar.f;
-            Paint paint2 = new Paint();
-            paint2.setAntiAlias(true);
-            paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint2.setColor(bt2Var.i.h);
-            String str = bt2Var.i.a;
-            int g = yj3.g(6.0f);
-            float f3 = f * 2.0f;
-            float measureText = paint.measureText(str) + f3;
-            float f4 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
-            float f5 = g + f4 + f3;
-            if (f5 > 0.0f && measureText > 0.0f) {
-                Bitmap createBitmap = Bitmap.createBitmap((int) measureText, (int) f5, Bitmap.Config.ARGB_8888);
-                createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
-                Canvas canvas = new Canvas(createBitmap);
-                canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-                RectF rectF = new RectF();
-                rectF.left = 0.0f;
-                rectF.top = 0.0f;
-                float f6 = f4 + f3;
-                rectF.bottom = f6;
-                rectF.right = measureText;
-                canvas.drawRoundRect(rectF, f2, f2, paint2);
-                Path path = new Path();
-                float f7 = measureText / 2.0f;
-                float f8 = g / 2;
-                path.moveTo(f7 - f8, f6);
-                path.lineTo(f7, f5);
-                path.lineTo(f7 + f8, f6);
-                path.close();
-                canvas.drawPath(path, paint2);
-                canvas.drawText(str, f, (-paint.getFontMetrics().top) + f, paint);
-                ImageView imageView = new ImageView(AppRuntime.getAppContext());
-                imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
-                imageView.setImageBitmap(createBitmap);
-                imageView.setOnClickListener(new a(rb4Var, bt2Var));
-                h32.i("map", "creatCallout end");
-                return imageView;
-            }
-            h32.o("map", "callout height or wodth is 0");
-            return new ImageView(AppRuntime.getAppContext());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new fb4();
         }
-        return (View) invokeLL.objValue;
+        return (fb4) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wa4
+    /* renamed from: d */
+    public boolean b(Context context, ys2 ys2Var, ts2 ts2Var, k63 k63Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ys2Var, ts2Var, k63Var, jSONObject)) == null) {
+            return g(context, ys2Var, ts2Var, k63Var);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final Bundle f(ys2 ys2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ys2Var)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("slaveId", ys2Var.c);
+            bundle.putDouble("latitude", ys2Var.j.a);
+            bundle.putDouble("longitude", ys2Var.j.b);
+            bundle.putDouble("scale", ys2Var.k);
+            bundle.putString("name", ys2Var.z);
+            bundle.putString("address", ys2Var.A);
+            bundle.putStringArrayList("ignoredApps", ys2Var.B);
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    public final boolean g(Context context, ys2 ys2Var, ts2 ts2Var, k63 k63Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, ys2Var, ts2Var, k63Var)) == null) {
+            k32.i("map", "OpenLocationAction start");
+            if (!ys2Var.isValid()) {
+                k32.c("map", "model is invalid");
+                return false;
+            }
+            rb4.y3(f(ys2Var)).C3();
+            k32.i("map", "OpenLocationAction end");
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

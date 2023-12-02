@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a17;
 import com.baidu.tieba.im.base.core.uilist.ReplyContentView;
 import com.baidu.tieba.im.lib.socket.msg.TbReMsgInfo;
-import com.baidu.tieba.w07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -120,11 +120,11 @@ public final class ReplyContentView extends AppCompatTextView {
     public final void d(TbReMsgInfo tbReMsgInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbReMsgInfo) == null) {
-            w07.e(getContext(), tbReMsgInfo.getContent(), this.c, new w07.i() { // from class: com.baidu.tieba.eq8
+            a17.e(getContext(), tbReMsgInfo.getContent(), this.c, new a17.i() { // from class: com.baidu.tieba.iq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.w07.i
+                @Override // com.baidu.tieba.a17.i
                 public final void a(SpannableStringBuilder spannableStringBuilder) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {

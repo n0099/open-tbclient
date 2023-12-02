@@ -1,8 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,66 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import tbclient.FrsPage.CoverImageColor;
+import tbclient.FrsPage.ActivityHead;
 import tbclient.FrsPage.HeadImgs;
-import tbclient.FrsPage.VideoImageColor;
+import tbclient.FrsPage.Size;
 /* loaded from: classes6.dex */
-public class hx4 implements z25 {
+public class hx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public ArrayList<kx4> a;
     public String b;
-    public CoverImageColor c;
-    public List<VideoImageColor> d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public boolean l;
-    public String m;
-    public float n;
-    public List<String> o;
-    public pva p;
-
-    /* loaded from: classes6.dex */
-    public class a implements Comparator<VideoImageColor> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(hx4 hx4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hx4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(VideoImageColor videoImageColor, VideoImageColor videoImageColor2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, videoImageColor, videoImageColor2)) == null) {
-                return videoImageColor.time.intValue() - videoImageColor2.time.intValue();
-            }
-            return invokeLL.intValue;
-        }
-    }
+    public iw4 c;
 
     public hx4() {
         Interceptable interceptable = $ic;
@@ -82,266 +30,94 @@ public class hx4 implements z25 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    public CoverImageColor b() {
+    public iw4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (iw4) invokeV.objValue;
+    }
+
+    public ArrayList<kx4> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.a;
         }
-        return (CoverImageColor) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public pva f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.p;
-        }
-        return (pva) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.z25
-    public String getPicLinkUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.z25
-    public String getPicUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public String i() {
-        InterceptResult invokeV;
+    public void d(ActivityHead activityHead, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.m;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public float k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.n;
-        }
-        return invokeV.floatValue;
-    }
-
-    public List<String> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.o;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<VideoImageColor> m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.l;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public hx4(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = str;
-        this.f = str2;
-        this.i = str3;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public hx4 clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hx4 hx4Var = new hx4();
-            hx4Var.a = this.a;
-            hx4Var.b = this.b;
-            hx4Var.c = this.c;
-            hx4Var.d = this.d;
-            hx4Var.e = this.e;
-            hx4Var.f = this.f;
-            hx4Var.g = this.g;
-            hx4Var.i = this.i;
-            hx4Var.j = this.j;
-            hx4Var.k = this.k;
-            hx4Var.m = this.m;
-            hx4Var.n = this.n;
-            hx4Var.o = this.o;
-            hx4Var.h = this.h;
-            return hx4Var;
-        }
-        return (hx4) invokeV.objValue;
-    }
-
-    public void o(HeadImgs headImgs) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048593, this, headImgs) != null) || headImgs == null) {
+        if ((interceptable != null && interceptable.invokeLJ(1048579, this, activityHead, j) != null) || activityHead == null) {
             return;
         }
-        this.a = headImgs.cover_url;
-        this.b = headImgs.play_url;
-        this.c = headImgs.cover_image_color;
-        s(headImgs.video_image_color);
-        this.e = headImgs.img_url;
-        this.f = headImgs.pc_url;
-        this.g = headImgs.schema;
-        this.m = headImgs.tag_name_url;
-        this.h = headImgs.package_name;
-        String str = headImgs.tag_name_wh;
-        if (str != null) {
-            try {
-                String[] split = str.split(",");
-                int i = JavaTypesHelper.toInt(split[0], 1);
-                int i2 = JavaTypesHelper.toInt(split[1], 1);
-                if (i2 != 0) {
-                    this.n = i / i2;
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        activityHead.activity_type.intValue();
+        String str = activityHead.activity_title;
+        Size size = activityHead.top_size;
+        if (size != null) {
+            size.width.intValue();
         }
-        String str2 = headImgs.title;
-        if (str2 != null) {
-            this.i = str2.trim();
+        Size size2 = activityHead.top_size;
+        if (size2 != null) {
+            size2.height.intValue();
         }
-        String str3 = headImgs.subtitle;
-        if (str3 != null) {
-            this.j = str3.trim();
-        }
-        String str4 = headImgs.btn_text;
-        if (str4 != null) {
-            this.k = str4.trim();
-        }
-        this.o = headImgs.third_statistics_url;
-        pva pvaVar = new pva();
-        this.p = pvaVar;
-        pvaVar.d(headImgs);
+        this.b = activityHead.obj_id;
+        f(activityHead.head_imgs);
+        iw4 iw4Var = new iw4();
+        iw4Var.a = activityHead.pull_down_pic_android;
+        iw4Var.b = activityHead.pull_down_url;
+        iw4Var.c = activityHead.pull_down_interval.intValue();
+        iw4Var.d = activityHead.pull_down_exposure_url;
+        iw4Var.e = activityHead.pull_down_click_url;
+        iw4Var.f = activityHead.pull_down_schema;
+        iw4Var.g = activityHead.pull_down_package_name;
+        iw4Var.h = activityHead.is_ad.booleanValue();
+        iw4Var.i = activityHead.obj_id;
+        iw4Var.j = j;
+        this.c = iw4Var;
     }
 
-    public void p(String str) {
+    public void e(HeadImgs headImgs) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.l = z;
-        }
-    }
-
-    public void s(List<VideoImageColor> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048597, this, list) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, headImgs) != null) || headImgs == null) {
             return;
         }
-        ArrayList arrayList = new ArrayList(list);
-        Collections.sort(arrayList, new a(this));
-        this.d = arrayList;
+        kx4 kx4Var = new kx4();
+        kx4Var.o(headImgs);
+        this.a.add(kx4Var);
+    }
+
+    public void f(List<HeadImgs> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        for (HeadImgs headImgs : list) {
+            e(headImgs);
+        }
+    }
+
+    public void g(ArrayList<kx4> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
+            this.a = arrayList;
+        }
     }
 }

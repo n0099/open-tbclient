@@ -179,7 +179,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.l.b<g> 
 
     @Override // com.kwad.components.core.proxy.c
     public void initView() {
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09148f);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091490);
         com.kwad.sdk.i.a.aj("reward", "show");
     }
 
@@ -553,7 +553,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.l.b<g> 
         }
         gVar.oX = true;
         if (com.kwad.sdk.core.response.b.a.bH(bH)) {
-            gVar.oK = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913fe));
+            gVar.oK = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913ff));
         }
         gVar.pt = 0L;
         if (this.mModel.bH() != null) {

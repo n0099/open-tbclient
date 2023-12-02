@@ -54,7 +54,7 @@ public class ah0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject c = my0.c(str);
+            JSONObject c = oy0.c(str);
             ah0 ah0Var = new ah0();
             ah0Var.a = c.optString("als_ext");
             ah0Var.b = c.optString("cmd");

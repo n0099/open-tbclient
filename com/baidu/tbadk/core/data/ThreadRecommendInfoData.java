@@ -7,7 +7,7 @@ import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
-import com.baidu.tieba.z5b;
+import com.baidu.tieba.y5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -98,8 +98,8 @@ public class ThreadRecommendInfoData implements Serializable {
                 this.jumpIcon = jSONObject.optString("jump_icon");
                 this.jumpText = jSONObject.optString("jump_text");
                 parseJumpLinkAlbumType(this.jumpLink);
-                this.dotColorInfo = z5b.j(jSONObject.optJSONObject("dot_color"));
-                this.tailColorInfo = z5b.j(jSONObject.optJSONObject(TailEditActivityConfig.TAIL_COLOR));
+                this.dotColorInfo = y5b.j(jSONObject.optJSONObject("dot_color"));
+                this.tailColorInfo = y5b.j(jSONObject.optJSONObject(TailEditActivityConfig.TAIL_COLOR));
             } catch (Exception e) {
                 BdLog.e(e);
             }

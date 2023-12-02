@@ -1,68 +1,66 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
+import android.net.wifi.ScanResult;
 import android.net.wifi.SupplicantState;
-import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
-import android.os.Build;
+import android.net.wifi.WifiManager;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.swan.apps.system.wifi.listener.SwanWifiBroadcastReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes5.dex */
-public class eh3 extends bh3 {
+public abstract class eh3 implements fh3, gh3 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile eh3 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ch3 h;
+    public Context a;
+    public WifiManager b;
+    public SwanWifiBroadcastReceiver c;
+    public final gh3 d;
+    public boolean e;
+    public volatile List<dl3<kh3<jh3>>> f;
+    public final ch3 g;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class c implements gh3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements ch3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public al3<hh3<gh3>> a;
-        public WifiConfiguration b;
-        public boolean c;
-        public final Handler d;
-        public final Lock e;
-        public final Runnable f;
-        public final yg3 g;
-        public final /* synthetic */ eh3 h;
+        public volatile List<dl3<kh3<List<jh3>>>> a;
+        public boolean b;
+        public List<dl3<kh3<Void>>> c;
+        public Lock d;
+        public Handler e;
+        public List<ScanResult> f;
+        public Runnable g;
+        public dh3 h;
+        public final /* synthetic */ eh3 i;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ c a;
 
-            public a(b bVar) {
+            public a(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
+                    Object[] objArr = {cVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -72,39 +70,39 @@ public class eh3 extends bh3 {
                         return;
                     }
                 }
-                this.a = bVar;
+                this.a = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.e.lock();
+                    this.a.d.lock();
                     try {
-                        if (this.a.a != null) {
-                            this.a.h.g(12003, "connection timeout", null, this.a.a);
+                        if (!this.a.b) {
+                            return;
                         }
-                        this.a.l();
+                        this.a.m(this.a.f);
+                        this.a.b = false;
                     } finally {
-                        this.a.e.unlock();
+                        this.a.d.unlock();
                     }
                 }
             }
         }
 
-        /* renamed from: com.baidu.tieba.eh3$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0286b implements yg3 {
+        public class b implements dh3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ c a;
 
-            public C0286b(b bVar) {
+            public b(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
+                    Object[] objArr = {cVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -114,65 +112,44 @@ public class eh3 extends bh3 {
                         return;
                     }
                 }
-                this.a = bVar;
+                this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.zg3
-            public void a(WifiInfo wifiInfo) {
+            @Override // com.baidu.tieba.dh3
+            public void a(List<ScanResult> list) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, wifiInfo) == null) {
-                    if (wifiInfo == null) {
-                        wifiInfo = this.a.h.b.getConnectionInfo();
-                    }
-                    this.a.e.lock();
-                    try {
-                        if (this.a.b != null && this.a.a != null && TextUtils.equals(wifiInfo.getSSID(), this.a.b.SSID)) {
-                            this.a.h.g(0, "success", new gh3(wifiInfo, jh3.a(ih3.b(this.a.h.a, this.a.h.b, wifiInfo))), this.a.a);
-                            this.a.l();
-                        }
-                    } finally {
-                        this.a.e.unlock();
-                    }
+                if (interceptable != null && interceptable.invokeL(1048576, this, list) != null) {
+                    return;
                 }
-            }
-
-            @Override // com.baidu.tieba.yg3
-            public void onError(int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                    this.a.e.lock();
-                    if (i == 1) {
-                        try {
-                            if (this.a.a != null) {
-                                if (this.a.c) {
-                                    this.a.h.g(TaskResponseData.ERROR_NO_TASK_OFFLINE_03, "password error", null, this.a.a);
-                                } else {
-                                    this.a.h.g(12013, "wifi config unavailable", null, this.a.a);
-                                }
-                                this.a.l();
-                            }
-                        } finally {
-                            this.a.e.unlock();
-                        }
+                this.a.f = list;
+                this.a.d.lock();
+                try {
+                    if (!this.a.b) {
+                        return;
                     }
+                    this.a.e.removeCallbacks(this.a.g);
+                    this.a.m(list);
+                    this.a.b = false;
+                } finally {
+                    this.a.d.unlock();
                 }
             }
         }
 
+        /* renamed from: com.baidu.tieba.eh3$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class c implements Runnable {
+        public class RunnableC0260c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ al3 a;
-            public final /* synthetic */ fh3 b;
-            public final /* synthetic */ b c;
+            public final /* synthetic */ dl3 a;
+            public final /* synthetic */ c b;
 
-            public c(b bVar, al3 al3Var, fh3 fh3Var) {
+            public RunnableC0260c(c cVar, dl3 dl3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, al3Var, fh3Var};
+                    Object[] objArr = {cVar, dl3Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -182,106 +159,43 @@ public class eh3 extends bh3 {
                         return;
                     }
                 }
-                this.c = bVar;
-                this.a = al3Var;
-                this.b = fh3Var;
+                this.b = cVar;
+                this.a = dl3Var;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                int addNetwork;
-                boolean z;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (Build.VERSION.SDK_INT >= 29) {
-                        this.c.h.g(12001, "not support", null, this.a);
-                    } else if (!this.c.h.l()) {
-                        this.c.h.g(12000, "not init", null, this.a);
-                    } else if (!this.c.h.b.isWifiEnabled()) {
-                        this.c.h.g(12005, "wifi is not on", null, this.a);
-                    } else if (!bk3.K(this.c.h.a)) {
-                        this.c.h.g(12006, "LBS is not on", null, this.a);
-                    } else if (ContextCompat.checkSelfPermission(this.c.h.a, com.kuaishou.weapon.p0.g.g) != 0) {
-                        this.c.h.g(CyberPlayerManager.MEDIA_INFO_MEDIA_FILE_PATH, "no location permission", null, this.a);
+                    if (!this.b.i.e) {
+                        this.b.i.g(12000, "not init", null, this.a);
+                    } else if (!this.b.i.b.isWifiEnabled()) {
+                        this.b.i.g(12005, "wifi is not on", null, this.a);
+                    } else if (!ek3.K(this.b.i.a)) {
+                        this.b.i.g(12006, "LBS is not on", null, this.a);
+                    } else if (ContextCompat.checkSelfPermission(this.b.i.a, com.kuaishou.weapon.p0.g.g) != 0) {
+                        this.b.i.g(CyberPlayerManager.MEDIA_INFO_MEDIA_FILE_PATH, "no location permission", null, this.a);
                     } else {
-                        this.c.e.lock();
+                        this.b.d.lock();
                         try {
-                            if (this.c.a != null) {
-                                this.c.h.g(12004, "is connecting", null, this.a);
+                            if (this.b.b) {
+                                this.b.c.add(this.a);
                                 return;
                             }
-                            this.c.a = this.a;
-                            this.c.e.unlock();
-                            this.c.b = ih3.a(this.b);
-                            if (this.c.b == null) {
-                                this.c.h.g(12008, "invalid ssid", null, this.a);
-                                this.c.l();
-                            } else if (!TextUtils.isEmpty(this.c.b.preSharedKey) && ih3.e(this.c.b.preSharedKey).length() < 8) {
-                                b bVar = this.c;
-                                bVar.h.g(TaskResponseData.ERROR_NO_TASK_OFFLINE_03, "password error", null, bVar.a);
-                                this.c.l();
-                            } else {
-                                WifiInfo connectionInfo = this.c.h.b.getConnectionInfo();
-                                if (connectionInfo != null && connectionInfo.getSupplicantState() != SupplicantState.COMPLETED) {
-                                    connectionInfo = null;
-                                }
-                                boolean z2 = false;
-                                if (connectionInfo != null && !TextUtils.equals(connectionInfo.getSSID(), "<unknown ssid>") && TextUtils.equals(this.c.b.SSID, connectionInfo.getSSID()) && (TextUtils.isEmpty(this.c.b.BSSID) || (!TextUtils.isEmpty(this.c.b.BSSID) && TextUtils.equals(this.c.b.BSSID, connectionInfo.getBSSID())))) {
-                                    eh3 eh3Var = this.c.h;
-                                    eh3Var.g(0, "success", new gh3(connectionInfo, jh3.a(ih3.b(eh3Var.a, eh3Var.b, connectionInfo))), this.a);
-                                    this.c.l();
-                                    return;
-                                }
-                                eh3 eh3Var2 = this.c.h;
-                                WifiConfiguration c = ih3.c(eh3Var2.a, eh3Var2.b, this.b);
-                                if (c != null) {
-                                    this.c.b.networkId = c.networkId;
-                                }
-                                if (this.c.b.networkId > -1) {
-                                    b bVar2 = this.c;
-                                    addNetwork = bVar2.h.b.updateNetwork(bVar2.b);
-                                    if (addNetwork < 0 && c != null && !TextUtils.isEmpty(this.c.b.BSSID) && !TextUtils.equals(this.c.b.BSSID, c.BSSID)) {
-                                        this.c.h.g(12013, "wifi config unavailable", null, this.a);
-                                        this.c.l();
-                                        return;
-                                    } else if (connectionInfo != null && addNetwork == connectionInfo.getNetworkId() && !TextUtils.isEmpty(this.c.b.BSSID) && !TextUtils.equals(this.c.b.BSSID, connectionInfo.getBSSID())) {
-                                        this.c.h.g(12013, "wifi config unavailable", null, this.a);
-                                        this.c.l();
-                                        return;
-                                    }
-                                } else {
-                                    b bVar3 = this.c;
-                                    addNetwork = bVar3.h.b.addNetwork(bVar3.b);
-                                }
-                                b bVar4 = this.c;
-                                if (addNetwork >= 0) {
-                                    z = true;
-                                } else {
-                                    z = false;
-                                }
-                                bVar4.c = z;
-                                if (addNetwork < 0 && this.c.b.networkId > -1) {
-                                    addNetwork = this.c.b.networkId;
-                                }
-                                if (addNetwork >= 0) {
-                                    this.c.d.postDelayed(this.c.f, 16000L);
-                                    z2 = this.c.h.b.enableNetwork(addNetwork, true);
-                                    this.c.h.b.saveConfiguration();
-                                }
-                                if (!z2) {
-                                    this.c.h.g(12013, "wifi config unavailable", null, this.a);
-                                    this.c.l();
-                                }
-                            }
+                            this.b.b = true;
+                            this.b.d.unlock();
+                            this.b.e.postDelayed(this.b.g, LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
+                            this.b.i.b.startScan();
+                            this.b.i.g(0, "success", null, this.a);
                         } finally {
-                            this.c.e.unlock();
+                            this.b.d.unlock();
                         }
                     }
                 }
             }
         }
 
-        public b(eh3 eh3Var) {
+        public c(eh3 eh3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -296,46 +210,100 @@ public class eh3 extends bh3 {
                     return;
                 }
             }
-            this.h = eh3Var;
-            this.d = new Handler(Looper.getMainLooper());
-            this.e = new ReentrantLock();
-            this.f = new a(this);
-            C0286b c0286b = new C0286b(this);
-            this.g = c0286b;
-            eh3Var.c.setConnectListener(c0286b);
+            this.i = eh3Var;
+            this.a = new CopyOnWriteArrayList();
+            this.b = false;
+            this.c = new CopyOnWriteArrayList();
+            this.d = new ReentrantLock();
+            this.e = new Handler(Looper.getMainLooper());
+            this.g = new a(this);
+            b bVar = new b(this);
+            this.h = bVar;
+            eh3Var.c.setScanListener(bVar);
         }
 
-        @Override // com.baidu.tieba.ch3
-        public void a(fh3 fh3Var, al3<hh3<gh3>> al3Var) {
+        public final void m(List<ScanResult> list) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, fh3Var, al3Var) != null) || al3Var == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (list != null) {
+                    for (ScanResult scanResult : list) {
+                        arrayList.add(new jh3(scanResult));
+                    }
+                }
+                List<dl3<kh3<List<jh3>>>> list2 = this.a;
+                for (dl3<kh3<List<jh3>>> dl3Var : list2) {
+                    this.i.g(0, "success", arrayList, dl3Var);
+                }
+                List<dl3<kh3<Void>>> list3 = this.c;
+                this.c = new CopyOnWriteArrayList();
+                for (dl3<kh3<Void>> dl3Var2 : list3) {
+                    this.i.g(0, "success", null, dl3Var2);
+                    for (dl3<kh3<List<jh3>>> dl3Var3 : list2) {
+                        this.i.g(0, "success", arrayList, dl3Var3);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gh3
+        public boolean b(dl3<kh3<List<jh3>>> dl3Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dl3Var)) == null) {
+                if (dl3Var == null) {
+                    return false;
+                }
+                List<dl3<kh3<List<jh3>>>> list = this.a;
+                if (!list.contains(dl3Var)) {
+                    return true;
+                }
+                return list.remove(dl3Var);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.gh3
+        public void c(dl3<kh3<Void>> dl3Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dl3Var) != null) || dl3Var == null) {
                 return;
             }
-            bj3.k(new c(this, al3Var, fh3Var), "connectWifi");
+            ej3.k(new RunnableC0260c(this, dl3Var), "wifiScan");
         }
 
-        public final void l() {
+        @Override // com.baidu.tieba.gh3
+        public boolean d(dl3<kh3<List<jh3>>> dl3Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.e.lock();
-                try {
-                    this.d.removeCallbacks(this.f);
-                    this.b = null;
-                    this.a = null;
-                } finally {
-                    this.e.unlock();
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dl3Var)) == null) {
+                if (dl3Var == null) {
+                    return false;
                 }
+                List<dl3<kh3<List<jh3>>>> list = this.a;
+                if (list.contains(dl3Var)) {
+                    return true;
+                }
+                return list.add(dl3Var);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public void n() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.a = new CopyOnWriteArrayList();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements ch3 {
+    public class a implements ch3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ eh3 a;
 
-        public c(eh3 eh3Var) {
+        public a(eh3 eh3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -353,92 +321,247 @@ public class eh3 extends bh3 {
             this.a = eh3Var;
         }
 
-        public /* synthetic */ c(eh3 eh3Var, a aVar) {
-            this(eh3Var);
-        }
-
         @Override // com.baidu.tieba.ch3
-        public void a(fh3 fh3Var, al3<hh3<gh3>> al3Var) {
+        public void a(WifiInfo wifiInfo) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, fh3Var, al3Var) != null) || al3Var == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, wifiInfo) == null) {
+                if (wifiInfo == null) {
+                    wifiInfo = this.a.b.getConnectionInfo();
+                }
+                this.a.m(wifiInfo);
             }
-            this.a.g(12001, "not support", null, al3Var);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dl3 a;
+        public final /* synthetic */ eh3 b;
+
+        public b(eh3 eh3Var, dl3 dl3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eh3Var, dl3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = eh3Var;
+            this.a = dl3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                WifiInfo wifiInfo = null;
+                if (!this.b.e) {
+                    this.b.g(12000, "not init", null, this.a);
+                } else if (!this.b.b.isWifiEnabled()) {
+                    this.b.g(12005, "wifi is not on", null, this.a);
+                } else if (!ek3.K(this.b.a)) {
+                    this.b.g(12006, "LBS is not on", null, this.a);
+                } else if (ContextCompat.checkSelfPermission(this.b.a, com.kuaishou.weapon.p0.g.g) != 0) {
+                    this.b.g(CyberPlayerManager.MEDIA_INFO_MEDIA_FILE_PATH, "no location permission", null, this.a);
+                } else {
+                    WifiInfo connectionInfo = this.b.b.getConnectionInfo();
+                    if (connectionInfo == null || connectionInfo.getSupplicantState() == SupplicantState.COMPLETED) {
+                        wifiInfo = connectionInfo;
+                    }
+                    eh3 eh3Var = this.b;
+                    eh3Var.g(0, "success", new jh3(wifiInfo, mh3.a(lh3.b(eh3Var.a, eh3Var.b, wifiInfo))), this.a);
+                }
+            }
+        }
+    }
+
     public eh3(Context context) {
-        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (Build.VERSION.SDK_INT < 29) {
-            this.h = new b(this);
-        } else {
-            this.h = new c(this, null);
-        }
+        this.e = false;
+        this.f = new CopyOnWriteArrayList();
+        this.g = new a(this);
+        this.a = context;
+        this.b = (WifiManager) context.getApplicationContext().getSystemService("wifi");
+        SwanWifiBroadcastReceiver swanWifiBroadcastReceiver = new SwanWifiBroadcastReceiver(this.b);
+        this.c = swanWifiBroadcastReceiver;
+        swanWifiBroadcastReceiver.setConnectSuccessListener(this.g);
+        this.d = new c(this);
     }
 
-    public static eh3 s(@NonNull Context context) {
+    @Override // com.baidu.tieba.gh3
+    public boolean b(dl3<kh3<List<jh3>>> dl3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (i == null) {
-                synchronized (eh3.class) {
-                    if (i == null) {
-                        i = new eh3(context);
-                    }
-                }
-            }
-            return i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dl3Var)) == null) {
+            return this.d.b(dl3Var);
         }
-        return (eh3) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void u() {
+    @Override // com.baidu.tieba.gh3
+    public void c(dl3<kh3<Void>> dl3Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && i != null) {
-            i.h();
-            i = null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dl3Var) == null) {
+            this.d.c(dl3Var);
         }
     }
 
-    public final void t() {
+    @Override // com.baidu.tieba.gh3
+    public boolean d(dl3<kh3<List<jh3>>> dl3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Intent intent = new Intent();
-            intent.setAction("android.settings.WIFI_SETTINGS");
-            if (!(this.a instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            this.a.startActivity(intent);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dl3Var)) == null) {
+            return this.d.d(dl3Var);
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ch3
-    public void a(fh3 fh3Var, al3<hh3<gh3>> al3Var) {
+    public void j(dl3<kh3<jh3>> dl3Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, fh3Var, al3Var) != null) || al3Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, dl3Var) != null) || dl3Var == null) {
             return;
         }
-        if (fh3Var != null && fh3Var.e) {
-            t();
-            g(0, "success", null, al3Var);
+        ej3.k(new b(this, dl3Var), "getConnectedWifi");
+    }
+
+    public boolean n(dl3<kh3<jh3>> dl3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, dl3Var)) == null) {
+            if (dl3Var == null) {
+                return false;
+            }
+            List<dl3<kh3<jh3>>> list = this.f;
+            if (list.contains(dl3Var)) {
+                return true;
+            }
+            return list.add(dl3Var);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void p(dl3<kh3<Void>> dl3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, dl3Var) == null) {
+            if (this.e) {
+                g(0, "success", null, dl3Var);
+                return;
+            }
+            k();
+            g(0, "success", null, dl3Var);
+        }
+    }
+
+    public void q(dl3<kh3<Void>> dl3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, dl3Var) == null) {
+            if (!this.e) {
+                g(0, "success", null, dl3Var);
+                return;
+            }
+            i();
+            g(0, "success", null, dl3Var);
+        }
+    }
+
+    public boolean r(dl3<kh3<jh3>> dl3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, dl3Var)) == null) {
+            if (dl3Var == null) {
+                return false;
+            }
+            List<dl3<kh3<jh3>>> list = this.f;
+            if (!list.contains(dl3Var)) {
+                return true;
+            }
+            return list.remove(dl3Var);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public <ResultType> void g(int i, String str, ResultType resulttype, dl3<kh3<ResultType>> dl3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, resulttype, dl3Var}) != null) || dl3Var == null) {
             return;
         }
-        this.h.a(fh3Var, al3Var);
+        kh3<ResultType> kh3Var = new kh3<>();
+        kh3Var.a = i;
+        kh3Var.b = str;
+        kh3Var.c = resulttype;
+        dl3Var.a(kh3Var);
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c.unregisterSelf(this.a);
+            this.f = new CopyOnWriteArrayList();
+            ((c) this.d).n();
+            o(false);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c.unregisterSelf(this.a);
+            o(false);
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.registerSelf(this.a);
+            o(true);
+        }
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void m(WifiInfo wifiInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, wifiInfo) == null) {
+            for (dl3<kh3<jh3>> dl3Var : this.f) {
+                g(0, "success", new jh3(wifiInfo, mh3.a(lh3.b(this.a, this.b, wifiInfo))), dl3Var);
+            }
+        }
     }
 }

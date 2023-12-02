@@ -1,68 +1,28 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.task.TbSocketMessageTask;
+import com.baidu.tieba.homepage.personalize.data.RealTimeHttpResponse;
+import com.baidu.tieba.homepage.personalize.data.RealTimeRequest;
+import com.baidu.tieba.homepage.personalize.data.RealTimeSocketResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
 public class ci8 {
     public static /* synthetic */ Interceptable $ic;
-    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    /* loaded from: classes5.dex */
-    public class a extends ju5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ThreadInfo a;
-
-        public a(ThreadInfo threadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {threadInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = threadInfo;
-        }
-
-        @Override // com.baidu.tieba.ju5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String[] split = SharedPrefHelper.getInstance().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(",");
-                if (split.length != 2) {
-                    return null;
-                }
-                String str = split[0];
-                long j = JavaTypesHelper.toLong(split[1], 0L);
-                if (j != 0 && !StringUtils.isNull(str)) {
-                    SharedPrefHelper.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), this.a.tid + "," + j);
-                }
-                return null;
-            }
-            return invokeV.objValue;
-        }
-    }
+    public BdUniqueId a;
 
     public ci8() {
         Interceptable interceptable = $ic;
@@ -74,81 +34,70 @@ public class ci8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void d(long j, int i, List<ThreadInfo> list, List<pi> list2) {
-        ThreadInfo threadInfo;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), list, list2}) == null) && j == b && !ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
-            if (i == 0) {
-                for (int i2 = 0; i2 < list2.size(); i2++) {
-                    if (list2.get(i2) instanceof bi8) {
-                        list2.remove(i2);
-                        return;
-                    }
-                }
                 return;
             }
-            int i3 = i + 1;
-            if (ListUtils.getCount(list) > i3 && (threadInfo = list.get(i3)) != null && threadInfo.tid.longValue() != 0) {
-                b = threadInfo.tid.longValue();
-                nu5.b(new a(threadInfo), null);
+        }
+        this.a = null;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, vva.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(309277);
+            tbSocketMessageTask.setResponsedClass(RealTimeSocketResponse.class);
+            tbSocketMessageTask.setNeedAck(true);
+            MessageManager.getInstance().registerTask(tbSocketMessageTask);
+        }
+    }
+
+    public void a(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
+            b();
+            c();
+        }
+    }
+
+    public final void d(NetMessage netMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, netMessage) != null) || netMessage == null) {
+            return;
+        }
+        if (netMessage.getTag() == null) {
+            netMessage.setTag(this.a);
+        }
+        MessageManager.getInstance().sendMessage(netMessage);
+    }
+
+    public void e(long j, String str, String str2, int i, String str3, int i2, String str4, BaijiahaoData baijiahaoData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2), str4, baijiahaoData}) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
+            RealTimeRequest realTimeRequest = new RealTimeRequest();
+            realTimeRequest.setTid(j);
+            realTimeRequest.setWeight(str);
+            realTimeRequest.setSource(str2);
+            realTimeRequest.setLocation(i);
+            realTimeRequest.setAbtest_tag(str3);
+            realTimeRequest.setType(i2);
+            realTimeRequest.setPage(str4);
+            if (baijiahaoData != null && i2 != JavaTypesHelper.toInt("2", 0)) {
+                realTimeRequest.setOriUgcNid(baijiahaoData.oriUgcNid);
+                realTimeRequest.setOriUgcTid(baijiahaoData.oriUgcTid);
+                realTimeRequest.setOriUgcType(Integer.toString(baijiahaoData.oriUgcType));
+                realTimeRequest.setOriUgcVid(baijiahaoData.oriUgcVid);
             }
-        }
-    }
-
-    public void a(List<pi> list) {
-        qm6 qm6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || !TbadkCoreApplication.isLogin()) {
-            return;
-        }
-        if (this.a == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            this.a = sharedPrefHelper.getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
-        }
-        if (StringUtils.isNull(this.a)) {
-            return;
-        }
-        String[] split = this.a.split(",");
-        if (split.length != 2) {
-            return;
-        }
-        String str = split[0];
-        long j = JavaTypesHelper.toLong(split[1], 0L);
-        if (j != 0 && !StringUtils.isNull(str) && !ListUtils.isEmpty(list)) {
-            for (int i = 0; i < list.size(); i++) {
-                if ((list.get(i) instanceof qm6) && (qm6Var = (qm6) list.get(i)) != null && !StringUtils.isNull(qm6Var.g) && qm6Var.g.equals(str)) {
-                    bi8 bi8Var = new bi8();
-                    bi8Var.a = j;
-                    bi8Var.b = false;
-                    list.add(i, bi8Var);
-                    return;
-                }
-            }
-        }
-    }
-
-    public void b(ThreadInfo threadInfo) {
-        Long l;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) == null) && ph8.a && threadInfo != null && threadInfo != null && (l = threadInfo.tid) != null && l.longValue() != 0) {
-            this.a = null;
-            b = threadInfo.tid.longValue();
-            SharedPrefHelper.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
-        }
-    }
-
-    public void c(boolean z, List<ThreadInfo> list) {
-        ThreadInfo threadInfo;
-        Long l;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, list) == null) && TbadkCoreApplication.isLogin() && !ListUtils.isEmpty(list) && z && (threadInfo = (ThreadInfo) ListUtils.getItem(list, 0)) != null && (l = threadInfo.tid) != null && l.longValue() != 0) {
-            this.a = null;
-            b = threadInfo.tid.longValue();
-            SharedPrefHelper.getInstance().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
+            d(realTimeRequest);
         }
     }
 }

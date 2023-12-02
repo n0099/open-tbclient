@@ -136,7 +136,7 @@ public final class c extends a {
         cVar.mApkDownloadHelper = new com.kwad.components.core.e.d.c(this.mAdTemplate);
         cVar.dU = this.dU;
         cVar.eN = new com.kwad.sdk.core.video.videoview.a(this.mContext);
-        KSFrameLayout kSFrameLayout = (KSFrameLayout) this.lC.findViewById(R.id.obfuscated_res_0x7f09133b);
+        KSFrameLayout kSFrameLayout = (KSFrameLayout) this.lC.findViewById(R.id.obfuscated_res_0x7f09133c);
         cVar.jS = kSFrameLayout;
         com.kwad.components.ad.interstitial.f.b bVar = new com.kwad.components.ad.interstitial.f.b(kSFrameLayout, 100);
         cVar.ib = bVar;

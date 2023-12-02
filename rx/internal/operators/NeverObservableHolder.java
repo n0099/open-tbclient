@@ -1,19 +1,19 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.eoc;
-import com.baidu.tieba.koc;
+import com.baidu.tieba.doc;
+import com.baidu.tieba.joc;
 /* loaded from: classes2.dex */
-public enum NeverObservableHolder implements eoc.a<Object> {
+public enum NeverObservableHolder implements doc.a<Object> {
     INSTANCE;
     
-    public static final eoc<Object> NEVER = eoc.d(INSTANCE);
+    public static final doc<Object> NEVER = doc.d(INSTANCE);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.soc
-    public void call(koc<? super Object> kocVar) {
+    @Override // com.baidu.tieba.roc
+    public void call(joc<? super Object> jocVar) {
     }
 
-    public static <T> eoc<T> instance() {
-        return (eoc<T>) NEVER;
+    public static <T> doc<T> instance() {
+        return (doc<T>) NEVER;
     }
 }

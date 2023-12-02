@@ -5,12 +5,12 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.tieba.fob;
 import com.baidu.tieba.gob;
-import com.baidu.tieba.hob;
-import com.baidu.tieba.kob;
-import com.baidu.tieba.mob;
-import com.baidu.tieba.qnb;
-import com.baidu.tieba.tnb;
+import com.baidu.tieba.job;
+import com.baidu.tieba.lob;
+import com.baidu.tieba.pnb;
+import com.baidu.tieba.snb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ import org.chromium.base.annotations.NativeClassQualifiedName;
 @JNINamespace("cronet")
 @VisibleForTesting
 /* loaded from: classes9.dex */
-public final class CronetUrlRequest extends kob {
+public final class CronetUrlRequest extends job {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -55,10 +55,10 @@ public final class CronetUrlRequest extends kob {
     public String E;
     public String F;
     public CronetUploadDataStream G;
-    public mob H;
+    public lob H;
     public int I;
     public CronetException J;
-    public qnb K;
+    public pnb K;
     public j L;
     @GuardedBy("mUrlRequestAdapterLock")
     public Runnable M;
@@ -275,16 +275,16 @@ public final class CronetUrlRequest extends kob {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mob a;
+        public final /* synthetic */ lob a;
         public final /* synthetic */ String b;
         public final /* synthetic */ CronetUrlRequest c;
 
-        public b(CronetUrlRequest cronetUrlRequest, mob mobVar, String str) {
+        public b(CronetUrlRequest cronetUrlRequest, lob lobVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cronetUrlRequest, mobVar, str};
+                Object[] objArr = {cronetUrlRequest, lobVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -295,7 +295,7 @@ public final class CronetUrlRequest extends kob {
                 }
             }
             this.c = cronetUrlRequest;
-            this.a = mobVar;
+            this.a = lobVar;
             this.b = str;
         }
 
@@ -476,7 +476,7 @@ public final class CronetUrlRequest extends kob {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(kob.o(this.b));
+                this.a.a(job.o(this.b));
             }
         }
     }
@@ -655,7 +655,7 @@ public final class CronetUrlRequest extends kob {
                     this.D = null;
                     this.E = null;
                     this.F = null;
-                    this.H = new mob(new ArrayList(this.i), 0, "", new HeadersList(null), false, "", "");
+                    this.H = new lob(new ArrayList(this.i), 0, "", new HeadersList(null), false, "", "");
                     return;
                 }
                 throw new NullPointerException("Executor is required");
@@ -780,7 +780,7 @@ public final class CronetUrlRequest extends kob {
         }
     }
 
-    @Override // com.baidu.tieba.kob
+    @Override // com.baidu.tieba.job
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
@@ -801,7 +801,7 @@ public final class CronetUrlRequest extends kob {
         }
     }
 
-    @Override // com.baidu.tieba.kob
+    @Override // com.baidu.tieba.job
     public void n(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
@@ -817,7 +817,7 @@ public final class CronetUrlRequest extends kob {
         }
     }
 
-    @Override // com.baidu.tieba.kob
+    @Override // com.baidu.tieba.job
     public void q(UploadDataProvider uploadDataProvider, Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048603, this, uploadDataProvider, executor) == null) {
@@ -846,9 +846,9 @@ public final class CronetUrlRequest extends kob {
     private void onError(int i2, int i3, int i4, String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Long.valueOf(j2)}) == null) {
-            mob mobVar = this.H;
-            if (mobVar != null) {
-                mobVar.j(j2);
+            lob lobVar = this.H;
+            if (lobVar != null) {
+                lobVar.j(j2);
             }
             int M = M(i2);
             K(new NetworkExceptionImpl("Exception in CronetUrlRequest: " + str, M, i3));
@@ -898,7 +898,7 @@ public final class CronetUrlRequest extends kob {
     public final void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            tnb.v().o(this.b, this);
+            snb.v().o(this.b, this);
         }
     }
 
@@ -927,7 +927,7 @@ public final class CronetUrlRequest extends kob {
         if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Long.valueOf(j9), Long.valueOf(j10), Long.valueOf(j11), Long.valueOf(j12), Long.valueOf(j13), Long.valueOf(j14), Boolean.valueOf(z), Long.valueOf(j15), Long.valueOf(j16)}) == null) {
             synchronized (this.f) {
                 if (this.K == null) {
-                    this.K = new qnb(j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, j14, z, j15, j16);
+                    this.K = new pnb(j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, j14, z, j15, j16);
                 } else {
                     throw new IllegalStateException("Metrics collection should only happen once.");
                 }
@@ -978,7 +978,7 @@ public final class CronetUrlRequest extends kob {
                     if (L()) {
                         return;
                     }
-                    tnb.v().k(this.b, this);
+                    snb.v().k(this.b, this);
                     return;
                 }
                 throw new IllegalStateException("No redirect to follow.");
@@ -1009,7 +1009,7 @@ public final class CronetUrlRequest extends kob {
     private void onRedirectReceived(String str, int i2, String str2, String[] strArr, boolean z, String str3, String str4, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{str, Integer.valueOf(i2), str2, strArr, Boolean.valueOf(z), str3, str4, Long.valueOf(j2)}) == null) {
-            mob R = R(i2, str2, strArr, z, str3, str4, j2);
+            lob R = R(i2, str2, strArr, z, str3, str4, j2);
             this.i.add(str);
             Q(new b(this, R, str));
         }
@@ -1032,19 +1032,19 @@ public final class CronetUrlRequest extends kob {
             if (this.b == 0) {
                 return;
             }
-            tnb.v().s(this.b, this).isEmpty();
-            tnb.v().j(this.b, this).isEmpty();
-            tnb.v().r(this.b, this).isEmpty();
+            snb.v().s(this.b, this).isEmpty();
+            snb.v().j(this.b, this).isEmpty();
+            snb.v().r(this.b, this).isEmpty();
             boolean z = false;
-            tnb.v().e(this.b, this, false).isEmpty();
-            tnb.v().e(this.b, this, true).isEmpty();
-            tnb.v().t(this.b, this).isEmpty();
-            int i3 = (tnb.v().g(this.b, this, 1) > 0L ? 1 : (tnb.v().g(this.b, this, 1) == 0L ? 0 : -1));
-            int i4 = (tnb.v().g(this.b, this, 2) > 0L ? 1 : (tnb.v().g(this.b, this, 2) == 0L ? 0 : -1));
-            int i5 = (tnb.v().g(this.b, this, 3) > 0L ? 1 : (tnb.v().g(this.b, this, 3) == 0L ? 0 : -1));
-            int i6 = (tnb.v().g(this.b, this, 4) > 0L ? 1 : (tnb.v().g(this.b, this, 4) == 0L ? 0 : -1));
-            int i7 = (tnb.v().g(this.b, this, 5) > 0L ? 1 : (tnb.v().g(this.b, this, 5) == 0L ? 0 : -1));
-            RequestTimeInfo i8 = tnb.v().i(this.b, this);
+            snb.v().e(this.b, this, false).isEmpty();
+            snb.v().e(this.b, this, true).isEmpty();
+            snb.v().t(this.b, this).isEmpty();
+            int i3 = (snb.v().g(this.b, this, 1) > 0L ? 1 : (snb.v().g(this.b, this, 1) == 0L ? 0 : -1));
+            int i4 = (snb.v().g(this.b, this, 2) > 0L ? 1 : (snb.v().g(this.b, this, 2) == 0L ? 0 : -1));
+            int i5 = (snb.v().g(this.b, this, 3) > 0L ? 1 : (snb.v().g(this.b, this, 3) == 0L ? 0 : -1));
+            int i6 = (snb.v().g(this.b, this, 4) > 0L ? 1 : (snb.v().g(this.b, this, 4) == 0L ? 0 : -1));
+            int i7 = (snb.v().g(this.b, this, 5) > 0L ? 1 : (snb.v().g(this.b, this, 5) == 0L ? 0 : -1));
+            RequestTimeInfo i8 = snb.v().i(this.b, this);
             this.x = i8;
             if (i8 == null) {
                 this.x = new RequestTimeInfo();
@@ -1053,7 +1053,7 @@ public final class CronetUrlRequest extends kob {
                 this.g.y(this);
             }
             this.g.t();
-            i v = tnb.v();
+            i v = snb.v();
             long j2 = this.b;
             if (i2 == 2) {
                 z = true;
@@ -1103,15 +1103,15 @@ public final class CronetUrlRequest extends kob {
     public void e(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, byteBuffer) == null) {
-            gob.b(byteBuffer);
-            gob.a(byteBuffer);
+            fob.b(byteBuffer);
+            fob.a(byteBuffer);
             synchronized (this.f) {
                 if (this.e) {
                     this.e = false;
                     if (L()) {
                         return;
                     }
-                    if (tnb.v().d(this.b, this, byteBuffer, byteBuffer.position(), byteBuffer.limit())) {
+                    if (snb.v().d(this.b, this, byteBuffer, byteBuffer.position(), byteBuffer.limit())) {
                         return;
                     }
                     this.e = true;
@@ -1123,15 +1123,15 @@ public final class CronetUrlRequest extends kob {
     }
 
     public final void N() {
-        qnb qnbVar;
+        pnb pnbVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (qnbVar = this.K) != null) {
-            hob hobVar = new hob(this.k, this.p, qnbVar, this.I, this.H, this.J);
-            this.g.z(hobVar);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (pnbVar = this.K) != null) {
+            gob gobVar = new gob(this.k, this.p, pnbVar, this.I, this.H, this.J);
+            this.g.z(gobVar);
             VersionSafeCallbacks.e eVar = this.w;
             if (eVar != null) {
                 try {
-                    eVar.a().execute(new h(this, hobVar));
+                    eVar.a().execute(new h(this, gobVar));
                 } catch (RejectedExecutionException e2) {
                     Log.e(CronetUrlRequestContext.s, "Exception posting task to executor", e2);
                 }
@@ -1139,7 +1139,7 @@ public final class CronetUrlRequest extends kob {
         }
     }
 
-    public final mob R(int i2, String str, String[] strArr, boolean z, String str2, String str3, long j2) {
+    public final lob R(int i2, String str, String[] strArr, boolean z, String str2, String str3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), str, strArr, Boolean.valueOf(z), str2, str3, Long.valueOf(j2)})) == null) {
@@ -1147,30 +1147,30 @@ public final class CronetUrlRequest extends kob {
             for (int i3 = 0; i3 < strArr.length; i3 += 2) {
                 headersList.add(new AbstractMap.SimpleImmutableEntry(strArr[i3], strArr[i3 + 1]));
             }
-            return new mob(new ArrayList(this.i), i2, str, headersList, z, str2, str3, j2);
+            return new lob(new ArrayList(this.i), i2, str, headersList, z, str2, str3, j2);
         }
-        return (mob) invokeCommon.objValue;
+        return (lob) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:107:0x0231 */
-    /* JADX WARN: Code restructure failed: missing block: B:79:0x01f2, code lost:
-        if (com.baidu.tieba.tnb.v().l(r19.b, r19, "X-From-H3-TRNet", com.baidu.searchbox.player.model.YYOption.IsLive.VALUE_TRUE) == false) goto L84;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:107:0x0230 */
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x01f1, code lost:
+        if (com.baidu.tieba.snb.v().l(r19.b, r19, "X-From-H3-TRNet", com.baidu.searchbox.player.model.YYOption.IsLive.VALUE_TRUE) == false) goto L84;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x01fc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x01fb, code lost:
         throw new java.lang.IllegalArgumentException("Invalid value for header X-From-H3-TRNet.");
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:116:0x0096 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x008c A[Catch: RuntimeException -> 0x0222, all -> 0x0231, TryCatch #0 {all -> 0x0231, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f5, B:82:0x01fc, B:83:0x01fd, B:86:0x0203, B:87:0x020f, B:89:0x0211, B:90:0x0218, B:91:0x0219, B:92:0x021e, B:101:0x0228, B:102:0x022b, B:105:0x022f), top: B:112:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00a3 A[Catch: RuntimeException -> 0x0220, all -> 0x0231, TryCatch #0 {all -> 0x0231, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f5, B:82:0x01fc, B:83:0x01fd, B:86:0x0203, B:87:0x020f, B:89:0x0211, B:90:0x0218, B:91:0x0219, B:92:0x021e, B:101:0x0228, B:102:0x022b, B:105:0x022f), top: B:112:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00b2 A[Catch: RuntimeException -> 0x0220, all -> 0x0231, TryCatch #0 {all -> 0x0231, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f5, B:82:0x01fc, B:83:0x01fd, B:86:0x0203, B:87:0x020f, B:89:0x0211, B:90:0x0218, B:91:0x0219, B:92:0x021e, B:101:0x0228, B:102:0x022b, B:105:0x022f), top: B:112:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00c1 A[Catch: RuntimeException -> 0x0220, all -> 0x0231, TryCatch #0 {all -> 0x0231, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f5, B:82:0x01fc, B:83:0x01fd, B:86:0x0203, B:87:0x020f, B:89:0x0211, B:90:0x0218, B:91:0x0219, B:92:0x021e, B:101:0x0228, B:102:0x022b, B:105:0x022f), top: B:112:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00d0 A[Catch: RuntimeException -> 0x0220, all -> 0x0231, TryCatch #0 {all -> 0x0231, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f5, B:82:0x01fc, B:83:0x01fd, B:86:0x0203, B:87:0x020f, B:89:0x0211, B:90:0x0218, B:91:0x0219, B:92:0x021e, B:101:0x0228, B:102:0x022b, B:105:0x022f), top: B:112:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00e3 A[Catch: RuntimeException -> 0x0220, all -> 0x0231, TryCatch #0 {all -> 0x0231, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f5, B:82:0x01fc, B:83:0x01fd, B:86:0x0203, B:87:0x020f, B:89:0x0211, B:90:0x0218, B:91:0x0219, B:92:0x021e, B:101:0x0228, B:102:0x022b, B:105:0x022f), top: B:112:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00f6 A[Catch: RuntimeException -> 0x0220, all -> 0x0231, TryCatch #0 {all -> 0x0231, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f5, B:82:0x01fc, B:83:0x01fd, B:86:0x0203, B:87:0x020f, B:89:0x0211, B:90:0x0218, B:91:0x0219, B:92:0x021e, B:101:0x0228, B:102:0x022b, B:105:0x022f), top: B:112:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x010f A[Catch: RuntimeException -> 0x0220, all -> 0x0231, TryCatch #0 {all -> 0x0231, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f5, B:82:0x01fc, B:83:0x01fd, B:86:0x0203, B:87:0x020f, B:89:0x0211, B:90:0x0218, B:91:0x0219, B:92:0x021e, B:101:0x0228, B:102:0x022b, B:105:0x022f), top: B:112:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x0201  */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x0219 A[Catch: all -> 0x0231, TRY_ENTER, TryCatch #0 {all -> 0x0231, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f5, B:82:0x01fc, B:83:0x01fd, B:86:0x0203, B:87:0x020f, B:89:0x0211, B:90:0x0218, B:91:0x0219, B:92:0x021e, B:101:0x0228, B:102:0x022b, B:105:0x022f), top: B:112:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x008c A[Catch: RuntimeException -> 0x0221, all -> 0x0230, TryCatch #0 {all -> 0x0230, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f4, B:82:0x01fb, B:83:0x01fc, B:86:0x0202, B:87:0x020e, B:89:0x0210, B:90:0x0217, B:91:0x0218, B:92:0x021d, B:101:0x0227, B:102:0x022a, B:105:0x022e), top: B:112:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00a3 A[Catch: RuntimeException -> 0x021f, all -> 0x0230, TryCatch #0 {all -> 0x0230, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f4, B:82:0x01fb, B:83:0x01fc, B:86:0x0202, B:87:0x020e, B:89:0x0210, B:90:0x0217, B:91:0x0218, B:92:0x021d, B:101:0x0227, B:102:0x022a, B:105:0x022e), top: B:112:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00b2 A[Catch: RuntimeException -> 0x021f, all -> 0x0230, TryCatch #0 {all -> 0x0230, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f4, B:82:0x01fb, B:83:0x01fc, B:86:0x0202, B:87:0x020e, B:89:0x0210, B:90:0x0217, B:91:0x0218, B:92:0x021d, B:101:0x0227, B:102:0x022a, B:105:0x022e), top: B:112:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00c1 A[Catch: RuntimeException -> 0x021f, all -> 0x0230, TryCatch #0 {all -> 0x0230, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f4, B:82:0x01fb, B:83:0x01fc, B:86:0x0202, B:87:0x020e, B:89:0x0210, B:90:0x0217, B:91:0x0218, B:92:0x021d, B:101:0x0227, B:102:0x022a, B:105:0x022e), top: B:112:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00d0 A[Catch: RuntimeException -> 0x021f, all -> 0x0230, TryCatch #0 {all -> 0x0230, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f4, B:82:0x01fb, B:83:0x01fc, B:86:0x0202, B:87:0x020e, B:89:0x0210, B:90:0x0217, B:91:0x0218, B:92:0x021d, B:101:0x0227, B:102:0x022a, B:105:0x022e), top: B:112:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00e3 A[Catch: RuntimeException -> 0x021f, all -> 0x0230, TryCatch #0 {all -> 0x0230, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f4, B:82:0x01fb, B:83:0x01fc, B:86:0x0202, B:87:0x020e, B:89:0x0210, B:90:0x0217, B:91:0x0218, B:92:0x021d, B:101:0x0227, B:102:0x022a, B:105:0x022e), top: B:112:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00f6 A[Catch: RuntimeException -> 0x021f, all -> 0x0230, TryCatch #0 {all -> 0x0230, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f4, B:82:0x01fb, B:83:0x01fc, B:86:0x0202, B:87:0x020e, B:89:0x0210, B:90:0x0217, B:91:0x0218, B:92:0x021d, B:101:0x0227, B:102:0x022a, B:105:0x022e), top: B:112:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x010f A[Catch: RuntimeException -> 0x021f, all -> 0x0230, TryCatch #0 {all -> 0x0230, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f4, B:82:0x01fb, B:83:0x01fc, B:86:0x0202, B:87:0x020e, B:89:0x0210, B:90:0x0217, B:91:0x0218, B:92:0x021d, B:101:0x0227, B:102:0x022a, B:105:0x022e), top: B:112:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x0200  */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x0218 A[Catch: all -> 0x0230, TRY_ENTER, TryCatch #0 {all -> 0x0230, blocks: (B:16:0x0051, B:18:0x0060, B:21:0x006f, B:22:0x0087, B:23:0x0088, B:25:0x008c, B:26:0x0091, B:29:0x0096, B:30:0x009f, B:32:0x00a3, B:33:0x00ae, B:35:0x00b2, B:36:0x00bd, B:38:0x00c1, B:39:0x00cc, B:41:0x00d0, B:42:0x00db, B:44:0x00e3, B:45:0x00ee, B:47:0x00f6, B:48:0x0101, B:49:0x0109, B:51:0x010f, B:53:0x0124, B:56:0x0132, B:58:0x0140, B:61:0x014d, B:63:0x015b, B:66:0x0168, B:69:0x0185, B:70:0x01af, B:72:0x01b2, B:75:0x01d7, B:76:0x01de, B:78:0x01e1, B:81:0x01f4, B:82:0x01fb, B:83:0x01fc, B:86:0x0202, B:87:0x020e, B:89:0x0210, B:90:0x0217, B:91:0x0218, B:92:0x021d, B:101:0x0227, B:102:0x022a, B:105:0x022e), top: B:112:0x0009 }] */
     /* JADX WARN: Type inference failed for: r18v0 */
     /* JADX WARN: Type inference failed for: r18v2 */
     /* JADX WARN: Type inference failed for: r18v3 */
@@ -1199,7 +1199,7 @@ public final class CronetUrlRequest extends kob {
                     Log.i(CronetUrlRequestContext.s, "****** Request start, url is: %s", this.k);
                     G();
                     try {
-                        i v = tnb.v();
+                        i v = snb.v();
                         long p = this.g.p();
                         String str = this.k;
                         int i3 = this.l;
@@ -1210,7 +1210,7 @@ public final class CronetUrlRequest extends kob {
                                 z = false;
                                 this.b = v.q(this, p, str, i3, z4, z5, z, this.s, this.t, this.u, this.v, this.m);
                                 this.g.u();
-                                if (this.n != null && !tnb.v().f(this.b, this, this.n)) {
+                                if (this.n != null && !snb.v().f(this.b, this, this.n)) {
                                     throw new IllegalArgumentException("Invalid http method " + this.n);
                                 }
                                 if (this.D != null) {
@@ -1219,7 +1219,7 @@ public final class CronetUrlRequest extends kob {
                                 i2 = 1;
                                 if (this.y) {
                                     try {
-                                        tnb.v().c(this.b, this);
+                                        snb.v().c(this.b, this);
                                     } catch (RuntimeException e2) {
                                         e = e2;
                                         J(i2);
@@ -1227,22 +1227,22 @@ public final class CronetUrlRequest extends kob {
                                     }
                                 }
                                 if (this.z > 0) {
-                                    tnb.v().m(this.b, this, this.z);
+                                    snb.v().m(this.b, this, this.z);
                                 }
                                 if (this.A > 0) {
-                                    tnb.v().b(this.b, this, this.A);
+                                    snb.v().b(this.b, this, this.A);
                                 }
                                 if (this.B > 0) {
-                                    tnb.v().p(this.b, this, this.B);
+                                    snb.v().p(this.b, this, this.B);
                                 }
                                 if (this.C > 0) {
-                                    tnb.v().h(this.b, this, this.C);
+                                    snb.v().h(this.b, this, this.C);
                                 }
                                 if (!TextUtils.isEmpty(this.E)) {
-                                    tnb.v().u(this.b, this, this.E);
+                                    snb.v().u(this.b, this, this.E);
                                 }
                                 if (!TextUtils.isEmpty(this.F)) {
-                                    tnb.v().a(this.b, this, this.F);
+                                    snb.v().a(this.b, this, this.F);
                                 }
                                 it = this.o.iterator();
                                 boolean z6 = false;
@@ -1258,11 +1258,11 @@ public final class CronetUrlRequest extends kob {
                                     if (next.getKey().equalsIgnoreCase("X-From-H3-TRNet") && !next.getValue().isEmpty()) {
                                         z6 = true;
                                     }
-                                    if (!tnb.v().l(this.b, this, next.getKey(), next.getValue())) {
+                                    if (!snb.v().l(this.b, this, next.getKey(), next.getValue())) {
                                         throw new IllegalArgumentException("Invalid header " + next.getKey() + "=" + next.getValue());
                                     }
                                 }
-                                if (!z2 && !tnb.v().l(this.b, this, HttpRequest.EXT_HEADER_TRACE_ID, UUID.randomUUID().toString().replace("-", "").toLowerCase())) {
+                                if (!z2 && !snb.v().l(this.b, this, HttpRequest.EXT_HEADER_TRACE_ID, UUID.randomUUID().toString().replace("-", "").toLowerCase())) {
                                     throw new IllegalArgumentException("Invalid value for header X-Bd-Traceid .");
                                 }
                                 if (this.G == null) {

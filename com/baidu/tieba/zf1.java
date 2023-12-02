@@ -1,188 +1,198 @@
 package com.baidu.tieba;
 
-import android.content.ContentProvider;
-import android.content.ContentProviderOperation;
-import android.content.ContentProviderResult;
-import android.content.ContentValues;
-import android.content.OperationApplicationException;
-import android.content.UriMatcher;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.Configuration;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Binder;
-import android.os.Bundle;
-import android.os.CancellationSignal;
-import android.os.ParcelFileDescriptor;
-import android.os.Process;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileNotFoundException;
+import java.io.FileDescriptor;
 import java.util.ArrayList;
+import java.util.HashSet;
 /* loaded from: classes9.dex */
-public abstract class zf1 {
+public abstract class zf1 implements IBinder, IBinder.DeathRecipient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContentProvider a;
-    public final int b;
-    public final int c;
+    public volatile IBinder a;
+    public HashSet<IBinder.DeathRecipient> b;
+    public Object c;
 
-    public Bundle d(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public static void b(String str, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, bundle)) == null) {
-            return null;
-        }
-        return (Bundle) invokeLLL.objValue;
-    }
-
-    public boolean e(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, bundle)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public abstract int f(int i, Uri uri, String str, String[] strArr);
-
-    public abstract void h(UriMatcher uriMatcher, String str);
-
-    public abstract String i(int i, Uri uri);
-
-    public abstract Uri j(int i, Uri uri, ContentValues contentValues);
-
-    public void m(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, exc) == null) {
         }
     }
 
-    public abstract boolean n();
+    public abstract IBinder c() throws RemoteException;
 
-    public abstract Cursor r(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2);
-
-    public abstract int t(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
-
-    public zf1(int i, int i2) {
+    public zf1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = i;
-        this.c = i2;
+        this.b = new HashSet<>();
+        this.c = new Object();
     }
 
-    public ContentProviderResult[] a(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
+    public final IBinder a() throws RemoteException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this.c) {
+                IBinder iBinder = this.a;
+                if (iBinder != null) {
+                    return iBinder;
+                }
+                IBinder c = c();
+                this.a = c;
+                if (c != null) {
+                    c.linkToDeath(this, 0);
+                    return c;
+                }
+                throw new RemoteException();
+            }
+        }
+        return (IBinder) invokeV.objValue;
+    }
+
+    @Override // android.os.IBinder
+    public String getInterfaceDescriptor() throws RemoteException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return a().getInterfaceDescriptor();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.os.IBinder
+    public boolean isBinderAlive() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            try {
+                return a().isBinderAlive();
+            } catch (RemoteException e) {
+                b("MultiProcess", e);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.os.IBinder
+    public boolean pingBinder() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            try {
+                return a().pingBinder();
+            } catch (RemoteException e) {
+                b("MultiProcess", e);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.os.IBinder.DeathRecipient
+    public void binderDied() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.c) {
+                IBinder iBinder = this.a;
+                if (iBinder != null) {
+                    iBinder.unlinkToDeath(this, 0);
+                    this.a = null;
+                }
+                ArrayList<IBinder.DeathRecipient> arrayList = new ArrayList();
+                synchronized (this.b) {
+                    arrayList.addAll(this.b);
+                }
+                for (IBinder.DeathRecipient deathRecipient : arrayList) {
+                    deathRecipient.binderDied();
+                }
+            }
+        }
+    }
+
+    @Override // android.os.IBinder
+    public void dump(FileDescriptor fileDescriptor, String[] strArr) throws RemoteException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, fileDescriptor, strArr) == null) {
+            a().dump(fileDescriptor, strArr);
+        }
+    }
+
+    @Override // android.os.IBinder
+    public void dumpAsync(FileDescriptor fileDescriptor, String[] strArr) throws RemoteException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, fileDescriptor, strArr) == null) {
+            a().dumpAsync(fileDescriptor, strArr);
+        }
+    }
+
+    @Override // android.os.IBinder
+    public void linkToDeath(IBinder.DeathRecipient deathRecipient, int i) throws RemoteException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, deathRecipient, i) == null) {
+            synchronized (this.b) {
+                this.b.add(deathRecipient);
+            }
+        }
+    }
+
+    @Override // android.os.IBinder
+    public boolean unlinkToDeath(IBinder.DeathRecipient deathRecipient, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, deathRecipient, i)) == null) {
+            synchronized (this.b) {
+                this.b.remove(deathRecipient);
+            }
+            if (this.a != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Override // android.os.IBinder
+    public IInterface queryLocalInterface(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-            int size = arrayList.size();
-            ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
-            for (int i = 0; i < size; i++) {
-                contentProviderResultArr[i] = arrayList.get(i).apply(this.a, contentProviderResultArr, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            try {
+                return a().queryLocalInterface(str);
+            } catch (RemoteException e) {
+                b("MultiProcess", e);
+                return null;
             }
-            return contentProviderResultArr;
         }
-        return (ContentProviderResult[]) invokeL.objValue;
+        return (IInterface) invokeL.objValue;
     }
 
-    public void b(ContentProvider contentProvider) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentProvider) == null) && this.a == null) {
-            this.a = contentProvider;
-        }
-    }
-
-    public int c(int i, Uri uri, ContentValues[] contentValuesArr) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, uri, contentValuesArr)) == null) {
-            int length = contentValuesArr.length;
-            for (ContentValues contentValues : contentValuesArr) {
-                j(i, uri, contentValues);
-            }
-            return length;
-        }
-        return invokeILL.intValue;
-    }
-
-    public AssetFileDescriptor o(int i, Uri uri, String str) throws FileNotFoundException {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048590, this, i, uri, str)) == null) {
-            q(i, uri, str);
-            throw null;
-        }
-        return (AssetFileDescriptor) invokeILL.objValue;
-    }
-
-    public ParcelFileDescriptor q(int i, Uri uri, String str) throws FileNotFoundException {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048592, this, i, uri, str)) == null) {
-            throw new FileNotFoundException("No files supported by provider at " + uri);
-        }
-        return (ParcelFileDescriptor) invokeILL.objValue;
-    }
-
-    public void g(Uri uri, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048582, this, uri, i) != null) || Binder.getCallingUid() == Process.myUid()) {
-            return;
-        }
-        throw new SecurityException();
-    }
-
-    public final int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public AssetFileDescriptor p(int i, Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
+    @Override // android.os.IBinder
+    public boolean transact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), uri, str, cancellationSignal})) == null) {
-            o(i, uri, str);
-            throw null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+            return a().transact(i, parcel, parcel2, i2);
         }
-        return (AssetFileDescriptor) invokeCommon.objValue;
-    }
-
-    public Cursor s(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2, cancellationSignal})) == null) {
-            return r(i, uri, strArr, str, strArr2, str2);
-        }
-        return (Cursor) invokeCommon.objValue;
+        return invokeCommon.booleanValue;
     }
 }

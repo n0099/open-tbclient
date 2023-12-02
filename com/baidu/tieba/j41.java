@@ -1,194 +1,370 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.PopupWindow;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.webpanel.PanelScrollView;
+import com.baidu.nadcore.webpanel.model.AdData;
+import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringNumberConversionsJVMKt;
-import kotlin.text.StringsKt__StringNumberConversionsKt;
-import kotlin.text.StringsKt__StringsJVMKt;
-@Service
 /* loaded from: classes6.dex */
-public final class j41 extends re0 {
+public class j41 extends PopupWindow implements p41, ViewTreeObserver.OnWindowFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public AdImageView b;
+    public ViewGroup c;
+    public g41 d;
+    public r41 e;
+    public q41 f;
 
-    @Override // com.baidu.tieba.re0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "webpanel" : (String) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public class a implements PanelScrollView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j41 a;
+
+        public a(j41 j41Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j41Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j41Var;
+        }
+
+        @Override // com.baidu.nadcore.webpanel.PanelScrollView.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
+                this.a.f.c();
+            }
+        }
     }
 
-    public j41() {
+    /* loaded from: classes6.dex */
+    public class b implements PanelScrollView.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j41 a;
+
+        public b(j41 j41Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j41Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j41Var;
+        }
+
+        @Override // com.baidu.nadcore.webpanel.PanelScrollView.d
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
+                this.a.f.b();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r41 a;
+        public final /* synthetic */ j41 b;
+
+        public c(j41 j41Var, r41 r41Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j41Var, r41Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = j41Var;
+            this.a = r41Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.f != null) {
+                if (!this.a.w()) {
+                    ti0.a().b(new m41(8, this.b.e.a()));
+                    return;
+                }
+                this.b.h();
+                this.b.b.setVisibility(8);
+                this.b.f.a();
+            }
+        }
+    }
+
+    public j41(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = null;
+        setFocusable(true);
+        setBackgroundDrawable(new ColorDrawable(0));
+        setAnimationStyle(R.style.obfuscated_res_0x7f1003ef);
+        setClippingEnabled(true);
+        setWidth(-1);
+        setHeight(-1);
+        setContentView(g(context, R.layout.nad_panel_pop_view));
+    }
+
+    public void i(r41 r41Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, r41Var) == null) {
+            this.e = r41Var;
+            g41 g41Var = new g41((Activity) this.a.getContext(), (ViewGroup) this.a);
+            this.d = g41Var;
+            g41Var.f(r41Var);
+            this.d.a(this);
+            PanelScrollView b2 = this.d.b();
+            if (b2 != null) {
+                b2.setOnGestureScrollListener(new a(this));
+                b2.setOnGestureSingleTapUpListener(new b(this));
+            }
+            m(r41Var);
+        }
+    }
+
+    public j41(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = null;
+        setFocusable(true);
+        setBackgroundDrawable(new ColorDrawable(0));
+        setAnimationStyle(R.style.obfuscated_res_0x7f1003ef);
+        setClippingEnabled(true);
+        setWidth(-1);
+        setHeight(-1);
+        setContentView(g(context, i));
+    }
+
+    public void j(@NonNull q41 q41Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, q41Var) == null) {
+            this.f = q41Var;
+        }
+    }
+
+    @Override // android.view.ViewTreeObserver.OnWindowFocusChangeListener
+    public void onWindowFocusChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && this.e.t()) {
+            z41.a(this.a.getContext(), this);
+        }
+    }
+
+    @Override // com.baidu.tieba.p41
+    public void a(int i) {
+        ClogBuilder.Page page;
+        ClogBuilder.LogType logType;
+        q41 q41Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (this.e.q() && this.f != null) {
+                ti0.a().b(new m41(8, this.e.a()));
+                return;
+            }
+            if (this.e.v()) {
+                page = ClogBuilder.Page.WELFAREWEB;
+            } else {
+                page = ClogBuilder.Page.NAD_POP_WEB_PANEL;
+            }
+            if (this.e.v()) {
+                logType = ClogBuilder.LogType.REWARD_HALF_TAIL_SLIDE;
+            } else {
+                logType = ClogBuilder.LogType.NAVIDEO_POP_CLOSE;
+            }
+            y41.b(page, logType, String.valueOf(i), "", this.e.f());
+            h();
+            if (i == 0 && (q41Var = this.f) != null) {
+                q41Var.d();
             }
         }
     }
 
-    @Override // com.baidu.tieba.re0
-    public boolean b(Context context, ve0 schemeModel, Map<String, Object> map, ze0 ze0Var) {
-        InterceptResult invokeLLLL;
-        String str;
-        double d;
-        int i;
-        String str2;
-        int i2;
-        boolean z;
-        int i3;
-        int i4;
-        boolean z2;
-        Integer intOrNull;
-        Integer intOrNull2;
-        Double doubleOrNull;
+    @Override // android.widget.PopupWindow
+    public void dismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, schemeModel, map, ze0Var)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
-            super.b(context, schemeModel, map, ze0Var);
-            HashMap<String, String> d2 = schemeModel.d();
-            Intrinsics.checkNotNullExpressionValue(d2, "schemeModel.params");
-            String str3 = d2.get("url");
-            if (str3 == null) {
-                str = "";
-            } else {
-                str = str3;
-            }
-            Intrinsics.checkNotNullExpressionValue(str, "params[\"url\"] ?: \"\"");
-            String str4 = d2.get("height_ratio");
-            if (str4 != null && (doubleOrNull = StringsKt__StringNumberConversionsJVMKt.toDoubleOrNull(str4)) != null) {
-                d = doubleOrNull.doubleValue();
-            } else {
-                d = 0.7d;
-            }
-            String str5 = d2.get("height_calculate_mode");
-            boolean z3 = false;
-            if (str5 != null && (intOrNull2 = StringsKt__StringNumberConversionsKt.toIntOrNull(str5)) != null) {
-                i = intOrNull2.intValue();
-            } else {
-                i = 0;
-            }
-            String str6 = d2.get(MigrateStatisticUtils.EXT_INFO);
-            if (str6 == null) {
-                str2 = "";
-            } else {
-                str2 = str6;
-            }
-            Intrinsics.checkNotNullExpressionValue(str2, "params[\"ext_info\"] ?: \"\"");
-            p41 p41Var = new p41(str, d, i, str2);
-            String str7 = d2.get("log_switch");
-            if (str7 != null) {
-                StringBuilder sb = new StringBuilder();
-                int length = str7.length();
-                for (int i5 = 0; i5 < length; i5++) {
-                    char charAt = str7.charAt(i5);
-                    if (!StringsKt__StringsJVMKt.isBlank(String.valueOf(charAt))) {
-                        sb.append(charAt);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                StackTraceElement[] stackTrace = new Exception().getStackTrace();
+                if (stackTrace.length >= 2 && stackTrace[1] != null && "dispatchKeyEvent".equals(stackTrace[1].getMethodName())) {
+                    if (this.e.u()) {
+                        if (this.d != null) {
+                            this.d.d("javascript:onAndroidBack()");
+                        }
+                    } else if (!this.d.g()) {
+                        a(0);
                     }
-                }
-                String sb2 = sb.toString();
-                Intrinsics.checkNotNullExpressionValue(sb2, "filterTo(StringBuilder(), predicate).toString()");
-                if (sb2 != null) {
-                    p41Var.J(sb2);
-                }
-            }
-            String str8 = d2.get("top_blank_click_disable");
-            if (str8 != null && (intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(str8)) != null) {
-                i2 = intOrNull.intValue();
-            } else {
-                i2 = 0;
-            }
-            if (i2 == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            p41Var.S(z);
-            String str9 = d2.get("panel_control");
-            if (str9 != null) {
-                StringBuilder sb3 = new StringBuilder();
-                int length2 = str9.length();
-                for (int i6 = 0; i6 < length2; i6++) {
-                    char charAt2 = str9.charAt(i6);
-                    if (!StringsKt__StringsJVMKt.isBlank(String.valueOf(charAt2))) {
-                        sb3.append(charAt2);
-                    }
-                }
-                String sb4 = sb3.toString();
-                Intrinsics.checkNotNullExpressionValue(sb4, "filterTo(StringBuilder(), predicate).toString()");
-                if (sb4 != null) {
-                    p41Var.M(sb4);
-                }
-            }
-            String str10 = d2.get("lp_real_url");
-            if (str10 != null) {
-                p41Var.L(str10);
-            }
-            String it = d2.get("support_full_screen");
-            if (it != null) {
-                Intrinsics.checkNotNullExpressionValue(it, "it");
-                Integer intOrNull3 = StringsKt__StringNumberConversionsKt.toIntOrNull(it);
-                if (intOrNull3 != null) {
-                    i4 = intOrNull3.intValue();
                 } else {
-                    i4 = 1;
+                    a(0);
                 }
-                if (i4 == 0) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                p41Var.H(z2);
+            } catch (Exception unused) {
+                a(0);
             }
-            String str11 = d2.get("charge_url");
-            if (str11 != null) {
-                p41Var.E(str11);
-            }
-            String str12 = d2.get("lp_org_type");
-            if (str12 != null) {
-                p41Var.K(str12);
-            }
-            String str13 = d2.get("ad_invoke_flag");
-            if (str13 != null) {
-                p41Var.B(str13);
-            }
-            String str14 = d2.get("sdk_script");
-            if (str14 != null) {
-                p41Var.P(str14);
-            }
-            String it2 = d2.get("enable_outer_back");
-            if (it2 != null) {
-                Intrinsics.checkNotNullExpressionValue(it2, "it");
-                Integer intOrNull4 = StringsKt__StringNumberConversionsKt.toIntOrNull(it2);
-                if (intOrNull4 != null) {
-                    i3 = intOrNull4.intValue();
-                } else {
-                    i3 = 0;
-                }
-                if (i3 == 0) {
-                    z3 = true;
-                }
-                p41Var.N(z3);
-            }
-            d41.b.d(context, p41Var);
-            return true;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ti0.a().b(new m41(5, this.e.a()));
+            this.d.e();
+            this.a.getViewTreeObserver().removeOnWindowFocusChangeListener(this);
+            if (this.e.p()) {
+                this.c = z41.b(this.a.getContext(), this.c, false);
+            }
+            f41.b.c(false);
+            f41.b.b(false);
+            super.dismiss();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            h();
+        }
+    }
+
+    public final View g(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, context, i)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(i, (ViewGroup) null);
+            this.a = inflate;
+            this.b = (AdImageView) inflate.findViewById(R.id.top_right_icon);
+            return this.a;
+        }
+        return (View) invokeLI.objValue;
+    }
+
+    public void k() {
+        ClogBuilder.Page page;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a.getViewTreeObserver().addOnWindowFocusChangeListener(this);
+            if (this.e.t()) {
+                z41.a(this.a.getContext(), this);
+            }
+            View.OnTouchListener c2 = this.d.c();
+            if (c2 != null && !this.e.r()) {
+                setTouchInterceptor(c2);
+            }
+            if (this.e.p()) {
+                this.c = z41.b(this.a.getContext(), this.c, true);
+            }
+            ti0.a().b(new m41(7, this.d.b()));
+            l(this.a.getContext(), ((Activity) this.a.getContext()).getWindow().getDecorView(), 80, 0, 0);
+            f41.b.c(true);
+            f41.b.b(false);
+            if (this.e.v()) {
+                page = ClogBuilder.Page.WELFAREWEB;
+            } else {
+                page = ClogBuilder.Page.NAD_POP_WEB_PANEL;
+            }
+            y41.b(page, ClogBuilder.LogType.FREE_SHOW, "", "", this.e.f());
+        }
+    }
+
+    public final void l(Context context, View view2, int i, int i2, int i3) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (context instanceof Activity) {
+                activity = (Activity) context;
+            } else {
+                activity = null;
+            }
+            if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
+                try {
+                    showAtLocation(view2, i, i2, i3);
+                    ti0.a().b(new m41(0, (AdData) null));
+                } catch (Exception e) {
+                    p61.d(e);
+                }
+            }
+        }
+    }
+
+    public final void m(r41 r41Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, r41Var) != null) || !r41Var.y()) {
+            return;
+        }
+        if (r41Var.w()) {
+            this.b.setImageResource(R.drawable.nad_reward_video_lp_down_arrow);
+        } else {
+            this.b.setImageResource(R.drawable.nad_reward_video_lp_close_btn);
+        }
+        this.b.setVisibility(0);
+        this.b.setOnClickListener(new c(this, r41Var));
     }
 }

@@ -72,7 +72,7 @@ public class bu extends qs implements it<ThreadData> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 String jumpUrl = this.a.getJumpUrl();
                 if (!StringUtils.isNull(jumpUrl)) {
-                    UrlManager.getInstance().dealOneLink(this.b.a, new String[]{uxa.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
+                    UrlManager.getInstance().dealOneLink(this.b.a, new String[]{txa.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.b.a.getPageActivity(), this.a.getCardId())));
@@ -98,7 +98,7 @@ public class bu extends qs implements it<ThreadData> {
         this.f = true;
         this.a = tbPageContext;
         setInsertIndex(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070386), BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0703ec));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070387), BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0703ed));
         layoutParams.addRule(11);
         layoutParams.rightMargin = BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds30);
         setLayoutParams(layoutParams);

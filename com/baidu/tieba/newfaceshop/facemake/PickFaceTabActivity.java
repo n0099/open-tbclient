@@ -25,7 +25,7 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.or9;
+import com.baidu.tieba.sr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements or9 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements sr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -176,7 +176,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements or9 {
         this.k = new b(this);
     }
 
-    @Override // com.baidu.tieba.or9
+    @Override // com.baidu.tieba.sr9
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -188,7 +188,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements or9 {
         }
     }
 
-    @Override // com.baidu.tieba.or9
+    @Override // com.baidu.tieba.sr9
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements or9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.or9
+    @Override // com.baidu.tieba.sr9
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -240,8 +240,8 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements or9 {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             this.j = getPageContext().getPageActivity();
-            setContentView(R.layout.obfuscated_res_0x7f0d0839);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092469);
+            setContentView(R.layout.obfuscated_res_0x7f0d083a);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09246b);
             this.e = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.e.setOnPageChangeListener(this.k);
@@ -322,7 +322,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements or9 {
             q1(this.g, 2, this.j.getText(R.string.my_mark).toString());
             this.e.j(1);
             this.e.setCurrentTab(0);
-            this.e.getFragmentTabWidget().getLayoutParams().height = BdUtilHelper.getDimens(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07035e);
+            this.e.getFragmentTabWidget().getLayoutParams().height = BdUtilHelper.getDimens(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07035f);
             this.e.getFragmentTabWidget().setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d_alpha90));
         }
     }

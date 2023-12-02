@@ -6,12 +6,12 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.searchbox.player.model.ClarityUrlList;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ex0;
+import com.baidu.tieba.gx0;
 import com.baidu.tieba.hf0;
-import com.baidu.tieba.hq0;
-import com.baidu.tieba.lq0;
-import com.baidu.tieba.mq0;
-import com.baidu.tieba.vv0;
+import com.baidu.tieba.jq0;
+import com.baidu.tieba.nq0;
+import com.baidu.tieba.oq0;
+import com.baidu.tieba.xv0;
 import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -99,7 +99,7 @@ public class ClarityUrlList extends ArrayList<c> {
         public float h;
         public int i;
         public int j;
-        public lq0 k;
+        public nq0 k;
 
         static {
             hf0.b().getString(R.string.nad_videoplayer_clarity_text_sd);
@@ -115,7 +115,7 @@ public class ClarityUrlList extends ArrayList<c> {
             this.f = -1.0f;
         }
 
-        public lq0 b() {
+        public nq0 b() {
             return this.k;
         }
 
@@ -184,7 +184,7 @@ public class ClarityUrlList extends ArrayList<c> {
             this.g = null;
             this.i = jSONObject.optInt("videoBps");
             this.j = jSONObject.optInt("vodMoovSize");
-            this.k = mq0.b(jSONObject.optString("auth"));
+            this.k = oq0.b(jSONObject.optString("auth"));
             jSONObject.optLong("expire_date");
             jSONObject.optString("interact_url");
             jSONObject.optInt("prefetch_size");
@@ -283,7 +283,7 @@ public class ClarityUrlList extends ArrayList<c> {
         ArrayList arrayList = new ArrayList(this);
         Collections.sort(arrayList, new a());
         setCurrentClarityUrl((c) arrayList.get(0));
-        if (hq0.b()) {
+        if (jq0.b()) {
             setMultiRateSwitchRank(((c) arrayList.get(0)).c);
         }
     }
@@ -346,7 +346,7 @@ public class ClarityUrlList extends ArrayList<c> {
             return;
         }
         Collections.sort(this);
-        vv0 b2 = ex0.b(this, get(size() - 1).i());
+        xv0 b2 = gx0.b(this, get(size() - 1).i());
         this.mSelectType = b2.b;
         int i2 = b2.a;
         this.mDefaultClarity = i2;

@@ -1,36 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes8.dex */
-public class sv0 implements rv0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sv0 {
+    void a(@Nullable nt0 nt0Var);
 
-    public sv0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(@NonNull pt0 pt0Var);
 
-    @Override // com.baidu.tieba.rv0
-    public qv0 createMessenger() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new pv0();
-        }
-        return (qv0) invokeV.objValue;
-    }
+    void c(int i, @NonNull mt0 mt0Var);
+
+    void d(@NonNull ms0 ms0Var);
+
+    void e(mt0 mt0Var);
+
+    void f(@NonNull pt0 pt0Var);
+
+    String getType();
+
+    void release();
 }

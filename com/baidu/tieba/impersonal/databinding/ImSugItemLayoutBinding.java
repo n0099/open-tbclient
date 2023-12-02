@@ -62,17 +62,17 @@ public final class ImSugItemLayoutBinding implements ViewBinding {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
             FrameLayout frameLayout = (FrameLayout) view2;
-            int i = R.id.obfuscated_res_0x7f0923ff;
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923ff);
+            int i = R.id.obfuscated_res_0x7f092401;
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092401);
             if (linearLayout != null) {
-                i = R.id.obfuscated_res_0x7f092401;
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092401);
+                i = R.id.obfuscated_res_0x7f092403;
+                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092403);
                 if (imageView != null) {
-                    i = R.id.obfuscated_res_0x7f092403;
-                    View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092403);
+                    i = R.id.obfuscated_res_0x7f092405;
+                    View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092405);
                     if (findViewById != null) {
-                        i = R.id.obfuscated_res_0x7f092404;
-                        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092404);
+                        i = R.id.obfuscated_res_0x7f092406;
+                        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092406);
                         if (textView != null) {
                             return new ImSugItemLayoutBinding(frameLayout, frameLayout, linearLayout, imageView, findViewById, textView);
                         }

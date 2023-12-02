@@ -5,7 +5,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.ih;
-import com.baidu.tieba.u7b;
+import com.baidu.tieba.t7b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class FaceUnityUtils {
             if (file.exists() && file.isFile()) {
                 FileInputStream fileInputStream = new FileInputStream(b);
                 fileInputStream.close();
-                faceunity.fuSetup(new byte[fileInputStream.available()], null, u7b.a());
+                faceunity.fuSetup(new byte[fileInputStream.available()], null, t7b.a());
             }
             String b2 = ih.b("face_beautification.mp3");
             File file2 = new File(b2);

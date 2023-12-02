@@ -1,50 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class h59 {
+public class h59 implements i59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Integer> a;
 
-    public static boolean a(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    public h59() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        HashMap<String, Integer> hashMap = new HashMap<>(6);
+        this.a = hashMap;
+        hashMap.put("#(呵呵)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(哈哈)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(吐舌)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(太开心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(笑眼)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(花心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+    }
+
+    @Override // com.baidu.tieba.i59
+    public boolean a(ChatMessage... chatMessageArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterShowItemData)) == null) {
-            if (imMessageCenterShowItemData == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
+            if (chatMessageArr != null && chatMessageArr.length >= 2) {
+                ChatMessage chatMessage = chatMessageArr[0];
+                ChatMessage chatMessage2 = chatMessageArr[1];
+                if (chatMessage == null || chatMessage.getUserInfo() == null || chatMessage2 == null || chatMessage2.getUserInfo() == null || StringHelper.equals(chatMessage.getUserInfo().getUserId(), chatMessage2.getUserInfo().getUserId())) {
+                    return false;
+                }
+                return this.a.containsKey(c(chatMessageArr));
             }
-            if (!String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName()) && !"".equals(imMessageCenterShowItemData.getOwnerName())) {
-                return false;
-            }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean b(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.i59
+    public void b(ListView listView, ChatMessage... chatMessageArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imMessageCenterShowItemData)) == null) {
-            if (imMessageCenterShowItemData == null) {
-                return false;
-            }
-            return String.valueOf(9).equals(imMessageCenterShowItemData.getOwnerName());
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        int lastVisiblePosition = listView.getLastVisiblePosition() - listView.getFirstVisiblePosition();
+        View childAt = listView.getChildAt(lastVisiblePosition);
+        View childAt2 = listView.getChildAt(lastVisiblePosition - 1);
+        if (childAt != null && childAt2 != null) {
+            TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.tex_msgitem_text);
+            TbRichTextView tbRichTextView2 = (TbRichTextView) childAt2.findViewById(R.id.tex_msgitem_text);
+            if (chatMessageArr != null && chatMessageArr.length > 1) {
+                ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, tbRichTextView2);
+            }
+        }
     }
 
-    public static boolean c(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    public final String c(ChatMessage... chatMessageArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imMessageCenterShowItemData)) == null) {
-            if (imMessageCenterShowItemData == null || !String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName()) || "3222425470".equals(imMessageCenterShowItemData.getFriendId()) || "801001117".equals(imMessageCenterShowItemData.getFriendId()) || "5044059141".equals(imMessageCenterShowItemData.getFriendId())) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
+            if (chatMessageArr != null && chatMessageArr.length > 1 && chatMessageArr[0] != null && chatMessageArr[1] != null) {
+                return chatMessageArr[1].getContent() + "_" + chatMessageArr[0].getContent();
             }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -1,40 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.graphics.Canvas;
 /* loaded from: classes5.dex */
 public interface au6 {
-    int a();
+    mu6 a(es6 es6Var, eu6 eu6Var, yr6 yr6Var);
 
-    float b();
-
-    int c();
-
-    float d();
-
-    float e();
-
-    int getHeight();
-
-    int getWidth();
-
-    void setHeight(int i);
-
-    void setWidth(int i);
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static float a(au6 au6Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, au6Var)) == null) {
-                return 1 / (au6Var.b() - 0.6f);
-            }
-            return invokeL.floatValue;
-        }
-    }
+    void b(es6 es6Var, Canvas canvas, eu6 eu6Var, yr6 yr6Var);
 }

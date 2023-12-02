@@ -1,42 +1,33 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.payment.PaymentManager;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class ab1 {
-    public static /* synthetic */ Interceptable $ic;
+public final class ab1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int[] ValidationWebView;
+    public static final int ValidationWebView_bottom_left = 0;
+    public static final int ValidationWebView_bottom_right = 1;
+    public static final int ValidationWebView_top_left = 2;
+    public static final int ValidationWebView_top_right = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
-            if (bundle == null) {
-                PaymentManager.i(3, "闪付返回信息为空");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947609305, "Lcom/baidu/tieba/ab1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947609305, "Lcom/baidu/tieba/ab1;");
                 return;
             }
-            String string = bundle.getString("statusCode");
-            try {
-                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
-            } catch (NumberFormatException e) {
-                PaymentManager.i(3, e.getMessage());
-            }
         }
-    }
-
-    public static void b(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
-            ya1.a().g(bundle);
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
-            ya1.a().h("");
-        }
+        ValidationWebView = new int[]{R.attr.bottom_left, R.attr.bottom_right, R.attr.top_left, R.attr.top_right};
     }
 }

@@ -1,156 +1,44 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ja4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Object a;
-    public static Method b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String url;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947876556, "Lcom/baidu/tieba/ja4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public ja4(String str) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947876556, "Lcom/baidu/tieba/ja4;");
-        }
+        this.url = str;
     }
 
-    public static boolean a(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
-            if (!c) {
-                e();
-            }
-            Method method = b;
-            if (method == null) {
-                return false;
-            }
-            try {
-                method.invoke(a, strArr);
-                return true;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            if (!f()) {
-                return true;
-            }
-            if (cls == null) {
-                return false;
-            }
-            return a(b(cls.getName()));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
-            if (!f()) {
-                return true;
-            }
-            if (strArr != null && strArr.length > 0) {
-                return a(strArr);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String replaceAll = str.replaceAll("\\.", "/");
-            if (!replaceAll.startsWith(PreferencesUtil.LEFT_MOUNT)) {
-                return "L" + replaceAll + ParamableElem.DIVIDE_PARAM;
-            }
-            return replaceAll;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            synchronized (ja4.class) {
-                if (c) {
-                    return;
-                }
-                try {
-                    c = true;
-                    Class<?> cls = Class.forName("dalvik.system.VMRuntime");
-                    Method b2 = ka4.b(cls, "getRuntime", new Class[0]);
-                    if (b2 != null) {
-                        b2.setAccessible(true);
-                        Object invoke = b2.invoke(null, new Object[0]);
-                        a = invoke;
-                        if (invoke != null) {
-                            Method b3 = ka4.b(cls, "setHiddenApiExemptions", String[].class);
-                            b = b3;
-                            if (b3 != null) {
-                                b3.setAccessible(true);
-                            }
-                        }
-                    }
-                } catch (Throwable unused) {
-                }
-            }
-        }
-    }
-
-    public static boolean f() {
+    @NonNull
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "GameWebViewCommonResult{url='" + this.url + "'}";
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT > 29) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -4,28 +4,24 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
-import tbclient.FeedContentResource;
-import tbclient.TitleComponent;
+import tbclient.ToastContent;
 /* loaded from: classes6.dex */
-public class gad extends ltc {
+public class gad extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TitleComponent titleComponent) {
+    public static JSONObject b(@NonNull ToastContent toastContent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, titleComponent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, toastContent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (titleComponent.data != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (FeedContentResource feedContentResource : titleComponent.data) {
-                    jSONArray.put(exc.b(feedContentResource));
-                }
-                ltc.a(jSONObject, "data", jSONArray);
-            }
+            ktc.a(jSONObject, "text", toastContent.text);
+            ktc.a(jSONObject, "has_color", toastContent.has_color);
+            ktc.a(jSONObject, MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, toastContent.text_color);
+            ktc.a(jSONObject, "text_color_dark", toastContent.text_color_dark);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

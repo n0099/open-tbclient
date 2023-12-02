@@ -240,8 +240,8 @@ public class AutoOrientationBtnActDialog {
             }
             this.this$0 = autoOrientationBtnActDialog;
             if (view2 != null) {
-                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091060);
-                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09105f);
+                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091061);
+                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091060);
                 this.button = (LinearLayout) view2;
                 this.mDialog = autoOrientationBtnActDialog2;
             }
@@ -412,11 +412,11 @@ public class AutoOrientationBtnActDialog {
     private void createView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0a24, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0a25, (ViewGroup) null);
             this.mView = viewGroup;
-            this.mContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091061);
-            this.mDivider = this.mView.findViewById(R.id.obfuscated_res_0x7f091062);
-            this.mBtnContainer = (FrameLayout) this.mView.findViewById(R.id.obfuscated_res_0x7f09105e);
+            this.mContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091062);
+            this.mDivider = this.mView.findViewById(R.id.obfuscated_res_0x7f091063);
+            this.mBtnContainer = (FrameLayout) this.mView.findViewById(R.id.obfuscated_res_0x7f09105f);
             View createContentView = createContentView(this.mContent);
             if (createContentView != null) {
                 this.mContent.addView(createContentView);

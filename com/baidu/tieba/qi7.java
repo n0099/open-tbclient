@@ -6,17 +6,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class qi7 extends oi7 {
+public final class qi7<T> implements xi7<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ni7 c;
-    public List<Long> d;
-    public ki7 e;
-    public xi7 f;
+
+    @Override // com.baidu.tieba.xi7
+    public boolean a(Object originData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, originData)) == null) {
+            Intrinsics.checkNotNullParameter(originData, "originData");
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xi7
+    public T b(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            return null;
+        }
+        return (T) invokeL.objValue;
+    }
 
     public qi7() {
         Interceptable interceptable = $ic;
@@ -28,78 +46,20 @@ public final class qi7 extends oi7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new ni7(0L, null, null, null, null, 0, 0, 0, 0, 0, null, null, null, null, null, null, null, 0, null, 524287, null);
-        this.d = CollectionsKt__CollectionsKt.emptyList();
-        this.e = new ki7();
     }
 
-    public final ki7 g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xi7
+    public List<rb7<?>> c(Object originData, q67 feedData, Map<String, String> schemaLocalInfo, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{originData, feedData, schemaLocalInfo, Boolean.valueOf(z)})) == null) {
+            Intrinsics.checkNotNullParameter(originData, "originData");
+            Intrinsics.checkNotNullParameter(feedData, "feedData");
+            Intrinsics.checkNotNullParameter(schemaLocalInfo, "schemaLocalInfo");
+            return new ArrayList();
         }
-        return (ki7) invokeV.objValue;
-    }
-
-    public final ni7 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (ni7) invokeV.objValue;
-    }
-
-    public final List<Long> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final xi7 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (xi7) invokeV.objValue;
-    }
-
-    public final void k(ki7 ki7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ki7Var) == null) {
-            Intrinsics.checkNotNullParameter(ki7Var, "<set-?>");
-            this.e = ki7Var;
-        }
-    }
-
-    public final void l(ni7 ni7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ni7Var) == null) {
-            Intrinsics.checkNotNullParameter(ni7Var, "<set-?>");
-            this.c = ni7Var;
-        }
-    }
-
-    public final void m(List<Long> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.d = list;
-        }
-    }
-
-    public final void n(xi7 xi7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, xi7Var) == null) {
-            this.f = xi7Var;
-        }
+        return (List) invokeCommon.objValue;
     }
 }

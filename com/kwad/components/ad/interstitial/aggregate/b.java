@@ -269,11 +269,11 @@ public final class b extends com.kwad.components.ad.interstitial.g.a {
     }
 
     private void initView() {
-        this.iv = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913d9);
-        this.ix = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913da);
-        this.iy = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913ad);
-        this.iz = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09148e);
-        this.iC = (InterstitialAggregateManualTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913d5);
+        this.iv = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913da);
+        this.ix = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913db);
+        this.iy = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913ae);
+        this.iz = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09148f);
+        this.iC = (InterstitialAggregateManualTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913d6);
         this.bQ = new com.kwad.components.core.widget.a.b(this.mRootView, 100);
     }
 

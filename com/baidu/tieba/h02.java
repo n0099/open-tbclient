@@ -8,16 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class h02 extends oz1 {
+public class h02 extends rz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.oz1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-        }
-    }
+    public int a;
+    public int b;
 
     public h02() {
         Interceptable interceptable = $ic;
@@ -29,20 +24,29 @@ public class h02 extends oz1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = Integer.MAX_VALUE;
+        this.b = Integer.MAX_VALUE;
+    }
+
+    @Override // com.baidu.tieba.rz1
+    public void a(sz1 sz1Var, Canvas canvas) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, sz1Var, canvas) == null) && (i = this.a) != Integer.MAX_VALUE && (i2 = this.b) != Integer.MAX_VALUE) {
+            sz1Var.f.moveTo(i, i2);
         }
     }
 
-    @Override // com.baidu.tieba.oz1
-    public void a(pz1 pz1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.rz1
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, pz1Var, canvas) == null) {
-            pz1Var.e();
-            try {
-                canvas.restore();
-            } catch (IllegalStateException e) {
-                h32.d("Canvas", "Underflow in restore - more restores than saves, please check", e);
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
+            this.a = bk3.g((float) jSONArray.optDouble(0));
+            this.b = bk3.g((float) jSONArray.optDouble(1));
         }
     }
 }

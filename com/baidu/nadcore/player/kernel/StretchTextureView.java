@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.TextureView;
 import android.view.View;
-import com.baidu.tieba.jx0;
+import com.baidu.tieba.lx0;
 /* loaded from: classes3.dex */
 public class StretchTextureView extends TextureView {
     public int a;
@@ -62,7 +62,7 @@ public class StretchTextureView extends TextureView {
         int i4;
         int defaultSize = TextureView.getDefaultSize(this.b, i);
         int defaultSize2 = TextureView.getDefaultSize(this.c, i2);
-        jx0.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "onMeasure ** mVideoWidth : " + this.b + ", mVideoHeight : " + this.c + ", TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
+        lx0.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "onMeasure ** mVideoWidth : " + this.b + ", mVideoHeight : " + this.c + ", TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
         int i5 = this.a;
         if (i5 == 0) {
             int defaultSize3 = TextureView.getDefaultSize(this.b, i);
@@ -144,7 +144,7 @@ public class StretchTextureView extends TextureView {
                 defaultSize2 = b(defaultSize, defaultSize2, i3, i4);
             }
         }
-        jx0.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "setMeasuredDimension **  TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
+        lx0.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "setMeasuredDimension **  TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
         setMeasuredDimension(defaultSize, defaultSize2);
     }
 }

@@ -1,88 +1,42 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class bo8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
+    public static final String d;
+    public static final String e;
+    public static final String f;
+    public static final String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public BotsDTO.BotListDTO.UserDTO a;
-    public BotsDTO.BotListDTO.SkillDTO b;
-    public List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> c;
-    @NonNull
-    public boolean d;
 
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-        }
-    }
-
-    public bo8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947651806, "Lcom/baidu/tieba/bo8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947651806, "Lcom/baidu/tieba/bo8;");
                 return;
             }
         }
-        this.d = true;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = false;
-        }
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Nullable
-    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list = this.c;
-            if (list != null && !list.isEmpty()) {
-                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : this.c) {
-                    if (itemsDTO.isFileType()) {
-                        return itemsDTO;
-                    }
-                }
-            }
-            return null;
-        }
-        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) invokeV.objValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
-        }
+        a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f095f);
+        b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0961);
+        c = TbadkCoreApplication.getInst().getString(R.string.group_chat_group_had_close);
+        d = TbadkCoreApplication.getInst().getString(R.string.group_chat_no_speak_all);
+        e = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f097c);
+        f = TbadkCoreApplication.getInst().getString(R.string.group_chat_no_speak_person);
+        g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f096e);
     }
 }

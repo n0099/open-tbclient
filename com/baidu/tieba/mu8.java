@@ -1,30 +1,32 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BroadcastInfo;
-import tbclient.RecommendForumInfo;
-import tbclient.ThreadInfo;
+import java.util.List;
+import protobuf.Item;
 /* loaded from: classes7.dex */
 public class mu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public Long a;
     public String b;
-    public String c;
-    public long d;
-    public int e;
-    public long f;
-    public int g;
+    public Double c;
+    public String d;
+    public List<String> e;
+    public Double f;
+    public Integer g;
     public String h;
-    public int i;
-    public RecommendForumInfo j;
-    public ThreadInfo k;
+    public String i;
+    public String j;
+    public Integer k;
+    public Integer l;
+    public String m;
+    public String n;
+    public ApkDetailPojo o;
 
     public mu8() {
         Interceptable interceptable = $ic;
@@ -40,120 +42,59 @@ public class mu8 {
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static mu8 a(Item item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
+            if (item == null) {
+                return null;
+            }
+            mu8 mu8Var = new mu8();
+            mu8Var.a = item.itemId;
+            mu8Var.b = item.itemName;
+            mu8Var.c = item.iconSize;
+            mu8Var.d = item.iconUrl;
+            mu8Var.e = item.tags;
+            mu8Var.f = item.score;
+            mu8Var.g = item.star;
+            mu8Var.h = item.buttonName;
+            mu8Var.i = item.buttonLink;
+            mu8Var.j = item.itemAppid;
+            mu8Var.k = item.categoryId;
+            mu8Var.l = item.buttonLinkType;
+            mu8Var.m = item.apkName;
+            mu8Var.n = item.forumName;
+            mu8Var.o = ApkDetailPojo.O(item.apkDetail);
+            return mu8Var;
         }
-        return invokeV.intValue;
+        return (mu8) invokeL.objValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public static mu8 b(tbclient.Item item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
+            if (item == null) {
+                return null;
+            }
+            mu8 mu8Var = new mu8();
+            mu8Var.a = item.item_id;
+            mu8Var.b = item.item_name;
+            mu8Var.c = item.icon_size;
+            mu8Var.d = item.icon_url;
+            mu8Var.e = item.tags;
+            mu8Var.f = item.score;
+            mu8Var.g = item.star;
+            mu8Var.h = item.button_name;
+            mu8Var.i = item.button_link;
+            mu8Var.j = item.item_appid;
+            mu8Var.k = item.category_id;
+            mu8Var.l = item.button_link_type;
+            mu8Var.m = item.apk_name;
+            mu8Var.n = item.forum_name;
+            mu8Var.o = ApkDetailPojo.P(item.apk_detail);
+            return mu8Var;
         }
-        return invokeV.longValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public RecommendForumInfo e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.j;
-        }
-        return (RecommendForumInfo) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public ThreadInfo j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.k;
-        }
-        return (ThreadInfo) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void l(BroadcastInfo broadcastInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, broadcastInfo) != null) || broadcastInfo == null) {
-            return;
-        }
-        this.f = broadcastInfo.bcast_id.longValue();
-        this.a = broadcastInfo.title;
-        this.b = broadcastInfo.content;
-        this.c = broadcastInfo.pic_url;
-        this.d = broadcastInfo.publish_time.intValue();
-        this.e = broadcastInfo.pushuser_cnt.intValue();
-        this.j = broadcastInfo.forum_info;
-        this.k = broadcastInfo.thread_infos;
-        this.h = broadcastInfo.ctr;
-        this.g = broadcastInfo.pv.intValue();
-        this.i = broadcastInfo.audit_status.intValue();
+        return (mu8) invokeL.objValue;
     }
 }

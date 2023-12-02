@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel;
-import com.baidu.tieba.lt7;
-import com.baidu.tieba.lz7;
-import com.baidu.tieba.m55;
+import com.baidu.tieba.p55;
 import com.baidu.tieba.pi;
+import com.baidu.tieba.pt7;
+import com.baidu.tieba.pz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,16 +27,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class FrsGameRecommendFragment extends BaseFragment implements lt7 {
+public class FrsGameRecommendFragment extends BaseFragment implements pt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lz7 a;
+    public pz7 a;
     public AlaGameRecommendModel b;
     public String c;
     public String d;
     public CustomMessageListener e;
     public AlaGameRecommendModel.b f;
-    public m55.g g;
+    public p55.g g;
     public BdListView.p h;
 
     /* loaded from: classes6.dex */
@@ -133,7 +133,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements lt7 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements m55.g {
+    public class c implements p55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameRecommendFragment a;
@@ -156,12 +156,12 @@ public class FrsGameRecommendFragment extends BaseFragment implements lt7 {
             this.a = frsGameRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.m55.g
+        @Override // com.baidu.tieba.p55.g
         public void g(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e6f);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e70);
                     this.a.a.b();
                 } else if (this.a.b != null) {
                     this.a.b.loadData();
@@ -241,10 +241,10 @@ public class FrsGameRecommendFragment extends BaseFragment implements lt7 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        lz7 lz7Var;
+        pz7 pz7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (lz7Var = this.a) != null) {
-            lz7Var.i(i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (pz7Var = this.a) != null) {
+            pz7Var.i(i);
         }
     }
 
@@ -274,9 +274,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements lt7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            lz7 lz7Var = this.a;
-            if (lz7Var != null) {
-                lz7Var.j();
+            pz7 pz7Var = this.a;
+            if (pz7Var != null) {
+                pz7Var.j();
             }
             AlaGameRecommendModel alaGameRecommendModel = this.b;
             if (alaGameRecommendModel != null) {
@@ -297,7 +297,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements lt7 {
         }
     }
 
-    @Override // com.baidu.tieba.lt7
+    @Override // com.baidu.tieba.pt7
     public NavigationBar x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -318,9 +318,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements lt7 {
             }
             this.c = arguments.getString("forum_id");
             this.d = arguments.getString("forum_name");
-            lz7 lz7Var = new lz7(getPageContext(), this.c, this.d);
-            this.a = lz7Var;
-            lz7Var.l(this.g);
+            pz7 pz7Var = new pz7(getPageContext(), this.c, this.d);
+            this.a = pz7Var;
+            pz7Var.l(this.g);
             this.a.n(this.h);
             MessageManager.getInstance().registerListener(2001446, this.e);
             this.b = new AlaGameRecommendModel(this.c, this.f);

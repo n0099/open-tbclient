@@ -313,7 +313,7 @@ public class b {
         this.da.removeAllViews();
         this.da.setVisibility(4);
         this.HJ = l.inflate(this.da.getContext(), getLayoutId(), this.da);
-        KsAdWebView ksAdWebView = (KsAdWebView) this.da.findViewById(R.id.obfuscated_res_0x7f091516);
+        KsAdWebView ksAdWebView = (KsAdWebView) this.da.findViewById(R.id.obfuscated_res_0x7f091517);
         this.cL = ksAdWebView;
         if (ksAdWebView != null) {
             boolean z = false;

@@ -19,22 +19,22 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.ap0;
-import com.baidu.tieba.bp0;
+import com.baidu.tieba.at5;
+import com.baidu.tieba.bt5;
+import com.baidu.tieba.cp0;
+import com.baidu.tieba.dg9;
+import com.baidu.tieba.dp0;
 import com.baidu.tieba.hf0;
-import com.baidu.tieba.hp0;
-import com.baidu.tieba.ip0;
-import com.baidu.tieba.l16;
-import com.baidu.tieba.pm5;
-import com.baidu.tieba.po0;
-import com.baidu.tieba.q26;
-import com.baidu.tieba.qm5;
-import com.baidu.tieba.qv4;
+import com.baidu.tieba.jp0;
+import com.baidu.tieba.kp0;
+import com.baidu.tieba.p16;
 import com.baidu.tieba.recapp.constants.PlaceId;
-import com.baidu.tieba.ws5;
-import com.baidu.tieba.xs5;
+import com.baidu.tieba.ro0;
+import com.baidu.tieba.sm5;
+import com.baidu.tieba.tm5;
+import com.baidu.tieba.tv4;
+import com.baidu.tieba.u26;
 import com.baidu.tieba.zf0;
-import com.baidu.tieba.zf9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public class NadAsyncRequester {
     public transient /* synthetic */ FieldHolder $fh;
     public final PlaceId a;
     public final b b;
-    public final ap0<List<AdvertAppInfo>> c;
+    public final cp0<List<AdvertAppInfo>> c;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -71,7 +71,7 @@ public class NadAsyncRequester {
     }
 
     /* loaded from: classes5.dex */
-    public class a extends bp0<List<AdvertAppInfo>> {
+    public class a extends dp0<List<AdvertAppInfo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NadAsyncRequester a;
@@ -94,7 +94,7 @@ public class NadAsyncRequester {
             this.a = nadAsyncRequester;
         }
 
-        @Override // com.baidu.tieba.zo0
+        @Override // com.baidu.tieba.bp0
         public void a(Exception exc, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && this.a.b != null) {
@@ -103,7 +103,7 @@ public class NadAsyncRequester {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ap0
+        @Override // com.baidu.tieba.cp0
         /* renamed from: e */
         public void b(Headers headers, List<AdvertAppInfo> list, int i) {
             Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class NadAsyncRequester {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ap0
+        @Override // com.baidu.tieba.cp0
         /* renamed from: f */
         public List<AdvertAppInfo> d(Headers headers, String str, int i) throws Exception {
             InterceptResult invokeLLI;
@@ -122,7 +122,7 @@ public class NadAsyncRequester {
                 if (str == null) {
                     return null;
                 }
-                return q26.a(str);
+                return u26.a(str);
             }
             return (List) invokeLLI.objValue;
         }
@@ -202,7 +202,7 @@ public class NadAsyncRequester {
             replace = sampleId.replace(SignatureImpl.SEP, ',');
         }
         d("eid", replace);
-        d("app_transmit_data", xs5.a());
+        d("app_transmit_data", bt5.a());
         d("is_https", "1");
         d("flr", "1");
         d(TbConfig.SW_APID, "0");
@@ -233,10 +233,10 @@ public class NadAsyncRequester {
         this.b = bVar;
     }
 
-    public static void c(@NonNull hp0 hp0Var, String str, String str2) {
+    public static void c(@NonNull jp0 jp0Var, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, hp0Var, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            hp0Var.a(str, str2);
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, jp0Var, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            jp0Var.a(str, str2);
         }
     }
 
@@ -268,8 +268,8 @@ public class NadAsyncRequester {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) {
             JSONArray jSONArray = new JSONArray();
-            if (l16.a().b("tieba_no_oaid_param", 0) != 1) {
-                jSONArray.put(e(AdExtParam.KEY_IADEX, ws5.e()));
+            if (p16.a().b("tieba_no_oaid_param", 0) != 1) {
+                jSONArray.put(e(AdExtParam.KEY_IADEX, at5.e()));
                 String f = zf0.c().f(false);
                 if (!TextUtils.isEmpty(f)) {
                     jSONArray.put(e("oaid_v", f));
@@ -279,8 +279,8 @@ public class NadAsyncRequester {
                     jSONArray.put(e("mac", d2));
                 }
             }
-            jSONArray.put(e(AdExtParam.KEY_NAD_CORE_VERSION, "5.12.0.110"));
-            if (!zf9.f(map)) {
+            jSONArray.put(e(AdExtParam.KEY_NAD_CORE_VERSION, "6.1.0.1"));
+            if (!dg9.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(e(entry.getKey(), entry.getValue()));
                 }
@@ -290,15 +290,15 @@ public class NadAsyncRequester {
         return (String) invokeL.objValue;
     }
 
-    public void b(@NonNull hp0 hp0Var) {
+    public void b(@NonNull jp0 jp0Var) {
         String b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hp0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, jp0Var) == null) {
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
                 b2 = currentAccountInfo.getBDUSS();
             } else if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                b2 = pm5.b();
+                b2 = sm5.b();
             } else {
                 return;
             }
@@ -310,10 +310,10 @@ public class NadAsyncRequester {
                 b2 = currentAccountInfo.getBDUSS();
             }
             if (!TextUtils.isEmpty(b2)) {
-                c(hp0Var, HttpRequest.BDUSS, b2);
-                String a2 = qv4.a(currentAccountInfo);
+                c(jp0Var, HttpRequest.BDUSS, b2);
+                String a2 = tv4.a(currentAccountInfo);
                 if (!StringUtils.isNull(a2)) {
-                    c(hp0Var, "stoken", a2);
+                    c(jp0Var, "stoken", a2);
                 }
             }
         }
@@ -324,7 +324,7 @@ public class NadAsyncRequester {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (TextUtils.isEmpty(TbSingleton.getInstance().getSampleId())) {
-                TbSingleton.getInstance().setSampleId(qm5.i("multi_process_sample_id", ""));
+                TbSingleton.getInstance().setSampleId(tm5.i("multi_process_sample_id", ""));
             }
             return TbSingleton.getInstance().getSampleId();
         }
@@ -335,10 +335,10 @@ public class NadAsyncRequester {
         CookieManager cookieManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, map, i) == null) {
-            po0 b2 = po0.b();
-            ip0 ip0Var = new ip0();
-            ip0Var.a("User-Agent", hf0.e());
-            ip0Var.l(TbConfig.SERVER_ADDRESS + "tiebaads/commonbatch?adcmd=" + d.get(this.a));
+            ro0 b2 = ro0.b();
+            kp0 kp0Var = new kp0();
+            kp0Var.a("User-Agent", hf0.e());
+            kp0Var.l(TbConfig.SERVER_ADDRESS + "tiebaads/commonbatch?adcmd=" + d.get(this.a));
             try {
                 cookieManager = CookieManager.getInstance();
             } catch (Exception e2) {
@@ -348,17 +348,17 @@ public class NadAsyncRequester {
             if (cookieManager != null) {
                 String cookie = cookieManager.getCookie("tieba.baidu.com");
                 if (!TextUtils.isEmpty(cookie)) {
-                    ip0Var.a("Cookie", cookie);
+                    kp0Var.a("Cookie", cookie);
                 }
             }
-            hp0 e3 = hp0.e(e);
+            jp0 e3 = jp0.e(e);
             c(e3, "ext", f(map));
             c(e3, "pid", this.a.value);
             c(e3, "ac", String.valueOf(i));
             c(e3, TiebaStatic.Params.SAMPLE_ID, g());
             b(e3);
-            ip0Var.f(e3);
-            b2.a().a(ip0Var, this.c);
+            kp0Var.f(e3);
+            b2.a().a(kp0Var, this.c);
         }
     }
 }

@@ -4,10 +4,10 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import com.baidu.tieba.j8c;
+import com.baidu.tieba.i8c;
 /* loaded from: classes9.dex */
 public class b extends Binder implements IInterface {
-    public static j8c a;
+    public static i8c a;
 
     public boolean a(int i, Parcel parcel) {
         return false;

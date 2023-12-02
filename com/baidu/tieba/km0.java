@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.w11;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -136,7 +136,7 @@ public final class km0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Double.valueOf(d), Boolean.valueOf(z)})) == null) {
             if (z && d > 2.0d) {
-                return u11.c.a(hf0.b(), 52.0f);
+                return w11.c.a(hf0.b(), 52.0f);
             }
             return 0;
         }
@@ -148,7 +148,7 @@ public final class km0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d), Integer.valueOf(i), Double.valueOf(d2)})) == null) {
             if (i > 0 && d2 >= 0 && d2 <= 1) {
-                return Math.min((int) (i * d2), Math.max((int) ((i - u11.c.a(hf0.b(), 200)) - (u11.c.e(hf0.b()) * d)), 0));
+                return Math.min((int) (i * d2), Math.max((int) ((i - w11.c.a(hf0.b(), 200)) - (w11.c.e(hf0.b()) * d)), 0));
             }
             return -1;
         }

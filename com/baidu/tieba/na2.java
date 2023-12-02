@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.cb2;
+import java.io.File;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
 public interface na2 {
-    boolean a(@NonNull cb2.a aVar);
+    void a(String str, File file, oa2 oa2Var);
+
+    InputStream get(String str);
+
+    boolean isClosed();
 }

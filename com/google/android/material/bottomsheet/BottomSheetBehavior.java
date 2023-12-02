@@ -695,7 +695,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 return false;
             }
         };
-        this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07062a);
+        this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07062e);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.BottomSheetBehavior_Layout);
         this.shapeThemingEnabled = obtainStyledAttributes.hasValue(11);
         boolean hasValue = obtainStyledAttributes.hasValue(1);
@@ -1244,7 +1244,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             v.setFitsSystemWindows(true);
         }
         if (this.viewRef == null) {
-            this.peekHeightMin = coordinatorLayout.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b4);
+            this.peekHeightMin = coordinatorLayout.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b6);
             setSystemGestureInsets(v);
             this.viewRef = new WeakReference<>(v);
             if (this.shapeThemingEnabled && (materialShapeDrawable = this.materialShapeDrawable) != null) {

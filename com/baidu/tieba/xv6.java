@@ -1,156 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tieba.downloadmanager.data.DownloadManageModeCardType;
+import com.baidu.tieba.downloadmanager.ui.adapter.ItemCardViewWrapperAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes9.dex */
-public final class xv6 {
+public class xv6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final xv6 a;
-    public static long b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragment a;
+    public BdTypeRecyclerView b;
+    public ItemCardViewWrapperAdapter c;
+    public List<ci> d;
+    public int e;
+    public int f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948313873, "Lcom/baidu/tieba/xv6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948313873, "Lcom/baidu/tieba/xv6;");
-                return;
-            }
-        }
-        a = new xv6();
-    }
-
-    public xv6() {
+    public xv6(BaseFragment baseFragment, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = new ArrayList();
+        this.a = baseFragment;
+        this.b = bdTypeRecyclerView;
+        this.e = i;
+        this.f = i2;
+        b();
     }
 
-    @JvmStatic
-    public static final void f() {
+    public void a(DownloadManageModeCardType downloadManageModeCardType) {
+        ItemCardViewWrapperAdapter itemCardViewWrapperAdapter;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && b > 0) {
-            SharedPrefHelper.getInstance().putLong("key_last_page_pause_time", ((System.nanoTime() - b) / 1000000) / 1000);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadManageModeCardType) == null) && (itemCardViewWrapperAdapter = this.c) != null) {
+            itemCardViewWrapperAdapter.F(downloadManageModeCardType);
         }
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
-        int i;
+    public void d(ItemCardViewWrapperAdapter.b bVar) {
+        ItemCardViewWrapperAdapter itemCardViewWrapperAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c == 0) {
-                if (UbsABTestHelper.isExistSid("12.48_client_time_page_count_a")) {
-                    i = 1;
-                } else {
-                    i = 2;
-                }
-                c = i;
-            }
-            if (c == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return SharedPrefHelper.getInstance().getBoolean("key_is_last_client_uploaded", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long j = b;
-            if (j > 0) {
-                c(j);
-                b = 0L;
-            }
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) && (itemCardViewWrapperAdapter = this.c) != null) {
+            itemCardViewWrapperAdapter.I(bVar);
         }
     }
 
-    public final void e() {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            h();
-            if (b == 0) {
-                b = System.nanoTime();
-                g(false);
-                DefaultLog.getInstance().i("ClientDurationHelper", "processUseDuration setIsUploaded false");
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ItemCardViewWrapperAdapter itemCardViewWrapperAdapter = new ItemCardViewWrapperAdapter(this.a.getContext(), mv6.g, this.e, this.b, this.f);
+            this.c = itemCardViewWrapperAdapter;
+            this.d.add(itemCardViewWrapperAdapter);
+            this.b.addAdapters(this.d);
         }
     }
 
-    @JvmStatic
-    public static final void g(boolean z) {
+    public void c() {
+        ItemCardViewWrapperAdapter itemCardViewWrapperAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            SharedPrefHelper.getInstance().putBoolean("key_is_last_client_uploaded", z);
-        }
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            long nanoTime = ((System.nanoTime() - j) / 1000000) / 1000;
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                i(nanoTime);
-                g(true);
-                DefaultLog.getInstance().i("ClientDurationHelper", "processUseDuration setIsUploaded true");
-            }
-        }
-    }
-
-    public final void i(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && j >= TbadkCoreApplication.getInst().getUseTimeInterval()) {
-            new PvThread("use", String.valueOf(j)).start();
-            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "use", null, 1, "st_param", String.valueOf(j));
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !b() && PermissionUtil.isAgreePrivacyPolicy()) {
-            long j = SharedPrefHelper.getInstance().getLong("key_last_page_pause_time", 0L);
-            i(j);
-            TbLog defaultLog = DefaultLog.getInstance();
-            defaultLog.i("ClientDurationHelper", "trySupplementClientTime pauseTime=" + j);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (itemCardViewWrapperAdapter = this.c) != null) {
+            itemCardViewWrapperAdapter.notifyDataSetChanged();
         }
     }
 }

@@ -135,7 +135,7 @@ public class vh0 {
             intent.putExtra("alsPage", ClogBuilder.Page.AD_DIALOG);
             intent.putExtra("percent", (int) (this.b.i * 100.0f));
             intent.setClassName(hf0.b().getPackageName(), RetainDialogActivity.class.getName());
-            m11.d(hf0.b(), intent);
+            o11.d(hf0.b(), intent);
         }
     }
 

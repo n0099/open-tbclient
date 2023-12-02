@@ -1,103 +1,55 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.os.Build;
-import android.view.View;
-import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.ViewCommonUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.RecomVertical.SubClassItem;
 /* loaded from: classes8.dex */
-public class ud8 extends PopupWindow {
+public class ud8 extends ww4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public a b;
+    public int a;
+    public String b;
+    public String c;
+    public int d;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ud8(TbPageContext tbPageContext, View view2, int i, int i2) {
-        super(view2, i, i2);
+    public ud8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.dismiss();
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                aVar.a();
-            } else {
-                super.dismiss();
             }
         }
     }
 
-    public void b(a aVar) {
+    public void a(SubClassItem subClassItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.b = aVar;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, subClassItem) != null) || subClassItem == null) {
+            return;
         }
+        this.a = subClassItem.sub_class_id.intValue();
+        this.b = subClassItem.sub_class_name;
+        this.c = subClassItem.sub_class_icon;
+        this.d = subClassItem.enable.intValue();
     }
 
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2) {
+    @Override // com.baidu.tieba.ww4
+    public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Rect rect = new Rect();
-                view2.getGlobalVisibleRect(rect);
-                setHeight(ViewCommonUtil.getScreenFullSize(this.a.getPageActivity())[1] - rect.bottom);
-            }
-            GreyUtil.grey(this);
-            super.showAsDropDown(view2);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, view2, i, i2) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Rect rect = new Rect();
-                view2.getGlobalVisibleRect(rect);
-                setHeight(ViewCommonUtil.getScreenFullSize(this.a.getPageActivity())[1] - rect.bottom);
-            }
-            GreyUtil.grey(this);
-            super.showAsDropDown(view2, i, i2);
-        }
+        this.a = jSONObject.optInt("sub_class_id");
+        this.b = jSONObject.optString("sub_class_name");
+        this.c = jSONObject.optString("sub_class_icon");
+        this.d = jSONObject.optInt("enable");
     }
 }

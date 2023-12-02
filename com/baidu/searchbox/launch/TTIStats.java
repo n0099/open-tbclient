@@ -1,6 +1,5 @@
 package com.baidu.searchbox.launch;
 
-import android.os.Environment;
 import android.os.Looper;
 import android.util.Log;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -9,6 +8,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tieba.nd;
 import com.baidu.ubc.UBCManager;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -61,7 +61,7 @@ public class TTIStats {
                     try {
                         try {
                             try {
-                                File file = new File(Environment.getExternalStorageDirectory(), "cold_start_tti.txt");
+                                File file = new File(nd.r(), "cold_start_tti.txt");
                                 if (!file.exists()) {
                                     file.createNewFile();
                                 }

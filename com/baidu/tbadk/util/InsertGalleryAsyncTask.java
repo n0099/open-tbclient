@@ -12,7 +12,6 @@ import com.baidu.adp.lib.safe.BdCloseHelper;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.nd;
@@ -39,7 +38,6 @@ import java.util.UUID;
 /* loaded from: classes5.dex */
 public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, a> {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int FROM_ANNIVERSARY = 3;
     public static final int FROM_DEFAULT = 0;
     public static final int FROM_SHARE_DIALOG = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -419,15 +417,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, a> {
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             try {
                 if (this.from == 1) {
-                    FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/");
-                    FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/temp/");
-                    FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/temp/.nomedia/");
-                    externalStoragePublicDirectory = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/temp/.nomedia/");
-                } else if (this.from == 3) {
-                    FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/");
-                    FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/temp/");
-                    FileHelper.CheckTempDir(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/temp/.anniver/");
-                    externalStoragePublicDirectory = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/temp/.anniver/");
+                    externalStoragePublicDirectory = new File(FileHelper.EXTERNAL_STORAGE_DCIM_DIRECTORY + "/.nomedia/");
                 } else {
                     externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
                 }
@@ -438,7 +428,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, a> {
                         this.dir += "/";
                     }
                 } else {
-                    this.dir = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
+                    this.dir = FileHelper.getExternalFilesDir().getPath() + "/";
                 }
                 File file = new File(this.dir);
                 if (!file.exists()) {
@@ -446,8 +436,6 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, a> {
                 }
                 if (this.from == 1) {
                     lowerCase = "shareDialogTempImg";
-                } else if (this.from == 3) {
-                    lowerCase = "userPortrait";
                 } else {
                     lowerCase = UUID.randomUUID().toString().replace("-", "").toLowerCase();
                 }
@@ -498,8 +486,6 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, a> {
                             }
                             if (this.from == 1) {
                                 lowerCase = "shareDialogTempImg";
-                            } else if (this.from == 3) {
-                                lowerCase = "userPortrait";
                             } else {
                                 lowerCase = UUID.randomUUID().toString().replace("-", "").toLowerCase();
                             }

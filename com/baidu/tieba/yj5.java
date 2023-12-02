@@ -1,229 +1,76 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import androidx.core.widget.NestedScrollView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.lcs.LCSStatisticsResponseMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class yj5 extends wj5 {
+public class yj5 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public NestedScrollView a;
-    public LinearLayout b;
-    public TbImageView c;
-    public TextView d;
-    public TextView e;
-    public TBSpecificationBtn f;
-    public LinearLayout g;
-    public int h;
-    public Rect i;
 
-    /* loaded from: classes9.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yj5 a;
-
-        public a(yj5 yj5Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948332101, "Lcom/baidu/tieba/yj5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yj5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = yj5Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948332101, "Lcom/baidu/tieba/yj5;");
+                return;
+            }
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(-1);
-            }
+        boolean z = false;
+        if (SharedPrefHelper.getInstance().getInt("key_lcs_log_switch", 0) == 1) {
+            z = true;
+        }
+        a = z;
+        if (z) {
+            a();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yj5(Context context, View.OnClickListener onClickListener) {
-        super(LayoutInflater.from(context).inflate(R.layout.frs_net_refresh_view_layout, (ViewGroup) null));
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, onClickListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.h = 0;
-        this.i = new Rect();
-        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0921dc);
-        this.b = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0907f7);
-        this.c = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
-        this.d = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.e = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
-        this.g = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
-        this.f = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
-        b65 b65Var = new b65();
-        b65Var.s(R.color.CAM_X0304, R.color.CAM_X0905);
-        this.f.setText(context.getResources().getString(R.string.refresh_view_button_text));
-        this.f.setTextSize(R.dimen.tbds42);
-        this.f.setConfig(b65Var);
-        this.f.setOnClickListener(onClickListener);
-        this.attachedView.setOnClickListener(null);
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (this.h <= 0) {
-                this.h = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
-            }
-            NestedScrollView nestedScrollView = this.a;
-            if (nestedScrollView == null) {
-                return;
-            }
-            if (i == 0) {
-                nestedScrollView.post(new a(this));
-            }
-            if (!this.a.getLocalVisibleRect(this.i)) {
-                return;
-            }
-            int i2 = this.i.bottom;
-            int abs = Math.abs(this.b.getTop());
-            int abs2 = i2 - Math.abs(this.b.getBottom());
-            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
-            if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
-                return;
-            }
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            int i3 = this.h;
-            if (abs < i3) {
-                marginLayoutParams.topMargin = i3;
-                this.b.setLayoutParams(marginLayoutParams);
-            } else if (abs == i3) {
-                if (abs2 > i3) {
-                    marginLayoutParams.topMargin = i3 + ((abs2 - i3) / 2);
-                    this.b.setLayoutParams(marginLayoutParams);
-                }
-            } else if (abs > i3) {
-                if (abs2 < i3) {
-                    marginLayoutParams.topMargin = i3;
-                } else if (abs2 == i3) {
-                    marginLayoutParams.topMargin = i3;
-                } else if (abs2 > i3) {
-                    marginLayoutParams.topMargin = (abs + abs2) / 2;
-                }
-                this.b.setLayoutParams(marginLayoutParams);
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_LCS_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.LCS_STATISTICS_URL);
+            tbHttpMessageTask.setResponsedClass(LCSStatisticsResponseMessage.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            messageManager.registerTask(tbHttpMessageTask);
         }
     }
 
-    public void b(String str) {
+    public static void b(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || str == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            c(i, i2, i3, i4, i5, 0);
+        }
+    }
+
+    public static void c(int i, int i2, int i3, int i4, int i5, int i6) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) != null) || !a) {
             return;
         }
-        this.f.setText(str);
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (str == null) {
-                this.d.setVisibility(8);
-                return;
-            }
-            this.d.setVisibility(0);
-            this.d.setText(str);
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || str == null) {
-            return;
-        }
-        this.e.setText(str);
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f.setVisibility(0);
-            this.e.setVisibility(0);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1);
-        }
-    }
-
-    public View getAttachedView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.attachedView;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj5
-    public void onViewAttached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onViewAttached();
-            onChangeSkinType();
-        }
-    }
-
-    @Override // com.baidu.tieba.wj5
-    public void onViewDettached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onViewDettached();
-            this.c.setImageResource(0);
-        }
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            SkinManager.setImageResource(this.c, R.drawable.new_pic_emotion_08);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1, skinType);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0107, 1, skinType);
-            SkinManager.setBackgroundColor(this.attachedView, R.color.CAM_X0201);
-            TBSpecificationBtn tBSpecificationBtn = this.f;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
-            }
-        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
+        httpMessage.addParam("cmd", i);
+        httpMessage.addParam("lcs_status", i2);
+        httpMessage.addParam("online_status", i3);
+        httpMessage.addParam("status_change_name", i4);
+        httpMessage.addParam("status_change_trigger", i5);
+        httpMessage.addParam("lcs_vailable", i6);
+        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
     }
 }

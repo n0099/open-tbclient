@@ -23,10 +23,10 @@ public final class R {
     /* loaded from: classes3.dex */
     public static final class id {
         public static final int appIcon = 0x7f0902cd;
-        public static final int description = 0x7f0908d5;
-        public static final int paused_text = 0x7f091b67;
-        public static final int progress_bar = 0x7f091e61;
-        public static final int progress_text = 0x7f091e69;
+        public static final int description = 0x7f0908d6;
+        public static final int paused_text = 0x7f091b69;
+        public static final int progress_bar = 0x7f091e63;
+        public static final int progress_text = 0x7f091e6b;
     }
 
     /* loaded from: classes3.dex */
@@ -81,21 +81,21 @@ public final class R {
         public static final int downloading_duplicate_cancel = 0x7f0f0617;
         public static final int install_permission_msg = 0x7f0f0ada;
         public static final int install_permission_title = 0x7f0f0adb;
-        public static final int no = 0x7f0f0e89;
-        public static final int notification_download_complete = 0x7f0f0ee7;
-        public static final int notification_download_failed = 0x7f0f0ee8;
-        public static final int notification_need_wifi_for_size = 0x7f0f0ee9;
-        public static final int oppo_install_permission_msg = 0x7f0f0f50;
-        public static final int picture_save_fail = 0x7f0f1103;
-        public static final int picture_save_success = 0x7f0f1104;
-        public static final int teenager_not_download = 0x7f0f167d;
-        public static final int uninstall_more_apk_message = 0x7f0f17a6;
-        public static final int uninstall_more_apk_message_button_text = 0x7f0f17a7;
-        public static final int uninstall_single_apk_message = 0x7f0f17a8;
-        public static final int update_failed_message = 0x7f0f17c7;
-        public static final int update_sign_match_failed_hint = 0x7f0f17cc;
-        public static final int vivo_install_permission_msg = 0x7f0f186f;
-        public static final int xiaomi_install_permission_msg = 0x7f0f1924;
-        public static final int yes = 0x7f0f1928;
+        public static final int no = 0x7f0f0e8a;
+        public static final int notification_download_complete = 0x7f0f0ee8;
+        public static final int notification_download_failed = 0x7f0f0ee9;
+        public static final int notification_need_wifi_for_size = 0x7f0f0eea;
+        public static final int oppo_install_permission_msg = 0x7f0f0f51;
+        public static final int picture_save_fail = 0x7f0f1104;
+        public static final int picture_save_success = 0x7f0f1105;
+        public static final int teenager_not_download = 0x7f0f167e;
+        public static final int uninstall_more_apk_message = 0x7f0f17a7;
+        public static final int uninstall_more_apk_message_button_text = 0x7f0f17a8;
+        public static final int uninstall_single_apk_message = 0x7f0f17a9;
+        public static final int update_failed_message = 0x7f0f17c8;
+        public static final int update_sign_match_failed_hint = 0x7f0f17cd;
+        public static final int vivo_install_permission_msg = 0x7f0f1870;
+        public static final int xiaomi_install_permission_msg = 0x7f0f1925;
+        public static final int yes = 0x7f0f1929;
     }
 }

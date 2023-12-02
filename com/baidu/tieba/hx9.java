@@ -1,132 +1,107 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pb.feedback.FeedbackButtonStateType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.NoWhenBranchMatchedException;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class hx9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final mwa a;
+    public final Function1<FeedbackButtonStateType, Unit> b;
+    public final Function0<Boolean> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947839232, "Lcom/baidu/tieba/hx9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947839232, "Lcom/baidu/tieba/hx9;");
+            if (obj instanceof hx9) {
+                hx9 hx9Var = (hx9) obj;
+                return Intrinsics.areEqual(this.a, hx9Var.a) && Intrinsics.areEqual(this.b, hx9Var.b) && Intrinsics.areEqual(this.c, hx9Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            Function1<FeedbackButtonStateType, Unit> function1 = this.b;
+            int hashCode2 = (hashCode + (function1 == null ? 0 : function1.hashCode())) * 31;
+            Function0<Boolean> function0 = this.c;
+            return hashCode2 + (function0 != null ? function0.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "AigcFeedbackPostState(postData=" + this.a + ", onButtonClick=" + this.b + ", onInterceptClick=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public hx9(mwa postData, Function1<? super FeedbackButtonStateType, Unit> function1, Function0<Boolean> function0) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {postData, function1, function0};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        Intrinsics.checkNotNullParameter(postData, "postData");
+        this.a = postData;
+        this.b = function1;
+        this.c = function0;
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.hx9$a$a */
-        /* loaded from: classes6.dex */
-        public /* synthetic */ class C0348a {
-            public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(674544006, "Lcom/baidu/tieba/hx9$a$a;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(674544006, "Lcom/baidu/tieba/hx9$a$a;");
-                        return;
-                    }
-                }
-                int[] iArr = new int[FeedbackButtonStateType.values().length];
-                iArr[FeedbackButtonStateType.UNSELECT_POSITIVE_STATE.ordinal()] = 1;
-                iArr[FeedbackButtonStateType.SELECT_POSITIVE_STATE.ordinal()] = 2;
-                iArr[FeedbackButtonStateType.SELECTING_POSITIVE_STATE.ordinal()] = 3;
-                iArr[FeedbackButtonStateType.UNSELECT_NEGATIVE_STATE.ordinal()] = 4;
-                iArr[FeedbackButtonStateType.SELECT_NEGATIVE_STATE.ordinal()] = 5;
-                $EnumSwitchMapping$0 = iArr;
-            }
+    public final Function1<FeedbackButtonStateType, Unit> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (Function1) invokeV.objValue;
+    }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public final Function0<Boolean> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (Function0) invokeV.objValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public final mwa c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.hx9$a */
-        /* JADX WARN: Multi-variable type inference failed */
-        public static /* synthetic */ gx9 b(a aVar, FeedbackButtonStateType feedbackButtonStateType, String str, Function0 function0, View.OnClickListener onClickListener, int i, Object obj) {
-            if ((i & 4) != 0) {
-                function0 = null;
-            }
-            if ((i & 8) != 0) {
-                onClickListener = null;
-            }
-            return aVar.a(feedbackButtonStateType, str, function0, onClickListener);
-        }
-
-        public final gx9 a(FeedbackButtonStateType type, String text, Function0<Unit> function0, View.OnClickListener onClickListener) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, type, text, function0, onClickListener)) == null) {
-                Intrinsics.checkNotNullParameter(type, "type");
-                Intrinsics.checkNotNullParameter(text, "text");
-                int i = C0348a.$EnumSwitchMapping$0[type.ordinal()];
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i == 5) {
-                                    return new gx9(R.drawable.obfuscated_res_0x7f080cb1, text, SkinManager.getColor(R.color.CAM_X0601), uua.a(SkinManager.getColor(R.color.CAM_X0107), 0.08f), R.color.CAM_X0107, false, false, null, onClickListener, 224, null);
-                                }
-                                throw new NoWhenBranchMatchedException();
-                            }
-                            return new gx9(R.drawable.obfuscated_res_0x7f080d4d, text, uua.a(SkinManager.getColor(R.color.CAM_X0109), 0.5f), SkinManager.getColor(R.color.CAM_X0601), R.color.CAM_X0109, false, false, null, onClickListener, 224, null);
-                        }
-                        return new gx9(R.drawable.obfuscated_res_0x7f0808b9, text, SkinManager.getColor(R.color.CAM_X0601), uua.a(SkinManager.getColor(R.color.CAM_X0301), 0.08f), R.color.CAM_X0301, true, false, function0, onClickListener);
-                    }
-                    return new gx9(R.drawable.obfuscated_res_0x7f080cb2, text, SkinManager.getColor(R.color.CAM_X0601), uua.a(SkinManager.getColor(R.color.CAM_X0301), 0.08f), R.color.CAM_X0301, false, false, null, onClickListener, 224, null);
-                }
-                return new gx9(R.drawable.obfuscated_res_0x7f080d4e, text, uua.a(SkinManager.getColor(R.color.CAM_X0109), 0.5f), SkinManager.getColor(R.color.CAM_X0601), R.color.CAM_X0109, false, false, null, onClickListener, 224, null);
-            }
-            return (gx9) invokeLLLL.objValue;
-        }
+        return (mwa) invokeV.objValue;
     }
 }

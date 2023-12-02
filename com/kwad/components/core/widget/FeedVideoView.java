@@ -585,28 +585,28 @@ public class FeedVideoView extends b<AdResultData, AdTemplate> implements Nested
     @Override // com.kwad.components.core.widget.b
     public final void bc() {
         this.PG = new NestedScrollingChildHelper(this);
-        RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0914e7);
+        RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0914e8);
         this.abo = ratioFrameLayout;
         ratioFrameLayout.setRatio(0.5600000023841858d);
-        this.eM = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914f7);
-        this.eB = (TextView) findViewById(R.id.obfuscated_res_0x7f091505);
-        ScaleAnimSeekBar scaleAnimSeekBar = (ScaleAnimSeekBar) findViewById(R.id.obfuscated_res_0x7f091521);
+        this.eM = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914f8);
+        this.eB = (TextView) findViewById(R.id.obfuscated_res_0x7f091506);
+        ScaleAnimSeekBar scaleAnimSeekBar = (ScaleAnimSeekBar) findViewById(R.id.obfuscated_res_0x7f091522);
         this.abv = scaleAnimSeekBar;
         scaleAnimSeekBar.setMaxProgress(100);
         this.abv.setMinProgress(0);
-        this.abr = (TextView) findViewById(R.id.obfuscated_res_0x7f091506);
-        this.abs = findViewById(R.id.obfuscated_res_0x7f091508);
-        this.abu = (TextView) findViewById(R.id.obfuscated_res_0x7f091509);
-        this.abt = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091507);
-        this.abp = (TextView) findViewById(R.id.obfuscated_res_0x7f0914f0);
-        this.abq = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ee);
-        this.abw = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914ed);
-        this.aby = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914ef);
-        this.abx = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914ea);
-        this.abz = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914e9);
-        this.abC = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09136b);
-        this.abA = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914eb);
-        this.abB = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ec);
+        this.abr = (TextView) findViewById(R.id.obfuscated_res_0x7f091507);
+        this.abs = findViewById(R.id.obfuscated_res_0x7f091509);
+        this.abu = (TextView) findViewById(R.id.obfuscated_res_0x7f09150a);
+        this.abt = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091508);
+        this.abp = (TextView) findViewById(R.id.obfuscated_res_0x7f0914f1);
+        this.abq = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ef);
+        this.abw = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914ee);
+        this.aby = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914f0);
+        this.abx = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914eb);
+        this.abz = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914ea);
+        this.abC = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09136c);
+        this.abA = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914ec);
+        this.abB = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ed);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

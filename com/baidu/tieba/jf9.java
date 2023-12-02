@@ -1,30 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.adapter.LegoDelegateAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class jf9 implements kq4 {
+public class jf9 implements yg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.kq4
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.LIKE_ADDRESS : (String) invokeV.objValue;
-    }
 
     public jf9() {
         Interceptable interceptable = $ic;
@@ -40,20 +28,33 @@ public class jf9 implements kq4 {
         }
     }
 
-    @Override // com.baidu.tieba.kq4
-    public void b(HashMap<String, String> hashMap, lq4 lq4Var) {
+    @Override // com.baidu.tieba.yg9
+    public qg9 a(ug9 ug9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, lq4Var) == null) && lq4Var != null && hashMap != null && !hashMap.isEmpty()) {
-            String str = hashMap.get("fid");
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            String str2 = hashMap.get(TiebaStatic.Params.H5_FORUM_NAME);
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(JavaTypesHelper.toLong(str, 0L))));
-            TbadkCoreApplication.getInst().addLikeForum(str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ug9Var)) == null) {
+            return new sg9(ug9Var);
         }
+        return (qg9) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.yg9
+    public vf9 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
+            return new LegoDelegateAdapter(tbPageContext, bdUniqueId, i);
+        }
+        return (vf9) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.yg9
+    public ah9 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
+            return new ch9(tbPageContext, bdUniqueId);
+        }
+        return (ah9) invokeLL.objValue;
     }
 }

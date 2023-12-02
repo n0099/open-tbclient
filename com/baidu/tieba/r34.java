@@ -1,15 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
+import com.baidu.tieba.uz3;
 /* loaded from: classes8.dex */
 public interface r34 {
-    View a(Context context, GameCloseGuidePopView.e eVar);
-
-    void b(int i);
-
-    void c();
-
-    void release();
+    void b(uz3.d dVar);
 }

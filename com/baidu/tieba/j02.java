@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,16 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class j02 extends oz1 {
+public class j02 extends rz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.oz1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-        }
-    }
+    public RectF a;
 
     public j02() {
         Interceptable interceptable = $ic;
@@ -33,15 +29,27 @@ public class j02 extends oz1 {
         }
     }
 
-    @Override // com.baidu.tieba.oz1
-    public void a(pz1 pz1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.rz1
+    public void a(sz1 sz1Var, Canvas canvas) {
+        RectF rectF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, pz1Var, canvas) == null) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, sz1Var, canvas) == null) && (rectF = this.a) != null) {
+            sz1Var.f.addRect(rectF, Path.Direction.CW);
+        }
+    }
+
+    @Override // com.baidu.tieba.rz1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
-                pz1Var.f();
-                canvas.save();
-            } catch (CloneNotSupportedException e) {
-                if (sm1.a) {
+                if (jSONArray.length() == 4) {
+                    int g = bk3.g((float) jSONArray.optDouble(0));
+                    int g2 = bk3.g((float) jSONArray.optDouble(1));
+                    this.a = new RectF(g, g2, g + bk3.g((float) jSONArray.optDouble(2)), g2 + bk3.g((float) jSONArray.optDouble(3)));
+                }
+            } catch (Exception e) {
+                if (vm1.a) {
                     e.printStackTrace();
                 }
             }

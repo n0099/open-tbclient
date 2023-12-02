@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes8.dex */
 public interface vu3 {
-    void d(String str, String str2);
-
-    void f(View view2);
+    void h(tu3 tu3Var);
 }

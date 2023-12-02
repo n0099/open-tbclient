@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
-public interface us1 {
-    void a(j52 j52Var);
 
-    void b(j52 j52Var);
+import androidx.annotation.Nullable;
+import com.baidu.tieba.ss1;
+/* loaded from: classes8.dex */
+public interface us1<T extends ss1> extends rs1<T> {
+    @Nullable
+    ia3 getParams();
 }

@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.JvmStatic;
+/* compiled from: AibotChatService.kt */
 /* loaded from: classes9.dex */
-public interface yl5 extends dm5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatBoxDialogService");
+public final /* synthetic */ class yl5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean isEnable();
-
-    void onChangeSkinType(int i);
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
+    @JvmStatic
+    public static zl5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? zl5.a.a() : (zl5) invokeV.objValue;
+    }
 }

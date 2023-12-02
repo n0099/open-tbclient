@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.w11;
 import com.sina.weibo.sdk.constant.WBConstants;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -30,9 +30,9 @@ public final class LineLoadingView extends View {
         this.g = "#D3D3D3";
         this.h = new Paint();
         this.i = true;
-        this.a = u11.c.e(context);
-        this.b = u11.c.a(context, 1.5f);
-        int a = u11.c.a(context, 100.0f);
+        this.a = w11.c.e(context);
+        this.b = w11.c.a(context, 1.5f);
+        int a = w11.c.a(context, 100.0f);
         this.f = a;
         this.e = a;
         this.h.setStyle(Paint.Style.FILL_AND_STROKE);
@@ -120,7 +120,6 @@ public final class LineLoadingView extends View {
             i2 = i3;
         }
         String hexString = Integer.toHexString(i2);
-        Intrinsics.checkNotNullExpressionValue(hexString, "Integer.toHexString(currentColorValue)");
         String str = this.g;
         int length = str.length();
         if (str != null) {

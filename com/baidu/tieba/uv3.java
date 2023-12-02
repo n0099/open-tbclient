@@ -1,151 +1,177 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
+import okhttp3.HttpUrl;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class uv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public JSONObject b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948224407, "Lcom/baidu/tieba/uv3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes8.dex */
+    public class a extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948224407, "Lcom/baidu/tieba/uv3;");
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) ? response : invokeLI.objValue;
+        }
+
+        public a(uv3 uv3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uv3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public uv3(Context context, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("100000", "请求格式错误");
-        a.put("101000", "请求ID信息缺失");
-        a.put("101001", "请求ID不符合约定格式");
-        a.put("101002", "请求的trftp信息缺失");
-        a.put("101003", "请求的sdk版本信息有误");
-        a.put("101004", "请求的referer信息有误");
-        a.put("101005", "请求的appid不合法");
-        a.put("103000", "应用信息缺失");
-        a.put("103010", "应用ID信息缺失");
-        a.put("103011", "应用ID信息错误，MSSP未收录");
-        a.put("103012", "应用ID无效，MSSP上未生效");
-        a.put("103020", "应用ID无效，渠道ID信息错误");
-        a.put("103030", "应用版本信息缺失");
-        a.put("103040", "应用主版本信息缺失");
-        a.put("103050", "应用操作系统信息缺失");
-        a.put("103060", "应用包名信息错误，请保证注册包名和实际请求包名一致");
-        a.put("104000", "设备信息缺失");
-        a.put("104010", "设备类型信息缺失");
-        a.put("104011", "设备类型信息错误");
-        a.put("104020", "操作系统信息缺失");
-        a.put("104021", "操作系统信息错误");
-        a.put("104030", "操作系统版本信息缺失");
-        a.put("104040", "操作系统主版本信息缺失");
-        a.put("104050", "厂商信息缺失");
-        a.put("104060", "设备型号信息缺失");
-        a.put("104070", "设备唯一标识符缺失");
-        a.put("104071", "设备唯一标识符错误");
-        a.put("104080", "android id 缺失");
-        a.put("104081", "android id 格式错误");
-        a.put("104090", "设备屏幕尺寸信息缺失");
-        a.put("104100", "设备屏幕尺寸宽度缺失");
-        a.put("104110", "设备屏幕尺寸高度缺失");
-        a.put("105000", "网络环境信息缺失");
-        a.put("105010", "网络地址信息缺失");
-        a.put("105011", "网络地址信息格式错误");
-        a.put("105020", "网络连接类型缺失");
-        a.put("105021", "网络连接类型错误");
-        a.put("105030", "网络运营商类型缺失");
-        a.put("105031", "网络运营商类型错误");
-        a.put("105040", "Wi-Fi热点地址信息缺失");
-        a.put("105041", "Wi-Fi热点地址信息格式错误");
-        a.put("105050", "Wi-Fi热点信号强度信息缺失");
-        a.put("105060", "Wi-Fi热点名称缺失");
-        a.put("105070", "Wi-Fi连接状态信息缺失");
-        a.put("106000", "坐标类型信息缺失");
-        a.put("106001", "坐标类型信息错误");
-        a.put("106010", "经度信息缺失");
-        a.put("106020", "纬度信息缺失");
-        a.put("106030", "定位时间戳信息缺失");
-        a.put("107000", "广告位ID缺失");
-        a.put("107001", "广告位ID未收录");
-        a.put("107002", "广告位ID未启用");
-        a.put("107003", "广告位ID与应用ID不匹配");
-        a.put("107010", "广告位尺寸信息缺失");
-        a.put("107020", "广告位尺寸宽度缺失");
-        a.put("107030", "广告位尺寸高度缺失");
-        a.put("107040", "广告位信息缺失");
-        a.put("107050", "视频广告的网络条件无法满足");
-        a.put("107051", "视频标题名称过长");
-        a.put("107052", "SDK传递的广告位比例与MSSP的广告位比例不一致");
-        a.put("200000", "无广告返回");
-        a.put("201000", "无广告数据");
-        a.put("201010", "广告无签名");
-        a.put("201020", "广告创意类型信息缺失");
-        a.put("201021", "广告创意类型信息无法识别");
-        a.put("201030", "广告动作类型信息缺失");
-        a.put("201031", "广告动作类型信息无法识别");
-        a.put("201040", "曝光汇报地址丢失");
-        a.put("201050", "点击响应地址丢失");
-        a.put("201060", "推广标题丢失");
-        a.put("201070", "推广描述丢失");
-        a.put("201080", "推广应用包名丢失");
-        a.put("201090", "推广应用包大小丢失");
-        a.put("201100", "推广图标丢失");
-        a.put("201110", "推广图片丢失");
-        a.put("3010000", "广告组件挂载失败");
-        a.put("3010001", "播放器内部错误");
-        a.put("3010002", "广告请求失败");
-        a.put("3010003", "网络连接错误");
-        a.put("3010004", "没有可以展示的广告");
-        a.put("3010005", "广告正在拉取中，不能重复请求");
-        a.put("3010006", "广告正在展示中，不能请求广告");
-        a.put("3010007", "gameId、appsid、adUnitid其中一个为空，不能请求广告");
-        a.put("4010000", "广告组件准备完成");
-        a.put("3010008", "播放地址为空");
-        a.put("3010009", "激励视频重复调用create错误");
-        a.put("3010010", "没有可以show的banner广告");
-        a.put("3010011", "广告关闭生效中，本次请求被拒绝");
-        a.put("3010012", "小游戏启动前%d秒不允许展示banner广告");
-        a.put("3010013", "banner广告展示频控限制，%d秒内不允许重复展示banner广告");
+        this.a = context;
+        this.b = jSONObject;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public final void a(@NonNull Request request) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = a.get(str);
-            if (str2 == null) {
-                str2 = "";
-            }
-            return b(str, str2);
+        if (interceptable == null || interceptable.invokeL(1048576, this, request) == null) {
+            nd4 nd4Var = new nd4(request.url().toString(), new a(this));
+            nd4Var.f = true;
+            nd4Var.g = false;
+            nd4Var.h = false;
+            od4.g().d(nd4Var);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(String str, String str2) {
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            d(str, new HashMap<>());
+        }
+    }
+
+    public final String b(String str, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (TextUtils.equals("3010012", str)) {
-                return String.format(str2, Long.valueOf(zu3.a().h() / 1000));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap)) == null) {
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("origin_time", String.valueOf(System.currentTimeMillis()));
+            hashMap.putAll(hashMap2);
+            try {
+                str = URLDecoder.decode(str, "UTF-8");
+            } catch (UnsupportedEncodingException | IllegalArgumentException unused) {
             }
-            if (TextUtils.equals("3010013", str)) {
-                return String.format(str2, Long.valueOf(zu3.a().f() / 1000));
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                str = str.replaceAll("%%" + entry.getKey() + "%%", entry.getValue());
             }
-            return str2;
+            return str;
         }
         return (String) invokeLL.objValue;
+    }
+
+    public void d(String str, HashMap<String, String> hashMap) {
+        int i;
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, hashMap) == null) {
+            if (TextUtils.equals(str, "da_area")) {
+                hashMap.put(BdVideoAd.AD_VIDEO_DAPAGE, "VIDEODETAIL_TAIL");
+            } else if (!TextUtils.equals(str, "lpin") && !TextUtils.equals(str, "lpout")) {
+                hashMap.put(BdVideoAd.AD_VIDEO_DAPAGE, "VIDEOADDETAI");
+            } else {
+                hashMap.put(BdVideoAd.AD_VIDEO_DAPAGE, "MINIAPP");
+            }
+            if (NetworkUtils.g(this.a) && TextUtils.equals(str, com.baidu.mobads.sdk.internal.o.a)) {
+                i = 0;
+            } else {
+                i = 1;
+            }
+            hashMap.put("play_mode", String.valueOf(i));
+            JSONObject jSONObject = this.b;
+            if (jSONObject != null) {
+                jSONArray = jSONObject.optJSONArray(str);
+            } else {
+                jSONArray = null;
+            }
+            if (jSONArray != null) {
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    String optString = jSONArray.optString(i2);
+                    if (NetworkUtils.f(this.a) && !TextUtils.isEmpty(optString)) {
+                        HttpUrl parse = HttpUrl.parse(b(optString, hashMap));
+                        if (parse == null) {
+                            return;
+                        }
+                        a(new Request.Builder().url(parse.newBuilder().build()).build());
+                    }
+                }
+            }
+        }
+    }
+
+    public void e(String str) {
+        HttpUrl parse;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !NetworkUtils.f(this.a) || TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null) {
+            return;
+        }
+        a(new Request.Builder().url(parse.newBuilder().build()).build());
     }
 }

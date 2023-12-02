@@ -18,13 +18,13 @@ import com.baidu.tbadk.editortools.meme.model.SpriteMemeReplyData;
 import com.baidu.tbadk.editortools.meme.pan.SpriteMemePan;
 import com.baidu.tbadk.editortools.meme.pan.SpriteMemePanController;
 import com.baidu.tbadk.editortools.pb.PbNewEditorTool;
-import com.baidu.tieba.dg5;
-import com.baidu.tieba.eg5;
-import com.baidu.tieba.fg5;
-import com.baidu.tieba.jg5;
-import com.baidu.tieba.vf5;
-import com.baidu.tieba.wf5;
-import com.baidu.tieba.xf5;
+import com.baidu.tieba.ag5;
+import com.baidu.tieba.gg5;
+import com.baidu.tieba.hg5;
+import com.baidu.tieba.ig5;
+import com.baidu.tieba.mg5;
+import com.baidu.tieba.yf5;
+import com.baidu.tieba.zf5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +122,7 @@ public final class SpriteMemePanController {
         }
 
         @Override // com.baidu.tbadk.editortools.meme.model.QuerySpriteMemeModel.a
-        public void a(eg5 spriteMemeQueryData, String requestQuery) {
+        public void a(hg5 spriteMemeQueryData, String requestQuery) {
             SpriteMemePanStateType spriteMemePanStateType;
             SpriteMemePanStateType spriteMemePanStateType2;
             Interceptable interceptable = $ic;
@@ -207,7 +207,7 @@ public final class SpriteMemePanController {
         }
 
         @Override // com.baidu.tbadk.editortools.meme.model.SpriteMemeLoopModel.a
-        public void a(dg5 spriteMemeLoopData) {
+        public void a(gg5 spriteMemeLoopData) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spriteMemeLoopData) == null) {
@@ -482,6 +482,17 @@ public final class SpriteMemePanController {
         c = LazyKt__LazyJVMKt.lazy(SpriteMemePanController$generateLoopModel$2.INSTANCE);
     }
 
+    @JvmStatic
+    public static final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            a.h().a();
+            a.h().n(null);
+            SpriteMemeLoopModel.m(a.g(), false, 1, null);
+            a.g().j(null);
+        }
+    }
+
     public SpriteMemePanController() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -493,15 +504,6 @@ public final class SpriteMemePanController {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-    }
-
-    @JvmStatic
-    public static final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            a.h().a();
-            SpriteMemeLoopModel.m(a.g(), false, 1, null);
         }
     }
 
@@ -706,7 +708,7 @@ public final class SpriteMemePanController {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, inputShowType)) == null) {
-            if (fg5.a.a() && (inputShowType == PbNewEditorTool.InputShowType.REPLY || inputShowType == PbNewEditorTool.InputShowType.REPLY_BIG_IMAGE || inputShowType == PbNewEditorTool.InputShowType.REPLY_VIDEO || inputShowType == PbNewEditorTool.InputShowType.REPLY_BIG_IMAGE_FLOOR)) {
+            if (ig5.a.a() && (inputShowType == PbNewEditorTool.InputShowType.REPLY || inputShowType == PbNewEditorTool.InputShowType.REPLY_BIG_IMAGE || inputShowType == PbNewEditorTool.InputShowType.REPLY_VIDEO || inputShowType == PbNewEditorTool.InputShowType.REPLY_BIG_IMAGE_FLOOR)) {
                 z = true;
             } else {
                 z = false;
@@ -745,12 +747,12 @@ public final class SpriteMemePanController {
             if (str2 == null) {
                 str2 = "0";
             }
-            xf5 xf5Var = new xf5();
-            xf5Var.l(1);
-            xf5Var.j(i);
-            xf5Var.g(str);
-            xf5Var.k(str2);
-            wf5.a.c(xf5Var);
+            ag5 ag5Var = new ag5();
+            ag5Var.l(1);
+            ag5Var.j(i);
+            ag5Var.g(str);
+            ag5Var.k(str2);
+            zf5.a.c(ag5Var);
         }
     }
 
@@ -810,7 +812,7 @@ public final class SpriteMemePanController {
                 y(spriteMemePanStateType, spriteMemePan, j, str, str2, false, null, false, 224, null);
                 return;
             }
-            d = new Runnable() { // from class: com.baidu.tieba.hg5
+            d = new Runnable() { // from class: com.baidu.tieba.kg5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -822,7 +824,11 @@ public final class SpriteMemePanController {
                     }
                 }
             };
-            SafeHandler.getInst().postDelayed(d, vf5.a.a().f());
+            int f2 = yf5.a.a().f();
+            Runnable runnable = d;
+            if (runnable != null) {
+                SafeHandler.getInst().postDelayed(runnable, f2);
+            }
         }
     }
 
@@ -902,21 +908,21 @@ public final class SpriteMemePanController {
                                 }
                                 return;
                             }
-                            spriteMemePan.d(new jg5(spriteMemePanStateType, new SpriteMemeReplyData(null, null, null, z, null, false, 55, null), list));
+                            spriteMemePan.d(new mg5(spriteMemePanStateType, new SpriteMemeReplyData(null, null, null, z, null, false, 55, null), list));
                             return;
                         }
-                        spriteMemePan.d(new jg5(spriteMemePanStateType, new SpriteMemeReplyData(vf5.a.a().i(vf5.a.a().e()), null, null, z, new g(spriteMemePan, j, str3, str4), false, 38, null), list));
+                        spriteMemePan.d(new mg5(spriteMemePanStateType, new SpriteMemeReplyData(yf5.a.a().i(yf5.a.a().e()), null, null, z, new g(spriteMemePan, j, str3, str4), false, 38, null), list));
                         d();
                         return;
                     }
-                    spriteMemePan.d(new jg5(spriteMemePanStateType, new SpriteMemeReplyData(vf5.a.a().i(vf5.a.a().g()), vf5.a.a().h(), SpriteMemeReplyData.SPRITE_SCENE.SCENE_REPLY_REFRESH, z, new f(str3, str4), false, 32, null), list));
+                    spriteMemePan.d(new mg5(spriteMemePanStateType, new SpriteMemeReplyData(yf5.a.a().i(yf5.a.a().g()), yf5.a.a().h(), SpriteMemeReplyData.SPRITE_SCENE.SCENE_REPLY_REFRESH, z, new f(str3, str4), false, 32, null), list));
                     return;
                 }
-                spriteMemePan.d(new jg5(spriteMemePanStateType, new SpriteMemeReplyData(vf5.a.a().i(vf5.a.a().j()), null, null, z, new e(spriteMemePan, j, str3, str4), false, 38, null), list));
+                spriteMemePan.d(new mg5(spriteMemePanStateType, new SpriteMemeReplyData(yf5.a.a().i(yf5.a.a().j()), null, null, z, new e(spriteMemePan, j, str3, str4), false, 38, null), list));
                 d();
                 return;
             }
-            spriteMemePan.d(new jg5(spriteMemePanStateType, new SpriteMemeReplyData(vf5.a.a().i(vf5.a.a().k()), vf5.a.a().h(), SpriteMemeReplyData.SPRITE_SCENE.SCENE_REPLY_REFRESH, z, new d(str3, str4), false, 32, null), list));
+            spriteMemePan.d(new mg5(spriteMemePanStateType, new SpriteMemeReplyData(yf5.a.a().i(yf5.a.a().k()), yf5.a.a().h(), SpriteMemeReplyData.SPRITE_SCENE.SCENE_REPLY_REFRESH, z, new d(str3, str4), false, 32, null), list));
         }
     }
 
@@ -956,11 +962,11 @@ public final class SpriteMemePanController {
         x(spriteMemePanStateType, spriteMemePan, j2, str3, str4, z3, list2, z4);
     }
 
-    public final void s(eg5 eg5Var, SpriteMemePanStateType spriteMemePanStateType, SpriteMemePan spriteMemePan, long j, String str, String str2, boolean z) {
+    public final void s(hg5 hg5Var, SpriteMemePanStateType spriteMemePanStateType, SpriteMemePan spriteMemePan, long j, String str, String str2, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{eg5Var, spriteMemePanStateType, spriteMemePan, Long.valueOf(j), str, str2, Boolean.valueOf(z)}) == null) {
-            String b2 = eg5Var.b();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{hg5Var, spriteMemePanStateType, spriteMemePan, Long.valueOf(j), str, str2, Boolean.valueOf(z)}) == null) {
+            String b2 = hg5Var.b();
             if (b2.length() == 0) {
                 z2 = true;
             } else {
@@ -971,7 +977,7 @@ public final class SpriteMemePanController {
                 SpriteMemeLoopModel.m(g(), false, 1, null);
                 return;
             }
-            g().j(new c(eg5Var.a(), spriteMemePanStateType, spriteMemePan, j, str, str2, z));
+            g().j(new c(hg5Var.a(), spriteMemePanStateType, spriteMemePan, j, str, str2, z));
             g().k(b2);
         }
     }
@@ -979,12 +985,12 @@ public final class SpriteMemePanController {
     public final void t(int i, int i2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            xf5 xf5Var = new xf5();
-            xf5Var.l(i);
-            xf5Var.j(i2);
-            xf5Var.g(str);
-            xf5Var.k(str2);
-            wf5.a.c(xf5Var);
+            ag5 ag5Var = new ag5();
+            ag5Var.l(i);
+            ag5Var.j(i2);
+            ag5Var.g(str);
+            ag5Var.k(str2);
+            zf5.a.c(ag5Var);
         }
     }
 }

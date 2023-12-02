@@ -89,11 +89,11 @@ public final class c extends com.kwad.components.ad.splashscreen.c.e implements 
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.EA = (CloseCountDownView) findViewById(R.id.obfuscated_res_0x7f0912e8);
-        this.EB = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914ba);
-        this.ED = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914bf);
-        this.EE = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912e9);
-        this.EF = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e6);
-        this.EG = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e5);
+        this.EA = (CloseCountDownView) findViewById(R.id.obfuscated_res_0x7f0912e9);
+        this.EB = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914bb);
+        this.ED = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914c0);
+        this.EE = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ea);
+        this.EF = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e7);
+        this.EG = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e6);
     }
 }

@@ -72,10 +72,10 @@ public final class d extends com.kwad.components.ad.reward.presenter.b implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.vR = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091360);
-        this.vS = (ImageView) findViewById(R.id.obfuscated_res_0x7f09135f);
-        this.vT = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091349);
-        this.vU = (TextView) findViewById(R.id.obfuscated_res_0x7f091424);
+        this.vR = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091361);
+        this.vS = (ImageView) findViewById(R.id.obfuscated_res_0x7f091360);
+        this.vT = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09134a);
+        this.vU = (TextView) findViewById(R.id.obfuscated_res_0x7f091425);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

@@ -1,145 +1,166 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.app.Application;
-import android.app.KeyguardManager;
-import android.app.WallpaperManager;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.PowerManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.adp.base.BdActivityStack;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes7.dex */
-public class l5b {
+public final class l5b {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public KeyguardManager a;
-    public PowerManager b;
-    public PowerManager.WakeLock c;
-    public KeyguardManager.KeyguardLock d;
-    public Context e;
 
-    public l5b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947895280, "Lcom/baidu/tieba/l5b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947895280, "Lcom/baidu/tieba/l5b;");
                 return;
             }
         }
-        try {
-            Application app = TbadkCoreApplication.getInst().getApp();
-            this.e = app;
-            PowerManager powerManager = (PowerManager) app.getSystemService("power");
-            this.b = powerManager;
-            PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
-            this.c = newWakeLock;
-            newWakeLock.setReferenceCounted(false);
-            KeyguardManager keyguardManager = (KeyguardManager) this.e.getSystemService("keyguard");
-            this.a = keyguardManager;
-            this.d = keyguardManager.newKeyguardLock("ScreenLockUtils");
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
+        a = new a(null);
     }
 
-    public static Drawable a() {
-        InterceptResult invokeV;
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            try {
-                Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
-                if (drawable == null || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final Activity a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Activity curGlobalActivity = TbadkCoreApplication.getInst().getCurGlobalActivity();
+                if (curGlobalActivity == null) {
+                    return BdActivityStack.getInst().currentActivity();
+                }
+                return curGlobalActivity;
+            }
+            return (Activity) invokeV.objValue;
+        }
+
+        public static /* synthetic */ boolean d(a aVar, Context context, String str, String str2, String str3, boolean z, int i, Object obj) {
+            boolean z2;
+            if ((i & 16) != 0) {
+                z2 = false;
+            } else {
+                z2 = z;
+            }
+            return aVar.c(context, str, str2, str3, z2);
+        }
+
+        public final TbPageContext<?> b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                if (context == null || !(context instanceof TbPageContextSupport)) {
                     return null;
                 }
-                int min = Math.min(BdUtilHelper.getEquipmentWidth(inst), bitmap.getWidth());
-                int min2 = Math.min(BdUtilHelper.getEquipmentHeight(inst), bitmap.getHeight());
+                return ((TbPageContextSupport) context).getPageContext();
+            }
+            return (TbPageContext) invokeL.objValue;
+        }
+
+        @JvmStatic
+        @JvmOverloads
+        public final boolean c(Context context, String str, String str2, String str3, boolean z) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, str2, str3, Boolean.valueOf(z)})) == null) {
+                if (context == null || (context instanceof Application)) {
+                    context = a();
+                }
+                boolean f = f(context, str, str3);
+                if (!f) {
+                    return e(b(context), str2, z);
+                }
+                return f;
+            }
+            return invokeCommon.booleanValue;
+        }
+
+        public final boolean e(TbPageContext<?> tbPageContext, String str, boolean z) {
+            InterceptResult invokeLLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, tbPageContext, str, z)) == null) {
+                if (StringUtils.isNull(str) || tbPageContext == null) {
+                    return false;
+                }
+                Bundle bundle = new Bundle();
+                if (bundle.get(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM) == null) {
+                    bundle.putBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, z);
+                }
+                return UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str}, bundle);
+            }
+            return invokeLLZ.booleanValue;
+        }
+
+        public final boolean f(Context context, String str, String str2) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, str2)) == null) {
+                if (context == null || StringUtils.isNull(str)) {
+                    return false;
+                }
+                if (StringUtils.isNotNull(str2) && !UtilHelper.isAppAvilible(str2)) {
+                    return false;
+                }
+                Intent intent = UtilHelper.getIntent(str);
+                if (!UtilHelper.isHaveActivityCanHandleIntent(intent)) {
+                    return false;
+                }
                 try {
-                    try {
-                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
-                    } catch (Throwable unused) {
-                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
-                    }
-                } catch (Throwable th) {
-                    BdLog.e(th.getMessage());
-                    return null;
+                    context.startActivity(intent);
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return true;
                 }
-            } catch (Exception unused2) {
             }
-        } else {
-            return (Drawable) invokeV.objValue;
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.a, new Object[0])).booleanValue();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.isScreenOn();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                this.d.reenableKeyguard();
-                if (this.c != null) {
-                    this.c.release();
-                    this.c = null;
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                if (this.c == null) {
-                    PowerManager.WakeLock newWakeLock = this.b.newWakeLock(268435462, "ScreenLockNotify");
-                    this.c = newWakeLock;
-                    newWakeLock.setReferenceCounted(false);
-                }
-                if (this.c != null) {
-                    this.c.acquire(10000L);
-                    this.d.disableKeyguard();
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
+            return invokeLLL.booleanValue;
         }
     }
 }

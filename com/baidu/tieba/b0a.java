@@ -1,377 +1,557 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
-import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.data.VisitedForumData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.DeleteThreadInfo;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tieba.f05;
+import com.baidu.tieba.l16;
+import com.baidu.tieba.o16;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class b0a {
+public final class b0a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean y;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b a;
-    public boolean b;
-    public boolean c;
-    public String d;
-    public int e;
-    public int f;
-    public boolean g;
-    public int h;
-    public boolean i;
-    public int j;
-    public int k;
-    public final Handler l;
-    public boolean m;
-    public final Runnable n;
-    public long o;
-    public long p;
-    public long q;
-    public boolean r;
-    public int s;
-    public final int t;
-    public final BdTypeListView u;
-    public int v;
-    public int w;
-    public boolean x;
+    public final TbPageContext<?> a;
+    public final PbModel b;
+    public a c;
+    public final int d;
+    public f05 e;
+    public l16 f;
+    public o16 g;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i);
+    public interface a {
+        void a(f05 f05Var, JSONArray jSONArray);
+
+        void b(f05 f05Var);
+
+        void c(SparseArray<Object> sparseArray, JSONArray jSONArray);
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b0a a;
-
-        public a(b0a b0aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b0aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b0aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.r = true;
-            if (b0a.y) {
-                Log.d("PbEnterFrsTipShowRule-C", "completeStayPageTime = true");
-            }
-            this.a.o();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947592534, "Lcom/baidu/tieba/b0a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947592534, "Lcom/baidu/tieba/b0a;");
-                return;
-            }
-        }
-        y = GlobalBuildConfig.isDebug();
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!this.r || !this.x) {
-                return true;
-            }
-            if (this.c) {
-                return g();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.m = false;
-            this.l.removeCallbacks(this.n);
-            this.p += System.currentTimeMillis() - this.q;
-        }
-    }
-
-    public b0a(BdTypeListView bdTypeListView, b bVar) {
+    public b0a(TbPageContext<?> pageContext, PbModel pbModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView, bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {pageContext, pbModel};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = 0;
-        this.t = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
-        this.v = -1;
-        this.w = -1;
-        this.u = bdTypeListView;
-        this.a = bVar;
-        this.l = new Handler(Looper.getMainLooper());
-        this.n = new a(this);
+        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
+        Intrinsics.checkNotNullParameter(pbModel, "pbModel");
+        this.a = pageContext;
+        this.b = pbModel;
+        this.d = 1;
     }
 
-    public final int c(List<pi> list, boolean z) {
-        InterceptResult invokeLZ;
+    public static final void c(b0a this$0, f05 f05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, list, z)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return -1;
+        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, f05Var) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            a aVar = this$0.c;
+            if (aVar != null) {
+                aVar.b(f05Var);
             }
-            int i = 0;
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if ((list.get(i2) instanceof nwa) && list.get(i2).getType() == nwa.Y0 && (i = i + 1) == this.s) {
-                    return i2;
+        }
+    }
+
+    public static final void j(AlertDialog alertDialog, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, alertDialog, view2) == null) && alertDialog != null) {
+            alertDialog.dismiss();
+        }
+    }
+
+    public static final void n(AlertDialog alertDialog, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, alertDialog, view2) == null) && alertDialog != null) {
+            alertDialog.dismiss();
+        }
+    }
+
+    public static final void d(f05 f05Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, f05Var) == null) {
+            Intrinsics.checkNotNull(f05Var);
+            f05Var.dismiss();
+        }
+    }
+
+    public final void f(a listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, listener) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            this.c = listener;
+        }
+    }
+
+    public static final void i(AlertDialog alertDialog, b0a this$0, SparseArray sparseArray, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65539, null, alertDialog, this$0, sparseArray, view2) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            if (alertDialog != null) {
+                alertDialog.dismiss();
+            }
+            if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                BdUtilHelper.showToast(this$0.a.getPageActivity(), (int) R.string.obfuscated_res_0x7f0f0e70);
+                return;
+            }
+            a aVar = this$0.c;
+            if (aVar != null) {
+                aVar.c(sparseArray, null);
+            }
+        }
+    }
+
+    public static final void m(AlertDialog alertDialog, b0a this$0, SparseArray delTags, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65541, null, alertDialog, this$0, delTags, view2) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(delTags, "$delTags");
+            if (alertDialog != null) {
+                alertDialog.dismiss();
+            }
+            if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                BdUtilHelper.showToast(this$0.a.getPageActivity(), (int) R.string.obfuscated_res_0x7f0f0e70);
+                return;
+            }
+            a aVar = this$0.c;
+            if (aVar != null) {
+                aVar.c(delTags, null);
+            }
+        }
+    }
+
+    public static final void p(b0a this$0, SparseArray sparseArray, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, this$0, sparseArray, jSONArray) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            a aVar = this$0.c;
+            if (aVar != null) {
+                aVar.c(sparseArray, jSONArray);
+            }
+        }
+    }
+
+    public static final void r(b0a this$0, f05 f05Var, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, this$0, f05Var, jSONArray) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            a aVar = this$0.c;
+            if (aVar != null) {
+                aVar.a(f05Var, jSONArray);
+            }
+        }
+    }
+
+    public final void a() {
+        f05 f05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (f05Var = this.e) != null) {
+            f05Var.dismiss();
+        }
+    }
+
+    public final void b(View view2, int i, String str, int i2, boolean z, String str2, boolean z2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), str, Integer.valueOf(i2), Boolean.valueOf(z), str2, Boolean.valueOf(z2)}) == null) {
+            SparseArray<Object> sparseArray = new SparseArray<>();
+            sparseArray.put(R.id.tag_del_post_id, str);
+            sparseArray.put(R.id.tag_del_post_type, Integer.valueOf(i));
+            sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(i2));
+            sparseArray.put(R.id.tag_del_post_is_self, Boolean.valueOf(z));
+            sparseArray.put(n1a.i2, Integer.valueOf(n1a.j2));
+            if (i2 == 1002 && !z) {
+                i3 = R.string.report_post_confirm;
+            } else {
+                i3 = R.string.del_all_post_confirm;
+            }
+            int i4 = R.string.confirm_title;
+            if (i == 0) {
+                if (i2 == 1002 && !z) {
+                    i3 = R.string.report_thread_confirm;
+                } else {
+                    i4 = R.string.del_my_thread_confirm;
+                    i3 = R.string.del_my_thread_confirm_subtitle;
                 }
             }
+            this.e = new f05(this.a.getPageActivity());
+            if (StringUtils.isNull(str2)) {
+                f05 f05Var = this.e;
+                Intrinsics.checkNotNull(f05Var);
+                f05Var.setMessageId(i3);
+            } else {
+                f05 f05Var2 = this.e;
+                Intrinsics.checkNotNull(f05Var2);
+                f05Var2.setOnlyMessageShowCenter(false);
+                f05 f05Var3 = this.e;
+                Intrinsics.checkNotNull(f05Var3);
+                f05Var3.setMessage(str2);
+            }
+            f05 f05Var4 = this.e;
+            Intrinsics.checkNotNull(f05Var4);
+            f05Var4.setYesButtonTag(sparseArray);
+            f05 f05Var5 = this.e;
+            Intrinsics.checkNotNull(f05Var5);
+            f05Var5.setPositiveButton(R.string.obfuscated_res_0x7f0f05ab, new f05.e() { // from class: com.baidu.tieba.iz9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.f05.e
+                public final void onClick(f05 f05Var6) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, f05Var6) == null) {
+                        b0a.c(b0a.this, f05Var6);
+                    }
+                }
+            });
+            f05 f05Var6 = this.e;
+            Intrinsics.checkNotNull(f05Var6);
+            f05Var6.setNegativeButton(R.string.obfuscated_res_0x7f0f05a0, new f05.e() { // from class: com.baidu.tieba.hz9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.f05.e
+                public final void onClick(f05 f05Var7) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, f05Var7) == null) {
+                        b0a.d(f05Var7);
+                    }
+                }
+            });
+            f05 f05Var7 = this.e;
+            Intrinsics.checkNotNull(f05Var7);
+            f05Var7.setCancelable(true);
+            f05 f05Var8 = this.e;
+            Intrinsics.checkNotNull(f05Var8);
+            f05Var8.create(this.a);
+            if (z2) {
+                l(sparseArray, i4, i3);
+            } else if (z) {
+                l(sparseArray, i4, i3);
+            } else if (g(this.b)) {
+                Integer num = this.b.s1().n().getDeletedReasonInfo().is_grays_cale_forum;
+                Intrinsics.checkNotNullExpressionValue(num, "pbModel.getPbData().getF…nfo().is_grays_cale_forum");
+                int intValue = num.intValue();
+                Integer num2 = this.b.s1().n().getDeletedReasonInfo().is_boomgrow;
+                Intrinsics.checkNotNullExpressionValue(num2, "pbModel.getPbData().getF…dReasonInfo().is_boomgrow");
+                int intValue2 = num2.intValue();
+                Integer num3 = this.b.s1().q().has_forum_rule;
+                Intrinsics.checkNotNullExpressionValue(num3, "pbModel.getPbData().getForumRule().has_forum_rule");
+                n16 n16Var = new n16(intValue, intValue2, num3.intValue());
+                n16Var.i(this.b.s1().n().getId(), this.b.s1().n().getName());
+                n16Var.h(this.b.s1().n().getImage_url());
+                n16Var.j(this.b.s1().n().getUser_level());
+                UserData Y = this.b.s1().Y();
+                Intrinsics.checkNotNullExpressionValue(Y, "pbModel.getPbData().getUserData()");
+                o(view2, sparseArray, i, n16Var, Y, false);
+            } else {
+                q(view2, this.e, i);
+            }
+        }
+    }
+
+    public final void e(View view2, int i, String postId, int i2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, Integer.valueOf(i), postId, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            Intrinsics.checkNotNullParameter(postId, "postId");
+            SparseArray<Object> sparseArray = new SparseArray<>();
+            sparseArray.put(R.id.tag_del_post_id, postId);
+            sparseArray.put(R.id.tag_del_post_type, Integer.valueOf(i));
+            sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(i2));
+            sparseArray.put(R.id.tag_del_post_is_self, Boolean.valueOf(z));
+            sparseArray.put(n1a.i2, Integer.valueOf(n1a.j2));
             if (z) {
-                return -1;
-            }
-            return list.size() - 1;
-        }
-        return invokeLZ.intValue;
-    }
-
-    public void i(boolean z, int i) {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || !this.i || i == 3 || (bdTypeListView = this.u) == null) {
-            return;
-        }
-        this.w = c(bdTypeListView.getData(), z);
-        if (y) {
-            Log.d("PbEnterFrsTipShowRule-C", "onDataSet mTargetIndex = " + this.w);
-        }
-    }
-
-    public void m(@Nullable ForumData forumData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, forumData) == null) && forumData != null && !TextUtils.isEmpty(forumData.getId())) {
-            e(forumData);
-            f();
-            d();
-        }
-    }
-
-    public final void d() {
-        int b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.g = true;
-            this.h = 0;
-            this.f = this.e;
-            VisitedForumData q = vx6.o().q(this.d);
-            if (q != null) {
-                if (y) {
-                    Log.d("PbEnterFrsTipShowRule-C", "lastVisitedTime = " + q.getVisitedTime());
-                    Log.d("PbEnterFrsTipShowRule-C", "lastPostNum = " + q.getPostNum());
-                }
-                b2 = q.getPostNum();
-                this.h = JavaTypesHelper.toInt(q.getVisitedTime(), 0);
+                h(sparseArray);
             } else {
-                b2 = a0a.a().b(this.d);
-            }
-            if (b2 < 0) {
-                b2 = 0;
-            }
-            int i = this.e - b2;
-            this.f = i;
-            if (i <= 0) {
-                this.f = 0;
-            }
-            if (this.f < this.k) {
-                this.g = false;
-            }
-            if (y) {
-                Log.d("PbEnterFrsTipShowRule-C", "满足新贴数条件 = " + this.g);
+                k(view2, i, sparseArray);
             }
         }
     }
 
-    public final void e(@Nullable ForumData forumData) {
+    public final boolean g(PbModel pbModel) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumData) == null) {
-            boolean z = true;
-            if (forumData.isLike() != 1) {
-                z = false;
-            }
-            this.c = z;
-            this.d = forumData.getId();
-            this.e = forumData.getPost_num();
-            if (y) {
-                Log.d("PbEnterFrsTipShowRule-C", "newForumPostNum" + this.e);
-            }
-            if (this.c && a0a.a().b(this.d) < 0) {
-                a0a.a().e(forumData.getId(), forumData.getPost_num());
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.o = p4a.h(this.c) * 1000;
-            this.s = p4a.e(this.c);
-            this.j = p4a.d();
-            this.k = p4a.b();
-            this.i = true;
-            n();
-        }
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.g) {
-                if (y) {
-                    Log.d("PbEnterFrsTipShowRule-C", "新贴数 拦截");
-                }
-                return true;
-            } else if (((int) (System.currentTimeMillis() / 1000)) - this.h < this.j * 86400) {
-                if (y) {
-                    Log.d("PbEnterFrsTipShowRule-C", "距离上次浏览时间 拦截");
-                }
-                return true;
-            } else {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, pbModel)) == null) {
+            if (pbModel.s1().n().getDeletedReasonInfo() == null) {
                 return false;
             }
+            int i = this.d;
+            Integer num = pbModel.s1().n().getDeletedReasonInfo().is_grays_cale_forum;
+            if (num == null || i != num.intValue()) {
+                return false;
+            }
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public void k() {
+    public final void h(final SparseArray<Object> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.m = true;
-            d();
-            this.l.removeCallbacks(this.n);
-            this.q = System.currentTimeMillis();
-            if (!this.r) {
-                if (this.o > 0) {
-                    n();
-                    return;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, sparseArray) != null) || this.a.getPageActivity() == null) {
+            return;
+        }
+        if (sparseArray != null) {
+            sparseArray.put(R.id.tag_is_block_thread, Boolean.TRUE);
+        }
+        TBAlertConfig.OperateBtnConfig operateBtnConfig = new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f1429, TBAlertConfig.OperateBtnStyle.MAIN);
+        TBAlertConfig.OperateBtnConfig operateBtnConfig2 = new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f03db, TBAlertConfig.OperateBtnStyle.SECONDARY);
+        final AlertDialog show = new TBAlertBuilder(this.a.getPageActivity()).setTitle(R.string.musk_my_thread_confirm).setDesc(R.string.musk_my_thread_confirm_subtitle).setDescLightStyle(true).setOperateBtn(operateBtnConfig2, operateBtnConfig).setCancelable(false).show();
+        operateBtnConfig.setListener(new View.OnClickListener() { // from class: com.baidu.tieba.lz9
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    b0a.i(AlertDialog.this, this, sparseArray, view2);
                 }
-                return;
             }
-            o();
-        }
-    }
+        });
+        operateBtnConfig2.setListener(new View.OnClickListener() { // from class: com.baidu.tieba.kz9
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && !this.b && this.i) {
-            if (h()) {
-                if (y) {
-                    Log.d("PbEnterFrsTipShowRule", "tryToShowTip = false");
-                    return;
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    b0a.j(AlertDialog.this, view2);
                 }
-                return;
             }
-            if (y) {
-                Log.d("PbEnterFrsTipShowRule-C", "tryToShowTip = hasShown");
+        });
+    }
+
+    public final void k(View view2, int i, SparseArray<Object> sparseArray) {
+        PbModel pbModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(1048582, this, view2, i, sparseArray) == null) && (pbModel = this.b) != null && pbModel.s1() != null && this.b.s1().q() != null && this.b.s1().n() != null && this.b.s1().n().getDeletedReasonInfo() != null) {
+            if (sparseArray != null) {
+                sparseArray.put(R.id.tag_is_block_thread, Boolean.TRUE);
             }
-            this.b = true;
-            b bVar = this.a;
-            if (bVar != null) {
-                bVar.a(this.f);
-            }
+            Integer num = this.b.s1().n().getDeletedReasonInfo().is_grays_cale_forum;
+            Intrinsics.checkNotNullExpressionValue(num, "pbModel.getPbData().getF…nfo().is_grays_cale_forum");
+            int intValue = num.intValue();
+            Integer num2 = this.b.s1().n().getDeletedReasonInfo().is_boomgrow;
+            Intrinsics.checkNotNullExpressionValue(num2, "pbModel.getPbData().getF…dReasonInfo().is_boomgrow");
+            int intValue2 = num2.intValue();
+            Integer num3 = this.b.s1().q().has_forum_rule;
+            Intrinsics.checkNotNullExpressionValue(num3, "pbModel.getPbData().getForumRule().has_forum_rule");
+            n16 n16Var = new n16(intValue, intValue2, num3.intValue());
+            n16Var.i(this.b.s1().n().getId(), this.b.s1().n().getName());
+            n16Var.h(this.b.s1().n().getImage_url());
+            n16Var.j(this.b.s1().n().getUser_level());
+            UserData Y = this.b.s1().Y();
+            Intrinsics.checkNotNullExpressionValue(Y, "pbModel.getPbData().getUserData()");
+            o(view2, sparseArray, i, n16Var, Y, true);
         }
     }
 
-    public void l(int i, int i2) {
-        BdTypeListView bdTypeListView;
-        View childAt;
+    public final void q(View view2, final f05 f05Var, int i) {
+        AntiData antiData;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(1048585, this, i, i2) != null) || (bdTypeListView = this.u) == null || this.b || !this.i || this.w < 0 || (childAt = bdTypeListView.getChildAt(i2 - 1)) == null) {
+        if ((interceptable != null && interceptable.invokeLLI(1048585, this, view2, f05Var, i) != null) || f05Var == null) {
             return;
         }
-        if (this.v <= 0) {
-            this.v = this.u.getHeight() - this.t;
+        if (this.f == null) {
+            this.f = new l16(this.a, view2);
         }
-        if (this.v <= 0) {
-            return;
+        SparseArray<String> sparseArray = new SparseArray<>();
+        zv9 s1 = this.b.s1();
+        if (s1 != null) {
+            antiData = s1.f();
+        } else {
+            antiData = null;
         }
-        if (this.x) {
-            o();
-            return;
-        }
-        int headerViewsCount = this.w + this.u.getHeaderViewsCount();
-        int i3 = (i + i2) - 1;
-        if (i3 > headerViewsCount) {
-            if (i3 - 1 == headerViewsCount && childAt.getTop() > this.v) {
-                return;
+        if (antiData != null && antiData.getDelThreadInfoList() != null) {
+            List<DeleteThreadInfo> delThreadInfoList = antiData.getDelThreadInfoList();
+            int size = delThreadInfoList.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                if (!TextUtils.isEmpty(delThreadInfoList.get(i2).text_info)) {
+                    sparseArray.put(delThreadInfoList.get(i2).text_id, delThreadInfoList.get(i2).text_info);
+                }
             }
-            this.x = true;
-            if (y) {
-                Log.d("PbEnterFrsTipShowRule-C", "completeGuideFloor = true");
-            }
-            o();
         }
+        NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
+        negativeFeedBackData.setFeedBackReasonMap(sparseArray);
+        String string = this.a.getString(R.string.delete_thread_reason_1);
+        Intrinsics.checkNotNullExpressionValue(string, "pageContext.getString(R.…g.delete_thread_reason_1)");
+        String string2 = this.a.getString(R.string.delete_thread_reason_2);
+        Intrinsics.checkNotNullExpressionValue(string2, "pageContext.getString(R.…g.delete_thread_reason_2)");
+        String string3 = this.a.getString(R.string.delete_thread_reason_3);
+        Intrinsics.checkNotNullExpressionValue(string3, "pageContext.getString(R.…g.delete_thread_reason_3)");
+        String string4 = this.a.getString(R.string.delete_thread_reason_4);
+        Intrinsics.checkNotNullExpressionValue(string4, "pageContext.getString(R.…g.delete_thread_reason_4)");
+        String string5 = this.a.getString(R.string.delete_thread_reason_5);
+        Intrinsics.checkNotNullExpressionValue(string5, "pageContext.getString(R.…g.delete_thread_reason_5)");
+        String[] strArr = {string, string2, string3, string4, string5};
+        l16 l16Var = this.f;
+        Intrinsics.checkNotNull(l16Var);
+        l16Var.B(strArr);
+        l16 l16Var2 = this.f;
+        Intrinsics.checkNotNull(l16Var2);
+        l16Var2.A(negativeFeedBackData);
+        if (i != 1 && i != 2) {
+            str = "3";
+        } else {
+            str = "4";
+        }
+        l16 l16Var3 = this.f;
+        Intrinsics.checkNotNull(l16Var3);
+        l16Var3.D(str);
+        l16 l16Var4 = this.f;
+        Intrinsics.checkNotNull(l16Var4);
+        l16Var4.C(new l16.h() { // from class: com.baidu.tieba.ez9
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.l16.h
+            public final void a(JSONArray jSONArray) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONArray) == null) {
+                    b0a.r(b0a.this, f05Var, jSONArray);
+                }
+            }
+        });
     }
 
-    public final void n() {
+    public final void l(final SparseArray<Object> sparseArray, @StringRes int i, @StringRes int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.b && this.i && this.m) {
-            this.l.removeCallbacks(this.n);
-            long j = this.o - this.p;
-            if (y) {
-                Log.d("PbEnterFrsTipShowRule", "remainTime = " + j);
+        if ((interceptable != null && interceptable.invokeLII(1048583, this, sparseArray, i, i2) != null) || this.a.getPageActivity() == null) {
+            return;
+        }
+        TBAlertConfig.OperateBtnConfig operateBtnConfig = new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f055b, TBAlertConfig.OperateBtnStyle.MAIN);
+        TBAlertConfig.OperateBtnConfig operateBtnConfig2 = new TBAlertConfig.OperateBtnConfig((int) R.string.obfuscated_res_0x7f0f03db, TBAlertConfig.OperateBtnStyle.SECONDARY);
+        final AlertDialog show = new TBAlertBuilder(this.a.getPageActivity()).setTitle(i).setDesc(i2).setDescLightStyle(true).setOperateBtn(operateBtnConfig2, operateBtnConfig).setCancelable(false).show();
+        operateBtnConfig.setListener(new View.OnClickListener() { // from class: com.baidu.tieba.gz9
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    b0a.m(AlertDialog.this, this, sparseArray, view2);
+                }
             }
-            if (j <= 0) {
-                this.l.post(this.n);
+        });
+        operateBtnConfig2.setListener(new View.OnClickListener() { // from class: com.baidu.tieba.dz9
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    b0a.n(AlertDialog.this, view2);
+                }
+            }
+        });
+    }
+
+    public final void o(View view2, final SparseArray<Object> sparseArray, int i, n16 n16Var, UserData userData, boolean z) {
+        AntiData antiData;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view2, sparseArray, Integer.valueOf(i), n16Var, userData, Boolean.valueOf(z)}) == null) {
+            if (this.g == null) {
+                this.g = new o16(this.a, view2, n16Var, userData);
+            }
+            o16 o16Var = this.g;
+            if (o16Var != null) {
+                o16Var.G(z);
+            }
+            SparseArray<String> sparseArray2 = new SparseArray<>();
+            zv9 s1 = this.b.s1();
+            if (s1 != null) {
+                antiData = s1.f();
             } else {
-                this.l.postDelayed(this.n, j);
+                antiData = null;
+            }
+            if (antiData != null && antiData.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = antiData.getDelThreadInfoList();
+                int size = delThreadInfoList.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (!TextUtils.isEmpty(delThreadInfoList.get(i2).text_info)) {
+                        sparseArray2.put(delThreadInfoList.get(i2).text_id, delThreadInfoList.get(i2).text_info);
+                    }
+                }
+            }
+            NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
+            negativeFeedBackData.setFeedBackReasonMap(sparseArray2);
+            String string = this.a.getString(R.string.delete_thread_reason_1);
+            Intrinsics.checkNotNullExpressionValue(string, "pageContext.getString(R.…g.delete_thread_reason_1)");
+            String string2 = this.a.getString(R.string.delete_thread_reason_2);
+            Intrinsics.checkNotNullExpressionValue(string2, "pageContext.getString(R.…g.delete_thread_reason_2)");
+            String string3 = this.a.getString(R.string.delete_thread_reason_3);
+            Intrinsics.checkNotNullExpressionValue(string3, "pageContext.getString(R.…g.delete_thread_reason_3)");
+            String string4 = this.a.getString(R.string.delete_thread_reason_4);
+            Intrinsics.checkNotNullExpressionValue(string4, "pageContext.getString(R.…g.delete_thread_reason_4)");
+            String string5 = this.a.getString(R.string.delete_thread_reason_5);
+            Intrinsics.checkNotNullExpressionValue(string5, "pageContext.getString(R.…g.delete_thread_reason_5)");
+            String[] strArr = {string, string2, string3, string4, string5};
+            o16 o16Var2 = this.g;
+            if (o16Var2 != null) {
+                o16Var2.I(strArr);
+            }
+            o16 o16Var3 = this.g;
+            if (o16Var3 != null) {
+                o16Var3.H(negativeFeedBackData);
+            }
+            if (i != 1 && i != 2) {
+                str = "3";
+            } else {
+                str = "4";
+            }
+            o16 o16Var4 = this.g;
+            if (o16Var4 != null) {
+                o16Var4.K(str);
+            }
+            o16 o16Var5 = this.g;
+            if (o16Var5 != null) {
+                o16Var5.J(new o16.i() { // from class: com.baidu.tieba.jz9
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.o16.i
+                    public final void a(JSONArray jSONArray) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONArray) == null) {
+                            b0a.p(b0a.this, sparseArray, jSONArray);
+                        }
+                    }
+                });
             }
         }
     }

@@ -1,31 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: FrsLiveTabService.java */
 /* loaded from: classes7.dex */
-public interface ll5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaSquare", "SecondFloorService");
+public final /* synthetic */ class ll5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(boolean z, boolean z2);
-
-        void b(boolean z);
+    public static ml5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (ml5) ServiceManager.getService(ml5.a);
+        }
+        return (ml5) invokeV.objValue;
     }
-
-    void hide();
-
-    void j();
-
-    void k(@Nullable a aVar);
-
-    void l();
-
-    @NonNull
-    Fragment m(@NonNull String str);
-
-    void show();
 }

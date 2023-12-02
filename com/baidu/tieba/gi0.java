@@ -15,7 +15,7 @@ import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.common.security.CacheDeviceInfo;
 import com.baidu.searchbox.download.util.ApkUtil;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.w11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ public class gi0 {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (TextUtils.equals(my0.c(str).optString("direct_download_switch"), "1")) {
+            if (TextUtils.equals(oy0.c(str).optString("direct_download_switch"), "1")) {
                 return true;
             }
             if (TextUtils.isEmpty(str2)) {
@@ -53,7 +53,7 @@ public class gi0 {
                     e.printStackTrace();
                 }
             }
-            String str4 = (String) ny0.b(hashMap, CacheDeviceInfo.JSON_KEY_ANDROID_ID);
+            String str4 = (String) py0.b(hashMap, CacheDeviceInfo.JSON_KEY_ANDROID_ID);
             if (!TextUtils.isEmpty(str4) && (split = str4.split("_")) != null && split.length >= 4 && TextUtils.equals(split[3], "1")) {
                 return true;
             }
@@ -78,14 +78,14 @@ public class gi0 {
                 if (z) {
                     intent.putExtra("android.intent.extra.RETURN_RESULT", true);
                 }
-                if (!u11.b.e()) {
+                if (!w11.b.e()) {
                     intent.setComponent(new ComponentName(ApkUtil.PACKAGE_INSTALLER, ApkUtil.PACKAGE_INSTALLER_ACTIVITY));
                 }
-                m11.a(b, file, intent);
-                m11.d(b, intent);
+                o11.a(b, file, intent);
+                o11.d(b, intent);
             } catch (Exception unused) {
                 intent.setComponent(null);
-                m11.a(b, file, intent);
+                o11.a(b, file, intent);
                 try {
                     b.startActivity(intent);
                 } catch (Exception unused2) {
@@ -180,7 +180,7 @@ public class gi0 {
             intent2.addCategory("android.intent.category.LAUNCHER");
             intent2.setComponent(new ComponentName(str, str2));
             intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            return m11.e(hf0.b(), intent2, true);
+            return o11.e(hf0.b(), intent2, true);
         }
         return invokeL.booleanValue;
     }

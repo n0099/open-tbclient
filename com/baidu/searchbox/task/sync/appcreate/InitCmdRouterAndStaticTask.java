@@ -3,8 +3,8 @@ package com.baidu.searchbox.task.sync.appcreate;
 import com.baidu.adp.framework.cmdRouter.CmdRouter;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.k35;
-import com.baidu.tieba.rp5;
+import com.baidu.tieba.n35;
+import com.baidu.tieba.vp5;
 /* loaded from: classes4.dex */
 public class InitCmdRouterAndStaticTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -19,8 +19,8 @@ public class InitCmdRouterAndStaticTask extends LaunchTask {
 
     private void initTasks() {
         long currentTimeMillis = System.currentTimeMillis();
-        k35.a();
-        rp5.a().t(System.currentTimeMillis() - currentTimeMillis);
+        n35.a();
+        vp5.a().t(System.currentTimeMillis() - currentTimeMillis);
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

@@ -3,7 +3,7 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.j3b;
+import com.baidu.tieba.i3b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
     public boolean hasMore;
     public List<DressItemData> mBackgroundList;
     public int mIsDefault;
-    public j3b mRecommand;
+    public i3b mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundListHttpResponseMessage(int i) {
@@ -65,9 +65,9 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
             DataRes dataRes = getBgListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    j3b j3bVar = new j3b();
-                    this.mRecommand = j3bVar;
-                    j3bVar.d(getBgListResIdl.data.recommend);
+                    i3b i3bVar = new i3b();
+                    this.mRecommand = i3bVar;
+                    i3bVar.d(getBgListResIdl.data.recommend);
                 }
                 this.mIsDefault = getBgListResIdl.data.is_default.intValue();
                 if (getBgListResIdl.data.bgs != null) {
@@ -107,13 +107,13 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
         return invokeV.booleanValue;
     }
 
-    public j3b getRecommand() {
+    public i3b getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mRecommand;
         }
-        return (j3b) invokeV.objValue;
+        return (i3b) invokeV.objValue;
     }
 
     public boolean hasMore() {

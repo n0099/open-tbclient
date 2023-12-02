@@ -1,16 +1,31 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.tieba.ps1;
+import android.webkit.ValueCallback;
 /* loaded from: classes8.dex */
-public interface ss1<T extends ps1> extends qs1<T> {
-    void F();
+public interface ss1 extends i52 {
+    boolean canGoBack();
 
-    boolean c();
+    View covertToView();
 
-    void f(boolean z);
+    void destroy();
 
-    void h(View.OnClickListener onClickListener);
+    @Override // com.baidu.tieba.i52
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
 
-    void removeFromParent();
+    int getContentHeight();
+
+    View getCurrentWebView();
+
+    float getScale();
+
+    int getWebViewScrollX();
+
+    int getWebViewScrollY();
+
+    void goBack();
+
+    void setDefaultViewSize(int i, int i2, String str);
+
+    void webViewScrollTo(int i, int i2);
 }

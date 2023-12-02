@@ -27,7 +27,7 @@ import tbclient.TiebaPlusInfo;
 /* loaded from: classes5.dex */
 public final class DownloadGuideFull extends AbsDownloadGuide {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int m = 2131167453;
+    public static final int m = 2131167457;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy l;
 
@@ -269,7 +269,7 @@ public final class DownloadGuideFull extends AbsDownloadGuide {
             ViewGroup.LayoutParams layoutParams = getGuideProgressView().getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = UtilHelper.getDimenPixelSize(m);
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rv5
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vv5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

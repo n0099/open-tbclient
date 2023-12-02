@@ -55,25 +55,25 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c6a);
+        BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c6b);
         this.b = barImageView;
         barImageView.setShowOval(true);
         this.b.setShowOuterBorder(false);
         this.b.setShowInnerBorder(true);
         this.b.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         this.b.setStrokeColorResId(R.color.CAM_X0401);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c6b);
-        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c6e);
-        this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c6d);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c70);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c6c);
+        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c6f);
+        this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c6e);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c71);
         this.f = headImageView;
         headImageView.setBorderWidth(R.dimen.L_X01);
         this.f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.f.setRadius(R.dimen.tbds42);
         this.f.setConrers(15);
-        this.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c71);
-        this.h = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c7c);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f09086a);
+        this.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c72);
+        this.h = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c7d);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f09086b);
         b(TbadkCoreApplication.getInst().getSkinType());
     }
 

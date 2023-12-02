@@ -4,17 +4,6 @@ import java.util.Objects;
 import java.util.concurrent.Flow;
 /* loaded from: classes2.dex */
 public final class FlowAdapters {
-    public static <T, U> Flow.Processor<T, U> toFlowProcessor(Processor<? super T, ? extends U> processor) {
-        throw null;
-    }
-
-    public static <T> Flow.Publisher<T> toFlowPublisher(Publisher<? extends T> publisher) {
-        throw null;
-    }
-
-    public static <T> Flow.Subscriber<T> toFlowSubscriber(Subscriber<T> subscriber) {
-        throw null;
-    }
 
     /* loaded from: classes2.dex */
     public static final class FlowPublisherFromReactive<T> implements Flow.Publisher<T> {
@@ -266,6 +255,42 @@ public final class FlowAdapters {
 
     public FlowAdapters() {
         throw new IllegalStateException("No instances!");
+    }
+
+    /* JADX DEBUG: Type inference failed for r1v4. Raw type applied. Possible types: java.util.concurrent.Flow$Processor<? super T, ? extends U>, java.util.concurrent.Flow$Processor<T, U> */
+    public static <T, U> Flow.Processor<T, U> toFlowProcessor(Processor<? super T, ? extends U> processor) {
+        Objects.requireNonNull(processor, "reactiveStreamsProcessor");
+        if (processor instanceof ReactiveToFlowProcessor) {
+            return (Flow.Processor<? super T, ? extends U>) ((ReactiveToFlowProcessor) processor).flow;
+        }
+        if (processor instanceof Flow.Processor) {
+            return (Flow.Processor) processor;
+        }
+        return new FlowToReactiveProcessor(processor);
+    }
+
+    /* JADX DEBUG: Type inference failed for r1v4. Raw type applied. Possible types: java.util.concurrent.Flow$Publisher<? extends T>, java.util.concurrent.Flow$Publisher<T> */
+    public static <T> Flow.Publisher<T> toFlowPublisher(Publisher<? extends T> publisher) {
+        Objects.requireNonNull(publisher, "reactiveStreamsPublisher");
+        if (publisher instanceof ReactivePublisherFromFlow) {
+            return (Flow.Publisher<? extends T>) ((ReactivePublisherFromFlow) publisher).flow;
+        }
+        if (publisher instanceof Flow.Publisher) {
+            return (Flow.Publisher) publisher;
+        }
+        return new FlowPublisherFromReactive(publisher);
+    }
+
+    /* JADX DEBUG: Type inference failed for r1v4. Raw type applied. Possible types: java.util.concurrent.Flow$Subscriber<? super T>, java.util.concurrent.Flow$Subscriber<T> */
+    public static <T> Flow.Subscriber<T> toFlowSubscriber(Subscriber<T> subscriber) {
+        Objects.requireNonNull(subscriber, "reactiveStreamsSubscriber");
+        if (subscriber instanceof ReactiveToFlowSubscriber) {
+            return (Flow.Subscriber<? super T>) ((ReactiveToFlowSubscriber) subscriber).flow;
+        }
+        if (subscriber instanceof Flow.Subscriber) {
+            return (Flow.Subscriber) subscriber;
+        }
+        return new FlowToReactiveSubscriber(subscriber);
     }
 
     /* JADX DEBUG: Type inference failed for r1v4. Raw type applied. Possible types: org.reactivestreams.Processor<? super T, ? extends U>, org.reactivestreams.Processor<T, U> */

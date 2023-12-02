@@ -5,12 +5,12 @@ import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.nalib.audio.SwanAudioPlayer;
 import com.baidu.tieba.b90;
-import com.baidu.tieba.k04;
+import com.baidu.tieba.n04;
 import com.baidu.tieba.t90;
-import com.baidu.tieba.ur2;
 import com.baidu.tieba.v90;
-import com.baidu.tieba.vc4;
-import com.baidu.tieba.wc4;
+import com.baidu.tieba.xr2;
+import com.baidu.tieba.yc4;
+import com.baidu.tieba.zc4;
 import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
 public class GameRecorderController {
@@ -19,7 +19,7 @@ public class GameRecorderController {
     public RecorderState c;
     public b90 d;
     public long e;
-    public wc4 f = new a();
+    public zc4 f = new a();
 
     /* loaded from: classes4.dex */
     public enum RecorderState {
@@ -30,14 +30,14 @@ public class GameRecorderController {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements wc4 {
+    public class a implements zc4 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.wc4
-        public void a(vc4 vc4Var) {
+        @Override // com.baidu.tieba.zc4
+        public void a(yc4 yc4Var) {
             if (GameRecorderController.this.d != null) {
-                GameRecorderController.this.d.onAudioFrameAvailable(ByteBuffer.wrap(vc4Var.a), (int) vc4Var.b, vc4Var.c - GameRecorderController.this.e);
+                GameRecorderController.this.d.onAudioFrameAvailable(ByteBuffer.wrap(yc4Var.a), (int) yc4Var.b, yc4Var.c - GameRecorderController.this.e);
             }
         }
     }
@@ -137,11 +137,11 @@ public class GameRecorderController {
             this.c = RecorderState.IDLE;
             aREngineDelegate.setGameRecordCallback(new e(this, null));
         }
-        k04.h().e().post(new b());
+        n04.h().e().post(new b());
     }
 
     public final void r(boolean z) {
-        k04.h().e().post(new d(this, z));
+        n04.h().e().post(new d(this, z));
     }
 
     public void s(v90 v90Var) {
@@ -151,7 +151,7 @@ public class GameRecorderController {
     public void t(int i, String str) {
         boolean z;
         if (this.a != null) {
-            SwanAppActivity activity = ur2.V().getActivity();
+            SwanAppActivity activity = xr2.V().getActivity();
             if (activity != null && activity.j0()) {
                 z = true;
             } else {

@@ -279,7 +279,7 @@ public final class DownloadHelper {
 
     public static boolean checkTeenagerStyleAndTip() {
         if (tw.a.e()) {
-            UniversalToast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f167d).show();
+            UniversalToast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f167e).show();
             return true;
         }
         return false;

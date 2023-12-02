@@ -124,7 +124,7 @@ public final class ExcellentSysItem extends BaseItem<TbExcellentSysMsg> {
                     this.a.getTbMsg().setExcellentInfo(new ExcellentInfo(String.valueOf(this.a.getTbMsg().getExcellentMsgOp())));
                 }
                 final ExcellentSysItem excellentSysItem2 = this.a;
-                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.zy8
+                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.dz8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,37 +1,46 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.appsearchlib.Info;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.HotUserRankEntry;
-import tbclient.ShortUserInfo;
+import tbclient.Icon;
+import tbclient.Position;
+import tbclient.Terminal;
 /* loaded from: classes9.dex */
-public class y3d extends ltc {
+public class y3d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull HotUserRankEntry hotUserRankEntry) {
+    public static JSONObject b(@NonNull Icon icon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hotUserRankEntry)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, icon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (hotUserRankEntry.hot_user != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ShortUserInfo shortUserInfo : hotUserRankEntry.hot_user) {
-                    jSONArray.put(d8d.b(shortUserInfo));
-                }
-                ltc.a(jSONObject, "hot_user", jSONArray);
+            ktc.a(jSONObject, "name", icon.name);
+            ktc.a(jSONObject, "weight", icon.weight);
+            ktc.a(jSONObject, "url", icon.url);
+            ktc.a(jSONObject, "icon", icon.icon);
+            ktc.a(jSONObject, "value", icon.value);
+            Terminal terminal = icon.terminal;
+            if (terminal != null) {
+                ktc.a(jSONObject, "terminal", o9d.b(terminal));
             }
-            ltc.a(jSONObject, Info.kBaiduModuleKey, hotUserRankEntry.module_name);
-            ltc.a(jSONObject, "module_icon", hotUserRankEntry.module_icon);
-            ltc.a(jSONObject, "today_rank", hotUserRankEntry.today_rank);
-            ltc.a(jSONObject, "yesterday_rank", hotUserRankEntry.yesterday_rank);
-            ltc.a(jSONObject, "is_in_rank", hotUserRankEntry.is_in_rank);
+            Position position = icon.position;
+            if (position != null) {
+                ktc.a(jSONObject, CriusAttrConstants.POSITION, q6d.b(position));
+            }
+            if (icon.sprite_info != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (String str : icon.sprite_info) {
+                    jSONArray.put(str);
+                }
+                ktc.a(jSONObject, "sprite_info", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

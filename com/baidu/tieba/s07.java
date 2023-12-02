@@ -1,20 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.external.sticker.data.QmStickerItem;
-import com.baidu.tieba.t07;
+import com.baidu.tbadk.data.TbMusicData;
+import com.baidu.tieba.external.music.data.MusicData;
 /* loaded from: classes8.dex */
 public interface s07 {
-    String a(String str);
+    void a(float f);
 
-    boolean b(QmStickerItem qmStickerItem);
+    void b();
 
-    void c(t07.b bVar);
+    String c();
 
-    void d(QmStickerItem qmStickerItem);
+    void d(MusicData musicData, Object obj);
 
     void e();
 
-    void onDestroy();
+    void f(TbMusicData tbMusicData);
+
+    void g(String str, String str2);
+
+    boolean h();
+
+    void onPause();
+
+    void onResume();
+
+    void pause();
 
     void reset();
 }

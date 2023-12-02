@@ -14,7 +14,7 @@ public abstract class a extends com.kwad.components.core.proxy.e {
     public d Pf;
 
     public static int pC() {
-        return R.id.obfuscated_res_0x7f09140f;
+        return R.id.obfuscated_res_0x7f091410;
     }
 
     public abstract d a(RecyclerView recyclerView);

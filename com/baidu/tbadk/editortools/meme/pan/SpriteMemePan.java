@@ -6,10 +6,10 @@ import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tieba.jg5;
+import com.baidu.tieba.ag5;
+import com.baidu.tieba.mg5;
 import com.baidu.tieba.tbadkcore.databinding.SpriteMemePanBinding;
-import com.baidu.tieba.wf5;
-import com.baidu.tieba.xf5;
+import com.baidu.tieba.zf5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -188,11 +188,11 @@ public final class SpriteMemePan extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            xf5 xf5Var = new xf5();
-            xf5Var.l(3);
-            xf5Var.g(this.b);
-            xf5Var.k(this.c);
-            wf5.a.b(xf5Var);
+            ag5 ag5Var = new ag5();
+            ag5Var.l(3);
+            ag5Var.g(this.b);
+            ag5Var.k(this.c);
+            zf5.a.b(ag5Var);
         }
     }
 
@@ -214,7 +214,7 @@ public final class SpriteMemePan extends RelativeLayout {
         return (String) invokeV.objValue;
     }
 
-    public final void d(jg5 state) {
+    public final void d(mg5 state) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, state) == null) {

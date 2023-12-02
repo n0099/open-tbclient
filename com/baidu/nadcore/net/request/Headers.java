@@ -1,7 +1,7 @@
 package com.baidu.nadcore.net.request;
 
 import androidx.annotation.Nullable;
-import com.baidu.tieba.ly0;
+import com.baidu.tieba.ny0;
 import com.baidu.tieba.qc0;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,8 +41,8 @@ public final class Headers {
         }
 
         public a b(String str, String str2) {
-            ly0.b(this.a, str);
-            ly0.b(this.a, str2.trim());
+            ny0.b(this.a, str);
+            ny0.b(this.a, str2.trim());
             return this;
         }
 
@@ -59,10 +59,10 @@ public final class Headers {
 
         public a d(String str) {
             int i = 0;
-            while (i < ly0.l(this.a)) {
-                if (str.equalsIgnoreCase((String) ly0.d(this.a, i))) {
-                    ly0.i(this.a, i);
-                    ly0.i(this.a, i);
+            while (i < ny0.l(this.a)) {
+                if (str.equalsIgnoreCase((String) ny0.d(this.a, i))) {
+                    ny0.i(this.a, i);
+                    ny0.i(this.a, i);
                     i -= 2;
                 }
                 i += 2;
@@ -73,7 +73,7 @@ public final class Headers {
 
     public Headers(a aVar) {
         List<String> list = aVar.a;
-        this.a = (String[]) list.toArray(new String[ly0.l(list)]);
+        this.a = (String[]) list.toArray(new String[ny0.l(list)]);
     }
 
     @Nullable

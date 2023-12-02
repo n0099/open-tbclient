@@ -1,76 +1,70 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Bundle;
-import android.os.SystemClock;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.manage.Download;
 import com.baidu.down.manage.DownloadManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.game.guide.install.GameNowInstallAntiBlockingActivity;
-import com.baidu.swan.game.guide.install.InstallActivity;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tieba.adnotify.receiver.NotInstallNotificationReceiver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.zip.ZipFile;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Collection;
 /* loaded from: classes8.dex */
 public class tw3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
-    public static volatile tw3 l;
-    public static ExecutorService m;
     public transient /* synthetic */ FieldHolder $fh;
-    public sw3 a;
-    public sw3 b;
-    public sw3 c;
-    public DownloadManager d;
-    public qw3 e;
-    public xw3 f;
-    public BroadcastReceiver g;
-    public JSONObject h;
-    public int i;
-    public int j;
+    public DownloadManager a;
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public class a implements DownloadManager.DownloadItemFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(tw3 tw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
+        public boolean filter(Download download) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, download)) == null) {
+                if (download != null && download.getState() == Download.DownloadState.FINISH && cx3.g(AppRuntime.getAppContext(), download.getKeyByUser())) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements DownloadManager.DownloadItemFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ tw3 e;
 
-        public a(tw3 tw3Var, String str, String str2, String str3, String str4) {
+        public b(tw3 tw3Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tw3Var, str, str2, str3, str4};
+                Object[] objArr = {tw3Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -80,48 +74,36 @@ public class tw3 {
                     return;
                 }
             }
-            this.e = tw3Var;
             this.a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = str4;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
+        public boolean filter(Download download) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                dx3.n().h(this.a, new cx3(this.e.h), this.b, this.c, this.d);
-                if (vr2.a().b()) {
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, download)) == null) {
+                if (download != null && TextUtils.equals(download.getKeyByUser(), this.a)) {
+                    return true;
                 }
-                if (tw3.k) {
-                    Log.d("GameNowAppManager", "start InstallAntiBlockingActivity");
-                }
-                Intent intent = new Intent(AppRuntime.getAppContext(), GameNowInstallAntiBlockingActivity.class);
-                intent.putExtra("type", this.a);
-                intent.putExtra("packageName", this.b);
-                if (this.e.h != null) {
-                    intent.putExtra("ubc_params", this.e.h.toString());
-                }
-                intent.setFlags(276824064);
-                qi3.g(AppRuntime.getAppContext(), intent);
+                return false;
             }
+            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements DownloadManager.OnProgressChangeListener {
+    public class c implements DownloadManager.DownloadItemFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tw3 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ tw3 b;
 
-        public b(tw3 tw3Var) {
+        public c(tw3 tw3Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tw3Var};
+                Object[] objArr = {tw3Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -131,718 +113,165 @@ public class tw3 {
                     return;
                 }
             }
-            this.a = tw3Var;
+            this.b = tw3Var;
+            this.a = str;
         }
 
-        @Override // com.baidu.down.manage.DownloadManager.OnProgressChangeListener
-        public void onProgressChanged(long j, int i, long j2) {
+        @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
+        public boolean filter(Download download) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)}) == null) {
-                if (sm1.a) {
-                    Log.d("GameNowAppManager", "onProgressChanged downloadId = " + j + ",percentage = " + i + ",speed = " + j2);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, download)) == null) {
+                if (download != null && TextUtils.equals(download.getKeyByUser(), this.a) && !this.b.e(download)) {
+                    return true;
                 }
-                if (!this.a.c.d(String.valueOf(j))) {
-                    return;
-                }
-                this.a.c.b(String.valueOf(j), new ww3(i));
+                return false;
             }
+            return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class c implements DownloadManager.OnStateChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tw3 a;
-
-        public c(tw3 tw3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tw3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tw3Var;
-        }
-
-        @Override // com.baidu.down.manage.DownloadManager.OnStateChangeListener
-        public void onStateChanged(long j, Download download) {
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJL(1048576, this, j, download) == null) && download != null && download.getId() != null) {
-                String valueOf = String.valueOf(download.getId());
-                download.getKeyByUser();
-                if (tw3.k) {
-                    Log.d("GameNowAppManager", "onStateChanged downloadId = " + j + ",eventType:" + valueOf + ",download = " + download);
-                }
-                if (download.getState() != Download.DownloadState.FINISH || !download.getMimetype().equals("application/zip")) {
-                    if (!this.a.a.d(valueOf)) {
-                        return;
-                    }
-                    this.a.a.b(valueOf, new ww3(download));
-                    pw3 pw3Var = new pw3(download);
-                    int i = f.a[download.getState().ordinal()];
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i == 3) {
-                                dx3.n().h("reallyDownloadFail", new cx3(this.a.h), pw3Var.m(), pw3Var.j(), pw3Var.l());
-                                this.a.F(valueOf);
-                                this.a.E(valueOf);
-                                return;
-                            }
-                            return;
-                        }
-                        String j2 = pw3Var.j();
-                        if (this.a.w(download)) {
-                            this.a.L(download.getUrl(), download.getKeyByUser(), j2);
-                            dx3.n().f("reallyDownloaded", new cx3(this.a.h), pw3Var.m(), pw3Var.j(), pw3Var.l());
-                            if (TextUtils.equals(pw3Var.m(), lw3.a)) {
-                                dx3.n().p(12, pw3Var.m(), pw3Var.h(), pw3Var.l());
-                            }
-                            this.a.F(valueOf);
-                            this.a.E(valueOf);
-                            return;
-                        }
-                        pw3Var.p("download_current_bytes", download.getCurrentbytes());
-                        pw3Var.p("download_total_bytes", download.getTotalbytes());
-                        dx3.n().h("analysisFailed", new cx3(this.a.h), pw3Var.m(), pw3Var.j(), pw3Var.l());
-                        String str2 = download.getRealDownloadDir() + File.separator + download.getFileName();
-                        if (!TextUtils.isEmpty(str2) && new File(str2).exists()) {
-                            str = mm4.b(new File(str2), true);
-                        } else {
-                            str = "";
-                        }
-                        dx3.n().q(1001, download.getKeyByUser(), download.getUrl(), this.a.j, str, download.getCurrentbytes().longValue(), download.getTotalbytes().longValue());
-                        z53.g(op2.c(), op2.c().getString(R.string.obfuscated_res_0x7f0f01bd)).G();
-                        this.a.s(download.getKeyByUser());
-                        if (this.a.i < 2) {
-                            this.a.J(download.getUrl(), download.getKeyByUser(), download.getFromParam());
-                            return;
-                        }
-                        this.a.F(valueOf);
-                        this.a.E(valueOf);
-                        return;
-                    }
-                    dx3.n().f("reallyPause", new cx3(this.a.h), pw3Var.m(), pw3Var.j(), pw3Var.l());
-                    return;
-                }
-                this.a.M(download);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tw3 this$0;
-
-        public d(tw3 tw3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tw3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = tw3Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && intent.getData() != null) {
-                String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-                if (TextUtils.isEmpty(schemeSpecificPart)) {
-                    return;
-                }
-                if (tw3.k) {
-                    Log.d("GameNowAppManager", "AddPackageReceiver packageName = " + schemeSpecificPart);
-                }
-                if (this.this$0.b.d(schemeSpecificPart)) {
-                    this.this$0.b.b(schemeSpecificPart, new ww3(true));
-                    this.this$0.D(schemeSpecificPart, null);
-                }
-                Download g = this.this$0.e.g(schemeSpecificPart);
-                if (g != null) {
-                    pw3 pw3Var = new pw3(g);
-                    String h = pw3Var.h();
-                    if (TextUtils.equals(pw3Var.m(), lw3.a) || TextUtils.isEmpty(h)) {
-                        dx3.n().h("reallyInstalled", new cx3(this.this$0.h), pw3Var.m(), pw3Var.j(), pw3Var.l());
-                        this.this$0.n(g);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Download a;
-
-        public e(tw3 tw3Var, Download download) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tw3Var, download};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = download;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    km4.M(this.a.getFromParam());
-                    String str = this.a.getFromParam() + File.separator + this.a.getFileName().replace(".zip", "");
-                    String str2 = pw3.n() + File.separator + this.a.getFileName();
-                    if (tw3.k) {
-                        Log.d("GameNowAppManager", "unzip: " + str + " zip:  " + str2);
-                    }
-                    km4.U(str2, str);
-                    km4.M(str2);
-                } catch (Exception e) {
-                    if (tw3.k) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class f {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-389810441, "Lcom/baidu/tieba/tw3$f;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-389810441, "Lcom/baidu/tieba/tw3$f;");
-                    return;
-                }
-            }
-            int[] iArr = new int[Download.DownloadState.values().length];
-            a = iArr;
-            try {
-                iArr[Download.DownloadState.PAUSE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[Download.DownloadState.FINISH.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[Download.DownloadState.FAILED.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948195577, "Lcom/baidu/tieba/tw3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948195577, "Lcom/baidu/tieba/tw3;");
-                return;
-            }
-        }
-        k = sm1.a;
-        m = Executors.newSingleThreadExecutor();
-    }
-
-    public static tw3 t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            if (l == null) {
-                synchronized (tw3.class) {
-                    if (l == null) {
-                        l = new tw3();
-                    }
-                }
-            }
-            return l;
-        }
-        return (tw3) invokeV.objValue;
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d.registerOnProgressChangeListener(new b(this));
-        }
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d.registerOnStateChangeListener(new c(this));
-        }
-    }
-
-    public final boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return !ProcessUtils.isMainProcess();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            synchronized (this) {
-                this.e.b();
-            }
-        }
-    }
-
-    public tw3() {
+    public tw3(DownloadManager downloadManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {downloadManager};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new sw3();
-        this.b = new sw3();
-        this.c = new sw3();
-        this.i = 0;
-        DownloadManager downloadManager = DownloadManager.getInstance(AppRuntime.getAppContext());
-        this.d = downloadManager;
-        this.e = new qw3(downloadManager);
-        B();
-        C();
-        A();
+        this.a = downloadManager;
     }
 
-    public void E(String str) {
+    public void c(String str) {
+        Download g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c.f(str);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str) && (g = g(str)) != null) {
+            this.a.cancel(g.getId().longValue());
         }
     }
 
-    public final void F(String str) {
+    public final boolean f(Download download) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.f(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, download)) == null) {
+            if (download == null || (System.currentTimeMillis() - new sw3(download).k()) / 86400000 < 30) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void H(xw3 xw3Var) {
+    public static boolean d(Download download) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, xw3Var) == null) {
-            this.f = xw3Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, download)) == null) {
+            if (download == null) {
+                return false;
+            }
+            String realDownloadDir = download.getRealDownloadDir();
+            String fileName = download.getFileName();
+            if (TextUtils.isEmpty(realDownloadDir) || TextUtils.isEmpty(fileName)) {
+                return false;
+            }
+            File file = new File(realDownloadDir + File.separator + fileName);
+            if (!file.isFile() || !file.exists()) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void I(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) && jSONObject != null) {
-            this.h = jSONObject;
-        }
-    }
-
-    public final void M(Download download) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, download) == null) && download != null && !TextUtils.isEmpty(download.getFileName())) {
-            bj3.j(new e(this, download), "unzipRes");
-        }
-    }
-
-    public void D(String str, ax3 ax3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, ax3Var) == null) {
-            this.b.g(str, ax3Var);
-        }
-    }
-
-    public final synchronized void A() {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addDataScheme("package");
-                intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-                this.g = new d(this);
-                AppRuntime.getAppContext().registerReceiver(this.g, intentFilter);
-            }
-        }
-    }
-
-    public void G(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) && !o() && SwanAppNetworkUtils.i(null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            Download g = this.e.g(str2);
-            if (g == null) {
-                J(str, str2, str3);
-            } else if (g.getState() == Download.DownloadState.FINISH) {
-                dx3.n().h("resumeDownloadInstall", new cx3(this.h), str2, str3, str);
-                L(str, str2, str3);
-            } else {
-                this.a.a(String.valueOf(g.getId()), this.f);
-                this.c.a(String.valueOf(g.getId()), this.f);
-                this.d.resume(g.getId().longValue());
-            }
-        }
-    }
-
-    public void p(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !o() && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            Download h = this.e.h(str2);
-            if (h != null) {
-                pw3 pw3Var = new pw3(h);
-                long k2 = pw3Var.k();
-                pw3Var.p("download_status", h.getState());
-                String j2 = pw3Var.j();
-                if (k2 != 0 && System.currentTimeMillis() - k2 > j) {
-                    s(str2);
-                    dx3.n().h("package_expired", new cx3(this.h), str2, j2, str);
+                Collection<Download> downloadListByFilter = this.a.getDownloadListByFilter(new a(this));
+                if (downloadListByFilter == null) {
                     return;
                 }
-                z(str2);
-                return;
-            }
-            xw3 xw3Var = this.f;
-            if (xw3Var != null) {
-                xw3Var.a(new vw3(DownloadState.NOT_START.name()));
-            }
-        }
-    }
-
-    public void J(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048585, this, str, str2, str3) == null) && !o() && SwanAppNetworkUtils.i(null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (zw3.g(AppRuntime.getAppContext(), str2)) {
-                xw3 xw3Var = this.f;
-                if (xw3Var != null) {
-                    xw3Var.a(new ww3(true));
+                int size = downloadListByFilter.size() - 30;
+                if (size <= 0) {
                     return;
                 }
-                return;
-            }
-            this.e.c(str2);
-            ve3.a().putLong("startDownloadPackageTime", SystemClock.elapsedRealtime());
-            JSONObject d2 = hj3.d(str3);
-            String optString = d2.optString("apk_id");
-            String optString2 = d2.optString("from_view");
-            String optString3 = d2.optString("from_value");
-            String optString4 = d2.optString(GameGuideConfigInfo.KEY_CONFIG_NAME);
-            pw3 pw3Var = new pw3();
-            pw3Var.r(str);
-            pw3Var.o(str2);
-            pw3Var.a(optString);
-            pw3Var.g(optString2);
-            pw3Var.f(optString3);
-            pw3Var.d(optString4);
-            Download b2 = pw3Var.b();
-            this.d.start(b2);
-            if (b2.getId() != null) {
-                this.a.a(String.valueOf(b2.getId()), this.f);
-                this.c.a(String.valueOf(b2.getId()), this.f);
-            }
-            if (TextUtils.equals(str2, lw3.a)) {
-                dx3.n().p(11, str2, optString, str);
-            }
-            dx3.n().f("reallyBeginDownload", new cx3(this.h), str2, b2.getFromParam(), str);
-        }
-    }
-
-    public void K(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) && !o() && SwanAppNetworkUtils.i(null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.e.c(str2);
-            pw3 pw3Var = new pw3();
-            pw3Var.r(str);
-            pw3Var.o(str2);
-            pw3Var.e(str2);
-            pw3Var.q(str3);
-            this.d.start(pw3Var.c());
-        }
-    }
-
-    public void L(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, str, str2, str3) == null) {
-            Bundle bundle = new Bundle();
-            String m2 = m(str3, "download_finish_time", Long.valueOf(SystemClock.elapsedRealtime()));
-            bundle.putString(NotInstallNotificationReceiver.INTENT_PARAMS_KEY_DOWNLOAD_URL, str);
-            bundle.putString("key_download_package_name", str2);
-            bundle.putString("ubc_params", new cx3(this.h).a());
-            bundle.putString(DownloadConstants.DOWNLOAD_PARAMS, m2);
-            Intent intent = new Intent(AppRuntime.getAppContext(), InstallActivity.class);
-            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            intent.putExtras(bundle);
-            AppRuntime.getAppContext().startActivity(intent);
-        }
-    }
-
-    public final <T> String m(String str, String str2, T t) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, str, str2, t)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    jSONObject.put(str2, t);
-                    return jSONObject.toString();
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                int i = 0;
+                for (Download download : downloadListByFilter) {
+                    if (i == size) {
+                        return;
+                    }
+                    if (download != null) {
+                        this.a.cancel(download.getId().longValue());
+                    }
+                    i++;
                 }
             }
-            return str;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public final void n(Download download) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, download) == null) {
-            String realDownloadDir = download.getRealDownloadDir();
-            String fileName = download.getFileName();
-            if (!TextUtils.isEmpty(realDownloadDir) && !TextUtils.isEmpty(fileName)) {
-                r(realDownloadDir + File.separator + fileName);
-            }
-            q();
         }
     }
 
-    public boolean r(String str) {
+    public final boolean e(Download download) {
         InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            File file = new File(str);
-            if (file.isFile() && file.exists()) {
-                try {
-                    return file.delete();
-                } catch (SecurityException e2) {
-                    if (k) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void s(String str) {
-        Download g;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048595, this, str) != null) || o() || TextUtils.isEmpty(str) || (g = this.e.g(str)) == null) {
-            return;
-        }
-        this.e.c(str);
-        xw3 xw3Var = this.f;
-        if (xw3Var != null) {
-            xw3Var.a(new ww3(g, true));
-        }
-    }
-
-    public void z(String str) {
-        Download g;
-        xw3 xw3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048601, this, str) == null) && !o() && !TextUtils.isEmpty(str) && (g = this.e.g(str)) != null && (xw3Var = this.f) != null) {
-            xw3Var.a(new ww3(g));
-        }
-    }
-
-    public boolean u(Activity activity, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048596, this, activity, str, str2, str3)) == null) {
-            if (o()) {
-                dx3.n().h("checkIllegalProcess", new cx3(this.h), str2, str3, str);
-                return false;
-            } else if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                Download g = this.e.g(str2);
-                if (g == null) {
-                    dx3.n().h("nullDownload", new cx3(this.h), str2, str3, str);
-                    J(str, str2, str3);
-                    return false;
-                }
-                String realDownloadDir = g.getRealDownloadDir();
-                String fileName = g.getFileName();
-                if (k) {
-                    Log.d("GameNowAppManager", "installApp packageName:" + str2 + ",fileDir:" + realDownloadDir + ",fileName:" + fileName);
-                }
-                if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(realDownloadDir) || TextUtils.isEmpty(fileName)) {
-                    this.e.c(str2);
-                }
-                String str4 = realDownloadDir + File.separator + fileName;
-                if (zw3.g(AppRuntime.getAppContext(), str2)) {
-                    dx3.n().h("hasInstalled", new cx3(this.h), str2, str3, str);
-                    xw3 xw3Var = this.f;
-                    if (xw3Var != null) {
-                        xw3Var.a(new ww3(true));
-                    }
-                    r(str4);
-                    return false;
-                }
-                File file = new File(str4);
-                if (file.isFile() && file.exists()) {
-                    this.b.a(str2, this.f);
-                    if (zw3.i(activity, str4, false)) {
-                        new pw3(g).p("download_finish_time", Long.valueOf(SystemClock.elapsedRealtime()));
-                        dx3.n().h("showInstallView", new cx3(this.h), str2, str3, str);
-                        long length = ((file.length() / 104857600) + 1) * 1000;
-                        String c2 = zw3.c();
-                        if (zw3.j(c2)) {
-                            g63.M().postDelayed(new a(this, c2, str2, str3, str), length);
-                        }
-                        return true;
-                    }
-                    dx3.n().h("showInstallViewFailed", new cx3(this.h), str2, str3, str);
-                    D(str2, this.f);
-                    this.e.c(str2);
-                    return false;
-                }
-                dx3.n().h("nullGamenowFile", new cx3(this.h), str2, str3, str);
-                J(str, str2, str3);
-                return false;
-            } else {
-                dx3.n().h("nullPackagenameOrUrl", new cx3(this.h), str2, str3, str);
-                return false;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public boolean v(String str, long j) {
-        InterceptResult invokeLJ;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048597, this, str, j)) == null) {
-            if (new File(str).length() < j) {
-                this.j = 3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, download)) == null) {
+            if (download == null) {
                 return false;
             }
-            try {
-                ZipFile zipFile = new ZipFile(str);
-                if (zipFile.getEntry("AndroidManifest.xml") != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                zipFile.close();
-                return z;
-            } catch (Exception e2) {
-                if (k) {
-                    Log.e("GameNowAppManager", "解析APK出错:" + e2.getMessage());
-                }
-                this.j = 4;
-                return false;
-            }
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public void x(String str, String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048599, this, str, str2) == null) && !o() && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            Download g = this.e.g(str2);
-            if (g != null) {
-                str3 = g.getFromParam();
+            if (download.getState() == Download.DownloadState.FINISH && !d(download)) {
+                z = true;
             } else {
-                str3 = "";
+                z = false;
             }
-            String str4 = str3;
-            if (zw3.k(AppRuntime.getAppContext(), str2)) {
-                dx3.n().h("manualOpen", new cx3(this.h), str2, str4, str);
+            if ((!f(download) && !z) || cx3.g(AppRuntime.getAppContext(), download.getKeyByUser())) {
+                return false;
             }
-        }
-    }
-
-    public final boolean w(Download download) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, download)) == null) {
-            this.i++;
-            long longValue = download.getTotalbytes().longValue();
-            String str = download.getRealDownloadDir() + File.separator + download.getFileName();
-            if (!TextUtils.isEmpty(str) && new File(str).exists()) {
-                if (((int) (longValue / 1024)) <= 10) {
-                    this.j = 2;
-                    return false;
-                }
-                return v(str, longValue);
-            }
-            if (k) {
-                Log.e("GameNowAppManager", "apk文件找不到");
-            }
-            this.j = 1;
-            return false;
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public void y(String str) {
-        Download g;
+    public Download g(String str) {
+        InterceptResult invokeL;
+        Collection<Download> downloadListByFilter;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048600, this, str) != null) || o() || TextUtils.isEmpty(str) || (g = this.e.g(str)) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            Download download = null;
+            if (TextUtils.isEmpty(str) || (downloadListByFilter = this.a.getDownloadListByFilter(new b(this, str))) == null) {
+                return null;
+            }
+            for (Download download2 : downloadListByFilter) {
+                if (download2 != null) {
+                    download = download2;
+                }
+            }
+            return download;
         }
-        if (g.getState() != Download.DownloadState.WAITING && g.getState() != Download.DownloadState.DOWNLOADING) {
-            return;
+        return (Download) invokeL.objValue;
+    }
+
+    public Download h(String str) {
+        InterceptResult invokeL;
+        Collection<Download> downloadListByFilter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            Download download = null;
+            if (TextUtils.isEmpty(str) || (downloadListByFilter = this.a.getDownloadListByFilter(new c(this, str))) == null) {
+                return null;
+            }
+            for (Download download2 : downloadListByFilter) {
+                if (download2 != null) {
+                    download = download2;
+                }
+            }
+            return download;
         }
-        this.d.pause(g.getId().longValue());
-        xw3 xw3Var = this.f;
-        if (xw3Var != null) {
-            xw3Var.a(new ww3(g));
-        }
+        return (Download) invokeL.objValue;
     }
 }

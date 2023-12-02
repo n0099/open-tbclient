@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.TransmitForumData;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface jq6 {
+public class jq6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void callback(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2);
-    }
+    public abstract String a();
 
-    void a(a aVar);
-
-    void b();
+    public abstract String b();
 }

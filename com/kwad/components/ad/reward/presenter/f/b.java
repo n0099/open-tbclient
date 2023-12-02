@@ -20,7 +20,7 @@ public class b extends d {
 
     @IdRes
     public int ci() {
-        return R.id.obfuscated_res_0x7f09139e;
+        return R.id.obfuscated_res_0x7f09139f;
     }
 
     @Override // com.kwad.components.core.webview.tachikoma.j

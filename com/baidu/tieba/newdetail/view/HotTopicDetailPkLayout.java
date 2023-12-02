@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
+import com.baidu.tieba.am8;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.tieba.wl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public TextView o;
     public TextView p;
     public TextView q;
-    public wl8 r;
+    public am8 r;
     public ColorStateList s;
     public ColorStateList t;
     public Runnable u;
@@ -380,10 +380,10 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         }
     }
 
-    public void i(@NonNull wl8 wl8Var) {
+    public void i(@NonNull am8 am8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, wl8Var) == null) {
-            this.r = wl8Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, am8Var) == null) {
+            this.r = am8Var;
             r(false);
             n(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -394,9 +394,9 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091d7d) {
+            if (id == R.id.obfuscated_res_0x7f091d7f) {
                 o();
-            } else if (id == R.id.obfuscated_res_0x7f091d7e) {
+            } else if (id == R.id.obfuscated_res_0x7f091d80) {
                 p();
             }
         }
@@ -469,27 +469,27 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                 this.b = (TbPageContext) a2;
             }
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0430, (ViewGroup) this, true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09248b);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092689);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0908cf);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d7d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09248d);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09268b);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d0);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d7f);
             this.f = textView;
             textView.setOnClickListener(this);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091d7e);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091d80);
             this.g = textView2;
             textView2.setOnClickListener(this);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091e5b);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091e5d);
             this.h = findViewById;
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             this.i = layoutParams;
             layoutParams.height = this.k;
             this.h.setLayoutParams(layoutParams);
             this.h.setAlpha(0.0f);
-            this.m = (HotTopicDetailPkProcess) findViewById(R.id.obfuscated_res_0x7f091e55);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091d80);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091d82);
-            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f091d81);
-            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f091d83);
+            this.m = (HotTopicDetailPkProcess) findViewById(R.id.obfuscated_res_0x7f091e57);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091d82);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091d84);
+            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f091d83);
+            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f091d85);
         }
     }
 
@@ -499,27 +499,27 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            wl8 wl8Var = this.r;
-            if (wl8Var.f == 1) {
+            am8 am8Var = this.r;
+            if (am8Var.f == 1) {
                 i = 1;
             } else {
                 i = 0;
             }
-            if (wl8Var.f == 2) {
+            if (am8Var.f == 2) {
                 i2 = 1;
             } else {
                 i2 = 0;
             }
             long j2 = i2;
-            long j3 = wl8Var.i + wl8Var.j + i + j2;
+            long j3 = am8Var.i + am8Var.j + i + j2;
             this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a42), StringHelper.numberUniformFormatExtra(j3)));
-            this.e.setText(wl8Var.a);
-            this.f.setText(wl8Var.b);
-            this.g.setText(wl8Var.d);
-            this.n.setText("" + (wl8Var.i + j));
-            this.p.setText("" + (wl8Var.j + j2));
+            this.e.setText(am8Var.a);
+            this.f.setText(am8Var.b);
+            this.g.setText(am8Var.d);
+            this.n.setText("" + (am8Var.i + j));
+            this.p.setText("" + (am8Var.j + j2));
             if (j3 > 0) {
-                int i3 = wl8Var.f;
+                int i3 = am8Var.f;
                 float f = 0.02f;
                 if (i3 == 1) {
                     if (j3 > 1) {
@@ -528,7 +528,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                         if (f3 >= 0.02f) {
                             f = f3;
                         }
-                        this.m.setProcess(((((float) wl8Var.i) * 1.0f) / f2) + f, z);
+                        this.m.setProcess(((((float) am8Var.i) * 1.0f) / f2) + f, z);
                     } else {
                         this.m.setProcess(1.0f, z);
                     }
@@ -539,18 +539,18 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                         if (f5 >= 0.02f) {
                             f = f5;
                         }
-                        this.m.setProcess(((((float) wl8Var.i) * 1.0f) / f4) - f, z);
+                        this.m.setProcess(((((float) am8Var.i) * 1.0f) / f4) - f, z);
                     } else {
                         this.m.setProcess(0.0f, z);
                     }
                 } else {
-                    this.m.setProcess((((float) wl8Var.i) * 1.0f) / ((float) j3), z);
+                    this.m.setProcess((((float) am8Var.i) * 1.0f) / ((float) j3), z);
                 }
             } else {
                 this.m.setProcess(0.5f, z);
             }
             if (this.h.getVisibility() != 0) {
-                if (wl8Var.f != 0) {
+                if (am8Var.f != 0) {
                     this.k = this.j;
                     ViewGroup.LayoutParams layoutParams = this.h.getLayoutParams();
                     this.i = layoutParams;
@@ -572,12 +572,12 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     }
 
     public final void s() {
-        wl8 wl8Var;
+        am8 am8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (wl8Var = this.r) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (am8Var = this.r) == null) {
             return;
         }
-        int i = wl8Var.f;
+        int i = am8Var.f;
         if (i == 1) {
             this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f08034c);
             this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f08034d);

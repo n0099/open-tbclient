@@ -1,32 +1,29 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
+import com.tencent.connect.common.Constants;
+import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class uq2 extends sq2 {
+public class uq2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.wq2
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "StorageApiDescInterceptor" : (String) invokeV.objValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,68 +38,77 @@ public class uq2 extends sq2 {
                 return;
             }
         }
-        b = new String[]{"setStorage", "getStorage", "removeStorage", "getSystemInfo", "getStorageInfo"};
+        a = vm1.a;
     }
 
-    public uq2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.wq2
-    public boolean enable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return e("swan_storage_async");
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wq2
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            for (String str3 : b) {
-                if (TextUtils.equals(str3, str2)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wq2
     @NonNull
-    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    @SuppressLint({"BDThrowableCheck"})
+    public static String a(i52 i52Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray(WebChromeClient.KEY_ARG_ARRAY);
-            if (optJSONArray != null) {
-                optJSONArray.put(d("cb", EMABTest.TYPE_STRING));
-            }
-            if ("getSystemInfo".equals(str) || "getStorageInfo".equals(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, i52Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (i52Var != null) {
                 try {
-                    String optString = jSONObject.optString("method");
-                    jSONObject.put("method", optString + "Async");
+                    jSONObject.put("containerId", i52Var.getContainerId());
+                    jSONObject.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, BdZeusUtil.isWebkitLoaded());
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    if (!a) {
+                        e.printStackTrace();
+                    } else {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
-            return jSONObject;
+            jSONObject.put("scheme", SchemeConfig.getSchemeHead());
+            String b = b(ed2.V().U());
+            k32.k("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + xh2.r(b));
+            jSONObject.put("sdkExtension", b);
+            jSONObject.put("gameSdkExtension", b(sp2.i().s()));
+            jSONObject.put("isDebugSdk", a);
+            if ((i52Var instanceof NgWebView) && ((NgWebView) i52Var).isSwanWebMode()) {
+                jSONObject.put("ctsEnabled", ye3.a().getInt("aiapps_web_mode_cts_use_key", 0));
+            }
+            String string = ye3.a().getString("ctsUrl", "");
+            if (!TextUtils.isEmpty(string) && j23.s()) {
+                jSONObject.put("ctsJsAddress", new JSONObject(string));
+            }
+            String i = rp2.o().i();
+            if (!TextUtils.isEmpty(i)) {
+                jSONObject.put("hostName", i);
+            }
+            jSONObject.put(Constants.PARAM_PLATFORM, "android");
+            JSONObject a2 = qf3.a();
+            a2.put("swanswitch_common_sys_info_binding", true);
+            a2.put("swanswitch_ab_sync_auth", true);
+            jSONObject.put("abTestSwitch", a2);
+            jSONObject.put("userDataPath", hi2.USER_DATA_PATH);
+            jSONObject.put("preloadId", ed2.V().b0());
+            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.d.h());
+            jSONObject.put("ttsExtractJSUrl", ti4.b().a());
+            jSONObject.put("coreJSPath", ed2.V().d0());
+            if (vv1.d()) {
+                jSONObject.put("pendingList", new JSONArray((Collection) gy1.e()));
+            }
+            jSONObject.put("swanNativeVersion", wm1.a());
+            String jSONObject2 = jSONObject.toString();
+            if (TextUtils.isEmpty(jSONObject2)) {
+                return "";
+            }
+            return jSONObject2;
         }
-        return (JSONObject) invokeLL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(ExtensionCore extensionCore) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, extensionCore)) == null) {
+            if (extensionCore != null && !TextUtils.isEmpty(extensionCore.extensionCorePath)) {
+                return extensionCore.extensionCorePath;
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 }

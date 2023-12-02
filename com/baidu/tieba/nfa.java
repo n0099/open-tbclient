@@ -1,214 +1,218 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.DeviceInfoHelper;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.privacy.PrivacyParamType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tieba.postsearch.PostSearchActivity;
+import com.baidu.tieba.postsearch.PostSearchListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.util.Base64Encoder;
-import java.util.HashMap;
-import kotlin.TuplesKt;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.Charsets;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
-public final class nfa {
+public class nfa {
     public static /* synthetic */ Interceptable $ic;
-    public static final nfa a;
-    public static final HashMap<String, String> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public PostSearchActivity a;
+    public View b;
+    public FragmentTabHost c;
+    public ViewPager.OnPageChangeListener d;
+    public PostSearchListFragment e;
+    public PostSearchListFragment f;
+    public PostSearchListFragment g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948001920, "Lcom/baidu/tieba/nfa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948001920, "Lcom/baidu/tieba/nfa;");
-                return;
-            }
-        }
-        a = new nfa();
-        b = MapsKt__MapsKt.hashMapOf(TuplesKt.to(HttpRequest.PHONE_IMEI, HttpRequest.PHONE_IMEI_REVERSAL), TuplesKt.to(HttpRequest.ANDROID_ID, HttpRequest.ANDROID_ID_REVERSAL), TuplesKt.to("model", "ledom"), TuplesKt.to("oaid", "diao"), TuplesKt.to(HttpRequest.OS_VERSION, "noisrev_so"), TuplesKt.to("brand", "dnarb"), TuplesKt.to(HttpRequest.UH, "hu"), TuplesKt.to("ut", "tu"));
-    }
-
-    public nfa() {
+    public nfa(PostSearchActivity postSearchActivity, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {postSearchActivity, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = postSearchActivity;
+        this.b = view2;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.G2();
+            this.f.G2();
+            this.g.G2();
+        }
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.getCurrentTabType();
+        }
+        return invokeV.intValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            FragmentTabHost.c cVar = new FragmentTabHost.c();
+            PostSearchListFragment postSearchListFragment = new PostSearchListFragment(1);
+            this.e = postSearchListFragment;
+            cVar.c = postSearchListFragment;
+            cVar.b = c(R.string.obfuscated_res_0x7f0f1371);
+            cVar.a = 1;
+            this.c.b(cVar);
+            FragmentTabHost.c cVar2 = new FragmentTabHost.c();
+            PostSearchListFragment postSearchListFragment2 = new PostSearchListFragment(2);
+            this.f = postSearchListFragment2;
+            cVar2.c = postSearchListFragment2;
+            cVar2.b = c(R.string.obfuscated_res_0x7f0f1370);
+            cVar2.a = 2;
+            this.c.b(cVar2);
+            FragmentTabHost.c cVar3 = new FragmentTabHost.c();
+            PostSearchListFragment postSearchListFragment3 = new PostSearchListFragment(3);
+            this.g = postSearchListFragment3;
+            cVar3.c = postSearchListFragment3;
+            cVar3.b = c(R.string.obfuscated_res_0x7f0f136f);
+            cVar3.a = 3;
+            this.c.b(cVar3);
+        }
+    }
+
+    public final FragmentTabIndicator c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            fragmentTabIndicator.setText(i);
+            fragmentTabIndicator.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
+            fragmentTabIndicator.b = R.color.s_actionbar_text_color;
+            fragmentTabIndicator.setContentTvTopMargin(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
+            fragmentTabIndicator.setWidth((BdUtilHelper.getEquipmentWidth(this.a.getPageContext().getContext()) - (this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f) * 2)) / 3);
+            return fragmentTabIndicator;
+        }
+        return (FragmentTabIndicator) invokeI.objValue;
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f092218)).inflate();
+            inflate.setVisibility(0);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f091dfb);
+            this.c = fragmentTabHost;
+            fragmentTabHost.setup(this.a.getSupportFragmentManager());
+            this.c.setTabWidgetViewHeight((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
+            this.c.setShouldDrawIndicatorLine(true);
+            b();
+            this.c.j(3);
+            this.c.setCurrentTabByType(i);
+            this.c.getFragmentTabWidget().setBackGroundDrawableResId(0);
+            this.c.r(TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
+            this.c.setOnPageChangeListener(this.d);
+        }
+    }
+
+    public final PostSearchListFragment e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return this.g;
+                }
+                return this.f;
+            }
+            return this.e;
+        }
+        return (PostSearchListFragment) invokeI.objValue;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            FragmentTabHost fragmentTabHost = this.c;
+            if (fragmentTabHost != null) {
+                fragmentTabHost.r(i);
+            }
+            FragmentTabHost fragmentTabHost2 = this.c;
+            if (fragmentTabHost2 != null && fragmentTabHost2.getFragmentTabWidget() != null) {
+                SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
             }
         }
     }
 
-    @JvmStatic
-    public static final boolean b() {
-        InterceptResult invokeV;
+    public void i(ViewPager.OnPageChangeListener onPageChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (PrivacyParamType.f() && PrivacyParamType.a() != 0) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
+            this.d = onPageChangeListener;
+            FragmentTabHost fragmentTabHost = this.c;
+            if (fragmentTabHost != null) {
+                fragmentTabHost.setOnPageChangeListener(onPageChangeListener);
             }
-            return true;
         }
-        return invokeV.booleanValue;
     }
 
-    @JvmStatic
-    public static final String c() {
-        InterceptResult invokeV;
+    public void j(boolean z) {
+        FragmentTabHost fragmentTabHost;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (!PrivacyParamType.f() || PrivacyParamType.a() != 1) {
-                return "0";
-            }
-            return "1";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return a(TbadkCoreApplication.getInst().getAndroidId());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return a(Build.BRAND);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return a(TbadkCoreApplication.getInst().getImei());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            String model = DeviceInfoHelper.getModel();
-            Intrinsics.checkNotNullExpressionValue(model, "getModel()");
-            return a(model);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            Intrinsics.checkNotNullExpressionValue(lastCachedOid, "getLastCachedOid(TbadkCoreApplication.getInst())");
-            return lastCachedOid;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            String osVersion = DeviceInfoHelper.getOsVersion();
-            Intrinsics.checkNotNullExpressionValue(osVersion, "getOsVersion()");
-            return a(osVersion);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final String a(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
-            } else {
-                z = true;
-            }
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (fragmentTabHost = this.c) != null) {
             if (z) {
-                return "";
+                fragmentTabHost.setVisibility(0);
+            } else {
+                fragmentTabHost.setVisibility(8);
             }
-            if (!PrivacyParamType.f()) {
-                return str;
-            }
-            int a2 = PrivacyParamType.a();
-            if (a2 != 1) {
-                if (a2 == 2) {
-                    return "";
-                }
-                return str;
-            }
-            byte[] bytes = str.getBytes(Charsets.UTF_8);
-            Intrinsics.checkNotNullExpressionValue(bytes, "this as java.lang.String).getBytes(charset)");
-            byte[] B64Encode = Base64Encoder.B64Encode(bytes);
-            if (B64Encode == null) {
-                return "";
-            }
-            return new String(B64Encode, Charsets.UTF_8);
         }
-        return (String) invokeL.objValue;
     }
 
-    @JvmStatic
-    public static final String g(String key) {
-        InterceptResult invokeL;
+    public void h(int i, jfa jfaVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, key)) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            if (!PrivacyParamType.f()) {
-                return key;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), jfaVar, Boolean.valueOf(z)}) == null) {
+            j(true);
+            PostSearchListFragment e = e(i);
+            if (e != null) {
+                e.K2(jfaVar, z);
             }
-            int a2 = PrivacyParamType.a();
-            if (a2 != 1) {
-                if (a2 == 2) {
-                    return "";
-                }
-                return key;
-            }
-            String str = b.get(key);
-            if (str != null) {
-                return str;
-            }
-            return key;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (this.c == null) {
+                f(1);
+                return;
+            }
+            a();
+            if (this.c.getCurrentTabType() == i) {
+                PostSearchListFragment e = e(i);
+                if (e != null) {
+                    e.L2(true);
+                    return;
+                }
+                return;
+            }
+            this.c.setCurrentTabByType(i);
+        }
     }
 }

@@ -1,27 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class du7 {
+public class du7 extends zt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public pf1<pt7> a;
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            nf1 b = nf1.b();
-            this.a = b;
-            b.a(new qt7());
-        }
-    }
+    public int e;
+    public String f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
     public du7() {
         Interceptable interceptable = $ic;
@@ -36,15 +27,7 @@ public final class du7 {
                 return;
             }
         }
-        b();
-    }
-
-    public final pf1<pt7> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (pf1) invokeV.objValue;
+        this.g = true;
+        this.i = true;
     }
 }

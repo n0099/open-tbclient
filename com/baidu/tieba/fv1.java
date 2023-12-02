@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.tieba.lu1;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.r53;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,155 +14,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fv1 extends bv1 {
+public class fv1 extends ev1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.lu1
+    @Override // com.baidu.tieba.ou1
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PageScrollToApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements lu1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fv1 a;
-
-        /* renamed from: com.baidu.tieba.fv1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0314a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ int a;
-            public final /* synthetic */ int b;
-            public final /* synthetic */ a c;
-
-            /* renamed from: com.baidu.tieba.fv1$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class C0315a implements ValueAnimator.AnimatorUpdateListener {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ps1 a;
-
-                public C0315a(RunnableC0314a runnableC0314a, ps1 ps1Var) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0314a, ps1Var};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = ps1Var;
-                }
-
-                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                        this.a.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
-                    }
-                }
-            }
-
-            public RunnableC0314a(a aVar, int i, int i2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i), Integer.valueOf(i2)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = i;
-                this.b = i2;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                ps1 i;
-                int f;
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (i = ur2.V().i()) == null) {
-                    return;
-                }
-                if (i instanceof NgWebView) {
-                    f = fv1.A(i, yj3.f(this.c.a.i(), this.a));
-                } else {
-                    f = yj3.f(this.c.a.i(), this.a);
-                }
-                ValueAnimator ofInt = ValueAnimator.ofInt(i.getWebViewScrollY(), f);
-                ofInt.setDuration(this.b);
-                ofInt.addUpdateListener(new C0315a(this, i));
-                ofInt.start();
-            }
-        }
-
-        public a(fv1 fv1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fv1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fv1Var;
-        }
-
-        @Override // com.baidu.tieba.lu1.a
-        public iy1 a(h63 h63Var, JSONObject jSONObject, @Nullable String str) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, h63Var, jSONObject, str)) == null) {
-                int optInt = jSONObject.optInt("scrollTop", -1);
-                int optInt2 = jSONObject.optInt("duration", -1);
-                if (optInt > -1 && optInt2 > -1) {
-                    bk3.e0(new RunnableC0314a(this, optInt, optInt2));
-                    return new iy1(0);
-                }
-                h32.c("PageScrollToApi", "illegal scrollTop or duration");
-                return new iy1(1001, "illegal params");
-            }
-            return (iy1) invokeLLL.objValue;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LoadingViewApi" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fv1(@NonNull ju1 ju1Var) {
-        super(ju1Var);
+    public fv1(@NonNull mu1 mu1Var) {
+        super(mu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ju1Var};
+            Object[] objArr = {mu1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ju1) newInitContext.callArgs[0]);
+                super((mu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -169,29 +45,74 @@ public class fv1 extends bv1 {
         }
     }
 
-    public static int A(@NonNull ps1 ps1Var, int i) {
-        InterceptResult invokeLI;
+    public ly1 y() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, ps1Var, i)) == null) {
-            int contentHeight = ((int) (ps1Var.getContentHeight() * ps1Var.getScale())) - ((Integer) ur2.V().s().second).intValue();
-            if (contentHeight <= 0) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            r("#hideLoading", false);
+            Context i = i();
+            if (!(i instanceof SwanAppActivity)) {
+                return new ly1(1001, "context not support");
             }
-            if (i > contentHeight) {
-                return contentHeight;
+            t52 Y = ((SwanAppActivity) i).Y();
+            if (Y == null) {
+                return new ly1(1001, "none fragmentManger");
             }
-            return i;
+            q52 m = Y.m();
+            if (!(m instanceof r53.a)) {
+                return new ly1(1001, "fragment not support");
+            }
+            if (m.z() == null) {
+                return new ly1(1001, "fragment has detached");
+            }
+            s53.c(m);
+            k32.i("LoadingViewApi", "hide loading success");
+            return ly1.f();
         }
-        return invokeLI.intValue;
+        return (ly1) invokeV.objValue;
     }
 
-    public iy1 B(String str) {
+    public ly1 z(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            r("#pageScrollTo", false);
-            return m(str, false, new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            r("#showLoading", false);
+            if (o()) {
+                k32.c("LoadingViewApi", "LoadingViewApi does not supported when app is invisible.");
+                return new ly1(1001, "LoadingViewApi does not supported when app is invisible.");
+            }
+            Pair<ly1, JSONObject> t = t(str);
+            ly1 ly1Var = (ly1) t.first;
+            if (!ly1Var.isSuccess()) {
+                return ly1Var;
+            }
+            JSONObject jSONObject = (JSONObject) t.second;
+            k32.i("LoadingViewApi", "handleShowLoading : joParams = \n" + jSONObject);
+            String optString = jSONObject.optString("title");
+            if (TextUtils.isEmpty(optString)) {
+                return new ly1(202, "none title");
+            }
+            boolean optBoolean = jSONObject.optBoolean("mask", false);
+            Context i = i();
+            if (!(i instanceof SwanAppActivity)) {
+                return new ly1(1001, "context not support");
+            }
+            t52 Y = ((SwanAppActivity) i).Y();
+            if (Y == null) {
+                return new ly1(1001, "none fragment");
+            }
+            q52 m = Y.m();
+            if (!(m instanceof r53.a)) {
+                return new ly1(1001, "fragment not support");
+            }
+            r53 floatLayer = ((r53.a) m).getFloatLayer();
+            if (floatLayer == null) {
+                return new ly1(1001, "can't get floatLayer");
+            }
+            s53.f(floatLayer, i, optString, optBoolean);
+            k32.i("LoadingViewApi", "show loading success");
+            return ly1.f();
         }
-        return (iy1) invokeL.objValue;
+        return (ly1) invokeL.objValue;
     }
 }

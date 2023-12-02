@@ -14,7 +14,6 @@ import com.baidu.livesdk.sdk.LiveSDK;
 import com.baidu.livesdk.sdk.im.live.MessageUtils;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
-import com.baidu.tieba.pic;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.ArrayList;
 import java.util.List;
@@ -312,9 +311,9 @@ public class LiveMessageParser {
                 messageBody.voice = voice;
             }
         }
-        if (!TextUtils.isEmpty(jSONObject.optString(pic.f))) {
+        if (!TextUtils.isEmpty(jSONObject.optString("pic"))) {
             try {
-                jSONObject5 = new JSONObject(jSONObject.optString(pic.f));
+                jSONObject5 = new JSONObject(jSONObject.optString("pic"));
             } catch (JSONException e5) {
                 e5.printStackTrace();
             }
@@ -556,7 +555,7 @@ public class LiveMessageParser {
                         jSONObject6.put("url", messageBody2.pic.thumbnail.url);
                         jSONObject4.put("origin", jSONObject5);
                         jSONObject4.put("thumbnail", jSONObject6);
-                        jSONObject2.put(pic.f, jSONObject4);
+                        jSONObject2.put("pic", jSONObject4);
                     }
                     if (liveMessageBean.message_body.voice != null) {
                         JSONObject jSONObject7 = new JSONObject();
@@ -601,7 +600,7 @@ public class LiveMessageParser {
                             jSONObject12.put("url", messageBody3.pic.thumbnail.url);
                             jSONObject10.put("thumbnail", jSONObject12);
                         }
-                        jSONObject8.put(pic.f, jSONObject10);
+                        jSONObject8.put("pic", jSONObject10);
                     }
                     if (messageBody3.voice != null) {
                         JSONObject jSONObject13 = new JSONObject();

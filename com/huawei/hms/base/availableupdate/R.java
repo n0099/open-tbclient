@@ -35,7 +35,7 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int enable_service_text = 0x7f090a61;
+        public static final int enable_service_text = 0x7f090a62;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

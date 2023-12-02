@@ -4,29 +4,22 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.PushStatus;
 import tbclient.PushType;
 /* loaded from: classes5.dex */
-public class c7d extends ltc {
+public class c7d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PushStatus pushStatus) {
+    public static JSONObject b(@NonNull PushType pushType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pushStatus)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pushType)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "status", pushStatus.status);
-            if (pushStatus.types != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (PushType pushType : pushStatus.types) {
-                    jSONArray.put(d7d.b(pushType));
-                }
-                ltc.a(jSONObject, "types", jSONArray);
-            }
+            ktc.a(jSONObject, "type", pushType.type);
+            ktc.a(jSONObject, "name", pushType.name);
+            ktc.a(jSONObject, "icon", pushType.icon);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

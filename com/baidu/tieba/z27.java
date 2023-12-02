@@ -1,119 +1,87 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.feed.component.DelegateNativeAdView;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class z27 implements mb7<DelegateNativeAdView, AdvertAppInfo> {
+public final class z27 {
     public static /* synthetic */ Interceptable $ic;
+    public static final View.OnClickListener a;
+    public static final View.OnClickListener b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ICardInfo a;
-    public final String b;
-    public final int c;
-    public TbPageContext<?> d;
-    public String e;
 
-    public z27(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948308138, "Lcom/baidu/tieba/z27;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948308138, "Lcom/baidu/tieba/z27;");
                 return;
             }
         }
-        this.a = y27.a(i);
-        this.b = y27.d(i);
-        this.c = i2;
-    }
+        a = new View.OnClickListener() { // from class: com.baidu.tieba.w27
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    public z27(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    z27.b(view2);
+                }
             }
-        }
-        this.a = y27.b(i, i2);
-        this.b = y27.e(i, i2);
-        this.c = i3;
+        };
+        b = new View.OnClickListener() { // from class: com.baidu.tieba.x27
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    z27.a(view2);
+                }
+            }
+        };
     }
 
-    @Override // com.baidu.tieba.mb7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            DelegateNativeAdView delegateNativeAdView = new DelegateNativeAdView(viewGroup.getContext(), this.d, this.a, this.c, this.e);
-            fd7.i(delegateNativeAdView, Integer.valueOf(fd7.e() - du.r));
-            return delegateNativeAdView;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mb7
-    /* renamed from: d */
-    public void b(@NonNull DelegateNativeAdView delegateNativeAdView, @NonNull AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, delegateNativeAdView, advertAppInfo) == null) {
-            delegateNativeAdView.a(advertAppInfo);
-        }
-    }
-
-    @Override // com.baidu.tieba.mb7
-    @NonNull
-    public String c() {
+    public static final View.OnClickListener c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (View.OnClickListener) invokeV.objValue;
     }
 
-    public z27 e(String str) {
-        InterceptResult invokeL;
+    public static final View.OnClickListener d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.e = str;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
         }
-        return (z27) invokeL.objValue;
+        return (View.OnClickListener) invokeV.objValue;
     }
 
-    public z27 f(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public static final void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tbPageContext)) == null) {
-            this.d = tbPageContext;
-            return this;
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            br6.b().c(new w95("frs_fun_ad", null));
         }
-        return (z27) invokeL.objValue;
+    }
+
+    public static final void b(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, view2) == null) {
+            br6.b().c(new w95("recommend_fun_ad", null));
+        }
     }
 }

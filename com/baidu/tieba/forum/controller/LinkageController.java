@@ -22,17 +22,13 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.widget.FRSRefreshButton;
 import com.baidu.tbadk.widget.OvalActionButton;
-import com.baidu.tieba.af7;
 import com.baidu.tieba.ar6;
-import com.baidu.tieba.bf7;
 import com.baidu.tieba.bi7;
-import com.baidu.tieba.cf7;
-import com.baidu.tieba.ci7;
-import com.baidu.tieba.cp7;
-import com.baidu.tieba.df7;
+import com.baidu.tieba.br6;
 import com.baidu.tieba.ef7;
-import com.baidu.tieba.ei7;
-import com.baidu.tieba.en7;
+import com.baidu.tieba.er6;
+import com.baidu.tieba.ff7;
+import com.baidu.tieba.fi7;
 import com.baidu.tieba.forum.ForumActivity;
 import com.baidu.tieba.forum.ForumLog;
 import com.baidu.tieba.forum.controller.LinkageController;
@@ -46,22 +42,26 @@ import com.baidu.tieba.forum.viewmodel.ForumViewModel;
 import com.baidu.tieba.forum.viewmodel.TopViewModel;
 import com.baidu.tieba.forum.widget.TbLinkageScrollView;
 import com.baidu.tieba.forum.widget.TbNestedScrollView;
-import com.baidu.tieba.gm7;
+import com.baidu.tieba.gf7;
+import com.baidu.tieba.gi7;
+import com.baidu.tieba.gp7;
 import com.baidu.tieba.hf7;
+import com.baidu.tieba.if7;
+import com.baidu.tieba.ii7;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.tieba.jm7;
-import com.baidu.tieba.ki7;
+import com.baidu.tieba.in7;
 import com.baidu.tieba.km7;
+import com.baidu.tieba.lf7;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.ni7;
-import com.baidu.tieba.o87;
-import com.baidu.tieba.sh7;
-import com.baidu.tieba.si7;
-import com.baidu.tieba.uj7;
-import com.baidu.tieba.vo7;
-import com.baidu.tieba.wq6;
-import com.baidu.tieba.xh7;
-import com.baidu.tieba.xq6;
+import com.baidu.tieba.nm7;
+import com.baidu.tieba.oi7;
+import com.baidu.tieba.om7;
+import com.baidu.tieba.ri7;
+import com.baidu.tieba.s87;
+import com.baidu.tieba.wh7;
+import com.baidu.tieba.wi7;
+import com.baidu.tieba.yj7;
+import com.baidu.tieba.zo7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,45 +82,45 @@ import tbclient.FrsBottomSmartBgColor;
 import tbclient.FrsPage.ForumInfo;
 import tbclient.FrsPage.FrsBottom;
 @Metadata(d1 = {"\u0000·\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r*\u0001\f\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u00100\u001a\u00020\u00142\u0006\u00101\u001a\u000202H\u0002J\b\u00103\u001a\u00020\u0014H\u0002J\u0006\u00104\u001a\u00020\u0014J\u0012\u00105\u001a\u00020\u00142\b\b\u0002\u00106\u001a\u000207H\u0002J\u0006\u00108\u001a\u00020\u0014J\b\u00109\u001a\u00020\u0014H\u0002J\u0006\u0010:\u001a\u00020;J\b\u0010<\u001a\u00020\u0014H\u0002J\b\u0010=\u001a\u00020\u0014H\u0002J\"\u0010>\u001a\u00020\u00142\u0006\u0010?\u001a\u00020\"2\u0006\u0010@\u001a\u00020\"2\b\u0010A\u001a\u0004\u0018\u00010BH\u0016J\b\u0010C\u001a\u00020;H\u0016J\u0010\u0010D\u001a\u00020\u00142\u0006\u0010E\u001a\u00020\"H\u0016J\u0010\u0010F\u001a\u00020\u00142\u0006\u0010G\u001a\u00020HH\u0016J\u001a\u0010I\u001a\u00020\u00142\b\u0010J\u001a\u0004\u0018\u00010K2\u0006\u0010\t\u001a\u00020\nH\u0016J\b\u0010L\u001a\u00020\u0014H\u0016J\b\u0010M\u001a\u00020\u0014H\u0016J4\u0010N\u001a\u00020\u00142\u0006\u0010O\u001a\u00020\u000f2\u0010\b\u0002\u0010P\u001a\n\u0012\u0004\u0012\u00020\u0014\u0018\u00010\u00132\u0010\b\u0002\u0010Q\u001a\n\u0012\u0004\u0012\u00020\u0014\u0018\u00010\u0013H\u0002J\b\u0010R\u001a\u00020\u0014H\u0002J\b\u0010S\u001a\u00020\u0014H\u0002J\u0006\u0010T\u001a\u00020;J\u0006\u0010U\u001a\u00020\u0014J\b\u0010V\u001a\u00020\u0014H\u0002J\u0006\u0010W\u001a\u00020\u0014R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082D¢\u0006\u0002\n\u0000R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\rR\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u0012\u001a\n\u0012\u0004\u0012\u00020\u0014\u0018\u00010\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0017\u001a\u00020\u00188BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001b\u0010\u001c\u001a\u0004\b\u0019\u0010\u001aR\u0010\u0010\u001d\u001a\u0004\u0018\u00010\u001eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\"X\u0082\u000e¢\u0006\u0002\n\u0000R\u0018\u0010#\u001a\f\u0012\u0006\b\u0001\u0012\u00020%\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R>\u0010&\u001a2\u0012\u0013\u0012\u00110(¢\u0006\f\b)\u0012\b\b*\u0012\u0004\b\b(+\u0012\u0013\u0012\u00110,¢\u0006\f\b)\u0012\b\b*\u0012\u0004\b\b(-\u0012\u0004\u0012\u00020\u00140'X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010.\u001a\u000e\u0012\u0004\u0012\u00020\"\u0012\u0004\u0012\u00020\u00140/X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006X"}, d2 = {"Lcom/baidu/tieba/forum/controller/LinkageController;", "Lcom/baidu/tieba/forum/controller/BaseActivityController;", "activity", "Landroidx/fragment/app/FragmentActivity;", "(Landroidx/fragment/app/FragmentActivity;)V", "TAG", "", "getActivity", "()Landroidx/fragment/app/FragmentActivity;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", "bubbleClickListener", "com/baidu/tieba/forum/controller/LinkageController$bubbleClickListener$1", "Lcom/baidu/tieba/forum/controller/LinkageController$bubbleClickListener$1;", "cachedH5HeightWrapper", "Lcom/baidu/tieba/forum/event/H5HeightEvent$H5HeightWrapper;", "guideBubble", "Lcom/baidu/tieba/forum/data/GuideBubbleData;", "initPositionInvoke", "Lkotlin/Function0;", "", "layoutStrategy", "Lcom/baidu/tieba/forum/strategy/ILinkageLayoutStrategy;", "linkageStatisticListener", "Lcom/baidu/tieba/forum/controller/LinkageStatisticController;", "getLinkageStatisticListener", "()Lcom/baidu/tieba/forum/controller/LinkageStatisticController;", "linkageStatisticListener$delegate", "Lkotlin/Lazy;", "linkageTouchController", "Lcom/baidu/tieba/forum/controller/LinkageTouchController;", "linkageView", "Lcom/baidu/tieba/forum/view/LinkageView;", "screenWidthDp", "", "secondFloorController", "Lcom/baidu/tieba/forum/secondfloor/SecondFloorController;", "Lcom/baidu/tieba/forum/secondfloor/ISecondFloorData;", "setViewVisibilityByOpacity", "Lkotlin/Function2;", "Landroid/view/View;", "Lkotlin/ParameterName;", "name", "view", "", NativeConstants.OPACITY, "topContentVisibleHeightChangeListener", "Lkotlin/Function1;", "anchorToChatroom", "params", "Lorg/json/JSONObject;", "checkNeedShowShake", "enableTopSheetScroll", "expandSecondFloorInternal", DelayTB.DELAY, "", "hideSecondFloor", "initSecondFloor", "isTopScrollState", "", "notifyRefreshBtnOpacity", "notifyWriteBtnOpacity", "onActivityResultOK", AiBotChatDispatcher.AI_SINGLE_REQUEST_CODE, "resultCode", "data", "Landroid/content/Intent;", "onBackPressed", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, "onResume", "processLayoutStrategy", "wrapper", "afterInflated", "afterInitPosInvoke", "registerBubbleLiveEvent", "registerH5Events", "scrollToTop", "scrollToTopAndDisableTopSheetScroll", "showBubbleAfterPosAnchored", "showSecondFloor", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes6.dex */
-public final class LinkageController extends sh7 {
+/* loaded from: classes5.dex */
+public final class LinkageController extends wh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity b;
     public final String c;
-    public vo7 d;
+    public zo7 d;
     public ActivityForumBinding e;
     public int f;
-    public uj7.a g;
-    public en7 h;
-    public ci7 i;
-    public jm7<? extends gm7> j;
+    public yj7.a g;
+    public in7 h;
+    public gi7 i;
+    public nm7<? extends km7> j;
     public final Lazy k;
     public final a l;
-    public si7 m;
+    public wi7 m;
     public Function0<Unit> n;
     public final Function1<Integer, Unit> o;
     public final Function2<View, Float, Unit> p;
 
-    /* loaded from: classes6.dex */
-    public static final class f extends ar6<uj7> {
+    /* loaded from: classes5.dex */
+    public static final class f extends er6<yj7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkageController b;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static final class a implements Function0<Unit> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LinkageController a;
-            public final /* synthetic */ uj7 b;
+            public final /* synthetic */ yj7 b;
 
-            public a(LinkageController linkageController, uj7 uj7Var) {
+            public a(LinkageController linkageController, yj7 yj7Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {linkageController, uj7Var};
+                    Object[] objArr = {linkageController, yj7Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -131,17 +131,17 @@ public final class LinkageController extends sh7 {
                     }
                 }
                 this.a = linkageController;
-                this.b = uj7Var;
+                this.b = yj7Var;
             }
 
-            public static final void b(LinkageController this$0, uj7 event) {
+            public static final void b(LinkageController this$0, yj7 event) {
                 String str;
                 ForumInfo d;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(65537, null, this$0, event) == null) {
                     Intrinsics.checkNotNullParameter(this$0, "this$0");
                     Intrinsics.checkNotNullParameter(event, "$event");
-                    ki7 value = ((BottomViewModel) new ViewModelProvider(this$0.I()).get(BottomViewModel.class)).a().getValue();
+                    oi7 value = ((BottomViewModel) new ViewModelProvider(this$0.I()).get(BottomViewModel.class)).a().getValue();
                     if (value != null && (d = value.d()) != null) {
                         str = d.name;
                     } else {
@@ -153,7 +153,7 @@ public final class LinkageController extends sh7 {
                     TbLog b = ForumLog.b.b();
                     String str2 = this$0.c;
                     b.i(str2, "吧: " + str + " | 准备展现，是否是FE通知 -> " + event.a());
-                    xh7.i(this$0.I()).J();
+                    bi7.i(this$0.I()).J();
                     this$0.E();
                 }
             }
@@ -163,8 +163,8 @@ public final class LinkageController extends sh7 {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     SafeHandler inst = SafeHandler.getInst();
                     final LinkageController linkageController = this.a;
-                    final uj7 uj7Var = this.b;
-                    inst.post(new Runnable() { // from class: com.baidu.tieba.hg7
+                    final yj7 yj7Var = this.b;
+                    inst.post(new Runnable() { // from class: com.baidu.tieba.lg7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -172,7 +172,7 @@ public final class LinkageController extends sh7 {
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                LinkageController.f.a.b(LinkageController.this, uj7Var);
+                                LinkageController.f.a.b(LinkageController.this, yj7Var);
                             }
                         }
                     });
@@ -188,7 +188,7 @@ public final class LinkageController extends sh7 {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(LinkageController linkageController, Class<uj7> cls) {
+        public f(LinkageController linkageController, Class<yj7> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -209,11 +209,11 @@ public final class LinkageController extends sh7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ar6
-        public void onEvent(uj7 event) {
+        @Override // com.baidu.tieba.er6
+        public void onEvent(yj7 event) {
             ForumActivity forumActivity;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
                 FragmentActivity I = this.b.I();
                 BdUniqueId bdUniqueId = null;
@@ -234,8 +234,8 @@ public final class LinkageController extends sh7 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a implements af7 {
+    /* loaded from: classes5.dex */
+    public static final class a implements ef7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkageController a;
@@ -258,13 +258,13 @@ public final class LinkageController extends sh7 {
             this.a = linkageController;
         }
 
-        @Override // com.baidu.tieba.af7
-        public void a(df7 data) {
+        @Override // com.baidu.tieba.ef7
+        public void a(hf7 data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
                 this.a.D(new JSONObject());
-                hf7 c = data.c();
+                lf7 c = data.c();
                 if (c == null) {
                     return;
                 }
@@ -285,7 +285,7 @@ public final class LinkageController extends sh7 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class b implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -327,8 +327,8 @@ public final class LinkageController extends sh7 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class c implements cp7 {
+    /* loaded from: classes5.dex */
+    public static final class c implements gp7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkageController a;
@@ -351,20 +351,20 @@ public final class LinkageController extends sh7 {
             this.a = linkageController;
         }
 
-        @Override // com.baidu.tieba.cp7
+        @Override // com.baidu.tieba.gp7
         public void a(MotionEvent e) {
-            jm7 jm7Var;
+            nm7 nm7Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, e) == null) {
                 Intrinsics.checkNotNullParameter(e, "e");
-                if (e.getAction() == 0 && (jm7Var = this.a.j) != null) {
-                    jm7Var.h();
+                if (e.getAction() == 0 && (nm7Var = this.a.j) != null) {
+                    nm7Var.h();
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class d implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -393,12 +393,12 @@ public final class LinkageController extends sh7 {
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            vo7 vo7Var = this.a.d;
-            if (vo7Var == null) {
+            zo7 zo7Var = this.a.d;
+            if (zo7Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("linkageView");
-                vo7Var = null;
+                zo7Var = null;
             }
-            vo7Var.i();
+            zo7Var.i();
         }
 
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -409,14 +409,14 @@ public final class LinkageController extends sh7 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class e extends ar6<o87> {
+    /* loaded from: classes5.dex */
+    public static final class e extends er6<s87> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkageController b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(LinkageController linkageController, Class<o87> cls) {
+        public e(LinkageController linkageController, Class<s87> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -437,10 +437,10 @@ public final class LinkageController extends sh7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ar6
-        public void onEvent(o87 event) {
+        @Override // com.baidu.tieba.er6
+        public void onEvent(s87 event) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
                 if (Intrinsics.areEqual(event.a(), this.b.I())) {
                     if (event.c()) {
@@ -453,8 +453,8 @@ public final class LinkageController extends sh7 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class g implements af7 {
+    /* loaded from: classes5.dex */
+    public static final class g implements ef7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkageController a;
@@ -477,31 +477,31 @@ public final class LinkageController extends sh7 {
             this.a = linkageController;
         }
 
-        @Override // com.baidu.tieba.af7
-        public void a(df7 data) {
+        @Override // com.baidu.tieba.ef7
+        public void a(hf7 data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
                 this.a.l.a(data);
-                vo7 vo7Var = this.a.d;
-                vo7 vo7Var2 = null;
-                if (vo7Var == null) {
+                zo7 zo7Var = this.a.d;
+                zo7 zo7Var2 = null;
+                if (zo7Var == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("linkageView");
-                    vo7Var = null;
+                    zo7Var = null;
                 }
-                vo7Var.h();
-                vo7 vo7Var3 = this.a.d;
-                if (vo7Var3 == null) {
+                zo7Var.h();
+                zo7 zo7Var3 = this.a.d;
+                if (zo7Var3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("linkageView");
                 } else {
-                    vo7Var2 = vo7Var3;
+                    zo7Var2 = zo7Var3;
                 }
-                vo7Var2.d();
+                zo7Var2.d();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class h implements Function1<Integer, Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -562,7 +562,7 @@ public final class LinkageController extends sh7 {
         this.b = activity;
         this.c = "LinkageController";
         this.f = activity.getResources().getConfiguration().screenWidthDp;
-        this.k = LazyKt__LazyJVMKt.lazy(new Function0<bi7>(this) { // from class: com.baidu.tieba.forum.controller.LinkageController$linkageStatisticListener$2
+        this.k = LazyKt__LazyJVMKt.lazy(new Function0<fi7>(this) { // from class: com.baidu.tieba.forum.controller.LinkageController$linkageStatisticListener$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LinkageController this$0;
@@ -591,13 +591,13 @@ public final class LinkageController extends sh7 {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final bi7 invoke() {
+            public final fi7 invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return xh7.h(this.this$0.I());
+                    return bi7.h(this.this$0.I());
                 }
-                return (bi7) invokeV.objValue;
+                return (fi7) invokeV.objValue;
             }
         });
         this.l = new a(this);
@@ -606,7 +606,7 @@ public final class LinkageController extends sh7 {
         this.p = LinkageController$setViewVisibilityByOpacity$1.INSTANCE;
     }
 
-    @Override // com.baidu.tieba.sh7
+    @Override // com.baidu.tieba.wh7
     public void j(Configuration newConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, newConfig) == null) {
@@ -615,7 +615,7 @@ public final class LinkageController extends sh7 {
             int i2 = newConfig.screenWidthDp;
             if (i != i2) {
                 this.f = i2;
-                final uj7.a aVar = this.g;
+                final yj7.a aVar = this.g;
                 if (aVar != null) {
                     ActivityForumBinding activityForumBinding = this.e;
                     ActivityForumBinding activityForumBinding2 = null;
@@ -641,8 +641,8 @@ public final class LinkageController extends sh7 {
                     }
                     NavigationBar navigationBar = activityForumBinding2.p;
                     Intrinsics.checkNotNullExpressionValue(navigationBar, "binding.navBar");
-                    ei7.a(navigationBar, 0.0f);
-                    SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.gg7
+                    ii7.a(navigationBar, 0.0f);
+                    SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.kg7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -659,12 +659,12 @@ public final class LinkageController extends sh7 {
         }
     }
 
-    public static final void T(LinkageController this$0, si7 si7Var) {
+    public static final void T(LinkageController this$0, wi7 wi7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, this$0, si7Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(65543, null, this$0, wi7Var) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.m = si7Var;
-            if (si7Var != null && this$0.n != null) {
+            this$0.m = wi7Var;
+            if (wi7Var != null && this$0.n != null) {
                 this$0.Y();
             }
         }
@@ -674,9 +674,9 @@ public final class LinkageController extends sh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            jm7<? extends gm7> jm7Var = this$0.j;
-            if (jm7Var != null) {
-                jm7Var.f();
+            nm7<? extends km7> nm7Var = this$0.j;
+            if (nm7Var != null) {
+                nm7Var.f();
             }
         }
     }
@@ -684,7 +684,7 @@ public final class LinkageController extends sh7 {
     public final void D(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            xh7.c(this.b).p("frsPageNa.anchorToChatroom", jSONObject);
+            bi7.c(this.b).p("frsPageNa.anchorToChatroom", jSONObject);
         }
     }
 
@@ -692,14 +692,14 @@ public final class LinkageController extends sh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
             if (j == 0) {
-                jm7<? extends gm7> jm7Var = this.j;
-                if (jm7Var != null) {
-                    jm7Var.f();
+                nm7<? extends km7> nm7Var = this.j;
+                if (nm7Var != null) {
+                    nm7Var.f();
                     return;
                 }
                 return;
             }
-            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.tg7
+            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.xg7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -714,25 +714,25 @@ public final class LinkageController extends sh7 {
         }
     }
 
-    @Override // com.baidu.tieba.sh7
+    @Override // com.baidu.tieba.wh7
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             super.i(i);
-            vo7 vo7Var = this.d;
-            if (vo7Var == null) {
+            zo7 zo7Var = this.d;
+            if (zo7Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("linkageView");
-                vo7Var = null;
+                zo7Var = null;
             }
-            vo7Var.f(i);
-            jm7<? extends gm7> jm7Var = this.j;
-            if (jm7Var != null) {
-                jm7Var.k();
+            zo7Var.f(i);
+            nm7<? extends km7> nm7Var = this.j;
+            if (nm7Var != null) {
+                nm7Var.k();
             }
         }
     }
 
-    public static final void P(LinkageController this$0, uj7.a this_run) {
+    public static final void P(LinkageController this$0, yj7.a this_run) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, this_run) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -744,7 +744,7 @@ public final class LinkageController extends sh7 {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.forum.controller.LinkageController */
     /* JADX WARN: Multi-variable type inference failed */
-    public static /* synthetic */ void R(LinkageController linkageController, uj7.a aVar, Function0 function0, Function0 function02, int i, Object obj) {
+    public static /* synthetic */ void R(LinkageController linkageController, yj7.a aVar, Function0 function0, Function0 function02, int i, Object obj) {
         if ((i & 2) != 0) {
             function0 = null;
         }
@@ -760,9 +760,9 @@ public final class LinkageController extends sh7 {
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !TbadkCoreApplication.isLogin() || SharedPrefHelper.getInstance().getBoolean("key_frs_ai_second_floor_shake", false)) {
             return;
         }
-        jm7<? extends gm7> jm7Var = this.j;
-        if (jm7Var != null) {
-            bool = Boolean.valueOf(jm7Var.g());
+        nm7<? extends km7> nm7Var = this.j;
+        if (nm7Var != null) {
+            bool = Boolean.valueOf(nm7Var.g());
         } else {
             bool = null;
         }
@@ -776,7 +776,7 @@ public final class LinkageController extends sh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             ActivityForumBinding activityForumBinding = this.e;
-            vo7 vo7Var = null;
+            zo7 zo7Var = null;
             if (activityForumBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 activityForumBinding = null;
@@ -784,13 +784,13 @@ public final class LinkageController extends sh7 {
             TbLinkageScrollView tbLinkageScrollView = activityForumBinding.m;
             Intrinsics.checkNotNullExpressionValue(tbLinkageScrollView, "binding.linkageView");
             TbNestedScrollView.E(tbLinkageScrollView, 0, 0, null, 6, null);
-            vo7 vo7Var2 = this.d;
-            if (vo7Var2 == null) {
+            zo7 zo7Var2 = this.d;
+            if (zo7Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("linkageView");
             } else {
-                vo7Var = vo7Var2;
+                zo7Var = zo7Var2;
             }
-            if (vo7Var.h()) {
+            if (zo7Var.h()) {
                 j = 50;
             } else {
                 j = 0;
@@ -802,12 +802,12 @@ public final class LinkageController extends sh7 {
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            vo7 vo7Var = this.d;
-            if (vo7Var == null) {
+            zo7 zo7Var = this.d;
+            if (zo7Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("linkageView");
-                vo7Var = null;
+                zo7Var = null;
             }
-            vo7Var.e();
+            zo7Var.e();
         }
     }
 
@@ -820,20 +820,20 @@ public final class LinkageController extends sh7 {
         return (FragmentActivity) invokeV.objValue;
     }
 
-    public final bi7 J() {
+    public final fi7 J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return (bi7) this.k.getValue();
+            return (fi7) this.k.getValue();
         }
-        return (bi7) invokeV.objValue;
+        return (fi7) invokeV.objValue;
     }
 
     public final void K() {
-        jm7<? extends gm7> jm7Var;
+        nm7<? extends km7> nm7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (jm7Var = this.j) != null) {
-            jm7Var.e();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (nm7Var = this.j) != null) {
+            nm7Var.e();
         }
     }
 
@@ -841,8 +841,8 @@ public final class LinkageController extends sh7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            en7 en7Var = this.h;
-            if (en7Var != null && en7Var.M() == 1) {
+            in7 in7Var = this.h;
+            if (in7Var != null && in7Var.M() == 1) {
                 return true;
             }
             return false;
@@ -851,9 +851,9 @@ public final class LinkageController extends sh7 {
     }
 
     public final void N() {
-        en7 en7Var;
+        in7 in7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (en7Var = this.h) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (in7Var = this.h) != null) {
             Function2<View, Float, Unit> function2 = this.p;
             ActivityForumBinding activityForumBinding = this.e;
             if (activityForumBinding == null) {
@@ -862,14 +862,14 @@ public final class LinkageController extends sh7 {
             }
             FRSRefreshButton fRSRefreshButton = activityForumBinding.l;
             Intrinsics.checkNotNullExpressionValue(fRSRefreshButton, "binding.frsRefreshForumButton");
-            function2.invoke(fRSRefreshButton, Float.valueOf(en7Var.I()));
+            function2.invoke(fRSRefreshButton, Float.valueOf(in7Var.I()));
         }
     }
 
     public final void O() {
-        en7 en7Var;
+        in7 in7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (en7Var = this.h) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (in7Var = this.h) != null) {
             Function2<View, Float, Unit> function2 = this.p;
             ActivityForumBinding activityForumBinding = this.e;
             if (activityForumBinding == null) {
@@ -878,14 +878,14 @@ public final class LinkageController extends sh7 {
             }
             OvalActionButton ovalActionButton = activityForumBinding.k;
             Intrinsics.checkNotNullExpressionValue(ovalActionButton, "binding.frsPostForumButton");
-            function2.invoke(ovalActionButton, Float.valueOf(en7Var.I()));
+            function2.invoke(ovalActionButton, Float.valueOf(in7Var.I()));
         }
     }
 
     public final void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).c().observe(this.b, new Observer() { // from class: com.baidu.tieba.fh7
+            ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).c().observe(this.b, new Observer() { // from class: com.baidu.tieba.jh7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -893,7 +893,7 @@ public final class LinkageController extends sh7 {
                 public final void onChanged(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        LinkageController.T(LinkageController.this, (si7) obj);
+                        LinkageController.T(LinkageController.this, (wi7) obj);
                     }
                 }
             });
@@ -903,7 +903,7 @@ public final class LinkageController extends sh7 {
     public final void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            xq6.b().b(new wq6(f(), Reflection.getOrCreateKotlinClass(uj7.class)), new f(this, uj7.class));
+            br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(yj7.class)), new f(this, yj7.class));
         }
     }
 
@@ -911,12 +911,12 @@ public final class LinkageController extends sh7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            vo7 vo7Var = this.d;
-            if (vo7Var == null) {
+            zo7 zo7Var = this.d;
+            if (zo7Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("linkageView");
-                vo7Var = null;
+                zo7Var = null;
             }
-            return vo7Var.i();
+            return zo7Var.i();
         }
         return invokeV.booleanValue;
     }
@@ -924,23 +924,23 @@ public final class LinkageController extends sh7 {
     public final void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            vo7 vo7Var = this.d;
-            if (vo7Var == null) {
+            zo7 zo7Var = this.d;
+            if (zo7Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("linkageView");
-                vo7Var = null;
+                zo7Var = null;
             }
-            vo7Var.j();
+            zo7Var.j();
         }
     }
 
-    @Override // com.baidu.tieba.sh7
+    @Override // com.baidu.tieba.wh7
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            jm7<? extends gm7> jm7Var = this.j;
+            nm7<? extends km7> nm7Var = this.j;
             boolean z = false;
-            if (jm7Var != null && jm7Var.j()) {
+            if (nm7Var != null && nm7Var.j()) {
                 z = true;
             }
             if (z) {
@@ -951,36 +951,36 @@ public final class LinkageController extends sh7 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sh7
+    @Override // com.baidu.tieba.wh7
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.l();
-            vo7 vo7Var = this.d;
-            if (vo7Var == null) {
+            zo7 zo7Var = this.d;
+            if (zo7Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("linkageView");
-                vo7Var = null;
+                zo7Var = null;
             }
-            vo7Var.g();
-            jm7<? extends gm7> jm7Var = this.j;
-            if (jm7Var != null) {
-                jm7Var.l();
+            zo7Var.g();
+            nm7<? extends km7> nm7Var = this.j;
+            if (nm7Var != null) {
+                nm7Var.l();
             }
-            ci7 ci7Var = this.i;
-            if (ci7Var != null) {
-                ci7Var.e();
+            gi7 gi7Var = this.i;
+            if (gi7Var != null) {
+                gi7Var.e();
             }
         }
     }
 
-    @Override // com.baidu.tieba.sh7
+    @Override // com.baidu.tieba.wh7
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.n();
-            jm7<? extends gm7> jm7Var = this.j;
-            if (jm7Var != null) {
-                jm7Var.m();
+            nm7<? extends km7> nm7Var = this.j;
+            if (nm7Var != null) {
+                nm7Var.m();
             }
         }
     }
@@ -988,19 +988,19 @@ public final class LinkageController extends sh7 {
     public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            jm7<? extends gm7> jm7Var = this.j;
-            if (jm7Var != null) {
-                jm7Var.l();
+            nm7<? extends km7> nm7Var = this.j;
+            if (nm7Var != null) {
+                nm7Var.l();
             }
             FragmentActivity fragmentActivity = this.b;
             ActivityForumBinding activityForumBinding = this.e;
-            jm7<? extends gm7> jm7Var2 = null;
+            nm7<? extends km7> nm7Var2 = null;
             ActivityForumBinding activityForumBinding2 = null;
             if (activityForumBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 activityForumBinding = null;
             }
-            jm7<? extends gm7> b2 = km7.b(fragmentActivity, activityForumBinding, this.h, km7.d(this.b));
+            nm7<? extends km7> b2 = om7.b(fragmentActivity, activityForumBinding, this.h, om7.d(this.b));
             if (b2 != null) {
                 ActivityForumBinding activityForumBinding3 = this.e;
                 if (activityForumBinding3 == null) {
@@ -1009,21 +1009,21 @@ public final class LinkageController extends sh7 {
                     activityForumBinding2 = activityForumBinding3;
                 }
                 activityForumBinding2.t.I(new c(this));
-                jm7Var2 = b2;
+                nm7Var2 = b2;
             }
-            this.j = jm7Var2;
+            this.j = nm7Var2;
         }
     }
 
-    public final void Q(uj7.a aVar, Function0<Unit> function0, Function0<Unit> function02) {
+    public final void Q(yj7.a aVar, Function0<Unit> function0, Function0<Unit> function02) {
         String str;
         BaseLayoutStrategy nonFullWebLayoutStrategy;
         FrsBottom e2;
         FrsBottomSmartBgColor frsBottomSmartBgColor;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, aVar, function0, function02) == null) {
-            ki7 value = ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a().getValue();
-            vo7 vo7Var = null;
+            oi7 value = ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a().getValue();
+            zo7 zo7Var = null;
             if (value != null && (e2 = value.e()) != null && (frsBottomSmartBgColor = e2.frs_smart_bg_color) != null) {
                 str = frsBottomSmartBgColor.theme_color;
             } else {
@@ -1054,22 +1054,22 @@ public final class LinkageController extends sh7 {
             }
             ForumLog.b.b().i(this.c, "prepare layout strategy: " + nonFullWebLayoutStrategy);
             nonFullWebLayoutStrategy.R(str);
-            vo7 vo7Var2 = this.d;
-            if (vo7Var2 == null) {
+            zo7 zo7Var2 = this.d;
+            if (zo7Var2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("linkageView");
             } else {
-                vo7Var = vo7Var2;
+                zo7Var = zo7Var2;
             }
-            vo7Var.b(nonFullWebLayoutStrategy, function0);
+            zo7Var.b(nonFullWebLayoutStrategy, function0);
             nonFullWebLayoutStrategy.S(this.o);
             nonFullWebLayoutStrategy.N(J());
-            ci7 ci7Var = this.i;
-            if (ci7Var != null) {
-                ci7Var.e();
+            gi7 gi7Var = this.i;
+            if (gi7Var != null) {
+                gi7Var.e();
             }
-            ci7 ci7Var2 = new ci7(this.b, nonFullWebLayoutStrategy.i(), nonFullWebLayoutStrategy);
-            this.i = ci7Var2;
-            ci7Var2.d();
+            gi7 gi7Var2 = new gi7(this.b, nonFullWebLayoutStrategy.i(), nonFullWebLayoutStrategy);
+            this.i = gi7Var2;
+            gi7Var2.d();
             this.h = nonFullWebLayoutStrategy;
             L();
         }
@@ -1080,31 +1080,31 @@ public final class LinkageController extends sh7 {
         final int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            final si7 si7Var = this.m;
-            if (si7Var != null) {
-                bf7.a b2 = cf7.b(si7Var.b());
+            final wi7 wi7Var = this.m;
+            if (wi7Var != null) {
+                ff7.a b2 = gf7.b(wi7Var.b());
                 b2.d(new g(this));
-                final bf7 a2 = b2.a();
-                ni7 value = ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().getValue();
+                final ff7 a2 = b2.a();
+                ri7 value = ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().getValue();
                 if (value == null) {
                     return;
                 }
                 Intrinsics.checkNotNullExpressionValue(value, "ViewModelProvider(activi…mLiveData.value ?: return");
-                int b3 = si7Var.b();
+                int b3 = wi7Var.b();
                 if (b3 != 0) {
                     if (b3 != 1) {
                         if (b3 != 2) {
                             i = 0;
                             final long e2 = value.e();
                             final String f2 = value.f();
-                            ef7.a.a(String.valueOf(e2), si7Var.b(), new Function1<Integer, Unit>(this, i, e2, f2, si7Var, a2) { // from class: com.baidu.tieba.forum.controller.LinkageController$showBubbleAfterPosAnchored$1$1
+                            if7.a.a(String.valueOf(e2), wi7Var.b(), new Function1<Integer, Unit>(this, i, e2, f2, wi7Var, a2) { // from class: com.baidu.tieba.forum.controller.LinkageController$showBubbleAfterPosAnchored$1$1
                                 public static /* synthetic */ Interceptable $ic;
-                                public final /* synthetic */ bf7 $config;
+                                public final /* synthetic */ ff7 $config;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ long $fid;
                                 public final /* synthetic */ String $fname;
                                 public final /* synthetic */ int $frequencyLimit;
-                                public final /* synthetic */ si7 $this_run;
+                                public final /* synthetic */ wi7 $this_run;
                                 public final /* synthetic */ LinkageController this$0;
 
                                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -1114,7 +1114,7 @@ public final class LinkageController extends sh7 {
                                     if (interceptable2 != null) {
                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                         newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, Integer.valueOf(i), Long.valueOf(e2), f2, si7Var, a2};
+                                        Object[] objArr = {this, Integer.valueOf(i), Long.valueOf(e2), f2, wi7Var, a2};
                                         interceptable2.invokeUnInit(65536, newInitContext);
                                         int i2 = newInitContext.flag;
                                         if ((i2 & 1) != 0) {
@@ -1129,7 +1129,7 @@ public final class LinkageController extends sh7 {
                                     this.$frequencyLimit = i;
                                     this.$fid = e2;
                                     this.$fname = f2;
-                                    this.$this_run = si7Var;
+                                    this.$this_run = wi7Var;
                                     this.$config = a2;
                                 }
 
@@ -1146,14 +1146,14 @@ public final class LinkageController extends sh7 {
                                     if ((interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && !this.this$0.I().isFinishing() && !this.this$0.I().isDestroyed()) {
                                         int i3 = this.$frequencyLimit;
                                         if (i3 == 0 || i2 < i3) {
-                                            hf7 hf7Var = new hf7(String.valueOf(this.$fid), this.$fname, this.$this_run.b());
-                                            vo7 vo7Var = this.this$0.d;
-                                            if (vo7Var == null) {
+                                            lf7 lf7Var = new lf7(String.valueOf(this.$fid), this.$fname, this.$this_run.b());
+                                            zo7 zo7Var = this.this$0.d;
+                                            if (zo7Var == null) {
                                                 Intrinsics.throwUninitializedPropertyAccessException("linkageView");
-                                                vo7Var = null;
+                                                zo7Var = null;
                                             }
-                                            vo7Var.k(new df7(this.$this_run.a(), this.$config, hf7Var), true);
-                                            ef7.a.c(String.valueOf(this.$fid), this.$this_run.b(), i2 + 1);
+                                            zo7Var.k(new hf7(this.$this_run.a(), this.$config, lf7Var), true);
+                                            if7.a.c(String.valueOf(this.$fid), this.$this_run.b(), i2 + 1);
                                         }
                                     }
                                 }
@@ -1170,14 +1170,14 @@ public final class LinkageController extends sh7 {
                 i = j;
                 final long e22 = value.e();
                 final String f22 = value.f();
-                ef7.a.a(String.valueOf(e22), si7Var.b(), new Function1<Integer, Unit>(this, i, e22, f22, si7Var, a2) { // from class: com.baidu.tieba.forum.controller.LinkageController$showBubbleAfterPosAnchored$1$1
+                if7.a.a(String.valueOf(e22), wi7Var.b(), new Function1<Integer, Unit>(this, i, e22, f22, wi7Var, a2) { // from class: com.baidu.tieba.forum.controller.LinkageController$showBubbleAfterPosAnchored$1$1
                     public static /* synthetic */ Interceptable $ic;
-                    public final /* synthetic */ bf7 $config;
+                    public final /* synthetic */ ff7 $config;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ long $fid;
                     public final /* synthetic */ String $fname;
                     public final /* synthetic */ int $frequencyLimit;
-                    public final /* synthetic */ si7 $this_run;
+                    public final /* synthetic */ wi7 $this_run;
                     public final /* synthetic */ LinkageController this$0;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -1187,7 +1187,7 @@ public final class LinkageController extends sh7 {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = objArr;
-                            Object[] objArr = {this, Integer.valueOf(i), Long.valueOf(e22), f22, si7Var, a2};
+                            Object[] objArr = {this, Integer.valueOf(i), Long.valueOf(e22), f22, wi7Var, a2};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -1202,7 +1202,7 @@ public final class LinkageController extends sh7 {
                         this.$frequencyLimit = i;
                         this.$fid = e22;
                         this.$fname = f22;
-                        this.$this_run = si7Var;
+                        this.$this_run = wi7Var;
                         this.$config = a2;
                     }
 
@@ -1219,14 +1219,14 @@ public final class LinkageController extends sh7 {
                         if ((interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && !this.this$0.I().isFinishing() && !this.this$0.I().isDestroyed()) {
                             int i3 = this.$frequencyLimit;
                             if (i3 == 0 || i2 < i3) {
-                                hf7 hf7Var = new hf7(String.valueOf(this.$fid), this.$fname, this.$this_run.b());
-                                vo7 vo7Var = this.this$0.d;
-                                if (vo7Var == null) {
+                                lf7 lf7Var = new lf7(String.valueOf(this.$fid), this.$fname, this.$this_run.b());
+                                zo7 zo7Var = this.this$0.d;
+                                if (zo7Var == null) {
                                     Intrinsics.throwUninitializedPropertyAccessException("linkageView");
-                                    vo7Var = null;
+                                    zo7Var = null;
                                 }
-                                vo7Var.k(new df7(this.$this_run.a(), this.$config, hf7Var), true);
-                                ef7.a.c(String.valueOf(this.$fid), this.$this_run.b(), i2 + 1);
+                                zo7Var.k(new hf7(this.$this_run.a(), this.$config, lf7Var), true);
+                                if7.a.c(String.valueOf(this.$fid), this.$this_run.b(), i2 + 1);
                             }
                         }
                     }
@@ -1236,30 +1236,30 @@ public final class LinkageController extends sh7 {
         }
     }
 
-    @Override // com.baidu.tieba.sh7
+    @Override // com.baidu.tieba.wh7
     public void g(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048594, this, i, i2, intent) == null) {
             super.g(i, i2, intent);
-            jm7<? extends gm7> jm7Var = this.j;
-            if (jm7Var != null) {
-                jm7Var.i(i, i2, intent);
+            nm7<? extends km7> nm7Var = this.j;
+            if (nm7Var != null) {
+                nm7Var.i(i, i2, intent);
             }
         }
     }
 
-    @Override // com.baidu.tieba.sh7
+    @Override // com.baidu.tieba.wh7
     public void k(Bundle bundle, ActivityForumBinding binding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048598, this, bundle, binding) == null) {
             Intrinsics.checkNotNullParameter(binding, "binding");
             super.k(bundle, binding);
             this.e = binding;
-            this.d = new vo7(binding);
+            this.d = new zo7(binding);
             SecondFloorVisitHelper.a.d();
             U();
             S();
-            xq6.b().b(new wq6(f(), Reflection.getOrCreateKotlinClass(o87.class)), new e(this, o87.class));
+            br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(s87.class)), new e(this, s87.class));
         }
     }
 }

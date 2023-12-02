@@ -13,17 +13,18 @@ public final class e67 {
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
     public final String b;
+    public final String c;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof e67) {
                 e67 e67Var = (e67) obj;
-                return this.a == e67Var.a && Intrinsics.areEqual(this.b, e67Var.b);
+                return this.a == e67Var.a && Intrinsics.areEqual(this.b, e67Var.b) && Intrinsics.areEqual(this.c, e67Var.c);
             }
             return false;
         }
@@ -33,24 +34,31 @@ public final class e67 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a * 31) + this.b.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.a * 31;
+            String str = this.b;
+            int hashCode = (i + (str == null ? 0 : str.hashCode())) * 31;
+            String str2 = this.c;
+            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "DeleteThreadReason(id=" + this.a + ", info=" + this.b + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ColorData(type=" + this.a + ", day=" + this.b + ", dark=" + this.c + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public e67(int i, String info) {
+    public e67(int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), info};
+            Object[] objArr = {Integer.valueOf(i), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -60,18 +68,18 @@ public final class e67 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(info, "info");
         this.a = i;
-        this.b = info;
+        this.b = str;
+        this.c = str2;
     }
 
-    public final int a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
     public final String b() {
@@ -81,5 +89,14 @@ public final class e67 {
             return this.b;
         }
         return (String) invokeV.objValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

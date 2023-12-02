@@ -88,9 +88,9 @@ public final class a extends com.kwad.components.core.proxy.d {
 
     @Override // com.kwad.components.core.proxy.d
     public final void g(View view2) {
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09137b);
-        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091379);
-        TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09137e);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09137c);
+        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09137a);
+        TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09137f);
         final AdInfo dP = com.kwad.sdk.core.response.b.e.dP(this.mAdTemplate);
         String F = d.F(com.kwad.sdk.core.response.b.e.dP(this.mAdTemplate));
         if (F.equals("")) {

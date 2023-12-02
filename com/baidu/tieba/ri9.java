@@ -1,193 +1,104 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestItemViewHolder;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SearchSug.DataRes;
 /* loaded from: classes8.dex */
-public class ri9 extends ci<wi9, SearchSuggestItemViewHolder> {
+public class ri9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public BdTypeRecyclerView a;
+    public final List<ci> b;
+    public ti9 c;
+    public wi9 d;
+    public ui9 e;
+    public vi9 f;
+    public xi9 g;
 
-    /* loaded from: classes8.dex */
-    public class a implements zi {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ ri9 b;
-
-        public a(ri9 ri9Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ri9Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ri9Var;
-            this.a = context;
-        }
-
-        @Override // com.baidu.tieba.zi
-        public void b(View view2, pi piVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(piVar instanceof wi9)) {
-                return;
-            }
-            HashMap hashMap = new HashMap();
-            StringBuilder sb = new StringBuilder();
-            wi9 wi9Var = (wi9) piVar;
-            sb.append(wi9Var.b());
-            sb.append("");
-            hashMap.put("itemID", sb.toString());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "GameItemDetailsPage", hashMap)));
-            this.b.x(wi9Var);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ri9(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public ri9(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {context, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this, context));
+        this.b = new ArrayList();
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        a(context, bdTypeRecyclerView);
     }
 
-    public final void u(StatisticItem statisticItem, wi9 wi9Var) {
+    public final void a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, statisticItem, wi9Var) == null) {
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("item_id", wi9Var.b().longValue());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bdTypeRecyclerView) == null) {
+            this.c = new ti9(context, yi9.c);
+            this.d = new wi9(context, bj9.l);
+            this.e = new ui9(context, zi9.i);
+            this.f = new vi9(context, aj9.g);
+            this.g = new xi9(context, cj9.e);
+            this.b.add(this.c);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.b.add(this.f);
+            this.b.add(this.g);
+            this.a = bdTypeRecyclerView;
+            bdTypeRecyclerView.addAdapters(this.b);
         }
     }
 
-    public final void A(SearchSuggestItemViewHolder searchSuggestItemViewHolder) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, searchSuggestItemViewHolder) == null) {
-            EMManager.from(searchSuggestItemViewHolder.c).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X06);
-            EMManager.from(searchSuggestItemViewHolder.d).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X09);
-            EMManager.from(searchSuggestItemViewHolder.e).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X09);
-            SkinManager.setBackgroundResource(searchSuggestItemViewHolder.a, R.drawable.addresslist_item_bg);
-            EMManager.from(searchSuggestItemViewHolder.g).setBackGroundColor(R.color.CAM_X0203);
-        }
-    }
-
-    public final void B(wi9 wi9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wi9Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_ITEM_SHOW);
-            u(statisticItem, wi9Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void x(wi9 wi9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, wi9Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_ITEM_CLICK);
-            u(statisticItem, wi9Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: y */
-    public SearchSuggestItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            return new SearchSuggestItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08c1, viewGroup, false));
-        }
-        return (SearchSuggestItemViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.ci
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wi9 wi9Var, SearchSuggestItemViewHolder searchSuggestItemViewHolder) {
-        z(i, view2, viewGroup, wi9Var, searchSuggestItemViewHolder);
-        return view2;
-    }
-
-    public View z(int i, View view2, ViewGroup viewGroup, wi9 wi9Var, SearchSuggestItemViewHolder searchSuggestItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wi9Var, searchSuggestItemViewHolder})) == null) {
-            if (wi9Var == null) {
-                return view2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ti9 ti9Var = this.c;
+            if (ti9Var != null) {
+                ti9Var.notifyDataSetChanged();
             }
-            A(searchSuggestItemViewHolder);
-            searchSuggestItemViewHolder.b.setConrers(15);
-            searchSuggestItemViewHolder.b.setRadiusById(R.string.J_X06);
-            searchSuggestItemViewHolder.b.startLoad(wi9Var.a(), 10, false);
-            searchSuggestItemViewHolder.c.setText(wi9Var.c());
-            searchSuggestItemViewHolder.f.setStarSpacing(BdUtilHelper.getDimens(this.a, R.dimen.M_W_X002));
-            searchSuggestItemViewHolder.f.setStarCount(wi9Var.e().intValue());
-            TextView textView = searchSuggestItemViewHolder.d;
-            StringBuilder sb = new StringBuilder();
-            sb.append(wi9Var.d());
-            String str = "";
-            sb.append("");
-            textView.setText(sb.toString());
-            if (wi9Var.f() != null) {
-                for (String str2 : wi9Var.f()) {
-                    if (!StringUtils.isNull(str2)) {
-                        if (!StringUtils.isNull(str)) {
-                            str2 = str + " " + str2;
-                        }
-                        str = str2;
-                    }
-                }
+            wi9 wi9Var = this.d;
+            if (wi9Var != null) {
+                wi9Var.notifyDataSetChanged();
             }
-            searchSuggestItemViewHolder.e.setText(str);
-            B(wi9Var);
-            return view2;
+            ui9 ui9Var = this.e;
+            if (ui9Var != null) {
+                ui9Var.notifyDataSetChanged();
+            }
+            vi9 vi9Var = this.f;
+            if (vi9Var != null) {
+                vi9Var.notifyDataSetChanged();
+            }
+            xi9 xi9Var = this.g;
+            if (xi9Var != null) {
+                xi9Var.notifyDataSetChanged();
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void c(DataRes dataRes, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dataRes, str) != null) || this.a == null) {
+            return;
+        }
+        List<pi> a = dj9.a(dataRes, str);
+        if (!ListUtils.isEmpty(a)) {
+            this.a.setData(a);
+        }
     }
 }

@@ -1,45 +1,38 @@
 package com.baidu.tieba;
 
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dk5 implements zj5 {
+public class dk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dk5() {
+    public static ck5 a(View view2, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, view2, z)) == null) {
+            if (view2 == null) {
+                return null;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.zj5
-    public void a(View view2, View view3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) view2;
+            if (view2 instanceof LinearLayout) {
+                return new ek5();
+            }
+            if (view2 instanceof RelativeLayout) {
+                return new gk5();
+            }
+            if (!(view2 instanceof FrameLayout)) {
+                return null;
+            }
             if (z) {
-                relativeLayout.addView(view3, 0);
-            } else {
-                relativeLayout.addView(view3);
+                return new hk5();
             }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = -1;
-            layoutParams.addRule(14);
-            view3.setLayoutParams(layoutParams);
+            return new ak5();
         }
+        return (ck5) invokeLZ.objValue;
     }
 }

@@ -1,144 +1,131 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectAdapter;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectCategoryAdapter;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class me6 extends jl6<ed6> {
+public class me6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public TextView j;
-    public TextView k;
-    public HeadImageView l;
-    public HeadImageView m;
-    public HeadImageView n;
-    public ImageView o;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<ci> c;
+    public AlaEnterEffectAdapter d;
+    public AlaEnterEffectCategoryAdapter e;
+    public List<pi> f;
 
-    @Override // com.baidu.tieba.jl6
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0113 : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jl6
-    /* renamed from: s */
-    public void j(ed6 ed6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ed6Var) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public me6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public me6(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        r(i());
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        a();
     }
 
-    public void A(int i) {
-        View view2;
+    public void d(String str, int i) {
+        List<pi> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (view2 = this.i) != null) {
-            view2.setVisibility(i);
-        }
-    }
-
-    public void B(String str) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (textView = this.j) != null) {
-            textView.setText(str);
-        }
-    }
-
-    public void y(String str) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && (textView = this.k) != null) {
-            textView.setText(str);
-        }
-    }
-
-    public void z(int i) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && (imageView = this.o) != null) {
-            imageView.setVisibility(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.jl6
-    public void k(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            if (i == 1) {
-                this.o.setAlpha(0.7f);
-            } else {
-                this.o.setAlpha(1);
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) && !StringUtils.isNull(str) && (list = this.f) != null) {
+            for (pi piVar : list) {
+                if (piVar instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) piVar;
+                    if (alaEnterEffectData.type == 1 && str.equals(alaEnterEffectData.gift.giftId)) {
+                        alaEnterEffectData.downLoadStatus = i;
+                        b();
+                    }
+                }
             }
-            this.i.setBackgroundColor(SkinManager.getColor(i, (int) R.color.CAM_X0204));
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
         }
     }
 
-    public TextView p() {
-        InterceptResult invokeV;
+    public void e(String str, boolean z) {
+        List<pi> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            TextView textView = this.k;
-            if (textView != null) {
-                return textView;
+        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
+            for (pi piVar : list) {
+                if (piVar instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) piVar;
+                    if (str.equals(alaEnterEffectData.id)) {
+                        alaEnterEffectData.isOwn = z;
+                        b();
+                        return;
+                    }
+                }
             }
-            return null;
         }
-        return (TextView) invokeV.objValue;
     }
 
-    public final void r(View view2) {
+    public void f(String str, boolean z) {
+        List<pi> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f09024b);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09024c);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09024a);
-            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090246);
-            this.l = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090247);
-            this.m = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090248);
-            this.n = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090249);
+        if ((interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) && !TextUtils.isEmpty(str) && (list = this.f) != null) {
+            for (pi piVar : list) {
+                if (piVar instanceof AlaEnterEffectData) {
+                    AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) piVar;
+                    if (str.equals(alaEnterEffectData.id)) {
+                        alaEnterEffectData.use_status = z ? 1 : 0;
+                    } else {
+                        alaEnterEffectData.use_status = 0;
+                    }
+                    b();
+                }
+            }
         }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new ArrayList();
+            AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.a.getPageActivity());
+            this.d = alaEnterEffectAdapter;
+            this.c.add(alaEnterEffectAdapter);
+            AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.a.getPageActivity());
+            this.e = alaEnterEffectCategoryAdapter;
+            this.c.add(alaEnterEffectCategoryAdapter);
+            this.b.addAdapters(this.c);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (ci ciVar : this.c) {
+                ciVar.notifyDataSetChanged();
+            }
+        }
+    }
+
+    public void c(List<pi> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.b.setData(list);
+        this.f = this.b.getData();
     }
 }

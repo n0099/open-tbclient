@@ -5,20 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.WidthHeight;
+import tbclient.WindowToast;
 /* loaded from: classes7.dex */
-public class nbd extends ltc {
+public class nbd extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull WidthHeight widthHeight) {
+    public static JSONObject b(@NonNull WindowToast windowToast) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, widthHeight)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, windowToast)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "width", widthHeight.width);
-            ltc.a(jSONObject, "height", widthHeight.height);
+            ktc.a(jSONObject, "toast_type", windowToast.toast_type);
+            ktc.a(jSONObject, "toast_link", windowToast.toast_link);
+            ktc.a(jSONObject, "toast_content", windowToast.toast_content);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

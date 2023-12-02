@@ -5,10 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PayChannelEntity;
+import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,14 +18,14 @@ import java.util.List;
 public class ce1 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PayChannelEntity> a;
+    public List<InstallmentEntity> a;
     public Context b;
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             return 0L;
         }
         return invokeI.longValue;
@@ -36,9 +35,9 @@ public class ce1 extends BaseAdapter {
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
+        public TextView a;
         public TextView b;
-        public ImageView c;
+        public View c;
 
         public a(View view2) {
             Interceptable interceptable = $ic;
@@ -55,9 +54,9 @@ public class ce1 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091db4);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091db8);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091db9);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091c72);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c76);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c75);
         }
     }
 
@@ -82,32 +81,24 @@ public class ce1 extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public PayChannelEntity getItem(int i) {
+    public InstallmentEntity getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && i < this.a.size()) {
+            if (i < this.a.size()) {
                 return this.a.get(i);
             }
             return null;
         }
-        return (PayChannelEntity) invokeI.objValue;
-    }
-
-    public void b(List<PayChannelEntity> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-            notifyDataSetChanged();
-        }
+        return (InstallmentEntity) invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<PayChannelEntity> list = this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<InstallmentEntity> list = this.a;
             if (list == null) {
                 return 0;
             }
@@ -120,23 +111,31 @@ public class ce1 extends BaseAdapter {
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            PayChannelEntity item = getItem(i);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            InstallmentEntity item = getItem(i);
             if (item == null) {
                 return view2;
             }
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0280, (ViewGroup) null, false);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d07f5, (ViewGroup) null, false);
                 view2.setTag(new a(view2));
             }
             if (view2.getTag() != null && (view2.getTag() instanceof a)) {
                 a aVar = (a) view2.getTag();
-                cc1.b().a(aVar.a, item.getIcon());
-                aVar.b.setText(item.getDisplayName());
-                if (item.getIsSelected() == 1) {
-                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f0804db);
+                aVar.a.setText(item.getTitle());
+                aVar.b.setText(item.getPayText());
+                if (item.isChecked()) {
+                    aVar.a.setTextSize(1, 14.0f);
+                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f06094e));
+                    aVar.b.setTextSize(1, 10.0f);
+                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f06094e));
+                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811e7));
                 } else {
-                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f08159b);
+                    aVar.a.setTextSize(1, 14.0f);
+                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060b60));
+                    aVar.b.setTextSize(1, 10.0f);
+                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f06094f));
+                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811e6));
                 }
             }
             return view2;

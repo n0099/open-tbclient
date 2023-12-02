@@ -1,120 +1,92 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.UiSettings;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.RectF;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.ib4;
+import com.baidu.tieba.et2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class kb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements ib4.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pa4 a;
-
-        public a(pa4 pa4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pa4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pa4Var;
-        }
-
-        @Override // com.baidu.tieba.ib4.c
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h32.i("map", "location permission fail");
-            }
-        }
-
-        @Override // com.baidu.tieba.ib4.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.q(true);
-                h32.i("map", "location permission success");
-            }
-        }
-    }
-
-    public static void a(Context context, rb4 rb4Var, ts2 ts2Var, pa4 pa4Var) {
+    public static OverlayOptions a(ub4 ub4Var, tb4 tb4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, context, rb4Var, ts2Var, pa4Var) == null) {
-            b(context, rb4Var, ts2Var, pa4Var, false);
-        }
-    }
-
-    public static void b(Context context, rb4 rb4Var, ts2 ts2Var, pa4 pa4Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, rb4Var, ts2Var, pa4Var, Boolean.valueOf(z)}) == null) {
-            if (rb4Var != null && ts2Var != null && ts2Var.isValid()) {
-                BaiduMap map = rb4Var.l.getMap();
-                nb4 nb4Var = new nb4(rb4Var);
-                map.setOnMapClickListener(nb4Var);
-                map.setOnMarkerClickListener(nb4Var);
-                map.setOnMapLoadedCallback(nb4Var);
-                map.setOnMapRenderCallbadk(nb4Var);
-                map.setOnMapStatusChangeListener(nb4Var);
-                map.setOnMyLocationClickListener(nb4Var);
-                UiSettings uiSettings = map.getUiSettings();
-                uiSettings.setScrollGesturesEnabled(ts2Var.t);
-                uiSettings.setRotateGesturesEnabled(ts2Var.u);
-                uiSettings.setZoomGesturesEnabled(ts2Var.s);
-                rb4Var.l.showZoomControls(false);
-                rb4Var.l.showScaleControl(false);
-                map.setBuildingsEnabled(ts2Var.x);
-                uiSettings.setOverlookingGesturesEnabled(ts2Var.w);
-                at2 at2Var = ts2Var.j;
-                if (at2Var != null && at2Var.isValid()) {
-                    h32.i("map", "initMapView coordinate is " + ts2Var.j);
-                    at2 at2Var2 = ts2Var.j;
-                    map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(at2Var2.a, at2Var2.b)));
-                }
-                map.animateMapStatus(MapStatusUpdateFactory.zoomTo((float) ts2Var.k));
-                h32.i("map", "initMapView scale is " + ts2Var.k);
-                boolean z2 = ts2Var.r;
-                rb4Var.k = z2;
-                if (z2) {
-                    c(context, pa4Var);
-                } else {
-                    pa4Var.q(false);
-                    map.setMyLocationEnabled(false);
-                }
-                uiSettings.setCompassEnabled(ts2Var.v);
-                lb4.e(AppRuntime.getAppContext(), ts2Var, rb4Var);
-                lb4.d(ts2Var, rb4Var, nb4Var);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ub4Var, tb4Var)) == null) {
+            k32.i("map", "createLabel start");
+            if (tb4Var == null) {
+                return null;
             }
-            h32.c("map", "initMapView model is invalid");
+            et2 et2Var = tb4Var.a;
+            if (et2Var != null && et2Var.j != null && et2Var.b != null) {
+                Paint paint = new Paint();
+                paint.setAntiAlias(true);
+                paint.setStyle(Paint.Style.FILL_AND_STROKE);
+                paint.setColor(et2Var.j.b);
+                paint.setTextSize(et2Var.j.c);
+                et2.c cVar = et2Var.j;
+                float f = cVar.e;
+                float f2 = cVar.j;
+                Paint paint2 = new Paint();
+                paint2.setAntiAlias(true);
+                paint2.setStyle(Paint.Style.FILL_AND_STROKE);
+                paint2.setColor(et2Var.j.d);
+                String str = et2Var.j.a;
+                float f3 = f * 2.0f;
+                float measureText = paint.measureText(str) + f3;
+                float f4 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f3;
+                if (f4 > 0.0f && measureText > 0.0f) {
+                    float f5 = et2Var.j.h;
+                    Bitmap createBitmap = Bitmap.createBitmap((int) (measureText + f5 + 0.5d), (int) (f4 + f5 + 0.5d), Bitmap.Config.ARGB_8888);
+                    createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
+                    Canvas canvas = new Canvas(createBitmap);
+                    canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+                    RectF rectF = new RectF();
+                    float f6 = f5 / 2.0f;
+                    rectF.left = f6;
+                    rectF.top = f6;
+                    rectF.bottom = f4 + f6;
+                    rectF.right = measureText + f6;
+                    canvas.drawRoundRect(rectF, f2, f2, paint2);
+                    if (f5 > 0.0f) {
+                        paint2.setStyle(Paint.Style.STROKE);
+                        paint2.setColor(et2Var.j.i);
+                        paint2.setStrokeWidth(f5);
+                        canvas.drawRoundRect(rectF, f2, f2, paint2);
+                    }
+                    canvas.drawText(str, f + f6, (-paint.getFontMetrics().top) + f + f6, paint);
+                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                    imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
+                    et2.c cVar2 = et2Var.j;
+                    imageView.setPadding((int) cVar2.f, (int) cVar2.g, 0, 0);
+                    imageView.setImageBitmap(createBitmap);
+                    BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    dt2 dt2Var = et2Var.b;
+                    MarkerOptions zIndex = markerOptions.position(new LatLng(dt2Var.a, dt2Var.b)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
+                    k32.i("map", "createLabel end");
+                    return zIndex;
+                }
+                k32.c("map", "label heigth or width is 0");
+                return null;
+            }
+            k32.c("map", "marker data error");
+            return null;
         }
-    }
-
-    public static void c(Context context, pa4 pa4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, pa4Var) == null) {
-            ib4.b(context, new a(pa4Var));
-        }
+        return (OverlayOptions) invokeLL.objValue;
     }
 }

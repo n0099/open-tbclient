@@ -24,7 +24,7 @@ public final class g extends com.kwad.components.ad.splashscreen.c.c.c implement
     }
 
     private void lx() {
-        this.Df.mRootContainer.findViewById(R.id.obfuscated_res_0x7f092361).setVisibility(8);
+        this.Df.mRootContainer.findViewById(R.id.obfuscated_res_0x7f092363).setVisibility(8);
     }
 
     @Override // com.kwad.sdk.core.h.c
@@ -73,7 +73,7 @@ public final class g extends com.kwad.components.ad.splashscreen.c.c.c implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.lc = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09235b);
+        this.lc = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09235d);
     }
 
     @Override // com.kwad.components.ad.splashscreen.c.c.c, com.kwad.sdk.mvp.Presenter

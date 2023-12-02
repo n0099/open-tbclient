@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.b79;
+import com.baidu.tieba.f79;
 import com.baidu.tieba.jt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +20,7 @@ import kotlin.jvm.internal.Intrinsics;
 public abstract class AbsSizerView extends FrameLayout implements jt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b79 a;
+    public final f79 a;
 
     public abstract void c();
 
@@ -86,9 +86,9 @@ public abstract class AbsSizerView extends FrameLayout implements jt {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         c();
-        b79 b79Var = new b79(d(), -1, -2, false);
-        this.a = b79Var;
-        b79Var.setOnDismissListener(new a(this));
+        f79 f79Var = new f79(d(), -1, -2, false);
+        this.a = f79Var;
+        f79Var.setOnDismissListener(new a(this));
         onChangeSkinType(null, TbadkApplication.getInst().getSkinType());
     }
 
@@ -106,12 +106,12 @@ public abstract class AbsSizerView extends FrameLayout implements jt {
         }
     }
 
-    public final b79 getOptionsWindow() {
+    public final f79 getOptionsWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a;
         }
-        return (b79) invokeV.objValue;
+        return (f79) invokeV.objValue;
     }
 }

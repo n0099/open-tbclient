@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw4;
-import com.baidu.tieba.im6;
+import com.baidu.tieba.fw4;
 import com.baidu.tieba.it;
+import com.baidu.tieba.mm6;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.zh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -33,15 +33,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class MutiImgTextLayout extends LinearLayout implements it<cw4> {
+public class MutiImgTextLayout extends LinearLayout implements it<fw4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public TextView b;
     public PlayVoiceBntNew c;
-    public im6<cw4> d;
-    public cw4 e;
+    public mm6<fw4> d;
+    public fw4 e;
     public boolean f;
 
     public void setFrom(String str) {
@@ -88,7 +88,7 @@ public class MutiImgTextLayout extends LinearLayout implements it<cw4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            im6<cw4> subClickListener;
+            mm6<fw4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -165,10 +165,10 @@ public class MutiImgTextLayout extends LinearLayout implements it<cw4> {
         }
     }
 
-    public void setSubClickListener(im6<cw4> im6Var) {
+    public void setSubClickListener(mm6<fw4> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, im6Var) == null) {
-            this.d = im6Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, mm6Var) == null) {
+            this.d = mm6Var;
         }
     }
 
@@ -216,14 +216,14 @@ public class MutiImgTextLayout extends LinearLayout implements it<cw4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: c */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         boolean z;
         boolean z2;
         boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cw4Var) == null) {
-            this.e = cw4Var;
-            ThreadData threadData = cw4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fw4Var) == null) {
+            this.e = fw4Var;
+            ThreadData threadData = fw4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData, this.f);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, g, this.f);
             TextView textView = this.a;
@@ -275,13 +275,13 @@ public class MutiImgTextLayout extends LinearLayout implements it<cw4> {
         }
     }
 
-    public im6<cw4> getSubClickListener() {
+    public mm6<fw4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
-        return (im6) invokeV.objValue;
+        return (mm6) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View

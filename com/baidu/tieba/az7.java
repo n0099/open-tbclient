@@ -1,185 +1,78 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.BDLayoutMode;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout;
-import com.baidu.tieba.frs.gamepaltform.GameRankListViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class az7 extends cs7<l98, GameRankListViewHolder> implements s38 {
+public class az7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q38 l;
+    public BdPageContext a;
+    public BdTypeListView b;
+    public final List<ci> c;
+    public zy7 d;
 
-    /* loaded from: classes5.dex */
-    public class a implements GameRankHorizontalLayout.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ az7 a;
-
-        public a(az7 az7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {az7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = az7Var;
-        }
-
-        @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.b
-        public void a(k98 k98Var, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(1048576, this, k98Var, i) != null) || k98Var == null) {
-                return;
-            }
-            if (this.a.l != null) {
-                TiebaStatic.log(new StatisticItem("c12105").param("fid", this.a.l.c).param("obj_locate", i + 1));
-            }
-            if (!StringUtils.isNull(k98Var.c())) {
-                BrowserHelper.startWebActivity(this.a.c.getPageActivity(), k98Var.c());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(az7 az7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {az7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-                sharedPrefHelper.putString("game_rank_list_info", System.currentTimeMillis() + ",7");
-                SharedPrefHelper.getInstance().putInt("game_rank_list_show_times", 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921005));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public az7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public az7(BdPageContext bdPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {bdPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new q38();
+        this.c = new ArrayList();
+        this.a = bdPageContext;
+        this.b = bdTypeListView;
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: J */
-    public GameRankListViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new GameRankListViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03eb, (ViewGroup) null));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zy7 zy7Var = new zy7((TbPageContext) this.a, oy7.b);
+            this.d = zy7Var;
+            this.c.add(zy7Var);
+            this.b.addAdapters(this.c);
         }
-        return (GameRankListViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cs7, com.baidu.tieba.ci
-    /* renamed from: K */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l98 l98Var, GameRankListViewHolder gameRankListViewHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l98Var, gameRankListViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) l98Var, (l98) gameRankListViewHolder);
-            if (l98Var == null) {
-                return null;
-            }
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
-            if (this.l != null) {
-                TiebaStatic.log(new StatisticItem("c12104").param("fid", this.l.c));
-            }
-            GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.a;
-            if (gameRankHorizontalLayout != null) {
-                gameRankHorizontalLayout.setData(l98Var);
-                gameRankListViewHolder.a.setOnCardClickListener(new a(this));
-            }
-            TextView textView = gameRankListViewHolder.b;
-            if (textView != null) {
-                textView.setOnClickListener(new b(this));
-            }
-            BDLayoutMode layoutMode = this.c.getLayoutMode();
-            if (this.f == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.setNightMode(z);
-            this.c.getLayoutMode().onModeChanged(view2);
-            return view2;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof gi)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
-        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.s38
-    public q38 i() {
-        InterceptResult invokeV;
+    public void c(zi ziVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.l;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ziVar) == null) {
+            for (ci ciVar : this.c) {
+                if (ciVar != null) {
+                    ciVar.setOnAdapterItemClickListener(ziVar);
+                }
+            }
         }
-        return (q38) invokeV.objValue;
+    }
+
+    public void d(List<pi> list) {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (bdTypeListView = this.b) != null) {
+            bdTypeListView.setData(list);
+        }
     }
 }

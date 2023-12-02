@@ -6,26 +6,29 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gaa extends ci<sba, CardViewHolder<uca>> {
+public class gaa extends ci<rba, CardViewHolder<vca>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public TbPageContext<?> a;
+    public LikeModel b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gaa(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public gaa(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), rba.l);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,16 +41,19 @@ public class gaa extends ci<sba, CardViewHolder<uca>> {
             }
         }
         this.a = tbPageContext;
+        this.b = new LikeModel(tbPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: t */
-    public CardViewHolder<uca> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<vca> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new uca(this.a));
+            vca vcaVar = new vca(this.a);
+            vcaVar.B(this.b);
+            return new CardViewHolder<>(vcaVar);
         }
         return (CardViewHolder) invokeL.objValue;
     }
@@ -55,15 +61,13 @@ public class gaa extends ci<sba, CardViewHolder<uca>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sba sbaVar, CardViewHolder<uca> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rba rbaVar, CardViewHolder<vca> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sbaVar, cardViewHolder})) == null) {
-            if (cardViewHolder != null && cardViewHolder.a() != null && sbaVar != null) {
-                cardViewHolder.a().j(sbaVar);
-                return cardViewHolder.a().i();
-            }
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rbaVar, cardViewHolder})) == null) {
+            cardViewHolder.a().j(rbaVar);
+            cardViewHolder.a().k(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class qr extends Resources {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, cs<String, Integer>> d;

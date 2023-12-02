@@ -148,10 +148,10 @@ public class HandSlideView extends KSFrameLayout {
     public final void init(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super.init(context, attributeSet);
         FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04d8, this);
-        this.fi = (ImageView) findViewById(R.id.obfuscated_res_0x7f091374);
-        this.zZ = findViewById(R.id.obfuscated_res_0x7f091375);
-        this.Ab = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704c0);
-        this.Ac = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704bc);
-        this.Ad = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704bb);
+        this.fi = (ImageView) findViewById(R.id.obfuscated_res_0x7f091375);
+        this.zZ = findViewById(R.id.obfuscated_res_0x7f091376);
+        this.Ab = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704c1);
+        this.Ac = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704bd);
+        this.Ad = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704bc);
     }
 }

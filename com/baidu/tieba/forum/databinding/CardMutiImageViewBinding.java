@@ -55,17 +55,17 @@ public final class CardMutiImageViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f091112;
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091112);
+            int i = R.id.obfuscated_res_0x7f091113;
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091113);
             if (tbImageView != null) {
-                i = R.id.obfuscated_res_0x7f091120;
-                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091120);
+                i = R.id.obfuscated_res_0x7f091121;
+                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091121);
                 if (tbImageView2 != null) {
-                    i = R.id.obfuscated_res_0x7f091122;
-                    TbImageView tbImageView3 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091122);
+                    i = R.id.obfuscated_res_0x7f091123;
+                    TbImageView tbImageView3 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091123);
                     if (tbImageView3 != null) {
-                        i = R.id.obfuscated_res_0x7f091169;
-                        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091169);
+                        i = R.id.obfuscated_res_0x7f09116a;
+                        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09116a);
                         if (textView != null) {
                             return new CardMutiImageViewBinding(view2, tbImageView, tbImageView2, tbImageView3, textView);
                         }

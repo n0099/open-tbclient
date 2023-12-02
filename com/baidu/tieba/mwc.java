@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.DeletedReasonInfo;
+import tbclient.DetailInfo;
 /* loaded from: classes7.dex */
-public class mwc extends ltc {
+public class mwc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull DeletedReasonInfo deletedReasonInfo) {
+    public static JSONObject b(@NonNull DetailInfo detailInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, deletedReasonInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, detailInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "is_grays_cale_forum", deletedReasonInfo.is_grays_cale_forum);
-            ltc.a(jSONObject, "is_boomgrow", deletedReasonInfo.is_boomgrow);
+            ktc.a(jSONObject, "text", detailInfo.text);
+            ktc.a(jSONObject, "url", detailInfo.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

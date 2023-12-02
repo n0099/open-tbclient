@@ -70,12 +70,12 @@ public class LiveStatusAnimView extends FrameLayout {
     public final void a(Context context) {
         this.a = context;
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d060b, this);
-        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091651);
-        this.c = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091652);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091653);
+        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091652);
+        this.c = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091653);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091654);
         this.c.loop(true);
-        this.e = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091647);
-        this.f = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091648);
+        this.e = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091648);
+        this.f = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091649);
     }
 
     public boolean b() {

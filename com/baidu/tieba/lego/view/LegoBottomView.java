@@ -8,7 +8,7 @@ import android.widget.AbsListView;
 import android.widget.RelativeLayout;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ef9;
+import com.baidu.tieba.if9;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.BaseCardView;
 import com.baidu.tieba.lego.card.view.ButtonCardView;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class LegoBottomView extends RelativeLayout implements ef9 {
+public class LegoBottomView extends RelativeLayout implements if9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ObjectAnimator a;
@@ -245,7 +245,7 @@ public class LegoBottomView extends RelativeLayout implements ef9 {
         }
     }
 
-    @Override // com.baidu.tieba.ef9
+    @Override // com.baidu.tieba.if9
     public void onScrollStateChanged(AbsListView absListView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, absListView, i) == null) {

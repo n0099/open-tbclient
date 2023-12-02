@@ -1,50 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import androidx.annotation.FloatRange;
+import androidx.fragment.app.FragmentActivity;
+import com.baidu.tieba.km7;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class lm7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface lm7<T extends km7> {
+    void a(@FloatRange(from = 0.0d, to = 1.0d) float f, float f2);
 
-    public static final void a(Context context, ni7 forum, ji7 secondFloorData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, context, forum, secondFloorData) == null) {
-            Intrinsics.checkNotNullParameter(forum, "forum");
-            Intrinsics.checkNotNullParameter(secondFloorData, "secondFloorData");
-            String valueOf = String.valueOf(secondFloorData.e().b());
-            String d = secondFloorData.e().d();
-            String a = secondFloorData.e().a();
-            if (a == null) {
-                a = "";
-            }
-            String a2 = secondFloorData.a();
-            if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(d)) {
-                JSONObject jSONObject = new JSONObject();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject.put("page", "im/AISingleChat");
-                jSONObject.put(YunDialogManager.PAGE_PARAMS_KEY, jSONObject2);
-                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_REQUEST_CODE, 1111);
-                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_H5_URL, URLEncoder.encode(a2, "UTF-8"));
-                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_CHAT_PIC_URL, URLEncoder.encode(a, "UTF-8"));
-                jSONObject2.put("paid", valueOf);
-                jSONObject2.put("uk", d);
-                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_IS_ANIMATION, 1);
-                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_CAN_SLIDE_BACK, 0);
-                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_FROM, 1);
-                jSONObject2.put("fid", forum.e());
-                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_FORUM_NAME, forum.f());
-                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_FORUM_PORTRAIT, URLEncoder.encode(forum.d(), "UTF-8"));
-                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_SHOW_BOT_LIST, 1);
-                lma.a(context, new String[]{"tiebaapp://router/portal?params=" + jSONObject});
-            }
-        }
-    }
+    void b(FragmentActivity fragmentActivity);
+
+    void c(boolean z);
+
+    void d(List<? extends jm7<T>> list);
+
+    void e(T t);
+
+    void f();
+
+    void g();
 }

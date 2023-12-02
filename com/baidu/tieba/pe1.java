@@ -1,80 +1,71 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
-import android.view.ViewGroup;
+import android.util.Log;
+import android.webkit.WebSettings;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.nad.jni.NADNativeHelper;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.prologue.business.data.ParseError;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.tbadk.browser.SearchJsBridge;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pe1 implements wg1, yg1 {
+public class pe1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final xg1 a;
-    @NonNull
-    public ViewGroup b;
-    @NonNull
-    public final ye1 c;
-    @NonNull
-    public final BaseVM d;
-    @Nullable
-    public oe1 e;
-    public long f;
-    public long g;
-    public final long h;
-    public long i;
-    public boolean j;
-    public te1 k;
-
-    @Override // com.baidu.tieba.wg1
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.wg1
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.wg1
-    public void onPrivacyClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-        }
-    }
+    public final Handler a;
+    public qe1 b;
+    public int c;
+    public volatile boolean d;
 
     /* loaded from: classes7.dex */
-    public class a implements cf1 {
+    public class a extends dp0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pe1 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ long c;
 
-        @Override // com.baidu.tieba.cf1
-        public void handleSchemeDispatchCallback(String str, String str2) {
+        public String f(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            }
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
         }
 
-        public a(pe1 pe1Var) {
+        public a(pe1 pe1Var, String str, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pe1Var};
+                Object[] objArr = {pe1Var, str, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,35 +75,136 @@ public class pe1 implements wg1, yg1 {
                     return;
                 }
             }
-            this.a = pe1Var;
+            this.a = str;
+            this.b = j;
+            this.c = j2;
         }
 
-        @Override // com.baidu.tieba.cf1
-        public boolean b(String str) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.bp0
+        public void a(Exception exc, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (this.a.e != null) {
-                    return this.a.e.b(str);
-                }
-                return false;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                BaseVM.n(this.a, this.b, this.c, exc.getMessage(), StickerDataChangeType.UPDATE);
             }
-            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.cp0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cp0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
+                BaseVM.n(this.a, this.b, this.c, BasicPushStatus.SUCCESS_CODE, StickerDataChangeType.UPDATE);
+                try {
+                    ue1.e(str, this.a);
+                } catch (ParseError e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Runnable {
+    public class b extends dp0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pe1 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ qe1 d;
+        public final /* synthetic */ pe1 e;
 
-        public b(pe1 pe1Var) {
+        public String f(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+        }
+
+        public b(pe1 pe1Var, String str, long j, long j2, qe1 qe1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pe1Var};
+                Object[] objArr = {pe1Var, str, Long.valueOf(j), Long.valueOf(j2), qe1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = pe1Var;
+            this.a = str;
+            this.b = j;
+            this.c = j2;
+            this.d = qe1Var;
+        }
+
+        @Override // com.baidu.tieba.bp0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                BaseVM.o(this.a, this.b, this.c, exc.getMessage(), "query", this.e.d, "");
+                if (!this.e.d && this.e.a != null) {
+                    this.e.a.removeCallbacksAndMessages(null);
+                    this.e.a.post(new c(this.e, this.a));
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.cp0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cp0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
+                BaseVM.o(this.a, this.b, this.c, BasicPushStatus.SUCCESS_CODE, "query", this.e.d, str);
+                if (!this.e.d) {
+                    this.e.a.removeCallbacksAndMessages(null);
+                    try {
+                        List<bf1> e = ue1.e(str, this.a);
+                        if (e != null && e.size() > 0 && e.get(0) != null) {
+                            this.d.b(e.get(0));
+                        } else if (ue1.a(str)) {
+                            this.d.a(new Throwable("no ad"));
+                        } else {
+                            new c(this.e, this.a).run();
+                        }
+                    } catch (ParseError e2) {
+                        e2.printStackTrace();
+                        this.d.a(e2);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pe1 a;
+
+        public c(pe1 pe1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pe1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -128,18 +220,27 @@ public class pe1 implements wg1, yg1 {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e.c();
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.d = true;
+            bf1 n = ze1.n(te1.b());
+            if (this.a.b == null) {
+                return;
+            }
+            if (n != null) {
+                n.D = 2;
+                this.a.b.b(n);
+                return;
+            }
+            this.a.b.a(new Throwable("no ad"));
         }
     }
 
-    public pe1(@NonNull xg1 xg1Var, @NonNull ViewGroup viewGroup, @NonNull ye1 ye1Var) {
+    public pe1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xg1Var, viewGroup, ye1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -149,164 +250,361 @@ public class pe1 implements wg1, yg1 {
                 return;
             }
         }
-        this.j = true;
-        this.h = System.currentTimeMillis();
-        this.a = xg1Var;
-        this.b = viewGroup;
-        this.c = ye1Var;
-        this.d = new BaseVM(ye1Var);
-        se1.b(ye1Var);
+        this.a = new Handler(Looper.getMainLooper());
+        this.c = 5000;
+        this.d = false;
     }
 
-    public final void h(String str) {
+    public final void e(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.i = System.currentTimeMillis() - this.f;
-            e4.f().e();
-            if (!this.j) {
-                return;
-            }
-            this.j = false;
-            this.d.e(str, this.i);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || ne1.a().d() == null || !ne1.a().d().has("client_ext") || (optJSONObject = ne1.a().d().optJSONObject("client_ext")) == null) {
+            return;
         }
-    }
-
-    public void j(te1 te1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, te1Var) == null) {
-            this.k = te1Var;
-            xg1 xg1Var = this.a;
-            if (xg1Var != null) {
-                te1Var.l(xg1Var);
-            }
-        }
-    }
-
-    public void k(@NonNull oe1 oe1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, oe1Var) == null) {
-            this.e = oe1Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.yg1
-    public void onAdError(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.i = System.currentTimeMillis() - this.f;
-            oe1 oe1Var = this.e;
-            if (oe1Var != null) {
-                oe1Var.e();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.yg1
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.g = System.currentTimeMillis();
-        }
-    }
-
-    @Override // com.baidu.tieba.wg1
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            oe1 oe1Var = this.e;
-            if (oe1Var != null) {
-                oe1Var.onSkip();
-            }
-            h(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
-        }
-    }
-
-    @Override // com.baidu.tieba.yg1
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f = System.currentTimeMillis();
-            JSONObject jSONObject = new JSONObject();
+        Iterator<String> keys = optJSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
             try {
-                jSONObject.put("adShowScene", this.c.D);
-                jSONObject.put("adSplashType", this.c.e);
-                if (this.c.D == 1) {
-                    long j = this.g - this.h;
-                    if (j > 0) {
-                        jSONObject.put("adLoadCostTime", j);
+                jSONObject.put(next, optJSONObject.opt(next));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void f(HashMap<String, String> hashMap) {
+        String q;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
+            pf0 a2 = hf0.a();
+            if (TextUtils.isEmpty(a2.q())) {
+                q = a2.x();
+            } else {
+                q = a2.q();
+            }
+            hashMap.put("ver", q);
+            hashMap.put("sv", "1.0");
+            hashMap.put("uid", a2.u());
+            hashMap.put(TiebaStatic.Params.BDID, a2.p());
+            hashMap.put("cuid", a2.g());
+            String e = zf0.c().e(false);
+            if (!TextUtils.isEmpty(e)) {
+                hashMap.put(SearchJsBridge.COOKIE_MOD, e);
+            }
+            String h = zf0.c().h(false);
+            if (!TextUtils.isEmpty(h)) {
+                hashMap.put("ov", h);
+            }
+            String b2 = zf0.c().b(false);
+            if (!TextUtils.isEmpty(b2)) {
+                hashMap.put("imei", b2);
+            }
+            hashMap.put("ua", a2.r());
+            hashMap.put("fmt", "json");
+            hashMap.put("apna", a2.k());
+            hashMap.put("eid", a2.i());
+            hashMap.put("st", "1");
+            hashMap.put("ot", "2");
+            hashMap.put("nt", String.valueOf(new zo0().c()));
+            hashMap.put(Config.EXCEPTION_CRASH_TYPE, "2");
+            hashMap.put("is_https", "1");
+            String a3 = zf0.c().a(false);
+            if (!TextUtils.isEmpty(a3)) {
+                hashMap.put(HttpRequest.ANDROID_ID, a3);
+            }
+            hashMap.put("from", ne1.a().from());
+            hashMap.put("cfrom", ne1.a().a());
+            hashMap.put("User-Agent", hf0.e());
+        }
+    }
+
+    public final void g(@NonNull HashMap<String, String> hashMap, String str, String str2, long j) {
+        JSONArray jSONArray;
+        JSONObject jSONObject;
+        int i;
+        JSONObject jSONObject2;
+        JSONObject jSONObject3;
+        String defaultUserAgent;
+        int i2;
+        Iterator<bf1> it;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{hashMap, str, str2, Long.valueOf(j)}) == null) {
+            try {
+                jSONArray = new JSONArray();
+                JSONObject jSONObject4 = new JSONObject();
+                new JSONObject();
+                if (e4.f().h()) {
+                    jSONObject4.put("k", "cmd");
+                    jSONObject4.put("v", str2);
+                    jSONArray.put(jSONObject4);
+                }
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("k", AdExtParam.KEY_NAD_CORE_VERSION);
+                jSONObject5.put("v", "6.1.0.1");
+                jSONArray.put(jSONObject5);
+                jSONObject = new JSONObject();
+                List<bf1> s = ze1.s();
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                JSONArray jSONArray2 = new JSONArray();
+                TextUtils.equals(str, ne1.a().e());
+                if (s != null && s.size() > 0) {
+                    Iterator<bf1> it2 = s.iterator();
+                    i = 0;
+                    while (it2.hasNext()) {
+                        bf1 next = it2.next();
+                        JSONObject jSONObject6 = new JSONObject();
+                        jSONObject6.put("k", next.c);
+                        if (!TextUtils.isEmpty(next.c)) {
+                            int f = ze1.f(next, te1.b());
+                            StringBuilder sb = new StringBuilder();
+                            it = it2;
+                            sb.append("onAdSuccess: ");
+                            sb.append(f);
+                            Log.e("Afd", sb.toString());
+                            if (f == 0) {
+                                if (next.m()) {
+                                    ny0.b(arrayList2, next.c);
+                                }
+                                if (next.k()) {
+                                    ny0.b(arrayList, next.c);
+                                }
+                            } else if (next.m()) {
+                                i |= f;
+                            }
+                        } else {
+                            it = it2;
+                        }
+                        jSONObject6.put("r", String.valueOf(next.x));
+                        if (next.m()) {
+                            jSONArray2.put(jSONObject6);
+                        }
+                        it2 = it;
+                    }
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("d", jSONArray2);
+                jSONObject.put("s", df1.d());
+                jSONArray.put(new JSONObject());
+                if (TextUtils.equals(str2, "query")) {
+                    JSONObject jSONObject7 = new JSONObject();
+                    jSONObject7.put("k", "ukey");
+                    jSONObject7.put("v", TextUtils.join(",", arrayList));
+                    jSONArray.put(jSONObject7);
+                    JSONObject jSONObject8 = new JSONObject();
+                    jSONObject8.put("k", "xz_ukey");
+                    jSONObject8.put("v", TextUtils.join(",", arrayList2));
+                    jSONArray.put(jSONObject8);
+                    if (arrayList2.isEmpty()) {
+                        if (i == 0) {
+                            i = 1;
+                        }
+                        BaseVM.d = String.valueOf(i);
+                    } else {
+                        BaseVM.d = "";
                     }
                 }
-                jSONObject.put("adRenderCostTime", this.f - this.h);
-                long currentTimeMillis = System.currentTimeMillis();
-                jSONObject.put("show_time", currentTimeMillis);
-                i(currentTimeMillis);
-            } catch (JSONException unused) {
+                JSONObject jSONObject9 = new JSONObject();
+                jSONObject9.put("k", "logid");
+                jSONObject9.put("v", String.valueOf(j));
+                jSONArray.put(jSONObject9);
+                JSONObject jSONObject10 = new JSONObject();
+                jSONObject10.put("k", "uid");
+                jSONObject10.put("v", hf0.a().u());
+                jSONArray.put(jSONObject10);
+                jSONObject2 = new JSONObject();
+                jSONObject2.put("k", MigrateStatisticUtils.EXT_INFO);
+                jSONObject3 = new JSONObject();
+                jSONObject3.put("ipdx", yj0.a().a());
+                jSONObject3.put("update_mark", NADNativeHelper.b());
+                jSONObject3.put("boot_mark", NADNativeHelper.a());
+            } catch (JSONException e) {
+                e = e;
             }
-            this.d.c(jSONObject);
-            we1.D(this.c);
-            af1.e(this.c);
-            oe1 oe1Var = this.e;
-            if (oe1Var != null) {
-                oe1Var.onAdShow();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.wg1
-    public void onAdClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (xe1.s() && !TextUtils.isEmpty(this.c.p)) {
-                qe0.b(this.c.p);
-                if (qc0.a) {
-                    w01.a().showToast(this.a.a().getContext(), "执行nad统一新协议跳转");
+            try {
+                e(jSONObject3);
+                jSONObject3.put("adinfo", jSONObject);
+                if (Build.VERSION.SDK_INT < 19) {
+                    defaultUserAgent = jf0.c().a();
+                } else if (te1.b() == 0) {
+                    defaultUserAgent = az0.a().b("splash_sp_name").getString("web_view_ua", jf0.c().a());
+                } else {
+                    defaultUserAgent = WebSettings.getDefaultUserAgent(hf0.b());
+                    if (!TextUtils.isEmpty(defaultUserAgent)) {
+                        az0.a().b("splash_sp_name").h("web_view_ua", defaultUserAgent);
+                    }
                 }
-            } else {
-                ff1.a(hf0.b(), this.c.o, new a(this));
-                if (qc0.a) {
-                    w01.a().showToast(this.a.a().getContext(), "执行splash旧协议跳转");
+                jSONObject3.put("sys_ua", defaultUserAgent);
+                String a2 = u11.b().a();
+                if (!TextUtils.isEmpty(a2)) {
+                    jSONObject3.put("custom_ua", a2);
+                }
+                jSONObject2.put("v", jSONObject3.toString());
+                jSONArray.put(jSONObject2);
+                JSONObject jSONObject11 = new JSONObject();
+                jSONObject11.put("k", AdExtParam.KEY_IADEX);
+                jSONObject11.put("v", hf0.d().n());
+                jSONArray.put(jSONObject11);
+                String f2 = zf0.c().f(false);
+                if (!TextUtils.isEmpty(f2)) {
+                    JSONObject jSONObject12 = new JSONObject();
+                    jSONObject12.put("k", "oaid_v");
+                    jSONObject12.put("v", f2);
+                    jSONArray.put(jSONObject12);
+                }
+                try {
+                    JSONObject jSONObject13 = new JSONObject();
+                    jSONObject13.put("k", "encoded_ua_new");
+                    jSONObject13.put("v", URLEncoder.encode(hf0.e(), "utf-8"));
+                    jSONArray.put(jSONObject13);
+                } catch (UnsupportedEncodingException unused) {
+                }
+                JSONObject jSONObject14 = new JSONObject();
+                jSONObject14.put("k", "boot_type");
+                jSONObject14.put("v", te1.b());
+                jSONArray.put(jSONObject14);
+                JSONObject jSONObject15 = new JSONObject();
+                jSONObject15.put("k", "hot_background_time");
+                jSONObject15.put("v", ((int) (System.currentTimeMillis() - te1.a())) / 1000);
+                jSONArray.put(jSONObject15);
+                JSONObject jSONObject16 = new JSONObject();
+                jSONObject16.put("k", "is_block_shake_gesture");
+                if (af1.N()) {
+                    i2 = 1;
+                } else {
+                    i2 = 0;
+                }
+                jSONObject16.put("v", i2);
+                jSONArray.put(jSONObject16);
+                hashMap.put("ext", jSONArray.toString());
+            } catch (JSONException e2) {
+                e = e2;
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final String h(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, map)) == null) {
+            if (map != null && map.size() != 0) {
+                URI create = URI.create(str);
+                if (TextUtils.isEmpty(create.getQuery())) {
+                    query = "";
+                } else {
+                    query = create.getQuery();
+                }
+                StringBuilder sb = new StringBuilder(query);
+                if (sb.length() > 0) {
+                    sb.append('&');
+                }
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    sb.append(entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
+                    sb.append('&');
+                }
+                if (sb.length() > 0) {
+                    sb.deleteCharAt(sb.length() - 1);
+                }
+                try {
+                    return new URI(create.getScheme(), create.getAuthority(), create.getPath(), sb.toString(), create.getFragment()).toString();
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
                 }
             }
-            h(BaseVM.CloseType.CLICK_AD_AREA.value);
-            this.d.b("");
-            oe1 oe1Var = this.e;
-            if (oe1Var != null) {
-                oe1Var.onAdClick();
-            }
+            return str;
         }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.yg1
-    public void f(String str) {
+    public final kp0 i(String str, String str2, long j) {
+        InterceptResult invokeCommon;
+        String str3;
+        String str4;
+        String h;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.i = System.currentTimeMillis() - this.f;
-            if ("time_end".equals(str)) {
-                h(BaseVM.CloseType.COUNTDOWN_TIME_FINISH.value);
-            } else if ("click_skip_button".equals(str)) {
-                h(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
-            } else if ("click_ad_area".equals(str)) {
-                h(BaseVM.CloseType.CLICK_AD_AREA.value);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            if (TextUtils.equals("query", str) && af1.v() && te1.b() == 0) {
+                h = ye1.m().k(str);
             } else {
-                h(BaseVM.CloseType.OTHER.value);
+                String a2 = je1.a();
+                if (TextUtils.equals(str, "query") && af1.O() && ne1.a().d() != null && !TextUtils.isEmpty(ne1.a().d().optString("host_url"))) {
+                    a2 = ne1.a().d().optString("host_url");
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.append(a2);
+                if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                    str3 = "?action=update";
+                } else {
+                    str3 = "?action=query";
+                }
+                sb.append(str3);
+                String sb2 = sb.toString();
+                HashMap<String, String> hashMap = new HashMap<>();
+                if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                    str4 = String.valueOf(af1.o());
+                } else {
+                    str4 = "1";
+                }
+                hashMap.put("ac", str4);
+                hashMap.put("pid", str2);
+                hashMap.put("product_id ", hf0.a().t());
+                f(hashMap);
+                g(hashMap, str2, str, j);
+                h = h(sb2, hashMap);
             }
-            if (this.e != null) {
-                wf0.c(new b(this));
+            kp0 kp0Var = new kp0();
+            kp0Var.l(h);
+            kp0Var.a("User-Agent", hf0.e());
+            kp0Var.c();
+            return kp0Var;
+        }
+        return (kp0) invokeCommon.objValue;
+    }
+
+    public void j(String str, qe1 qe1Var) {
+        Handler handler;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, qe1Var) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            ve1.a(String.valueOf(currentTimeMillis));
+            kp0 i = i("query", str, currentTimeMillis);
+            i.g(this.c);
+            JSONObject d = ne1.a().d();
+            if (d != null && d.has("query_response_thread")) {
+                if (d.optInt("query_response_thread", 0) == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                i.i(z);
+            }
+            ro0.b().a().a(i, new b(this, str, currentTimeMillis, System.currentTimeMillis(), qe1Var));
+            this.b = qe1Var;
+            this.d = false;
+            int f = ne1.a().f() - af1.m();
+            this.c = f;
+            if (f > 0 && (handler = this.a) != null) {
+                handler.postDelayed(new c(this, str), this.c);
             }
         }
     }
 
-    public final void i(long j) {
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            String str = this.c.p;
-            if (!TextUtils.isEmpty(str)) {
-                this.c.p = str.replace("SplashShowTime", String.valueOf(j));
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            String optString = ne1.a().d().optString("na_cpc_update_pid");
+            if (TextUtils.isEmpty(optString)) {
+                optString = ne1.a().e();
             }
-            String str2 = this.c.O;
-            if (!TextUtils.isEmpty(str2)) {
-                this.c.O = str2.replace("SplashShowTime", String.valueOf(j));
-            }
+            String str = optString;
+            ro0.b().a().a(i(StickerDataChangeType.UPDATE, str, currentTimeMillis), new a(this, str, currentTimeMillis, System.currentTimeMillis()));
         }
     }
 }

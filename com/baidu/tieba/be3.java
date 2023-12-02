@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes5.dex */
-public class be3 extends e83 {
+public class be3 extends h83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public be3(e73 e73Var) {
-        super(e73Var, "/swanAPI/removeStorageSync");
+    public be3(h73 h73Var) {
+        super(h73Var, "/swanAPI/getStorageSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e73Var};
+            Object[] objArr = {h73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,12 +38,12 @@ public class be3 extends e83 {
         }
     }
 
-    @Override // com.baidu.tieba.e83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h63 h63Var) {
+    @Override // com.baidu.tieba.h83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k63 k63Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h63Var)) == null) {
-            if (h63Var == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, k63Var)) == null) {
+            if (k63Var == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             }
@@ -52,14 +52,17 @@ public class be3 extends e83 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
                 return false;
             }
-            String R = jw1.R(optParamsAsJo);
+            String R = mw1.R(optParamsAsJo);
             if (R == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            h63Var.g0().g().remove(R);
-            di3.h.b();
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+            JSONObject P = mw1.P(k63Var.g0().g().getString(R, null));
+            if (P == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");
+                return false;
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(P, 0);
             return true;
         }
         return invokeLLLL.booleanValue;

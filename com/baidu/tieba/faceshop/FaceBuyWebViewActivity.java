@@ -25,11 +25,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.c05;
+import com.baidu.tieba.f05;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.sj6;
-import com.baidu.tieba.tj6;
-import com.baidu.tieba.uj6;
+import com.baidu.tieba.wj6;
+import com.baidu.tieba.xj6;
+import com.baidu.tieba.yj6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity> implements sj6, uj6, tj6 {
+public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity> implements wj6, yj6, xj6 {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern j;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
     public String d;
     public String e;
     public int f;
-    public c05 g;
+    public f05 g;
     public final Handler h;
     public final Runnable i;
 
@@ -125,7 +125,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
     }
 
     /* loaded from: classes5.dex */
-    public class c implements c05.e {
+    public class c implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceBuyWebViewActivity a;
@@ -148,18 +148,18 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
             this.a = faceBuyWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
+                f05Var.dismiss();
                 this.a.closeActivity();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements c05.e {
+    public class d implements f05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceBuyWebViewActivity a;
@@ -182,11 +182,11 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
             this.a = faceBuyWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.f05.e
+        public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
+                f05Var.dismiss();
             }
         }
     }
@@ -311,8 +311,8 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d02db);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092737)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070282);
-            this.a = (TbWebView) findViewById(R.id.obfuscated_res_0x7f092af5);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092739)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070282);
+            this.a = (TbWebView) findViewById(R.id.obfuscated_res_0x7f092af8);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
@@ -328,11 +328,11 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.g == null) {
-                c05 c05Var = new c05(getPageContext().getPageActivity());
-                this.g = c05Var;
-                c05Var.setTitle(R.string.obfuscated_res_0x7f0f0ac4);
+                f05 f05Var = new f05(getPageContext().getPageActivity());
+                this.g = f05Var;
+                f05Var.setTitle(R.string.obfuscated_res_0x7f0f0ac4);
                 this.g.setCancelable(false);
-                this.g.setMessageId(R.string.obfuscated_res_0x7f0f1210);
+                this.g.setMessageId(R.string.obfuscated_res_0x7f0f1211);
                 this.g.setPositiveButton(R.string.alert_yes_button, new c(this));
                 this.g.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new d(this));
                 this.g.create(getPageContext());
@@ -341,7 +341,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         }
     }
 
-    @Override // com.baidu.tieba.uj6
+    @Override // com.baidu.tieba.yj6
     public void a(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
@@ -363,7 +363,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.tj6
+    @Override // com.baidu.tieba.xj6
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) {
@@ -385,7 +385,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         }
     }
 
-    @Override // com.baidu.tieba.sj6
+    @Override // com.baidu.tieba.wj6
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

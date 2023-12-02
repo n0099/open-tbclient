@@ -60,8 +60,8 @@ public final class BackSliceBinding implements ViewBinding {
                 i = R.id.obfuscated_res_0x7f0901b1;
                 BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901b1);
                 if (barImageView != null) {
-                    i = R.id.obfuscated_res_0x7f0917bd;
-                    View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0917bd);
+                    i = R.id.obfuscated_res_0x7f0917be;
+                    View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0917be);
                     if (findViewById != null) {
                         return new BackSliceBinding((ConstraintLayout) view2, textView, barImageView, findViewById);
                     }

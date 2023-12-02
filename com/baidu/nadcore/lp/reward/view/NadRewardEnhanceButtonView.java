@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.business.uitemplate.AdEnhanceButtonView;
 import com.baidu.tieba.bl0;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.w11;
 import com.baidu.tieba.xm0;
 /* loaded from: classes3.dex */
 public class NadRewardEnhanceButtonView extends AdEnhanceButtonView {
@@ -25,18 +25,18 @@ public class NadRewardEnhanceButtonView extends AdEnhanceButtonView {
 
     @Override // com.baidu.nadcore.business.uitemplate.AdEnhanceButtonView
     public int getLayoutId() {
-        return bl0.a().f();
+        return bl0.a().h();
     }
 
     @Override // com.baidu.nadcore.business.uitemplate.AdEnhanceButtonView
-    public void u() {
-        setBtnHeight(getResources().getDimensionPixelSize(bl0.a().b()));
+    public void v() {
+        setBtnHeight(getResources().getDimensionPixelSize(bl0.a().c()));
     }
 
-    @Override // com.baidu.nadcore.business.uitemplate.AdEnhanceButtonView, com.baidu.tieba.z81
+    @Override // com.baidu.nadcore.business.uitemplate.AdEnhanceButtonView, com.baidu.tieba.d91
     public void setData(@NonNull xm0 xm0Var) {
         super.setData(xm0Var);
-        setBtnTextSize(u11.c.k(getContext(), getResources().getDimensionPixelSize(bl0.a().q())));
-        setBtnCornerRadius(getResources().getDimensionPixelSize(bl0.a().i()));
+        setBtnTextSize(w11.c.m(getContext(), getResources().getDimensionPixelSize(bl0.a().t())));
+        setBtnCornerRadius(getResources().getDimensionPixelSize(bl0.a().k()));
     }
 }

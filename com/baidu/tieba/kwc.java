@@ -5,23 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.DeclareInfo;
+import tbclient.DelThreadText;
 /* loaded from: classes7.dex */
-public class kwc extends ltc {
+public class kwc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull DeclareInfo declareInfo) {
+    public static JSONObject b(@NonNull DelThreadText delThreadText) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, declareInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, delThreadText)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "declare_id", declareInfo.declare_id);
-            ltc.a(jSONObject, "declare_url", declareInfo.declare_url);
-            ltc.a(jSONObject, "declare_text", declareInfo.declare_text);
-            ltc.a(jSONObject, "declare_num", declareInfo.declare_num);
-            ltc.a(jSONObject, "is_declare", declareInfo.is_declare);
+            ktc.a(jSONObject, "text_id", delThreadText.text_id);
+            ktc.a(jSONObject, "text_info", delThreadText.text_info);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

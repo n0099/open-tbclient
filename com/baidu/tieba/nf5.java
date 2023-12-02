@@ -1,13 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.rva;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
+import com.baidu.tieba.qva;
+import com.baidu.tieba.vg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,49 +21,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class nf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lf5 a;
+    public EditorTools a;
+    public Context b;
+    public View c;
+    public of5 d;
+    public qf5 e;
 
-    /* loaded from: classes7.dex */
-    public class a extends ju5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lf5 a;
-
-        public a(nf5 nf5Var, lf5 lf5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nf5Var, lf5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lf5Var;
-        }
-
-        @Override // com.baidu.tieba.ju5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Long.valueOf(gu8.w().j(this.a.a().a));
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    public nf5(lf5 lf5Var) {
+    public nf5(Context context, View view2, of5 of5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lf5Var};
+            Object[] objArr = {context, view2, of5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -69,114 +42,185 @@ public class nf5 {
                 return;
             }
         }
-        this.a = lf5Var;
-    }
-
-    public void d(rva.i iVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, iVar) != null) || iVar == null) {
+        if (!k(context, view2, of5Var)) {
             return;
         }
-        lf5 lf5Var = this.a;
-        if (lf5Var != null && lf5Var.a() != null) {
-            rva.p(this.a.a().a, iVar);
-        } else {
-            iVar.a(null);
+        this.b = context;
+        this.c = view2;
+        this.d = of5Var;
+        c();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.c instanceof RelativeLayout)) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams.addRule(12);
+            ((RelativeLayout) this.c).addView(this.a, layoutParams);
         }
     }
 
-    public void e(String str) {
-        lf5 lf5Var;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (lf5Var = this.a) != null && lf5Var.a() != null) {
-            rva.A(this.a.a().a, str);
-        }
-    }
-
-    public final ChatMessage a(String str, long j) {
-        InterceptResult invokeLJ;
-        long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            ChatMessage b = b();
-            if (b == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            l();
+            this.a.v();
+            if (this.c != null && this.a.getParent() != null) {
+                View view2 = this.c;
+                if (view2 instanceof RelativeLayout) {
+                    ((RelativeLayout) view2).removeView(this.a);
+                }
             }
-            b.setCustomGroupType(2);
-            b.setMsgType(1);
-            b.setContent(str);
-            long b2 = qz8.b(j);
-            b.setMsgId(b2);
-            b.setRecordId(b2);
-            b.setTime(System.currentTimeMillis() / 1000);
-            UserData userData = new UserData();
-            userData.setUserName(TbadkCoreApplication.getCurrentAccountName());
-            userData.setUserId(TbadkCoreApplication.getCurrentAccount());
-            userData.setName_show(TbadkCoreApplication.getCurrentAccountNameShow());
-            userData.setPortrait(TbadkCoreApplication.getCurrentPortrait());
-            b.setUserInfo(userData);
-            try {
-                j2 = JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
-            } catch (Exception unused) {
-                j2 = 0;
-            }
-            b.setUserId(j2);
-            MsgLocalData msgLocalData = new MsgLocalData();
-            msgLocalData.setStatus((short) 1);
-            msgLocalData.setErrno(0L);
-            msgLocalData.setRetry(0L);
-            msgLocalData.setUpload_offset(null);
-            b.setLocalData(msgLocalData);
-            return b;
         }
-        return (ChatMessage) invokeLJ.objValue;
     }
 
-    public ChatMessage b() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            lf5 lf5Var = this.a;
-            if (lf5Var != null && lf5Var.a() != null) {
-                PersonalChatMessage personalChatMessage = new PersonalChatMessage();
-                personalChatMessage.setBornTime(System.currentTimeMillis());
-                personalChatMessage.setToUserId(Long.parseLong(this.a.a().a));
-                UserData userData = new UserData();
-                userData.setUserId(this.a.a().a);
-                userData.setPortrait(this.a.a().c);
-                userData.setName_show(this.a.a().b);
-                personalChatMessage.setToUserInfo(userData);
-                personalChatMessage.setIsFriend(this.a.a().j ? 1 : 0);
-                return personalChatMessage;
-            }
-            return null;
-        }
-        return (ChatMessage) invokeV.objValue;
-    }
-
-    public /* synthetic */ void c(String str, Object obj) {
-        if (obj instanceof Long) {
-            tw8.k().t(a(str, ((Long) obj).longValue()));
-            e("");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d();
+            e();
         }
     }
 
-    public void f(lf5 lf5Var, final String str) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, lf5Var, str) == null) {
-            this.a = lf5Var;
-            nu5.c(new a(this, lf5Var), new ot5() { // from class: com.baidu.tieba.mf5
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.e = new qf5(this.d);
+        }
+    }
+
+    public final void j() {
+        qf5 qf5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (qf5Var = this.e) == null) {
+            return;
+        }
+        qf5Var.d(new qva.i() { // from class: com.baidu.tieba.jf5
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.qva.i
+            public final void a(String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
+                    nf5.this.i(str);
+                }
+            }
+        });
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            EditorTools a = ((vf5) new wf5(this.d).a(this.b)).a();
+            this.a = a;
+            a.setId(R.id.local_input_tool);
+            this.a.setOnCancelClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mf5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.ot5
-                public final void onReturnDataInUI(Object obj) {
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        nf5.this.c(str, obj);
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        nf5.this.f(view2);
                     }
                 }
             });
+            Context context = this.b;
+            if (context instanceof Activity) {
+                vg5.b((Activity) context, this.a.b, new vg5.b() { // from class: com.baidu.tieba.lf5
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.vg5.b
+                    public final void a(boolean z) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
+                            nf5.this.g(z);
+                        }
+                    }
+                });
+            }
+            ((LocalInputContainer) this.a.u(36).m).setSendBtnClickListener(new LocalInputContainer.c() { // from class: com.baidu.tieba.kf5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tbadk.editortools.local.view.LocalInputContainer.c
+                public final void a(of5 of5Var, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, of5Var, str) == null) {
+                        nf5.this.h(of5Var, str);
+                    }
+                }
+            });
+            a();
+        }
+    }
+
+    public /* synthetic */ void f(View view2) {
+        b();
+    }
+
+    public /* synthetic */ void g(boolean z) {
+        if (z) {
+            this.a.b.setVisibility(0);
+            this.a.b.setBackgroundColorId(R.color.CAM_X0207);
+            return;
+        }
+        this.a.b.o();
+    }
+
+    public /* synthetic */ void i(String str) {
+        this.a.K(new he5(6, 36, str));
+    }
+
+    public /* synthetic */ void h(of5 of5Var, String str) {
+        qf5 qf5Var = this.e;
+        if (qf5Var != null) {
+            qf5Var.f(of5Var, str);
+            b();
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LOCAL_INOUT_SEND_BTN_CLICK);
+            statisticItem.addParam("obj_id", of5Var.a().a);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final boolean k(Context context, View view2, of5 of5Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, context, view2, of5Var)) == null) {
+            if ((context instanceof Activity) && view2 != null && of5Var != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final void l() {
+        EditorTools editorTools;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (editorTools = this.a) != null && editorTools.u(36) != null) {
+            ve5 ve5Var = this.a.u(36).m;
+            if (ve5Var instanceof LocalInputContainer) {
+                String inputContentDraft = ((LocalInputContainer) ve5Var).getInputContentDraft();
+                qf5 qf5Var = this.e;
+                if (qf5Var != null) {
+                    qf5Var.e(inputContentDraft);
+                }
+            }
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.a != null) {
+            j();
+            this.a.m();
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LOCAL_INOUT_SHOW);
+            statisticItem.addParam("obj_id", this.d.a().a);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

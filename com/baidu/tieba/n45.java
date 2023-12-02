@@ -1,95 +1,87 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindData;
+import com.baidu.tbadk.data.LiveRemindNormalConfigData;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.LinkedList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class n45 {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedList<String> a;
-    public static final LinkedList<String> b;
+    public static volatile n45 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public LiveRemindData a;
+    public LiveRemindNormalConfigData b;
+    public List<LiveRemindRecommendData> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947952506, "Lcom/baidu/tieba/n45;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947952506, "Lcom/baidu/tieba/n45;");
-                return;
+    public n45() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new LinkedList<>();
-        b = new LinkedList<>();
     }
 
-    public static JSONObject a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static n45 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            b(jSONObject, "uid", TbadkCoreApplication.getCurrentAccount());
-            b(jSONObject, "latest_related_tid", TbadkCoreApplication.getInst().getLatestRelatedTid());
-            b(jSONObject, "latest_related_fid", TbadkCoreApplication.getInst().getLatestRelatedFid());
-            b(jSONObject, "continuous_crash_times", String.valueOf(s45.q().o()));
-            b(jSONObject, "trigger_safe_mode_status", String.valueOf(s45.q().s()));
-            b(jSONObject, "fid_info", String.valueOf(a));
-            b(jSONObject, "tid_info", String.valueOf(b));
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONObject b(JSONObject jSONObject, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, str, str2)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            if (str != null && str2 != null) {
-                try {
-                    jSONObject.put(str, str2);
-                } catch (JSONException e) {
-                    BdLog.e(e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (n45.class) {
+                    if (d == null) {
+                        d = new n45();
+                    }
                 }
             }
-            return jSONObject;
+            return d;
         }
-        return (JSONObject) invokeLLL.objValue;
+        return (n45) invokeV.objValue;
     }
 
-    public static void c(String str) {
+    public final void b() {
+        List<LiveRemindRecommendData> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a.offer(str);
-            if (a.size() > 10) {
-                a.poll();
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.c) != null && list.size() >= 1) {
+            LiveRemindConfig.c().e(this.c.get(0));
         }
     }
 
-    public static void d(String str) {
+    public LiveRemindRecommendData c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            b.offer(str);
-            if (b.size() > 10) {
-                b.poll();
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (this.c != null) {
+                for (int i2 = 0; i2 < this.c.size(); i2++) {
+                    if (this.c.get(i2) != null && this.c.get(i2).getShowPage() == i) {
+                        return this.c.get(i2);
+                    }
+                }
             }
+            return null;
         }
+        return (LiveRemindRecommendData) invokeI.objValue;
+    }
+
+    public void d(LiveRemindData liveRemindData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveRemindData) != null) || liveRemindData == null) {
+            return;
+        }
+        this.a = liveRemindData;
+        this.b = liveRemindData.getNormalConfig();
+        this.c = liveRemindData.getLiveRecommendList();
+        b();
     }
 }

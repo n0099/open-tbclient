@@ -1,64 +1,65 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vq2 {
+public abstract class vq2 implements zq2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final wq2[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948249362, "Lcom/baidu/tieba/vq2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948249362, "Lcom/baidu/tieba/vq2;");
+    public vq2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new wq2[]{new tq2(), new uq2()};
+        this.a = -1;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
-        wq2[] wq2VarArr;
+    public JSONObject d(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (wq2 wq2Var : a) {
-                sb.append(wq2Var.b());
-                sb.append(wq2Var.enable() ? 1 : 0);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("name", str);
+                jSONObject.put("value", str2);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return sb.toString();
+            return jSONObject;
         }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    @NonNull
-    public static List<wq2> b() {
-        InterceptResult invokeV;
-        wq2[] wq2VarArr;
+    public boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (wq2 wq2Var : a) {
-                if (wq2Var.enable()) {
-                    arrayList.add(wq2Var);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.a == -1) {
+                rp2.g0().getSwitch(str, 0);
+                this.a = 0;
             }
-            return arrayList;
+            if (this.a != 1) {
+                return false;
+            }
+            return true;
         }
-        return (List) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,49 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import tbclient.Userlike.UserFollowLive;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.PluginUser;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes6.dex */
-public class gp6 implements w87<Message> {
+public final class gp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public gp6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.w87
-    /* renamed from: a */
-    public nb7<?> b(Message message) {
+    public static final TiebaPlusInfo a(v57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (!(message instanceof UserFollowLive)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
+            String str = businessInfo.a().get("tie_plus_info");
+            if (str != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    builder.title = jSONObject.optString("title");
+                    builder.desc = jSONObject.optString("desc");
+                    builder.jump_url = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+                    builder.download_url = jSONObject.optString("download_url");
+                    builder.app_id = jSONObject.optString("app_id");
+                    builder.app_icon = jSONObject.optString("app_icon");
+                    builder.app_package = jSONObject.optString("app_package");
+                    builder.app_version = jSONObject.optString("app_version");
+                    builder.app_privacy = jSONObject.optString("app_privacy");
+                    builder.app_power = jSONObject.optString("app_power");
+                    builder.app_company = jSONObject.optString("app_company");
+                    builder.target_type = Integer.valueOf(jSONObject.optInt(GameGuideConfigInfo.KEY_TARGET_TYPE));
+                    builder.h5_jump_type = Integer.valueOf(jSONObject.optInt("h5_jump_type"));
+                    builder.h5_jump_number = jSONObject.optString("h5_jump_number");
+                    builder.h5_jump_param = jSONObject.optString("h5_jump_param");
+                    builder.jump_type = Integer.valueOf(jSONObject.optInt("jump_type"));
+                    builder.item_id = jSONObject.optString("item_id");
+                    builder.is_appoint = Integer.valueOf(jSONObject.optInt("is_appoint"));
+                    if (jSONObject.has("plugin_user")) {
+                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString("plugin_user"));
+                        PluginUser.Builder builder2 = new PluginUser.Builder();
+                        builder2.user_id = Long.valueOf(jSONObject2.optLong("user_id"));
+                        builder2.user_name_show = jSONObject2.optString("user_name_show");
+                        builder2.user_type = Integer.valueOf(jSONObject2.optInt("user_type"));
+                        builder2.user_photo = jSONObject2.optString("user_photo");
+                        builder2.is_download_card_whiteuser = Integer.valueOf(jSONObject2.optInt("is_download_card_whiteuser"));
+                        builder.plugin_user = builder2.build(false);
+                    }
+                    builder.forum_name = jSONObject.optString("forum_name");
+                    builder.jump_setting = Integer.valueOf(jSONObject.optInt("jump_setting"));
+                    builder.wx_thumbnail = jSONObject.optString("wx_thumbnail");
+                    builder.button_desc = jSONObject.optString("button_desc");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            cc8 cc8Var = new cc8();
-            cc8Var.d((UserFollowLive) message);
-            mm6 mm6Var = new mm6(null, cc8Var.c(), ImageViewerConfig.FROM_CONCERN);
-            q77 q77Var = new q77();
-            q77Var.a = mm6Var;
-            return new ob7(new e37(q77Var), "ala_live_attention");
+            TiebaPlusInfo build = builder.build(true);
+            Intrinsics.checkNotNullExpressionValue(build, "builder.build(true)");
+            return build;
         }
-        return (nb7) invokeL.objValue;
+        return (TiebaPlusInfo) invokeL.objValue;
     }
 }

@@ -27,7 +27,7 @@ import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.wya;
+import com.baidu.tieba.vya;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -142,7 +142,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.IPlayVi
             }
         }
         this.a = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wya.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vya.Voice_play_type);
         this.a = obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         b(context);
@@ -304,9 +304,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.IPlayVi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.play_voice_bnt, (ViewGroup) this, true);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091da0);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d8d);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091e5a);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091da2);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d8f);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091e5c);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);
@@ -538,10 +538,10 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.IPlayVi
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             int[] iArr = {0, 0};
             if (this.a == 0) {
-                iArr[0] = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070387);
-                iArr[1] = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07041f);
+                iArr[0] = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070388);
+                iArr[1] = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070420);
             } else {
-                iArr[0] = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070375);
+                iArr[0] = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070376);
                 iArr[1] = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07026f);
             }
             return iArr;

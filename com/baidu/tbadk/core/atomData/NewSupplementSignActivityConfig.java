@@ -59,7 +59,7 @@ public class NewSupplementSignActivityConfig extends TbWebContainerActivityConfi
                 return;
             }
         }
-        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f12ab);
+        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f12ac);
         getIntent().putExtra(FORUM_ID, i);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);

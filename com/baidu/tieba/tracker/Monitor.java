@@ -4,14 +4,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.a4b;
+import com.baidu.tieba.f4b;
 import com.baidu.tieba.g4b;
 import com.baidu.tieba.h4b;
 import com.baidu.tieba.i4b;
-import com.baidu.tieba.j4b;
-import com.baidu.tieba.m4b;
+import com.baidu.tieba.l4b;
+import com.baidu.tieba.v3b;
 import com.baidu.tieba.w3b;
-import com.baidu.tieba.x3b;
+import com.baidu.tieba.y3b;
 import com.baidu.tieba.z3b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,7 +30,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class Monitor {
     public static /* synthetic */ Interceptable $ic;
     public static final Monitor a;
-    public static Map<String, j4b<m4b>> b;
+    public static Map<String, i4b<l4b>> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,7 +64,7 @@ public final class Monitor {
         }
     }
 
-    public final j4b<m4b> a(Fragment fragment, m4b ref, a4b type) {
+    public final i4b<l4b> a(Fragment fragment, l4b ref, z3b type) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, fragment, ref, type)) == null) {
@@ -72,9 +72,9 @@ public final class Monitor {
             Intrinsics.checkNotNullParameter(ref, "ref");
             Intrinsics.checkNotNullParameter(type, "type");
             final String traceId = ref.getTraceId();
-            j4b<m4b> j4bVar = b.get(traceId);
-            if (j4bVar == null) {
-                j4bVar = new i4b<>(fragment, ref, type, new Function1<m4b, x3b>(traceId) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$1
+            i4b<l4b> i4bVar = b.get(traceId);
+            if (i4bVar == null) {
+                i4bVar = new h4b<>(fragment, ref, type, new Function1<l4b, w3b>(traceId) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String $pid;
@@ -102,33 +102,33 @@ public final class Monitor {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final x3b invoke(m4b it) {
+                    public final w3b invoke(l4b it) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, it)) == null) {
                             Intrinsics.checkNotNullParameter(it, "it");
-                            return w3b.a.b(this.$pid);
+                            return v3b.a.b(this.$pid);
                         }
-                        return (x3b) invokeL.objValue;
+                        return (w3b) invokeL.objValue;
                     }
                 });
             }
-            b.put(traceId, j4bVar);
-            return j4bVar;
+            b.put(traceId, i4bVar);
+            return i4bVar;
         }
-        return (j4b) invokeLLL.objValue;
+        return (i4b) invokeLLL.objValue;
     }
 
-    public final j4b<m4b> b(FragmentActivity activity, m4b ref) {
+    public final i4b<l4b> b(FragmentActivity activity, l4b ref) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, ref)) == null) {
             Intrinsics.checkNotNullParameter(activity, "activity");
             Intrinsics.checkNotNullParameter(ref, "ref");
             final String traceId = ref.getTraceId();
-            j4b<m4b> j4bVar = b.get(traceId);
-            if (j4bVar == null) {
-                j4bVar = new g4b<>(activity, ref, new Function1<m4b, x3b>(traceId) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$2
+            i4b<l4b> i4bVar = b.get(traceId);
+            if (i4bVar == null) {
+                i4bVar = new f4b<>(activity, ref, new Function1<l4b, w3b>(traceId) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String $pid;
@@ -156,34 +156,34 @@ public final class Monitor {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final x3b invoke(m4b it) {
+                    public final w3b invoke(l4b it) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, it)) == null) {
                             Intrinsics.checkNotNullParameter(it, "it");
-                            return w3b.a.b(this.$pid);
+                            return v3b.a.b(this.$pid);
                         }
-                        return (x3b) invokeL.objValue;
+                        return (w3b) invokeL.objValue;
                     }
                 });
             }
-            b.put(traceId, j4bVar);
-            return j4bVar;
+            b.put(traceId, i4bVar);
+            return i4bVar;
         }
-        return (j4b) invokeLL.objValue;
+        return (i4b) invokeLL.objValue;
     }
 
-    public final j4b<m4b> c(final z3b event, a4b traceType) {
+    public final i4b<l4b> c(final y3b event, z3b traceType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, event, traceType)) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             Intrinsics.checkNotNullParameter(traceType, "traceType");
-            j4b<m4b> j4bVar = b.get(event.getTraceId());
-            if (j4bVar == null) {
-                j4bVar = new h4b<>(event, traceType, new Function1<m4b, x3b>(event) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$3
+            i4b<l4b> i4bVar = b.get(event.getTraceId());
+            if (i4bVar == null) {
+                i4bVar = new g4b<>(event, traceType, new Function1<l4b, w3b>(event) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$3
                     public static /* synthetic */ Interceptable $ic;
-                    public final /* synthetic */ z3b $event;
+                    public final /* synthetic */ y3b $event;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -209,24 +209,24 @@ public final class Monitor {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final x3b invoke(m4b it) {
+                    public final w3b invoke(l4b it) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, it)) == null) {
                             Intrinsics.checkNotNullParameter(it, "it");
-                            return w3b.a.b(this.$event.getTraceId());
+                            return v3b.a.b(this.$event.getTraceId());
                         }
-                        return (x3b) invokeL.objValue;
+                        return (w3b) invokeL.objValue;
                     }
                 });
             }
-            b.put(event.getTraceId(), j4bVar);
-            return j4bVar;
+            b.put(event.getTraceId(), i4bVar);
+            return i4bVar;
         }
-        return (j4b) invokeLL.objValue;
+        return (i4b) invokeLL.objValue;
     }
 
-    public final j4b<m4b> d(m4b ref) {
+    public final i4b<l4b> d(l4b ref) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ref)) == null) {
@@ -237,16 +237,16 @@ public final class Monitor {
             }
             return null;
         }
-        return (j4b) invokeL.objValue;
+        return (i4b) invokeL.objValue;
     }
 
-    public final j4b<m4b> e(String pid) {
+    public final i4b<l4b> e(String pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, pid)) == null) {
             Intrinsics.checkNotNullParameter(pid, "pid");
             return b.remove(pid);
         }
-        return (j4b) invokeL.objValue;
+        return (i4b) invokeL.objValue;
     }
 }

@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ey4;
+import com.baidu.tieba.hy4;
 import com.baidu.tieba.im.message.ResponsePullMessage;
 import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import protobuf.PushMsgInfo;
 public class PushResponseMessage extends ResponsePullMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ey4 notificationData;
+    public hy4 notificationData;
 
     @Override // com.baidu.tieba.im.message.ResponsePullMessage
     public boolean isPulledMessage() {
@@ -52,13 +52,13 @@ public class PushResponseMessage extends ResponsePullMessage {
         }
     }
 
-    public ey4 getNotificationData() {
+    public hy4 getNotificationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.notificationData;
         }
-        return (ey4) invokeV.objValue;
+        return (hy4) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.message.ResponsePullMessage, com.baidu.adp.framework.message.SocketResponsedMessage

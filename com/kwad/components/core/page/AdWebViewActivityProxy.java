@@ -412,7 +412,7 @@ public class AdWebViewActivityProxy extends com.kwad.components.core.proxy.c {
         this.mLandingPageView = a2;
         a2.setLandPageViewListener(this.mLandPageViewListener);
         this.mLandingPageView.setWebCardCloseListener(this.mWebCardCloseListener);
-        ((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913a9)).addView(this.mLandingPageView);
+        ((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913aa)).addView(this.mLandingPageView);
     }
 
     @Override // com.kwad.components.core.proxy.c

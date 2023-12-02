@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.gg;
 import com.xiaomi.push.id;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes2.dex */
+/* loaded from: classes10.dex */
 public final class z extends XMPushService.j {
     public final /* synthetic */ id a;
 

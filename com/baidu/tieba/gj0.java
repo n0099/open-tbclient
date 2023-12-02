@@ -31,12 +31,12 @@ public class gj0 {
 
         /* renamed from: com.baidu.tieba.gj0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0328a extends BroadcastReceiver {
+        public class C0298a extends BroadcastReceiver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a this$1;
 
-            public C0328a(a aVar) {
+            public C0298a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class gj0 {
                 } else if (this.a.d == null) {
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
-                    this.a.d = new C0328a(this);
+                    this.a.d = new C0298a(this);
                     hf0.b().registerReceiver(this.a.d, intentFilter);
                 }
             }
@@ -136,7 +136,7 @@ public class gj0 {
             dj0 dj0Var = new dj0(this.a, this.b, this.c);
             this.e = dj0Var;
             dj0Var.m(new a(this));
-            c01.c(this.e, "adc_async_request", 0);
+            e01.c(this.e, "adc_async_request", 0);
         }
     }
 }

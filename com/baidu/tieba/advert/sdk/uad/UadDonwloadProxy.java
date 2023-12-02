@@ -15,16 +15,16 @@ import com.baidu.searchbox.download.unified.EventCallback;
 import com.baidu.searchbox.download.unified.EventControlInfoForResume;
 import com.baidu.searchbox.download.unified.EventControlInfoForStart;
 import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.tieba.cv6;
 import com.baidu.tieba.eh0;
+import com.baidu.tieba.gv6;
 import com.baidu.tieba.hf0;
 import com.baidu.tieba.ij0;
 import com.baidu.tieba.jg0;
-import com.baidu.tieba.my0;
+import com.baidu.tieba.oy0;
 import com.baidu.tieba.sh0;
-import com.baidu.tieba.v56;
 import com.baidu.tieba.wg0;
 import com.baidu.tieba.xg0;
+import com.baidu.tieba.z56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -129,7 +129,7 @@ public class UadDonwloadProxy implements IAdDownloader {
                 if (wg0Var.k != uri) {
                     return;
                 }
-                wg0Var.h = v56.j(hf0.b(), this.model.k);
+                wg0Var.h = z56.j(hf0.b(), this.model.k);
                 this.mListener.onSuccess(this.model.b);
             }
         }
@@ -181,7 +181,7 @@ public class UadDonwloadProxy implements IAdDownloader {
                     wg0 wg0Var = this.a;
                     wg0Var.i = 0.0f;
                     wg0Var.j = 0.0f;
-                    this.b.b(wg0Var.q.e, v56.j(hf0.b(), this.a.k));
+                    this.b.b(wg0Var.q.e, z56.j(hf0.b(), this.a.k));
                     return;
                 }
                 sh0 sh0Var = this.b;
@@ -216,7 +216,7 @@ public class UadDonwloadProxy implements IAdDownloader {
                 sh0Var.d(eh0Var);
                 return -1;
             }
-            cv6.b().f(hf0.b(), "ad", e(wg0Var), new ListenerFacade(this, wg0Var, sh0Var), new EventControlInfoForStart(false, false, true), new a(this, wg0Var, sh0Var));
+            gv6.b().f(hf0.b(), "ad", e(wg0Var), new ListenerFacade(this, wg0Var, sh0Var), new EventControlInfoForStart(false, false, true), new a(this, wg0Var, sh0Var));
             return wg0Var.g.hashCode();
         }
         return invokeLL.intValue;
@@ -226,7 +226,7 @@ public class UadDonwloadProxy implements IAdDownloader {
     public void c(@NonNull wg0 wg0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wg0Var) == null) {
-            cv6.b().c(wg0Var.k);
+            gv6.b().c(wg0Var.k);
         }
     }
 
@@ -236,7 +236,7 @@ public class UadDonwloadProxy implements IAdDownloader {
         if (interceptable == null || interceptable.invokeLL(1048579, this, wg0Var, sh0Var) == null) {
             ListenerFacade listenerFacade = new ListenerFacade(this, wg0Var, sh0Var);
             a aVar = new a(this, wg0Var, sh0Var);
-            cv6.b().e(hf0.b(), "ad", wg0Var.k, listenerFacade, new EventControlInfoForResume(false, true), aVar);
+            gv6.b().e(hf0.b(), "ad", wg0Var.k, listenerFacade, new EventControlInfoForResume(false, true), aVar);
         }
     }
 
@@ -253,9 +253,9 @@ public class UadDonwloadProxy implements IAdDownloader {
             if (TextUtils.isEmpty(str)) {
                 str = "apk_yuansheng_unknown";
             }
-            my0.f(jSONObject, "source", str);
+            oy0.f(jSONObject, "source", str);
             if (!TextUtils.isEmpty(wg0Var.p.c)) {
-                my0.d(jSONObject, DownloadConstants.HIDE_INSTALL_COMPLETE, 1);
+                oy0.d(jSONObject, DownloadConstants.HIDE_INSTALL_COMPLETE, 1);
             }
             if (ij0.b().a().a("tb_uad_is_visible_notification", 0) == 1) {
                 z = true;
@@ -269,13 +269,13 @@ public class UadDonwloadProxy implements IAdDownloader {
             }
             if (z) {
                 if (!TextUtils.isEmpty(wg0Var.p.g)) {
-                    my0.f(jSONObject, "icon", wg0Var.p.g);
+                    oy0.f(jSONObject, "icon", wg0Var.p.g);
                 }
                 if (!TextUtils.isEmpty(wg0Var.p.i)) {
-                    my0.f(jSONObject, "versioncode", wg0Var.p.i);
+                    oy0.f(jSONObject, "versioncode", wg0Var.p.i);
                 }
             }
-            my0.g(jSONObject, Downloads.Impl.COLUMN_EXTRA_INFO_CLOSE_AUTO_INSTALL, true);
+            oy0.g(jSONObject, Downloads.Impl.COLUMN_EXTRA_INFO_CLOSE_AUTO_INSTALL, true);
             downloadParams.setVisibleInNotification(i);
             if (ij0.b().a().a("tb_uad_is_visible_in_download_center", 0) == 1) {
                 z2 = true;

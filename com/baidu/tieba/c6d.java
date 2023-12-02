@@ -1,33 +1,24 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.PbLinkInfo;
+import tbclient.PbPostZan;
 /* loaded from: classes5.dex */
-public class c6d extends ltc {
+public class c6d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PbLinkInfo pbLinkInfo) {
+    public static JSONObject b(@NonNull PbPostZan pbPostZan) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pbLinkInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pbPostZan)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "title", pbLinkInfo.title);
-            ltc.a(jSONObject, "to_url", pbLinkInfo.to_url);
-            ltc.a(jSONObject, "pic_url", pbLinkInfo.pic_url);
-            ltc.a(jSONObject, "link_from", pbLinkInfo.link_from);
-            ltc.a(jSONObject, "ext_txt", pbLinkInfo.ext_txt);
-            ltc.a(jSONObject, QuickPersistConfigConst.KEY_SPLASH_SORT, pbLinkInfo.sort);
-            ltc.a(jSONObject, "url_type", pbLinkInfo.url_type);
-            ltc.a(jSONObject, GameGuideConfigInfo.KEY_CONTENT1, pbLinkInfo.content1);
-            ltc.a(jSONObject, GameGuideConfigInfo.KEY_CONTENT2, pbLinkInfo.content2);
+            ktc.a(jSONObject, "zan_num", pbPostZan.zan_num);
+            ktc.a(jSONObject, "has_zan", pbPostZan.has_zan);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

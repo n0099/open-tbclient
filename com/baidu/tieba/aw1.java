@@ -1,186 +1,161 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.q52;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
+import com.facebook.common.internal.Sets;
+import java.util.List;
+import java.util.Set;
+import okhttp3.Headers;
+import okhttp3.HttpUrl;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class aw1 extends zv1 {
+public class aw1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.lu1
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "NavigateBackApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ n52 b;
-        public final /* synthetic */ q52 c;
-        public final /* synthetic */ q52.b d;
-        public final /* synthetic */ aw1 e;
-
-        public a(aw1 aw1Var, int i, n52 n52Var, q52 q52Var, q52.b bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947629486, "Lcom/baidu/tieba/aw1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aw1Var, Integer.valueOf(i), n52Var, q52Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.e = aw1Var;
-            this.a = i;
-            this.b = n52Var;
-            this.c = q52Var;
-            this.d = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a > 1 && !this.b.E0) {
-                    ri3.b(this.c, this.e.i(), 1);
-                }
-                this.d.a();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aw1(@NonNull ju1 ju1Var) {
-        super(ju1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ju1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ju1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947629486, "Lcom/baidu/tieba/aw1;");
                 return;
             }
         }
+        a = vm1.a;
+        b = Sets.newHashSet("localhost", "127.0.0.1");
     }
 
-    public static void z() {
-        h63 c0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (c0 = h63.c0()) != null) {
-            c0.B().I(c0.getAppId());
-        }
-    }
-
-    public iy1 B() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            r("#hideModalPage", false);
-            z();
-            return A(1, "hideModalPage", 10);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return rj3.b();
         }
-        return (iy1) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final iy1 A(int i, String str, int i2) {
-        InterceptResult invokeCommon;
-        hw2 t3;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
-            String uuid = UUID.randomUUID().toString();
-            nz2.b(uuid);
-            q52 W = ur2.V().W();
-            if (W == null) {
-                h32.c("NavigateBackApi", "manager is null");
-                return new iy1(1001, "manager is null");
-            }
-            int k = W.k();
-            if (k == 1) {
-                h32.c("NavigateBackApi", "navigateBack api can only work when slave's count greater than 1");
-                return new iy1(1001, "navigateBack api can only work when slave's count greater than 1");
-            }
-            if (i >= k) {
-                i = k - 1;
-            }
-            hw2 f = vc3.f(uuid, i);
-            n52 m = W.m();
-            if (m == null) {
-                h32.c("NavigateBackApi", "slave container is null");
-                return new iy1(1001, "slave container is null");
-            } else if (TextUtils.equals("hideModalPage", str) && !m.E0) {
-                h32.c("NavigateBackApi", "hideModalPage api can only work after showModalPage");
-                return new iy1(1001, "hideModalPage api can only work after showModalPage");
-            } else {
-                nz2.c(i2, uuid);
-                q52.b i3 = W.i(str);
-                i3.n(q52.i, q52.h);
-                i3.h(i);
-                bk3.a0(new a(this, k, m, W, i3));
-                p52 o = W.o();
-                if (o == null) {
-                    t3 = null;
-                } else {
-                    t3 = o.t3();
-                }
-                mz2.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
-                nz2.a(uuid, t3);
-                if (!(W.m() instanceof p52)) {
-                    h32.c("NavigateBackApi", "top fragment error");
-                    vc3.i(f);
-                    return new iy1(1001, "top fragment error");
-                }
-                p52 p52Var = (p52) W.m();
-                if (p52Var != null) {
-                    str2 = p52Var.A3();
-                } else {
-                    str2 = "";
-                }
-                return new iy1(0, q93.c(str2));
-            }
-        }
-        return (iy1) invokeCommon.objValue;
-    }
-
-    public iy1 C(String str) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            r("#navigateBack params=" + str, false);
-            z();
-            Pair<iy1, JSONObject> t = t(str);
-            iy1 iy1Var = (iy1) t.first;
-            if (!iy1Var.isSuccess()) {
-                return iy1Var;
-            }
-            return A(((JSONObject) t.second).optInt("delta", 1), "navigateBack", 1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return str + "_" + System.currentTimeMillis();
         }
-        return (iy1) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static JSONObject c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("cancelTag", str);
+                }
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Nullable
+    public static String e(@Nullable String str) {
+        InterceptResult invokeL;
+        HttpUrl parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (parse = HttpUrl.parse(str)) != null) {
+                return parse.host();
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b(@Nullable HttpUrl httpUrl) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, httpUrl)) == null) {
+            boolean i = b73.i();
+            if (!rp2.g0().D()) {
+                i = false;
+            }
+            if (httpUrl == null) {
+                return false;
+            }
+            if ((i && HttpUrl.defaultPort(httpUrl.scheme()) != httpUrl.port()) || b.contains(httpUrl.host().toLowerCase())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static HttpUrl f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            HttpUrl parse = HttpUrl.parse(str);
+            if (j63.K().w() == null) {
+                if (!b(parse)) {
+                    return null;
+                }
+                return parse;
+            } else if (j23.o()) {
+                return parse;
+            } else {
+                if (!b(parse)) {
+                    return null;
+                }
+                return parse;
+            }
+        }
+        return (HttpUrl) invokeL.objValue;
+    }
+
+    public static JSONObject g(Headers headers) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, headers)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (headers == null) {
+                return jSONObject;
+            }
+            for (String str : headers.names()) {
+                if (!TextUtils.isEmpty(str)) {
+                    List<String> values = headers.values(str);
+                    StringBuilder sb = new StringBuilder();
+                    int size = values.size();
+                    for (int i = 0; i < size; i++) {
+                        sb.append(values.get(i));
+                        if (i == size - 1) {
+                            break;
+                        }
+                        sb.append(",");
+                    }
+                    jSONObject.put(str, sb.toString());
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

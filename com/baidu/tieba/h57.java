@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.helper.CommonOnClickKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,21 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import java.util.Map;
-import kotlin.jvm.JvmOverloads;
+import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class h57 extends v47 {
+public final class h57 extends z47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<e87> g;
-    public final boolean h;
-    public final String i;
-    public int j;
+    public String g;
+    public int h;
+    public final t77 i;
+    public final t67 j;
+    public final Function2<t67, View, Unit> k;
 
     static {
         InterceptResult invokeClinit;
@@ -48,52 +51,52 @@ public final class h57 extends v47 {
             }
             if (obj instanceof h57) {
                 h57 h57Var = (h57) obj;
-                return Intrinsics.areEqual(this.g, h57Var.g) && this.h == h57Var.h && Intrinsics.areEqual(this.i, h57Var.i);
+                return Intrinsics.areEqual(this.g, h57Var.g) && this.h == h57Var.h && Intrinsics.areEqual(this.i, h57Var.i) && Intrinsics.areEqual(this.j, h57Var.j) && Intrinsics.areEqual(this.k, h57Var.k);
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int hashCode = this.g.hashCode() * 31;
-            boolean z = this.h;
-            int i = z;
-            if (z != 0) {
-                i = 1;
-            }
-            return ((hashCode + i) * 31) + this.i.hashCode();
+            String str = this.g;
+            int hashCode = (((((str == null ? 0 : str.hashCode()) * 31) + this.h) * 31) + this.i.hashCode()) * 31;
+            t67 t67Var = this.j;
+            return ((hashCode + (t67Var != null ? t67Var.hashCode() : 0)) * 31) + this.k.hashCode();
         }
         return invokeV.intValue;
+    }
+
+    public final t67 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : (t67) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "TopCardUiState(topCardDataList=" + this.g + ", isLiked=" + this.h + ", themeColorInfo=" + this.i + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "RecommendCardUiState(mTitle=" + this.g + ", titleColorId=" + this.h + ", mNestedData=" + this.i + ", feedBackData=" + this.j + ", onFeedBackClick=" + this.k + ')';
         }
         return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public h57(List<e87> topCardDataList, boolean z, String themeColorInfo) {
+    public h57(String str, int i, t77 mNestedData, t67 t67Var, Function2<? super t67, ? super View, Unit> onFeedBackClick) {
         super(null, null, null, null, 15, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {topCardDataList, Boolean.valueOf(z), themeColorInfo};
+            newInitContext.initArgs = r3;
+            Object[] objArr = {str, Integer.valueOf(i), mNestedData, t67Var, onFeedBackClick};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Map) objArr2[0], (Map) objArr2[1], (Function2) objArr2[2], (Function1) objArr2[3], ((Integer) objArr2[4]).intValue(), (DefaultConstructorMarker) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -101,53 +104,61 @@ public final class h57 extends v47 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(topCardDataList, "topCardDataList");
-        Intrinsics.checkNotNullParameter(themeColorInfo, "themeColorInfo");
-        this.g = topCardDataList;
-        this.h = z;
-        this.i = themeColorInfo;
+        Intrinsics.checkNotNullParameter(mNestedData, "mNestedData");
+        Intrinsics.checkNotNullParameter(onFeedBackClick, "onFeedBackClick");
+        this.g = str;
+        this.h = i;
+        this.i = mNestedData;
+        this.j = t67Var;
+        this.k = onFeedBackClick;
     }
 
-    public final int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
+    public /* synthetic */ h57(String str, int i, t77 t77Var, t67 t67Var, Function2 function2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, i, t77Var, t67Var, (i2 & 16) != 0 ? CommonOnClickKt.a() : function2);
     }
 
-    public final String m() {
+    public final t67 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.j;
+        }
+        return (t67) invokeV.objValue;
+    }
+
+    public final t77 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.i;
+        }
+        return (t77) invokeV.objValue;
+    }
+
+    public final String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
         }
         return (String) invokeV.objValue;
     }
 
-    public final List<e87> n() {
+    public final Function2<t67, View, Unit> p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.k;
         }
-        return (List) invokeV.objValue;
+        return (Function2) invokeV.objValue;
     }
 
-    public final boolean o() {
+    public final int q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.h;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.j = i;
-        }
+        return invokeV.intValue;
     }
 }

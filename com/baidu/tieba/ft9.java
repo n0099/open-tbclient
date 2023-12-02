@@ -1,36 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import android.content.Intent;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.callback.OneKeyLoginCallback;
-import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.AccountStorage;
+import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.log.Logger;
+import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ft9 extends ct9 {
+public class ft9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public final BaseActivity<?> a;
+    @Nullable
+    public BdAsyncTask<?, ?, ?> b;
+    public final AccountLoginCoreHelper.IReLoginCallback c;
 
     /* loaded from: classes6.dex */
-    public class a extends OneKeyLoginCallback {
+    public class a implements AccountLoginCoreHelper.IReLoginCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ft9 a;
-
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
-            }
-        }
 
         public a(ft9 ft9Var) {
             Interceptable interceptable = $ic;
@@ -50,119 +54,167 @@ public class ft9 extends ct9 {
             this.a = ft9Var;
         }
 
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onBeforeLogin(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
-                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
-                this.a.f();
+            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                return;
             }
+            this.a.j();
         }
 
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void onFail(OneKeyLoginResult oneKeyLoginResult) {
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onSuccess(AccountData accountData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                this.a.b.closeLoadingDialog();
-                BaseActivity baseActivity = this.a.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0f30), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) != null) {
+                return;
+            }
+            this.a.e();
+            this.a.g(accountData);
+        }
+
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onFailure(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, str2) == null) {
+                this.a.e();
+                if (this.a.a != null) {
+                    this.a.a.showToast(str2);
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ft9(TbPageContext tbPageContext, dt9 dt9Var) {
-        super(tbPageContext, dt9Var, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AccountData a;
+
+        public b(ft9 ft9Var, AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ft9Var, accountData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = accountData;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                AccountStorage.saveAccountData(this.a);
+                Logger.addLog("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+            }
+        }
+    }
+
+    public ft9(@Nullable BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, dt9Var};
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (dt9) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = new a(this);
+        this.a = baseActivity;
     }
 
-    @Override // com.baidu.tieba.ct9
-    public void j(et9 et9Var) {
+    public final void g(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, et9Var) == null) {
-            this.e = et9Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.ct9
-    public void n(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            super.n(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f091732) {
-                s();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091af0) {
-                t();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09018b) {
-                r();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091e33) {
-                u();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            i(accountData);
+            Logger.addLog("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            if (this.a != null) {
+                TbadkCoreApplication.getInst().onUserChanged(this.a.getIntent());
             }
+            f(-1);
+            TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
         }
     }
 
-    public final void r() {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BaseActivity baseActivity = this.b;
-            BrowserHelper.startWebActivity((Context) baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0f27), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false);
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a == null) {
+            return;
         }
+        this.a.setResult(i, new Intent());
+        this.a.finish();
     }
 
-    public void s() {
+    public final void e() {
+        BaseActivity<?> baseActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (baseActivity = this.a) == null) {
+            return;
+        }
+        baseActivity.closeLoadingDialog();
+    }
+
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            l();
-            PassportSDK passportSDK = PassportSDK.getInstance();
-            BaseActivity baseActivity = this.b;
-            passportSDK.loadOneKeyLogin(baseActivity, kt9.j(baseActivity, this.e.c), new a(this));
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            BaseActivity baseActivity = this.b;
-            BrowserHelper.startWebActivity((Context) baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0f2b), "http://privacy.baidu.com/mdetail?id=288", false);
-        }
-    }
-
-    public final void t() {
-        et9 et9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (et9Var = this.e) == null) {
-            return;
-        }
-        int a2 = et9Var.a();
-        if (a2 != 1) {
-            if (a2 != 2) {
-                if (a2 == 3) {
-                    BaseActivity baseActivity = this.b;
-                    BrowserHelper.startWebActivity((Context) baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0f2a), "https://wap.cmpassport.com/resources/html/contract.html", false);
-                    return;
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
+            SapiAccount session = SapiAccountManager.getInstance().getSession();
+            if (session != null) {
+                BdAsyncTask<?, ?, ?> bdAsyncTask = this.b;
+                if (bdAsyncTask != null) {
+                    bdAsyncTask.cancel();
                 }
+                this.b = AccountLoginCoreHelper.getInstance().asyncReLogin(session.username, session.bduss, "", null, this.c);
                 return;
             }
-            BaseActivity baseActivity2 = this.b;
-            BrowserHelper.startWebActivity((Context) baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0f29), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false);
+            e();
+            f(0);
+        }
+    }
+
+    public final void j() {
+        BaseActivity<?> baseActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (baseActivity = this.a) == null) {
             return;
         }
-        BaseActivity baseActivity3 = this.b;
-        BrowserHelper.startWebActivity((Context) baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0f28), "https://ms.zzx9.cn/html/oauth/protocol2.html", false);
+        if (baseActivity.getLoadingDialog() != null && this.a.getLoadingDialog().isShowing()) {
+            return;
+        }
+        BaseActivity<?> baseActivity2 = this.a;
+        baseActivity2.showLoadingDialog(baseActivity2.getString(R.string.sapi_logining));
+        if (this.a.getLoadingDialog() != null) {
+            this.a.getLoadingDialog().setCancelable(false);
+            this.a.getLoadingDialog().setCanceledOnTouchOutside(false);
+        }
+    }
+
+    public final void i(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, accountData) == null) {
+            zb.a().c(new b(this, accountData));
+            Logger.addLog("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            BaseActivity<?> baseActivity = this.a;
+            if (baseActivity != null) {
+                TbadkCoreApplication.setCurrentAccount(accountData, baseActivity);
+            }
+            BrowserHelper.initCookie(TbadkCoreApplication.getInst());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
+        }
     }
 }

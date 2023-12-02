@@ -1,76 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes8.dex */
-public final class ve3 {
+public class ve3 extends ue3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, pe3> a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948237861, "Lcom/baidu/tieba/ve3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948237861, "Lcom/baidu/tieba/ve3;");
-                return;
-            }
-        }
-        boolean z = sm1.a;
-        a = new HashMap();
-    }
 
     public ve3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static pe3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b("searchbox_webapps_sp");
-        }
-        return (pe3) invokeV.objValue;
-    }
-
-    public static pe3 b(String str) {
+    @Override // com.baidu.tieba.ue3
+    @SuppressLint({"BDThrowableCheck"})
+    public Bundle c(te3 te3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            pe3 pe3Var = a.get(str);
-            if (pe3Var == null) {
-                synchronized (ve3.class) {
-                    pe3Var = a.get(str);
-                    if (pe3Var == null) {
-                        pe3Var = new pe3(str);
-                        a.put(str, pe3Var);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, te3Var)) == null) {
+            Bundle bundle = new Bundle();
+            se3 b = ye3.b(te3Var.a);
+            if (b == null) {
+                if (!ue3.a) {
+                    return bundle;
                 }
+                throw new IllegalArgumentException("illegal sp.");
             }
-            return pe3Var;
+            int i = te3Var.b;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                if (ue3.a) {
+                                    throw new IllegalArgumentException("wrong info params.");
+                                }
+                            } else {
+                                bundle.putFloat("result_value", b.getFloat(te3Var.c, Float.parseFloat(te3Var.d)));
+                            }
+                        } else {
+                            bundle.putString("result_value", b.getString(te3Var.c, te3Var.d));
+                        }
+                    } else {
+                        bundle.putBoolean("result_value", b.getBoolean(te3Var.c, Boolean.parseBoolean(te3Var.d)));
+                    }
+                } else {
+                    bundle.putLong("result_value", b.getLong(te3Var.c, Long.parseLong(te3Var.d)));
+                }
+            } else {
+                bundle.putInt("result_value", b.getInt(te3Var.c, Integer.parseInt(te3Var.d)));
+            }
+            if (ue3.a) {
+                Log.d("SwanAppSpDelegation", "Get: " + te3Var);
+            }
+            return bundle;
         }
-        return (pe3) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

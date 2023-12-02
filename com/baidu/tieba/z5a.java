@@ -1,95 +1,47 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.data.AdverSegmentData;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes9.dex */
-public final class z5a {
+public class z5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(AdverSegmentData adverSegmentData, int i) {
-        InterceptResult invokeLI;
+    public static final w5a a(TbPageContext<?> tbPageContext, ExcContent excContent) {
+        InterceptResult invokeLL;
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, adverSegmentData, i)) == null) {
-            if (adverSegmentData == null || StringHelper.isTaday(SharedPrefHelper.getInstance().getLong("key_pb_falling_ad_feedback_click_time", 0L))) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, excContent)) == null) {
+            if (excContent == null || (l = excContent.type) == null) {
+                return null;
             }
-            try {
-                if (i == 2) {
-                    int i2 = SharedPrefHelper.getInstance().getInt("key_pb_commont_egg_limlit_a", 0);
-                    if (TbSingleton.getInstance().getAdVertiSementData() != null && i2 < TbSingleton.getInstance().getAdVertiSementData().a()) {
-                        SharedPrefHelper.getInstance().putInt("key_pb_commont_egg_limlit_a", i2 + 1);
-                        return true;
-                    }
-                } else {
-                    String string = SharedPrefHelper.getInstance().getString("key_pb_commont_egg_limlit_bc", new JSONObject().toString());
-                    if (TextUtils.isEmpty(adverSegmentData.getAdSegmentId())) {
-                        return false;
-                    }
-                    JSONObject jSONObject = new JSONObject(string);
-                    JSONArray jSONArray = new JSONArray();
-                    JSONArray optJSONArray = jSONObject.optJSONArray(adverSegmentData.getAdSegmentId());
-                    if (optJSONArray != null) {
-                        int length = optJSONArray.length();
-                        for (int i3 = 0; i3 < length; i3++) {
-                            long optLong = optJSONArray.optLong(i3);
-                            if (StringHelper.isTaday(optLong)) {
-                                jSONArray.put(optLong);
-                            }
-                        }
-                    }
-                    if (TbSingleton.getInstance().getAdVertiSementData() != null && jSONArray.length() < TbSingleton.getInstance().getAdVertiSementData().b()) {
-                        jSONArray.put(System.currentTimeMillis());
-                        jSONObject.remove(adverSegmentData.getAdSegmentId());
-                        jSONObject.put(adverSegmentData.getAdSegmentId(), jSONArray);
-                        SharedPrefHelper.getInstance().putString("key_pb_commont_egg_limlit_bc", jSONObject.toString());
-                        return true;
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
+            if (l.longValue() == 2) {
+                return new u5a(excContent);
             }
-            return false;
+            if (excContent.type.longValue() == 0) {
+                return new a6a(tbPageContext.getPageActivity(), excContent);
+            }
+            if (excContent.type.longValue() != 1) {
+                return null;
+            }
+            return new v5a(tbPageContext, excContent);
         }
-        return invokeLI.booleanValue;
+        return (w5a) invokeLL.objValue;
     }
 
-    public static final int b(View view2) {
+    public static final x5a b(ExcContent excContent) {
         InterceptResult invokeL;
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            view2.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            return view2.getMeasuredWidth();
-        }
-        return invokeL.intValue;
-    }
-
-    public static final int c(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
-            if (mode != Integer.MIN_VALUE) {
-                if (mode == 1073741824) {
-                    return size;
-                }
-                return i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, excContent)) == null) {
+            if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
+                return null;
             }
-            return Math.min(i, size);
+            return new y5a(excContent);
         }
-        return invokeII.intValue;
+        return (x5a) invokeL.objValue;
     }
 }

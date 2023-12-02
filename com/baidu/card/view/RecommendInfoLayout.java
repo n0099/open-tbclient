@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw4;
-import com.baidu.tieba.nua;
-import com.baidu.tieba.zt5;
+import com.baidu.tieba.du5;
+import com.baidu.tieba.fw4;
+import com.baidu.tieba.mua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -71,11 +71,11 @@ public class RecommendInfoLayout extends RelativeLayout {
                 return;
             }
             if (view2.getContext() instanceof BaseActivity) {
-                zt5.f(((BaseActivity) view2.getContext()).getPageContext(), String.valueOf(this.a), null);
+                du5.f(((BaseActivity) view2.getContext()).getPageContext(), String.valueOf(this.a), null);
             } else {
                 new HotTopicActivityConfig(this.c.getContext()).createNormalConfig(String.valueOf(this.a), null, null, "2").start();
             }
-            nua.x(this.b, 2, 1);
+            mua.x(this.b, 2, 1);
         }
     }
 
@@ -160,10 +160,10 @@ public class RecommendInfoLayout extends RelativeLayout {
         a(context);
     }
 
-    public void setData(cw4 cw4Var) {
+    public void setData(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cw4Var) == null) && cw4Var != null && cw4Var.getThreadData() != null) {
-            ThreadData threadData = cw4Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fw4Var) == null) && fw4Var != null && fw4Var.getThreadData() != null) {
+            ThreadData threadData = fw4Var.getThreadData();
             ThreadRecommendInfoData threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(threadData.getThreadRecommendInfoDataList(), 0);
             if (threadRecommendInfoData == null) {
                 return;

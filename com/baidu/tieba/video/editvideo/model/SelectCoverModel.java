@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bp9;
-import com.baidu.tieba.m6b;
+import com.baidu.tieba.fp9;
+import com.baidu.tieba.l6b;
 import com.baidu.tieba.video.editvideo.data.PendantData;
-import com.baidu.tieba.vo9;
+import com.baidu.tieba.zo9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,10 +45,10 @@ import org.json.JSONObject;
 public class SelectCoverModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m6b a;
+    public l6b a;
     public d b;
     public TbPageContext c;
-    public bp9 d;
+    public fp9 d;
     public final HttpMessageListener e;
     public final HttpMessageListener f;
 
@@ -234,13 +234,13 @@ public class SelectCoverModel extends BdBaseModel {
                 } else if (VideoCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = videoCheckUegResponseMessage.getMsg();
                     if (TextUtils.isEmpty(msg)) {
-                        msg = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f184d);
+                        msg = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f184e);
                     }
                     this.a.a.B(msg);
                 } else {
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f181a);
+                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f181b);
                     }
                     this.a.a.B(errorString);
                     if (this.a.d != null) {
@@ -392,7 +392,7 @@ public class SelectCoverModel extends BdBaseModel {
                 } catch (Exception e) {
                     e.printStackTrace();
                     if (this.c.d != null) {
-                        this.c.d.a(203, vo9.a(e));
+                        this.c.d.a(203, zo9.a(e));
                         return bitmap;
                     }
                     return bitmap;
@@ -413,13 +413,13 @@ public class SelectCoverModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectCoverModel(TbPageContext tbPageContext, m6b m6bVar, bp9 bp9Var) {
+    public SelectCoverModel(TbPageContext tbPageContext, l6b l6bVar, fp9 fp9Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, m6bVar, bp9Var};
+            Object[] objArr = {tbPageContext, l6bVar, fp9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -433,8 +433,8 @@ public class SelectCoverModel extends BdBaseModel {
         this.e = new a(this, CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
         this.f = new b(this, CmdConfigHttp.CMD_VIDEO_COVER_PENDANT);
         this.c = tbPageContext;
-        this.a = m6bVar;
-        this.d = bp9Var;
+        this.a = l6bVar;
+        this.d = fp9Var;
         registerTask();
         this.e.setTag(getUniqueId());
         this.e.setSelfListener(true);
@@ -545,7 +545,7 @@ public class SelectCoverModel extends BdBaseModel {
                     try {
                         e.printStackTrace();
                         if (this.d != null) {
-                            this.d.a(202, vo9.a(e));
+                            this.d.a(202, zo9.a(e));
                         }
                         BdCloseHelper.close((OutputStream) r2);
                         BdCloseHelper.close((OutputStream) bufferedOutputStream2);

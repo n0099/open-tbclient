@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.bm5;
+import com.baidu.tieba.em5;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import com.baidu.tieba.kma;
+import com.baidu.tieba.oma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.JsonSyntaxException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ChatRoomDispatcher implements kma {
+public class ChatRoomDispatcher implements oma {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OPEN_GROUPCHAT_SCHEME = "com.baidu.tieba://unidispatch/router/portal";
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class ChatRoomDispatcher implements kma {
 
     /* JADX WARN: Removed duplicated region for block: B:23:0x0088  */
     /* JADX WARN: Removed duplicated region for block: B:24:0x008a  */
-    @Override // com.baidu.tieba.kma
+    @Override // com.baidu.tieba.oma
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -92,7 +92,7 @@ public class ChatRoomDispatcher implements kma {
                         e.printStackTrace();
                         if (jSONObject.optInt(FrsActivityConfig.IS_SHOW_IM_GROUP_LIST) != 1) {
                         }
-                        bm5.a().b(context, optString, optLong, -1, optString2, bundle, z);
+                        em5.a().b(context, optString, optLong, -1, optString2, bundle, z);
                     }
                 } catch (JsonSyntaxException e3) {
                     bundle = null;
@@ -106,7 +106,7 @@ public class ChatRoomDispatcher implements kma {
             } else {
                 z = false;
             }
-            bm5.a().b(context, optString, optLong, -1, optString2, bundle, z);
+            em5.a().b(context, optString, optLong, -1, optString2, bundle, z);
         }
     }
 }

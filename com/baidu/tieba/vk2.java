@@ -1,113 +1,60 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.sm2;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class vk2 extends ck2<sm2> {
+public class vk2 extends ek2<sk2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sm2.a h;
 
-    /* loaded from: classes8.dex */
-    public class a implements sm2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(vk2 vk2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vk2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    @Override // com.baidu.tieba.ek2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "extractMediaMetadata" : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vk2(@NonNull sm2 sm2Var) {
-        super(sm2Var);
+    public vk2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sm2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ek2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a aVar = new a(this);
-        this.h = aVar;
-        sm2Var.Y(aVar);
-        this.a.a(new il2());
-        this.a.a(new jl2());
-        this.a.a(new kl2());
-        this.a.a(new ml2());
-        this.a.a(new ol2());
-        this.a.a(new pl2());
-        this.a.a(new ql2());
-        this.a.a(new rl2());
-        this.a.a(new sl2());
-        this.a.a(new tl2());
-        this.a.a(new ll2());
-        this.a.a(new nl2());
-        this.a.a(new vl2());
-        this.a.a(new wl2());
-        this.a.a(new xl2());
-        this.a.a(new zl2());
-        this.a.a(new yl2());
-        this.a.a(new am2());
-        this.a.a(new bm2());
-        this.a.a(new cm2());
-        this.a.a(new dm2());
-        this.a.a(new em2());
-        this.a.a(new fm2());
-        this.a.a(new gm2());
-        this.a.a(new hm2());
-        this.a.a(new im2());
-        this.a.a(new jm2());
-        this.a.a(new km2());
-        this.a.a(new lm2());
-        this.a.a(new mm2());
-        this.a.a(new nm2());
-        this.a.a(new pm2());
-        this.a.a(new om2());
-        this.a.a(new ul2());
     }
 
-    @Override // com.baidu.tieba.ck2, com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void sendCommand(ZeusPlugin.Command command) {
-        String str;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ek2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull sk2 sk2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, command) == null) {
-            if (command == null) {
-                str = "";
-            } else {
-                str = command.what;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, sk2Var) == null) {
+            Object obj = command.obj;
+            if (obj instanceof ArrayList) {
+                ArrayList arrayList = (ArrayList) obj;
+                if (arrayList.size() < 4) {
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                hashMap.put("Cookie", (String) arrayList.get(1));
+                hashMap.put("User-Agent", (String) arrayList.get(2));
+                hashMap.put("Referer", (String) arrayList.get(3));
+                sk2Var.k((String) arrayList.get(0), hashMap);
             }
-            if (((sm2) this.c).q()) {
-                h32.i("InlineRtcRoomController", "isReleased command：" + str);
-                return;
-            }
-            h32.i("InlineRtcRoomController", "authorize type：" + ((sm2) this.c).a() + " command：" + str);
-            super.sendCommand(command);
         }
     }
 }

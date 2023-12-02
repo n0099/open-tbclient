@@ -1,95 +1,124 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.TopicList.DataRes;
-import tbclient.TopicList.NewTopicList;
-import tbclient.TopicList.TabList;
-import tbclient.TopicList.TopicList;
-import tbclient.TopicList.TopicListModule;
+import tbclient.Hottopic.TopicInfo;
+import tbclient.VideoInfo;
 /* loaded from: classes9.dex */
-public class xl8 {
+public class xl8 implements pi {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public List<bm8> b;
-    public am8 c;
-    public List<ql8> d;
-    public List<pl8> e;
-    public List<TopicList> f;
+    public String b;
+    public String c;
+    public long d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public long i;
+    public zl8 j;
+    public boolean k;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948304325, "Lcom/baidu/tieba/xl8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948304325, "Lcom/baidu/tieba/xl8;");
+                return;
+            }
+        }
+        l = BdUniqueId.gen();
+    }
 
     public xl8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public List<TopicList> a() {
+    @Override // com.baidu.tieba.pi
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return l;
         }
-        return (List) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void b(DataRes dataRes) {
-        List<TopicList> list;
-        List<TopicList> list2;
+    public void a(TopicInfo topicInfo) {
+        String str;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, topicInfo) != null) || topicInfo == null) {
             return;
         }
-        List<TabList> list3 = dataRes.tab_list;
-        if (list3 != null && !ListUtils.isEmpty(list3)) {
-            this.b = new ArrayList();
-            for (TabList tabList : dataRes.tab_list) {
-                bm8 bm8Var = new bm8();
-                bm8Var.a(tabList);
-                this.b.add(bm8Var);
-            }
+        this.a = String.valueOf(topicInfo.topic_id);
+        this.b = topicInfo.topic_name;
+        this.c = topicInfo.desc;
+        this.d = topicInfo.total_post_num.longValue();
+        this.e = topicInfo.head_photo_url;
+        this.f = topicInfo.head_background_url;
+        if (StringUtils.isNull(topicInfo.share_title)) {
+            str = "";
+        } else {
+            str = topicInfo.share_title;
         }
-        if (dataRes.media_topic != null) {
-            am8 am8Var = new am8();
-            this.c = am8Var;
-            am8Var.a(dataRes.media_topic);
+        this.g = str;
+        this.h = topicInfo.share_pic;
+        this.i = topicInfo.idx_num.longValue();
+        Long l2 = topicInfo.pmy_topic_id;
+        String str2 = topicInfo.head_photo_jump_url;
+        Integer num = topicInfo.pmy_source;
+        if (topicInfo.is_deleted.longValue() == 1) {
+            z = true;
+        } else {
+            z = false;
         }
-        TopicListModule topicListModule = dataRes.topic_manual;
-        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
-            this.e = new ArrayList();
-            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
-                pl8 pl8Var = new pl8();
-                pl8Var.b(dataRes.topic_manual);
-                pl8Var.a(dataRes.topic_manual.topic_list.get(i));
-                this.e.add(pl8Var);
-            }
+        this.k = z;
+        VideoInfo videoInfo = topicInfo.video_info;
+        if (videoInfo != null && !StringUtils.isNull(videoInfo.video_url) && topicInfo.video_info.video_duration.intValue() > 0) {
+            VideoInfo videoInfo2 = topicInfo.video_info;
+            String str3 = videoInfo2.video_md5;
+            String str4 = videoInfo2.video_url;
+            videoInfo2.video_duration.intValue();
+            topicInfo.video_info.video_width.intValue();
+            topicInfo.video_info.video_height.intValue();
+            VideoInfo videoInfo3 = topicInfo.video_info;
+            String str5 = videoInfo3.thumbnail_url;
+            videoInfo3.thumbnail_width.intValue();
+            topicInfo.video_info.thumbnail_height.intValue();
+            topicInfo.video_info.video_length.intValue();
+            topicInfo.video_info.play_count.intValue();
         }
-        TopicListModule topicListModule2 = dataRes.topic_bang;
-        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
-            this.d = new ArrayList();
-            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
-                ql8 ql8Var = new ql8();
-                ql8Var.b(dataRes.topic_bang);
-                ql8Var.a(dataRes.topic_bang.topic_list.get(i2));
-                this.d.add(ql8Var);
-            }
+        String str6 = topicInfo.tag_list_type;
+        if (topicInfo.join_info != null) {
+            zl8 zl8Var = new zl8();
+            this.j = zl8Var;
+            zl8Var.a(topicInfo.join_info);
         }
-        this.f = dataRes.frs_tab_topic;
-        List<NewTopicList> list4 = dataRes.topic_list;
     }
 }

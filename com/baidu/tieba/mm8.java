@@ -1,367 +1,113 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbDomainConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetSugTopic.TopicList;
+import tbclient.GetSugTopic.TopicListModule;
 /* loaded from: classes7.dex */
-public final class mm8<T> extends qm8<T> {
+public class mm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sm8<T> a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public int f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
-    public String n;
-    public String o;
-    public int p;
-    public int q;
-    public final Map<String, Object> r;
-    public final Map<String, String> s;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947977585, "Lcom/baidu/tieba/mm8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947977585, "Lcom/baidu/tieba/mm8;");
-        }
-    }
+    public String a;
+    public int b;
+    public List<nm8> c;
+    public List<pm8> d;
 
     public mm8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.f = 1;
-        this.i = true;
-        this.j = true;
-        this.l = true;
-        String DOMAIN_HTTPS_SERVER_ADDRESS = TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS;
-        Intrinsics.checkNotNullExpressionValue(DOMAIN_HTTPS_SERVER_ADDRESS, "DOMAIN_HTTPS_SERVER_ADDRESS");
-        this.n = DOMAIN_HTTPS_SERVER_ADDRESS;
-        this.p = 2;
-        this.q = 1;
-        this.r = new HashMap();
-        this.s = new HashMap();
+        this.b = -1;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
     }
 
-    public final mm8<T> A(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            this.f = i;
-            return this;
-        }
-        return (mm8) invokeI.objValue;
-    }
-
-    public final mm8<T> B(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.q = i;
-            return this;
-        }
-        return (mm8) invokeI.objValue;
-    }
-
-    public final mm8<T> C(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            this.p = i;
-            return this;
-        }
-        return (mm8) invokeI.objValue;
-    }
-
-    public final mm8<T> D(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.o = str;
-            return this;
-        }
-        return (mm8) invokeL.objValue;
-    }
-
-    public final mm8<T> b(Map<String, ? extends Object> params) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, params)) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            this.r.putAll(params);
-            return this;
-        }
-        return (mm8) invokeL.objValue;
-    }
-
-    public final mm8<T> w(sm8<T> converter) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, converter)) == null) {
-            Intrinsics.checkNotNullParameter(converter, "converter");
-            this.a = converter;
-            return this;
-        }
-        return (mm8) invokeL.objValue;
-    }
-
-    public final mm8<T> x(String host) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, host)) == null) {
-            Intrinsics.checkNotNullParameter(host, "host");
-            this.n = host;
-            return this;
-        }
-        return (mm8) invokeL.objValue;
-    }
-
-    public final mm8<T> y(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048604, this, z)) == null) {
-            this.c = z;
-            return this;
-        }
-        return (mm8) invokeZ.objValue;
-    }
-
-    public final mm8<T> z(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048605, this, z)) == null) {
-            this.e = z;
-            return this;
-        }
-        return (mm8) invokeZ.objValue;
-    }
-
-    public final mm8<T> a(String key, String value) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, key, value)) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(value, "value");
-            this.s.put(key, value);
-            return this;
-        }
-        return (mm8) invokeLL.objValue;
-    }
-
-    public om8<T> c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return new um8(this);
-        }
-        return (om8) invokeV.objValue;
-    }
-
-    public final sm8<T> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (sm8) invokeV.objValue;
-    }
-
-    public final Map<String, String> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.s;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.n;
-        }
         return (String) invokeV.objValue;
     }
 
-    public final boolean g() {
+    public List<nm8> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    public final boolean i() {
+    public List<pm8> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    public final boolean j() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final Map<String, Object> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.r;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.f;
-        }
         return invokeV.intValue;
     }
 
-    public final int m() {
-        InterceptResult invokeV;
+    public void e(TopicListModule topicListModule) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.q;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, topicListModule) == null) && topicListModule != null) {
+            this.a = topicListModule.module_title;
+            List<TopicList> list = topicListModule.topic_list;
+            if (list == null) {
+                return;
+            }
+            int count = ListUtils.getCount(list);
+            for (int i = 0; i < count; i++) {
+                nm8 nm8Var = new nm8();
+                TopicList topicList = (TopicList) ListUtils.getItem(topicListModule.topic_list, i);
+                if (topicList != null) {
+                    nm8Var.c(topicList);
+                    if (!rd.isEmptyStringAfterTrim(nm8Var.b())) {
+                        this.c.add(nm8Var);
+                        this.d.add(new pm8(topicList));
+                    }
+                }
+            }
         }
-        return invokeV.intValue;
     }
 
-    public final int n() {
-        InterceptResult invokeV;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.p;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
         }
-        return invokeV.intValue;
     }
 
-    public final String o() {
-        InterceptResult invokeV;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.o;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.j;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.m;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.l;
-        }
-        return invokeV.booleanValue;
     }
 }

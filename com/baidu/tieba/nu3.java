@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 /* loaded from: classes7.dex */
-public interface nu3<VIEW extends View> {
-    void a(String str);
+public interface nu3 {
+    void a();
 
-    void b(DownloadState downloadState);
+    void b(DownloadException downloadException);
 
-    nu3 c(Context context, DownloadParams downloadParams, iu3 iu3Var);
+    void c();
 
-    void d(int i);
+    void d();
 
-    void e(Object obj);
+    void e(long j, long j2);
 
-    void f();
+    void f(long j, long j2);
 
-    VIEW getRealView();
+    void onStart();
 }

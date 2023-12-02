@@ -21,11 +21,11 @@ import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.im.base.core.slice.ability.LifecycleAbility;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.tieba.op8;
-import com.baidu.tieba.pp8;
-import com.baidu.tieba.qp8;
-import com.baidu.tieba.rp8;
 import com.baidu.tieba.sp8;
+import com.baidu.tieba.tp8;
+import com.baidu.tieba.up8;
+import com.baidu.tieba.vp8;
+import com.baidu.tieba.wp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,16 +37,16 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000°\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0003\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u000f\b\u0016\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u00032\u00020\u00042\u00020\u00052\u00020\u0006B\u0005¢\u0006\u0002\u0010\u0007J\u0018\u00102\u001a\u0002032\u0006\u00104\u001a\u00020!2\u0006\u00105\u001a\u00020\u0000H\u0016J1\u00106\u001a\u0002032\u0006\u0010\b\u001a\u00020\t2\b\u0010\u001b\u001a\u0004\u0018\u00010\u00002\u0006\u00104\u001a\u00020!2\b\u0010\"\u001a\u0004\u0018\u00010#H\u0000¢\u0006\u0002\b7J\u0010\u00108\u001a\u00020\u000f2\u0006\u00105\u001a\u00020\u0000H\u0016J#\u00109\u001a\u0002H:\"\n\b\u0000\u0010:*\u0004\u0018\u00010'2\b\b\u0001\u0010;\u001a\u00020\u0016H\u0016¢\u0006\u0002\u0010<J\b\u0010=\u001a\u00020>H\u0016J\u0010\u0010?\u001a\u0002032\u0006\u00105\u001a\u00020\u0000H\u0016J\u0010\u0010@\u001a\u00020\u000f2\u0006\u00105\u001a\u00020\u0000H\u0016J\u0011\u0010A\u001a\u0002032\u0006\u0010B\u001a\u00020CH\u0096\u0001J\u0011\u0010D\u001a\u0002032\u0006\u0010B\u001a\u00020CH\u0096\u0001J\u0011\u0010D\u001a\u0002032\u0006\u0010E\u001a\u00020FH\u0096\u0001J\b\u0010G\u001a\u000203H\u0016J\"\u0010H\u001a\u0002032\u0006\u0010I\u001a\u00020\u00162\u0006\u0010J\u001a\u00020\u00162\b\u0010K\u001a\u0004\u0018\u00010LH\u0016J\u0010\u0010M\u001a\u0002032\u0006\u0010N\u001a\u00020\u000fH\u0016J\u0010\u0010O\u001a\u0002032\u0006\u0010P\u001a\u00020\u0016H\u0016J\u0010\u0010Q\u001a\u0002032\u0006\u0010R\u001a\u00020SH\u0016J\b\u0010T\u001a\u000203H\u0016J$\u0010U\u001a\u0004\u0018\u00010'2\u0006\u0010V\u001a\u00020W2\u0006\u00104\u001a\u00020!2\b\u0010\"\u001a\u0004\u0018\u00010#H\u0016J\b\u0010X\u001a\u000203H\u0016J\b\u0010Y\u001a\u000203H\u0016J\u0018\u0010Z\u001a\u00020\u000f2\u0006\u0010[\u001a\u00020\u00162\u0006\u0010\\\u001a\u00020]H\u0016J\u0010\u0010^\u001a\u0002032\u0006\u0010_\u001a\u00020\u000fH\u0016J\b\u0010`\u001a\u000203H\u0016J\u0018\u0010a\u001a\u0002032\u0006\u0010b\u001a\u00020\u00022\u0006\u0010\\\u001a\u00020cH\u0016J\b\u0010d\u001a\u000203H\u0016J\b\u0010e\u001a\u000203H\u0016J\b\u0010f\u001a\u000203H\u0016J\b\u0010g\u001a\u000203H\u0016J+\u0010h\u001a\u0002032\u0006\u0010I\u001a\u00020\u00162\f\u0010i\u001a\b\u0012\u0004\u0012\u00020C0j2\u0006\u0010k\u001a\u00020lH\u0016¢\u0006\u0002\u0010mJ\b\u0010n\u001a\u000203H\u0016J\u0010\u0010o\u001a\u0002032\u0006\u0010p\u001a\u00020#H\u0016J\u0010\u0010q\u001a\u0002032\u0006\u0010r\u001a\u00020\u000fH\u0016J\b\u0010s\u001a\u000203H\u0016J\b\u0010t\u001a\u000203H\u0016J\u001c\u0010u\u001a\u0002032\b\u0010&\u001a\u0004\u0018\u00010'2\b\u0010\"\u001a\u0004\u0018\u00010#H\u0016J\u0010\u0010v\u001a\u0002032\u0006\u00105\u001a\u00020\u0000H\u0016J!\u0010w\u001a\u0002H:\"\b\b\u0000\u0010:*\u00020'2\b\b\u0001\u0010;\u001a\u00020\u0016H\u0016¢\u0006\u0002\u0010<J\u0011\u0010x\u001a\u0002032\u0006\u0010y\u001a\u00020CH\u0096\u0001J\u0010\u0010z\u001a\u0002032\u0006\u00105\u001a\u00020\u0000H\u0016R\u001a\u0010\b\u001a\u00020\tX\u0084.¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rR\u001a\u0010\u000e\u001a\u00020\u000fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000e\u0010\u0010\"\u0004\b\u0011\u0010\u0012R\u001a\u0010\u0013\u001a\u00020\u000fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0010\"\u0004\b\u0014\u0010\u0012R\u001a\u0010\u0015\u001a\u00020\u0016X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\u001c\u0010\u001b\u001a\u0004\u0018\u00010\u0000X\u0084\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001c\u0010\u001d\"\u0004\b\u001e\u0010\u001fR\u000e\u0010 \u001a\u00020!X\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\"\u001a\u0004\u0018\u00010#X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010$\u001a\u00020%X\u0082\u0004¢\u0006\u0002\n\u0000R\u001c\u0010&\u001a\u0004\u0018\u00010'X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b(\u0010)\"\u0004\b*\u0010+R\u001b\u0010,\u001a\u00020-8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b0\u00101\u001a\u0004\b.\u0010/¨\u0006{"}, d2 = {"Lcom/baidu/tieba/im/base/core/slice/Slice;", "Lcom/baidu/tieba/im/base/core/slice/ability/LifecycleAbility;", "Landroidx/lifecycle/LifecycleOwner;", "Lcom/baidu/tieba/im/base/core/slice/ability/LogAbility;", "Lcom/baidu/tieba/im/base/core/slice/ability/ViewAbility;", "Lcom/baidu/tieba/im/base/core/slice/ability/SysEventAbility;", "Lcom/baidu/tieba/im/base/core/slice/ability/OpAbility;", "()V", "host", "Lcom/baidu/tieba/im/base/core/slice/SliceFragment;", "getHost", "()Lcom/baidu/tieba/im/base/core/slice/SliceFragment;", "setHost", "(Lcom/baidu/tieba/im/base/core/slice/SliceFragment;)V", "isBackground", "", "()Z", "setBackground", "(Z)V", "isScreenLocked", "setScreenLocked", "lastSkinType", "", "getLastSkinType", "()I", "setLastSkinType", "(I)V", "parent", "getParent", "()Lcom/baidu/tieba/im/base/core/slice/Slice;", "setParent", "(Lcom/baidu/tieba/im/base/core/slice/Slice;)V", "parentContainer", "Landroid/view/ViewGroup;", "savedInstanceState", "Landroid/os/Bundle;", "sliceManager", "Lcom/baidu/tieba/im/base/core/slice/SliceManager;", "view", "Landroid/view/View;", "getView", "()Landroid/view/View;", "setView", "(Landroid/view/View;)V", "viewAbility", "Lcom/baidu/tieba/im/base/core/slice/ability/ViewAbility$Impl;", "getViewAbility", "()Lcom/baidu/tieba/im/base/core/slice/ability/ViewAbility$Impl;", "viewAbility$delegate", "Lkotlin/Lazy;", "addChild", "", "container", MapBundleKey.OfflineMapKey.OFFLINE_CHILD, "attach", "attach$im_base_core_release", "contains", "findViewById", ExifInterface.GPS_DIRECTION_TRUE, "id", "(I)Landroid/view/View;", "getLifecycle", "Landroidx/lifecycle/LifecycleRegistry;", "hideChild", "isShowing", "logD", LocalFilesFilterKt.FILTER_NAME_LOG, "", "logE", "throwable", "", "onActivityFinish", "onActivityResult", AiBotChatDispatcher.AI_SINGLE_REQUEST_CODE, "resultCode", "data", "Landroid/content/Intent;", "onBackgroundSwitched", NotificationCompat.WearableExtender.KEY_BACKGROUND, "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "onCreate", "onCreateView", "inflater", "Landroid/view/LayoutInflater;", MissionEvent.MESSAGE_DESTROY, "onDestroyView", "onKeyDown", "keyCode", "event", "Landroid/view/KeyEvent;", "onKeyboardVisibilityChanged", MapBundleKey.MapObjKey.OBJ_SL_VISI, MissionEvent.MESSAGE_PAUSE, "onPostAny", "owner", "Landroidx/lifecycle/Lifecycle$Event;", "onPostCreate", "onPostDestroy", "onPreCreate", "onPreDestroy", "onRequestPermissionsResult", "permissions", "", "grantResults", "", "(I[Ljava/lang/String;[I)V", "onResume", "onSaveInstanceState", "outState", "onScreenLocked", "locked", "onStart", MissionEvent.MESSAGE_STOP, "onViewCreated", "removeChild", "requireViewById", "setTag", "tag", "showChild", "im-base-core_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
+public class Slice extends LifecycleAbility implements LifecycleOwner, up8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ pp8 a;
+    public final /* synthetic */ tp8 a;
     public SliceFragment b;
     public Slice c;
     public ViewGroup d;
     public Bundle e;
     public View f;
-    public final op8 g;
+    public final sp8 g;
     public int h;
     public boolean i;
 
@@ -71,8 +71,8 @@ public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
                 return;
             }
         }
-        this.a = new pp8(null, 1, null);
-        LazyKt__LazyJVMKt.lazy(new Function0<rp8>(this) { // from class: com.baidu.tieba.im.base.core.slice.Slice$viewAbility$2
+        this.a = new tp8(null, 1, null);
+        LazyKt__LazyJVMKt.lazy(new Function0<vp8>(this) { // from class: com.baidu.tieba.im.base.core.slice.Slice$viewAbility$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Slice this$0;
@@ -101,21 +101,21 @@ public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final rp8 invoke() {
+            public final vp8 invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     if (this.this$0.M() != null) {
                         View M = this.this$0.M();
                         Intrinsics.checkNotNull(M);
-                        return new rp8(M);
+                        return new vp8(M);
                     }
                     throw new IllegalArgumentException("视图为空，不能进行相关操作".toString());
                 }
-                return (rp8) invokeV.objValue;
+                return (vp8) invokeV.objValue;
             }
         });
-        this.g = new op8(this);
+        this.g = new sp8(this);
         this.h = -1;
     }
 
@@ -211,7 +211,7 @@ public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
     public void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            qp8.a.a(this);
+            up8.a.a(this);
             this.g.h();
         }
     }
@@ -323,7 +323,7 @@ public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, event)) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            qp8.a.e(this, i, event);
+            up8.a.e(this, i, event);
             return this.g.i(i, event);
         }
         return invokeIL.booleanValue;
@@ -345,7 +345,7 @@ public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, host, slice, container, bundle) == null) {
             Intrinsics.checkNotNullParameter(host, "host");
             Intrinsics.checkNotNullParameter(container, "container");
-            sp8.a.a();
+            wp8.a.a();
             b0(host);
             this.c = slice;
             this.d = container;
@@ -359,7 +359,7 @@ public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
     public void R(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, intent) == null) {
-            qp8.a.b(this, i, i2, intent);
+            up8.a.b(this, i, i2, intent);
             this.g.d(i, i2, intent);
         }
     }
@@ -369,7 +369,7 @@ public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
         if (interceptable == null || interceptable.invokeILL(1048593, this, i, permissions, grantResults) == null) {
             Intrinsics.checkNotNullParameter(permissions, "permissions");
             Intrinsics.checkNotNullParameter(grantResults, "grantResults");
-            qp8.a.g(this, i, permissions, grantResults);
+            up8.a.g(this, i, permissions, grantResults);
             this.g.k(i, permissions, grantResults);
         }
     }
@@ -377,7 +377,7 @@ public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
     public void S(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            qp8.a.c(this, z);
+            up8.a.c(this, z);
             this.g.e(z);
         }
     }
@@ -393,7 +393,7 @@ public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
     public void W(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            qp8.a.f(this, z);
+            up8.a.f(this, z);
             this.g.j(z);
         }
     }
@@ -402,7 +402,7 @@ public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, outState) == null) {
             Intrinsics.checkNotNullParameter(outState, "outState");
-            qp8.a.h(this, outState);
+            up8.a.h(this, outState);
             this.g.l(outState);
         }
     }
@@ -410,7 +410,7 @@ public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
     public void Z(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            qp8.a.i(this, z);
+            up8.a.i(this, z);
             this.i = z;
             this.g.m(z);
         }
@@ -437,7 +437,7 @@ public class Slice extends LifecycleAbility implements LifecycleOwner, qp8 {
             return;
         }
         this.h = i;
-        qp8.a.d(this, i);
+        up8.a.d(this, i);
         this.g.f(i);
     }
 

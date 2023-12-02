@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.common.JSONKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,33 +9,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.ChatroomSignInfo;
 /* loaded from: classes5.dex */
-public class dx4 extends cw4 implements un5 {
+public final class dx4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
-    public static final int[] c;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-
-    @Override // com.baidu.tieba.cw4
-    public NegativeFeedBackData getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (NegativeFeedBackData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
+    public final long a;
+    public final String b;
+    public final String c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,14 +35,87 @@ public class dx4 extends cw4 implements un5 {
                 return;
             }
         }
-        b = BdUniqueId.gen();
-        c = new int[]{0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        d = new a(null);
     }
 
-    public dx4() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof dx4) {
+                dx4 dx4Var = (dx4) obj;
+                return this.a == dx4Var.a && Intrinsics.areEqual(this.b, dx4Var.b) && Intrinsics.areEqual(this.c, dx4Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((c.a(this.a) * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "ChatRoomGuideData(chatRoomId=" + this.a + ", jumpSchema=" + this.b + ", guideText=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final dx4 a(ChatroomSignInfo chatroomSignInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatroomSignInfo)) == null) {
+                Intrinsics.checkNotNullParameter(chatroomSignInfo, "chatroomSignInfo");
+                Long l = chatroomSignInfo.chatroom_id;
+                Intrinsics.checkNotNullExpressionValue(l, "chatroomSignInfo.chatroom_id");
+                long longValue = l.longValue();
+                String str = chatroomSignInfo.jump_scheme;
+                Intrinsics.checkNotNullExpressionValue(str, "chatroomSignInfo.jump_scheme");
+                String str2 = chatroomSignInfo.guide_text;
+                Intrinsics.checkNotNullExpressionValue(str2, "chatroomSignInfo.guide_text");
+                return new dx4(longValue, str, str2);
+            }
+            return (dx4) invokeL.objValue;
+        }
+    }
+
+    public dx4(long j, String jumpSchema, String guideText) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), jumpSchema, guideText};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -69,22 +125,50 @@ public class dx4 extends cw4 implements un5 {
                 return;
             }
         }
-        this.a = 6;
+        Intrinsics.checkNotNullParameter(jumpSchema, "jumpSchema");
+        Intrinsics.checkNotNullParameter(guideText, "guideText");
+        this.a = j;
+        this.b = jumpSchema;
+        this.c = guideText;
     }
 
-    public int c() {
+    public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 
-    public void d(int i) {
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONKt.c(jSONObject, "chatroom_id", Long.valueOf(this.a));
+            JSONKt.c(jSONObject, "jump_scheme", this.b);
+            JSONKt.c(jSONObject, "guide_text", this.c);
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

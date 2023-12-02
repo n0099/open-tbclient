@@ -1,98 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryChangedMessage;
+import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
+import com.baidu.tieba.im.message.RequestMemoryListMessage;
+import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
+import com.baidu.tieba.im.settingcache.OfficialSettingCache;
+import com.baidu.tieba.pa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class sw8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sw8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public List<ImMessageCenterPojo> a;
+    public final CustomMessageListener b;
 
     /* loaded from: classes8.dex */
-    public interface a {
-        void a(String str, String str2);
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<Object, Integer, String> {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public volatile NetWork a;
-        public a b;
-        public final /* synthetic */ sw8 c;
+        public final /* synthetic */ sw8 a;
 
-        public b(sw8 sw8Var, String str, a aVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(sw8 sw8Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sw8Var, str, aVar};
+                Object[] objArr = {sw8Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = sw8Var;
-            this.a = null;
-            this.b = aVar;
-            this.a = new NetWork("https://peiwan.baidu.com/peiwan/api/god/send_card_record");
-            this.a.addPostData("to_uid", str);
-            this.a.setNeedBdussForGet(true);
-            this.a.getNetContext().getRequest().mIsNeedTbs = true;
+            this.a = sw8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public String doInBackground(Object... objArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                try {
-                    String netString = this.a.getNetString();
-                    if (this.a.getNetContext().getResponse().isRequestSuccess() && netString != null) {
-                        return netString;
-                    }
-                    return "";
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    return "";
-                }
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+                return;
             }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.a != null) {
-                    this.a.cancelNetConnect();
-                    this.a = null;
+            if (customResponsedMessage.getCmd() == 2016002) {
+                this.a.r(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2016004) {
+                this.a.q(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2016007) {
+                this.a.s(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2016001) {
+                if (this.a.a != null) {
+                    this.a.a.clear();
                 }
-                super.cancel(true);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.c.b(str, this.b);
+                ga5.p0().o0(new pa5());
+                ga5.p0().i0(0);
+                ga5.p0().a();
+                ga5.p0().k();
+                ga5.p0().a0();
+            } else if (customResponsedMessage.getCmd() == 2016010 && this.a.a != null) {
+                this.a.t(false);
             }
         }
     }
@@ -107,35 +102,364 @@ public class sw8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedList();
+        this.b = new a(this, 0);
+        u();
+    }
+
+    public final void g(ImMessageCenterPojo imMessageCenterPojo, pa5 pa5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imMessageCenterPojo, pa5Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8 && ex8.a().b()) {
+            pa5Var.O(imMessageCenterPojo.getUnread_count());
+        }
+    }
+
+    public final void j(ImMessageCenterPojo imMessageCenterPojo, pa5 pa5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, imMessageCenterPojo, pa5Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7 && gx8.a().b()) {
+            pa5Var.T(imMessageCenterPojo.getUnread_count());
+        }
+    }
+
+    public final void k(ImMessageCenterPojo imMessageCenterPojo, pa5 pa5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, imMessageCenterPojo, pa5Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -4) {
+            pa5Var.L(imMessageCenterPojo.getUnread_count());
+            pa5Var.F(imMessageCenterPojo.getLast_content());
+            pa5Var.B(imMessageCenterPojo.getGroup_name());
+        }
+    }
+
+    public final void n(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, imMessageCenterPojo, list) == null) && imMessageCenterPojo != null && list != null) {
+            v(imMessageCenterPojo, list);
+            list.add(imMessageCenterPojo);
+        }
+    }
+
+    public final boolean f(ImMessageCenterPojo imMessageCenterPojo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imMessageCenterPojo)) == null) {
+            if (imMessageCenterPojo == null) {
+                return false;
+            }
+            if (TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static sw8 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (c == null) {
+                synchronized (sw8.class) {
+                    if (c == null) {
+                        c = new sw8();
+                    }
+                }
+            }
+            return c;
+        }
+        return (sw8) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0086  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0090  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00fd  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void h(ImMessageCenterPojo imMessageCenterPojo, pa5 pa5Var) {
+        int userType;
+        String str;
+        String str2;
+        String str3;
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterPojo, pa5Var) != null) || imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != 4 || !OfficialSettingCache.getInstance().isAcceptNotify(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid()) || StringUtils.isNull(imMessageCenterPojo.getLast_content()) || imMessageCenterPojo.getUnread_count() <= 0 || (userType = imMessageCenterPojo.getUserType()) == 3) {
+            return;
+        }
+        pa5.a aVar = new pa5.a();
+        aVar.a = imMessageCenterPojo.getGid();
+        aVar.e = imMessageCenterPojo.getGroup_name();
+        if (userType == 4) {
+            String str4 = null;
+            try {
+                jSONArray = new JSONArray(imMessageCenterPojo.getLastContentRawData());
+            } catch (Exception e) {
+                e = e;
+                str = null;
+                str2 = null;
+            }
+            if (jSONArray.length() == 1) {
+                JSONObject jSONObject = jSONArray.getJSONObject(0);
+                str = jSONObject.optString("title", null);
+                try {
+                    str2 = jSONObject.optString("text", null);
+                } catch (Exception e2) {
+                    e = e2;
+                    str2 = null;
+                }
+                try {
+                    str3 = jSONObject.optString(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, null);
+                } catch (Exception e3) {
+                    e = e3;
+                    BdLog.e(e, true);
+                    str3 = null;
+                    str4 = str;
+                    if (str2 == null) {
+                    }
+                    if (str4 == null) {
+                    }
+                    aVar.b = str4;
+                    aVar.c = str2;
+                    aVar.i = str3;
+                    aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+                    aVar.f = userType;
+                    aVar.g = imMessageCenterPojo.getUnread_count();
+                    pa5Var.g().add(aVar);
+                    if (userType == 4) {
+                    }
+                    pa5Var.P(pa5Var.u() + imMessageCenterPojo.getUnread_count());
+                }
+                str4 = str;
+                if (str2 == null) {
+                    str4 = imMessageCenterPojo.getGroup_name();
+                    str2 = imMessageCenterPojo.getLast_content();
+                }
+                if (str4 == null) {
+                    str4 = imMessageCenterPojo.getGroup_name();
+                }
+                aVar.b = str4;
+                aVar.c = str2;
+                aVar.i = str3;
+                aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+            } else {
+                str3 = null;
+                str2 = null;
+                if (str2 == null) {
+                }
+                if (str4 == null) {
+                }
+                aVar.b = str4;
+                aVar.c = str2;
+                aVar.i = str3;
+                aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+            }
+        } else {
+            String str5 = TbadkCoreApplication.getInst().getContext().getString(R.string.chosen_pb_original_bar, imMessageCenterPojo.getGroup_name()) + ZeusCrashHandler.NAME_SEPERATOR + imMessageCenterPojo.getLast_content();
+            aVar.c = str5;
+            aVar.d = str5;
+        }
+        aVar.f = userType;
+        aVar.g = imMessageCenterPojo.getUnread_count();
+        pa5Var.g().add(aVar);
+        if (userType == 4) {
+            pa5Var.N(pa5Var.s() + imMessageCenterPojo.getUnread_count());
+        }
+        pa5Var.P(pa5Var.u() + imMessageCenterPojo.getUnread_count());
+    }
+
+    public final void i(ImMessageCenterPojo imMessageCenterPojo, pa5 pa5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, imMessageCenterPojo, pa5Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1 && fx8.a().isAcceptNotify(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
+            if (imMessageCenterPojo.getUnread_count() > 0) {
+                pa5Var.E(imMessageCenterPojo.getLast_content());
+                String nameShow = imMessageCenterPojo.getNameShow();
+                HashMap<String, String> h = pa5Var.h();
+                if (h != null) {
+                    h.put(imMessageCenterPojo.getGid(), nameShow);
+                }
+            }
+            pa5Var.R(pa5Var.w() + imMessageCenterPojo.getUnread_count());
+        }
+    }
+
+    public final void l(List<pa5.a> list, List<pa5.a> list2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) && list != null && list.size() != 0 && list2 != null && list2.size() != 0) {
+            for (pa5.a aVar : list) {
+                if (aVar != null) {
+                    for (pa5.a aVar2 : list2) {
+                        if (aVar2 != null && StringHelper.equals(aVar.a, aVar2.a)) {
+                            aVar.h = aVar2.g;
+                        }
+                    }
+                }
             }
         }
     }
 
-    public final void b(String str, a aVar) {
+    public final boolean o(ImMessageCenterPojo imMessageCenterPojo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            try {
-                if (StringUtils.isNull(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imMessageCenterPojo)) == null) {
+            if (imMessageCenterPojo == null) {
+                return false;
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == -4) {
+                return true;
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == 4) {
+                return f(imMessageCenterPojo);
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == -8) {
+                return true;
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == 2) {
+                return f(imMessageCenterPojo);
+            }
+            if (imMessageCenterPojo.getCustomGroupType() != -7) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean p(ImMessageCenterPojo imMessageCenterPojo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, imMessageCenterPojo)) == null) {
+            if (imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1) {
+                return fx8.a().isAcceptNotify(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == 4) {
+                return OfficialSettingCache.getInstance().isAcceptNotify(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void q(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof MemoryChangedMessage)) {
+            return;
+        }
+        MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
+        ImMessageCenterPojo data = memoryChangedMessage.getData();
+        boolean p = p(data);
+        if (memoryChangedMessage.getType() == 1) {
+            n(data, this.a);
+        } else if (memoryChangedMessage.getType() == 2) {
+            v(data, this.a);
+        }
+        t(p);
+    }
+
+    public final void r(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, customResponsedMessage) == null) && (customResponsedMessage instanceof MemoryInitCompleteMessage) && ((MemoryInitCompleteMessage) customResponsedMessage).getData().booleanValue()) {
+            MessageManager.getInstance().sendMessage(new RequestMemoryListMessage(1));
+        }
+    }
+
+    public final void s(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048588, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof ResponsedMemoryListMessage)) {
+            return;
+        }
+        ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
+        List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
+        if (responsedMemoryListMessage.getType() == 1) {
+            this.a.clear();
+            for (ImMessageCenterPojo imMessageCenterPojo : data) {
+                if (o(imMessageCenterPojo)) {
+                    this.a.add(imMessageCenterPojo);
+                }
+            }
+        }
+    }
+
+    public final void w(pa5 pa5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, pa5Var) != null) || pa5Var == null) {
+            return;
+        }
+        for (ImMessageCenterPojo imMessageCenterPojo : this.a) {
+            if (imMessageCenterPojo != null && imMessageCenterPojo.getIs_hidden() != 1 && o(imMessageCenterPojo)) {
+                h(imMessageCenterPojo, pa5Var);
+                i(imMessageCenterPojo, pa5Var);
+                k(imMessageCenterPojo, pa5Var);
+                g(imMessageCenterPojo, pa5Var);
+                j(imMessageCenterPojo, pa5Var);
+            }
+        }
+    }
+
+    public final void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            pa5 pa5Var = new pa5();
+            pa5Var.H(z);
+            w(pa5Var);
+            pa5Var.C();
+            pa5Var.D();
+            pa5Var.S(ga5.p0().H().w());
+            pa5Var.J(ga5.p0().H().k());
+            pa5Var.Q(ga5.p0().H().u());
+            pa5Var.M(ga5.p0().H().q());
+            pa5Var.K(ga5.p0().H().n());
+            l(pa5Var.g(), ga5.p0().H().g());
+            if (!ia5.e().v()) {
+                pa5Var.I(0);
+            }
+            if (!ia5.e().x()) {
+                pa5Var.R(0);
+            }
+            if (!ia5.e().p()) {
+                pa5Var.P(0);
+                pa5Var.O(0);
+                pa5Var.N(0);
+            }
+            if (ia5.e().g() <= 0) {
+                pa5Var.I(0);
+                pa5Var.R(0);
+                pa5Var.O(0);
+                pa5Var.P(0);
+                pa5Var.N(0);
+                pa5Var.T(0);
+                pa5Var.H(false);
+            }
+            if ((((((pa5Var.w() + pa5Var.j()) + pa5Var.n()) + pa5Var.q()) + pa5Var.t()) + pa5Var.u()) - pa5Var.l() <= 0) {
+                pa5Var.H(false);
+            }
+            ga5.p0().Y(pa5Var);
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            MessageManager.getInstance().registerListener(2016004, this.b);
+            MessageManager.getInstance().registerListener(2016007, this.b);
+            MessageManager.getInstance().registerListener(2016001, this.b);
+            MessageManager.getInstance().registerListener(2016010, this.b);
+            MessageManager.getInstance().registerListener(2016002, this.b);
+        }
+    }
+
+    public final void v(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048591, this, imMessageCenterPojo, list) == null) && imMessageCenterPojo != null && list != null) {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                ImMessageCenterPojo imMessageCenterPojo2 = list.get(i);
+                if (imMessageCenterPojo2 != null && imMessageCenterPojo2.getGid().equals(imMessageCenterPojo.getGid()) && imMessageCenterPojo2.getCustomGroupType() == imMessageCenterPojo.getCustomGroupType()) {
+                    list.remove(i);
                     return;
                 }
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("errno");
-                String optString2 = jSONObject.optString("errmsg");
-                if (aVar != null) {
-                    aVar.a(optString, optString2);
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
             }
-        }
-    }
-
-    public void c(a aVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str) == null) {
-            b bVar = new b(this, str, aVar);
-            this.a = bVar;
-            bVar.execute(new Object[0]);
         }
     }
 }

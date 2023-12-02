@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class la implements mf1 {
+public class la implements pf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,31 +30,31 @@ public class la implements mf1 {
         }
     }
 
-    @Override // com.baidu.tieba.mf1
+    @Override // com.baidu.tieba.pf1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new b5());
-            arrayList.add(new o25());
-            arrayList.add(new j35());
-            arrayList.add(new fg5());
-            arrayList.add(new jh5());
+            arrayList.add(new r25());
+            arrayList.add(new m35());
+            arrayList.add(new ig5());
+            arrayList.add(new mh5());
             arrayList.add(new BaiduBqtInitSwitch());
             arrayList.add(new BaiduBqtPrivacySwitch());
             arrayList.add(new CheckWebResProxySwitch());
             arrayList.add(new GdtInitSwitch());
             arrayList.add(new KsInitSwitch());
-            arrayList.add(new n56());
-            arrayList.add(new o56());
-            arrayList.add(new mh6());
-            arrayList.add(new nh6());
-            arrayList.add(new oh6());
-            arrayList.add(new ti8());
-            arrayList.add(new ui8());
-            arrayList.add(new e79());
-            arrayList.add(new vja());
+            arrayList.add(new r56());
+            arrayList.add(new s56());
+            arrayList.add(new qh6());
+            arrayList.add(new rh6());
+            arrayList.add(new sh6());
+            arrayList.add(new xi8());
+            arrayList.add(new yi8());
+            arrayList.add(new i79());
+            arrayList.add(new zja());
             return arrayList;
         }
         return invokeV.objValue;

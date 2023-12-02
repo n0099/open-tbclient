@@ -13,16 +13,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jl6;
-import com.baidu.tieba.ky7;
-import com.baidu.tieba.sxa;
+import com.baidu.tieba.nl6;
+import com.baidu.tieba.oy7;
+import com.baidu.tieba.rxa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class FrsGameStrategyItemView extends jl6<ky7> {
+public class FrsGameStrategyItemView extends nl6<oy7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
@@ -33,7 +33,7 @@ public class FrsGameStrategyItemView extends jl6<ky7> {
     public TextView n;
     public TextView o;
 
-    @Override // com.baidu.tieba.jl6
+    @Override // com.baidu.tieba.nl6
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class FrsGameStrategyItemView extends jl6<ky7> {
         p();
     }
 
-    @Override // com.baidu.tieba.jl6
+    @Override // com.baidu.tieba.nl6
     public void k(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -112,26 +112,26 @@ public class FrsGameStrategyItemView extends jl6<ky7> {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbImageView tbImageView = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090d01);
+            TbImageView tbImageView = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090d02);
             this.k = tbImageView;
             tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080a8f);
-            this.l = (ImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090d14);
-            this.m = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090d10);
-            this.n = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090d0f);
-            this.o = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090d0e);
+            this.l = (ImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090d15);
+            this.m = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090d11);
+            this.n = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090d10);
+            this.o = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090d0f);
             k(this.i, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jl6
+    @Override // com.baidu.tieba.nl6
     /* renamed from: r */
-    public void j(ky7 ky7Var) {
+    public void j(oy7 oy7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, ky7Var) == null) && ky7Var != null && ky7Var.getThreadData() != null) {
-            ThreadData threadData = ky7Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(1048581, this, oy7Var) == null) && oy7Var != null && oy7Var.getThreadData() != null) {
+            ThreadData threadData = oy7Var.getThreadData();
             this.m.setText(threadData.getTitle());
-            sxa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            rxa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(threadData.getId())) {
                 SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0108);
             } else {

@@ -37,7 +37,7 @@ public class RewardTaskStepView extends LinearLayout {
     }
 
     public static void a(ViewGroup viewGroup, String str) {
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091482)).setText(str);
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091483)).setText(str);
     }
 
     public RewardTaskStepView(Context context, @Nullable AttributeSet attributeSet, int i) {
@@ -47,8 +47,8 @@ public class RewardTaskStepView extends LinearLayout {
     }
 
     private void a(ViewGroup viewGroup, int i, String str) {
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091482)).setText(String.format(str, this.pY));
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091481)).setText(String.valueOf(i));
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091483)).setText(String.format(str, this.pY));
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091482)).setText(String.valueOf(i));
     }
 
     @RequiresApi(api = 21)
@@ -77,8 +77,8 @@ public class RewardTaskStepView extends LinearLayout {
     private void ad(boolean z) {
         int i;
         DividerView dividerView = (DividerView) l.a(getContext(), R.layout.obfuscated_res_0x7f0d050a, this, false);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704fe);
-        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704fc);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ff);
+        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704fd);
         if (z) {
             i = R.color.obfuscated_res_0x7f0607a6;
         } else {

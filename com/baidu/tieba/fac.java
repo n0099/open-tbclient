@@ -1,45 +1,42 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.gac;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
 /* loaded from: classes5.dex */
 public class fac implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ abc a;
-    public final /* synthetic */ Callable b;
+    public final /* synthetic */ int a;
+    public final /* synthetic */ gac.a b;
 
-    public fac(abc abcVar, Callable callable) {
+    public fac(gac.a aVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {abcVar, callable};
+            Object[] objArr = {aVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = abcVar;
-        this.b = callable;
+        this.b = aVar;
+        this.a = i;
     }
 
     @Override // java.lang.Runnable
-    public final void run() {
+    public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                this.a.b(this.b.call());
-            } catch (Exception e) {
-                this.a.a(e);
-            }
+            this.b.b(HonorPushErrorEnum.fromCode(this.a));
         }
     }
 }

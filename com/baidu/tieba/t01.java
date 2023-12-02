@@ -1,77 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface t01 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "toast");
-    public static final t01 b = new a();
+public class t01 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public o01 a;
+    public BaseExecutorCell b;
 
-    void a(@NonNull Context context, @StringRes int i);
-
-    void b(@NonNull Context context, String str, int i);
-
-    void c(@NonNull Context context, @StringRes int i, int i2);
-
-    void showToast(@NonNull Context context, String str);
-
-    /* loaded from: classes8.dex */
-    public class a implements t01 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public t01() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new o01();
+        this.b = BaseExecutorCell.b(1, BaseExecutorCell.ExecutorType.SERIAL);
+    }
 
-        @Override // com.baidu.tieba.t01
-        public void a(@NonNull Context context, @StringRes int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-                Toast.makeText(context, i, 0).show();
-            }
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ((j01) this.b).j();
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.t01
-        public void showToast(@NonNull Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
-                Toast.makeText(context, str, 0).show();
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ElasticTask b = this.a.b();
+            if (b == null || !this.b.c(b)) {
+                return false;
             }
+            this.a.e(b);
+            return true;
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.t01
-        public void b(@NonNull Context context, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
-                Toast.makeText(context, str, i).show();
-            }
-        }
-
-        @Override // com.baidu.tieba.t01
-        public void c(@NonNull Context context, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, context, i, i2) == null) {
-                Toast.makeText(context, i, i2).show();
-            }
+    public void b(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str, i) == null) {
+            this.a.c(runnable, str, i);
         }
     }
 }

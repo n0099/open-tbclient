@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.ota;
+import com.baidu.tieba.nta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class StampShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ota mStampShareData;
+    public nta mStampShareData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StampShareDialogConfig(Context context, ShareItem shareItem, boolean z, ota otaVar) {
+    public StampShareDialogConfig(Context context, ShareItem shareItem, boolean z, nta ntaVar) {
         super(context, shareItem, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, shareItem, Boolean.valueOf(z), otaVar};
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), ntaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,15 +33,15 @@ public class StampShareDialogConfig extends ShareDialogConfig {
                 return;
             }
         }
-        this.mStampShareData = otaVar;
+        this.mStampShareData = ntaVar;
     }
 
-    public ota getStampShareData() {
+    public nta getStampShareData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mStampShareData;
         }
-        return (ota) invokeV.objValue;
+        return (nta) invokeV.objValue;
     }
 }

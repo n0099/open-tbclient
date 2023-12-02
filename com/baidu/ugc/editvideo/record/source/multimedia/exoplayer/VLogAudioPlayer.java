@@ -4,8 +4,8 @@ import android.media.MediaMetadataRetriever;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.tieba.twb;
-import com.baidu.tieba.xwb;
+import com.baidu.tieba.swb;
+import com.baidu.tieba.wwb;
 import com.baidu.ugc.editvideo.player.AudioPlayData;
 import com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceTimerManager;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
@@ -106,7 +106,7 @@ public class VLogAudioPlayer {
                     return;
                 }
             } else if (VLogAudioPlayer.this.mMediaPlayer != null) {
-                twb.e(VLogAudioPlayer.TAG, "是否静音：" + VLogAudioPlayer.this.isMute);
+                swb.e(VLogAudioPlayer.TAG, "是否静音：" + VLogAudioPlayer.this.isMute);
                 if (!VLogAudioPlayer.this.isMute) {
                     try {
                         VLogAudioPlayer.this.updateVolume(VLogAudioPlayer.this.mMediaPlayer.getCurrentPosition());
@@ -325,7 +325,7 @@ public class VLogAudioPlayer {
             AudioPlayData audioPlayData2 = list.get(i);
             if (!TextUtils.isEmpty(audioPlayData2.audioPath)) {
                 mediaMetadataRetriever.setDataSource(audioPlayData2.audioPath);
-                int b = xwb.b(mediaMetadataRetriever.extractMetadata(9), 0);
+                int b = wwb.b(mediaMetadataRetriever.extractMetadata(9), 0);
                 audioPlayData2.realDuration = b;
                 if (audioPlayData == null) {
                     if (b <= 0) {
@@ -537,7 +537,7 @@ public class VLogAudioPlayer {
     }
 
     public void setMute(boolean z) {
-        twb.e(TAG, "设置静音");
+        swb.e(TAG, "设置静音");
         this.isMute = z;
         setVolume(0.0f);
     }
@@ -570,7 +570,7 @@ public class VLogAudioPlayer {
         schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.10
             @Override // java.lang.Runnable
             public void run() {
-                twb.e(VLogAudioPlayer.TAG, "设置音量为 = " + f);
+                swb.e(VLogAudioPlayer.TAG, "设置音量为 = " + f);
                 VLogAudioPlayer.this.setVolumeInternal(f);
             }
         });

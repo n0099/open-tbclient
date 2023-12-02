@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.s3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ls6 extends hs6 {
+public abstract class ls6 implements v0, s3.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int b;
-    public boolean c;
+    public es6 a;
 
     public ls6() {
         Interceptable interceptable = $ic;
@@ -26,45 +28,32 @@ public final class ls6 extends hs6 {
                 return;
             }
         }
-        this.b = -1;
+        this.a = es6.i.a();
     }
 
-    public final int c() {
+    public final es6 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return invokeV.intValue;
+        return (es6) invokeV.objValue;
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.hs6, com.baidu.tieba.s3.a
+    @Override // com.baidu.tieba.s3.a
+    @CallSuper
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.reset();
-            this.b = -1;
-            this.c = false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = es6.i.a();
         }
     }
 
-    public final ls6 e(int i, boolean z) {
-        InterceptResult invokeCommon;
+    public final void b(es6 es6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            this.b = i;
-            this.c = z;
-            return this;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, es6Var) == null) {
+            Intrinsics.checkNotNullParameter(es6Var, "<set-?>");
+            this.a = es6Var;
         }
-        return (ls6) invokeCommon.objValue;
     }
 }

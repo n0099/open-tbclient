@@ -1,14 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tieba.m55;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.enterForum.recforum.view.RecommendForumView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface sy6 extends m55.g {
-    void i(ErrorData errorData);
+public class sy6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public RecommendForumView a;
 
-    void k2(hz6 hz6Var);
+    public sy6(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        RecommendForumView recommendForumView = new RecommendForumView(tbPageContext.getPageActivity());
+        this.a = recommendForumView;
+        recommendForumView.setTbPageContext(tbPageContext);
+    }
 
-    void m1(int i, int i2);
-
-    void o();
+    public RecommendForumView a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (RecommendForumView) invokeV.objValue;
+    }
 }

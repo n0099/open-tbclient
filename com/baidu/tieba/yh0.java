@@ -209,7 +209,7 @@ public class yh0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return yy0.a().b("nad_app_quick_config").getLong("key_last_alert_dialog_show_time", 0L);
+            return az0.a().b("nad_app_quick_config").getLong("key_last_alert_dialog_show_time", 0L);
         }
         return invokeV.longValue;
     }
@@ -246,7 +246,7 @@ public class yh0 {
     public static void h(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
-            yy0.a().b("nad_app_quick_config").g("key_last_alert_dialog_show_time", j);
+            az0.a().b("nad_app_quick_config").g("key_last_alert_dialog_show_time", j);
         }
     }
 
@@ -255,27 +255,27 @@ public class yh0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             wg0 wg0Var = null;
-            if (ly0.g(this.a)) {
+            if (ny0.g(this.a)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            int l = ly0.l(this.a) - 1;
+            int l = ny0.l(this.a) - 1;
             wg0 wg0Var2 = null;
             while (true) {
                 if (l < 0) {
                     break;
                 }
-                wg0 wg0Var3 = (wg0) ly0.d(this.a, l);
+                wg0 wg0Var3 = (wg0) ny0.d(this.a, l);
                 if (wg0Var3 != null) {
                     String str = wg0Var3.d;
                     boolean c2 = gi0.c(str);
                     boolean exists = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/" + str).exists();
                     if (c2) {
                         if (exists) {
-                            ly0.b(arrayList, wg0Var3);
+                            ny0.b(arrayList, wg0Var3);
                         } else {
                             wg0Var3.q.o = "reminded_type_unopen";
-                            ly0.b(arrayList, wg0Var3);
+                            ny0.b(arrayList, wg0Var3);
                             wg0Var = wg0Var3;
                             break;
                         }
@@ -286,7 +286,7 @@ public class yh0 {
                 }
                 l--;
             }
-            ly0.k(this.a, arrayList);
+            ny0.k(this.a, arrayList);
             if (wg0Var != null) {
                 return wg0Var;
             }
@@ -320,7 +320,7 @@ public class yh0 {
             str = "2";
         }
         clogBuilder.m(str);
-        bz0.e(clogBuilder);
+        dz0.e(clogBuilder);
     }
 
     public void i(Activity activity, wh0 wh0Var) {
@@ -361,7 +361,7 @@ public class yh0 {
             String absolutePath = wg0Var.h.getAbsolutePath();
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(absolutePath)) {
                 wg0Var.q.o = "reminded_type_none";
-                ly0.b(this.a, wg0Var);
+                ny0.b(this.a, wg0Var);
             }
         }
     }

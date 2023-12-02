@@ -1,11 +1,13 @@
 package com.baidu.tieba;
-
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public interface zg1 {
-    @Nullable
-    ye1 a();
+    void a();
 
-    JSONObject b();
+    void c();
+
+    void d();
+
+    void onAdClick();
+
+    void onPrivacyClick();
 }

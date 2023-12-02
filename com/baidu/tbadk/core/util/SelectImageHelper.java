@@ -94,7 +94,7 @@ public class SelectImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
             try {
-                int readPictureDegree = readPictureDegree(FileHelper.getFileDireciory(TMP_IMAGE_NAME));
+                int readPictureDegree = readPictureDegree(FileHelper.getExternalPrivateDir(TMP_IMAGE_NAME));
                 Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(TMP_IMAGE_NAME, i);
                 if (readPictureDegree != 0 && subSampleBitmap != null) {
                     return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
@@ -147,10 +147,10 @@ public class SelectImageHelper {
                         return;
                     }
                 }
-                File CreateFile = FileHelper.CreateFile(TMP_IMAGE_NAME);
-                if (CreateFile != null) {
+                File createDCIMFile = FileHelper.createDCIMFile(TMP_IMAGE_NAME);
+                if (createDCIMFile != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
+                    intent.putExtra("output", UtilHelper.getUriFromFile(createDCIMFile, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
@@ -178,9 +178,9 @@ public class SelectImageHelper {
                         return;
                     }
                 }
-                String str2 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
+                String str2 = FileHelper.EXTERNAL_STORAGE_PRIVATE_DIRECTORY + "/" + TbConfig.LOCAL_CAMERA_DIR;
                 boolean z = false;
-                if (FileHelper.CheckTempDir(str2)) {
+                if (FileHelper.CheckSDCardDir(str2)) {
                     File file = new File(str2 + "/" + str);
                     if (!file.exists()) {
                         z = file.createNewFile();

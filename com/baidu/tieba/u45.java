@@ -1,224 +1,168 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.mutiprocess.MutiProcessManager;
+import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.tbadkCore.data.AgreeMessageData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class u45 {
+public class u45 {
     public static /* synthetic */ Interceptable $ic;
-    public static final u45 a;
-    public static final da<String> b;
-    public static final ConcurrentHashMap<String, String> c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public static final class a extends ju5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ju5
-        public String doInBackground() {
-            InterceptResult invokeV;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                da daVar = u45.b;
-                if (daVar != null) {
-                    str = (String) daVar.get(this.a);
-                } else {
-                    str = null;
-                }
-                u45.a.f(u45.c, this.a, str);
-                return str;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b implements ot5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Function1<String, Unit> a;
-        public final /* synthetic */ String b;
-
-        public b(Function1<? super String, Unit> function1, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {function1, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = function1;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ot5
-        /* renamed from: a */
-        public void onReturnDataInUI(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                Function1<String, Unit> function1 = this.a;
-                if (str == null) {
-                    str = this.b;
-                }
-                function1.invoke(str);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class c extends ju5<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-
-        public c(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-        }
-
-        public void a() {
-            da daVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (daVar = u45.b) != null) {
-                daVar.g(this.a, this.b);
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.ju5
-        public /* bridge */ /* synthetic */ Unit doInBackground() {
-            a();
-            return Unit.INSTANCE;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161043, "Lcom/baidu/tieba/u45;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948161043, "Lcom/baidu/tieba/u45;");
-                return;
-            }
-        }
-        a = new u45();
-        b = b05.l("tb.universal_long_string_sp");
-        c = new ConcurrentHashMap<>();
-    }
 
     public u45() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @JvmStatic
-    public static final void d(String key, String str, Function1<? super String, Unit> callback) {
+    public void a(AgreeData agreeData, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, key, str, callback) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            String str2 = c.get(key);
-            if (str2 != null) {
-                callback.invoke(str2);
-            } else {
-                nu5.b(new a(key), new b(callback, str));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, agreeData, str) == null) {
+            AgreeEvent agreeEvent = new AgreeEvent();
+            agreeEvent.agreeData = agreeData;
+            agreeEvent.agreeExtra = str;
+            MutiProcessManager.publishEvent(agreeEvent);
+        }
+    }
+
+    public void b(Context context, lw4 lw4Var, AgreeData agreeData, ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, lw4Var, agreeData, threadData) == null) && lw4Var != null && agreeData != null) {
+            int i = 0;
+            BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+            if (baijiahaoData != null) {
+                i = baijiahaoData.oriUgcType;
             }
-        }
-    }
-
-    public static /* synthetic */ void e(String str, String str2, Function1 function1, int i, Object obj) {
-        if ((i & 2) != 0) {
-            str2 = null;
-        }
-        d(str, str2, function1);
-    }
-
-    @JvmStatic
-    public static final void g(String key, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, key, str) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            a.f(c, key, str);
-            nu5.b(new c(key, str), null);
-        }
-    }
-
-    public final void f(ConcurrentHashMap<String, String> concurrentHashMap, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, concurrentHashMap, str, str2) == null) {
-            if (str2 == null) {
-                concurrentHashMap.remove(str);
+            StatisticItem param = new StatisticItem("c13271").param("obj_type", lw4Var.g).param("obj_locate", lw4Var.h).param("obj_id", lw4Var.i).param("obj_name", i).param("post_id", agreeData.postId).param("nid", agreeData.nid);
+            if (threadData != null) {
+                param.param("tid", threadData.getId()).param("nid", threadData.getNid()).param("fid", threadData.getFid()).param("ab_tag", threadData.mRecomAbTag).param("recom_source", threadData.mRecomSource).param("weight", threadData.mRecomWeight).param("extra", threadData.mRecomExtra);
+                if (threadData.getBaijiahaoData() != null) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
+                    if (threadData.isBJHVideoThreadType() || threadData.isBJHVideoDynamicThreadType()) {
+                        param.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                    }
+                }
+                if (threadData.isBjhDynamicThread()) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+                } else if (!threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
+                    int i2 = threadData.threadType;
+                    if (i2 == 0 || i2 == 40) {
+                        param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+                    }
+                } else {
+                    param.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+                }
             } else {
-                concurrentHashMap.put(str, str2);
+                param.param("tid", agreeData.threadId);
+                param.param("nid", agreeData.nid);
+                param.param("fid", agreeData.forumId);
+                param.param("card_type", agreeData.cardType);
+                param.param("ab_tag", agreeData.recomAbTag);
+                param.param("recom_source", agreeData.recomSource);
+                param.param("weight", agreeData.recomWeight);
+                param.param("extra", agreeData.recomExtra);
+                BaijiahaoData baijiahaoData2 = agreeData.baijiahaoData;
+                if (baijiahaoData2 != null) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData2.oriUgcVid);
+                }
+            }
+            if (context != null) {
+                cp5.b(context, param);
+            }
+            TiebaStatic.log(param);
+        }
+    }
+
+    public void c(AgreeData agreeData, int i, BdUniqueId bdUniqueId, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{agreeData, Integer.valueOf(i), bdUniqueId, Boolean.valueOf(z)}) == null) {
+            if (agreeData == null) {
+                s35.a(3, -1);
+                return;
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+            httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+            httpMessage.addParam("thread_id", agreeData.threadId);
+            httpMessage.addParam("op_type", i);
+            if (agreeData.objType == 0) {
+                agreeData.objType = 3;
+            }
+            httpMessage.addParam("obj_type", agreeData.objType);
+            httpMessage.addParam("agree_type", agreeData.agreeType);
+            httpMessage.addParam("forum_id", agreeData.forumId);
+            httpMessage.addParam("is_long_press_agree", agreeData.agreeClickType);
+            if (!StringUtil.isEmpty(agreeData.objSource)) {
+                httpMessage.addParam("obj_source", agreeData.objSource);
+            }
+            if (!TextUtils.isEmpty(agreeData.postId)) {
+                httpMessage.addParam("post_id", agreeData.postId);
+            }
+            BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+            if (baijiahaoData != null) {
+                httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
+                httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
+                httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
+                httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
+            }
+            httpMessage.setTag(bdUniqueId);
+            httpMessage.setExtra(Integer.valueOf(i));
+            httpMessage.addHeader("needSig", "1");
+            if (z) {
+                if (!TextUtils.isEmpty(sm5.b())) {
+                    httpMessage.addParam(HttpRequest.BDUSS, sm5.b());
+                }
+                if (!TextUtils.isEmpty(sm5.f())) {
+                    httpMessage.addParam("tbs", sm5.f());
+                }
+                if (!TextUtils.isEmpty(sm5.e())) {
+                    httpMessage.addParam("stoken", sm5.e());
+                }
+            }
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public void d(AgreeData agreeData, AgreeMessageData agreeMessageData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, agreeMessageData) == null) {
+            agreeMessageData.agreeData = agreeData;
+            if (agreeData.isInThread) {
+                BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+                if (baijiahaoData != null) {
+                    agreeData.nid = baijiahaoData.oriUgcNid;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, agreeMessageData));
+                a(agreeData, AgreeEvent.IS_THREAD);
+            } else if (agreeData.isInPost) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, agreeMessageData));
+                a(agreeData, AgreeEvent.IS_POST);
             }
         }
     }

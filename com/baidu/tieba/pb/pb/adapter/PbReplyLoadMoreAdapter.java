@@ -10,16 +10,16 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d6a;
-import com.baidu.tieba.nwa;
-import com.baidu.tieba.vz9;
+import com.baidu.tieba.h6a;
+import com.baidu.tieba.mwa;
+import com.baidu.tieba.zz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PbReplyLoadMoreAdapter extends vz9<nwa, ReplyLoadMoreViewHolder> {
+public class PbReplyLoadMoreAdapter extends zz9<mwa, ReplyLoadMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener g;
@@ -48,7 +48,7 @@ public class PbReplyLoadMoreAdapter extends vz9<nwa, ReplyLoadMoreViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092851);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092854);
         }
 
         public void a() {
@@ -58,12 +58,12 @@ public class PbReplyLoadMoreAdapter extends vz9<nwa, ReplyLoadMoreViewHolder> {
             }
         }
 
-        public void b(nwa nwaVar) {
+        public void b(mwa mwaVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nwaVar) != null) || nwaVar == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mwaVar) != null) || mwaVar == null) {
                 return;
             }
-            if (nwaVar.D) {
+            if (mwaVar.D) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.a.setCompoundDrawables(null, null, drawable, null);
@@ -76,19 +76,19 @@ public class PbReplyLoadMoreAdapter extends vz9<nwa, ReplyLoadMoreViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbReplyLoadMoreAdapter(d6a d6aVar, BdUniqueId bdUniqueId) {
-        super(d6aVar, bdUniqueId);
+    public PbReplyLoadMoreAdapter(h6a h6aVar, BdUniqueId bdUniqueId) {
+        super(h6aVar, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d6aVar, bdUniqueId};
+            Object[] objArr = {h6aVar, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((d6a) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((h6a) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -110,8 +110,8 @@ public class PbReplyLoadMoreAdapter extends vz9<nwa, ReplyLoadMoreViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07ea, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f092851).setOnClickListener(this.g);
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07eb, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f092854).setOnClickListener(this.g);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
             replyLoadMoreViewHolder.a();
             return replyLoadMoreViewHolder;
@@ -120,13 +120,13 @@ public class PbReplyLoadMoreAdapter extends vz9<nwa, ReplyLoadMoreViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vz9, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.zz9, com.baidu.tieba.ci
     /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nwa nwaVar, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mwa mwaVar, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nwaVar, replyLoadMoreViewHolder})) == null) {
-            replyLoadMoreViewHolder.b(nwaVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mwaVar, replyLoadMoreViewHolder})) == null) {
+            replyLoadMoreViewHolder.b(mwaVar);
             return replyLoadMoreViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

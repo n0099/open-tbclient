@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardOriginCardView;
+import com.baidu.tieba.feed.component.CardHeadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jc7 extends wa7<CardOriginCardView, o47> {
+public class jc7 extends ab7<CardHeadView, o47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class jc7 extends wa7<CardOriginCardView, o47> {
         }
     }
 
-    @Override // com.baidu.tieba.wa7, com.baidu.tieba.mb7
+    @Override // com.baidu.tieba.ab7, com.baidu.tieba.qb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            fd7.k(a, 0);
+            jd7.k(a, 0);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mb7
+    @Override // com.baidu.tieba.qb7
     /* renamed from: e */
-    public void b(@NonNull CardOriginCardView cardOriginCardView, @NonNull o47 o47Var) {
+    public void b(@NonNull CardHeadView cardHeadView, @NonNull o47 o47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardOriginCardView, o47Var) == null) {
-            cardOriginCardView.a(o47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadView, o47Var) == null) {
+            cardHeadView.g(o47Var);
         }
     }
 }

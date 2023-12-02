@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,13 +11,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class pt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public List<ot8> c;
+    public List<qt8> a;
+    public List<qt8> b;
 
     public pt8() {
         Interceptable interceptable = $ic;
@@ -26,60 +30,55 @@ public class pt8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new ArrayList();
     }
 
-    public List<ot8> a() {
+    @NonNull
+    public List<qt8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(this.a)) {
+                arrayList.addAll(this.a);
+            }
+            if (!ListUtils.isEmpty(this.b)) {
+                arrayList.addAll(this.b);
+            }
+            return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public void b(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeV.longValue;
+        this.a = c(jSONObject, "tieba_memes");
+        this.b = c(jSONObject, "outer_memes");
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Nullable
+    public final List<qt8> c(@NonNull JSONObject jSONObject, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == 1) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray(str);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    qt8 qt8Var = new qt8();
+                    qt8Var.a(optJSONArray.optJSONObject(i));
+                    if (qt8Var.isValid()) {
+                        arrayList.add(qt8Var);
+                    }
+                }
+                return arrayList;
             }
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void e(List<ot8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.c = list;
-        }
-    }
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.a = j;
-        }
+        return (List) invokeLL.objValue;
     }
 }

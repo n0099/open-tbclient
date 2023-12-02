@@ -1,40 +1,20 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Message;
-import android.os.RemoteException;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.x23;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Deque;
 /* loaded from: classes5.dex */
-public class d33 implements x23.c {
+public class d33 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Deque<Message> a;
-
-    @Override // com.baidu.tieba.x23.c
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.x23.c
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,78 +29,99 @@ public class d33 implements x23.c {
                 return;
             }
         }
-        boolean z = sm1.a;
+        a = vm1.a;
     }
 
-    public d33() {
+    public static void a(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
+            if (a) {
+                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
             }
+            int i = message.arg1;
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
+            }
+            l23.a(i, str2, str, bundle);
         }
-        this.a = new ArrayDeque();
     }
 
-    @Override // com.baidu.tieba.x23.c
-    public void a() {
+    public static void b(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c33 Q = c33.Q();
-            while (Q.O() && !this.a.isEmpty()) {
-                Message peek = this.a.peek();
-                if (peek == null || e(peek)) {
-                    this.a.poll();
+        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
+            }
+            l23.a(-1000, str2, str, bundle);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void c(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
                 }
+                throw new RuntimeException("delegation msg obj is not a bundle");
             }
+            Bundle bundle = (Bundle) obj;
+            n23 n23Var = new n23(bundle.getString("key_observer_id", ""));
+            n23Var.b(bundle.getBundle("key_result_data"));
+            o23.b().c(n23Var);
         }
     }
 
-    @Override // com.baidu.tieba.x23.c
-    public void b(@NonNull z23 z23Var) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static void d(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z23Var) == null) {
-            Message h = z23Var.h();
-            h.arg1 = SwanAppProcessInfo.current().index;
-            if (g63.K().E()) {
-                Object obj = h.obj;
-                if (obj instanceof Bundle) {
-                    Bundle bundle = (Bundle) obj;
-                    if (!bundle.containsKey("ai_apps_id")) {
-                        bundle.putString("ai_apps_id", g63.K().getAppId());
-                    }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (!a) {
+                    return;
                 }
+                throw new RuntimeException("delegation msg obj is not a bundle");
             }
-            if (!e(h) && z23Var.n()) {
-                this.a.offer(h);
-                c33.Q().c0();
-            }
+            Bundle bundle = (Bundle) obj;
+            n23 n23Var = new n23(bundle.getString("key_observer_id", ""));
+            n23Var.b(bundle.getBundle("key_result_data"));
+            o23.b().c(n23Var);
         }
     }
 
-    public final boolean e(Message message) {
-        InterceptResult invokeL;
+    public static void e(int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, message)) == null) {
-            c33 Q = c33.Q();
-            if (message != null && Q.O()) {
-                try {
-                    Q.S().send(message);
-                    return true;
-                } catch (RemoteException e) {
-                    Q.U();
-                    h32.l("SwanMsgSenderOfClient", " sendMsgToService msg = " + message.toString(), e);
-                    return false;
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
+            a33 e = a33.e();
+            c33 c33Var = new c33(126, bundle);
+            c33Var.a(i);
+            e.h(c33Var);
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void f(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
+            a33.e().h(new c33(21, bundle));
+        }
     }
 }

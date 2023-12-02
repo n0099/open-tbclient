@@ -4,13 +4,21 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipDailyList;
+import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes7.dex */
 public class km9 implements pi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public hm9 a;
+    public List<lm9> b;
 
     static {
         InterceptResult invokeClinit;
@@ -25,7 +33,7 @@ public class km9 implements pi {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     @Override // com.baidu.tieba.pi
@@ -33,8 +41,39 @@ public class km9 implements pi {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
+    }
+
+    public km9(VipDailyList vipDailyList) {
+        List<VipThemeItem> list;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipDailyList};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (vipDailyList != null && (list = vipDailyList.item) != null && list.size() > 0) {
+            String str = vipDailyList.card_id;
+            hm9 hm9Var = new hm9();
+            this.a = hm9Var;
+            hm9Var.e(1);
+            this.a.d(vipDailyList.class_name);
+            this.a.f(vipDailyList.class_url_name);
+            this.a.g(vipDailyList.class_url);
+            this.b = new ArrayList();
+            for (VipThemeItem vipThemeItem : vipDailyList.item) {
+                this.b.add(new lm9(vipThemeItem));
+            }
+        }
     }
 }

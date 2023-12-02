@@ -1,72 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.cs5;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class as5 extends yr5<ck5, cs5.b> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> e;
+public interface as5 {
+    void a(ViewType viewType, String str);
 
-    public as5(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = tbPageContext;
-    }
+    void b(ViewType viewType);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yr5
-    /* renamed from: h */
-    public ck5 f(ViewType viewType, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
-            return new ck5(this.e.getPageActivity(), null);
-        }
-        return (ck5) invokeLL.objValue;
-    }
+    void c(ViewType viewType, cs5 cs5Var);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yr5
-    /* renamed from: g */
-    public void d(ViewType viewType, ck5 ck5Var, cs5.b bVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, ck5Var, bVar) == null) {
-            if (bVar.b && !TextUtils.isEmpty(bVar.a)) {
-                str = bVar.a;
-            } else {
-                str = bVar.g;
-            }
-            ck5Var.m(str);
-            ck5Var.k(bVar.d);
-            ck5Var.i(bVar.c);
-            ck5Var.n(bVar.f);
-            ck5Var.g(bVar.e);
-            ck5Var.q();
-            ck5Var.onChangeSkinType();
-            ck5Var.b().setOnClickListener(bVar.h);
-        }
-    }
+    void onChangeSkinType(int i);
+
+    void onDestroy();
 }

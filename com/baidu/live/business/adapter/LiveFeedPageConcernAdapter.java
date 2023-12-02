@@ -69,13 +69,13 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         public OneFollowViewHolder(View view2, String str, String str2) {
             super(view2);
             this.h = "";
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092823);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092824);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092826);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092827);
             this.d = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f090348);
             this.e = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090347);
             this.f = (LinearLayout) view2.findViewById(R.id.right_container);
-            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091864);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091878);
+            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091865);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091879);
             this.h = str;
             LiveFeedPageConcernAdapter.q(this.d, str2);
             this.d.setRepeatCount(-1);
@@ -111,11 +111,11 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         public TwoFollowViewHolder(View view2, String str, String str2) {
             super(view2);
             this.i = "";
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092072);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092823);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092074);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092826);
             this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09034d);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bec);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092822);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bed);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092825);
             this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f090348);
             this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090347);
             this.h = (LinearLayout) view2.findViewById(R.id.right_container);
@@ -182,9 +182,9 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
         public ViewHolder(View view2, String str, String str2) {
             super(view2);
             this.f = "";
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092823);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092826);
             this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09034d);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bec);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bed);
             this.b = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f090348);
             this.c = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090347);
             this.f = str;

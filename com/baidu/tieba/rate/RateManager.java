@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c7a;
-import com.baidu.tieba.cab;
+import com.baidu.tieba.bab;
+import com.baidu.tieba.g7a;
 import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,11 +36,11 @@ public class RateManager {
     public static final int RATE_LIKE_MAX_COUNT = 3;
     public static RateManager instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public c7a dialog;
+    public g7a dialog;
     public int mScore;
 
     /* loaded from: classes8.dex */
-    public class a implements cab.g {
+    public class a implements bab.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -65,7 +65,7 @@ public class RateManager {
             this.a = tbPageContext;
         }
 
-        @Override // com.baidu.tieba.cab.g
+        @Override // com.baidu.tieba.bab.g
         public void onClick(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.b.dialog == null) {
@@ -80,7 +80,7 @@ public class RateManager {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements cab.e {
+    public class b implements bab.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -105,7 +105,7 @@ public class RateManager {
             this.a = tbPageContext;
         }
 
-        @Override // com.baidu.tieba.cab.e
+        @Override // com.baidu.tieba.bab.e
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.dialog == null) {
@@ -124,7 +124,7 @@ public class RateManager {
     }
 
     /* loaded from: classes8.dex */
-    public class c implements cab.d {
+    public class c implements bab.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RateManager a;
@@ -147,7 +147,7 @@ public class RateManager {
             this.a = rateManager;
         }
 
-        @Override // com.baidu.tieba.cab.d
+        @Override // com.baidu.tieba.bab.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.dialog == null) {
@@ -250,21 +250,21 @@ public class RateManager {
         if ((interceptable != null && interceptable.invokeL(1048579, this, tbPageContext) != null) || tbPageContext == null) {
             return;
         }
-        cab cabVar = new cab(tbPageContext.getContext());
-        cabVar.y(tbPageContext.getContext().getString(R.string.is_tieba_pleased));
-        cabVar.o(8);
-        cabVar.s(0);
-        int dimens = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f07041f);
-        int dimens2 = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f07036e);
-        int dimens3 = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0703ab);
-        cabVar.x(R.dimen.obfuscated_res_0x7f0701f9);
-        cabVar.w(0, dimens, 0, dimens3);
-        cabVar.q(0, 0, 0, dimens2);
-        cabVar.p(true);
-        cabVar.v(new a(this, tbPageContext));
-        c7a c7aVar = new c7a(tbPageContext.getContext(), cabVar.j());
-        this.dialog = c7aVar;
-        c7aVar.a(0.7f);
+        bab babVar = new bab(tbPageContext.getContext());
+        babVar.y(tbPageContext.getContext().getString(R.string.is_tieba_pleased));
+        babVar.o(8);
+        babVar.s(0);
+        int dimens = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070420);
+        int dimens2 = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f07036f);
+        int dimens3 = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0703ac);
+        babVar.x(R.dimen.obfuscated_res_0x7f0701f9);
+        babVar.w(0, dimens, 0, dimens3);
+        babVar.q(0, 0, 0, dimens2);
+        babVar.p(true);
+        babVar.v(new a(this, tbPageContext));
+        g7a g7aVar = new g7a(tbPageContext.getContext(), babVar.j());
+        this.dialog = g7aVar;
+        g7aVar.a(0.7f);
         yb.j(this.dialog, tbPageContext);
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_DIALOG_SHOW));
     }
@@ -313,37 +313,37 @@ public class RateManager {
     }
 
     public void showSecondDialog(TbPageContext tbPageContext) {
-        cab.c cVar;
+        bab.c cVar;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, tbPageContext) != null) || tbPageContext == null) {
             return;
         }
-        cab cabVar = new cab(tbPageContext.getContext());
+        bab babVar = new bab(tbPageContext.getContext());
         int i = this.mScore;
         if (i != 1 && i != 2) {
-            cabVar.y(tbPageContext.getContext().getString(R.string.go_shop_give_me_comment));
-            cVar = new cab.c(tbPageContext.getContext().getString(R.string.go_score), cabVar);
+            babVar.y(tbPageContext.getContext().getString(R.string.go_shop_give_me_comment));
+            cVar = new bab.c(tbPageContext.getContext().getString(R.string.go_score), babVar);
         } else {
-            cabVar.y(tbPageContext.getContext().getString(R.string.help_my_improving_experience));
-            cVar = new cab.c(tbPageContext.getContext().getString(R.string.go_feedback), cabVar);
+            babVar.y(tbPageContext.getContext().getString(R.string.help_my_improving_experience));
+            cVar = new bab.c(tbPageContext.getContext().getString(R.string.go_feedback), babVar);
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(cVar);
-        cabVar.r(this.mScore);
-        cabVar.s(0);
-        cabVar.o(0);
-        cabVar.p(false);
-        BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0703d8);
+        babVar.r(this.mScore);
+        babVar.s(0);
+        babVar.o(0);
+        babVar.p(false);
+        BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0703d9);
         int dimens = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070207);
-        BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0703ef);
-        cabVar.w(0, BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070394), 0, 0);
-        cabVar.q(0, dimens, 0, dimens);
+        BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0703f0);
+        babVar.w(0, BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070395), 0, 0);
+        babVar.q(0, dimens, 0, dimens);
         cVar.h(new b(this, tbPageContext));
-        cabVar.u(new c(this));
-        cabVar.t(arrayList);
-        c7a c7aVar = new c7a(tbPageContext.getContext(), cabVar.j());
-        this.dialog = c7aVar;
-        c7aVar.a(0.7f);
+        babVar.u(new c(this));
+        babVar.t(arrayList);
+        g7a g7aVar = new g7a(tbPageContext.getContext(), babVar.j());
+        this.dialog = g7aVar;
+        g7aVar.a(0.7f);
         yb.j(this.dialog, tbPageContext);
         int i2 = this.mScore;
         if (i2 != 1 && i2 != 2) {

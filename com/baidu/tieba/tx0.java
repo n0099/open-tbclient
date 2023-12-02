@@ -1,51 +1,27 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 /* loaded from: classes8.dex */
-public class tx0 extends ox0 {
+public abstract class tx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public abstract boolean c(int i, @Nullable String str);
 
-    /* loaded from: classes8.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final tx0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-388976417, "Lcom/baidu/tieba/tx0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-388976417, "Lcom/baidu/tieba/tx0$b;");
-                    return;
-                }
-            }
-            a = new tx0(null);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public tx0() {
-        super("com.baidu.nadcore_videoplayer");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,139 +29,90 @@ public class tx0 extends ox0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, th}) != null) || !c(i, str)) {
+            return;
+        }
+        if (TextUtils.isEmpty(str2)) {
+            if (th == null) {
                 return;
             }
+            str2 = b(th);
+        } else if (th != null) {
+            str2 = str2 + "\n" + b(th);
+        }
+        if (TextUtils.isEmpty(str)) {
+            d(i, null, str2);
+        } else if (str.length() > 23 && Build.VERSION.SDK_INT < 24) {
+            d(i, str.substring(0, 23), str2);
+        } else {
+            d(i, str, str2);
         }
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public final String b(@NonNull Throwable th) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new ox0("").getString("ad_pcdn_time_config", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new ox0("").getString("ad_pcdn_white_list", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return j().getBoolean("clarity1080", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return j().getInt("fast_forward_max_speed", 3);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return j().getInt("fast_forward_speed", 2);
-        }
-        return invokeV.intValue;
-    }
-
-    public static tx0 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return b.a;
-        }
-        return (tx0) invokeV.objValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return new ox0("").getBoolean("video_player_multiple_enable", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return new ox0("").getBoolean("video_pcdn_switch_force", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return new ox0("").getString("video_pcdn_time_config", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return new ox0("").getString("video_pcdn_white_list", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return new ox0("").getBoolean("video_player_debug_enable", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return j().getBoolean("show_long_press_guide", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public /* synthetic */ tx0(a aVar) {
-        this();
-    }
-
-    public static void q(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) {
-            if ("https://searchvideo.cdn.bcebos.com/default/default.mp4".equals(str2)) {
-                j().c("key_current_video_nid_ufo", "");
-                j().c("key_current_video_url_ufo", "");
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
+            try {
+                StringWriter stringWriter = new StringWriter(256);
+                PrintWriter printWriter = new PrintWriter((Writer) stringWriter, false);
+                th.printStackTrace(printWriter);
+                printWriter.flush();
+                printWriter.close();
+                return stringWriter.toString();
+            } catch (Exception e) {
+                String message = e.getMessage();
+                if (TextUtils.isEmpty(message)) {
+                    return "unknown throwable by VideoLog.java";
+                }
+                return message;
             }
-            if (!TextUtils.isEmpty(str)) {
-                j().c("key_current_video_nid_ufo", str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void d(int i, @Nullable String str, @NonNull String str2) {
+        int min;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+            if (str2.length() < 4096) {
+                if (i == 7) {
+                    Log.wtf(str, str2);
+                    return;
+                } else {
+                    Log.println(i, str, str2);
+                    return;
+                }
             }
-            if (!TextUtils.isEmpty(str2)) {
-                j().c("key_current_video_url_ufo", str2);
+            int i2 = 0;
+            int length = str2.length();
+            while (i2 < length) {
+                int indexOf = str2.indexOf(10, i2);
+                if (indexOf == -1) {
+                    indexOf = length;
+                }
+                while (true) {
+                    min = Math.min(indexOf, i2 + 4096);
+                    String substring = str2.substring(i2, min);
+                    if (i == 7) {
+                        Log.wtf(str, substring);
+                    } else {
+                        Log.println(i, str, substring);
+                    }
+                    if (min >= indexOf) {
+                        break;
+                    }
+                    i2 = min;
+                }
+                i2 = min + 1;
             }
         }
     }

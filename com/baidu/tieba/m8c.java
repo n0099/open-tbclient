@@ -1,25 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.ArCoreApk;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class m8c extends Thread {
+public class m8c implements ArCoreApk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final w8c b;
-    public volatile boolean c;
+    public final /* synthetic */ AtomicReference a;
 
-    public m8c(Context context, w8c w8cVar) {
+    public m8c(AtomicReference atomicReference) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, w8cVar};
+            Object[] objArr = {atomicReference};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,31 +27,14 @@ public final class m8c extends Thread {
                 return;
             }
         }
-        this.a = context;
-        this.b = w8cVar;
+        this.a = atomicReference;
     }
 
-    public final void a() {
+    @Override // com.google.ar.core.ArCoreApk.a
+    public void a(ArCoreApk.Availability availability) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = true;
-        }
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public final void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.c) {
-                if (p8c.d().h(this.a)) {
-                    this.b.a(com.google.ar.core.p.COMPLETED);
-                    return;
-                }
-                try {
-                    Thread.sleep(200L);
-                } catch (InterruptedException unused) {
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
+            this.a.set(availability);
         }
     }
 }

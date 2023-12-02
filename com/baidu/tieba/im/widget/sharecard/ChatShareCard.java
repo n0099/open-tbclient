@@ -40,9 +40,9 @@ import com.baidu.tieba.im.data.ShareForumMsgData;
 import com.baidu.tieba.im.data.ShareThreadMsgData;
 import com.baidu.tieba.im.db.pojo.MediaPojo;
 import com.baidu.tieba.im.db.pojo.PbContentPojo;
-import com.baidu.tieba.jz8;
-import com.baidu.tieba.py5;
+import com.baidu.tieba.nz8;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.tieba.ty5;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -527,7 +527,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
                     }
                 }
-                jz8.d("c15286", 1, this.V, this.a0, this.b0, this.W);
+                nz8.d("c15286", 1, this.V, this.a0, this.b0, this.W);
                 return;
             }
             if (this.f1113T != null) {
@@ -535,7 +535,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 frsActivityConfig.createNormalCfg(this.f1113T.getForum_name(), "");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, frsActivityConfig));
             }
-            jz8.d("c15286", 2, this.V, this.a0, this.b0, this.W);
+            nz8.d("c15286", 2, this.V, this.a0, this.b0, this.W);
         }
     }
 
@@ -666,7 +666,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 if (z && !u(shareThreadMsgData)) {
                     threadData.setTitle(shareThreadMsgData.title);
                 }
-                if (!StringUtils.isNull(py5.I(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
+                if (!StringUtils.isNull(ty5.I(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
                     if (s(shareThreadMsgData) && !u(shareThreadMsgData) && z3) {
                         threadData.setRichAbstractList(ShareThreadMsgData.parseContent(j(shareThreadMsgData)));
                     } else {

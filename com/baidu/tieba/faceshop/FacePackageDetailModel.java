@@ -13,8 +13,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.b05;
 import com.baidu.tieba.da;
+import com.baidu.tieba.e05;
 import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -78,8 +78,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                b05.k();
-                da<String> l = b05.l("tb_face_package");
+                e05.k();
+                da<String> l = e05.l("tb_face_package");
                 if (l != null) {
                     l.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
                 }
@@ -126,8 +126,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                     if (this.c.d == null || this.c.d.length() <= 0 || this.b) {
                         return null;
                     }
-                    b05.k();
-                    da<String> l = b05.l("tb_face_package");
+                    e05.k();
+                    da<String> l = e05.l("tb_face_package");
                     if (l != null) {
                         String str = l.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
                         if (!rd.isEmpty(str)) {

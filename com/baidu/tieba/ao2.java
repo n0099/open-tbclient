@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class ao2 extends bk2<so2> {
+public class ao2 extends ek2<vo2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bk2
+    @Override // com.baidu.tieba.ek2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "prepareAsync" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "isPlaying" : (String) invokeV.objValue;
     }
 
     public ao2() {
@@ -36,22 +36,14 @@ public class ao2 extends bk2<so2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bk2
+    @Override // com.baidu.tieba.ek2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull so2 so2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull vo2 vo2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, so2Var) == null) {
-            command.ret = so2Var.prepareAsync() ? 1 : 0;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, vo2Var) == null) {
+            command.ret = vo2Var.isPlaying() ? 1 : 0;
             String str = command.what;
-            d(so2Var, str, "isSupport: " + command.ret, false);
-        }
-    }
-
-    @Override // com.baidu.tieba.bk2
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            command.ret = 1;
+            d(vo2Var, str, "isPlaying: " + vo2Var.isPlaying(), false);
         }
     }
 }

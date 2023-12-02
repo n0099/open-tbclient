@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.t16;
+import com.baidu.tieba.x16;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -145,7 +145,7 @@ public class TiebaUpdateService extends BdBaseService {
                     try {
                         if (!this.b) {
                             this.a = new NetWork(this.c.mMainApkUrl);
-                            bool = Boolean.valueOf(this.a.downloadFile(FileHelper.CreateFileIfNotFound(this.c.mMainApkFileName + ".tmp").getAbsolutePath(), this.c.mMainApkHandler, 0, 5, 100, true));
+                            bool = Boolean.valueOf(this.a.downloadFile(FileHelper.createExternalFileIfNotFound(this.c.mMainApkFileName + ".tmp").getAbsolutePath(), this.c.mMainApkHandler, 0, 5, 100, true));
                             if (!bool.booleanValue() && this.a.getServerErrorCode() != -2) {
                                 if (!this.a.getNetContext().getResponse().isFileSegSuccess()) {
                                     try {
@@ -169,10 +169,10 @@ public class TiebaUpdateService extends BdBaseService {
                     }
                 }
                 if (bool.booleanValue()) {
-                    if (!t16.a(this.c.mMainApkMd5RSA, FileHelper.GetFile(this.c.mMainApkFileName + ".tmp"))) {
+                    if (!x16.a(this.c.mMainApkMd5RSA, FileHelper.getExternalPrivateFile(this.c.mMainApkFileName + ".tmp"))) {
                         bool = Boolean.FALSE;
-                        FileHelper.DelFile(this.c.mMainApkFileName + ".tmp");
-                        FileHelper.DelFile(this.c.mMainApkFileName);
+                        FileHelper.DelExternalPrivateFile(this.c.mMainApkFileName + ".tmp");
+                        FileHelper.DelExternalPrivateFile(this.c.mMainApkFileName);
                     }
                     this.c.renameFile(this.c.mMainApkFileName);
                 }
@@ -284,10 +284,10 @@ public class TiebaUpdateService extends BdBaseService {
                     }
                 }
                 if (bool.booleanValue()) {
-                    if (!t16.a(this.c.mOtherApkMd5RSA, FileHelper.GetFile(this.c.mOtherApkFileName + ".tmp"))) {
+                    if (!x16.a(this.c.mOtherApkMd5RSA, FileHelper.getExternalPrivateFile(this.c.mOtherApkFileName + ".tmp"))) {
                         bool = Boolean.FALSE;
-                        FileHelper.DelFile(this.c.mOtherApkFileName + ".tmp");
-                        FileHelper.DelFile(this.c.mOtherApkFileName);
+                        FileHelper.DelExternalPrivateFile(this.c.mOtherApkFileName + ".tmp");
+                        FileHelper.DelExternalPrivateFile(this.c.mOtherApkFileName);
                     }
                     this.c.renameFile(this.c.mOtherApkFileName);
                 }
@@ -582,13 +582,13 @@ public class TiebaUpdateService extends BdBaseService {
         PackageInfo packageArchiveInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65579, this, str) == null) {
-            String fileDireciory = FileHelper.getFileDireciory(this.mMainApkFileName);
-            if (fileDireciory != null && (packageArchiveInfo = getPackageManager().getPackageArchiveInfo(fileDireciory, 1)) != null) {
+            String externalPrivateDir = FileHelper.getExternalPrivateDir(this.mMainApkFileName);
+            if (externalPrivateDir != null && (packageArchiveInfo = getPackageManager().getPackageArchiveInfo(externalPrivateDir, 1)) != null) {
                 String str2 = packageArchiveInfo.versionName;
                 if (!TextUtils.isEmpty(str2) && str2.compareTo(TbConfig.getVersion()) >= 0) {
                     z = true;
-                    File GetFile = FileHelper.GetFile(this.mMainApkFileName);
-                    if (this.mHasAs ? !(GetFile == null || !GetFile.exists() || !z) : !(GetFile == null || !GetFile.exists())) {
+                    File externalPrivateFile = FileHelper.getExternalPrivateFile(this.mMainApkFileName);
+                    if (this.mHasAs ? !(externalPrivateFile == null || !externalPrivateFile.exists() || !z) : !(externalPrivateFile == null || !externalPrivateFile.exists())) {
                         z2 = false;
                     }
                     if (z2) {
@@ -597,8 +597,8 @@ public class TiebaUpdateService extends BdBaseService {
                         return;
                     }
                     BdUtilHelper.showToast(this, (int) R.string.download_begin_tip);
-                    if (GetFile != null) {
-                        GetFile.delete();
+                    if (externalPrivateFile != null) {
+                        externalPrivateFile.delete();
                     }
                     if (this.mDowndMainApkTask == null) {
                         b bVar = new b(this, null);
@@ -612,7 +612,7 @@ public class TiebaUpdateService extends BdBaseService {
                 }
             }
             z = false;
-            File GetFile2 = FileHelper.GetFile(this.mMainApkFileName);
+            File externalPrivateFile2 = FileHelper.getExternalPrivateFile(this.mMainApkFileName);
             z2 = this.mHasAs ? true : true;
             if (z2) {
             }
@@ -622,7 +622,7 @@ public class TiebaUpdateService extends BdBaseService {
     private void downloadOtherApk() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65580, this) == null) {
-            if (FileHelper.GetFile(this.mOtherApkFileName) != null) {
+            if (FileHelper.getExternalPrivateFile(this.mOtherApkFileName) != null) {
                 this.mHasOther = false;
                 Handler handler = this.mOtherApkHandler;
                 handler.sendMessageDelayed(handler.obtainMessage(2, null), 300L);
@@ -673,12 +673,12 @@ public class TiebaUpdateService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void renameFile(String str) {
-        File FileObject;
+        File createExternalFileIfNotFound;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65583, this, str) == null) {
-            FileHelper.DelFile(str);
-            File GetFile = FileHelper.GetFile(str + ".tmp");
-            if (GetFile != null && (FileObject = FileHelper.FileObject(str)) != null && !GetFile.renameTo(FileObject)) {
+            FileHelper.DelExternalPrivateFile(str);
+            File externalPrivateFile = FileHelper.getExternalPrivateFile(str + ".tmp");
+            if (externalPrivateFile != null && (createExternalFileIfNotFound = FileHelper.createExternalFileIfNotFound(str)) != null && !externalPrivateFile.renameTo(createExternalFileIfNotFound)) {
                 TiebaStatic.file("renameTo erro", "TiebaUpdateService.DownLoadingOtherAsyncTask");
             }
         }

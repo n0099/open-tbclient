@@ -1,80 +1,79 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.yy.gameassist.interfaces.PermissionService;
-import com.baidu.tieba.gameassist.permission.PermissionFragmentActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.yy.gameassist.interfaces.BZDxmRechargeService;
+import com.baidu.tieba.wallet.WalletPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
+import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
 /* loaded from: classes6.dex */
-public class j98 implements PermissionService {
+public class j98 implements BZDxmRechargeService {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<Integer, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838240, "Lcom/baidu/tieba/j98;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements IDxmProxyCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BZDxmRechargeService.PluginDxmCallback a;
+
+        public a(j98 j98Var, BZDxmRechargeService.PluginDxmCallback pluginDxmCallback) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j98Var, pluginDxmCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947838240, "Lcom/baidu/tieba/j98;");
-                return;
+            this.a = pluginDxmCallback;
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback
+        public void onFail(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                this.a.onFail(i, str);
             }
         }
-        a = new HashMap();
+
+        @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback
+        public void onSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.onSuccess(i, str);
+            }
+        }
     }
 
     public j98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.PermissionService
-    public void requestFloatWindowPermission(@NonNull Activity activity, @Nullable PermissionService.IGrantCallback iGrantCallback) {
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.BZDxmRechargeService
+    public void doBZPay(@NonNull String str, @NonNull BZDxmRechargeService.PluginDxmCallback pluginDxmCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, iGrantCallback) == null) && iGrantCallback != null) {
-            a.put(Integer.valueOf(iGrantCallback.hashCode()), iGrantCallback);
-            Intent intent = new Intent(activity, PermissionFragmentActivity.class);
-            intent.putExtra("request", "requestFloatPermission");
-            intent.putExtra(WebChromeClient.KEY_ARG_CALLBACK, iGrantCallback.hashCode());
-            activity.startActivity(intent);
-        }
-    }
-
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.PermissionService
-    public void requestPermission(@NonNull Activity activity, @NonNull String[] strArr, @Nullable PermissionService.IGrantCallback iGrantCallback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, strArr, iGrantCallback) == null) && iGrantCallback != null) {
-            a.put(Integer.valueOf(iGrantCallback.hashCode()), iGrantCallback);
-            Intent intent = new Intent(activity, PermissionFragmentActivity.class);
-            intent.putExtra("request", "requestPermissions");
-            intent.putExtra("permissions", strArr);
-            intent.putExtra(WebChromeClient.KEY_ARG_CALLBACK, iGrantCallback.hashCode());
-            activity.startActivity(intent);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, pluginDxmCallback) == null) {
+            WalletPluginManager.getInstance().doYYPay(str, new a(this, pluginDxmCallback));
         }
     }
 }

@@ -1,54 +1,74 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.os.Process;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.transvod.player.log.TLog;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
 public class sgc {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
+    public static AtomicBoolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (!TextUtils.isEmpty(b)) {
-                return b;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948151898, "Lcom/baidu/tieba/sgc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (context == null) {
-                return "";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948151898, "Lcom/baidu/tieba/sgc;");
+                return;
             }
-            try {
-                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).packageName;
-            } catch (Throwable unused) {
-                b = null;
-            }
-            return b;
         }
-        return (String) invokeL.objValue;
+        a = new AtomicBoolean(false);
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!TextUtils.isEmpty(a)) {
-                return a;
-            }
-            if (context == null) {
-                return "";
-            }
-            try {
-                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.get();
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (sgc.class) {
+                if (a.get()) {
+                    return;
+                }
+                TLog.h("[LibraryLoad]", "loadAllLibrary return for this version need dynamic download library!");
+            }
+        }
+    }
+
+    public static synchronized void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            synchronized (sgc.class) {
+                if (a.get()) {
+                    return;
+                }
+                TLog.h("[LibraryLoad]", "loadAllLibrary with context");
+                whc.d();
+                if (a.compareAndSet(false, true)) {
+                    boolean z = uic.z(context);
+                    a.set(z);
+                    if (z) {
+                        TLog.h("[LibraryLoad]", "load transvod success, processId:" + Process.myPid());
+                    }
+                }
+            }
+        }
     }
 }

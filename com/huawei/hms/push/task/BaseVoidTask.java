@@ -1,7 +1,7 @@
 package com.huawei.hms.push.task;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jcc;
+import com.baidu.tieba.icc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,19 +53,19 @@ public class BaseVoidTask extends TaskApiCall<PushClient, Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.huawei.hms.common.internal.TaskApiCall
-    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, jcc<Void> jccVar) {
+    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, icc<Void> iccVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, pushClient, responseErrorCode, str, jccVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, pushClient, responseErrorCode, str, iccVar) == null) {
             if (responseErrorCode.getErrorCode() == 0) {
                 HMSLog.i("BaseVoidTask", "Operate succeed");
-                jccVar.d(null);
+                iccVar.d(null);
             } else {
                 HMSLog.e("BaseVoidTask", "Operate failed with ret=" + responseErrorCode.getErrorCode());
                 ErrorEnum fromCode = ErrorEnum.fromCode(responseErrorCode.getErrorCode());
                 if (fromCode != ErrorEnum.ERROR_UNKNOWN) {
-                    jccVar.c(fromCode.toApiException());
+                    iccVar.c(fromCode.toApiException());
                 } else {
-                    jccVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
+                    iccVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
                 }
             }
             PushBiUtil.reportExit(pushClient.getContext(), getUri(), responseErrorCode);

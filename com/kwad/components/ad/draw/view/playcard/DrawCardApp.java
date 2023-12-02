@@ -79,15 +79,15 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
 
     private void B(Context context) {
         l.inflate(context, R.layout.obfuscated_res_0x7f0d04c0, this);
-        this.dl = (ImageView) findViewById(R.id.obfuscated_res_0x7f09131a);
-        this.dm = (ImageView) findViewById(R.id.obfuscated_res_0x7f09131f);
-        this.dn = (TextView) findViewById(R.id.obfuscated_res_0x7f091320);
-        this.f4do = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091322);
-        this.dp = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091321);
-        this.dq = (TextView) findViewById(R.id.obfuscated_res_0x7f09131e);
-        this.dr = (TextView) findViewById(R.id.obfuscated_res_0x7f09131c);
-        this.ds = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091326);
-        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09131d);
+        this.dl = (ImageView) findViewById(R.id.obfuscated_res_0x7f09131b);
+        this.dm = (ImageView) findViewById(R.id.obfuscated_res_0x7f091320);
+        this.dn = (TextView) findViewById(R.id.obfuscated_res_0x7f091321);
+        this.f4do = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091323);
+        this.dp = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091322);
+        this.dq = (TextView) findViewById(R.id.obfuscated_res_0x7f09131f);
+        this.dr = (TextView) findViewById(R.id.obfuscated_res_0x7f09131d);
+        this.ds = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091327);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09131e);
         this.dt = drawDownloadProgressBar;
         drawDownloadProgressBar.setTextSize(16);
         this.mHeight = com.kwad.sdk.d.a.a.a(context, 156.0f);

@@ -6,10 +6,10 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.abtest.group.LiveEnterForumABTest;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.a2b;
-import com.baidu.tieba.lk5;
+import com.baidu.tieba.br6;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.xq6;
+import com.baidu.tieba.ok5;
+import com.baidu.tieba.z1b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -134,7 +134,7 @@ public final class LiveEnterForumTestHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!a2b.j.a().a() && isLiveEnterForumTestA()) {
+            if (!z1b.j.a().a() && isLiveEnterForumTestA()) {
                 return true;
             }
             return false;
@@ -224,7 +224,7 @@ public final class LiveEnterForumTestHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (UbsABTestHelper.isLiveEnterForumTestA()) {
-                xq6.b().c(new lk5());
+                br6.b().c(new ok5());
                 return LiveEnterForumABTest.LIVE_ENTER_FORUM_SECOND_FLOOR_SID_A;
             } else if (UbsABTestHelper.isLiveEnterForumTestB()) {
                 return LiveEnterForumABTest.LIVE_ENTER_FORUM_SECOND_FLOOR_SID_B;

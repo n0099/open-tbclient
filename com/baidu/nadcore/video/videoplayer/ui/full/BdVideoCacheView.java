@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.video.videoplayer.ui.loading.BdVideoLoadingView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.i31;
-import com.baidu.tieba.jx0;
+import com.baidu.tieba.k31;
+import com.baidu.tieba.lx0;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class BdVideoCacheView extends FrameLayout {
@@ -22,14 +22,14 @@ public class BdVideoCacheView extends FrameLayout {
     public TextView d;
 
     static {
-        i31.c(18.0f);
-        i31.c(22.0f);
-        e = i31.d(200.0f);
-        f = i31.d(200.0f);
-        i31.d(10.0f);
-        i31.d(25.0f);
-        i31.d(6.0f);
-        i31.d(8.0f);
+        k31.c(18.0f);
+        k31.c(22.0f);
+        e = k31.d(200.0f);
+        f = k31.d(200.0f);
+        k31.d(10.0f);
+        k31.d(25.0f);
+        k31.d(6.0f);
+        k31.d(8.0f);
     }
 
     public final void b() {
@@ -63,7 +63,7 @@ public class BdVideoCacheView extends FrameLayout {
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i) {
         if (i != 0) {
-            jx0.a("onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
+            lx0.a("onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
             setVisibility(4);
         }
         super.onWindowVisibilityChanged(i);

@@ -21,7 +21,7 @@ public final class b extends com.kwad.components.ad.f.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.ck = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914f6);
+        this.ck = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914f7);
     }
 
     @Override // com.kwad.components.ad.f.a.a, com.kwad.sdk.mvp.Presenter

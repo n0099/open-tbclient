@@ -108,7 +108,7 @@ public class BigdayActivity extends BaseActivity {
             tbImageView.setAutoChangeStyle(false);
             this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090422);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a5));
+                ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a6));
             }
             Intent intent = getIntent();
             if (intent != null) {

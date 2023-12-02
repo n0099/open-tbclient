@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.o35;
+import com.baidu.tieba.r35;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.vo5;
+import com.baidu.tieba.zo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -272,7 +272,7 @@ public class PageStayDurationStat {
                 if (pageStayDurationItem.getAdSource() != 0) {
                     statisticItem.param("ad_source", pageStayDurationItem.getAdSource());
                 }
-                vo5.b(context, statisticItem, pageStayDurationItem);
+                zo5.b(context, statisticItem, pageStayDurationItem);
                 TiebaStatic.log(statisticItem);
                 return;
             }
@@ -351,9 +351,9 @@ public class PageStayDurationStat {
                     TbSingleton.getInstance().setFromWhichSearchSource("");
                 }
             }
-            vo5.b(context, statisticItem2, pageStayDurationItem);
+            zo5.b(context, statisticItem2, pageStayDurationItem);
             TiebaStatic.log(statisticItem2);
-            TiebaStatic.log(new StatisticItem("PushOptTime").param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(pageStayDurationItem.getStayDurationTime())).param("obj_source", PageStayDurationHelper.toSourceTraceString(pageStayDurationItem.getSorceKeyList())).param("obj_locate", pageStayDurationItem.getCurrentPageKey()).param("obj_param1", o35.a().b()));
+            TiebaStatic.log(new StatisticItem("PushOptTime").param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(pageStayDurationItem.getStayDurationTime())).param("obj_source", PageStayDurationHelper.toSourceTraceString(pageStayDurationItem.getSorceKeyList())).param("obj_locate", pageStayDurationItem.getCurrentPageKey()).param("obj_param1", r35.a().b()));
         }
     }
 }

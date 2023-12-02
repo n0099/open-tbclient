@@ -166,10 +166,10 @@ public class LoadingView extends FrameLayout implements LoadingViewHolder<Loadin
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0774, (ViewGroup) this, true);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f092072);
-            this.mProgressBar = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091705);
-            this.mMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f09181a);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0775, (ViewGroup) this, true);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f092074);
+            this.mProgressBar = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091706);
+            this.mMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f09181b);
             setPageResources();
         }
     }
@@ -179,7 +179,7 @@ public class LoadingView extends FrameLayout implements LoadingViewHolder<Loadin
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             View view2 = this.mRootView;
             if (view2 != null) {
-                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081153));
+                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081156));
             }
             SmoothProgressBar smoothProgressBar = this.mProgressBar;
             if (smoothProgressBar != null) {

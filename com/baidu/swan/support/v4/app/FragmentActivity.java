@@ -23,13 +23,13 @@ import androidx.annotation.Nullable;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tieba.ak4;
-import com.baidu.tieba.bk4;
-import com.baidu.tieba.ck4;
-import com.baidu.tieba.gk4;
-import com.baidu.tieba.rj4;
-import com.baidu.tieba.sk4;
-import com.baidu.tieba.tj4;
+import com.baidu.tieba.dk4;
+import com.baidu.tieba.ek4;
+import com.baidu.tieba.fk4;
+import com.baidu.tieba.jk4;
 import com.baidu.tieba.uj4;
+import com.baidu.tieba.vk4;
+import com.baidu.tieba.wj4;
 import com.baidu.tieba.xj4;
 import com.bumptech.glide.load.engine.GlideException;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
@@ -39,9 +39,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes4.dex */
-public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
+public class FragmentActivity extends ak4 implements uj4.b, wj4.a {
     public final Handler a = new a();
-    public final ak4 b = ak4.b(new b());
+    public final dk4 b = dk4.b(new b());
     public boolean c;
     public boolean d;
     public boolean e;
@@ -54,7 +54,7 @@ public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
     public static final class c {
         public Object a;
         public List<Fragment> b;
-        public sk4<String, gk4> c;
+        public vk4<String, jk4> c;
     }
 
     public void l(Fragment fragment) {
@@ -89,28 +89,28 @@ public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends bk4<FragmentActivity> {
+    public class b extends ek4<FragmentActivity> {
         public b() {
             super(FragmentActivity.this);
         }
 
-        @Override // com.baidu.tieba.zj4
+        @Override // com.baidu.tieba.ck4
         @Nullable
         public View a(int i) {
             return FragmentActivity.this.findViewById(i);
         }
 
-        @Override // com.baidu.tieba.bk4
+        @Override // com.baidu.tieba.ek4
         public void m(Fragment fragment) {
             FragmentActivity.this.l(fragment);
         }
 
-        @Override // com.baidu.tieba.bk4
+        @Override // com.baidu.tieba.ek4
         public boolean s(Fragment fragment) {
             return !FragmentActivity.this.isFinishing();
         }
 
-        @Override // com.baidu.tieba.zj4
+        @Override // com.baidu.tieba.ck4
         public boolean b() {
             Window window = FragmentActivity.this.getWindow();
             if (window != null && window.peekDecorView() != null) {
@@ -119,12 +119,12 @@ public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
             return false;
         }
 
-        @Override // com.baidu.tieba.bk4
+        @Override // com.baidu.tieba.ek4
         public LayoutInflater o() {
             return FragmentActivity.this.getLayoutInflater().cloneInContext(FragmentActivity.this);
         }
 
-        @Override // com.baidu.tieba.bk4
+        @Override // com.baidu.tieba.ek4
         public int p() {
             Window window = FragmentActivity.this.getWindow();
             if (window == null) {
@@ -133,7 +133,7 @@ public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
             return window.getAttributes().windowAnimations;
         }
 
-        @Override // com.baidu.tieba.bk4
+        @Override // com.baidu.tieba.ek4
         public boolean q() {
             if (FragmentActivity.this.getWindow() != null) {
                 return true;
@@ -141,28 +141,28 @@ public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
             return false;
         }
 
-        @Override // com.baidu.tieba.bk4
+        @Override // com.baidu.tieba.ek4
         public void u() {
             FragmentActivity.this.u();
         }
 
-        @Override // com.baidu.tieba.bk4
+        @Override // com.baidu.tieba.ek4
         public void n(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
             FragmentActivity.this.dump(str, fileDescriptor, printWriter, strArr);
         }
 
-        @Override // com.baidu.tieba.bk4
+        @Override // com.baidu.tieba.ek4
         public void r(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
             FragmentActivity.this.r(fragment, strArr, i);
         }
 
-        @Override // com.baidu.tieba.bk4
+        @Override // com.baidu.tieba.ek4
         public void t(Fragment fragment, Intent intent, int i) {
             FragmentActivity.this.s(fragment, intent, i);
         }
     }
 
-    public ck4 k() {
+    public fk4 k() {
         return this.b.y();
     }
 
@@ -226,7 +226,7 @@ public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
         }
         Object q = q();
         List<Fragment> F = this.b.F();
-        sk4<String, gk4> E = this.b.E();
+        vk4<String, jk4> E = this.b.E();
         if (F == null && E == null && q == null) {
             return null;
         }
@@ -255,18 +255,18 @@ public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
     }
 
     public void t() {
-        rj4.e(this);
+        uj4.e(this);
     }
 
     public void u() {
         if (Build.VERSION.SDK_INT >= 11) {
-            uj4.a(this);
+            xj4.a(this);
         } else {
             this.h = true;
         }
     }
 
-    @Override // com.baidu.tieba.wj4
+    @Override // com.baidu.tieba.zj4
     public final View g(View view2, String str, Context context, AttributeSet attributeSet) {
         return this.b.A(view2, str, context, attributeSet);
     }
@@ -436,7 +436,7 @@ public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
         this.b.d(configuration);
     }
 
-    @Override // com.baidu.tieba.wj4, android.app.Activity
+    @Override // com.baidu.tieba.zj4, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         List<Fragment> list = null;
         this.b.a(null);
@@ -447,11 +447,11 @@ public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
         }
         if (bundle != null) {
             Parcelable parcelable = bundle.getParcelable(androidx.fragment.app.FragmentActivity.FRAGMENTS_TAG);
-            ak4 ak4Var = this.b;
+            dk4 dk4Var = this.b;
             if (cVar != null) {
                 list = cVar.b;
             }
-            ak4Var.C(parcelable, list);
+            dk4Var.C(parcelable, list);
         }
         this.b.f();
     }
@@ -471,7 +471,7 @@ public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
         }
     }
 
-    @Override // com.baidu.tieba.tj4.a
+    @Override // com.baidu.tieba.wj4.a
     public final void validateRequestPermissionsRequestCode(int i) {
         if (this.i) {
             this.i = false;
@@ -591,10 +591,10 @@ public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
 
     public final void r(Fragment fragment, String[] strArr, int i) {
         if (i == -1) {
-            rj4.f(this, strArr, i);
+            uj4.f(this, strArr, i);
         } else if ((i & (-256)) == 0) {
             this.i = true;
-            rj4.f(this, strArr, ((fragment.f + 1) << 8) + (i & 255));
+            uj4.f(this, strArr, ((fragment.f + 1) << 8) + (i & 255));
         } else {
             throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
         }
@@ -610,7 +610,7 @@ public class FragmentActivity extends xj4 implements rj4.b, tj4.a {
         }
     }
 
-    @Override // android.app.Activity, com.baidu.tieba.rj4.b
+    @Override // android.app.Activity, com.baidu.tieba.uj4.b
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         int i2 = (i >> 8) & 255;
         if (i2 != 0) {

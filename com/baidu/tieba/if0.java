@@ -62,8 +62,8 @@ public class if0 {
             }
         }
         a = new ArrayList();
-        qf1<vj0> qf1Var = new xj0().a;
-        if (qf1Var != null && (list = qf1Var.getList()) != null) {
+        tf1<vj0> tf1Var = new xj0().a;
+        if (tf1Var != null && (list = tf1Var.getList()) != null) {
             a.addAll(list);
         }
     }
@@ -71,7 +71,7 @@ public class if0 {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            c01.c(new a(), "nad_core_init_on_create", 0);
+            e01.c(new a(), "nad_core_init_on_create", 0);
         }
     }
 
@@ -79,7 +79,7 @@ public class if0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, application) == null) {
             hf0.a = application;
-            ho0.a(application);
+            jo0.a(application);
             for (vj0 vj0Var : a) {
                 vj0Var.a(application);
             }

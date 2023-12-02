@@ -1,122 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
-public class ky1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ky1 {
+    @NonNull
+    public static final ky1 a = new ly1(202, "params parsed as JSONObject is null");
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf = str.indexOf("_dev");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
-            }
-            int indexOf2 = str.indexOf("_trial");
-            if (indexOf2 > 0) {
-                return str.substring(0, indexOf2);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
+    @NonNull
+    String a();
 
-    public static int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            if (str.contains("_dev")) {
-                return 1;
-            }
-            if (str.endsWith("_trial")) {
-                return 3;
-            }
-            if (!str.contains("_trial")) {
-                return 0;
-            }
-            return 2;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            int lastIndexOf = str.lastIndexOf("_dev");
-            if (lastIndexOf >= 0 && lastIndexOf < str.length()) {
-                return str.substring(lastIndexOf);
-            }
-            int lastIndexOf2 = str.lastIndexOf("_trial");
-            if (lastIndexOf2 < 0 || lastIndexOf2 >= str.length()) {
-                return "";
-            }
-            return str.substring(lastIndexOf2);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean d(er2 er2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, er2Var)) == null) {
-            if (er2Var != null && er2Var.w1() == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(er2 er2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, er2Var)) == null) {
-            if (er2Var == null || er2Var.w1() != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Deprecated
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !str.contains("_")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(er2 er2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, er2Var)) == null) {
-            if (er2Var != null && er2Var.w1() == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    boolean isSuccess();
 }

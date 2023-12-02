@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g5a;
-import com.baidu.tieba.nwa;
+import com.baidu.tieba.k5a;
+import com.baidu.tieba.mwa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,9 +36,9 @@ public class SubPbLayout extends ViewGroup {
     public View.OnClickListener a;
     public View.OnLongClickListener b;
     public View.OnTouchListener c;
-    public g5a d;
+    public k5a d;
     public int e;
-    public nwa f;
+    public mwa f;
     public View g;
     public final Queue<b> h;
     public RelativeLayout i;
@@ -110,8 +110,8 @@ public class SubPbLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             long drawingTime = getDrawingTime();
-            nwa nwaVar = this.f;
-            if (nwaVar != null && nwaVar.k0() != null) {
+            mwa mwaVar = this.f;
+            if (mwaVar != null && mwaVar.k0() != null) {
                 int i = this.e;
                 for (int i2 = 0; i2 < i; i2++) {
                     if (i < getChildCount()) {
@@ -152,7 +152,7 @@ public class SubPbLayout extends ViewGroup {
         this.m = new ViewGroup.MarginLayoutParams(-1, -2);
         RelativeLayout relativeLayout = new RelativeLayout(context);
         this.i = relativeLayout;
-        relativeLayout.setId(R.id.obfuscated_res_0x7f091bb8);
+        relativeLayout.setId(R.id.obfuscated_res_0x7f091bba);
         TextView textView = new TextView(context);
         this.j = textView;
         textView.setPadding(0, BdUtilHelper.getDimens(context, R.dimen.tbds_3), 0, BdUtilHelper.getDimens(context, R.dimen.tbds12));
@@ -201,9 +201,9 @@ public class SubPbLayout extends ViewGroup {
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
             if ((i > 0 && (this.f.P() == 1 || this.f.P() == 3 || this.f.m0() > this.e)) || this.f.A0(this.l)) {
                 if (this.k) {
-                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f14d3), Integer.valueOf(this.f.m0()));
-                } else {
                     format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f14d4), Integer.valueOf(this.f.m0()));
+                } else {
+                    format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f14d5), Integer.valueOf(this.f.m0()));
                 }
                 this.j.setText(format);
                 this.i.setOnClickListener(this.a);
@@ -227,7 +227,7 @@ public class SubPbLayout extends ViewGroup {
         return invokeII.intValue;
     }
 
-    public final int c(List<nwa> list, int i) {
+    public final int c(List<mwa> list, int i) {
         InterceptResult invokeLI;
         boolean z;
         boolean z2;
@@ -275,9 +275,9 @@ public class SubPbLayout extends ViewGroup {
                         childAt2.setTag(sparseArray);
                     }
                     Object obj = sparseArray.get(R.id.tag_load_sub_data);
-                    nwa nwaVar = this.f;
-                    if (obj != nwaVar) {
-                        sparseArray.put(R.id.tag_load_sub_data, nwaVar);
+                    mwa mwaVar = this.f;
+                    if (obj != mwaVar) {
+                        sparseArray.put(R.id.tag_load_sub_data, mwaVar);
                     }
                     sparseArray.put(R.id.tag_load_sub_view, this.g);
                     sparseArray.put(R.id.tag_is_subpb, Boolean.TRUE);
@@ -290,9 +290,9 @@ public class SubPbLayout extends ViewGroup {
                         sparseArray.put(R.id.tag_photo_userid, list.get(i4).u().getUserId());
                         sparseArray.put(R.id.tag_clip_board, list.get(i4));
                     }
-                    g5a.b bVar = (g5a.b) sparseArray.get(R.id.tag_holder);
-                    g5a g5aVar = this.d;
-                    nwa nwaVar2 = list.get(i4);
+                    k5a.b bVar = (k5a.b) sparseArray.get(R.id.tag_holder);
+                    k5a k5aVar = this.d;
+                    mwa mwaVar2 = list.get(i4);
                     if (this.f.m0() <= list.size() && list.size() - i4 <= 1) {
                         z = false;
                     } else {
@@ -303,7 +303,7 @@ public class SubPbLayout extends ViewGroup {
                     } else {
                         z2 = false;
                     }
-                    g5aVar.c(bVar, nwaVar2, z, z2, false);
+                    k5aVar.c(bVar, mwaVar2, z, z2, false);
                     bVar.e.setPadding(0, 0, 0, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds7));
                     e();
                     childAt2.measure(((i - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
@@ -375,18 +375,18 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setSubPbAdapter(g5a g5aVar) {
+    public void setSubPbAdapter(k5a k5aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, g5aVar) == null) {
-            this.d = g5aVar;
+        if (interceptable == null || interceptable.invokeL(1048592, this, k5aVar) == null) {
+            this.d = k5aVar;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        nwa nwaVar;
+        mwa mwaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && (nwaVar = this.f) != null && nwaVar.k0() != null) {
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && (mwaVar = this.f) != null && mwaVar.k0() != null) {
             int size = this.h.size();
             for (int i5 = 0; i5 < size; i5++) {
                 b poll = this.h.poll();
@@ -432,11 +432,11 @@ public class SubPbLayout extends ViewGroup {
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
-        nwa nwaVar;
-        ArrayList<nwa> k0;
+        mwa mwaVar;
+        ArrayList<mwa> k0;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            if (this.d != null && (nwaVar = this.f) != null && nwaVar.k0() != null) {
+            if (this.d != null && (mwaVar = this.f) != null && mwaVar.k0() != null) {
                 int size = View.MeasureSpec.getSize(i);
                 if (this.f.J0()) {
                     k0 = this.f.E();
@@ -450,10 +450,10 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setData(nwa nwaVar, View view2) {
+    public void setData(mwa mwaVar, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, nwaVar, view2) == null) {
-            this.f = nwaVar;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, mwaVar, view2) == null) {
+            this.f = mwaVar;
             requestLayout();
             this.g = view2;
         }

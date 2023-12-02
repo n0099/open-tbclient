@@ -1,100 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
-import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class ym9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<MemberPayResult.e> a;
-    public final LayoutInflater b;
-    public final int c;
-    public final int d;
-    public final int e;
-    public final int f;
-    public final int g;
+    public List<vm9> a;
+    public MemberTaskCenterActivity b;
+    public View.OnClickListener c;
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.longValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
     }
 
     /* loaded from: classes9.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public RelativeLayout a;
-        public LinearLayout b;
+        public TextView a;
+        public TextView b;
         public TextView c;
-        public TextView d;
-        public TextView e;
-        public TextView f;
-        public TextView g;
-        public RoundRelativeLayout h;
-        public ImageView i;
-        public LinearLayout j;
+        public View d;
 
-        public a(ym9 ym9Var, View view2) {
+        public a(ym9 ym9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ym9Var, view2};
+                Object[] objArr = {ym9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092069);
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907f7);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092862);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092864);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092861);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092863);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092838);
-            this.h = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e26);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920c3);
-            this.h.setRoundLayoutRadius(new float[]{ym9Var.g, ym9Var.g, ym9Var.g, ym9Var.g, ym9Var.g, ym9Var.g, 0.0f, ym9Var.g});
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e25);
         }
     }
 
-    public ym9(TbPageContext<?> tbPageContext) {
+    public ym9(MemberTaskCenterActivity memberTaskCenterActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {memberTaskCenterActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -104,129 +76,52 @@ public class ym9 extends BaseAdapter {
                 return;
             }
         }
-        this.b = LayoutInflater.from(tbPageContext.getPageActivity());
-        this.c = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds294);
-        this.d = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds416);
-        this.e = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.M_H_X007);
-        this.f = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
-        this.g = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds42);
+        this.a = new ArrayList();
+        this.b = memberTaskCenterActivity;
+    }
+
+    public final SpannableString a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            SpannableString spannableString = new SpannableString(str + str2);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), 0, str.length(), 33);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), str.length(), spannableString.length(), 33);
+            return spannableString;
+        }
+        return (SpannableString) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: b */
-    public MemberPayResult.e getItem(int i) {
+    public vm9 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (MemberPayResult.e) ListUtils.getItem(this.a, i);
-        }
-        return (MemberPayResult.e) invokeI.objValue;
-    }
-
-    public void f(List<MemberPayResult.e> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    public MemberPayResult.e c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ListUtils.isEmpty(this.a)) {
-                return null;
-            }
-            for (MemberPayResult.e eVar : this.a) {
-                if (eVar != null && eVar.i) {
-                    return eVar;
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            List<vm9> list = this.a;
+            if (list != null && list.size() > i) {
+                return this.a.get(i);
             }
             return null;
         }
-        return (MemberPayResult.e) invokeV.objValue;
+        return (vm9) invokeI.objValue;
     }
 
-    public final void d(int i, MemberPayResult.e eVar, a aVar) {
+    public void c(List<vm9> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, eVar, aVar) == null) && eVar != null && eVar.f >= 0) {
-            aVar.g.setText(h(eVar.b, 7));
-            if (TextUtils.isEmpty(eVar.c)) {
-                aVar.f.setVisibility(4);
-            } else {
-                aVar.f.setVisibility(0);
-                aVar.f.setText(h(eVar.c, 10));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a.clear();
+            if (list != null) {
+                this.a.addAll(list);
             }
-            TextView textView = aVar.e;
-            textView.setText("" + (eVar.f / 100));
-            if (TextUtils.isEmpty(eVar.d)) {
-                aVar.j.setVisibility(4);
-                aVar.h.setVisibility(4);
-                aVar.d.setVisibility(4);
-            } else {
-                aVar.h.setVisibility(0);
-                aVar.d.setVisibility(0);
-                aVar.j.setVisibility(0);
-                aVar.d.setText(eVar.d);
-            }
-            if (i == 0) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
-                layoutParams.width = this.c;
-                layoutParams.height = this.d;
-                layoutParams.leftMargin = this.e;
-                layoutParams.rightMargin = this.f;
-                aVar.a.setLayoutParams(layoutParams);
-            } else {
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
-                layoutParams2.width = this.c;
-                layoutParams2.height = this.d;
-                layoutParams2.leftMargin = 0;
-                layoutParams2.rightMargin = this.f;
-                aVar.a.setLayoutParams(layoutParams2);
-            }
-            SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(aVar.d, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(aVar.d, R.drawable.member_price_tag_bg_shape);
-            EMManager.from(aVar.d).setTextStyle(R.string.F_X02);
-            SkinManager.setViewTextColor(aVar.e, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(aVar.f, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(aVar.g, (int) R.color.CAM_X0105);
-            EMManager.from(aVar.g).setTextStyle(R.string.F_X01);
-            e(aVar);
-            g(eVar, aVar);
         }
     }
 
-    public void e(a aVar) {
+    public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds42)).setShadowColor(R.color.CAM_X0301).setShadowAlpha(200).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds16)).setOffsetX(0).setOffsetY(UtilHelper.getDimenPixelSize(R.dimen.tbds45)).into(aVar.j);
-        }
-    }
-
-    public final void g(MemberPayResult.e eVar, a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, eVar, aVar) == null) && eVar != null && aVar != null) {
-            SkinManager.setViewTextColor(aVar.e, (int) R.color.CAM_X0301);
-            SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0301);
-            aVar.i.setVisibility(8);
-            if (eVar.i) {
-                SkinManager.setBackgroundResource(aVar.b, R.drawable.member_price_bg_shape_s);
-                EMManager.from(aVar.b).setAlpha(R.string.A_X09).setCorner(R.string.J_X07).setBorderColor(R.color.CAM_X0335).setBorderAlpha(R.string.A_X05).setBorderWidth(R.dimen.L_X04).setBackGroundColor(R.color.CAM_X0335);
-                EMManager.from(aVar.g).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0311);
-                EMManager.from(aVar.f).setTextColor(R.color.CAM_X0311).setTextSize(R.dimen.T_X09).setTextStyle(R.string.F_X02);
-                if (aVar.f.getVisibility() == 0) {
-                    aVar.i.setVisibility(0);
-                    return;
-                } else {
-                    aVar.i.setVisibility(8);
-                    return;
-                }
-            }
-            SkinManager.setBackgroundResource(aVar.b, R.drawable.member_price_bg_shape_n);
-            EMManager.from(aVar.b).setCardType(0).setCorner(R.string.J_X07).setBorderColor(R.color.CAM_X0335).setBorderWidth(R.dimen.L_X04).setBorderAlpha(R.string.A_X09).setBackGroundColor(R.color.CAM_X0201);
-            EMManager.from(aVar.f).setTextColor(R.color.CAM_X0109).setTextSize(R.dimen.T_X09).setTextStyle(R.string.F_X01);
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.c = onClickListener;
         }
     }
 
@@ -234,8 +129,12 @@ public class ym9 extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ListUtils.getCount(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<vm9> list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
@@ -243,39 +142,42 @@ public class ym9 extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d063f, (ViewGroup) null);
-                view2.setTag(new a(this, view2));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && (view2.getTag() instanceof a)) {
+                aVar = (a) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.b.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0645, (ViewGroup) null);
+                aVar = new a(this);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092543);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092544);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092545);
+                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090958);
             }
-            d(i, getItem(i), (a) view2.getTag());
+            vm9 item = getItem(i);
+            if (item != null) {
+                aVar.a.setText(item.f());
+                aVar.b.setText(a(String.valueOf(item.a()), item.b()));
+                if (item.d()) {
+                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0abb), TextView.BufferType.EDITABLE);
+                    aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
+                    aVar.c.setBackgroundDrawable(null);
+                    aVar.c.setOnClickListener(null);
+                } else {
+                    aVar.c.setText(this.b.getPageContext().getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
+                    SkinManager.setViewTextColor(aVar.c, (int) R.color.member_center_task_btn_textcolor);
+                    aVar.c.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
+                    aVar.c.setTag(item);
+                    aVar.c.setOnClickListener(this.c);
+                }
+                SkinManager.setViewTextColor(aVar.b, (int) R.color.CAM_X0109);
+                SkinManager.setViewTextColor(aVar.a, (int) R.color.CAM_X0105);
+                SkinManager.setBackgroundColor(aVar.d, R.color.CAM_X0204);
+            }
+            view2.setTag(aVar);
             return view2;
         }
         return (View) invokeILL.objValue;
-    }
-
-    public final String h(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i)) == null) {
-            if (str.length() > i) {
-                return str.substring(0, i - 1) + "...";
-            }
-            return str;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public void i(MemberPayResult.e eVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) && eVar != null && !ListUtils.isEmpty(this.a)) {
-            for (MemberPayResult.e eVar2 : this.a) {
-                if (eVar2 != null) {
-                    eVar2.i = eVar2.a.equals(eVar.a);
-                }
-            }
-            notifyDataSetChanged();
-        }
     }
 }

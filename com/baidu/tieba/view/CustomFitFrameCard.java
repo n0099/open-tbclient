@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz4;
-import com.baidu.tieba.cw4;
-import com.baidu.tieba.hz4;
+import com.baidu.tieba.ez4;
+import com.baidu.tieba.fw4;
+import com.baidu.tieba.kz4;
 import com.baidu.tieba.tbadkcore.databinding.LayoutHeadlinesFrameCardBinding;
 import com.baidu.tieba.view.SimpleCountDownView;
 import com.baidu.tieba.view.TbImageAutoSwitch;
@@ -231,13 +231,13 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public final void e(hz4 hz4Var) {
+    public final void e(kz4 kz4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, hz4Var) != null) || hz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, kz4Var) != null) || kz4Var == null) {
             return;
         }
-        h(hz4Var);
-        bz4 f = hz4Var.f();
+        h(kz4Var);
+        ez4 f = kz4Var.f();
         if (f == null) {
             return;
         }
@@ -266,32 +266,32 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    public final void h(hz4 hz4Var) {
+    public final void h(kz4 kz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hz4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, kz4Var) == null) {
             ConstraintSet constraintSet = new ConstraintSet();
             constraintSet.clone(this);
-            constraintSet.setDimensionRatio(R.id.background_card, hz4Var.a());
+            constraintSet.setDimensionRatio(R.id.background_card, kz4Var.a());
             constraintSet.applyTo(this);
             TbImage tbImage = this.a.b;
-            String m = hz4Var.m();
+            String m = kz4Var.m();
             Intrinsics.checkNotNullExpressionValue(m, "taskInfoData.threadImgUrl");
             tbImage.l(m);
         }
     }
 
-    public final void setData(cw4 cw4Var) {
+    public final void setData(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, cw4Var) == null) && cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().getTaskInfoData() != null && cw4Var.getThreadData().getTaskInfoData().f() != null) {
-            e(cw4Var.getThreadData().getTaskInfoData());
+        if ((interceptable == null || interceptable.invokeL(1048582, this, fw4Var) == null) && fw4Var != null && fw4Var.getThreadData() != null && fw4Var.getThreadData().getTaskInfoData() != null && fw4Var.getThreadData().getTaskInfoData().f() != null) {
+            e(fw4Var.getThreadData().getTaskInfoData());
         }
     }
 
-    public final void j(bz4 bz4Var) {
+    public final void j(ez4 ez4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bz4Var) == null) {
-            this.a.g.setText(bz4Var.c());
-            long j = JavaTypesHelper.toLong(bz4Var.d(), 0L) * 1000;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ez4Var) == null) {
+            this.a.g.setText(ez4Var.c());
+            long j = JavaTypesHelper.toLong(ez4Var.d(), 0L) * 1000;
             if (j <= System.currentTimeMillis()) {
                 this.a.g.setVisibility(0);
                 this.a.f.setVisibility(8);
@@ -303,19 +303,19 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    public final void l(bz4 bz4Var) {
+    public final void l(ez4 ez4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bz4Var) == null) {
-            if (ListUtils.isEmpty(bz4Var.e())) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, ez4Var) == null) {
+            if (ListUtils.isEmpty(ez4Var.e())) {
                 g(8);
                 return;
             }
             this.e.clear();
-            this.e.addAll(bz4Var.e());
+            this.e.addAll(ez4Var.e());
             g(0);
             this.a.c.q();
-            if (!TextUtils.isEmpty(bz4Var.m())) {
-                this.a.e.setText(bz4Var.m());
+            if (!TextUtils.isEmpty(ez4Var.m())) {
+                this.a.e.setText(ez4Var.m());
             }
         }
     }

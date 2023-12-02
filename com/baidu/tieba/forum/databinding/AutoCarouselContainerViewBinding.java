@@ -63,20 +63,20 @@ public final class AutoCarouselContainerViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090f43;
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f43);
+            int i = R.id.obfuscated_res_0x7f090f44;
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f44);
             if (imageView != null) {
-                i = R.id.obfuscated_res_0x7f090f44;
-                FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f44);
+                i = R.id.obfuscated_res_0x7f090f45;
+                FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f45);
                 if (frameLayout != null) {
-                    i = R.id.obfuscated_res_0x7f090f4b;
-                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f4b);
+                    i = R.id.obfuscated_res_0x7f090f4c;
+                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f4c);
                     if (textView != null) {
-                        i = R.id.obfuscated_res_0x7f0910fe;
-                        TbHeadImageAutoSwitchWrapper tbHeadImageAutoSwitchWrapper = (TbHeadImageAutoSwitchWrapper) view2.findViewById(R.id.obfuscated_res_0x7f0910fe);
+                        i = R.id.obfuscated_res_0x7f0910ff;
+                        TbHeadImageAutoSwitchWrapper tbHeadImageAutoSwitchWrapper = (TbHeadImageAutoSwitchWrapper) view2.findViewById(R.id.obfuscated_res_0x7f0910ff);
                         if (tbHeadImageAutoSwitchWrapper != null) {
-                            i = R.id.obfuscated_res_0x7f092318;
-                            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f092318);
+                            i = R.id.obfuscated_res_0x7f09231a;
+                            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09231a);
                             if (headImageView != null) {
                                 return new AutoCarouselContainerViewBinding((LinearLayout) view2, imageView, frameLayout, textView, tbHeadImageAutoSwitchWrapper, headImageView);
                             }

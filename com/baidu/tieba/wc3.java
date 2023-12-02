@@ -1,51 +1,24 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.hr2;
+import com.baidu.tieba.sc3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class wc3 {
+public class wc3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ id3 a;
-
-        public a(id3 id3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {id3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = id3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                oc3.k("671", this.a.f());
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -60,47 +33,76 @@ public final class wc3 {
                 return;
             }
         }
-        a = sm1.a;
+        a = vm1.a;
+        b = rp2.g0().u() * 1024;
     }
 
-    public static void a(zd4 zd4Var, int i, boolean z) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{zd4Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (zd4Var == null) {
-                if (a) {
-                    Log.d("SwanStabilityUbc", "pms callback is null");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b > 0) {
+                return true;
             }
-            ai3 ai3Var = new ai3();
-            ai3Var.k(11L);
-            ai3Var.i(2331L);
-            ai3Var.f("Retry=" + z + ", Scene=" + zd4Var.getClass().getName());
-            id3 id3Var = new id3();
-            id3Var.q(ad3.n(i));
-            id3Var.p(ai3Var);
-            if (zd4Var instanceof i92) {
-                id3Var.r(((i92) zd4Var).I0());
-            }
-            b(id3Var);
-            if (a) {
-                Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + zd4Var.getClass().getSimpleName());
-            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public static void b(id3 id3Var) {
+    public static boolean a(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, id3Var) == null) {
-            if (id3Var == null) {
-                if (a) {
-                    Log.d("SwanStabilityUbc", "event is null");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || str.getBytes().length <= b) {
+                return false;
             }
-            bj3.k(new a(id3Var), "SwanStabilityUBC");
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!c()) {
+                return false;
+            }
+            boolean a2 = a(str);
+            if (a2) {
+                d(str);
+            }
+            return a2;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(@NonNull String str) {
+        k63 c0;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || (c0 = k63.c0()) == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            hr2.a X = c0.X();
+            SwanCoreVersion coreVersion = xr2.V().getCoreVersion();
+            int k = c0.k();
+            jSONObject.putOpt("scheme", X.X());
+            jSONObject.putOpt("swanjs", pf3.i(coreVersion, k));
+            if (str != null && str.length() > 1024) {
+                jSONObject.putOpt("params", str.substring(0, 1024));
+            }
+            sc3.b bVar = new sc3.b(10020);
+            bVar.j(ek3.n().e());
+            bVar.i(jSONObject.toString());
+            bVar.h(c0.getAppId());
+            bVar.m();
+            k32.k("SwanAppParamChecker", "10020, params: " + str);
+        } catch (JSONException e) {
+            if (a) {
+                e.printStackTrace();
+            }
         }
     }
 }

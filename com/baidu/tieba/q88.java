@@ -1,140 +1,132 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public class q88 {
+public class q88 implements s88 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile q88 b;
+    public static final AtomicReference<s88> a;
+    public static final s88 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, FunAdSidConfigData> a;
+
+    @Override // com.baidu.tieba.s88
+    public ci<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            return null;
+        }
+        return (ci) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.s88
+    public ci<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
+            return null;
+        }
+        return (ci) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.s88
+    public ci<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, baseFragmentActivity, bdUniqueId)) == null) {
+            return null;
+        }
+        return (ci) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.s88
+    public void e(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.s88
+    public void f(@NonNull View view2, @Nullable kwa kwaVar, @NonNull BdUniqueId bdUniqueId, String str, String str2, String str3, String str4, int i, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{view2, kwaVar, bdUniqueId, str, str2, str3, str4, Integer.valueOf(i), onClickListener}) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.s88
+    public ci<?, ?> g(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, baseFragmentActivity, bdUniqueId, str)) == null) {
+            return null;
+        }
+        return (ci) invokeLLL.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948045816, "Lcom/baidu/tieba/q88;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948045816, "Lcom/baidu/tieba/q88;");
+                return;
+            }
+        }
+        a = new AtomicReference<>(null);
+        b = new q88();
+    }
 
     public q88() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.clear();
-        this.a.putAll(c());
     }
 
-    public final Map<String, FunAdSidConfigData> c() {
-        InterceptResult invokeV;
-        FunAdSidConfigData d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str : r88.e().c()) {
-                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
-                    hashMap.put(str, d);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public static q88 e() {
+    public static s88 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (q88.class) {
-                    if (b == null) {
-                        b = new q88();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            s88 s88Var = a.get();
+            if (s88Var == null) {
+                return b;
             }
-            return b;
+            return s88Var;
         }
-        return (q88) invokeV.objValue;
+        return (s88) invokeV.objValue;
     }
 
-    public final FunAdSidConfigData a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.s88
+    public View b(@NonNull Context context, @NonNull BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
-            funAdSidConfigData.parserJson(jSONObject);
-            return funAdSidConfigData;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bdUniqueId)) == null) {
+            return new View(context);
         }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public FunAdSidConfigData b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a != null && !TextUtils.isEmpty(str) && this.a.containsKey(str)) {
-                return this.a.get(str);
-            }
-            return null;
-        }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public final FunAdSidConfigData d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            JSONObject jSONObject = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String string = r88.g().getString(str, "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                jSONObject = new JSONObject(string);
-            } catch (JSONException e) {
-                BdLog.detailException(e);
-            }
-            return a(jSONObject);
-        }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public final void g(String str) {
-        FunAdSidConfigData funAdSidConfigData;
-        JSONObject json;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
-            return;
-        }
-        EditorHelper.putString(r88.g(), str, json.toString());
-    }
-
-    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) && this.a != null && !TextUtils.isEmpty(str)) {
-            this.a.put(str, funAdSidConfigData);
-            g(str);
-        }
+        return (View) invokeLL.objValue;
     }
 }

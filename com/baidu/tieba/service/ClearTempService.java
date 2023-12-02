@@ -102,10 +102,17 @@ public class ClearTempService extends BdBaseService {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.run();
                 try {
-                    File file = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/image");
-                    File file2 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share");
-                    File file3 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/voice");
-                    File file4 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
+                    File file = new File(FileHelper.EXTERNAL_STORAGE_PRIVATE_DIRECTORY + "/image");
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(FileHelper.EXTERNAL_STORAGE_DCIM_DIRECTORY);
+                    sb.append("share");
+                    File file2 = new File(sb.toString());
+                    File file3 = new File(FileHelper.getCacheDir() + "/" + TbConfig.getTempDirName() + "/voice");
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append(FileHelper.EXTERNAL_STORAGE_PRIVATE_DIRECTORY);
+                    sb2.append("/");
+                    sb2.append(TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
+                    File file4 = new File(sb2.toString());
                     this.a.deleteCache(file, false);
                     this.a.deleteDir(file2);
                     this.a.deleteDir(file3);
@@ -202,7 +209,7 @@ public class ClearTempService extends BdBaseService {
     private void deleteImageCacheByName() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            String str = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/image";
+            String str = FileHelper.EXTERNAL_STORAGE_PRIVATE_DIRECTORY + "/image";
             for (int i = 0; i < 20; i++) {
                 File file = new File(str + "/" + i);
                 if (file.exists() && file.isDirectory()) {

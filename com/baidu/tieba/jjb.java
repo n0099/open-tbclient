@@ -1,21 +1,48 @@
 package com.baidu.tieba;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import java.util.List;
 /* loaded from: classes6.dex */
-public interface jjb {
-    void E();
+public interface jjb<D> {
+    void a(WriteData writeData);
 
-    void I();
+    void b();
 
-    void K0(boolean z);
+    void c(@NonNull WriteData writeData);
 
-    void L0(int i, boolean z);
+    void d(@NonNull WriteData writeData);
 
-    void a(String str);
+    boolean g();
 
-    void c();
+    void h(@Nullable String str, @NonNull WriteData writeData);
 
-    void finish();
+    void j(@NonNull ljb ljbVar);
 
-    void setResult(int i);
+    void m(Bundle bundle, Intent intent, @NonNull WriteData writeData);
 
-    void t();
+    boolean o();
+
+    void onActivityResult(int i, int i2, Intent intent);
+
+    void onChangeSkinType(int i);
+
+    void onPause();
+
+    void onResume();
+
+    void onSaveInstanceState(Bundle bundle);
+
+    void q(@NonNull List<jjb<?>> list);
+
+    void r(he5 he5Var);
+
+    View s(@NonNull ViewGroup viewGroup);
+
+    boolean t();
 }

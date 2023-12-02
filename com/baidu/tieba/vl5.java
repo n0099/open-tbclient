@@ -1,19 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-/* compiled from: AibotChatService.kt */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public final /* synthetic */ class vl5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vl5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
 
-    @JvmStatic
-    public static wl5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? wl5.a.a() : (wl5) invokeV.objValue;
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a();
+
+        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
     }
+
+    vl5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
+
+    void b(int i, jy4 jy4Var, long j);
+
+    void c(@Nullable a aVar);
 }

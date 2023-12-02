@@ -50,8 +50,8 @@ public class EmptyView extends LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05f7, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090a4a);
-        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f090a4e);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090a4b);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f090a4f);
     }
 
     public void a(String str) {

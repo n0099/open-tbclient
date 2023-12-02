@@ -1,51 +1,34 @@
 package com.baidu.tieba;
 
+import android.view.MotionEvent;
+import android.widget.LinearLayout;
 import androidx.fragment.app.FragmentActivity;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.forum.view.TopCardView;
-import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
-import com.baidu.tieba.myCollection.baseHistory.PbHistoryData;
+import com.baidu.tieba.forum.databinding.ActivityForumBinding;
+import com.baidu.tieba.forum.widget.TbBottomSheetView;
+import com.baidu.tieba.forum.widget.ViewExtentionsKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Reflection;
 /* loaded from: classes6.dex */
-public final class gi7 extends sh7 {
+public final class gi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FragmentActivity b;
-    public TopCardView c;
-    public List<e87> d;
-    public int e;
-    public boolean f;
-    public String g;
-    public List<? extends PbHistoryData> h;
-    public final Object i;
-    public final a j;
+    public final FragmentActivity a;
+    public final ActivityForumBinding b;
+    public in7 c;
+    public final a d;
 
     /* loaded from: classes6.dex */
-    public static final class a implements CacheModel.CacheModelCallback<PbHistoryData> {
+    public static final class a implements hp7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gi7 a;
-
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-        public void onCacheDataWrite(WriteCacheRespMsg<List<PbHistoryData>> writeCacheRespMsg, WriteCacheMessage<PbHistoryData> writeCacheMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeCacheRespMsg, writeCacheMessage) == null) {
-            }
-        }
+        public float a;
+        public final /* synthetic */ gi7 b;
 
         public a(gi7 gi7Var) {
             Interceptable interceptable = $ic;
@@ -62,99 +45,74 @@ public final class gi7 extends sh7 {
                     return;
                 }
             }
-            this.a = gi7Var;
-        }
-
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-        public void onCacheDataGet(ReadCacheRespMsg<List<PbHistoryData>> readCacheRespMsg, ReadCacheMessage<PbHistoryData> readCacheMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, readCacheRespMsg, readCacheMessage) == null) && readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
-                gi7 gi7Var = this.a;
-                List<PbHistoryData> data = readCacheRespMsg.getData();
-                Intrinsics.checkNotNull(data);
-                gi7Var.h = data;
-                gi7 gi7Var2 = this.a;
-                gi7Var2.B(gi7Var2.d);
-                TopCardView topCardView = this.a.c;
-                if (topCardView == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mTopCardView");
-                    topCardView = null;
-                }
-                topCardView.n(this.a.d, this.a.e, this.a.f, this.a.g);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b extends ar6<oh5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gi7 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(gi7 gi7Var, Class<oh5> cls) {
-            super(cls);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gi7Var, cls};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Class) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.b = gi7Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ar6
-        public void onEvent(oh5 event) {
-            TopCardView topCardView;
+        @Override // com.baidu.tieba.hp7
+        public Boolean a(MotionEvent e) {
+            InterceptResult invokeL;
+            fi7 fi7Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
-                Intrinsics.checkNotNullParameter(event, "event");
-                if (StringUtils.isNotNull(event.a())) {
-                    Iterator it = this.b.d.iterator();
-                    while (true) {
-                        topCardView = null;
-                        String str = null;
-                        if (!it.hasNext()) {
-                            break;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+                Intrinsics.checkNotNullParameter(e, "e");
+                int action = e.getAction();
+                ei7 ei7Var = null;
+                if (action != 0) {
+                    if (action == 2) {
+                        if (e.getRawY() - this.a > 5.0f) {
+                            return b();
                         }
-                        e87 e87Var = (e87) it.next();
-                        String a = event.a();
-                        y77 h = e87Var.h();
-                        if (h != null) {
-                            str = h.c;
+                        if (e.getRawY() - this.a >= -5.0f) {
+                            return null;
                         }
-                        if (Intrinsics.areEqual(a, str)) {
-                            e87Var.l(true);
+                        Boolean b = b();
+                        if (Intrinsics.areEqual(b, Boolean.TRUE)) {
+                            FragmentActivity fragmentActivity = this.b.a;
+                            if (fragmentActivity instanceof ei7) {
+                                ei7Var = (ei7) fragmentActivity;
+                            }
+                            if (ei7Var != null && (fi7Var = (fi7) ei7Var.j2(Reflection.getOrCreateKotlinClass(fi7.class))) != null) {
+                                fi7Var.t();
+                            }
                         }
+                        return b;
                     }
-                    TopCardView topCardView2 = this.b.c;
-                    if (topCardView2 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("mTopCardView");
-                    } else {
-                        topCardView = topCardView2;
-                    }
-                    topCardView.m(this.b.d, event.a());
+                } else {
+                    this.a = e.getRawY();
                 }
+                return null;
             }
+            return (Boolean) invokeL.objValue;
+        }
+
+        public final Boolean b() {
+            InterceptResult invokeV;
+            in7 in7Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                in7 in7Var2 = this.b.c;
+                if (in7Var2 != null) {
+                    in7Var2.G();
+                }
+                TbBottomSheetView tbBottomSheetView = this.b.b.t;
+                Intrinsics.checkNotNullExpressionValue(tbBottomSheetView, "binding.topContentContainer");
+                LinearLayout linearLayout = this.b.b.h;
+                Intrinsics.checkNotNullExpressionValue(linearLayout, "binding.contentContainer");
+                if (!ViewExtentionsKt.f(tbBottomSheetView, linearLayout) || (in7Var = this.b.c) == null) {
+                    return null;
+                }
+                return Boolean.valueOf(in7Var.c());
+            }
+            return (Boolean) invokeV.objValue;
         }
     }
 
-    public gi7(FragmentActivity activity) {
+    public gi7(FragmentActivity activity, ActivityForumBinding binding, in7 in7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {activity, binding, in7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -165,93 +123,24 @@ public final class gi7 extends sh7 {
             }
         }
         Intrinsics.checkNotNullParameter(activity, "activity");
-        this.b = activity;
-        this.d = new ArrayList();
-        this.g = "";
-        this.h = new ArrayList();
-        this.i = new Object();
-        this.j = new a(this);
+        Intrinsics.checkNotNullParameter(binding, "binding");
+        this.a = activity;
+        this.b = binding;
+        this.c = in7Var;
+        this.d = new a(this);
     }
 
-    public final void A(int i) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.m.H(this.d);
         }
     }
 
-    @Override // com.baidu.tieba.sh7
-    public void i(int i) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            TopCardView topCardView = this.c;
-            if (topCardView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mTopCardView");
-                topCardView = null;
-            }
-            topCardView.f();
-        }
-    }
-
-    public final boolean z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            for (PbHistoryData pbHistoryData : this.h) {
-                if (pbHistoryData.getThreadId().equals(str)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void B(List<e87> list) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            for (e87 e87Var : list) {
-                y77 h = e87Var.h();
-                if (h != null) {
-                    str = h.c;
-                } else {
-                    str = null;
-                }
-                e87Var.l(z(str.toString()));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.sh7
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.l();
-            xq6.b().a(this.i);
-        }
-    }
-
-    public final void x(TopCardView topCardView, h57 uiState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, topCardView, uiState) == null) {
-            Intrinsics.checkNotNullParameter(topCardView, "topCardView");
-            Intrinsics.checkNotNullParameter(uiState, "uiState");
-            this.c = topCardView;
-            this.d = uiState.n();
-            this.e = uiState.l();
-            this.f = uiState.o();
-            this.g = uiState.m();
-        }
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(fo7.a(this.b));
-            pbHistoryCacheModel.setCallback(this.j);
-            pbHistoryCacheModel.loadCache();
-            xq6.b().b(this.i, new b(this, oh5.class));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.m.K(this.d);
         }
     }
 }

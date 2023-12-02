@@ -5,8 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.richText.TbRichText;
-import com.baidu.tieba.ly5;
-import com.baidu.tieba.nwa;
+import com.baidu.tieba.mwa;
+import com.baidu.tieba.py5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,9 +24,9 @@ public class PbPostShareData {
     public String c;
     public String d;
     public TbRichText e;
-    public nwa f;
+    public mwa f;
     public int g;
-    public ly5 h;
+    public py5 h;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
@@ -111,13 +111,13 @@ public class PbPostShareData {
     }
 
     @Nullable
-    public ly5 a() {
+    public py5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.h;
         }
-        return (ly5) invokeV.objValue;
+        return (py5) invokeV.objValue;
     }
 
     public String b() {
@@ -129,13 +129,13 @@ public class PbPostShareData {
         return (String) invokeV.objValue;
     }
 
-    public nwa c() {
+    public mwa c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.f;
         }
-        return (nwa) invokeV.objValue;
+        return (mwa) invokeV.objValue;
     }
 
     public Bitmap d() {
@@ -198,10 +198,10 @@ public class PbPostShareData {
         return invokeL.intValue;
     }
 
-    public void j(ly5 ly5Var) {
+    public void j(py5 py5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ly5Var) == null) {
-            this.h = ly5Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, py5Var) == null) {
+            this.h = py5Var;
         }
     }
 
@@ -212,10 +212,10 @@ public class PbPostShareData {
         }
     }
 
-    public void l(nwa nwaVar) {
+    public void l(mwa mwaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, nwaVar) == null) {
-            this.f = nwaVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, mwaVar) == null) {
+            this.f = mwaVar;
         }
     }
 

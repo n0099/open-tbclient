@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ew8;
-import com.baidu.tieba.ox8;
-import com.baidu.tieba.rz8;
-import com.baidu.tieba.st8;
+import com.baidu.tieba.iw8;
+import com.baidu.tieba.sx8;
+import com.baidu.tieba.vz8;
 import com.baidu.tieba.wa;
+import com.baidu.tieba.wt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,12 +82,12 @@ public class MultiImageTextTopView extends RelativeLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ew8.a a;
+        public final /* synthetic */ iw8.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ MultiImageTextTopView d;
 
-        public b(MultiImageTextTopView multiImageTextTopView, ew8.a aVar, TbPageContext tbPageContext, int i) {
+        public b(MultiImageTextTopView multiImageTextTopView, iw8.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,18 +110,18 @@ public class MultiImageTextTopView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            ew8.a aVar;
+            iw8.a aVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a) != null && !StringUtils.isNull(aVar.d)) {
                 UrlManager.getInstance().dealOneLink(this.b, new String[]{this.a.d});
                 if (this.c == 1) {
                     TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                    st8 p = rz8.p(this.a.f);
+                    wt8 p = vz8.p(this.a.f);
                     if (p != null) {
                         TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, "task_type", p.a, "task_id", p.b, "loc", "0");
                         int i = this.a.g;
                         if ((i == 1 || i == 3) && !"0".equals(p.b)) {
-                            ox8.c().a(p.b);
+                            sx8.c().a(p.b);
                         }
                     }
                     StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
@@ -247,10 +247,10 @@ public class MultiImageTextTopView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0668, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092713);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092715);
             this.b = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092734);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092736);
             this.d = (TextView) findViewById(R.id.show_time);
             setOnLongClickListener(new a(this));
         }
@@ -267,7 +267,7 @@ public class MultiImageTextTopView extends RelativeLayout {
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, ew8.a aVar, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, iw8.a aVar, View view2, int i) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048579, this, tbPageContext, aVar, view2, i) == null) {

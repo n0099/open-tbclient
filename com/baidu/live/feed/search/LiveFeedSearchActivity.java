@@ -1205,40 +1205,40 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements w
 
     public final void initView() {
         Context context;
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091665);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091666);
         ((ViewGroup) findViewById).setPadding(0, h80.e(getApplicationContext()), 0, 0);
         this.a = findViewById;
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091664);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091665);
         imageView.setOnClickListener(new b());
         this.b = imageView;
-        this.e = findViewById(R.id.obfuscated_res_0x7f091663);
-        this.f = (Button) findViewById(R.id.obfuscated_res_0x7f091662);
-        this.g = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091660);
-        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091668);
-        this.l = (LiveCustomNestedScrollView) findViewById(R.id.obfuscated_res_0x7f0921d5);
-        this.m = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09165e);
-        this.n = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09165f);
-        this.c = (LiveSearchPanel) findViewById(R.id.obfuscated_res_0x7f091666);
-        this.D = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09168b);
-        this.E = findViewById(R.id.obfuscated_res_0x7f09168c);
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0916bc);
+        this.e = findViewById(R.id.obfuscated_res_0x7f091664);
+        this.f = (Button) findViewById(R.id.obfuscated_res_0x7f091663);
+        this.g = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091661);
+        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091669);
+        this.l = (LiveCustomNestedScrollView) findViewById(R.id.obfuscated_res_0x7f0921d7);
+        this.m = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09165f);
+        this.n = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091660);
+        this.c = (LiveSearchPanel) findViewById(R.id.obfuscated_res_0x7f091667);
+        this.D = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09168c);
+        this.E = findViewById(R.id.obfuscated_res_0x7f09168d);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0916bd);
         Intrinsics.checkExpressionValueIsNotNull(findViewById2, "findViewById(R.id.livesh…arch_recommend_more_live)");
         this.F = (LoadRecyclerView) findViewById2;
-        this.o = findViewById(R.id.obfuscated_res_0x7f091682);
-        this.p = findViewById(R.id.obfuscated_res_0x7f09167b);
-        this.q = findViewById(R.id.obfuscated_res_0x7f091678);
-        this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f091677);
-        this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f091689);
-        this.r = findViewById(R.id.obfuscated_res_0x7f09167c);
-        this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f09166b);
-        this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f091669);
-        this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09166a);
-        EmptyView emptyView = (EmptyView) findViewById(R.id.obfuscated_res_0x7f09165b);
+        this.o = findViewById(R.id.obfuscated_res_0x7f091683);
+        this.p = findViewById(R.id.obfuscated_res_0x7f09167c);
+        this.q = findViewById(R.id.obfuscated_res_0x7f091679);
+        this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f091678);
+        this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f09168a);
+        this.r = findViewById(R.id.obfuscated_res_0x7f09167d);
+        this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f09166c);
+        this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09166a);
+        this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09166b);
+        EmptyView emptyView = (EmptyView) findViewById(R.id.obfuscated_res_0x7f09165c);
         this.z = emptyView;
         if (emptyView != null) {
             emptyView.a(LiveFeedPageSdk.HOST_LIVE_TAB);
         }
-        ErrorView errorView = (ErrorView) findViewById(R.id.obfuscated_res_0x7f09165c);
+        ErrorView errorView = (ErrorView) findViewById(R.id.obfuscated_res_0x7f09165d);
         this.y = errorView;
         if (errorView != null) {
             errorView.c(LiveFeedPageSdk.HOST_LIVE_TAB);
@@ -1247,7 +1247,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements w
         if (errorView2 != null) {
             errorView2.setActionCallback(new k());
         }
-        LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f09165d);
+        LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f09165e);
         this.x = loadingView;
         if (loadingView != null) {
             loadingView.c(LiveFeedPageSdk.HOST_LIVE_TAB);
@@ -1533,9 +1533,9 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements w
                 view2 = viewStub.inflate();
             }
             this.h = view2;
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f09167f);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091681);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091680);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f091680);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091682);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091681);
         } else if (view3 != null) {
             view3.setVisibility(0);
         }

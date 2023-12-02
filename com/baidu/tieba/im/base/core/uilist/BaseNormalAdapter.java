@@ -11,13 +11,13 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cu5;
+import com.baidu.tieba.gu5;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter.SelfHolder;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbNormalMsg;
-import com.baidu.tieba.iq8;
-import com.baidu.tieba.nq8;
+import com.baidu.tieba.mq8;
+import com.baidu.tieba.rq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends TbNormalMsg>, ChildViewHolder extends BaseViewHolder, ChildExtraHolder extends BaseViewHolder, BaseStyleHolder extends SelfHolder> extends iq8<ChildItemData, Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder>> {
+public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends TbNormalMsg>, ChildViewHolder extends BaseViewHolder, ChildExtraHolder extends BaseViewHolder, BaseStyleHolder extends SelfHolder> extends mq8<ChildItemData, Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -158,17 +158,17 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
-        public void d(@NonNull nq8 nq8Var) {
+        public void d(@NonNull rq8 rq8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nq8Var) == null) {
-                super.d(nq8Var);
-                this.a.d(nq8Var);
-                this.b.d(nq8Var);
-                this.c.d(nq8Var);
-                this.d.d(nq8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rq8Var) == null) {
+                super.d(rq8Var);
+                this.a.d(rq8Var);
+                this.b.d(rq8Var);
+                this.c.d(rq8Var);
+                this.d.d(rq8Var);
                 if (e()) {
-                    this.e.d(nq8Var);
-                    this.f.d(nq8Var);
+                    this.e.d(rq8Var);
+                    this.f.d(rq8Var);
                 }
             }
         }
@@ -246,7 +246,7 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
         }
     }
 
-    @Override // com.baidu.tieba.iq8
+    @Override // com.baidu.tieba.mq8
     @NonNull
     public Context D() {
         InterceptResult invokeV;
@@ -297,13 +297,13 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
             } else {
                 z = false;
             }
-            cu5.e(z, "子类视图不需要手动添加到父布局中");
+            gu5.e(z, "子类视图不需要手动添加到父布局中");
             if (Q.itemView.getParent() == null) {
                 z2 = true;
             } else {
                 z2 = false;
             }
-            cu5.e(z2, "子类视图不需要手动添加到父布局中");
+            gu5.e(z2, "子类视图不需要手动添加到父布局中");
             R.e().addView(O.itemView);
             S.e().addView(Q.itemView);
             ViewGroup f = R.f();
@@ -318,11 +318,11 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
                     } else {
                         z3 = false;
                     }
-                    cu5.e(z3, "子类扩展区视图不需要手动添加到父布局中");
+                    gu5.e(z3, "子类扩展区视图不需要手动添加到父布局中");
                     if (P.itemView.getParent() != null) {
                         z4 = false;
                     }
-                    cu5.e(z4, "子类扩展区视图不需要手动添加到父布局中");
+                    gu5.e(z4, "子类扩展区视图不需要手动添加到父布局中");
                     f.addView(N.itemView);
                     f2.addView(P.itemView);
                 }
@@ -351,7 +351,7 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.iq8, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.mq8, com.baidu.tieba.ci
     /* renamed from: Y */
     public void onFillViewHolder(int i, ViewGroup viewGroup, Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder> holder, ChildItemData childitemdata, @NonNull List<Object> list) {
         BaseStyleHolder basestyleholder;
@@ -393,7 +393,7 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
             if (f != null && childextraholder2 != null) {
                 U(i, f, childitemdata, childextraholder2, list, skinType);
             }
-            cu5.c(this.l, "必须绑定消费发送帮助器");
+            gu5.c(this.l, "必须绑定消费发送帮助器");
             if (childitemdata.getSendStatus() == 0) {
                 this.l.m(childitemdata, i);
             }

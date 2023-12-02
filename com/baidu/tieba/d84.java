@@ -1,54 +1,24 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class d84 {
+public class d84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DatagramPacket a;
-    public i84 b;
 
-    public d84(DatagramPacket datagramPacket, i84 udpsocket) {
+    public static void a(sd2 sd2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {datagramPacket, udpsocket};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeL(65536, null, sd2Var) == null) && sd2Var != null && sd2Var.m().hasEventListener("audiointerruptionbegin") && n04.h().i()) {
+            sd2Var.dispatchEvent(new JSEvent("audiointerruptionbegin"));
         }
-        Intrinsics.checkNotNullParameter(udpsocket, "udpsocket");
-        this.a = datagramPacket;
-        this.b = udpsocket;
     }
 
-    public final void a() {
-        DatagramSocket B;
+    public static void b(sd2 sd2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                i84 i84Var = this.b;
-                if (i84Var != null && (B = i84Var.B()) != null) {
-                    B.send(this.a);
-                }
-            } catch (Throwable unused) {
-                i84 i84Var2 = this.b;
-                if (i84Var2 != null) {
-                    i84Var2.C("send", "send failed");
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(65537, null, sd2Var) == null) && sd2Var != null && sd2Var.m().hasEventListener("audiointerruptionend")) {
+            sd2Var.dispatchEvent(new JSEvent("audiointerruptionend"));
         }
     }
 }

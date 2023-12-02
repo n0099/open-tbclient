@@ -1,16 +1,24 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.collection.ArraySet;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class nf2 {
+public class nf2 implements jf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ArrayList<String> b;
+    public final String[] a;
+    public final Pair<String, String>[] b;
 
     public nf2() {
         Interceptable interceptable = $ic;
@@ -25,7 +33,78 @@ public class nf2 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = new ArrayList<>();
+        this.a = new String[]{"searchbox_webapps_sp", "swan_app_pms_sp", "key_pms_sp_name", "swan_config_sp_name", "swan_clean_stratey", "swan_preload_package", "updatecore_node_ceres", "updatecore_node_host", "swan_host_info_config_sp_name", "updatecore_node_tipmsgs", "swan_launch_tips_config_sp_name", "aiapps_favorite", "searchbox_sconsole_sp", "swan_about_page_sp", "aiapps_guide_dialog_sp", "swan.publisher", "sp_launch_behavior", "swan_app_debug", "swan_debug_feature", "light_info_debug", "swan_method_trace"};
+        this.b = new Pair[]{new Pair<>("aiapp_", ""), new Pair<>("aiapp_setting_", ""), new Pair<>("", "_domain_config")};
+    }
+
+    @Override // com.baidu.tieba.jf2
+    public ArraySet<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            arraySet.addAll((ArraySet<? extends String>) d());
+            arraySet.addAll((ArraySet<? extends String>) c());
+            arraySet.addAll((ArraySet<? extends String>) b());
+            return arraySet;
+        }
+        return (ArraySet) invokeV.objValue;
+    }
+
+    public final ArraySet<String> b() {
+        InterceptResult invokeV;
+        Pair<String, String>[] pairArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
+            File file2 = new File(tm4.c());
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (Pair<String, String> pair : this.b) {
+                arraySet.addAll((ArraySet<? extends String>) ve2.e(file, (String) pair.first, ((String) pair.second) + "shared_prefs/", null, true));
+                arraySet.addAll((ArraySet<? extends String>) ve2.e(file2, (String) pair.first, ((String) pair.second) + SwanKV.PREFS_SUFFIX, null, true));
+            }
+            k32.k("SwanSpCollector", "recovery renameAppsSp:" + arraySet.toString());
+            return arraySet;
+        }
+        return (ArraySet) invokeV.objValue;
+    }
+
+    public final ArraySet<String> c() {
+        InterceptResult invokeV;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
+            String c = tm4.c();
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String J = nm4.J(new File(c, str + SwanKV.PREFS_SUFFIX));
+                if (!TextUtils.isEmpty(J)) {
+                    arraySet.add(J);
+                }
+                String J2 = nm4.J(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
+                if (!TextUtils.isEmpty(J2)) {
+                    arraySet.add(J2);
+                }
+            }
+            k32.k("SwanSpCollector", "recovery renameFrameSp:" + arraySet.toString());
+            return arraySet;
+        }
+        return (ArraySet) invokeV.objValue;
+    }
+
+    public final ArraySet<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            String J = nm4.J(new File(bf3.c()));
+            if (!TextUtils.isEmpty(J)) {
+                arraySet.add(J);
+            }
+            k32.k("SwanSpCollector", "recovery renameSwanKVRoot:" + arraySet.toString());
+            return arraySet;
+        }
+        return (ArraySet) invokeV.objValue;
     }
 }

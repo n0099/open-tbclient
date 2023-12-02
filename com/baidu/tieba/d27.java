@@ -1,173 +1,114 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.widget.BaseAdapter;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionCategoryAdapter;
+import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionHorizontalAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class d27 extends PopupWindow implements View.OnClickListener {
+public class d27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView a;
-    public TextView b;
-    public TextView c;
-    public View d;
-    public View e;
-    public View f;
-    public LinearLayout g;
-    public f27 h;
-    public Context i;
+    public BdPageContext a;
+    public BdTypeListView b;
+    public final List<ci> c;
+    public EmotionCategoryAdapter d;
+    public EmotionHorizontalAdapter e;
+    public List<pi> f;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d27 a;
-
-        public a(d27 d27Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d27Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d27Var;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                int top = this.a.d.findViewById(R.id.obfuscated_res_0x7f0910a1).getTop();
-                int y = (int) motionEvent.getY();
-                if (motionEvent.getAction() == 1 && y < top) {
-                    this.a.dismiss();
-                }
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d27(Context context, int i) {
-        super(context);
+    public d27(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b(context, i);
-        this.i = context;
-        e();
-        c(TbadkCoreApplication.getInst().getSkinType());
-        this.a.setOnClickListener(this);
-        this.b.setOnClickListener(this);
-        this.c.setOnClickListener(this);
+        this.c = new ArrayList();
+        this.f = new ArrayList();
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        b();
     }
 
-    public void d(f27 f27Var) {
+    public void a(List<pi> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f27Var) == null) {
-            this.h = f27Var;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        if (this.b != null) {
+            this.f.addAll(list);
+            this.b.setData(this.f);
+        }
+        c();
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = new EmotionCategoryAdapter((TbPageContext) this.a, e27.a);
+            this.e = new EmotionHorizontalAdapter((TbPageContext) this.a, f27.b);
+            this.c.add(this.d);
+            this.c.add(this.e);
+            this.b.addAdapters(this.c);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void c() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            dismiss();
-            f27 f27Var = this.h;
-            if (f27Var == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeListView = this.b) != null && bdTypeListView.getAdapter2() != null && (this.b.getAdapter2() instanceof BaseAdapter)) {
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void d(List<pi> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        if (!ListUtils.isEmpty(this.f)) {
+            this.f.clear();
+        }
+        BdTypeListView bdTypeListView = this.b;
+        if (bdTypeListView != null) {
+            bdTypeListView.setData(list);
+            this.f.addAll(list);
+        }
+        c();
+    }
+
+    public void e(EmotionPackageData emotionPackageData) {
+        f27 f27Var;
+        EmotionPackageData emotionPackageData2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, emotionPackageData) != null) || emotionPackageData == null || ListUtils.isEmpty(this.f)) {
+            return;
+        }
+        for (pi piVar : this.f) {
+            if ((piVar instanceof f27) && (f27Var = (f27) piVar) != null && (emotionPackageData2 = f27Var.a) != null && emotionPackageData2.id == emotionPackageData.id) {
+                emotionPackageData2.download = emotionPackageData.download;
+                emotionPackageData2.share = emotionPackageData.share;
+                c();
                 return;
             }
-            if (view2 == this.a) {
-                f27Var.b();
-            } else if (view2 == this.b) {
-                f27Var.a();
-            }
-        }
-    }
-
-    public final void b(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a4, (ViewGroup) null);
-            this.d = inflate;
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09287b);
-            this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09283f);
-            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0927dc);
-            this.g = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0910a1);
-            this.e = this.d.findViewById(R.id.obfuscated_res_0x7f0915eb);
-            this.f = this.d.findViewById(R.id.obfuscated_res_0x7f0915ec);
-            if (i == 1) {
-                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
-            } else {
-                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0204);
-            }
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            SkinManager.setBackgroundResource(this.g, R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.e, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.f, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (Build.VERSION.SDK_INT >= 22) {
-                setAttachedInDecor(false);
-            }
-            setContentView(this.d);
-            GreyUtil.grey(this);
-            setWidth(-1);
-            setHeight(BdUtilHelper.getEquipmentHeight(this.i));
-            setFocusable(true);
-            setBackgroundDrawable(new ColorDrawable(getContentView().getResources().getColor(R.color.black_alpha50)));
-            this.d.setOnTouchListener(new a(this));
         }
     }
 }

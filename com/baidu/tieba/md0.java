@@ -71,11 +71,11 @@ public class md0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 if (list.size() > 0 && list.get(0) != null) {
-                    AdBaseModel adBaseModel = (AdBaseModel) ly0.d(list, 0);
+                    AdBaseModel adBaseModel = (AdBaseModel) ny0.d(list, 0);
                     if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
-                        um0 um0Var = (um0) ly0.d(adBaseModel.f.j, 0);
+                        um0 um0Var = (um0) ny0.d(adBaseModel.f.j, 0);
                         if (um0Var != null && !TextUtils.isEmpty(um0Var.a)) {
-                            d71.a().d(um0Var.a);
+                            f71.a().d(um0Var.a);
                         } else {
                             this.a.a(new NadRequester.Error("大图模版数据校验失败，未下发图片"));
                             return;
@@ -145,11 +145,11 @@ public class md0 {
     public static void b(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull List<AdBaseModel> list, @NonNull ld0 ld0Var, @NonNull d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65537, null, context, viewGroup, list, ld0Var, dVar) == null) {
-            if (ly0.l(list) < 1) {
+            if (ny0.l(list) < 1) {
                 dVar.onFail();
                 return;
             }
-            AdBaseModel adBaseModel = (AdBaseModel) ly0.d(list, 0);
+            AdBaseModel adBaseModel = (AdBaseModel) ny0.d(list, 0);
             if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
                 NadImageInsertingView nadImageInsertingView = new NadImageInsertingView(context, viewGroup, ld0Var);
                 nadImageInsertingView.setData(adBaseModel, new b(dVar, nadImageInsertingView));

@@ -1,316 +1,188 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class lz5 extends kz5 implements View.OnClickListener {
+public class lz5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final long[] a;
+    public static final String[] b;
+    public static final String[] c;
+    public static final String[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public nz5 q;
 
-    /* loaded from: classes7.dex */
-    public class a implements dz5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz5 a;
-
-        public a(lz5 lz5Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947960194, "Lcom/baidu/tieba/lz5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lz5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = lz5Var;
-        }
-
-        @Override // com.baidu.tieba.dz5
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.e.b.a(nz5.y.parse(this.a.q.o()));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lz5(bz5 bz5Var) {
-        super(bz5Var.A);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bz5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947960194, "Lcom/baidu/tieba/lz5;");
                 return;
             }
         }
-        this.e = bz5Var;
-        B(bz5Var.A);
+        a = new long[]{19416, 19168, 42352, 21717, 53856, 55632, 91476, 22176, 39632, 21970, 19168, 42422, 42192, 53840, 119381, 46400, 54944, 44450, 38320, 84343, 18800, 42160, 46261, 27216, 27968, 109396, 11104, 38256, 21234, 18800, 25958, 54432, 59984, 28309, 23248, 11104, 100067, 37600, 116951, 51536, 54432, 120998, 46416, 22176, 107956, 9680, 37584, 53938, 43344, 46423, 27808, 46416, 86869, 19872, 42416, 83315, 21168, 43432, 59728, 27296, 44710, 43856, 19296, 43748, 42352, 21088, 62051, 55632, 23383, 22176, 38608, 19925, 19152, 42192, 54484, 53840, 54616, 46400, 46752, 103846, 38320, 18864, 43380, 42160, 45690, 27216, 27968, 44870, 43872, 38256, 19189, 18800, 25776, 29859, 59984, 27480, 21952, 43872, 38613, 37600, 51552, 55636, 54432, 55888, 30034, 22176, 43959, 9680, 37584, 51893, 43344, 46240, 47780, 44368, 21977, 19360, 42416, 86390, 21168, 43312, 31060, 27296, 44368, 23378, 19296, 42726, 42208, 53856, 60005, 54576, 23200, 30371, 38608, 19195, 19152, 42192, 118966, 53840, 54560, 56645, 46496, 22224, 21938, 18864, 42359, 42160, 43600, 111189, 27936, 44448, 84835, 37744, 18936, 18800, 25776, 92326, 59984, 27424, 108228, 43744, 41696, 53987, 51552, 54615, 54432, 55888, 23893, 22176, 42704, 21972, 21200, 43448, 43344, 46240, 46758, 44368, 21920, 43940, 42416, 21168, 45683, 26928, 29495, 27296, 44368, 84821, 19296, 42352, 21732, 53600, 59752, 54560, 55968, 92838, 22224, 19168, 43476, 41680, 53584, 62034, 54560};
+        b = new String[]{"", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "冬", "腊"};
+        c = new String[]{"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"};
+        d = new String[]{"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"};
+        new SimpleDateFormat("yyyy年M月d日 EEEEE");
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            if (((String) view2.getTag()).equals("submit")) {
-                D();
-            }
-            f();
-        }
-    }
-
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bz5 bz5Var = this.e;
-            if (bz5Var.f != null && bz5Var.g != null) {
-                Calendar calendar = bz5Var.e;
-                if (calendar == null || calendar.getTimeInMillis() < this.e.f.getTimeInMillis() || this.e.e.getTimeInMillis() > this.e.g.getTimeInMillis()) {
-                    bz5 bz5Var2 = this.e;
-                    bz5Var2.e = bz5Var2.f;
-                    return;
-                }
-                return;
-            }
-            bz5 bz5Var3 = this.e;
-            Calendar calendar2 = bz5Var3.f;
-            if (calendar2 != null) {
-                bz5Var3.e = calendar2;
-                return;
-            }
-            Calendar calendar3 = bz5Var3.g;
-            if (calendar3 != null) {
-                bz5Var3.e = calendar3;
-            }
-        }
-    }
-
-    public final void B(Context context) {
+    public static final String a(int i) {
+        InterceptResult invokeI;
         String str;
-        String str2;
-        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            s();
-            o();
-            n();
-            cz5 cz5Var = this.e.c;
-            if (cz5Var == null) {
-                LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.b);
-                TextView textView = (TextView) i(R.id.obfuscated_res_0x7f0927c5);
-                RelativeLayout relativeLayout = (RelativeLayout) i(R.id.rv_topbar);
-                Button button = (Button) i(R.id.obfuscated_res_0x7f0904df);
-                Button button2 = (Button) i(R.id.obfuscated_res_0x7f0904da);
-                button.setTag("submit");
-                button2.setTag("cancel");
-                button.setOnClickListener(this);
-                button2.setOnClickListener(this);
-                if (TextUtils.isEmpty(this.e.B)) {
-                    str = context.getResources().getString(R.string.pickerview_submit);
-                } else {
-                    str = this.e.B;
-                }
-                button.setText(str);
-                if (TextUtils.isEmpty(this.e.C)) {
-                    str2 = context.getResources().getString(R.string.pickerview_cancel);
-                } else {
-                    str2 = this.e.C;
-                }
-                button2.setText(str2);
-                if (TextUtils.isEmpty(this.e.D)) {
-                    str3 = "";
-                } else {
-                    str3 = this.e.D;
-                }
-                textView.setText(str3);
-                button.setTextColor(this.e.E);
-                button2.setTextColor(this.e.F);
-                textView.setTextColor(this.e.G);
-                relativeLayout.setBackgroundColor(this.e.I);
-                button.setTextSize(this.e.J);
-                button2.setTextSize(this.e.J);
-                textView.setTextSize(this.e.K);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i == 10) {
+                return "初十";
+            }
+            if (i == 20) {
+                return "二十";
+            }
+            if (i == 30) {
+                return "三十";
+            }
+            int i2 = i / 10;
+            if (i2 == 0) {
+                str = "初";
             } else {
-                cz5Var.a(LayoutInflater.from(context).inflate(this.e.x, this.b));
+                str = "";
             }
-            LinearLayout linearLayout = (LinearLayout) i(R.id.obfuscated_res_0x7f092653);
-            linearLayout.setBackgroundColor(this.e.H);
-            C(linearLayout);
+            if (i2 == 1) {
+                str = "十";
+            }
+            if (i2 == 2) {
+                str = "廿";
+            }
+            if (i2 == 3) {
+                str = "三";
+            }
+            switch (i % 10) {
+                case 1:
+                    return str + "一";
+                case 2:
+                    return str + "二";
+                case 3:
+                    return str + "三";
+                case 4:
+                    return str + "四";
+                case 5:
+                    return str + "五";
+                case 6:
+                    return str + "六";
+                case 7:
+                    return str + "七";
+                case 8:
+                    return str + "八";
+                case 9:
+                    return str + "九";
+                default:
+                    return str;
+            }
         }
+        return (String) invokeI.objValue;
     }
 
-    public final void C(LinearLayout linearLayout) {
-        int i;
+    public static ArrayList<String> b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, linearLayout) == null) {
-            bz5 bz5Var = this.e;
-            nz5 nz5Var = new nz5(linearLayout, bz5Var.d, bz5Var.z, bz5Var.L);
-            this.q = nz5Var;
-            if (this.e.b != null) {
-                nz5Var.G(new a(this));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (int i2 = 1; i2 <= i; i2++) {
+                arrayList.add(a(i2));
             }
-            this.q.C(this.e.k);
-            bz5 bz5Var2 = this.e;
-            int i2 = bz5Var2.h;
-            if (i2 != 0 && (i = bz5Var2.i) != 0 && i2 <= i) {
-                F();
-            }
-            bz5 bz5Var3 = this.e;
-            Calendar calendar = bz5Var3.f;
-            if (calendar != null && bz5Var3.g != null) {
-                if (calendar.getTimeInMillis() <= this.e.g.getTimeInMillis()) {
-                    E();
-                } else {
-                    throw new IllegalArgumentException("startDate can't be later than endDate");
+            return arrayList;
+        }
+        return (ArrayList) invokeI.objValue;
+    }
+
+    public static final int f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (g(i) != 0) {
+                if ((a[i - 1900] & 65536) != 0) {
+                    return 30;
                 }
-            } else {
-                bz5 bz5Var4 = this.e;
-                Calendar calendar2 = bz5Var4.f;
-                if (calendar2 != null) {
-                    if (calendar2.get(1) >= 1900) {
-                        E();
-                    } else {
-                        throw new IllegalArgumentException("The startDate can not as early as 1900");
-                    }
-                } else {
-                    Calendar calendar3 = bz5Var4.g;
-                    if (calendar3 != null) {
-                        if (calendar3.get(1) <= 2100) {
-                            E();
-                        } else {
-                            throw new IllegalArgumentException("The endDate should not be later than 2100");
-                        }
-                    } else {
-                        E();
-                    }
-                }
+                return 29;
             }
-            G();
-            nz5 nz5Var2 = this.q;
-            bz5 bz5Var5 = this.e;
-            nz5Var2.y(bz5Var5.l, bz5Var5.m, bz5Var5.n, bz5Var5.o, bz5Var5.p, bz5Var5.q);
-            nz5 nz5Var3 = this.q;
-            bz5 bz5Var6 = this.e;
-            nz5Var3.N(bz5Var6.r, bz5Var6.s, bz5Var6.t, bz5Var6.u, bz5Var6.v, bz5Var6.w);
-            u(this.e.S);
-            this.q.s(this.e.j);
-            this.q.u(this.e.O);
-            this.q.w(this.e.U);
-            this.q.A(this.e.Q);
-            this.q.M(this.e.M);
-            this.q.K(this.e.N);
-            this.q.p(this.e.f1088T);
+            return 0;
         }
+        return invokeI.intValue;
     }
 
-    public void D() {
+    public static final int g(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.e.a != null) {
-            try {
-                Date parse = nz5.y.parse(this.q.o());
-                this.e.a.onTimeSelect(parse, this.m);
-                fa5.e().e0(parse.getHours(), parse.getMinutes());
-            } catch (ParseException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return (int) (a[i - 1900] & 15);
+        }
+        return invokeI.intValue;
+    }
+
+    public static String c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int i2 = i - 4;
+            sb.append(c[i2 % 10]);
+            sb.append(d[i2 % 12]);
+            sb.append("年");
+            return sb.toString();
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static ArrayList<String> d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (int i2 = 1; i2 < b.length; i2++) {
+                arrayList.add(b[i2] + "月");
             }
-        }
-    }
-
-    public final void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            nz5 nz5Var = this.q;
-            bz5 bz5Var = this.e;
-            nz5Var.E(bz5Var.f, bz5Var.g);
-            A();
-        }
-    }
-
-    public final void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.q.I(this.e.h);
-            this.q.x(this.e.i);
-        }
-    }
-
-    @Override // com.baidu.tieba.kz5
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e.R;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void G() {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Calendar calendar = Calendar.getInstance();
-            Calendar calendar2 = this.e.e;
-            if (calendar2 == null) {
-                calendar.setTimeInMillis(System.currentTimeMillis());
-                i = calendar.get(1);
-                i2 = calendar.get(2);
-                i3 = calendar.get(5);
-                i4 = calendar.get(11);
-                i5 = calendar.get(12);
-                i6 = calendar.get(13);
-            } else {
-                i = calendar2.get(1);
-                i2 = this.e.e.get(2);
-                i3 = this.e.e.get(5);
-                i4 = this.e.e.get(11);
-                i5 = this.e.e.get(12);
-                i6 = this.e.e.get(13);
+            if (g(i) != 0) {
+                int g = g(i);
+                arrayList.add(g, "闰" + b[g(i)] + "月");
             }
-            int i7 = i4;
-            int i8 = i3;
-            int i9 = i2;
-            nz5 nz5Var = this.q;
-            nz5Var.D(i, i9, i8, i7, i5, i6);
+            return arrayList;
         }
+        return (ArrayList) invokeI.objValue;
+    }
+
+    public static ArrayList<String> e(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            while (i < i2) {
+                arrayList.add(String.format("%s(%d)", c(i), Integer.valueOf(i)));
+                i++;
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeII.objValue;
+    }
+
+    public static final int h(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65544, null, i, i2)) == null) {
+            if (((65536 >> i2) & a[i - 1900]) == 0) {
+                return 29;
+            }
+            return 30;
+        }
+        return invokeII.intValue;
     }
 }

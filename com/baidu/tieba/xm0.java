@@ -23,7 +23,7 @@ import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public final class xm0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a v;
+    public static final a w;
     public transient /* synthetic */ FieldHolder $fh;
     @JvmField
     public int a;
@@ -54,7 +54,7 @@ public final class xm0 {
     @JvmField
     public String n;
     @JvmField
-    public List<an0> o;
+    public List<bn0> o;
     @JvmField
     public tm0 p;
     @JvmField
@@ -62,11 +62,13 @@ public final class xm0 {
     @JvmField
     public String r;
     @JvmField
-    public on0 s;
+    public pn0 s;
     @JvmField
     public String t;
     @JvmField
     public boolean u;
+    @JvmField
+    public String v;
 
     static {
         InterceptResult invokeClinit;
@@ -81,14 +83,14 @@ public final class xm0 {
                 return;
             }
         }
-        v = new a(null);
+        w = new a(null);
     }
 
     @JvmStatic
     public static final xm0 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) ? v.a(jSONObject) : (xm0) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) ? w.a(jSONObject) : (xm0) invokeL.objValue;
     }
 
     /* loaded from: classes9.dex */
@@ -114,10 +116,10 @@ public final class xm0 {
             this();
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:40:0x00ee, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:40:0x00f9, code lost:
             if (r0.equals(com.baidu.searchbox.net.listener.DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST) != false) goto L36;
          */
-        /* JADX WARN: Removed duplicated region for block: B:46:0x0125  */
+        /* JADX WARN: Removed duplicated region for block: B:46:0x0130  */
         @JvmStatic
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -133,7 +135,7 @@ public final class xm0 {
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("convert");
                 if (optJSONObject2 == null) {
-                    optJSONObject2 = my0.c(jSONObject.optString("convert"));
+                    optJSONObject2 = oy0.c(jSONObject.optString("convert"));
                 }
                 if (optJSONObject2 == null) {
                     return null;
@@ -161,6 +163,9 @@ public final class xm0 {
                     optJSONObject2.optString("textColor");
                 }
                 optJSONObject2.optInt("buttonShineType");
+                String optString2 = optJSONObject2.optString("button_shine_lottie");
+                Intrinsics.checkNotNullExpressionValue(optString2, "it.optString(\"button_shine_lottie\")");
+                xm0Var.v = optString2;
                 xm0Var.r = optJSONObject2.optString("background_color");
                 xm0Var.t = optJSONObject2.optString("button_scheme");
                 ArrayList arrayList = new ArrayList();
@@ -168,7 +173,7 @@ public final class xm0 {
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i2 = 0; i2 < length; i2++) {
-                        an0 a = an0.d.a(optJSONArray.optJSONObject(i2));
+                        bn0 a = bn0.d.a(optJSONArray.optJSONObject(i2));
                         if (a != null) {
                             arrayList.add(a);
                         }
@@ -176,12 +181,12 @@ public final class xm0 {
                 }
                 Unit unit = Unit.INSTANCE;
                 xm0Var.o = arrayList;
-                String optString2 = optJSONObject2.optString("type");
-                if (optString2 != null) {
-                    int hashCode = optString2.hashCode();
+                String optString3 = optJSONObject2.optString("type");
+                if (optString3 != null) {
+                    int hashCode = optString3.hashCode();
                     if (hashCode != -1335224239) {
                         if (hashCode != -1183693704) {
-                            if (hashCode == 1427818632 && optString2.equals("download")) {
+                            if (hashCode == 1427818632 && optString3.equals("download")) {
                                 i = 2;
                             }
                         }
@@ -194,15 +199,16 @@ public final class xm0 {
                         xm0Var.q = wm0Var;
                         optJSONObject = optJSONObject2.optJSONObject("app_info");
                         if (optJSONObject != null) {
-                            on0 d = on0.d(optJSONObject);
+                            pn0 d = pn0.d(optJSONObject);
                             xm0Var.s = d;
                             if (d != null) {
-                                d.m = optJSONObject2.optString("ext");
+                                d.n = optJSONObject2.optString("ext");
                             }
                         }
+                        ym0.d.a(optJSONObject2.optJSONObject("click_button_lottie"));
                         return xm0Var;
                     }
-                    optString2.equals("detail");
+                    optString3.equals("detail");
                 }
                 i = 0;
                 xm0Var.a = i;
@@ -215,6 +221,7 @@ public final class xm0 {
                 optJSONObject = optJSONObject2.optJSONObject("app_info");
                 if (optJSONObject != null) {
                 }
+                ym0.d.a(optJSONObject2.optJSONObject("click_button_lottie"));
                 return xm0Var;
             }
             return (xm0) invokeL.objValue;
@@ -236,6 +243,7 @@ public final class xm0 {
         }
         this.a = 1;
         this.h = new ArrayList();
+        this.v = "";
     }
 
     public final boolean b() {

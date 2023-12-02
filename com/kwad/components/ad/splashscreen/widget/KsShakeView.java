@@ -221,7 +221,7 @@ public class KsShakeView extends KSFrameLayout {
             animator.cancel();
         }
         this.fq.setRotation(0.0f);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07056b);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07056c);
         Animator animator2 = this.Gi;
         if (animator2 != null) {
             animator2.cancel();

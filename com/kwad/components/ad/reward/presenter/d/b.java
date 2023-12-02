@@ -16,7 +16,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.b {
     public static class a extends c {
         @Override // com.kwad.components.ad.reward.presenter.c
         public final int hp() {
-            return R.id.obfuscated_res_0x7f091317;
+            return R.id.obfuscated_res_0x7f091318;
         }
 
         @Override // com.kwad.components.ad.reward.presenter.c

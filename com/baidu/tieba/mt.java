@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mt extends os<cw4> {
+public class mt extends os<fw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public ThreadLinkView g;
     public TextView h;
-    public cw4 i;
+    public fw4 i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mt(Context context) {
@@ -76,9 +76,9 @@ public class mt extends os<cw4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
             this.g.b();
-            cw4 cw4Var = this.i;
-            if (cw4Var != null && cw4Var.getThreadData() != null) {
-                tl6.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            fw4 fw4Var = this.i;
+            if (fw4Var != null && fw4Var.getThreadData() != null) {
+                xl6.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
         }
     }
@@ -86,13 +86,13 @@ public class mt extends os<cw4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: r */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cw4Var) == null) {
-            if (cw4Var != null && cw4Var.getThreadData() != null) {
-                this.i = cw4Var;
-                ThreadData threadData = cw4Var.getThreadData();
-                tl6.j(threadData, this.h);
+        if (interceptable == null || interceptable.invokeL(1048580, this, fw4Var) == null) {
+            if (fw4Var != null && fw4Var.getThreadData() != null) {
+                this.i = fw4Var;
+                ThreadData threadData = fw4Var.getThreadData();
+                xl6.j(threadData, this.h);
                 this.g.setData(threadData);
                 return;
             }

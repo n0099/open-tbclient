@@ -1,71 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.Editable;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
+import android.content.Context;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.vcode.VcodeTool;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class o8b extends ie5 {
+public class o8b extends je5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NewWriteModel b;
-    public pdb c;
-    public String d;
-    public TbPageContext<?> e;
-    public String f;
-    public String g;
-    public String h;
-    public VideoItemData i;
-    public d j;
-    public final NewWriteModel.d k;
-    public TextWatcher l;
+    public b a;
 
     /* loaded from: classes7.dex */
-    public interface d {
-        void a(boolean z);
+    public interface b {
+        void a(String str);
     }
 
     /* loaded from: classes7.dex */
-    public class a implements NewWriteModel.d {
+    public class a implements ie5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o8b a;
+        public final /* synthetic */ n8b a;
+        public final /* synthetic */ o8b b;
 
-        public a(o8b o8bVar) {
+        public a(o8b o8bVar, n8b n8bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o8bVar};
+                Object[] objArr = {o8bVar, n8bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,384 +46,124 @@ public class o8b extends ie5 {
                     return;
                 }
             }
-            this.a = o8bVar;
+            this.b = o8bVar;
+            this.a = n8bVar;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, l95 l95Var, WriteData writeData, AntiData antiData) {
-            String str;
+        @Override // com.baidu.tieba.ie5
+        public void U(he5 he5Var) {
+            n8b n8bVar;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, l95Var, writeData, antiData}) != null) || this.a.b == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, he5Var) != null) || (n8bVar = this.a) == null || n8bVar.a() == null || he5Var == null) {
                 return;
             }
-            if (this.a.a() != null) {
-                this.a.a().v();
-            }
-            if (this.a.j != null) {
-                this.a.j.a(false);
-            }
-            if (writeData == null) {
-                writeData = this.a.b.e0();
-            }
-            WriteData writeData2 = writeData;
-            if (z) {
-                String str2 = null;
-                this.a.c.n(null);
-                this.a.c.i(null);
-                this.a.c.k(false);
-                this.a.s();
-                this.a.r();
-                if (writeData2 != null) {
-                    String string = this.a.m().getResources().getString(R.string.obfuscated_res_0x7f0f127a);
-                    if (postWriteCallBackData != null) {
-                        str2 = postWriteCallBackData.getPreMsg();
-                        String colorMsg = postWriteCallBackData.getColorMsg();
-                        String errorString = postWriteCallBackData.getErrorString();
-                        str = colorMsg;
-                        string = errorString;
-                    } else {
-                        str = null;
-                    }
-                    tya.b(this.a.m().getPageActivity(), string, str2, str);
-                }
-            } else if (writeData2 != null && l95Var != null && !TextUtils.isEmpty(l95Var.d())) {
-                writeData2.setVcodeMD5(l95Var.b());
-                writeData2.setVcodeUrl(l95Var.c());
-                writeData2.setVcodeExtra(l95Var.a());
-                if (VcodeTool.needVcode(l95Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.e.getPageActivity(), 12006, writeData2, false, l95Var.d())));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.e.getPageActivity(), writeData2, 12006)));
-                }
-            } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.e.getPageActivity(), 12006, writeData2, postWriteCallBackData.getAccessState())));
-            } else if (postWriteCallBackData == null || postWriteCallBackData.getErrorCode() != 220015) {
-                if (postWriteCallBackData == null || (postWriteCallBackData.getErrorCode() != 230277 && postWriteCallBackData.getErrorCode() != 230278 && postWriteCallBackData.getErrorCode() != 340016 && postWriteCallBackData.getErrorCode() != 1990032 && !AntiHelper.l(postWriteCallBackData.getErrorCode()))) {
-                    if (postWriteCallBackData == null) {
+            int i = he5Var.a;
+            if (i != 4) {
+                if (i != 7) {
+                    if (i == 8) {
+                        this.a.A();
+                        if (!this.b.h(this.a.m(), 25066)) {
+                            return;
+                        }
+                        this.a.q();
+                        if (this.b.a != null) {
+                            this.b.a.a(this.a.n());
+                            return;
+                        }
                         return;
                     }
-                    this.a.B(postWriteCallBackData.getErrorString());
                     return;
                 }
-                this.a.y(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString());
-            } else {
-                this.a.B(postWriteCallBackData.getErrorString());
-                this.a.c.i(postWriteCallBackData.getSensitiveWords());
-                this.a.c.n(postWriteCallBackData.getErrorString());
-                if (ListUtils.isEmpty(this.a.c.a())) {
-                    return;
-                }
-                this.a.l(true);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements c05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(o8b o8bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o8bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o8b a;
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        public c(o8b o8bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o8bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o8bVar;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, editable) != null) || this.a.c == null) {
+                this.a.m().showToast((int) R.string.over_limit_tip);
                 return;
             }
-            if (!this.a.c.e()) {
-                this.a.l(false);
-            }
-            this.a.c.l(false);
+            this.a.w((String) he5Var.c);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o8b(EditorTools editorTools) {
-        super(editorTools);
+    public o8b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {editorTools};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((EditorTools) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = "";
-        this.f = null;
-        this.k = new a(this);
-        this.l = new c(this);
-        editorTools.M(true);
-        pdb pdbVar = new pdb();
-        this.c = pdbVar;
-        pdbVar.h(R.color.cp_cont_h_alpha85);
-        this.c.j(R.color.CAM_X0101);
     }
 
-    public final void B(String str) {
+    @Override // com.baidu.tieba.je5
+    public le5 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.e != null && !StringUtils.isNull(str)) {
-            this.e.showToast(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setHideBigEmotion(true);
+            editorTools.setBarLauncherType(4);
+            editorTools.setBackgroundColorId(R.color.CAM_X0207);
+            return new n8b(editorTools);
         }
+        return (le5) invokeL.objValue;
     }
 
-    public void t(TbPageContext<?> tbPageContext) {
+    @Override // com.baidu.tieba.je5
+    public void c(le5 le5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, tbPageContext) == null) {
-            this.e = tbPageContext;
-        }
-    }
-
-    public void v(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, dVar) == null) {
-            this.j = dVar;
-        }
-    }
-
-    public void w(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void x(VideoItemData videoItemData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, videoItemData) == null) {
-            this.i = videoItemData;
-        }
-    }
-
-    public void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13026");
-            statisticItem.param("tid", this.f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", this.g);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public TbPageContext<?> m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void p() {
-        NewWriteModel newWriteModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (newWriteModel = this.b) != null) {
-            newWriteModel.cancelLoadData();
-        }
-    }
-
-    public final void r() {
-        NewWriteModel newWriteModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (newWriteModel = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, le5Var) != null) || !(le5Var instanceof n8b)) {
             return;
         }
-        newWriteModel.setWriteData(null);
-        this.b.k0(false);
+        EditorTools a2 = le5Var.a();
+        a aVar = new a(this, (n8b) le5Var);
+        a2.setActionListener(4, aVar);
+        a2.setActionListener(7, aVar);
+        a2.setActionListener(8, aVar);
     }
 
-    public final void l(boolean z) {
+    @Override // com.baidu.tieba.je5
+    public void d(le5 le5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && a() != null && (a().u(28) instanceof q8b) && ((q8b) a().u(28)).i() != null && ((q8b) a().u(28)).i().getText() != null) {
-            EditText i = ((q8b) a().u(28)).i();
-            int selectionEnd = i.getSelectionEnd();
-            SpannableStringBuilder f = this.c.f(i.getText());
-            if (f != null) {
-                boolean z2 = true;
-                this.c.l(true);
-                i.setText(f);
-                if (z && this.c.b() >= 0) {
-                    i.requestFocus();
-                    i.setSelection(this.c.b());
-                } else {
-                    i.setSelection(selectionEnd);
-                }
-                pdb pdbVar = this.c;
-                if (pdbVar.b() < 0) {
-                    z2 = false;
-                }
-                pdbVar.k(z2);
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, le5Var) != null) || le5Var == null) {
+            return;
         }
+        EditorTools a2 = le5Var.a();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(5);
+        a2.k(arrayList);
+        ue5 u = a2.u(5);
+        if (u != null) {
+            u.f(false);
+            u.d = 0;
+        }
+        a2.f(new p8b(a2.getContext()));
+        a2.h();
+        a2.K(new he5(35, 5, Boolean.FALSE));
+        a2.v();
     }
 
-    public void o(int i, int i2, Intent intent) {
+    public le5 g(Context context, b bVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) && i == 12006) {
-            if (i2 == 0) {
-                PostWriteCallBackData postWriteCallBackData = null;
-                if (intent != null && (intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) {
-                    postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-                }
-                this.k.callback(false, postWriteCallBackData, null, this.b.e0(), null);
-            } else if (i2 == -1) {
-                s();
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
+            this.a = bVar;
+            return super.a(context);
         }
+        return (le5) invokeLL.objValue;
     }
 
-    public void q() {
+    public final boolean h(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.b == null) {
-                NewWriteModel newWriteModel = new NewWriteModel(this.e);
-                this.b = newWriteModel;
-                newWriteModel.m0(this.k);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                return true;
             }
-            WriteData writeData = new WriteData();
-            writeData.setType(1);
-            writeData.setThreadId(this.f);
-            writeData.setForumId(this.g);
-            writeData.setForumName(this.h);
-            writeData.setContent(this.d);
-            VideoItemData videoItemData = this.i;
-            if (videoItemData != null && videoItemData.baijiahaoData != null) {
-                writeData.setIsBJHPost(true);
-                writeData.setBaijiahaoData(this.i.baijiahaoData);
-            }
-            this.b.setWriteData(writeData);
-            this.b.p0();
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+            return false;
         }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (a() != null) {
-                a().K(new ee5(9, -1, Boolean.TRUE));
-                a().K(new ee5(4, -1, ""));
-                a().v();
-            }
-            d dVar = this.j;
-            if (dVar != null) {
-                dVar.a(true);
-            }
-        }
-    }
-
-    public void u(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048587, this, str, str2, str3, str4) == null) {
-            this.f = str;
-            this.g = str2;
-            this.h = str3;
-            if (a() != null && (a().u(28) instanceof q8b) && ((q8b) a().u(28)).i() != null) {
-                EditText i = ((q8b) a().u(28)).i();
-                i.removeTextChangedListener(this.l);
-                i.addTextChangedListener(this.l);
-                i.setText(str4);
-            }
-        }
-    }
-
-    public final void y(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048591, this, i, str) == null) {
-            if (AntiHelper.m(i, str)) {
-                AntiHelper.w(this.e.getPageActivity(), str, i, null);
-            } else if (i != 230277 && i != 230278) {
-                B(str);
-            } else {
-                z(str);
-            }
-        }
-    }
-
-    public final void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            c05 c05Var = new c05(m().getPageActivity());
-            c05Var.setMessage(str);
-            c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0b86, new b(this));
-            c05Var.create(m()).show();
-        }
+        return invokeLI.booleanValue;
     }
 }

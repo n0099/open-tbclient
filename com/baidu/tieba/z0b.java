@@ -1,8 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import androidx.annotation.NonNull;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +19,15 @@ public class z0b extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final tza b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z0b(MainTabActivity mainTabActivity, fza fzaVar) {
-        super(2001437);
+    public z0b(@NonNull MainTabActivity mainTabActivity) {
+        super(2921752);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, fzaVar};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,16 +39,16 @@ public class z0b extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        tza tzaVar;
+        TbPageContext<BaseFragmentActivity> pageContext;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof AttentionBarData) && ((AttentionBarData) customResponsedMessage.getData()).isSuccess && this.a.y == 0 && (tzaVar = this.b) != null && tzaVar.a() != null) {
-            this.b.a().d();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof YyLiveRoomConfig) && ProcessUtils.isMainProcess() && (pageContext = this.a.getPageContext()) != null) {
+            Intent intent = ((YyLiveRoomConfig) customResponsedMessage.getData()).getIntent();
+            YYLiveUtil.jumpToYYLiveRoom(pageContext, intent.getStringExtra("sid"), intent.getStringExtra(YyLiveRoomConfig.KEY_SSID), intent.getStringExtra(YyLiveRoomConfig.KEY_TEMPLATE_ID), intent.getStringExtra("room_id"), intent.getStringExtra(YyLiveRoomConfig.KEY_STREAMINFO), intent.getStringExtra("source"));
         }
     }
 }

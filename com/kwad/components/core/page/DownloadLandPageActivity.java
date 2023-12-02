@@ -201,17 +201,17 @@ public class DownloadLandPageActivity extends com.kwad.components.core.l.b<com.k
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initNativeLandPage() {
-        findViewById(R.id.obfuscated_res_0x7f0912f6).setVisibility(0);
-        ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09133a);
+        findViewById(R.id.obfuscated_res_0x7f0912f7).setVisibility(0);
+        ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09133b);
         complianceTextView.setVisibility(0);
         complianceTextView.setAdTemplate(this.mAdTemplate);
-        RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f0912de);
-        KSLinearLayout kSLinearLayout = (KSLinearLayout) findViewById(R.id.obfuscated_res_0x7f091377);
-        KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0913a8);
-        DownloadProgressBar downloadProgressBar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091519);
+        RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f0912df);
+        KSLinearLayout kSLinearLayout = (KSLinearLayout) findViewById(R.id.obfuscated_res_0x7f091378);
+        KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0913a9);
+        DownloadProgressBar downloadProgressBar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09151a);
         AdInfo dP = e.dP(this.mAdTemplate);
-        setAdTitle((TextView) findViewById(R.id.obfuscated_res_0x7f0912ff), dP);
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f0912f2)).setText(dP.adBaseInfo.adDescription);
+        setAdTitle((TextView) findViewById(R.id.obfuscated_res_0x7f091300), dP);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f0912f3)).setText(dP.adBaseInfo.adDescription);
         roundAngleImageView.setRadius(32.0f);
         if (!TextUtils.isEmpty(com.kwad.sdk.core.response.b.a.cf(dP))) {
             KSImageLoader.loadImage(roundAngleImageView, com.kwad.sdk.core.response.b.a.cf(dP), this.mAdTemplate);
@@ -222,15 +222,15 @@ public class DownloadLandPageActivity extends com.kwad.components.core.l.b<com.k
 
     @Override // com.kwad.components.core.proxy.c
     public void initView() {
-        KSRelativeLayout kSRelativeLayout = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09148f);
-        this.mKsadVideoContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0914e7);
-        DetailVideoView detailVideoView = (DetailVideoView) kSRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0914ff);
+        KSRelativeLayout kSRelativeLayout = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091490);
+        this.mKsadVideoContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0914e8);
+        DetailVideoView detailVideoView = (DetailVideoView) kSRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091500);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.g(true, com.kwad.sdk.core.config.d.Bs());
-        this.mVideoBlurBg = (ImageView) kSRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0914e3);
-        this.mBackIcon = (ImageView) kSRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091316);
-        this.mCloseIcon = (ImageView) kSRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09148d);
-        this.mVideoCover = (ImageView) kSRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0914f2);
+        this.mVideoBlurBg = (ImageView) kSRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0914e4);
+        this.mBackIcon = (ImageView) kSRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091317);
+        this.mCloseIcon = (ImageView) kSRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09148e);
+        this.mVideoCover = (ImageView) kSRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0914f3);
         if (this.mAdTemplate.adInfoList.size() > 0) {
             loadBlurImage(com.kwad.sdk.core.response.b.a.X(this.mAdTemplate.adInfoList.get(0)), this.mVideoBlurBg);
         }

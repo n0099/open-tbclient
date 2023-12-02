@@ -1,62 +1,97 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.widget.ImageView.BdImage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.im.lib.socket.msg.data.ChatEggRainData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class a59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Activity activity, Boolean bool, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65536, null, activity, bool, str) != null) || activity == null) {
-            return;
+    /* loaded from: classes5.dex */
+    public class a extends BdResourceCallback<BdImage> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(a59 a59Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a59Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        View findViewById = activity.findViewById(16908290);
-        if (!(findViewById instanceof ViewGroup)) {
-            return;
+
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onCancelled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.onCancelled(str);
+            }
         }
-        new BdTopToast(activity, 3000).setIcon(bool.booleanValue()).setContent(str).show((ViewGroup) findViewById);
+
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onProgressUpdate(Object... objArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
+                super.onProgressUpdate(objArr);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdImage, str, i) == null) {
+                super.onLoaded((a) bdImage, str, i);
+            }
+        }
     }
 
-    public static void b(Activity activity) {
+    public a59() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, activity) != null) || activity == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        View findViewById = activity.findViewById(16908290);
-        if (!(findViewById instanceof ViewGroup)) {
-            return;
-        }
-        new BdTopToast(activity, 3000).setIcon(true).setContent(TbadkCoreApplication.getInst().getString(R.string.chat_msg_gone_top_excellent_tips)).show((ViewGroup) findViewById);
     }
 
-    public static void c(Activity activity) {
+    public void a(ChatEggRainData chatEggRainData, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, chatEggRainData, tbPageContext) == null) && chatEggRainData != null && chatEggRainData.getEggRainList() != null && !ListUtils.isEmpty(chatEggRainData.getEggRainList()) && tbPageContext != null) {
+            for (ChatEggRainData.EggRain eggRain : chatEggRainData.getEggRainList()) {
+                if (!rd.isEmpty(eggRain.getPic())) {
+                    b(eggRain.getPic(), tbPageContext);
+                }
+            }
         }
-        View findViewById = activity.findViewById(16908290);
-        if (!(findViewById instanceof ViewGroup)) {
-            return;
-        }
-        new BdTopToast(activity, 3000).setIcon(true).setContent(TbadkCoreApplication.getInst().getString(R.string.add_group_success_toast)).show((ViewGroup) findViewById);
     }
 
-    public static void d(Activity activity) {
+    public void b(String str, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, activity) != null) || activity == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, tbPageContext) == null) && !rd.isEmpty(str) && tbPageContext != null) {
+            BdResourceLoader.getInstance().loadResource(str, 10, new a(this), tbPageContext.getUniqueId());
         }
-        View findViewById = activity.findViewById(16908290);
-        if (!(findViewById instanceof ViewGroup)) {
-            return;
-        }
-        new BdTopToast(activity, 3000).setIcon(true).setContent(TbadkCoreApplication.getInst().getString(R.string.delete_group_success_toast)).show((ViewGroup) findViewById);
     }
 }

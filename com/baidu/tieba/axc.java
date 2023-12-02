@@ -5,21 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FeedContentColor;
+import tbclient.FeedContentCustom;
 /* loaded from: classes5.dex */
-public class axc extends ltc {
+public class axc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedContentColor feedContentColor) {
+    public static JSONObject b(@NonNull FeedContentCustom feedContentCustom) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedContentColor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedContentCustom)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "type", feedContentColor.type);
-            ltc.a(jSONObject, "day", feedContentColor.day);
-            ltc.a(jSONObject, "night", feedContentColor.night);
+            ktc.a(jSONObject, "style", feedContentCustom.style);
+            ktc.a(jSONObject, "data", feedContentCustom.data);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

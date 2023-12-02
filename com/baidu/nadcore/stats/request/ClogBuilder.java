@@ -12,29 +12,29 @@ import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.b11;
+import com.baidu.tieba.a11;
 import com.baidu.tieba.d11;
 import com.baidu.tieba.f11;
-import com.baidu.tieba.gz0;
-import com.baidu.tieba.hz0;
-import com.baidu.tieba.my0;
+import com.baidu.tieba.h11;
+import com.baidu.tieba.iz0;
+import com.baidu.tieba.jz0;
 import com.baidu.tieba.nf0;
-import com.baidu.tieba.x01;
-import com.baidu.tieba.y01;
+import com.baidu.tieba.oy0;
+import com.baidu.tieba.z01;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ClogBuilder extends gz0 {
-    public final JSONObject c = my0.c(null);
+public class ClogBuilder extends iz0 {
+    public final JSONObject c = oy0.c(null);
 
     public ClogBuilder() {
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // com.baidu.tieba.ez0, com.baidu.tieba.hz0
+    @Override // com.baidu.tieba.gz0, com.baidu.tieba.jz0
     public void a() {
         nf0 nf0Var = (nf0) ServiceManager.getService(nf0.a);
         if (nf0Var != null) {
@@ -48,7 +48,7 @@ public class ClogBuilder extends gz0 {
         return this.c;
     }
 
-    @Override // com.baidu.tieba.gz0, com.baidu.tieba.hz0
+    @Override // com.baidu.tieba.iz0, com.baidu.tieba.jz0
     public boolean isValid() {
         if (!TextUtils.isEmpty(this.c.optString("da_type"))) {
             return super.isValid();
@@ -105,6 +105,7 @@ public class ClogBuilder extends gz0 {
         COUPON("coupon"),
         ROTATION_POP("rotation"),
         DAZZLE_DETAILS("dazzle_details"),
+        APP_INSTALLED("APP_INSTALLED"),
         INVALID("INVALID");
         
         public final String type;
@@ -180,7 +181,6 @@ public class ClogBuilder extends gz0 {
         DEEPLINK_STAY_TRANS("751"),
         DEEPLINK_STAY_TIME("752"),
         INTERACTION_COLLECT("805"),
-        PHONE_STATE_LISTEN("807"),
         REWARD_TOKEN_FAIL("781"),
         REWARD_COIN_FAIL("782"),
         REWARD_HALF_TAIL_SLIDE("783"),
@@ -337,40 +337,40 @@ public class ClogBuilder extends gz0 {
         return this;
     }
 
-    @Override // com.baidu.tieba.ez0, com.baidu.tieba.hz0
-    public <T extends hz0> T b(String str, String str2) {
+    @Override // com.baidu.tieba.gz0, com.baidu.tieba.jz0
+    public <T extends jz0> T b(String str, String str2) {
         d(str, str2);
         return this;
     }
 
-    @Override // com.baidu.tieba.ez0
-    public <T extends hz0> T d(String str, Object obj) {
+    @Override // com.baidu.tieba.gz0
+    public <T extends jz0> T d(String str, Object obj) {
         if (TextUtils.isEmpty(str)) {
             return this;
         }
-        my0.f(this.c, str, obj);
+        oy0.f(this.c, str, obj);
         return this;
     }
 
     public final void g() {
-        if (!y01.a) {
+        if (!a11.a) {
             return;
         }
-        f11 f11Var = (f11) x01.a().a(f11.class);
-        if (f11Var != null) {
-            f11Var.a(h());
+        h11 h11Var = (h11) z01.a().a(h11.class);
+        if (h11Var != null) {
+            h11Var.a(h());
         }
-        b11 b11Var = (b11) x01.a().a(b11.class);
-        if (b11Var != null) {
-            b11Var.a(h());
-        }
-        d11 d11Var = (d11) x01.a().a(d11.class);
+        d11 d11Var = (d11) z01.a().a(d11.class);
         if (d11Var != null) {
             d11Var.a(h());
         }
+        f11 f11Var = (f11) z01.a().a(f11.class);
+        if (f11Var != null) {
+            f11Var.a(h());
+        }
     }
 
-    @Override // com.baidu.tieba.gz0, com.baidu.tieba.ez0, com.baidu.tieba.hz0
+    @Override // com.baidu.tieba.iz0, com.baidu.tieba.gz0, com.baidu.tieba.jz0
     @NonNull
     public String toString() {
         super.toString();

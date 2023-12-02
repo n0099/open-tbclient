@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lm8;
+import com.baidu.tieba.pm8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,22 +20,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public static final int h;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public List<lm8> c;
+    public List<pm8> c;
     public LayoutInflater d;
     public TbPageContext e;
     public a f;
     public long g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void a(lm8 lm8Var);
+        void a(pm8 pm8Var);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -124,7 +124,7 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public void l(String str, List<lm8> list) {
+    public void l(String str, List<pm8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) {
             this.b = str;
@@ -138,17 +138,17 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        lm8 lm8Var;
+        pm8 pm8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048582, this, viewHolder, i) != null) || (lm8Var = (lm8) ListUtils.getItem(this.c, i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048582, this, viewHolder, i) != null) || (pm8Var = (pm8) ListUtils.getItem(this.c, i)) == null) {
             return;
         }
         if (viewHolder instanceof HotNormalViewHolder) {
             HotNormalViewHolder hotNormalViewHolder = (HotNormalViewHolder) viewHolder;
-            hotNormalViewHolder.b(hotNormalViewHolder, i, lm8Var, this.e, this.b, this.f);
+            hotNormalViewHolder.b(hotNormalViewHolder, i, pm8Var, this.e, this.b, this.f);
         } else if (viewHolder instanceof HotVideoViewHolder) {
             HotVideoViewHolder hotVideoViewHolder = (HotVideoViewHolder) viewHolder;
-            hotVideoViewHolder.a(hotVideoViewHolder, i, lm8Var, this.e, this.g, this.f, this);
+            hotVideoViewHolder.a(hotVideoViewHolder, i, pm8Var, this.e, this.g, this.f, this);
         }
     }
 

@@ -1,107 +1,151 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tieba.feed.log.FeedStat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tieba.fb7;
+import com.baidu.tieba.forum.statistic.ForumStatConstant$TabType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class sm7 {
+public final class sm7 implements fb7.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BdUniqueId a;
+    public final Bundle b;
+    public final List<tb7> c;
+    public final ForumStatConstant$TabType d;
+    public final long e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948156300, "Lcom/baidu/tieba/sm7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948156300, "Lcom/baidu/tieba/sm7;");
+    public sm7(BdUniqueId pageId, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pageId, bundle};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        Intrinsics.checkNotNullParameter(pageId, "pageId");
+        Intrinsics.checkNotNullParameter(bundle, "bundle");
+        this.a = pageId;
+        this.b = bundle;
+        this.c = new ArrayList();
+        this.d = tm7.a(this.b);
+        this.e = this.b.getLong("forum_id");
     }
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    @Override // com.baidu.tieba.fb7.c
+    public void a(rb7<?> data, qb7<?, ?> template, int i) {
+        bb7 bb7Var;
+        Map<String, String> emptyMap;
+        Map<String, String> emptyMap2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, data, template, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(template, "template");
+            if (data instanceof bb7) {
+                bb7Var = (bb7) data;
+            } else {
+                bb7Var = null;
+            }
+            if (bb7Var == null) {
+                return;
+            }
+            n77 n77Var = bb7Var.a;
+            if (n77Var == null || (emptyMap = n77Var.a()) == null) {
+                emptyMap = MapsKt__MapsKt.emptyMap();
+            }
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("get_position", String.valueOf(i + 1));
+            linkedHashMap.put(LegoListActivityConfig.PAGE_ID, this.a.toString());
+            v57 v57Var = bb7Var.b;
+            if (v57Var == null || (emptyMap2 = v57Var.a()) == null) {
+                emptyMap2 = MapsKt__MapsKt.emptyMap();
+            }
+            this.c.add(new tb7("card_show", emptyMap, linkedHashMap, emptyMap2));
+            bb7 bb7Var2 = (bb7) data;
+            if (bb7Var2.b() instanceof w57) {
+                T b = bb7Var2.b();
+                if (b != 0) {
+                    Iterator<rb7<? extends Object>> it = ((w57) b).c().iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        rb7<? extends Object> next = it.next();
+                        if (next instanceof o47) {
+                            o47 o47Var = (o47) next;
+                            c(o47Var.p().c(), linkedHashMap);
+                            c(o47Var.p().a(), linkedHashMap);
+                            break;
+                        } else if (next instanceof c57) {
+                            c57 c57Var = (c57) next;
+                            c(c57Var.p().d(), linkedHashMap);
+                            c(c57Var.p().b(), linkedHashMap);
+                            break;
+                        }
+                    }
+                } else {
+                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.feed.data.CardData<*>");
+                }
+            }
+            ym7.a.e(emptyMap2, this.d, String.valueOf(this.e), i);
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // com.baidu.tieba.fb7.c
+    public void b(RecyclerView rv) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rv) == null) {
+            Intrinsics.checkNotNullParameter(rv, "rv");
+            e();
+        }
+    }
+
+    public final void c(List<? extends l67> list, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, map) == null) {
+            for (l67 l67Var : list) {
+                if (!l67Var.E().isEmpty()) {
+                    this.c.add(new tb7("head_tag_show", l67Var.E(), map, MapsKt__MapsKt.emptyMap()));
                 }
             }
         }
+    }
 
-        public final void a(String id, Map<String, String> businessInfo, Map<String, String> logInfo, Map<String, String> runInfo) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, id, businessInfo, logInfo, runInfo) == null) {
-                Intrinsics.checkNotNullParameter(id, "id");
-                Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-                Intrinsics.checkNotNullParameter(logInfo, "logInfo");
-                Intrinsics.checkNotNullParameter(runInfo, "runInfo");
-                if (Intrinsics.areEqual(id, "image_click") && (i = JavaTypesHelper.toInt(runInfo.get("get_pic_index"), -1)) >= 0) {
-                    JSONArray jSONArray = new JSONArray();
-                    String str = businessInfo.get("mix_card_pic_type_list");
-                    if (str != null) {
-                        try {
-                            jSONArray = new JSONArray(str);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (jSONArray.length() > 0) {
-                        Object obj = jSONArray.get(i);
-                        String str2 = logInfo.get("common_info_from_c15455");
-                        if (str2 != null) {
-                            JSONObject jSONObject = new JSONObject();
-                            try {
-                                jSONObject = new JSONObject(str2);
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
-                            }
-                            JSONObject optJSONObject = jSONObject.optJSONObject("base_info");
-                            if (optJSONObject == null) {
-                                optJSONObject = new JSONObject();
-                            } else {
-                                Intrinsics.checkNotNullExpressionValue(optJSONObject, "jsonObject.optJSONObject…ASE_INFO) ?: JSONObject()");
-                            }
-                            optJSONObject.put("stat_key", CommonStatisticKey.KEY_LIVE_MERGE_CARD_CLICK);
-                            optJSONObject.put("obj_locate", obj);
-                            jSONObject.put("base_info", optJSONObject);
-                            FeedStat.a.l(jSONObject, runInfo);
-                        }
-                    }
-                }
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            e();
+            ac7.a.a(this.a.toString());
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            for (tb7 tb7Var : this.c) {
+                ac7.a.c(tb7Var);
             }
+            this.c.clear();
         }
     }
 }

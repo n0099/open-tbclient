@@ -36,9 +36,9 @@ public class ActionBarH5 extends FrameLayout implements c {
 
     private void B(Context context) {
         l.inflate(context, R.layout.obfuscated_res_0x7f0d0523, this);
-        this.Bx = (TextView) findViewById(R.id.obfuscated_res_0x7f09136d);
-        this.dM = (TextView) findViewById(R.id.obfuscated_res_0x7f091371);
-        this.Bz = findViewById(R.id.obfuscated_res_0x7f09134c);
+        this.Bx = (TextView) findViewById(R.id.obfuscated_res_0x7f09136e);
+        this.dM = (TextView) findViewById(R.id.obfuscated_res_0x7f091372);
+        this.Bz = findViewById(R.id.obfuscated_res_0x7f09134d);
     }
 
     @Override // com.kwad.sdk.widget.c

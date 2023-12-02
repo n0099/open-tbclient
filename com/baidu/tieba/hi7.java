@@ -1,116 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class hi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final long b;
-    public final String c;
-    public final String d;
-    public final String e;
 
-    public boolean equals(Object obj) {
+    public static final boolean d(t87 t87Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t87Var)) == null) {
+            if (t87Var.a() instanceof w57) {
+                return ((w57) t87Var.a()).q();
             }
-            if (obj instanceof hi7) {
-                hi7 hi7Var = (hi7) obj;
-                return Intrinsics.areEqual(this.a, hi7Var.a) && this.b == hi7Var.b && Intrinsics.areEqual(this.c, hi7Var.c) && Intrinsics.areEqual(this.d, hi7Var.d) && Intrinsics.areEqual(this.e, hi7Var.e);
+            if (t87Var.a() instanceof bg7) {
+                return ((bg7) t87Var.a()).w();
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static final String f(t87 t87Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = ((((((this.a.hashCode() * 31) + c.a(this.b)) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31;
-            String str = this.e;
-            return hashCode + (str == null ? 0 : str.hashCode());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, t87Var)) == null) {
+            if (t87Var.a() instanceof w57) {
+                return ((w57) t87Var.a()).m();
+            }
+            if (t87Var.a() instanceof bg7) {
+                return ((bg7) t87Var.a()).r();
+            }
+            return null;
         }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static final boolean e(t87 t87Var, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "AiBotInfoData(botUk=" + this.a + ", botPa=" + this.b + ", botName=" + this.c + ", botPortrait=" + this.d + ", botBackground=" + this.e + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public hi7(String botUk, long j, String botName, String botPortrait, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {botUk, Long.valueOf(j), botName, botPortrait, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, t87Var, z)) == null) {
+            if (t87Var.a() instanceof w57) {
+                ((w57) t87Var.a()).r(z);
+                return false;
+            } else if (t87Var.a() instanceof bg7) {
+                ((bg7) t87Var.a()).x(z);
+                return false;
+            } else {
+                return false;
             }
         }
-        Intrinsics.checkNotNullParameter(botUk, "botUk");
-        Intrinsics.checkNotNullParameter(botName, "botName");
-        Intrinsics.checkNotNullParameter(botPortrait, "botPortrait");
-        this.a = botUk;
-        this.b = j;
-        this.c = botName;
-        this.d = botPortrait;
-        this.e = str;
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return invokeLZ.booleanValue;
     }
 }

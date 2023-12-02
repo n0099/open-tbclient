@@ -9,14 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Feedback;
+import java.util.List;
+import tbclient.GetMemberInfo.MemberGodInfo;
+import tbclient.User;
 /* loaded from: classes9.dex */
 public class xp7 implements pi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +32,7 @@ public class xp7 implements pi {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public xp7() {
@@ -48,22 +49,13 @@ public class xp7 implements pi {
         }
     }
 
-    public String a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pi
@@ -71,18 +63,23 @@ public class xp7 implements pi {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return c;
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void c(Feedback feedback) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, feedback) != null) || feedback == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
         }
-        this.a = feedback.title;
-        this.b = feedback.url;
-        String str = feedback.icon;
+    }
+
+    public void c(MemberGodInfo memberGodInfo) {
+        List<User> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, memberGodInfo) == null) && memberGodInfo != null && (list = memberGodInfo.forum_god_list) != null && list.size() > 0) {
+            b(memberGodInfo.forum_god_num.intValue());
+        }
     }
 }

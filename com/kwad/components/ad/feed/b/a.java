@@ -41,7 +41,7 @@ public abstract class a extends com.kwad.components.core.widget.b<AdResultData, 
     }
 
     public final void bb() {
-        ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09133a);
+        ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09133b);
         if (com.kwad.sdk.core.response.b.a.aP(this.mAdInfo)) {
             complianceTextView.setVisibility(0);
             complianceTextView.setAdTemplate(this.mAdTemplate);

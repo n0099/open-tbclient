@@ -10,10 +10,10 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.AdverSegmentData;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tbadk.data.VideoEasterEggData;
+import com.baidu.tieba.cz4;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.video.VideoTitleData;
-import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class PostWriteCallBackData implements Serializable {
     public AdverSegmentData mAdverSegmentData;
     public ContriInfo mContriInfo;
     public int mFrom;
-    public zy4 mReplyPrivacyTip;
+    public cz4 mReplyPrivacyTip;
     public VideoEasterEggData mVideoEasterEggData;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
@@ -217,13 +217,13 @@ public class PostWriteCallBackData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public zy4 getReplyPrivacyTip() {
+    public cz4 getReplyPrivacyTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.mReplyPrivacyTip;
         }
-        return (zy4) invokeV.objValue;
+        return (cz4) invokeV.objValue;
     }
 
     public ArrayList<String> getSensitiveWords() {
@@ -503,10 +503,10 @@ public class PostWriteCallBackData implements Serializable {
         }
     }
 
-    public void setReplyPrivacyTip(zy4 zy4Var) {
+    public void setReplyPrivacyTip(cz4 cz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, zy4Var) == null) {
-            this.mReplyPrivacyTip = zy4Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, cz4Var) == null) {
+            this.mReplyPrivacyTip = cz4Var;
         }
     }
 

@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j2b;
+import com.baidu.tieba.i2b;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
     public ImageView e;
     public TextView f;
     public DressItemData g;
-    public j2b.a h;
+    public i2b.a h;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -138,7 +138,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
         d();
     }
 
-    public void setAvatarPendantItemClickListener(j2b.a aVar) {
+    public void setAvatarPendantItemClickListener(i2b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.h = aVar;
@@ -183,12 +183,12 @@ public class AvatarPendantPerItemView extends LinearLayout {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d013b, this);
             this.b = inflate;
             this.c = (HeadPendantView) inflate.findViewById(R.id.obfuscated_res_0x7f090345);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c7a);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c7c);
             this.d = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090740);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925a8);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925aa);
             this.c.setHasPendantStyle();
             if (this.c.getHeadView() != null) {
                 this.c.getHeadView().setIsRound(true);

@@ -5,30 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.SimpleUser;
+import tbclient.SkinInfo;
 /* loaded from: classes7.dex */
-public class l8d extends ltc {
+public class l8d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SimpleUser simpleUser) {
+    public static JSONObject b(@NonNull SkinInfo skinInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, simpleUser)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, skinInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "user_id", simpleUser.user_id);
-            ltc.a(jSONObject, "user_status", simpleUser.user_status);
-            ltc.a(jSONObject, "secureemail", simpleUser.secureemail);
-            ltc.a(jSONObject, "securemobil", simpleUser.securemobil);
-            ltc.a(jSONObject, "user_name", simpleUser.user_name);
-            ltc.a(jSONObject, "user_nickname", simpleUser.user_nickname);
-            ltc.a(jSONObject, "incomplete_user", simpleUser.incomplete_user);
-            ltc.a(jSONObject, "portrait", simpleUser.portrait);
-            ltc.a(jSONObject, "agree_type", simpleUser.agree_type);
-            ltc.a(jSONObject, "ahead_url", simpleUser.ahead_url);
-            ltc.a(jSONObject, "block_msg", simpleUser.block_msg);
-            ltc.a(jSONObject, "show_onlyme", simpleUser.show_onlyme);
+            ktc.a(jSONObject, "skin", skinInfo.skin);
+            ktc.a(jSONObject, "skin_size", skinInfo.skin_size);
+            ktc.a(jSONObject, "url", skinInfo.url);
+            ktc.a(jSONObject, "obj_id", skinInfo.obj_id);
+            ktc.a(jSONObject, "monitor_id", skinInfo.monitor_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

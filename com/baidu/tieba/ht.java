@@ -20,7 +20,7 @@ public class ht extends vs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadlinesCardView h;
-    public cw4 i;
+    public fw4 i;
     public int j;
     public ru k;
 
@@ -110,13 +110,13 @@ public class ht extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: A */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cw4Var) == null) {
-            this.i = cw4Var;
-            if (z(cw4Var)) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, fw4Var) == null) {
+            this.i = fw4Var;
+            if (z(fw4Var)) {
                 this.h.setVisibility(0);
-                this.h.onBindDataToView(cw4Var);
+                this.h.onBindDataToView(fw4Var);
                 return;
             }
             this.h.setVisibility(8);
@@ -148,11 +148,11 @@ public class ht extends vs {
         }
     }
 
-    public final boolean z(cw4 cw4Var) {
+    public final boolean z(fw4 fw4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cw4Var)) == null) {
-            if (cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().getTaskInfoData() != null && cw4Var.getThreadData().getTaskInfoData().f() != null && cw4Var.getThreadData().getTaskInfoData().j() == 2) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fw4Var)) == null) {
+            if (fw4Var != null && fw4Var.getThreadData() != null && fw4Var.getThreadData().getTaskInfoData() != null && fw4Var.getThreadData().getTaskInfoData().f() != null && fw4Var.getThreadData().getTaskInfoData().j() == 2) {
                 return true;
             }
             return false;

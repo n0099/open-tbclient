@@ -1,41 +1,31 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import tbclient.User;
-import tbclient.VoiceRoom;
 /* loaded from: classes6.dex */
 public class i88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<String> b;
+    public String c;
+    public String d;
+    public long e;
 
-    public static List<e88> a(List<VoiceRoom> list) {
-        InterceptResult invokeL;
+    public i88() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (VoiceRoom voiceRoom : list) {
-                if (voiceRoom != null) {
-                    ArrayList arrayList2 = new ArrayList();
-                    e88 e88Var = new e88();
-                    e88Var.a = voiceRoom.room_name;
-                    e88Var.c = String.valueOf(voiceRoom.talker_num);
-                    e88Var.d = String.valueOf(voiceRoom.joined_num);
-                    e88Var.e = voiceRoom.room_id.longValue();
-                    for (User user : voiceRoom.talker) {
-                        if (user != null) {
-                            arrayList2.add(user.portrait);
-                        }
-                    }
-                    e88Var.b = arrayList2;
-                    arrayList.add(e88Var);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
     }
 }

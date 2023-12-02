@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.op2;
+import com.baidu.tieba.rp2;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
@@ -33,14 +33,14 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
 
         public a(SwanAppThumbnailAdapter swanAppThumbnailAdapter, View view2) {
             super(view2);
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0909a9);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0909aa);
             this.b = view2.findViewById(R.id.obfuscated_res_0x7f0902a0);
             this.c = view2.findViewById(R.id.obfuscated_res_0x7f09029f);
         }
     }
 
     public SwanAppThumbnailAdapter(Context context) {
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070879);
+        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07087d);
     }
 
     public MediaModel l(int i) {
@@ -104,7 +104,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            op2.C().c((GenericDraweeHierarchy) hierarchy, false);
+            rp2.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 
@@ -112,7 +112,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: p */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d096e, viewGroup, false));
+        return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d096f, viewGroup, false));
     }
 
     public int q(MediaModel mediaModel) {

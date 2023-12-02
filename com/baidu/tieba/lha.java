@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface lha {
-    int a();
+    void onDestroy();
 
-    void b();
+    void onPause();
 
-    void c();
+    void onResume();
 }

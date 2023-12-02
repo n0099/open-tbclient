@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.model;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.g28;
+import com.baidu.tieba.k28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public final class AiCreateForumBgQueryIdRespondedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g28 queryIdData;
+    public k28 queryIdData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AiCreateForumBgQueryIdRespondedMessage() {
@@ -36,13 +36,13 @@ public final class AiCreateForumBgQueryIdRespondedMessage extends JsonHttpRespon
         }
     }
 
-    public final g28 getQueryIdData() {
+    public final k28 getQueryIdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.queryIdData;
         }
-        return (g28) invokeV.objValue;
+        return (k28) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -52,15 +52,15 @@ public final class AiCreateForumBgQueryIdRespondedMessage extends JsonHttpRespon
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.queryIdData = g28.b.a(optJSONObject);
+                this.queryIdData = k28.b.a(optJSONObject);
             }
         }
     }
 
-    public final void setQueryIdData(g28 g28Var) {
+    public final void setQueryIdData(k28 k28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g28Var) == null) {
-            this.queryIdData = g28Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k28Var) == null) {
+            this.queryIdData = k28Var;
         }
     }
 }

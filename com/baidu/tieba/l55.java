@@ -1,38 +1,77 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.text.TextUtils;
+import android.content.Context;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.widget.Toast;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class l55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public Activity a;
-    public AlertDialog b;
-    public boolean c;
-    public boolean d;
-    public String e;
+    public long a;
+    public Context b;
+    public View c;
+    public TextView d;
+    public ImageView e;
+    public Toast f;
+    public Handler g;
+    public Runnable h;
 
-    public l55(@NonNull Activity activity) {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l55 a;
+
+        public a(l55 l55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l55Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.f != null) {
+                    this.a.f.cancel();
+                }
+                if (this.a.c != null && (this.a.c.getParent() instanceof ViewGroup)) {
+                    ((ViewGroup) this.a.c.getParent()).removeView(this.a.c);
+                }
+            }
+        }
+    }
+
+    public l55() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,68 +81,59 @@ public class l55 {
                 return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.a = activity;
+        this.a = 3000L;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.h = new a(this);
+        this.b = TbadkCoreApplication.getInst().getContext();
+        this.g = new Handler();
     }
 
-    public final void a() {
+    public void c(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            AlertDialog create = new AlertDialog.Builder(this.a).create();
-            this.b = create;
-            GreyUtil.grey(create);
-            yb.i(this.b, this.a);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.small_blue_progress_dialog, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.custom_loading_text);
-            if (!TextUtils.isEmpty(this.e)) {
-                textView.setText(this.e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (TextView) inflate.findViewById(R.id.tip_text);
+            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(BdUtilHelper.getDimens(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.d.setText(charSequence);
+            this.e.setImageResource(R.drawable.icon_toast_game_error);
+            e(this.c);
+        }
+    }
+
+    public void d(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (TextView) inflate.findViewById(R.id.tip_text);
+            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(BdUtilHelper.getDimens(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.d.setText(charSequence);
+            this.e.setImageResource(R.drawable.icon_toast_game_ok);
+            e(this.c);
+        }
+    }
+
+    public void e(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            this.g.removeCallbacks(this.h);
+            if (this.f == null) {
+                this.f = new Toast(this.b);
             }
-            this.b.setCancelable(this.d);
-            this.b.setCanceledOnTouchOutside(this.d);
-            Window window = this.b.getWindow();
-            window.setContentView(inflate);
-            if (!this.c) {
-                window.setDimAmount(0.0f);
-            }
+            this.g.postDelayed(this.h, this.a);
+            this.f.setView(view2);
+            this.f.setDuration(1);
+            this.f.setGravity(17, 0, 0);
+            GreyUtil.grey(this.f);
+            this.f.show();
         }
-    }
-
-    public void b() {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.b) != null) {
-            alertDialog.dismiss();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.b == null) {
-                a();
-            }
-            this.b.show();
-        }
-    }
-
-    public l55 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.c = z;
-            return this;
-        }
-        return (l55) invokeZ.objValue;
-    }
-
-    public l55 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.e = str;
-            return this;
-        }
-        return (l55) invokeL.objValue;
     }
 }

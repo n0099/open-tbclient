@@ -26,7 +26,7 @@ public class dj0 implements Runnable {
     public kj0 f;
 
     /* loaded from: classes5.dex */
-    public class a extends bp0<String> {
+    public class a extends dp0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dj0 a;
@@ -49,7 +49,7 @@ public class dj0 implements Runnable {
             this.a = dj0Var;
         }
 
-        @Override // com.baidu.tieba.zo0
+        @Override // com.baidu.tieba.bp0
         public void a(Exception exc, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
@@ -62,7 +62,7 @@ public class dj0 implements Runnable {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ap0
+        @Override // com.baidu.tieba.cp0
         /* renamed from: g */
         public void b(Headers headers, String str, int i) {
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class dj0 implements Runnable {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ap0
+        @Override // com.baidu.tieba.cp0
         /* renamed from: h */
         public String d(Headers headers, String str, int i) {
             InterceptResult invokeLLI;
@@ -115,7 +115,7 @@ public class dj0 implements Runnable {
                 if (i != 200) {
                     String str2 = i + "";
                     if (str != null) {
-                        str2 = my0.c(str).optString("error_message");
+                        str2 = oy0.c(str).optString("error_message");
                     }
                     this.a.e = ADConfigError.error("8", str2);
                     this.a.l();
@@ -163,49 +163,49 @@ public class dj0 implements Runnable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             pf0 a2 = hf0.a();
-            my0.f(jSONObject, "cuid", a2.g());
-            my0.f(jSONObject, "baiduid", a2.p());
-            my0.f(jSONObject, "product", a2.B());
-            my0.f(jSONObject, "bundle_id", a2.k());
-            my0.f(jSONObject, AdExtParam.KEY_NAD_CORE_VERSION, "5.12.0.110");
-            my0.f(jSONObject, "ot", "2");
+            oy0.f(jSONObject, "cuid", a2.g());
+            oy0.f(jSONObject, "baiduid", a2.p());
+            oy0.f(jSONObject, "product", a2.B());
+            oy0.f(jSONObject, "bundle_id", a2.k());
+            oy0.f(jSONObject, AdExtParam.KEY_NAD_CORE_VERSION, "6.1.0.1");
+            oy0.f(jSONObject, "ot", "2");
             String h = zf0.c().h(false);
             if (!TextUtils.isEmpty(h)) {
-                my0.f(jSONObject, "ov", h);
+                oy0.f(jSONObject, "ov", h);
             }
-            my0.f(jSONObject, "ua", hf0.e());
+            oy0.f(jSONObject, "ua", hf0.e());
             if (TextUtils.isEmpty(a2.q())) {
                 q = a2.x();
             } else {
                 q = a2.q();
             }
-            my0.f(jSONObject, "ver", q);
-            my0.f(jSONObject, "sid", a2.i());
-            my0.f(jSONObject, HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
-            my0.f(jSONObject, "ext", "");
+            oy0.f(jSONObject, "ver", q);
+            oy0.f(jSONObject, "sid", a2.i());
+            oy0.f(jSONObject, HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
+            oy0.f(jSONObject, "ext", "");
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
     }
 
     @Nullable
-    public final ip0 h() {
+    public final kp0 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            hp0 f = hp0.f(u21.a(g().toString().getBytes()));
-            ip0 ip0Var = new ip0();
-            ip0Var.a("Content-Encoding", "gzip");
-            ip0Var.a("Content-Type", "application/json");
-            ip0Var.l(i() + "?" + hf0.a().m());
-            ip0Var.g(this.b * 1000);
-            ip0Var.j(this.b * 1000);
-            ip0Var.k(this.b * 1000);
-            ip0Var.f(f);
-            ip0Var.i(false);
-            return ip0Var;
+            jp0 f = jp0.f(w21.a(g().toString().getBytes()));
+            kp0 kp0Var = new kp0();
+            kp0Var.a("Content-Encoding", "gzip");
+            kp0Var.a("Content-Type", "application/json");
+            kp0Var.l(i() + "?" + hf0.a().m());
+            kp0Var.g(this.b * 1000);
+            kp0Var.j(this.b * 1000);
+            kp0Var.k(this.b * 1000);
+            kp0Var.f(f);
+            kp0Var.i(false);
+            return kp0Var;
         }
-        return (ip0) invokeV.objValue;
+        return (kp0) invokeV.objValue;
     }
 
     public final String i() {
@@ -248,14 +248,14 @@ public class dj0 implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ip0 h = h();
+            kp0 h = h();
             if (h == null) {
                 this.e = ADConfigError.error("10", ADConfigError.REASON_BUILD_REQUEST_FAILED);
                 l();
                 k();
                 return;
             }
-            po0.b().a().a(h, new a(this));
+            ro0.b().a().a(h, new a(this));
         }
     }
 }

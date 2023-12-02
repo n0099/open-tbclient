@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g65;
+import com.baidu.tieba.j65;
 import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,9 +30,9 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
     public View b;
     public ArrayList<LightEmotionData> c;
 
-    public void r(g65 g65Var) {
+    public void r(j65 j65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, g65Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j65Var) == null) {
         }
     }
 

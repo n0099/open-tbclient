@@ -1,14 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 /* loaded from: classes6.dex */
 public interface jl5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaSquare", "FrsLiveTabService");
-
-    @NonNull
-    Fragment a(@Nullable String str, @Nullable String str2);
+    void onSendMessageResult(int i, @Nullable ChatMsg chatMsg);
 }

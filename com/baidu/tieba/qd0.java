@@ -40,8 +40,8 @@ public class qd0 implements ek0 {
         a.add(new jj0());
         a.add(new pd0());
         td0 td0Var = new td0();
-        qf1<bk0> qf1Var = td0Var.a;
-        if (qf1Var != null && !ly0.g(qf1Var.getList())) {
+        tf1<bk0> tf1Var = td0Var.a;
+        if (tf1Var != null && !ny0.g(tf1Var.getList())) {
             a.addAll(td0Var.a.getList());
         }
     }

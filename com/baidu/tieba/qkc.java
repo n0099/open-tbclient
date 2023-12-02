@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qkc extends SSLSocketFactory {
+public class qkc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SSLSocketFactory a;
+    public String[] a;
+    public String[] b;
+    public int c;
+    public String d;
+    public boolean e;
 
-    public qkc() throws KeyManagementException, NoSuchAlgorithmException {
+    public qkc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,112 +32,74 @@ public class qkc extends SSLSocketFactory {
                 return;
             }
         }
-        SSLContext sSLContext = SSLContext.getInstance("TLS");
-        sSLContext.init(null, null, null);
-        this.a = sSLContext.getSocketFactory();
+        this.a = new String[0];
+        this.b = new String[0];
+        this.c = 0;
+        this.d = "";
+        this.e = false;
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Socket createSocket = this.a.createSocket();
-            a(createSocket);
-            return createSocket;
-        }
-        return (Socket) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getDefaultCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a.getDefaultCipherSuites();
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getSupportedCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.getSupportedCipherSuites();
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public final Socket a(Socket socket) {
+    public static qkc a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, socket)) == null) {
-            if (socket instanceof SSLSocket) {
-                ((SSLSocket) socket).setEnabledProtocols(new String[]{"TLSv1.2"});
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            qkc qkcVar = new qkc();
+            if (str != null && !str.isEmpty()) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    JSONArray optJSONArray = jSONObject.optJSONArray("ipsV4");
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        qkcVar.a = new String[optJSONArray.length()];
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            qkcVar.a[i] = optJSONArray.getString(i);
+                        }
+                    }
+                    JSONArray optJSONArray2 = jSONObject.optJSONArray("ipsV6");
+                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                        qkcVar.b = new String[optJSONArray2.length()];
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            qkcVar.b[i2] = optJSONArray2.getString(i2);
+                        }
+                    }
+                    qkcVar.c = jSONObject.optInt("dnsResolveType");
+                    qkcVar.d = jSONObject.optString(StatConstants.KEY_EXT_ERR_MSG);
+                    qkcVar.e = jSONObject.optBoolean("success");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-            return socket;
+            return qkcVar;
         }
-        return (Socket) invokeL.objValue;
+        return (qkc) invokeL.objValue;
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i) throws IOException {
-        InterceptResult invokeLI;
+    public static String b(qkc qkcVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            Socket createSocket = this.a.createSocket(str, i);
-            a(createSocket);
-            return createSocket;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, qkcVar)) == null) {
+            if (qkcVar == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                for (int i = 0; i < qkcVar.a.length; i++) {
+                    jSONArray.put(qkcVar.a[i]);
+                }
+                JSONArray jSONArray2 = new JSONArray();
+                for (int i2 = 0; i2 < qkcVar.b.length; i2++) {
+                    jSONArray2.put(qkcVar.b[i2]);
+                }
+                jSONObject.put("ipsV4", jSONArray);
+                jSONObject.put("ipsV6", jSONArray2);
+                jSONObject.put("dnsResolveType", qkcVar.c);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, qkcVar.d);
+                jSONObject.put("success", qkcVar.e);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
         }
-        return (Socket) invokeLI.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
-            Socket createSocket = this.a.createSocket(str, i, inetAddress, i2);
-            a(createSocket);
-            return createSocket;
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, inetAddress, i)) == null) {
-            Socket createSocket = this.a.createSocket(inetAddress, i);
-            a(createSocket);
-            return createSocket;
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
-            Socket createSocket = this.a.createSocket(inetAddress, i, inetAddress2, i2);
-            a(createSocket);
-            return createSocket;
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            Socket createSocket = this.a.createSocket(socket, str, i, z);
-            a(createSocket);
-            return createSocket;
-        }
-        return (Socket) invokeCommon.objValue;
+        return (String) invokeL.objValue;
     }
 }

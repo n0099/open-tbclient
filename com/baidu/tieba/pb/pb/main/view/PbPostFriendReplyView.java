@@ -156,7 +156,7 @@ public class PbPostFriendReplyView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07e2, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07e3, this);
             this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090474);
             this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09046c);
             this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090473);

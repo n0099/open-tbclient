@@ -1,119 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes8.dex */
-public class uy4 extends dx4 {
+public class uy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
     public String d;
-    public int e;
-    public String f;
-    public ArrayList<ty4> g;
-
-    @Override // com.baidu.tieba.dx4, com.baidu.tieba.cw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948227321, "Lcom/baidu/tieba/uy4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948227321, "Lcom/baidu/tieba/uy4;");
-                return;
-            }
-        }
-        BdUniqueId.gen();
-    }
 
     public uy4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        d(9);
-        this.g = new ArrayList<>();
     }
 
-    public ArrayList<ty4> e() {
-        InterceptResult invokeV;
+    public void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, intent) != null) || intent == null) {
+            return;
         }
-        return (ArrayList) invokeV.objValue;
+        this.a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
+        this.b = intent.getStringExtra("recom_source");
+        this.c = intent.getStringExtra("recom_abtag");
+        this.d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
     }
 
-    @Override // com.baidu.tieba.dx4, com.baidu.tieba.cw4
-    public NegativeFeedBackData getNegFeedBackData() {
-        InterceptResult invokeV;
+    public void b(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new NegativeFeedBackData();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) != null) || threadData == null) {
+            return;
         }
-        return (NegativeFeedBackData) invokeV.objValue;
+        this.a = threadData.mRecomWeight;
+        this.b = threadData.mRecomSource;
+        this.c = threadData.mRecomAbTag;
+        this.d = threadData.mRecomExtra;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void c(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return dx4.b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void f(List<RecommendForumInfo> list) {
-        Long l;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                RecommendForumInfo recommendForumInfo = list.get(i);
-                ty4 ty4Var = new ty4();
-                if (recommendForumInfo != null && (l = recommendForumInfo.forum_id) != null && l.longValue() != 0 && !StringUtils.isNull(recommendForumInfo.forum_name) && (num = recommendForumInfo.is_like) != null && num.intValue() != 1) {
-                    ty4Var.n(recommendForumInfo);
-                    arrayList.add(ty4Var);
-                }
-            }
-            this.g.clear();
-            this.g.addAll(ListUtils.trimToSize(arrayList, 15));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) && intent != null) {
+            intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.a);
+            intent.putExtra("recom_source", this.b);
+            intent.putExtra("recom_abtag", this.c);
+            intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.d);
         }
     }
 }

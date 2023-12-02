@@ -177,13 +177,13 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public final void K0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d08ea);
+            setContentView(R.layout.obfuscated_res_0x7f0d08eb);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.setTitleText(getPageContext().getString(R.string.signallforum));
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922f8);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922f3);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922f2);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922fa);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922f5);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922f4);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             BdResourceLoader.getInstance().loadResource(this.a, 10, new a(this), null);
             this.d.startLoad(this.a, 10, false);

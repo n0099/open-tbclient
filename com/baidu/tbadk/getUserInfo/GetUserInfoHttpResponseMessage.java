@@ -4,8 +4,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.xh5;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.ai5;
+import com.baidu.tieba.bi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import tbclient.GetUserInfo.GetUserInfoResIdl;
 public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xh5 mData;
+    public ai5 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoHttpResponseMessage(int i) {
@@ -46,9 +46,9 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            xh5 xh5Var = this.mData;
-            if (xh5Var != null && xh5Var.a() != null) {
-                yh5.d().i(this.mData.a());
+            ai5 ai5Var = this.mData;
+            if (ai5Var != null && ai5Var.a() != null) {
+                bi5.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }
@@ -71,18 +71,18 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            xh5 xh5Var = new xh5();
-            this.mData = xh5Var;
-            xh5Var.b(getUserInfoResIdl.data);
+            ai5 ai5Var = new ai5();
+            this.mData = ai5Var;
+            ai5Var.b(getUserInfoResIdl.data);
         }
     }
 
-    public xh5 getData() {
+    public ai5 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mData;
         }
-        return (xh5) invokeV.objValue;
+        return (ai5) invokeV.objValue;
     }
 }

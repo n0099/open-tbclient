@@ -10,11 +10,11 @@ import com.baidu.ala.atomdata.AlaPersonCenterExpActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mba;
-import com.baidu.tieba.nca;
-import com.baidu.tieba.oca;
-import com.baidu.tieba.pca;
 import com.baidu.tieba.pi;
+import com.baidu.tieba.qba;
+import com.baidu.tieba.rca;
+import com.baidu.tieba.sca;
+import com.baidu.tieba.tca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,11 +26,11 @@ import tbclient.User;
 public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oca b;
-    public pca c;
+    public sca b;
+    public tca c;
     public long d;
     public boolean e;
-    public mba f;
+    public qba f;
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public int H2() {
@@ -87,21 +87,21 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
-            oca ocaVar = this.b;
-            if (ocaVar != null) {
-                ocaVar.j();
+            sca scaVar = this.b;
+            if (scaVar != null) {
+                scaVar.j();
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
-        mba mbaVar;
+        qba qbaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
-            if (this.b != null && this.c != null && (mbaVar = this.f) != null) {
-                N2(mbaVar);
+            if (this.b != null && this.c != null && (qbaVar = this.f) != null) {
+                N2(qbaVar);
                 this.f = null;
             }
         }
@@ -129,13 +129,13 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
         }
     }
 
-    public void O2(mba mbaVar) {
+    public void O2(qba qbaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mbaVar) == null) {
-            if (mbaVar != null && this.b != null && isAdded()) {
-                N2(mbaVar);
-            } else if (mbaVar != null) {
-                this.f = mbaVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, qbaVar) == null) {
+            if (qbaVar != null && this.b != null && isAdded()) {
+                N2(qbaVar);
+            } else if (qbaVar != null) {
+                this.f = qbaVar;
             }
         }
     }
@@ -145,13 +145,13 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
-            oca ocaVar = this.b;
-            if (ocaVar != null) {
-                ocaVar.i(i);
+            sca scaVar = this.b;
+            if (scaVar != null) {
+                scaVar.i(i);
             }
-            pca pcaVar = this.c;
-            if (pcaVar != null) {
-                pcaVar.r(i);
+            tca tcaVar = this.c;
+            if (tcaVar != null) {
+                tcaVar.r(i);
             }
         }
     }
@@ -191,15 +191,15 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
         }
     }
 
-    public final void N2(mba mbaVar) {
+    public final void N2(qba qbaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, mbaVar) == null) && this.b != null && this.c != null && mbaVar != null) {
-            List<pi> b = nca.b(mbaVar.h());
+        if ((interceptable == null || interceptable.invokeL(1048582, this, qbaVar) == null) && this.b != null && this.c != null && qbaVar != null) {
+            List<pi> b = rca.b(qbaVar.h());
             if (!ListUtils.isEmpty(b)) {
-                this.b.r(R.string.obfuscated_res_0x7f0f10aa);
+                this.b.r(R.string.obfuscated_res_0x7f0f10ab);
             }
             this.b.n(b);
-            this.c.m(mbaVar);
+            this.c.m(qbaVar);
             this.c.n(ListUtils.isEmpty(b), I2());
         }
     }
@@ -210,13 +210,13 @@ public class PersonCenterMainTabFragment extends PersonCenterTabBaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07fa, viewGroup, false);
-            oca ocaVar = new oca(getPageContext(), inflate, this);
-            this.b = ocaVar;
-            ocaVar.m(1011);
-            pca pcaVar = new pca(getPageContext(), this.e);
-            this.c = pcaVar;
-            this.b.d(pcaVar.o());
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07fb, viewGroup, false);
+            sca scaVar = new sca(getPageContext(), inflate, this);
+            this.b = scaVar;
+            scaVar.m(1011);
+            tca tcaVar = new tca(getPageContext(), this.e);
+            this.c = tcaVar;
+            this.b.d(tcaVar.o());
             return inflate;
         }
         return (View) invokeLLL.objValue;

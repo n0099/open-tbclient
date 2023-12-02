@@ -1,86 +1,57 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class r59 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public int h;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948072755, "Lcom/baidu/tieba/r59;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948072755, "Lcom/baidu/tieba/r59;");
+                return;
+            }
+        }
+        a = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            b(str, null);
         }
     }
 
-    public static a a(String str) {
-        InterceptResult invokeL;
+    public static void b(String str, BdSwitchView.SwitchState switchState) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            a aVar = new a();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() > 0) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                    optJSONObject.optString("title");
-                    aVar.b = optJSONObject.optString("content");
-                    aVar.c = optJSONObject.optString("quote_content");
-                    aVar.d = optJSONObject.optString("fname");
-                    aVar.e = optJSONObject.optString("thread_id");
-                    aVar.f = optJSONObject.optString("post_id");
-                    aVar.h = optJSONObject.optInt("type");
-                    aVar.g = optJSONObject.optString("title");
-                    optJSONObject.optInt("thread_type");
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
-                    if (optJSONObject2 != null) {
-                        optJSONObject2.optString("id");
-                        optJSONObject2.optString("portrait");
-                        optJSONObject2.optInt("gender");
-                    }
-                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
-                    if (optJSONObject3 != null) {
-                        optJSONObject3.optString("id");
-                        aVar.a = optJSONObject3.optInt("gender");
-                    }
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, switchState) == null) {
+            StatisticItem param = new StatisticItem(str).param("uid", a);
+            if (switchState != null) {
+                if (switchState == BdSwitchView.SwitchState.OFF) {
+                    i = 1;
+                } else {
+                    i = 2;
                 }
-                return aVar;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+                param.param("obj_type", i);
             }
+            TiebaStatic.log(param);
         }
-        return (a) invokeL.objValue;
     }
 }

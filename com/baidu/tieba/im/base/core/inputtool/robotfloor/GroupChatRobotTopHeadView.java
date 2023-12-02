@@ -167,15 +167,15 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
             return;
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0407, (ViewGroup) this, true);
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092324);
-        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092321);
-        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092322);
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092326);
+        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092323);
+        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092324);
         this.d = headImageView;
         headImageView.setIsRound(true);
         this.d.setIsBigV(false);
-        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092323);
-        this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092320);
-        this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09231f);
+        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092325);
+        this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092322);
+        this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092321);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -184,7 +184,7 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.d.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0811f9), 24, false);
+                this.d.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0811fc), 24, false);
             } else {
                 this.d.startLoad(str, 12, false);
             }

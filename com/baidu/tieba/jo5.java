@@ -1,81 +1,174 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.co5;
-import com.baidu.tieba.ho5;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tieba.ao5;
+import com.baidu.tieba.da;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jo5<D, S extends co5, H extends ho5<D, S>> extends io5<D, S, H> {
+public class jo5<T extends ao5> extends ho5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<H> n;
-    public final int o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jo5(TbPageContext<?> tbPageContext, Class<H> cls, int i, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, viewEventCenter);
+    public jo5(int i, String str, Class<T> cls) {
+        super(i, str, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cls, Integer.valueOf(i), viewEventCenter};
+            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewEventCenter) objArr2[1]);
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = i;
-        this.n = cls;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getItemViewType(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0073 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x00d6 */
+    /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v12. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v9. Raw type applied. Possible types: T */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v10, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    /* JADX WARN: Type inference failed for: r7v10 */
+    /* JADX WARN: Type inference failed for: r7v12 */
+    /* JADX WARN: Type inference failed for: r7v17, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v36 */
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
+        InterceptResult invokeL;
+        String str;
+        ?? arrayList;
+        String str2;
+        ao5 ao5Var;
+        byte[] bArr;
+        ao5 ao5Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (this.g && c()) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            ao5 ao5Var3 = null;
+            if (customMessage == null || !(customMessage instanceof ReadCacheMessage)) {
+                return null;
             }
-            return super.getItemViewType(i);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2, viewGroup)) == null) {
-            if (this.g && c()) {
-                return a();
+            ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
+            ao5 ao5Var4 = (ao5) a();
+            try {
+                try {
+                    if (readCacheMessage.isNeedUid()) {
+                        str = TbadkCoreApplication.getCurrentAccount();
+                        if (str == null) {
+                            str = "";
+                        }
+                    } else {
+                        str = null;
+                    }
+                    if (ao5Var4 != null) {
+                        if (readCacheMessage.getRequestData() == null) {
+                            try {
+                                if (ao5Var4 instanceof zn5) {
+                                    e05.k();
+                                    List<da.b<byte[]>> a = wd.a(e05.j(this.b, str));
+                                    if (a != null) {
+                                        arrayList = new ArrayList(a.size());
+                                        for (da.b<byte[]> bVar : a) {
+                                            if (bVar != null && (bArr = bVar.b) != null && (ao5Var2 = (ao5) a()) != null) {
+                                                ((zn5) ao5Var2).initByByteArray(bArr);
+                                                arrayList.add(ao5Var2);
+                                            }
+                                        }
+                                        ao5Var3 = arrayList;
+                                    }
+                                } else if (ao5Var4 instanceof co5) {
+                                    e05.k();
+                                    List<da.b<String>> b = wd.b(e05.n(this.b, str));
+                                    if (b != null) {
+                                        arrayList = new ArrayList(b.size());
+                                        for (da.b<String> bVar2 : b) {
+                                            if (bVar2 != null && (str2 = bVar2.b) != null && (ao5Var = (ao5) a()) != null) {
+                                                ((co5) ao5Var).initByString(str2);
+                                                arrayList.add(ao5Var);
+                                            }
+                                        }
+                                        ao5Var3 = arrayList;
+                                    }
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                ao5Var3 = ao5Var4;
+                                e.printStackTrace();
+                                return new ReadCacheRespMsg(this.a, ao5Var3);
+                            } catch (Throwable th) {
+                                th = th;
+                                ao5Var3 = ao5Var4;
+                                new ReadCacheRespMsg(this.a, ao5Var3);
+                                throw th;
+                            }
+                        } else {
+                            String cacheKey = readCacheMessage.getRequestData().getCacheKey();
+                            String cacheTableName = readCacheMessage.getRequestData().getCacheTableName();
+                            try {
+                                if (ao5Var4 instanceof zn5) {
+                                    e05.k();
+                                    byte[] bArr2 = e05.j(cacheTableName, str).get(cacheKey);
+                                    if (bArr2 != null) {
+                                        ((zn5) ao5Var4).initByByteArray(bArr2);
+                                        ArrayList arrayList2 = new ArrayList();
+                                        arrayList2.add(ao5Var4);
+                                        cacheTableName = arrayList2;
+                                        ao5Var3 = cacheTableName;
+                                    }
+                                } else if (ao5Var4 instanceof co5) {
+                                    e05.k();
+                                    String str3 = e05.n(cacheTableName, str).get(cacheKey);
+                                    if (str3 != null) {
+                                        ((co5) ao5Var4).initByString(str3);
+                                        ?? arrayList3 = new ArrayList();
+                                        arrayList3.add(ao5Var4);
+                                        cacheTableName = arrayList3;
+                                        ao5Var3 = cacheTableName;
+                                    }
+                                }
+                            } catch (Exception e2) {
+                                ao5Var3 = cacheTableName;
+                                e = e2;
+                                e.printStackTrace();
+                                return new ReadCacheRespMsg(this.a, ao5Var3);
+                            } catch (Throwable th2) {
+                                ao5Var3 = cacheTableName;
+                                th = th2;
+                                new ReadCacheRespMsg(this.a, ao5Var3);
+                                throw th;
+                            }
+                        }
+                    }
+                    return new ReadCacheRespMsg(this.a, ao5Var3);
+                } catch (Exception e3) {
+                    e = e3;
+                }
+            } catch (Throwable th3) {
+                th = th3;
             }
-            b();
-            return d(view2, i, this.n, this.o);
+        } else {
+            return (CustomResponsedMessage) invokeL.objValue;
         }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.getViewTypeCount() + 1;
-        }
-        return invokeV.intValue;
     }
 }

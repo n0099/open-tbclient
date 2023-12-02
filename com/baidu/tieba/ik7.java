@@ -1,85 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.iu4;
-import com.baidu.tieba.log.TbLog;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.internal.bind.TypeAdapters;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes6.dex */
-public final class ik7 implements iu4.d {
+public class ik7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.iu4.d
-    public String getKey() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsPage.openNotification" : (String) invokeV.objValue;
-    }
-
-    public ik7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            StatisticItem.make(TbadkCoreStatisticKey.KEY_FRS_REQUEST_PAGE).eventStat();
         }
     }
 
-    @Override // com.baidu.tieba.iu4.c
-    public void a(String data) {
-        boolean z;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            try {
-                JSONObject optJSONObject = new JSONObject(data).optJSONObject(GfhKeyValue.TYPE_DATE);
-                if (optJSONObject != null) {
-                    int optInt = optJSONObject.optInt("hour");
-                    int optInt2 = optJSONObject.optInt(TypeAdapters.AnonymousClass27.MINUTE);
-                    boolean z2 = false;
-                    if (optInt >= 0 && optInt < 24) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (z) {
-                        if (optInt2 >= 0 && optInt2 < 60) {
-                            z2 = true;
-                        }
-                        if (z2) {
-                            fa5.e().e0(optInt, optInt2);
-                            if (!fa5.e().G()) {
-                                fa5.e().d0(true);
-                                DefaultLog.getInstance().i("OpenNotificationHybridNotify", "打开开关");
-                            }
-                            TbLog defaultLog = DefaultLog.getInstance();
-                            defaultLog.i("OpenNotificationHybridNotify", "设置成功，时间 H：" + optInt + ", M：" + optInt2);
-                            return;
-                        }
-                    }
-                    TbLog defaultLog2 = DefaultLog.getInstance();
-                    defaultLog2.i("OpenNotificationHybridNotify", "设置失败，时间 H：" + optInt + ", M：" + optInt2);
-                }
-            } catch (Exception e) {
-                TbLog defaultLog3 = DefaultLog.getInstance();
-                defaultLog3.i("OpenNotificationHybridNotify", "设置失败，异常：" + e.getMessage());
-            }
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
+        TiebaStatic.log(new StatisticItem("c11749").param("fname", str));
     }
 }

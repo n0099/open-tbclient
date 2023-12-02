@@ -5,37 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Size;
+import tbclient.FrsPage.StarContriRecord;
 /* loaded from: classes5.dex */
-public class c2d extends ltc {
+public class c2d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static Size b(@NonNull JSONObject jSONObject) {
+    public static JSONObject b(@NonNull StarContriRecord starContriRecord) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            Size.Builder builder = new Size.Builder();
-            if (jSONObject.has("width")) {
-                builder.width = Integer.valueOf(jSONObject.optInt("width"));
-            }
-            if (jSONObject.has("height")) {
-                builder.height = Integer.valueOf(jSONObject.optInt("height"));
-            }
-            return builder.build(true);
-        }
-        return (Size) invokeL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject c(@NonNull Size size) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, size)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, starContriRecord)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "width", size.width);
-            ltc.a(jSONObject, "height", size.height);
+            ktc.a(jSONObject, "user_id", starContriRecord.user_id);
+            ktc.a(jSONObject, "user_name", starContriRecord.user_name);
+            ktc.a(jSONObject, "record_notice", starContriRecord.record_notice);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

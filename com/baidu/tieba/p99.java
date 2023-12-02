@@ -1,53 +1,56 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
 import android.content.Context;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
-import com.baidu.tieba.immessagecenter.msgtab.obs.NewsRemindMsgMonitor;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tieba.ha9;
+import com.baidu.tieba.ia9;
+import com.baidu.tieba.immessagecenter.arch.view.BaseView;
+import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgTabInviteAnswerViewModel;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Pair;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class p99 extends f19 {
+public final class p99 extends BaseView<ia9, ha9, MsgTabInviteAnswerViewModel> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity f;
-    public ViewGroup g;
-    public BarImageView h;
+    public BaseFragment f;
+    public ImageView g;
+    public RelativeLayout h;
     public TextView i;
-    public ImageView j;
-    public BarImageView k;
-    public View l;
-    public TextView m;
-    public ImageView n;
-    public int o;
+    public TextView j;
+    public TextView k;
+    public MessageRedDotView l;
+    public ImageView m;
+    public RoundRelativeLayout n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p99(BaseFragmentActivity context) {
-        super(R.layout.obfuscated_res_0x7f0d0674);
+    public p99(BaseFragment mFragment) {
+        super(R.layout.obfuscated_res_0x7f0d0672);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {mFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -58,68 +61,22 @@ public final class p99 extends f19 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        this.f = context;
-        this.o = -1;
+        Intrinsics.checkNotNullParameter(mFragment, "mFragment");
+        this.f = mFragment;
     }
 
-    public static final Boolean U(NewsRemindMessage newsRemindMessage) {
-        InterceptResult invokeL;
-        boolean z;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, newsRemindMessage)) == null) {
-            if (newsRemindMessage != null) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeL(1048597, this, view2) == null) {
+            int i = 1;
+            if (n().getVisibility() == 0 && SharedPrefHelper.getInstance().getBoolean("key_question_msg_no_remind", false)) {
+                i = 2;
             }
-            return Boolean.valueOf(z);
-        }
-        return (Boolean) invokeL.objValue;
-    }
-
-    public final String T(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (i > 100) {
-                return "99+";
-            }
-            if (i > 0) {
-                return String.valueOf(i);
-            }
-            return "0";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static final Pair V(p99 this$0, NewsRemindMessage newsRemindMessage) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, this$0, newsRemindMessage)) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            int i = this$0.o;
-            int i2 = 0;
-            if (i == 2) {
-                i2 = newsRemindMessage.getChatCount();
-                z = newsRemindMessage.hasChatRemind();
-            } else {
-                if (i == 1) {
-                    i2 = newsRemindMessage.getMsgCount() + newsRemindMessage.getNotificationCount();
-                }
-                z = false;
-            }
-            return new Pair(Integer.valueOf(i2), Boolean.valueOf(z));
-        }
-        return (Pair) invokeLL.objValue;
-    }
-
-    public static final void W(p99 this$0, Pair pair) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, this$0, pair) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.X(((Number) pair.getFirst()).intValue(), ((Boolean) pair.getSecond()).booleanValue());
+            Y(0);
+            Context requireContext = this.f.requireContext();
+            Intrinsics.checkNotNullExpressionValue(requireContext, "mFragment.requireContext()");
+            q().k(new ha9.a(requireContext, i));
         }
     }
 
@@ -127,349 +84,271 @@ public final class p99 extends f19 {
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g = (ViewGroup) j(R.id.obfuscated_res_0x7f091825);
-            this.h = (BarImageView) j(R.id.obfuscated_res_0x7f09181c);
-            this.j = (ImageView) j(R.id.iv_icon);
-            this.i = (TextView) j(R.id.new_message);
-            this.l = j(R.id.obfuscated_res_0x7f091a20);
-            this.k = (BarImageView) j(R.id.bg_view);
-            this.m = (TextView) j(R.id.tv_title);
-            this.n = (ImageView) j(R.id.obfuscated_res_0x7f0912b8);
+            a0((ImageView) j(R.id.obfuscated_res_0x7f09120b));
+            f0((RelativeLayout) j(R.id.obfuscated_res_0x7f092696));
+            g0((TextView) j(R.id.obfuscated_res_0x7f09120e));
+            b0((TextView) j(R.id.obfuscated_res_0x7f09120a));
+            e0((TextView) j(R.id.obfuscated_res_0x7f09120d));
+            d0((MessageRedDotView) j(R.id.obfuscated_res_0x7f09120c));
+            this.n = (RoundRelativeLayout) j(R.id.obfuscated_res_0x7f0902c3);
+            c0((ImageView) j(R.id.obfuscated_res_0x7f090a6d));
         }
     }
 
-    public final void R(h79 data) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
+    /* renamed from: X */
+    public void J(ia9 state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            this.o = data.b();
-            ImageView imageView = null;
-            if (data.b() == 2) {
-                TextView textView = this.m;
-                if (textView == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mTitleView");
-                    textView = null;
-                }
-                textView.setText(R.string.obfuscated_res_0x7f0f040f);
-                ImageView imageView2 = this.j;
-                if (imageView2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mIconImageView");
-                } else {
-                    imageView = imageView2;
-                }
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081021);
-            } else {
-                TextView textView2 = this.m;
-                if (textView2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mTitleView");
-                    textView2 = null;
-                }
-                textView2.setText(R.string.msg_notify);
-                ImageView imageView3 = this.j;
-                if (imageView3 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mIconImageView");
-                } else {
-                    imageView = imageView3;
-                }
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08102c);
-            }
-            n().setSelected(data.c());
-        }
-    }
-
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView, com.baidu.tieba.e19
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            super.d(z);
-            int i = 0;
-            ViewGroup viewGroup = null;
-            if (z) {
-                BarImageView barImageView = this.k;
-                if (barImageView == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mBgImageView");
-                    barImageView = null;
-                }
-                nk6.f(barImageView, 0);
-                TextView textView = this.m;
-                if (textView == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mTitleView");
-                    textView = null;
-                }
-                nk6.f(textView, 8);
-            } else {
-                BarImageView barImageView2 = this.k;
-                if (barImageView2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mBgImageView");
-                    barImageView2 = null;
-                }
-                nk6.f(barImageView2, 8);
-                TextView textView2 = this.m;
-                if (textView2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mTitleView");
-                    textView2 = null;
-                }
-                nk6.f(textView2, 0);
-            }
-            BarImageView barImageView3 = this.h;
-            if (barImageView3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mBgFrameBorderView");
-                barImageView3 = null;
-            }
-            if (!z) {
-                i = 8;
-            }
-            barImageView3.setVisibility(i);
-            if (z) {
-                S(0.0f, 1.0f);
-            } else {
-                S(1.0f, 0.0f);
-            }
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            if (z) {
-                ViewGroup viewGroup2 = this.g;
-                if (viewGroup2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mContentContainerView");
-                } else {
-                    viewGroup = viewGroup2;
-                }
-                ka9.a(viewGroup);
+        if (interceptable == null || interceptable.invokeL(1048586, this, state) == null) {
+            Intrinsics.checkNotNullParameter(state, "state");
+            if (state instanceof ia9.b) {
+                Z(((ia9.b) state).a());
+            } else if (state instanceof ia9.a) {
+                Y(((ia9.a) state).a());
             }
         }
     }
 
-    public final void S(float f, float f2) {
+    public final void a0(ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            PropertyValuesHolder ofFloat = PropertyValuesHolder.ofFloat(Key.ALPHA, f, f2);
-            ImageView imageView = this.n;
-            if (imageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mBackgroundView");
-                imageView = null;
-            }
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(imageView, ofFloat);
-            Intrinsics.checkNotNullExpressionValue(ofPropertyValuesHolder, "ofPropertyValuesHolder(m…kgroundView, alphaProper)");
-            ofPropertyValuesHolder.setDuration(200L);
-            ofPropertyValuesHolder.start();
+        if (interceptable == null || interceptable.invokeL(1048589, this, imageView) == null) {
+            Intrinsics.checkNotNullParameter(imageView, "<set-?>");
+            this.g = imageView;
         }
     }
 
-    public final void X(int i, boolean z) {
+    public final void b0(TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            TextView textView = null;
-            if (i > 0) {
-                View view2 = this.l;
-                if (view2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mNewMessageRemind");
-                    view2 = null;
-                }
-                nk6.f(view2, 8);
-                TextView textView2 = this.i;
-                if (textView2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mUnreadNumTextView");
-                    textView2 = null;
-                }
-                nk6.f(textView2, 0);
-                TextView textView3 = this.i;
-                if (textView3 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mUnreadNumTextView");
-                } else {
-                    textView = textView3;
-                }
-                textView.setText(T(i));
-            } else if (z) {
-                View view3 = this.l;
-                if (view3 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mNewMessageRemind");
-                    view3 = null;
-                }
-                nk6.f(view3, 0);
-                TextView textView4 = this.i;
-                if (textView4 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mUnreadNumTextView");
-                } else {
-                    textView = textView4;
-                }
-                nk6.f(textView, 8);
-            } else {
-                View view4 = this.l;
-                if (view4 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mNewMessageRemind");
-                    view4 = null;
-                }
-                nk6.f(view4, 8);
-                TextView textView5 = this.i;
-                if (textView5 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mUnreadNumTextView");
-                } else {
-                    textView = textView5;
-                }
-                nk6.f(textView, 8);
-            }
+        if (interceptable == null || interceptable.invokeL(1048590, this, textView) == null) {
+            Intrinsics.checkNotNullParameter(textView, "<set-?>");
+            this.j = textView;
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView, com.baidu.tieba.w09
-    public void b() {
+    public final void c0(ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.b();
-            htc k = k();
-            if (k != null) {
-                k.a(NewsRemindMsgMonitor.f.a().k().k(new xoc() { // from class: com.baidu.tieba.w89
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.xoc
-                    public final Object call(Object obj) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? p99.U((NewsRemindMessage) obj) : invokeL.objValue;
-                    }
-                }).p(new xoc() { // from class: com.baidu.tieba.h99
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.xoc
-                    public final Object call(Object obj) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? p99.V(p99.this, (NewsRemindMessage) obj) : invokeL.objValue;
-                    }
-                }).H(new soc() { // from class: com.baidu.tieba.j99
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.soc
-                    public final void call(Object obj) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                            p99.W(p99.this, (Pair) obj);
-                        }
-                    }
-                }));
-            }
+        if (interceptable == null || interceptable.invokeL(1048591, this, imageView) == null) {
+            Intrinsics.checkNotNullParameter(imageView, "<set-?>");
+            this.m = imageView;
         }
     }
 
-    @Override // com.baidu.tieba.e19
-    public void onChangeSkinType(int i) {
-        int color;
-        int i2;
-        int color2;
+    public final void d0(MessageRedDotView messageRedDotView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            BarImageView barImageView = null;
-            if (i == 4) {
-                ImageView imageView = this.j;
-                if (imageView == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mIconImageView");
-                    imageView = null;
-                }
-                if (n().isSelected()) {
-                    color2 = SkinManager.getColor(R.color.CAM_X0622);
-                } else {
-                    color2 = SkinManager.getColor(R.color.CAM_X0341);
-                }
-                imageView.setColorFilter(color2);
-            } else {
-                ImageView imageView2 = this.j;
-                if (imageView2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mIconImageView");
-                    imageView2 = null;
-                }
-                if (n().isSelected()) {
-                    color = -1;
-                } else {
-                    color = SkinManager.getColor(R.color.CAM_X0341);
-                }
-                imageView2.setColorFilter(color);
+        if (interceptable == null || interceptable.invokeL(1048592, this, messageRedDotView) == null) {
+            Intrinsics.checkNotNullParameter(messageRedDotView, "<set-?>");
+            this.l = messageRedDotView;
+        }
+    }
+
+    public final void e0(TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, textView) == null) {
+            Intrinsics.checkNotNullParameter(textView, "<set-?>");
+            this.k = textView;
+        }
+    }
+
+    public final void f0(RelativeLayout relativeLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, relativeLayout) == null) {
+            Intrinsics.checkNotNullParameter(relativeLayout, "<set-?>");
+            this.h = relativeLayout;
+        }
+    }
+
+    public final void g0(TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, textView) == null) {
+            Intrinsics.checkNotNullParameter(textView, "<set-?>");
+            this.i = textView;
+        }
+    }
+
+    public final ImageView P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ImageView imageView = this.g;
+            if (imageView != null) {
+                return imageView;
             }
-            if (n().isSelected()) {
-                i2 = R.color.CAM_X0201;
-            } else {
-                i2 = R.color.CAM_X0202;
+            Intrinsics.throwUninitializedPropertyAccessException("mCardIcon");
+            return null;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    public final TextView Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            TextView textView = this.j;
+            if (textView != null) {
+                return textView;
             }
-            ImageView imageView3 = this.n;
-            if (imageView3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mBackgroundView");
-                imageView3 = null;
+            Intrinsics.throwUninitializedPropertyAccessException("mContent");
+            return null;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public final ImageView R() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ImageView imageView = this.m;
+            if (imageView != null) {
+                return imageView;
             }
-            imageView3.setColorFilter(SkinManager.getColor(i2));
-            View view2 = this.l;
-            if (view2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mNewMessageRemind");
-                view2 = null;
+            Intrinsics.throwUninitializedPropertyAccessException("mEnterBtn");
+            return null;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    public final MessageRedDotView S() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            MessageRedDotView messageRedDotView = this.l;
+            if (messageRedDotView != null) {
+                return messageRedDotView;
             }
-            EMManager.from(view2).setBorderColor(i2).setBackGroundColor(R.color.CAM_X0301);
+            Intrinsics.throwUninitializedPropertyAccessException("mRedView");
+            return null;
+        }
+        return (MessageRedDotView) invokeV.objValue;
+    }
+
+    public final TextView T() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            TextView textView = this.k;
+            if (textView != null) {
+                return textView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mShield");
+            return null;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public final RelativeLayout U() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            RelativeLayout relativeLayout = this.h;
+            if (relativeLayout != null) {
+                return relativeLayout;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mTextContainer");
+            return null;
+        }
+        return (RelativeLayout) invokeV.objValue;
+    }
+
+    public final TextView V() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             TextView textView = this.i;
-            if (textView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mUnreadNumTextView");
-                textView = null;
+            if (textView != null) {
+                return textView;
             }
-            EMManager.from(textView).setTextColor(R.color.CAM_X0101).setBorderColor(i2).setBackGroundColor(R.color.CAM_X0301);
-            TextView textView2 = this.m;
-            if (textView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mTitleView");
-                textView2 = null;
+            Intrinsics.throwUninitializedPropertyAccessException("mTitle");
+            return null;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
+    /* renamed from: W */
+    public MsgTabInviteAnswerViewModel u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            ViewModel viewModel = new ViewModelProvider(this.f).get(MsgTabInviteAnswerViewModel.class);
+            Intrinsics.checkNotNullExpressionValue(viewModel, "ViewModelProvider(mFragm…werViewModel::class.java)");
+            return (MsgTabInviteAnswerViewModel) viewModel;
+        }
+        return (MsgTabInviteAnswerViewModel) invokeV.objValue;
+    }
+
+    public final void Y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            if (i > 0) {
+                if (SharedPrefHelper.getInstance().getBoolean("key_question_msg_no_remind", false)) {
+                    i = 0;
+                }
+                R().setVisibility(8);
+                S().setThreeDotMode(2);
+                S().refresh(i);
+                S().setVisibility(0);
+                Q().setText(R.string.obfuscated_res_0x7f0f0807);
+                return;
             }
-            EMManager.from(textView2).setTextColor(R.color.CAM_X0107);
-            BarImageView barImageView2 = this.h;
-            if (barImageView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mBgFrameBorderView");
-            } else {
-                barImageView = barImageView2;
+            S().setVisibility(8);
+            R().setVisibility(0);
+            Q().setText(R.string.obfuscated_res_0x7f0f0806);
+        }
+    }
+
+    public final void Z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            if (z) {
+                Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_shield_svg, R.color.CAM_X1111, SvgManager.SvgResourceStateType.NORMAL);
+                int dimens = BdUtilHelper.getDimens(this.f.getContext(), R.dimen.tbds34);
+                pureDrawable.setBounds(new Rect(0, 0, dimens, dimens));
+                T().setCompoundDrawables(null, null, pureDrawable, null);
+                T().setVisibility(0);
+                return;
             }
-            barImageView.setStrokeColorResId(R.color.CAM_X0341);
+            T().setVisibility(8);
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
     public void r(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, context) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            TextView textView = this.m;
-            BarImageView barImageView = null;
-            if (textView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mTitleView");
-                textView = null;
+            P().setOnClickListener(this);
+            U().setOnClickListener(this);
+            V().setOnClickListener(this);
+            Q().setOnClickListener(this);
+            S().setOnClickListener(this);
+            Y(SharedPrefHelper.getInstance().getInt(SharedPrefHelper.getSharedPrefKeyWithAccount("msg_tab_entrance_invitation_answer_unread_num"), 0));
+        }
+    }
+
+    @Override // com.baidu.tieba.i19
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            WebPManager.setMaskDrawable(P(), R.drawable.obfuscated_res_0x7f08125e, WebPManager.ResourceStateType.NORMAL);
+            RoundRelativeLayout roundRelativeLayout = this.n;
+            RoundRelativeLayout roundRelativeLayout2 = null;
+            if (roundRelativeLayout == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mContainer");
+                roundRelativeLayout = null;
             }
-            EMManager.from(textView).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0107);
-            BarImageView barImageView2 = this.h;
-            if (barImageView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mBgFrameBorderView");
-                barImageView2 = null;
-            }
-            barImageView2.setShowOval(true);
-            barImageView2.setShowOuterBorder(true);
-            barImageView2.setShowInnerBorder(false);
-            barImageView2.setDefaultBgResource(R.color.CAM_X0211);
-            barImageView2.setStrokeWith(BdUtilHelper.getDimens(context, R.dimen.tbds5));
-            barImageView2.setStrokeColorResId(R.color.CAM_X0341);
-            TextView textView2 = this.i;
-            if (textView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mUnreadNumTextView");
-                textView2 = null;
-            }
-            EMManager.from(textView2).setCorner(R.string.J_X07).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X10).setTextColor(R.color.CAM_X0101).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X04).setBorderColor(R.color.CAM_X0202).setBackGroundColor(R.color.CAM_X0301);
-            View view2 = this.l;
-            if (view2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mNewMessageRemind");
-                view2 = null;
-            }
-            EMManager.from(view2).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X04).setBorderColor(R.color.CAM_X0202).setBackGroundColor(R.color.CAM_X0301);
-            BarImageView barImageView3 = this.k;
-            if (barImageView3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mBgImageView");
+            roundRelativeLayout.setAllCornerRound(BdUtilHelper.getDimens(this.f.getContext(), R.dimen.tbds31));
+            RoundRelativeLayout roundRelativeLayout3 = this.n;
+            if (roundRelativeLayout3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mContainer");
             } else {
-                barImageView = barImageView3;
+                roundRelativeLayout2 = roundRelativeLayout3;
             }
-            barImageView.setShowOval(true);
-            barImageView.setShowOuterBorder(false);
-            barImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08102d);
-            barImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08102d);
+            EMManager.from(roundRelativeLayout2).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
+            WebPManager.setPureDrawable(R(), R.drawable.obfuscated_res_0x7f0808c9, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL_PRESS);
+            EMManager.from(V()).setTextSize(R.dimen.T_X05).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0105);
+            EMManager.from(Q()).setTextColor(R.color.CAM_X0109).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X08);
         }
     }
 }

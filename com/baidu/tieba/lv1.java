@@ -1,53 +1,42 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewTreeObserver;
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class lv1 extends lu1 {
+public class lv1 extends ev1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public int g;
-    public ViewTreeObserver.OnGlobalLayoutListener h;
 
-    @Override // com.baidu.tieba.lu1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Keyboard" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lu1
+    @Override // com.baidu.tieba.ou1
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SoftKeyboardApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "TabBarApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lv1 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ lv1 d;
 
-        public a(lv1 lv1Var) {
+        public a(lv1 lv1Var, String str, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lv1Var};
+                Object[] objArr = {lv1Var, str, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,59 +46,59 @@ public class lv1 extends lu1 {
                     return;
                 }
             }
-            this.a = lv1Var;
+            this.d = lv1Var;
+            this.a = str;
+            this.b = z;
+            this.c = z2;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean j;
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Rect rect = new Rect();
-                this.a.f.getWindowVisibleDisplayFrame(rect);
-                int height = rect.height();
-                if (this.a.g == height) {
+                wh3 A = lv1.A();
+                if (A == null) {
+                    k32.c("TabBarApi", "tabBarViewController is null");
+                    this.d.d(this.a, new ly1(1001));
                     return;
                 }
-                if (this.a.g - height > 180) {
-                    HashMap hashMap = new HashMap();
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("height", yj3.O(this.a.g - height));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    hashMap.put("data", jSONObject.toString());
-                    ur2.V().v(new ig2("keyboardHeightChange", hashMap));
-                    this.a.g = height;
-                } else if (height - this.a.g > 180) {
-                    HashMap hashMap2 = new HashMap();
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("height", 0);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                    hashMap2.put("data", jSONObject2.toString());
-                    ur2.V().v(new ig2("keyboardHeightChange", hashMap2));
-                    this.a.g = height;
+                if (this.b) {
+                    j = A.r(this.c);
+                } else {
+                    j = A.j(this.c);
                 }
+                if (!j) {
+                    StringBuilder sb = new StringBuilder();
+                    if (this.b) {
+                        str = "open";
+                    } else {
+                        str = "close";
+                    }
+                    sb.append(str);
+                    sb.append("bottom bar fail");
+                    k32.c("TabBarApi", sb.toString());
+                    this.d.d(this.a, new ly1(1001));
+                }
+                this.d.d(this.a, new ly1(0));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lv1(@NonNull ju1 ju1Var) {
-        super(ju1Var);
+    public lv1(@NonNull mu1 mu1Var) {
+        super(mu1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ju1Var};
+            Object[] objArr = {mu1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ju1) newInitContext.callArgs[0]);
+                super((mu1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -117,61 +106,133 @@ public class lv1 extends lu1 {
         }
     }
 
-    public final void B() {
+    public static wh3 A() {
+        InterceptResult invokeV;
+        s52 l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SwanAppActivity activity = ur2.V().getActivity();
-            if (activity == null) {
-                h32.c("SoftKeyboardApi", "activity is null");
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            t52 W = xr2.V().W();
+            if (W != null && (l = W.l()) != null) {
+                return l.C3();
             }
-            this.f = activity.getWindow().getDecorView();
-            Rect rect = new Rect();
-            this.f.getWindowVisibleDisplayFrame(rect);
-            this.g = rect.height();
-            if (this.h == null) {
-                this.h = new a(this);
-                this.f.getViewTreeObserver().addOnGlobalLayoutListener(this.h);
-            }
+            return null;
         }
+        return (wh3) invokeV.objValue;
     }
 
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.h != null) {
-                this.f.getViewTreeObserver().removeOnGlobalLayoutListener(this.h);
-            }
-            this.h = null;
-            this.g = 0;
-        }
-    }
-
-    public iy1 D() {
+    public static boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            r("#startKeyboardHeightChange", false);
-            if (h63.c0() == null) {
-                return new iy1(1001, "swan app is null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            t52 W = xr2.V().W();
+            if (W != null && W.o() != null && W.o().k2()) {
+                return false;
             }
-            B();
-            return iy1.f();
+            return true;
         }
-        return (iy1) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public iy1 E() {
-        InterceptResult invokeV;
+    public final ly1 B(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            r("#stopKeyboardHeightChange", false);
-            if (h63.c0() == null) {
-                return new iy1(1001, "swan app is null");
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (C()) {
+                k32.c("TabBarApi", "fail not TabBar page");
+                return new ly1(1001, "fail not TabBar page");
             }
-            C();
-            return iy1.f();
+            Pair<ly1, JSONObject> t = t(str);
+            ly1 ly1Var = (ly1) t.first;
+            if (!ly1Var.isSuccess()) {
+                return ly1Var;
+            }
+            JSONObject jSONObject = (JSONObject) t.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                k32.c("TabBarApi", "callback is null");
+                return new ly1(1001, "callback is null");
+            }
+            ek3.e0(new a(this, optString, z, jSONObject.optBoolean("animation")));
+            return ly1.f();
         }
-        return (iy1) invokeV.objValue;
+        return (ly1) invokeLZ.objValue;
+    }
+
+    public ly1 D(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            r("#openTabBar", false);
+            return B(str, true);
+        }
+        return (ly1) invokeL.objValue;
+    }
+
+    public ly1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            r("#closeTabBar", false);
+            return B(str, false);
+        }
+        return (ly1) invokeL.objValue;
+    }
+
+    public ly1 E(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            r("#setTabBarItem", false);
+            Pair<ly1, JSONObject> t = t(str);
+            ly1 ly1Var = (ly1) t.first;
+            if (!ly1Var.isSuccess()) {
+                return ly1Var;
+            }
+            JSONObject jSONObject = (JSONObject) t.second;
+            if (C()) {
+                k32.c("TabBarApi", "fail not TabBar page");
+                return new ly1(1001, "fail not TabBar page");
+            }
+            wh3 A = A();
+            if (A == null) {
+                k32.c("TabBarApi", "tabBarViewController is null");
+                return new ly1(1001, "tabBarViewController is null");
+            } else if (!A.x(jSONObject.optInt("index"), jSONObject.optString("text"), jSONObject.optString("iconPath"), jSONObject.optString("selectedIconPath"))) {
+                k32.c("TabBarApi", "set tab bar item fail");
+                return new ly1(1001, "set tab bar item fail");
+            } else {
+                return ly1.f();
+            }
+        }
+        return (ly1) invokeL.objValue;
+    }
+
+    public ly1 z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            r("#closeTabBarRedDot", false);
+            Pair<ly1, JSONObject> t = t(str);
+            ly1 ly1Var = (ly1) t.first;
+            if (!ly1Var.isSuccess()) {
+                return ly1Var;
+            }
+            int optInt = ((JSONObject) t.second).optInt("index");
+            if (C()) {
+                k32.c("TabBarApi", "fail not TabBar page");
+                return new ly1(1001, "fail not TabBar page");
+            }
+            wh3 A = A();
+            if (A == null) {
+                k32.c("TabBarApi", "tabBarViewController is null");
+                return new ly1(1001, "tabBarViewController is null");
+            } else if (!A.k(optInt)) {
+                k32.c("TabBarApi", "close red dot fail");
+                return new ly1(1001, "close red dot fail");
+            } else {
+                return ly1.f();
+            }
+        }
+        return (ly1) invokeL.objValue;
     }
 }

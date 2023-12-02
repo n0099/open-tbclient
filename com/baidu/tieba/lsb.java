@@ -1,72 +1,25 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
 public final class lsb {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static boolean b;
-    public static StringBuffer c;
+    public static List<WeakReference<ScheduledFuture<?>>> a;
+    public static ExecutorService b;
+    public static ScheduledExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a extends nsb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-
-        public a(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-        }
-
-        @Override // com.baidu.tieba.nsb
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                StringBuffer stringBuffer = new StringBuffer();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss:SSS");
-                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
-                stringBuffer.append(simpleDateFormat.format(new Date()));
-                stringBuffer.append("\t");
-                stringBuffer.append(this.a);
-                stringBuffer.append("\t");
-                stringBuffer.append(this.b);
-                stringBuffer.append("\t");
-                stringBuffer.append(this.c);
-                qsb.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.c, lsb.c.toString());
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -81,78 +34,43 @@ public final class lsb {
                 return;
             }
         }
-        c = new StringBuffer();
-        if (krb.i() != null) {
-            a = !com.baidu.ubs.analytics.d.a.a();
-            b = true;
-            c.append("ABsdkLog-");
-            c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            c.append("_");
-            try {
-                c.append(c(gsb.g(krb.i().g()).getBytes("UTF-8")));
-            } catch (UnsupportedEncodingException e) {
-                tsb.d(e);
-            } catch (Exception e2) {
-                tsb.d(e2);
-            }
-            c.append(".log");
-        }
+        a = new ArrayList();
+        b = Executors.newFixedThreadPool(2);
+        c = Executors.newScheduledThreadPool(2);
     }
 
-    public static void a(String str) {
+    public static synchronized void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            if (a) {
-                Log.w("BaiDuUbs", str);
-            }
-            d("w", "BaiDuUbs", str);
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            if (a) {
-                Log.e("BaiDuUbs", str);
-            }
-            d("e", "BaiDuUbs", str);
-        }
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder("");
-            if (bArr != null && bArr.length > 0) {
-                for (byte b2 : bArr) {
-                    String hexString = Integer.toHexString(b2 & 255);
-                    if (hexString.length() < 2) {
-                        sb.append(0);
-                    }
-                    sb.append(hexString);
+        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
+            synchronized (lsb.class) {
+                if (c == null || c.isShutdown()) {
+                    c = Executors.newScheduledThreadPool(2);
                 }
-                return sb.toString();
+                c.execute(runnable);
             }
-            return null;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void d(String str, String str2, String str3) {
+    public static void c(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) != null) || !b) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            ExecutorService executorService = b;
+            if (executorService == null || executorService.isShutdown()) {
+                b = Executors.newFixedThreadPool(2);
+            }
+            b.execute(runnable);
         }
-        msb.a(new a(str, str2, str3));
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public static synchronized void b(Runnable runnable, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return c.toString();
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            synchronized (lsb.class) {
+                if (c == null || c.isShutdown()) {
+                    c = Executors.newScheduledThreadPool(2);
+                }
+                a.add(new WeakReference<>(c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes8.dex */
-public interface vu4 {
-    boolean a(View view2);
+public interface vu4<T> {
+    void a(T t);
 }

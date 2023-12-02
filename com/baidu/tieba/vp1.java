@@ -1,21 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tieba.kf4;
-import okhttp3.Callback;
-import org.json.JSONObject;
+import android.content.res.Resources;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface vp1 {
-    void d(byte[] bArr);
+public abstract class vp1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    <T> void e(String str, String str2, ResponseCallback<T> responseCallback);
+    public Resources b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (Resources) invokeV.objValue;
+    }
 
-    void f(String str, String str2, kf4.c cVar);
+    public abstract void c(boolean z);
 
-    boolean g(String str);
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        }
+    }
 
-    boolean h();
+    public void f(Object obj, yb3 yb3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, obj, yb3Var) == null) {
+        }
+    }
 
-    boolean i(@NonNull h63 h63Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, al3<String> al3Var);
+    public void g(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+        }
+    }
+
+    public vp1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ye3.a().getBoolean("PREFS_NIGHT_MODE", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            ye3.a().putBoolean("PREFS_NIGHT_MODE", z);
+        }
+    }
 }

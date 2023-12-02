@@ -1,212 +1,351 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.download.util.LocalFilesFilterKt;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.SoChecker;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-import okhttp3.OkHttpClient;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class gea {
     public static /* synthetic */ Interceptable $ic;
-    public static OkHttpClient a;
-    public static job b;
-    public static long c;
-    public static volatile boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String A;
+    public String B;
+    public String C;
+    public String D;
+    public String E;
+    public String F;
+    public String G;
+    public String H;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public int j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public String v;
+    public String w;
+    public int x;
+    public int y;
+    public String z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947792422, "Lcom/baidu/tieba/gea;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return "";
+                }
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 1567) {
+                    if (hashCode != 1568) {
+                        if (hashCode != 1570) {
+                            if (hashCode != 1576) {
+                                if (hashCode != 1599) {
+                                    switch (hashCode) {
+                                        case 49:
+                                            if (str.equals("1")) {
+                                                c = 0;
+                                                break;
+                                            }
+                                            break;
+                                        case 50:
+                                            if (str.equals("2")) {
+                                                c = 2;
+                                                break;
+                                            }
+                                            break;
+                                        case 51:
+                                            if (str.equals("3")) {
+                                                c = 4;
+                                                break;
+                                            }
+                                            break;
+                                        case 52:
+                                            if (str.equals("4")) {
+                                                c = 3;
+                                                break;
+                                            }
+                                            break;
+                                        default:
+                                            switch (hashCode) {
+                                                case 54:
+                                                    if (str.equals("6")) {
+                                                        c = 7;
+                                                        break;
+                                                    }
+                                                    break;
+                                                case 55:
+                                                    if (str.equals("7")) {
+                                                        c = 1;
+                                                        break;
+                                                    }
+                                                    break;
+                                                case 56:
+                                                    if (str.equals("8")) {
+                                                        c = '\b';
+                                                        break;
+                                                    }
+                                                    break;
+                                                case 57:
+                                                    if (str.equals("9")) {
+                                                        c = '\t';
+                                                        break;
+                                                    }
+                                                    break;
+                                            }
+                                    }
+                                } else if (str.equals("21")) {
+                                    c = '\f';
+                                }
+                            } else if (str.equals("19")) {
+                                c = '\n';
+                            }
+                        } else if (str.equals("13")) {
+                            c = 11;
+                        }
+                    } else if (str.equals("11")) {
+                        c = 6;
+                    }
+                } else if (str.equals("10")) {
+                    c = 5;
+                }
+                switch (c) {
+                    case 0:
+                    case 1:
+                        return "a002";
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                        return "a006";
+                    case 7:
+                        return "a005";
+                    case '\b':
+                    case '\t':
+                    case '\n':
+                        return "a020";
+                    case 11:
+                        return "a023";
+                    case '\f':
+                        return "a088";
+                    default:
+                        return "";
+                }
+            }
+            return (String) invokeL.objValue;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+    }
+
+    public gea() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947792422, "Lcom/baidu/tieba/gea;");
-        }
+        this.z = "index";
     }
 
-    public static OkHttpClient a() {
-        InterceptResult invokeV;
+    public StatisticItem a(StatisticItem statisticItem) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            b = h();
-            oob oobVar = new oob(b);
-            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(oobVar);
-            return builder.build();
-        }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    public static job h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            job jobVar = new job(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
-            b = jobVar;
-            return jobVar;
-        }
-        return (job) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String b() {
-        InterceptResult invokeV;
-        String path;
-        boolean equalsIgnoreCase;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
-            try {
-                String externalStorageState = Environment.getExternalStorageState();
-                equalsIgnoreCase = externalStorageState.equalsIgnoreCase("mounted");
-                if (!equalsIgnoreCase && !Environment.isExternalStorageRemovable() && !externalStorageState.equalsIgnoreCase(SwanKV.FLAVOR_SHARED)) {
-                    z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, statisticItem)) == null) {
+            if (statisticItem != null) {
+                if (!StringUtils.isNull(this.a)) {
+                    statisticItem.param("obj_locate", this.a);
+                    statisticItem.param("page_type", a.a(this.a));
+                    if (this.a.equals("21")) {
+                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
+                    }
+                    if (this.a.equals("13") && !StringUtils.isNull(this.i) && this.z.equals(this.i)) {
+                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
+                    }
+                }
+                if (!StringUtils.isNull(this.c)) {
+                    statisticItem.param("tid", this.c);
+                }
+                if (!StringUtils.isNull(this.d)) {
+                    statisticItem.param("fid", this.d);
+                }
+                if (!StringUtils.isNull(this.e)) {
+                    statisticItem.param("uid", this.e);
+                }
+                if (!StringUtils.isNull(this.f)) {
+                    statisticItem.param("obj_source", this.f);
                 } else {
-                    z = false;
+                    statisticItem.param("obj_source", 0);
                 }
-            } catch (Exception unused) {
-                File cacheDir = context.getCacheDir();
-                if (cacheDir == null) {
-                    return null;
+                if (!StringUtils.isNull(this.g)) {
+                    statisticItem.param("obj_param1", this.g);
+                } else {
+                    statisticItem.param("obj_param1", 0);
                 }
-                path = cacheDir.getPath();
-            }
-            if (!equalsIgnoreCase && !z) {
-                path = context.getCacheDir().getPath();
-                if (!path.endsWith(File.separator)) {
-                    return path.substring(0, path.length() - 1);
+                if (!StringUtils.isNull(this.h)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.h);
                 }
-                return path;
+                if (!StringUtils.isNull(this.i)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.i);
+                }
+                int i = this.j;
+                if (i > 0) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, i);
+                }
+                if (!StringUtils.isNull(this.k)) {
+                    statisticItem.param("obj_id", this.k);
+                }
+                if (!StringUtils.isNull(this.l)) {
+                    statisticItem.param("ab_tag", this.l);
+                } else {
+                    statisticItem.param("ab_tag", 0);
+                }
+                if (!StringUtils.isNull(this.n)) {
+                    statisticItem.param(TiebaStatic.Params.TOPIC_TYPE, this.n);
+                }
+                if (!StringUtils.isNull(this.o)) {
+                    statisticItem.param("extra", this.o);
+                } else {
+                    statisticItem.param("extra", 0);
+                }
+                if (!StringUtils.isNull(this.p)) {
+                    statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.p);
+                }
+                if (!StringUtils.isNull(this.q)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.q);
+                }
+                if (!StringUtils.isNull(this.r)) {
+                    statisticItem.param("resource_id", this.r);
+                }
+                if (!StringUtils.isNull(this.s)) {
+                    statisticItem.param("group_id", this.s);
+                }
+                int i2 = this.x;
+                if (i2 > 0) {
+                    statisticItem.param("request_num", i2);
+                }
+                int i3 = this.y;
+                if (i3 > 0) {
+                    statisticItem.param("video_num", i3);
+                }
+                if (!StringUtils.isNull(this.A)) {
+                    statisticItem.addParam("obj_type", this.A);
+                }
+                if (!StringUtils.isNull(this.B)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_TO, this.B);
+                }
+                if (!StringUtils.isNull(this.C)) {
+                    statisticItem.param(TiebaStatic.YYParams.YYSID, this.C);
+                }
+                if (!StringUtils.isNull(this.D)) {
+                    statisticItem.param(TiebaStatic.YYParams.YYSSID, this.D);
+                }
+                if (!StringUtils.isNull(this.E)) {
+                    statisticItem.param("yyuid", this.E);
+                }
+                if (!StringUtils.isNull(this.F)) {
+                    statisticItem.param(TiebaStatic.YYParams.YYLIVEID, this.F);
+                }
+                if (!StringUtils.isNull(this.G)) {
+                    statisticItem.param("template_id", this.G);
+                }
+                if (!StringUtils.isNull(this.H)) {
+                    statisticItem.param("hdid", this.H);
+                }
+                String str4 = "";
+                if (StringUtils.isNull(this.w)) {
+                    str = "";
+                } else {
+                    str = this.w;
+                }
+                statisticItem.param("obj_extra", str);
+                if (StringUtils.isNull(this.t)) {
+                    str2 = "";
+                } else {
+                    str2 = this.t;
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, str2);
+                if (StringUtils.isNull(this.u)) {
+                    str3 = "";
+                } else {
+                    str3 = this.u;
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, str3);
+                if (!StringUtils.isNull(this.v)) {
+                    str4 = this.v;
+                }
+                statisticItem.param("nid", str4);
             }
-            path = context.getExternalCacheDir().getPath();
-            if (!path.endsWith(File.separator)) {
-            }
-        } else {
-            return (String) invokeV.objValue;
+            return statisticItem;
         }
+        return (StatisticItem) invokeL.objValue;
     }
 
-    public static OkHttpClient c() {
+    public gea b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = a();
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            gea geaVar = new gea();
+            geaVar.a = this.a;
+            geaVar.b = this.b;
+            geaVar.c = this.c;
+            geaVar.d = this.d;
+            geaVar.e = this.e;
+            geaVar.f = this.f;
+            geaVar.g = this.g;
+            geaVar.h = this.h;
+            geaVar.i = this.i;
+            geaVar.k = this.k;
+            geaVar.l = this.l;
+            geaVar.m = this.m;
+            geaVar.n = this.n;
+            geaVar.q = this.q;
+            geaVar.r = this.r;
+            geaVar.s = this.s;
+            geaVar.t = this.t;
+            geaVar.u = this.u;
+            geaVar.v = this.v;
+            geaVar.x = this.x;
+            geaVar.y = this.y;
+            geaVar.H = this.H;
+            return geaVar;
         }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    public static long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            job jobVar = b;
-            if (jobVar != null && c == 0) {
-                c = jobVar.c();
-            }
-            return c;
-        }
-        return invokeV.longValue;
-    }
-
-    public static synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            synchronized (gea.class) {
-                if (d) {
-                    return;
-                }
-                if (SoChecker.d("libturbonet.so")) {
-                    g();
-                }
-            }
-        }
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65543, null) != null) || d) {
-            return;
-        }
-        d = true;
-        try {
-            c();
-        } catch (Throwable th) {
-            d = false;
-            th.printStackTrace();
-        }
-    }
-
-    public static iob d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            iob iobVar = new iob();
-            iobVar.j(15);
-            iobVar.c(true);
-            iobVar.b(true);
-            iobVar.e(true);
-            iobVar.a("http://tb-video.bdstatic.com|2");
-            iobVar.f(true);
-            iobVar.i("bdns", "bce_http_dns_account_id", ib.a);
-            iobVar.i("bdns", "bce_http_dns_secret", ib.b);
-            iobVar.i("bdns", "bce_http_dns_tag", "tieba");
-            iobVar.i("bdbus", "min_trigger_interval", 180);
-            iobVar.i("bdns", "dual_stack_bdns_cache_policy", 1);
-            File file = new File(b(), "turbonetcache");
-            if (file.exists()) {
-                if (file.isFile()) {
-                    file.delete();
-                    file.mkdirs();
-                }
-            } else {
-                file.mkdirs();
-            }
-            iobVar.k(file.getAbsolutePath());
-            iobVar.d(3, Config.FULL_TRACE_LOG_LIMIT);
-            iobVar.i(LocalFilesFilterKt.FILTER_NAME_LOG, "lite_log_in_response_header", Boolean.TRUE);
-            iobVar.i("app", "app_package_name", "com.baidu.tieba");
-            iobVar.i("nq", "network_quality_enabled", Boolean.TRUE);
-            iobVar.i("nq", "watch_all", Boolean.TRUE);
-            iobVar.i("nq", "rejudge_interval_sec", 10);
-            iobVar.i("nq", "weak_window_sec", 30);
-            iobVar.i("nq", "weak_min_cnt", 10);
-            iobVar.i("nq", "probe_enabled", Boolean.FALSE);
-            iobVar.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
-            iobVar.i("nq", "weak_policy_tcp_retrans_percentage", 30);
-            iobVar.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
-            iobVar.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
-            iobVar.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
-            iobVar.i("nq", "weak_policy_http_ttfb_percentage", 30);
-            iobVar.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
-            iobVar.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
-            iobVar.i("nq", "weak_policy_tcp_rtt_percentage", 30);
-            iobVar.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
-            return iobVar;
-        }
-        return (iob) invokeV.objValue;
+        return (gea) invokeV.objValue;
     }
 }

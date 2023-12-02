@@ -16,8 +16,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gq5;
-import com.baidu.tieba.hq5;
+import com.baidu.tieba.kq5;
+import com.baidu.tieba.lq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public hq5 d;
+    public lq5 d;
     public float e;
     public float f;
     public boolean g;
@@ -191,10 +191,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(hq5 hq5Var) {
+    public void setContentViewTop(lq5 lq5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, hq5Var) == null) {
-            this.d = hq5Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, lq5Var) == null) {
+            this.d = lq5Var;
         }
     }
 
@@ -230,11 +230,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hq5 hq5Var = this.d;
-            if (hq5Var == null) {
+            lq5 lq5Var = this.d;
+            if (lq5Var == null) {
                 return false;
             }
-            return hq5Var.S();
+            return lq5Var.S();
         }
         return invokeV.booleanValue;
     }
@@ -403,9 +403,9 @@ public class SusPendedView extends LinearLayout {
                 float f = this.f;
                 float f2 = this.e;
                 if (f > f2 && this.g) {
-                    hq5 hq5Var = this.d;
-                    if (hq5Var instanceof gq5) {
-                        ((gq5) hq5Var).k0(f - f2);
+                    lq5 lq5Var = this.d;
+                    if (lq5Var instanceof kq5) {
+                        ((kq5) lq5Var).k0(f - f2);
                     }
                     LinearLayout linearLayout = this.a;
                     float f3 = this.f;

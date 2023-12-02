@@ -7,7 +7,7 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.h7;
 import com.baidu.tieba.k7;
-import com.baidu.tieba.t25;
+import com.baidu.tieba.w25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ public class ImagesInvalidService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
-                t25.g();
+                w25.g();
                 ImagesInvalidReceiver.broadcast(z);
             }
         }
@@ -122,7 +122,7 @@ public class ImagesInvalidService extends BdBaseService {
     public static void setSuccess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            t25.e(z);
+            w25.e(z);
         }
     }
 }

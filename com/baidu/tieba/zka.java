@@ -1,21 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.zb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class zka extends bla {
+public final class zka implements zb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ub7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "common_exp" : (String) invokeV.objValue;
-    }
 
     public zka() {
         Interceptable interceptable = $ic;
@@ -28,6 +25,83 @@ public class zka extends bla {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.yb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return zb7.a.b(this);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yb7
+    public Map<String, String> a(v57 v57Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v57Var)) == null) {
+            return zb7.a.a(this, v57Var);
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:0x005b A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x006e A[ORIG_RETURN, RETURN] */
+    @Override // com.baidu.tieba.zb7
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(v57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
+                return "";
+            }
+            String str = businessInfo.a().get("card_head_type");
+            if (str == null) {
+                str = "common_user";
+            }
+            switch (str.hashCode()) {
+                case -1924729441:
+                    if (!str.equals("common_user")) {
+                        return "";
+                    }
+                    return "live_mix_card_person_head_click";
+                case -1617812209:
+                    if (!str.equals("video_user")) {
+                        return "";
+                    }
+                    break;
+                case 448970189:
+                    if (!str.equals("common_forum")) {
+                        return "";
+                    }
+                    return "live_mix_card_forum_head_click";
+                case 1009035070:
+                    if (!str.equals("live_user")) {
+                        return "";
+                    }
+                    break;
+                case 1201356814:
+                    if (!str.equals("live_forum")) {
+                        return "";
+                    }
+                    break;
+                case 1373469789:
+                    if (!str.equals("video_forum")) {
+                        return "";
+                    }
+                    break;
+                default:
+                    return "";
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 }

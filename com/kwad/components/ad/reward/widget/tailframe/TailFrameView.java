@@ -52,9 +52,9 @@ public class TailFrameView extends KSFrameLayout {
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
         public final void B(Context context) {
             super.B(context);
-            this.BM = (ImageView) this.BB.findViewById(R.id.obfuscated_res_0x7f09150e);
-            this.BN = (ImageView) this.BB.findViewById(R.id.obfuscated_res_0x7f09150f);
-            this.BO = (ImageView) this.BB.findViewById(R.id.obfuscated_res_0x7f091510);
+            this.BM = (ImageView) this.BB.findViewById(R.id.obfuscated_res_0x7f09150f);
+            this.BN = (ImageView) this.BB.findViewById(R.id.obfuscated_res_0x7f091510);
+            this.BO = (ImageView) this.BB.findViewById(R.id.obfuscated_res_0x7f091511);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
@@ -86,7 +86,7 @@ public class TailFrameView extends KSFrameLayout {
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
         public final void B(Context context) {
             super.B(context);
-            this.BP = this.BB.findViewById(R.id.obfuscated_res_0x7f0929b0);
+            this.BP = this.BB.findViewById(R.id.obfuscated_res_0x7f0929b3);
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a

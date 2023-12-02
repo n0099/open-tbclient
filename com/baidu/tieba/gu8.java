@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.IMConstants;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
+import android.os.StatFs;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.unified.SourceConstant;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,12 +20,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class gu8 extends tt8 {
+public class gu8 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static tt8 d = null;
-    public static String e = "tb_private_msg_";
+    public static gu8 c = null;
+    public static long d = -1;
+    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public c b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,9 +46,168 @@ public class gu8 extends tt8 {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gu8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gu8 gu8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gu8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gu8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage instanceof BackgroundSwitchMessage)) {
+                return;
+            }
+            if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                this.a.a.sendMessageDelayed(this.a.a.obtainMessage(1), 30000L);
+                return;
+            }
+            this.a.a.removeMessages(1);
+            this.a.j();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what == 1) {
+                    gu8.i().a.removeMessages(1);
+                    gu8.i().h();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends BdAsyncTask<String, Object, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(gu8 gu8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gu8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(gu8 gu8Var, a aVar) {
+            this(gu8Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                LinkedList<ImMessageCenterPojo> h = hu8.f().h();
+                if (h != null && h.size() != 0) {
+                    if (gu8.d < 0) {
+                        try {
+                            StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+                            long unused = gu8.d = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                            if (gu8.d > 2147483648L) {
+                                int unused2 = gu8.e = 5000;
+                            } else if (gu8.d > 1073741824) {
+                                int unused3 = gu8.e = 3000;
+                            } else {
+                                int unused4 = gu8.e = 1000;
+                            }
+                        } catch (Exception e) {
+                            BdLog.e(e);
+                        }
+                    }
+                    if (gu8.e < 1000) {
+                        int unused5 = gu8.e = 1000;
+                    }
+                    try {
+                        try {
+                            fu8.e().h();
+                            for (ImMessageCenterPojo imMessageCenterPojo : h) {
+                                if (isCancelled()) {
+                                    fu8.e().c();
+                                    return Boolean.FALSE;
+                                } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
+                                    ku8.w().r(imMessageCenterPojo.getGid(), gu8.e);
+                                } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
+                                    ju8.w().r(imMessageCenterPojo.getGid(), gu8.e);
+                                } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
+                                    bu8.c().g(imMessageCenterPojo.getGid(), gu8.e);
+                                }
+                            }
+                        } catch (Exception e2) {
+                            BdLog.e(e2.getMessage());
+                        }
+                        fu8.e().c();
+                        return Boolean.TRUE;
+                    } finally {
+                        fu8.e().c();
+                    }
+                }
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
+
     public gu8() {
-        super("tb_private_msg_", PersonalChatMessage.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,144 +215,54 @@ public class gu8 extends tt8 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (Class) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = new b(null);
+        this.b = null;
+        MessageManager.getInstance().registerListener(new a(this, 2001011));
     }
 
-    public static synchronized gu8 w() {
-        InterceptResult invokeV;
-        gu8 gu8Var;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (gu8.class) {
-                if (d == null) {
-                    d = new gu8();
-                }
-                gu8Var = (gu8) d;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            c cVar = this.b;
+            if (cVar != null) {
+                cVar.cancel();
+                this.b = null;
             }
-            return gu8Var;
+            c cVar2 = new c(this, null);
+            this.b = cVar2;
+            cVar2.setParallel(TiebaIMConfig.getParallel());
+            this.b.setPriority(4);
+            this.b.execute(new String[0]);
+        }
+    }
+
+    public static gu8 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (c == null) {
+                synchronized (gu8.class) {
+                    if (c == null) {
+                        c = new gu8();
+                    }
+                }
+            }
+            return c;
         }
         return (gu8) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    public CommonMsgPojo x(String str, int i) {
-        InterceptResult invokeLI;
-        Cursor cursor;
+    public final void j() {
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            Cursor cursor2 = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                try {
-                    cursor = bu8.e().g("select * from " + (e + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
-                    try {
-                        CommonMsgPojo commonMsgPojo = new CommonMsgPojo();
-                        if (cursor != null && cursor.moveToNext()) {
-                            commonMsgPojo.setGid(str);
-                            commonMsgPojo.setUid(cursor.getString(cursor.getColumnIndex("uid")));
-                            commonMsgPojo.setUser_info(cursor.getString(cursor.getColumnIndex(SourceConstant.SOURCE_USER_INFO)));
-                            commonMsgPojo.setToUid(cursor.getString(cursor.getColumnIndex("to_uid")));
-                            commonMsgPojo.setToUser_info(cursor.getString(cursor.getColumnIndex("to_user_info")));
-                            commonMsgPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                            commonMsgPojo.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
-                            commonMsgPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                            commonMsgPojo.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
-                            commonMsgPojo.setMsg_status(cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_STATUS)));
-                            commonMsgPojo.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
-                            commonMsgPojo.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
-                            commonMsgPojo.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
-                            commonMsgPojo.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
-                            commonMsgPojo.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
-                            sd.a(cursor);
-                            return commonMsgPojo;
-                        }
-                    } catch (SQLiteException e2) {
-                        e = e2;
-                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
-                        e.printStackTrace();
-                        b(str);
-                        sd.a(cursor);
-                        return null;
-                    } catch (Exception e3) {
-                        e = e3;
-                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
-                        e.printStackTrace();
-                        sd.a(cursor);
-                        return null;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    cursor2 = i;
-                    sd.a(cursor2);
-                    throw th;
-                }
-            } catch (SQLiteException e4) {
-                e = e4;
-                cursor = null;
-            } catch (Exception e5) {
-                e = e5;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                sd.a(cursor2);
-                throw th;
-            }
-            sd.a(cursor);
-            return null;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cVar = this.b) != null) {
+            cVar.cancel();
+            this.b = null;
         }
-        return (CommonMsgPojo) invokeLI.objValue;
-    }
-
-    public boolean y(long j, long j2, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            Boolean bool = Boolean.FALSE;
-            if (j == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
-                return false;
-            }
-            String valueOf = String.valueOf(j);
-            String str2 = e + valueOf;
-            if (this.c == null) {
-                this.c = i();
-            }
-            if (!this.c.contains(valueOf)) {
-                b(valueOf);
-                this.c.add(valueOf);
-            }
-            try {
-                try {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("content", str);
-                    if (bu8.e().i(str2, contentValues, "mid=?", new String[]{String.valueOf(j2)}) == 1) {
-                        bool = Boolean.TRUE;
-                    }
-                } catch (Exception e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.updateGamePlayMsg", new Object[0]);
-                    e2.printStackTrace();
-                    bool = Boolean.FALSE;
-                }
-                sd.a(null);
-                sd.c(null);
-                return bool.booleanValue();
-            } catch (Throwable th) {
-                sd.a(null);
-                sd.c(null);
-                throw th;
-            }
-        }
-        return invokeCommon.booleanValue;
     }
 }

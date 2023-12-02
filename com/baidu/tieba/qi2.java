@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qi2 extends he3 {
+public class qi2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.le3
-    public long getMaxSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 52428800L;
-        }
-        return invokeV.longValue;
-    }
+    public boolean a;
+    public boolean b;
+    @V8JavascriptField
+    public long lastAccessedTime;
+    @V8JavascriptField
+    public long lastModifiedTime;
+    @V8JavascriptField
+    public long mode;
+    @V8JavascriptField
+    public long size;
 
     public qi2() {
         Interceptable interceptable = $ic;
@@ -36,14 +38,39 @@ public class qi2 extends he3 {
         }
     }
 
-    @Override // com.baidu.tieba.he3
-    @NonNull
-    public String c() {
+    @JavascriptInterface
+    public boolean isDirectory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ri2.p();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @JavascriptInterface
+    public boolean isFile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @SuppressLint({"KotlinPropertyAccess"})
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    @SuppressLint({"KotlinPropertyAccess"})
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.b = z;
+        }
     }
 }

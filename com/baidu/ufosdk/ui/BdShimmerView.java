@@ -57,9 +57,9 @@ public class BdShimmerView extends f1 {
             int i2 = this.t;
             if (i2 != 0) {
                 if (i2 == 1) {
-                    Drawable drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f081416);
+                    Drawable drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f081419);
                     if (drawable == null) {
-                        this.s.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f081416));
+                        this.s.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f081419));
                     } else {
                         this.s.setImageDrawable(drawable);
                     }
@@ -68,9 +68,9 @@ public class BdShimmerView extends f1 {
                 }
                 return;
             }
-            Drawable drawable2 = resources.getDrawable(R.drawable.obfuscated_res_0x7f081417);
+            Drawable drawable2 = resources.getDrawable(R.drawable.obfuscated_res_0x7f08141a);
             if (drawable2 == null) {
-                this.s.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f081417));
+                this.s.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08141a));
             } else {
                 this.s.setImageDrawable(drawable2);
             }

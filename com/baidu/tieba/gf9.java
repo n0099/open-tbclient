@@ -1,19 +1,22 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class gf9 {
+public class gf9 implements cf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, kq4> a;
+    public final StatisticItem a;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -22,77 +25,208 @@ public class gf9 {
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public static class b implements cf9 {
         public static /* synthetic */ Interceptable $ic;
-        public static final gf9 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-777510639, "Lcom/baidu/tieba/gf9$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-777510639, "Lcom/baidu/tieba/gf9$b;");
-                    return;
+        @Override // com.baidu.tieba.cf9
+        public void a(ICardInfo iCardInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.cf9
+        public cf9 b(String str, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? this : (cf9) invokeLI.objValue;
+        }
+
+        @Override // com.baidu.tieba.cf9
+        public cf9 c(String str, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (cf9) invokeLJ.objValue;
+        }
+
+        @Override // com.baidu.tieba.cf9
+        public cf9 d(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this : (cf9) invokeLL.objValue;
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new gf9(null);
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    public gf9() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public gf9(BaseLegoCardInfo baseLegoCardInfo) {
+        this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseLegoCardInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public static gf9 a() {
-        InterceptResult invokeV;
+    public gf9(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (gf9) invokeV.objValue;
-    }
-
-    public /* synthetic */ gf9(a aVar) {
-        this();
-    }
-
-    public void b(kq4 kq4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kq4Var) == null) {
-            c(kq4Var.a(), kq4Var);
-        }
-    }
-
-    public final void c(String str, kq4 kq4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, kq4Var) == null) {
-            this.a.put(str, kq4Var);
+        StatisticItem statisticItem = new StatisticItem(str);
+        this.a = statisticItem;
+        statisticItem.param("obj_source", i);
+        this.a.param("obj_type", i2);
+        if (!TextUtils.isEmpty(str2)) {
+            this.a.param("obj_card", str2);
         }
     }
 
-    public void d(String str, HashMap<String, String> hashMap, lq4 lq4Var) {
-        kq4 kq4Var;
+    public static cf9 e(BaseLegoCardInfo baseLegoCardInfo) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap, lq4Var) != null) || str == null || hashMap == null || hashMap.isEmpty() || lq4Var == null || (kq4Var = this.a.get(str)) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseLegoCardInfo)) == null) {
+            if (baseLegoCardInfo != null && !TextUtils.isEmpty(baseLegoCardInfo.getStatistics())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return new gf9(baseLegoCardInfo);
+            }
+            return new b(null);
         }
-        kq4Var.b(hashMap, lq4Var);
+        return (cf9) invokeL.objValue;
+    }
+
+    public static cf9 f(String str, int i, int i2, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                return new gf9(str, i, i2, str2);
+            }
+            return new b(null);
+        }
+        return (cf9) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.cf9
+    public void a(ICardInfo iCardInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
+            g(iCardInfo);
+            TiebaStatic.log(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.cf9
+    public cf9 b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.param(str, i);
+            }
+            return this;
+        }
+        return (cf9) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.cf9
+    public cf9 c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.param(str, String.valueOf(j));
+            }
+            return this;
+        }
+        return (cf9) invokeLJ.objValue;
+    }
+
+    @Override // com.baidu.tieba.cf9
+    public cf9 d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                this.a.param(str, str2);
+            }
+            return this;
+        }
+        return (cf9) invokeLL.objValue;
+    }
+
+    public final void g(ICardInfo iCardInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iCardInfo) == null) {
+            BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
+            if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
+                List<Object> params = this.a.getParams();
+                for (String str : baseLegoCardInfo.getsExtras().split("&")) {
+                    String[] split = str.split("=");
+                    if (split.length == 2) {
+                        String str2 = split[0];
+                        String str3 = split[1];
+                        boolean z = false;
+                        for (int i = 0; i < params.size() && !z; i += 2) {
+                            if (TextUtils.equals(str2, params.get(i).toString())) {
+                                int i2 = i + 1;
+                                if (i2 < params.size()) {
+                                    params.set(i2, str3);
+                                }
+                                z = true;
+                            }
+                        }
+                        if (!z) {
+                            this.a.param(str2, str3);
+                        }
+                    }
+                }
+                d(TiebaStatic.Params.OBJ_PARAM3, xl6.e());
+            }
+        }
     }
 }

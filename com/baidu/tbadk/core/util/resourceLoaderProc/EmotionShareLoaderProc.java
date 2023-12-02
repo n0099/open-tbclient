@@ -178,9 +178,16 @@ public class EmotionShareLoaderProc implements tb<EmotionShare> {
 
     private DiskFileOperate buildExtractToShareHubDiskOp(BdImage bdImage, String str) {
         InterceptResult invokeLL;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, bdImage, str)) == null) {
-            DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE_FORCE);
+            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
+            if (bdImage.isGif()) {
+                str2 = nameMd5FromUrl + ".gif";
+            } else {
+                str2 = nameMd5FromUrl + ".jpg";
+            }
+            DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, str2, DiskFileOperate.Action.WRITE_FORCE);
             diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
             diskFileOperate.setSubFolder(true);
             diskFileOperate.setSavedCache(true);

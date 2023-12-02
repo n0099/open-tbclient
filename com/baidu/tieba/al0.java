@@ -18,7 +18,7 @@ public interface al0 {
         void onFail(Exception exc);
     }
 
-    void a(@NonNull hn0 hn0Var, @NonNull ao0 ao0Var, @NonNull b bVar);
+    void a(@NonNull in0 in0Var, @NonNull co0 co0Var, @NonNull b bVar);
 
     /* loaded from: classes5.dex */
     public class a implements al0 {
@@ -26,9 +26,9 @@ public interface al0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.al0
-        public void a(@NonNull hn0 hn0Var, @NonNull ao0 ao0Var, @NonNull b bVar) {
+        public void a(@NonNull in0 in0Var, @NonNull co0 co0Var, @NonNull b bVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, hn0Var, ao0Var, bVar) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, in0Var, co0Var, bVar) == null) {
             }
         }
 

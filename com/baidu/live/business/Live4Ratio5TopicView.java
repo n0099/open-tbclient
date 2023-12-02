@@ -269,14 +269,14 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
         setAspectRatio(1.25f);
         this.s = context;
         View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d05f3, this);
-        this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f091657);
-        this.n = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09165a);
-        this.j = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091641);
-        this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091646);
-        this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091639);
-        this.i = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09163a);
-        this.m = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091642);
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09162f);
+        this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f091658);
+        this.n = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09165b);
+        this.j = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091642);
+        this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091647);
+        this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f09163a);
+        this.i = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09163b);
+        this.m = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091643);
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091630);
         this.r = findViewById;
         findViewById.getLayoutParams().height = g60.b(getContext(), 35.0f);
         this.r.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080f66, null));
@@ -354,7 +354,7 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
             if (view2 == null) {
                 View inflate = this.n.inflate();
                 this.o = inflate;
-                LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091659);
+                LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f09165a);
                 this.p = liveBaseLottieView;
                 liveBaseLottieView.setRepeatCount(-1);
                 this.p.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");

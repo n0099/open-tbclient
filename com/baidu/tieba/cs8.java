@@ -1,124 +1,332 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tieba.cj5;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.biz.aibot.recentbot.AibotHistoryDataManager;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class cs8 {
+public final class cs8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final b d;
+    public static final cs8 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public AibotHistoryDataManager a;
+    public boolean b;
+    public final Comparator<AibotHistoryDataManager.BotChatData> c;
 
-    public static SpannableString a(ArrayList<oy5> arrayList, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, arrayList, str)) == null) {
-            if (TbFaceManager.i().p(str)) {
-                SpannableString spannableString = new SpannableString(str + " ");
-                oy5 d = TbFaceManager.i().d(str);
-                if (arrayList != null) {
-                    arrayList.add(d);
-                }
-                cj5.a g = TbFaceManager.i().g(str);
-                if (g != null) {
-                    int a = (int) (g.a() * 0.5d);
-                    d.setBounds(new Rect(0, 0, a, a));
-                } else {
-                    d.setBounds(new Rect(0, 0, 0, 0));
-                }
-                spannableString.setSpan(new z07(d, 1), 0, str.length(), 33);
-                return spannableString;
-            }
-            return null;
-        }
-        return (SpannableString) invokeLL.objValue;
+    public /* synthetic */ cs8(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
     }
 
-    public static SpannableString b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
+    /* loaded from: classes5.dex */
+    public static final class a implements Comparator<AibotHistoryDataManager.BotChatData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(AibotHistoryDataManager.BotChatData botChatData, AibotHistoryDataManager.BotChatData botChatData2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, botChatData, botChatData2)) == null) {
+                if (botChatData == null || botChatData2 == null) {
+                    return 0;
+                }
+                if (botChatData.getTimestamp() < botChatData2.getTimestamp()) {
+                    return 1;
+                }
+                if (botChatData.getTimestamp() > botChatData2.getTimestamp()) {
+                    return -1;
+                }
+                int i = (botChatData.getTimestamp() > botChatData2.getTimestamp() ? 1 : (botChatData.getTimestamp() == botChatData2.getTimestamp() ? 0 : -1));
+                return 0;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ b(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final cs8 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return cs8.e;
+            }
+            return (cs8) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final c a;
+        public static final cs8 b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-880051230, "Lcom/baidu/tieba/cs8$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-880051230, "Lcom/baidu/tieba/cs8$c;");
+                    return;
+                }
+            }
+            a = new c();
+            b = new cs8(null);
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final cs8 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (cs8) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class d extends nu5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        @Override // com.baidu.tieba.nu5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                da<String> n = e05.n("tb.im_ai_bot_chat_history", TbadkCoreApplication.getCurrentAccount());
+                if (n == null) {
+                    return null;
+                }
+                n.g("key_chat_ai_bot_list", this.a);
                 return null;
             }
-            return UrlManager.findAllWebUrl(str);
+            return invokeV.objValue;
         }
-        return (SpannableString) invokeL.objValue;
     }
 
-    public static ArrayList<TbRichTextData> c(String str, int i) {
-        InterceptResult invokeLI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            ArrayList<TbRichTextData> arrayList = new ArrayList<>();
-            if (TextUtils.isEmpty(str)) {
-                return arrayList;
-            }
-            TbRichTextData tbRichTextData = new TbRichTextData(1);
-            arrayList.add(tbRichTextData);
-            try {
-                int length = str.length();
-                int i3 = 0;
-                String str2 = "";
-                while (i3 < str.length()) {
-                    char charAt = str.charAt(i3);
-                    if (charAt == '#' && i3 < length - 1 && str.charAt(i3 + 1) == '(') {
-                        String str3 = SmallTailInfo.EMOTION_PREFIX;
-                        i3 += 2;
-                        while (i3 < length) {
-                            char charAt2 = str.charAt(i3);
-                            str3 = str3 + charAt2;
-                            if (charAt2 != ')' && ((i2 = i3 + 1) >= length || str.charAt(i2) != '#')) {
-                                i3 = i2;
-                            }
-                        }
-                        if (!TbFaceManager.i().p(str3)) {
-                            str2 = str2 + str3;
-                        } else {
-                            if (!TextUtils.isEmpty(str2)) {
-                                if (i == 1) {
-                                    tbRichTextData.P(str2);
-                                } else {
-                                    SpannableString b = b(str2);
-                                    if (b != null) {
-                                        tbRichTextData.P(b);
-                                    }
-                                }
-                                str2 = "";
-                            }
-                            SpannableString a = a(tbRichTextData.Q(), str3);
-                            if (a != null) {
-                                tbRichTextData.P(a);
-                            }
-                        }
-                    } else {
-                        str2 = str2 + charAt;
-                    }
-                    i3++;
+    /* loaded from: classes5.dex */
+    public static final class e extends nu5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cs8 a;
+
+        public e(cs8 cs8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cs8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (!TextUtils.isEmpty(str2)) {
-                    if (i == 1) {
-                        tbRichTextData.P(str2);
-                    } else {
-                        SpannableString b2 = b(str2);
-                        if (b2 != null) {
-                            tbRichTextData.P(b2);
-                        }
-                    }
-                }
-            } catch (Exception unused) {
             }
-            return arrayList;
+            this.a = cs8Var;
         }
-        return (ArrayList) invokeLI.objValue;
+
+        @Override // com.baidu.tieba.nu5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                da<String> n = e05.n("tb.im_ai_bot_chat_history", TbadkCoreApplication.getCurrentAccount());
+                if (n == null) {
+                    return null;
+                }
+                this.a.d().i(n.get("key_chat_ai_bot_list"));
+                return null;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685441, "Lcom/baidu/tieba/cs8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947685441, "Lcom/baidu/tieba/cs8;");
+                return;
+            }
+        }
+        d = new b(null);
+        e = c.a.a();
+    }
+
+    public cs8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new AibotHistoryDataManager();
+        this.c = new a();
+    }
+
+    public final Comparator<AibotHistoryDataManager.BotChatData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (Comparator) invokeV.objValue;
+    }
+
+    public final AibotHistoryDataManager d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (AibotHistoryDataManager) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.b) {
+            ru5.b(new e(this), null);
+            this.b = true;
+        }
+    }
+
+    public final boolean b(String fid, String uk) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fid, uk)) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            Intrinsics.checkNotNullParameter(uk, "uk");
+            SizedSyncTreeSet<AibotHistoryDataManager.BotChatData> d2 = this.a.d(fid);
+            if (d2 != null) {
+                return this.a.a(uk, d2);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final String e(String fid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fid)) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            if (this.a.d(fid) != null) {
+                return this.a.g(fid);
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void f(String fid, String uk, String paid, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, fid, uk, paid, str) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            Intrinsics.checkNotNullParameter(uk, "uk");
+            Intrinsics.checkNotNullParameter(paid, "paid");
+            this.a.h(fid, uk, paid, str);
+            ru5.b(new d(this.a.c()), null);
+        }
     }
 }

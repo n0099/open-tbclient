@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.net.Uri;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qg2 {
+public class qg2<T> extends kg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public T c;
+    public boolean d;
 
     static {
         InterceptResult invokeClinit;
@@ -30,113 +32,44 @@ public class qg2 {
                 return;
             }
         }
-        a = sm1.a;
+        e = vm1.a;
     }
 
-    public static void a() {
+    public qg2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            f(0).f().c();
-            f(0).e().f();
-            if (f(1) != null) {
-                f(1).f().c();
-                f(1).e().f();
-            }
-        }
-    }
-
-    public static <T extends nh2> Exception b(int i, T t) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, t)) == null) {
-            tg2 f = f(i);
-            if (f == null) {
-                return new Exception("SwanExtCore-Manager doRemoteUpdate: null extensionCoreManager");
-            }
-            return f.a(t);
-        }
-        return (Exception) invokeIL.objValue;
-    }
-
-    public static void h(int i, @Nullable al3<Exception> al3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65544, null, i, al3Var) == null) {
-            tg2 f = f(i);
-            if (f != null) {
-                f.g(al3Var);
-            } else if (al3Var != null) {
-                al3Var.a(null);
-            }
-        }
-    }
-
-    public static ExtensionCore c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            tg2 f = f(i);
-            if (f == null) {
-                return null;
-            }
-            return f.c();
-        }
-        return (ExtensionCore) invokeI.objValue;
-    }
-
-    public static long d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            ExtensionCore c = c(i);
-            if (c != null) {
-                return c.extensionCoreVersionCode;
-            }
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    public static String e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            ExtensionCore c = c(i);
-            if (c != null && !TextUtils.isEmpty(c.extensionCoreVersionName)) {
-                return c.extensionCoreVersionName;
-            }
-            return "0";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static tg2 f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (i == 1) {
-                tg2 t = pp2.i().t();
-                if (t == null && sm1.a) {
-                    Log.e("SwanGameRuntime", "非手百环境依赖注入接口getSwanGameExtensionCoreManager未实现，直接返回");
-                }
-                return t;
-            }
-            return pg2.k();
-        }
-        return (tg2) invokeI.objValue;
-    }
-
-    public static void g(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65543, null, i, i2) == null) {
-            if (a) {
-                Log.d("SwanExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
-            }
-            if (!"com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) && i == i2) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            a();
-            yh2.i(0, true);
-            yh2.i(1, true);
+        }
+        this.d = true;
+        this.a = "message";
+    }
+
+    @Override // com.baidu.tieba.kg2
+    public void m(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            Object obj = this.c;
+            if (obj instanceof String) {
+                String str = (String) obj;
+                if (this.d) {
+                    str = Uri.encode(str);
+                }
+                if (e) {
+                    Log.d("SwanAppWebMessage", "mData: " + this.c);
+                    Log.d("SwanAppWebMessage", "encode mData: " + str);
+                }
+                map.put("message", str);
+            } else if (obj instanceof JSONObject) {
+                map.put("message", obj);
+            }
         }
     }
 }

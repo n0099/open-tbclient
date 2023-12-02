@@ -11,7 +11,7 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wz5;
+import com.baidu.tieba.a06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class VideoChannelViewPager extends ViewPager {
     public int c;
     public boolean d;
     public boolean e;
-    public wz5.b f;
+    public a06.b f;
     public List<String> g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,7 +81,7 @@ public class VideoChannelViewPager extends ViewPager {
     public void a(MotionEvent motionEvent) {
         float f;
         float f2;
-        wz5.b bVar;
+        a06.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, motionEvent) != null) || !this.e || !this.d) {
             return;
@@ -161,7 +161,7 @@ public class VideoChannelViewPager extends ViewPager {
         return invokeL.booleanValue;
     }
 
-    public void setListener(wz5.b bVar) {
+    public void setListener(a06.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.f = bVar;

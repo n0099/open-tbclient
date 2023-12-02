@@ -5,17 +5,17 @@ import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.cg1;
+import com.baidu.tieba.fg1;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class SpeedRuntimeProvider extends cg1<ISpeedContext> {
+public class SpeedRuntimeProvider extends fg1<ISpeedContext> {
     public static final String MAIN_ACTIVITY_NAME = "com.baidu.tieba.tblauncher.MainTabActivity";
     public static final String SCHEMA_ACTIVITY_NAME = "com.baidu.tieba.tblauncher.SchemaRouteActivity";
     public static final String SPLASH_ACTIVITY_NAME = "com.baidu.tieba.LogoActivity";
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.cg1
+    @Override // com.baidu.tieba.fg1
     public ISpeedContext createService() throws ServiceNotFoundException {
         return new ISpeedContext() { // from class: com.baidu.searchbox.performance.speed.SpeedRuntimeProvider.1
             @Override // com.baidu.searchbox.performance.speed.ISpeedContext

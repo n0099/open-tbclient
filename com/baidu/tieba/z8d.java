@@ -5,22 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.StyleContentInfo;
+import tbclient.SubBottomMenu;
 /* loaded from: classes9.dex */
-public class z8d extends ltc {
+public class z8d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull StyleContentInfo styleContentInfo) {
+    public static JSONObject b(@NonNull SubBottomMenu subBottomMenu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, styleContentInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, subBottomMenu)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "content_color", styleContentInfo.content_color);
-            ltc.a(jSONObject, "icon", styleContentInfo.icon);
-            ltc.a(jSONObject, "content_icon", styleContentInfo.content_icon);
-            ltc.a(jSONObject, "dynamic_icon", styleContentInfo.dynamic_icon);
+            ktc.a(jSONObject, "name", subBottomMenu.name);
+            ktc.a(jSONObject, "url", subBottomMenu.url);
+            ktc.a(jSONObject, "type", subBottomMenu.type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

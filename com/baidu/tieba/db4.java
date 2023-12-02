@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.tieba.qb4;
+import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,50 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class db4 extends ta4<ws2> {
+public class db4 extends wa4<vs2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements qb4.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ws2 a;
-        public final /* synthetic */ qs2 b;
-
-        public a(db4 db4Var, ws2 ws2Var, qs2 qs2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {db4Var, ws2Var, qs2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ws2Var;
-            this.b = qs2Var;
-        }
-
-        @Override // com.baidu.tieba.qb4.b
-        public void onAnimationEnd() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!TextUtils.isEmpty(this.a.y)) {
-                    this.b.c(this.a.y, null);
-                }
-                h32.i("map", "TranslateMarkerAction animation end");
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -70,7 +33,7 @@ public class db4 extends ta4<ws2> {
                 return;
             }
         }
-        boolean z = sm1.a;
+        boolean z = vm1.a;
     }
 
     public db4() {
@@ -97,56 +60,57 @@ public class db4 extends ta4<ws2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ta4
+    @Override // com.baidu.tieba.wa4
     /* renamed from: d */
-    public boolean b(Context context, ws2 ws2Var, qs2 qs2Var, h63 h63Var, JSONObject jSONObject) {
+    public boolean b(Context context, vs2 vs2Var, ts2 ts2Var, k63 k63Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ws2Var, qs2Var, h63Var, jSONObject)) == null) {
-            return f(context, ws2Var, qs2Var, h63Var);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vs2Var, ts2Var, k63Var, jSONObject)) == null) {
+            return f(context, vs2Var, ts2Var, k63Var);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final boolean f(Context context, ws2 ws2Var, qs2 qs2Var, h63 h63Var) {
+    public final boolean f(Context context, vs2 vs2Var, ts2 ts2Var, k63 k63Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, ws2Var, qs2Var, h63Var)) == null) {
-            h32.i("map", "TranslateMarkerAction start");
-            qs1 B = ur2.V().B(ws2Var.c);
-            if (!(B instanceof os1)) {
-                h32.c("map", "WebViewManager is null");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, vs2Var, ts2Var, k63Var)) == null) {
+            k32.i("map", "IncludePointsAction start");
+            ts1 B = xr2.V().B(vs2Var.c);
+            if (!(B instanceof rs1)) {
+                k32.c("map", "WebViewManager is null");
                 return false;
             }
-            rb4 d = qa4.b().c((os1) B).d(ws2Var.b);
+            ub4 d = ta4.b().c((rs1) B).d(vs2Var.b);
             if (d == null) {
-                h32.c("map", "can not find map by id " + ws2Var.b);
+                k32.c("map", "can not find map by id " + vs2Var.b);
                 return false;
             }
-            return g(ws2Var, d, qs2Var);
+            k32.i("map", "IncludePointsAction end");
+            return g(vs2Var, d);
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final boolean g(ws2 ws2Var, rb4 rb4Var, qs2 qs2Var) {
-        InterceptResult invokeLLL;
+    public final boolean g(vs2 vs2Var, ub4 ub4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, ws2Var, rb4Var, qs2Var)) == null) {
-            if (!ws2Var.isValid()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, vs2Var, ub4Var)) == null) {
+            if (vs2Var == null || !vs2Var.isValid()) {
                 return false;
             }
-            at2 at2Var = ws2Var.A;
-            LatLng latLng = new LatLng(at2Var.a, at2Var.b);
-            List<qb4> K = rb4Var.K(ws2Var.z);
-            h32.i("map", "TranslateMarkerAction animation start");
-            if (K != null) {
-                for (qb4 qb4Var : K) {
-                    qb4Var.c(rb4Var, latLng, ws2Var, new a(this, ws2Var, qs2Var));
-                }
+            BaiduMap map = ub4Var.l.getMap();
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            Iterator<dt2> it = vs2Var.z.iterator();
+            while (it.hasNext()) {
+                dt2 next = it.next();
+                builder.include(new LatLng(next.a, next.b));
             }
-            h32.i("map", "TranslateMarkerAction end");
+            LatLngBounds build = builder.build();
+            int[] iArr = vs2Var.A;
+            map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(build, iArr[3], iArr[0], iArr[1], iArr[2]));
             return true;
         }
-        return invokeLLL.booleanValue;
+        return invokeLL.booleanValue;
     }
 }

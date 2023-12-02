@@ -1,38 +1,50 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.WorldCupInfo;
 /* loaded from: classes7.dex */
 public class pd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(DownloadData downloadData) {
-        Activity currentActivity;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
-            new BdTopToast(currentActivity, 2000).setIcon(false).setContent(currentActivity.getString(R.string.item_download_fail)).show((ViewGroup) currentActivity.findViewById(16908290));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
     }
 
-    public static void b(DownloadData downloadData) {
-        Activity currentActivity;
+    public pd5() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
-            new BdTopToast(currentActivity, 2000).setIcon(false).setContent(currentActivity.getString(R.string.item_download_no_net)).show((ViewGroup) currentActivity.findViewById(16908290));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void c(DownloadData downloadData) {
-        Activity currentActivity;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
-            new BdTopToast(currentActivity, 2000).setIcon(true).setContent(currentActivity.getString(R.string.item_download_success)).show((ViewGroup) currentActivity.findViewById(16908290));
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
+        jSONObject.optString("avatar_teamflag_url");
+    }
+
+    public void b(WorldCupInfo worldCupInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, worldCupInfo) != null) || worldCupInfo == null) {
+            return;
+        }
+        String str = worldCupInfo.avatar_teamflag_url;
     }
 }

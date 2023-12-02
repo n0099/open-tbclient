@@ -48,12 +48,12 @@ public final class b extends g implements View.OnClickListener {
     }
 
     private void i(View view2) {
-        this.lu = (KSCornerImageView) view2.findViewById(R.id.obfuscated_res_0x7f091388);
-        this.hz = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091389);
-        this.lv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09138c);
-        this.lw = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09138d);
-        this.lx = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09138a);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09138b);
+        this.lu = (KSCornerImageView) view2.findViewById(R.id.obfuscated_res_0x7f091389);
+        this.hz = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09138a);
+        this.lv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09138d);
+        this.lw = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09138e);
+        this.lx = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09138b);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09138c);
         this.ly = textView;
         com.kwad.sdk.d.a.a.a(this, this.lu, this.hz, this.lv, this.lw, this.lx, textView);
     }

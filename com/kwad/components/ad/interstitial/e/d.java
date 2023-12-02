@@ -83,7 +83,7 @@ public final class d extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f091382);
+        KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f091383);
         this.jH = ksAutoCloseView;
         ksAutoCloseView.setViewListener(new KsAutoCloseView.a() { // from class: com.kwad.components.ad.interstitial.e.d.1
             @Override // com.kwad.components.core.widget.KsAutoCloseView.a
@@ -364,7 +364,7 @@ public final class d extends b {
         getContext();
         final boolean Kx = ai.Kx();
         this.jK.jL.setRatio(b(Kx, aW));
-        final ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091391);
+        final ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091392);
         viewGroup.setVisibility(0);
         viewGroup.post(new Runnable() { // from class: com.kwad.components.ad.interstitial.e.d.3
             @Override // java.lang.Runnable

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tieba.bo0;
+import com.baidu.tieba.do0;
 import com.baidu.tieba.gl0;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
@@ -38,7 +38,7 @@ public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
 
     public abstract void d(String str);
 
-    public abstract void setData(int i, bo0 bo0Var, Function0<Unit> function0);
+    public abstract void setData(int i, do0 do0Var, Function0<Unit> function0);
 
     /* loaded from: classes3.dex */
     public static final class a implements View.OnClickListener {

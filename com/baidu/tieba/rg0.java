@@ -6,9 +6,9 @@ import java.util.List;
 public interface rg0 {
     List<wg0> a();
 
-    void b(zy0 zy0Var);
+    void b(bz0 bz0Var);
 
     void c(HashMap<String, wg0> hashMap);
 
-    void d(zy0 zy0Var);
+    void d(bz0 bz0Var);
 }

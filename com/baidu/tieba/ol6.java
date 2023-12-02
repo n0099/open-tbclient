@@ -1,37 +1,43 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.sm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ol6 extends jl6<nu6> {
+public abstract class ol6<T extends sm6> extends nl6<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
+    public RelativeLayout i;
     public TextView j;
     public TextView k;
     public TextView l;
-    public TextView m;
+    public View m;
     public View n;
     public View o;
-    public String p;
+    public ImageView p;
+    public LinearLayout q;
+    public View r;
+    public View s;
 
-    @Override // com.baidu.tieba.jl6
-    public int e() {
+    @Override // com.baidu.tieba.nl6
+    public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01c0 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.card_group : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -52,92 +58,116 @@ public class ol6 extends jl6<nu6> {
                 return;
             }
         }
-        p(i());
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.o = null;
+        this.q = null;
+        r(i());
     }
 
-    public void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.p = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.jl6
+    @Override // com.baidu.tieba.nl6
     public void k(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(i(), R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.n, R.color.CAM_X0205);
-            SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.i, R.color.CAM_X0106, 1);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                p();
+            }
+            this.a = i;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (view2 == this.j || view2 == this.k || view2 == this.l || view2 == this.m) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.p));
-                UrlManager.getInstance().dealOneLink((TbPageContext) a5.a(this.b.getPageActivity()), new String[]{(String) view2.getTag()}, true);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && this.l == view2 && view2 != null && (view2.getTag() instanceof String)) {
+            String str = (String) view2.getTag();
+            if (!StringUtils.isNull(str)) {
+                UrlManager.getInstance().dealOneLink(h(), new String[]{str});
             }
         }
     }
 
-    public final void p(View view2) {
+    @SuppressLint({"ResourceAsColor"})
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (d() != null && d().equals("home")) {
+                SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1);
+                this.p.setVisibility(8);
+            } else {
+                SkinManager.setViewTextColor(this.j, R.color.CAM_X0106, 1);
+                SkinManager.setImageResource(this.p, R.drawable.icon_arrow_tab);
+            }
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0304, 1);
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
+            SkinManager.setBackgroundColor(i(), R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.m, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.o, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.r, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
+        }
+    }
+
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905fd);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905fe);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905ff);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090600);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090601);
-            this.j.setOnClickListener(this);
-            this.k.setOnClickListener(this);
-            this.l.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            this.n = view2.findViewById(R.id.obfuscated_res_0x7f090958);
-            this.o = view2.findViewById(R.id.obfuscated_res_0x7f090959);
+            this.i = (RelativeLayout) view2.findViewById(R.id.item_layout_group_title);
+            this.j = (TextView) view2.findViewById(R.id.item_group_title);
+            this.k = (TextView) view2.findViewById(R.id.item_right_tv);
+            this.l = (TextView) view2.findViewById(R.id.item_bottom_more_tv);
+            this.m = view2.findViewById(R.id.divider_line_top);
+            this.n = view2.findViewById(R.id.divider_line_middle);
+            this.o = view2.findViewById(R.id.divider_line_bottom);
+            this.q = (LinearLayout) view2.findViewById(R.id.card_container);
+            this.r = view2.findViewById(R.id.divider_card);
+            this.s = view2.findViewById(R.id.divider_card_top);
+            this.p = (ImageView) view2.findViewById(R.id.item_right_arrow);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jl6
-    /* renamed from: r */
-    public void j(nu6 nu6Var) {
+    public void s(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, nu6Var) == null) && nu6Var != null && nu6Var.c() != null) {
-            if (!TextUtils.isEmpty(nu6Var.c().title)) {
-                this.i.setText(nu6Var.c().title);
+        if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+            if (t == null) {
+                i().setVisibility(8);
+                return;
             }
-            this.j.setVisibility(8);
-            this.k.setVisibility(8);
-            this.l.setVisibility(8);
-            this.m.setVisibility(8);
-            if (nu6Var.c().sub_nodes.size() >= 1) {
-                this.j.setVisibility(0);
-                this.j.setTag(nu6Var.c().sub_nodes.get(0).url);
-                this.j.setText(nu6Var.c().sub_nodes.get(0).title);
+            this.j.setText(t.mGroupTitle);
+            int i = t.mRightIconResId;
+            if (i > 0) {
+                this.k.setBackgroundResource(i);
             }
-            if (nu6Var.c().sub_nodes.size() >= 2) {
-                this.k.setVisibility(0);
-                this.k.setTag(nu6Var.c().sub_nodes.get(1).url);
-                this.k.setText(nu6Var.c().sub_nodes.get(1).title);
+            if (t.showTopDivider) {
+                this.s.setVisibility(0);
+            } else {
+                this.s.setVisibility(8);
             }
-            if (nu6Var.c().sub_nodes.size() >= 3) {
+            if (t.showBottomDivider) {
+                this.r.setVisibility(0);
+            } else {
+                this.r.setVisibility(8);
+            }
+            if (!StringUtils.isNull(t.mBottomText)) {
                 this.l.setVisibility(0);
-                this.l.setTag(nu6Var.c().sub_nodes.get(2).url);
-                this.l.setText(nu6Var.c().sub_nodes.get(2).title);
+                this.o.setVisibility(0);
+                this.n.setVisibility(0);
+                this.l.setText(t.mBottomText);
+                String str = t.mBottomLink;
+                if (!StringUtils.isNull(str)) {
+                    this.l.setTag(str);
+                    this.l.setOnClickListener(this);
+                    return;
+                }
+                return;
             }
-            if (nu6Var.c().sub_nodes.size() >= 4) {
-                this.m.setVisibility(0);
-                this.m.setTag(nu6Var.c().sub_nodes.get(3).url);
-                this.m.setText(nu6Var.c().sub_nodes.get(3).title);
-            }
+            this.l.setVisibility(8);
+            this.o.setVisibility(8);
+            this.n.setVisibility(8);
         }
     }
 }

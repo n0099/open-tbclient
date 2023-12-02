@@ -212,8 +212,8 @@ public final class b extends com.kwad.components.ad.reward.presenter.b {
     }
 
     private void hP() {
-        this.um = new bd(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c5), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c3));
-        this.un = new bd(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c4), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c2));
+        this.um = new bd(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c6), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c4));
+        this.un = new bd(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c5), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704c3));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -288,11 +288,11 @@ public final class b extends com.kwad.components.ad.reward.presenter.b {
         if (O.getParent() != null) {
             return;
         }
-        ((FrameLayout) findViewById(R.id.obfuscated_res_0x7f091475)).addView(this.ub, -1, -1);
+        ((FrameLayout) findViewById(R.id.obfuscated_res_0x7f091476)).addView(this.ub, -1, -1);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 81;
         layoutParams.bottomMargin = -this.um.getHeight();
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09148f);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091490);
         View hQ = hQ();
         this.uc = hQ;
         frameLayout.addView(hQ, -1, -1);

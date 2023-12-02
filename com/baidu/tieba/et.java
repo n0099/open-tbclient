@@ -22,7 +22,7 @@ public class et extends vs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NewGridImageLayout h;
-    public cw4 i;
+    public fw4 i;
     public int j;
     public String k;
     public int l;
@@ -92,9 +92,9 @@ public class et extends vs {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.f().booleanValue()) {
-                    tl6.a(this.a.i.getThreadData().getId());
-                    tl6.l(this.a.h.b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    tl6.l(this.a.h.c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    xl6.a(this.a.i.getThreadData().getId());
+                    xl6.l(this.a.h.b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    xl6.l(this.a.h.c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -127,14 +127,14 @@ public class et extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: z */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, cw4Var) == null) {
-            this.i = cw4Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, fw4Var) == null) {
+            this.i = fw4Var;
             this.h.setFrom(this.k);
             this.h.setFromForPb(this.l);
             this.h.setTransmit(f().booleanValue());
-            this.h.onBindDataToView(cw4Var);
+            this.h.onBindDataToView(fw4Var);
             this.h.setJumpToPbListener(new a(this));
         }
     }
@@ -199,10 +199,10 @@ public class et extends vs {
     }
 
     @Override // com.baidu.tieba.os
-    public void n(im6<cw4> im6Var) {
+    public void n(mm6<fw4> mm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, im6Var) == null) {
-            this.h.setSubClickListener(im6Var);
+        if (interceptable == null || interceptable.invokeL(1048588, this, mm6Var) == null) {
+            this.h.setSubClickListener(mm6Var);
         }
     }
 

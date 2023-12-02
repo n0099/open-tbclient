@@ -1,34 +1,46 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.interestlabel.view.LabelItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class le9 implements View.OnClickListener {
+public class le9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public TextView b;
-    public TextView c;
-    public ImageView d;
-    public TextView e;
-    public ImageView f;
-    public TextView g;
-    public int h;
-    public int i;
-    public int j;
+    public Context a;
+    public List<me9> b;
+    public View.OnClickListener c;
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
 
     public le9(Context context) {
         Interceptable interceptable = $ic;
@@ -45,104 +57,63 @@ public class le9 implements View.OnClickListener {
                 return;
             }
         }
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0534, (ViewGroup) null);
-        this.a = viewGroup;
-        this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09073e);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f62);
-        this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09178b);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09178c);
-        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b5f);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b60);
-        this.d.setOnClickListener(this);
-        this.f.setOnClickListener(this);
-        c();
+        this.b = new ArrayList();
+        this.a = context;
     }
 
-    public ViewGroup a() {
-        InterceptResult invokeV;
+    public void a(List<me9> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        return (ViewGroup) invokeV.objValue;
+        this.b = list;
+        notifyDataSetChanged();
     }
 
-    public int b() {
+    public void b(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            this.c = onClickListener;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int size = this.b.size();
+            int i = size % 3;
+            int i2 = size / 3;
+            if (i != 0) {
+                return i2 + 1;
+            }
+            return i2;
         }
         return invokeV.intValue;
     }
 
-    public final void c() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        LabelItemView labelItemView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.d, R.drawable.img_lable_boy_n);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.f, R.drawable.img_lable_girl_n);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                labelItemView = new LabelItemView(this.a);
+            } else {
+                labelItemView = (LabelItemView) view2;
+            }
+            int i2 = i * 3;
+            int min = Math.min(this.b.size(), i2 + 3);
+            boolean z = true;
+            if (i != getCount() - 1) {
+                z = false;
+            }
+            labelItemView.setData(this.b.subList(i2, min), z);
+            labelItemView.setOnClickListener(this.c);
+            return labelItemView;
         }
-    }
-
-    public void d(List<ie9> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && ListUtils.getCount(list) == 2) {
-            this.h = list.get(0).a;
-            this.i = list.get(1).a;
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            boolean z = false;
-            if (view2 == this.d) {
-                z = true;
-            } else {
-                ImageView imageView = this.f;
-            }
-            if (z) {
-                i = this.h;
-            } else {
-                i = this.i;
-            }
-            this.j = i;
-            ImageView imageView2 = this.d;
-            if (z) {
-                i2 = R.drawable.img_lable_boy_s;
-            } else {
-                i2 = R.drawable.img_lable_boy_n;
-            }
-            SkinManager.setImageResource(imageView2, i2);
-            TextView textView = this.e;
-            int i5 = R.color.CAM_X0109;
-            if (z) {
-                i3 = R.color.CAM_X0302;
-            } else {
-                i3 = R.color.CAM_X0109;
-            }
-            SkinManager.setViewTextColor(textView, i3);
-            ImageView imageView3 = this.f;
-            if (z) {
-                i4 = R.drawable.img_lable_girl_n;
-            } else {
-                i4 = R.drawable.img_lable_girl_s;
-            }
-            SkinManager.setImageResource(imageView3, i4);
-            TextView textView2 = this.g;
-            if (!z) {
-                i5 = R.color.CAM_X0301;
-            }
-            SkinManager.setViewTextColor(textView2, i5);
-        }
+        return (View) invokeILL.objValue;
     }
 }

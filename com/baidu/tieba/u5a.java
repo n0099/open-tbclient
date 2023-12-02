@@ -1,40 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.Rect;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.fj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes8.dex */
-public class u5a implements t5a, PreLoadImageProvider {
+public class u5a implements w5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public ArrayList<PreLoadImageInfo> d;
-    public String e;
+    public ExcContent a;
+    public SpannableString b;
 
-    @Override // com.baidu.tieba.t5a
+    @Override // com.baidu.tieba.w5a
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.x5a
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 3;
+            return 2;
         }
         return invokeV.intValue;
     }
 
     public u5a(ExcContent excContent) {
-        Long l;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,68 +55,41 @@ public class u5a implements t5a, PreLoadImageProvider {
                 return;
             }
         }
-        if (excContent != null && (l = excContent.type) != null && l.equals(3L)) {
-            this.d = new ArrayList<>(1);
-            this.a = excContent.src;
-            String str = excContent.bsize;
-            this.e = str;
-            if (str != null) {
-                try {
-                    String[] split = str.split(",");
-                    this.b = JavaTypesHelper.toInt(split[0], 0);
-                    this.c = JavaTypesHelper.toInt(split[1], 0);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            if (this.b <= 0) {
-                this.b = 1;
-            }
-            if (this.c <= 0) {
-                this.c = 1;
-            }
-            String str2 = excContent.cdn_src;
-            PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-            preLoadImageInfo.procType = 17;
-            preLoadImageInfo.height = this.c;
-            preLoadImageInfo.width = this.b;
-            if (StringUtils.isNull(str2)) {
-                preLoadImageInfo.imgUrl = this.a;
-            } else {
-                preLoadImageInfo.imgUrl = str2;
-            }
-            this.d.add(preLoadImageInfo);
-        }
+        this.a = excContent;
     }
 
-    public int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i <= 0) {
-                return 0;
-            }
-            return (i * this.c) / this.b;
-        }
-        return invokeI.intValue;
-    }
-
-    public String d() {
+    @Override // com.baidu.tieba.w5a
+    public CharSequence b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return c(this.a);
         }
-        return (String) invokeV.objValue;
+        return (CharSequence) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
-        InterceptResult invokeV;
+    public final SpannableString c(ExcContent excContent) {
+        InterceptResult invokeL;
+        fj5.a f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
+            if (this.b == null) {
+                String str = excContent.text;
+                if (TbFaceManager.i().o(str)) {
+                    String str2 = SmallTailInfo.EMOTION_PREFIX + TbFaceManager.i().j(str) + SmallTailInfo.EMOTION_SUFFIX;
+                    this.b = new SpannableString(str2 + " ");
+                    sy5 c = TbFaceManager.i().c(str);
+                    if (TbFaceManager.i().f(str) != null) {
+                        int a = (int) (f.a() * 0.6d);
+                        c.setBounds(new Rect(0, 0, a, a));
+                    } else {
+                        c.setBounds(new Rect(0, 0, 0, 0));
+                    }
+                    this.b.setSpan(new ImageSpan(c, 0), 0, str2.length(), 33);
+                }
+            }
+            return this.b;
         }
-        return (ArrayList) invokeV.objValue;
+        return (SpannableString) invokeL.objValue;
     }
 }

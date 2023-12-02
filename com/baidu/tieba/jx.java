@@ -97,7 +97,7 @@ public class jx {
         } else {
             this.mContext = context.getApplicationContext();
         }
-        this.mProcessName = rf1.b();
+        this.mProcessName = uf1.b();
         this.mProcessLaunchTime = System.currentTimeMillis();
         if (Build.VERSION.SDK_INT <= 19) {
             initKITKAT();
@@ -124,7 +124,7 @@ public class jx {
         } else {
             this.mContext = context.getApplicationContext();
         }
-        this.mProcessName = rf1.b();
+        this.mProcessName = uf1.b();
         this.mProcessLaunchTime = System.currentTimeMillis();
         this.mForwardingHandlerSupplier = supplier;
     }

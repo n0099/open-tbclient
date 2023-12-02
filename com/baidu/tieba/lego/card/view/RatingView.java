@@ -130,7 +130,7 @@ public class RatingView extends LinearLayout {
                 textView2.setText(this.b.b);
                 textView2.setTextSize(0, BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f0702b3));
                 textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                textView2.setPadding(0, 0, BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070400), 0);
+                textView2.setPadding(0, 0, BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070401), 0);
                 textView2.setLayoutParams(layoutParams2);
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);

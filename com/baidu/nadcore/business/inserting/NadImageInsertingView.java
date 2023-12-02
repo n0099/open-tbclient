@@ -12,13 +12,13 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ak0;
-import com.baidu.tieba.d71;
+import com.baidu.tieba.f71;
 import com.baidu.tieba.ik0;
 import com.baidu.tieba.ld0;
-import com.baidu.tieba.ly0;
 import com.baidu.tieba.md0;
-import com.baidu.tieba.p21;
+import com.baidu.tieba.ny0;
 import com.baidu.tieba.qe0;
+import com.baidu.tieba.r21;
 import com.baidu.tieba.um0;
 /* loaded from: classes3.dex */
 public class NadImageInsertingView extends NadInsertingBaseView {
@@ -84,29 +84,29 @@ public class NadImageInsertingView extends NadInsertingBaseView {
     }
 
     /* loaded from: classes3.dex */
-    public class c extends p21.b {
+    public class c extends r21.b {
         public c() {
         }
 
-        @Override // com.baidu.tieba.p21.b
+        @Override // com.baidu.tieba.r21.b
         public void b() {
             super.b();
             NadImageInsertingView.this.j(1);
         }
 
-        @Override // com.baidu.tieba.p21.b
+        @Override // com.baidu.tieba.r21.b
         public void c() {
             super.c();
             NadImageInsertingView.this.a.c();
         }
 
-        @Override // com.baidu.tieba.p21.b
+        @Override // com.baidu.tieba.r21.b
         public void d() {
             super.d();
             NadImageInsertingView.this.a.b();
         }
 
-        @Override // com.baidu.tieba.p21.b
+        @Override // com.baidu.tieba.r21.b
         public void e() {
             super.e();
         }
@@ -118,14 +118,14 @@ public class NadImageInsertingView extends NadInsertingBaseView {
     }
 
     public final void m(@NonNull AdBaseModel adBaseModel, @NonNull md0.c cVar) {
-        um0 um0Var = (um0) ly0.d(adBaseModel.f.j, 0);
+        um0 um0Var = (um0) ny0.d(adBaseModel.f.j, 0);
         if (um0Var == null) {
             setVisibility(8);
             c(adBaseModel, "16", "16001");
             cVar.onFail();
             return;
         }
-        d71.a().e(um0Var.a, new b(um0Var, cVar, adBaseModel));
+        f71.a().e(um0Var.a, new b(um0Var, cVar, adBaseModel));
     }
 
     @Override // com.baidu.nadcore.business.inserting.NadInsertingBaseView
@@ -154,9 +154,9 @@ public class NadImageInsertingView extends NadInsertingBaseView {
     }
 
     public final void l() {
-        p21 p21Var = new p21(5000L, 1000L);
-        p21Var.d(new c());
-        this.c = p21Var;
+        r21 r21Var = new r21(5000L, 1000L);
+        r21Var.d(new c());
+        this.c = r21Var;
     }
 
     public final void j(int i) {

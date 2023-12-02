@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.rz8;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.vz8;
+import com.baidu.tieba.xx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class ImMessageCenterPojo implements Serializable {
     public static final int UN_DELETE = 0;
     public static final long serialVersionUID = -8887966163420052407L;
     public transient /* synthetic */ FieldHolder $fh;
-    public ux4 atInfoData;
+    public xx4 atInfoData;
     public String bjhAvatar;
     public int followStatus;
     public String forumId;
@@ -86,13 +86,13 @@ public class ImMessageCenterPojo implements Serializable {
         this.mCustomGroupType = 2;
     }
 
-    public ux4 getAtInfoData() {
+    public xx4 getAtInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.atInfoData;
         }
-        return (ux4) invokeV.objValue;
+        return (xx4) invokeV.objValue;
     }
 
     public String getBjhAvatar() {
@@ -521,7 +521,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (!z) {
                 imMessageCenterPojo.setCustomGroupType(2);
             }
-            imMessageCenterPojo.setLast_content(rz8.F(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+            imMessageCenterPojo.setLast_content(vz8.F(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
             imMessageCenterPojo.setLast_user_name(userData.getName_show());
             imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
             imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
@@ -550,10 +550,10 @@ public class ImMessageCenterPojo implements Serializable {
         return invokeL.booleanValue;
     }
 
-    public void setAtInfoData(ux4 ux4Var) {
+    public void setAtInfoData(xx4 xx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, ux4Var) == null) {
-            this.atInfoData = ux4Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, xx4Var) == null) {
+            this.atInfoData = xx4Var;
         }
     }
 

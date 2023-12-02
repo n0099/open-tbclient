@@ -1,38 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.themeCenter.background.BackgroundSetRequestMessage;
+import com.baidu.tieba.themeCenter.background.BackgroundItemView;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class o2b {
+public class o2b extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
-    public BdUniqueId c;
-    public int d;
+    public List<List<DressItemData>> a;
+    public TbPageContext<?> b;
+    public n2b c;
 
-    public o2b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+        public BackgroundItemView b;
+        public BackgroundItemView c;
+        public BackgroundItemView d;
+
+        public a(o2b o2bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o2bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public o2b(TbPageContext<?> tbPageContext, n2b n2bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, n2bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,92 +73,90 @@ public class o2b {
                 return;
             }
         }
-        this.c = null;
-        this.d = -1;
-        this.a = tbPageContext;
-        this.c = bdUniqueId;
+        this.b = tbPageContext;
+        this.c = n2bVar;
     }
 
-    public int a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public List<DressItemData> getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<List<DressItemData>> list = this.a;
+            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return null;
+        }
+        return (List) invokeI.objValue;
+    }
+
+    public void b(List<List<DressItemData>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<List<DressItemData>> list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public void b(DressItemData dressItemData) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData) != null) || dressItemData == null || dressItemData.getPropsId() == 0) {
-            return;
-        }
-        PersonalBackgroundPreviewActivityConfig personalBackgroundPreviewActivityConfig = new PersonalBackgroundPreviewActivityConfig(this.a.getPageActivity(), dressItemData.getPropsId(), dressItemData.getInUse() ? 1 : 0);
-        personalBackgroundPreviewActivityConfig.setFrom(this.d);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalBackgroundPreviewActivityConfig));
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void d(int i, String str, DressItemData dressItemData, boolean z) {
-        int i2;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, dressItemData, Boolean.valueOf(z)}) == null) {
-            if (dressItemData.getFreeUserLevel() == 101) {
-                i2 = 9;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            List<DressItemData> item = getItem(i);
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
             } else {
-                i2 = 0;
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0145, viewGroup, false);
+                aVar = new a(this);
+                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f092740);
+                aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090410);
+                aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090411);
+                aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090412);
+                view2.setTag(aVar);
             }
-            if (!StringUtils.isNull(str)) {
-                int i3 = 4;
-                int i4 = 2;
-                if (i == g2b.a) {
-                    int i5 = this.d;
-                    if (i5 == 1) {
-                        str2 = MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY;
-                    } else if (i5 == 0) {
-                        str2 = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY;
-                    } else {
-                        str2 = "";
-                    }
-                    String str3 = str2;
-                    TbPageContext<?> tbPageContext = this.a;
-                    if (z) {
-                        i4 = 4;
-                    }
-                    f2b.d(tbPageContext, i4, str, i2, str3, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-                } else if (i == g2b.b) {
-                    TbPageContext<?> tbPageContext2 = this.a;
-                    if (!z) {
-                        i3 = 2;
-                    }
-                    f2b.c(tbPageContext2, i3, str, i2);
+            if (item != null) {
+                if (i == 0) {
+                    aVar.a.setVisibility(0);
+                } else {
+                    aVar.a.setVisibility(8);
+                }
+                aVar.b.e(item.get(0));
+                aVar.b.setController(this.c);
+                if (item.size() > 2) {
+                    aVar.c.e(item.get(1));
+                    aVar.d.e(item.get(2));
+                    aVar.c.setController(this.c);
+                    aVar.d.setController(this.c);
+                } else if (item.size() > 1) {
+                    aVar.c.e(item.get(1));
+                    aVar.c.setController(this.c);
+                    aVar.d.f();
+                } else {
+                    aVar.c.f();
+                    aVar.d.f();
                 }
             }
+            this.b.getLayoutMode().onModeChanged(view2);
+            return view2;
         }
-    }
-
-    public void e(DressItemData dressItemData, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048580, this, dressItemData, z) != null) || dressItemData == null) {
-            return;
-        }
-        if (!TbadkCoreApplication.isLogin()) {
-            ViewHelper.skipToLoginActivity(this.a.getPageActivity());
-            return;
-        }
-        this.b = dressItemData.getPropsId();
-        BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
-        backgroundSetRequestMessage.setFromDetail(z);
-        backgroundSetRequestMessage.setRequestUniqueId(this.c);
-        backgroundSetRequestMessage.setPropId(this.b);
-        MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921004));
+        return (View) invokeILL.objValue;
     }
 }

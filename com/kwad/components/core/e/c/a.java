@@ -38,10 +38,10 @@ public final class a extends KSFrameLayout {
         this.Ke = c0643b;
         this.mAdTemplate = c0643b.adTemplate;
         l.inflate(context, R.layout.obfuscated_res_0x7f0d04bd, this);
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09148f);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091490);
         this.mRootContainer = adBaseFrameLayout;
         a(adBaseFrameLayout, "rootView is null");
-        a((KsAdWebView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091359), "webView is null");
+        a((KsAdWebView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09135a), "webView is null");
     }
 
     private void a(View view2, String str) {

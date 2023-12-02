@@ -1,83 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class ly7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public List<pi> d;
-    public boolean e;
-    public int f;
+    public View a;
+    public BarImageView b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public EntelechyUserLikeButton f;
+    public View g;
 
-    public ly7() {
+    public ly7(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public int a(List<pi> list) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return 0;
-            }
-            if (ListUtils.isEmpty(this.d)) {
-                LinkedList linkedList = new LinkedList();
-                this.d = linkedList;
-                linkedList.addAll(list);
-                return list.size();
-            }
-            LinkedList linkedList2 = new LinkedList();
-            for (int i = 0; i < list.size(); i++) {
-                pi piVar = list.get(i);
-                int i2 = 0;
-                while (true) {
-                    if (i2 < this.d.size()) {
-                        pi piVar2 = this.d.get(i2);
-                        if (piVar != null && (piVar instanceof ky7) && piVar2 != null && (piVar2 instanceof ky7)) {
-                            ThreadData threadData = ((ky7) piVar).getThreadData();
-                            ThreadData threadData2 = ((ky7) piVar2).getThreadData();
-                            if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
-                                z = true;
-                                break;
-                            }
-                        }
-                        i2++;
-                    } else {
-                        z = false;
-                        break;
-                    }
-                }
-                if (!z) {
-                    ListUtils.add(linkedList2, piVar);
-                }
-            }
-            if (linkedList2.size() != 0) {
-                ListUtils.addAll(this.d, 0, linkedList2);
-            }
-            return linkedList2.size();
-        }
-        return invokeL.intValue;
+        this.a = view2;
+        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cf0);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cf3);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cf1);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cf2);
+        this.f = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090cee);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090cef);
     }
 }

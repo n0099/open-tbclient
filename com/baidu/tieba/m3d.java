@@ -5,21 +5,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FullLengthNovel;
+import tbclient.GameAttr;
+import tbclient.SignatureInfo;
 /* loaded from: classes7.dex */
-public class m3d extends ltc {
+public class m3d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FullLengthNovel fullLengthNovel) {
+    public static JSONObject b(@NonNull GameAttr gameAttr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fullLengthNovel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, gameAttr)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "schema", fullLengthNovel.schema);
-            ltc.a(jSONObject, "has_truncate", fullLengthNovel.has_truncate);
-            ltc.a(jSONObject, "button_heigh", fullLengthNovel.button_heigh);
+            ktc.a(jSONObject, "user_id", gameAttr.user_id);
+            SignatureInfo signatureInfo = gameAttr.signature_info;
+            if (signatureInfo != null) {
+                ktc.a(jSONObject, "signature_info", i8d.b(signatureInfo));
+            }
+            ktc.a(jSONObject, "is_open", gameAttr.is_open);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

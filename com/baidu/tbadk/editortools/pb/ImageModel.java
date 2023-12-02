@@ -59,7 +59,7 @@ public class ImageModel extends BdBaseModel {
                 if (str != null && !str.equals(TbConfig.IMAGE_RESIZED_FILE)) {
                     FileHelper.copyFileByRelativelyPath("photos/" + this.a, TbConfig.IMAGE_RESIZED_FILE);
                 }
-                return BitmapHelper.getRoundedCornerBitmap(BitmapHelper.getSquareBitmap(FileHelper.getImage(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
+                return BitmapHelper.getRoundedCornerBitmap(BitmapHelper.getSquareBitmap(FileHelper.getTempImg(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
             }
             return (Bitmap) invokeL.objValue;
         }

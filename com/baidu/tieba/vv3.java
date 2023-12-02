@@ -1,215 +1,168 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import rx.schedulers.Schedulers;
-import rx.subjects.PublishSubject;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class vv3 {
+public class vv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d a;
-    public static final soc b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public interface c extends Executor {
-        void execute(@NonNull Runnable runnable, @NonNull String str);
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a implements soc<Pair<Runnable, String>> {
+    public static class a extends ResponseCallback<cu3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yu3 a;
 
-        public a() {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.soc
-        /* renamed from: a */
-        public void call(Pair<Runnable, String> pair) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
-                String name = Thread.currentThread().getName();
-                Thread currentThread = Thread.currentThread();
-                currentThread.setName(name + "-" + ((String) pair.second));
-                try {
-                    ((Runnable) pair.first).run();
-                } catch (Throwable unused) {
-                }
-                Thread.currentThread().setName(name);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements xoc<Pair<Runnable, String>, eoc<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xoc
-        /* renamed from: a */
-        public eoc<?> call(Pair<Runnable, String> pair) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return ioc.g(pair).h(Schedulers.io()).f(vv3.b).l();
-            }
-            return (eoc) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class d extends etc<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(ftc ftcVar) {
-            super(ftcVar);
+        public a(yu3 yu3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ftcVar};
+                Object[] objArr = {yu3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((ftc) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = yu3Var;
         }
 
-        @Override // java.util.concurrent.Executor
-        public void execute(@NonNull Runnable runnable) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(cu3 cu3Var, int i) {
+            yu3 yu3Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                execute(runnable, "");
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, cu3Var, i) == null) && cu3Var != null && (yu3Var = this.a) != null) {
+                yu3Var.d(cu3Var.a, cu3Var.b);
             }
         }
 
-        @Override // com.baidu.tieba.vv3.c
-        public void execute(@NonNull Runnable runnable, @NonNull String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public cu3 parseResponse(Response response, int i) {
+            InterceptResult invokeLI;
+            JSONObject optJSONObject;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
-                onNext(Pair.create(runnable, vv3.c(str)));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948254198, "Lcom/baidu/tieba/vv3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948254198, "Lcom/baidu/tieba/vv3;");
-                return;
-            }
-        }
-        b = new a();
-    }
-
-    public vv3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static c b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                synchronized (vv3.class) {
-                    if (a == null) {
-                        a = new d(PublishSubject.Q());
-                        a.v().l(new b()).C().E();
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                if (response == null || response.body() == null || !response.isSuccessful()) {
+                    return null;
+                }
+                try {
+                    String string = response.body().string();
+                    if (!TextUtils.isEmpty(string)) {
+                        try {
+                            JSONObject jSONObject = new JSONObject(string);
+                            if (!TextUtils.equals(jSONObject.optString("ret", ""), "0") || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+                                return null;
+                            }
+                            cu3 cu3Var = new cu3();
+                            cu3Var.a = optJSONObject.optString("clickid");
+                            cu3Var.b = optJSONObject.optString("dstlink");
+                            return cu3Var;
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
+                } catch (Exception | OutOfMemoryError unused) {
                 }
+                return null;
             }
-            return a;
+            return (cu3) invokeLI.objValue;
         }
-        return (c) invokeV.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public static void a(sv3 sv3Var, AdElementInfo adElementInfo, bv3 bv3Var, yu3 yu3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null) {
-                if (!str.startsWith("SwanAppExecutorUtils_")) {
-                    str = "SwanAppExecutorUtils_" + str;
-                }
-            } else {
-                str = null;
+        if ((interceptable == null || interceptable.invokeLLLL(65536, null, sv3Var, adElementInfo, bv3Var, yu3Var) == null) && adElementInfo != null && !TextUtils.isEmpty(adElementInfo.getClickUrl())) {
+            String c = c(adElementInfo.getClickUrl(), sv3Var);
+            a aVar = new a(yu3Var);
+            if (NetworkUtils.f(AppRuntime.getAppContext()) && bv3Var != null) {
+                bv3Var.c(c, aVar);
             }
-            if (str == null) {
-                str = "SwanAppExecutorUtils";
-            }
-            if (str.length() > 256) {
-                return str.substring(0, 255);
-            }
-            return str;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void d(@NonNull Runnable runnable, @NonNull String str) {
+    public static void b(String str, bv3 bv3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, runnable, str) == null) {
-            b().execute(runnable, str);
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, bv3Var) == null) {
+            bv3Var.e(str);
+        }
+    }
+
+    public static void d(AdElementInfo adElementInfo, bv3 bv3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65539, null, adElementInfo, bv3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            b(c(str, null), bv3Var);
+        }
+    }
+
+    public static void f(AdElementInfo adElementInfo, bv3 bv3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65541, null, adElementInfo, bv3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getImpressionUrls()) {
+            b(c(str, null), bv3Var);
+        }
+    }
+
+    public static String c(String str, sv3 sv3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, sv3Var)) == null) {
+            if (sv3Var == null) {
+                return str;
+            }
+            return str.replaceAll("\\{REQ_WIDTH\\}", sv3Var.a).replaceAll("\\{REQ_HEIGHT\\}", sv3Var.b).replaceAll("\\{WIDTH\\}", sv3Var.c).replaceAll("\\{HEIGHT\\}", sv3Var.d).replaceAll("\\{DOWN_X\\}", sv3Var.e).replaceAll("\\{DOWN_Y\\}", sv3Var.f).replaceAll("\\{UP_X\\}", sv3Var.g).replaceAll("\\{UP_Y\\}", sv3Var.h).replaceAll("\\{VIDEO_TIME\\}", sv3Var.i).replaceAll("\\{BEGIN_TIME\\}", sv3Var.j).replaceAll("\\{END_TIME\\}", sv3Var.k).replaceAll("\\{PLAY_FIRST_FRAME\\}", sv3Var.l).replaceAll("\\{PLAY_LAST_FRAME\\}", sv3Var.m).replaceAll("\\{SCENE\\}", sv3Var.n).replaceAll("\\{TYPE\\}", sv3Var.o).replaceAll("\\{BEHAVIOR\\}", sv3Var.p).replaceAll("\\{STATUS\\}", sv3Var.q).replaceAll("\\{CONVERSION_ACTION\\}", sv3Var.r).replaceAll("\\{CLICK_ID\\}", sv3Var.s);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void e(sv3 sv3Var, AdElementInfo adElementInfo, bv3 bv3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, sv3Var, adElementInfo, bv3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getConversionUrls()) {
+            b(c(str, sv3Var), bv3Var);
+        }
+    }
+
+    public static void g(sv3 sv3Var, AdElementInfo adElementInfo, bv3 bv3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65542, null, sv3Var, adElementInfo, bv3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getCloseTrackers()) {
+            b(c(str, sv3Var), bv3Var);
         }
     }
 }

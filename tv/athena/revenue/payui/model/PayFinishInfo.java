@@ -1,10 +1,10 @@
 package tv.athena.revenue.payui.model;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.oed;
+import com.baidu.tieba.ned;
 @Keep
 /* loaded from: classes2.dex */
-public class PayFinishInfo extends oed {
+public class PayFinishInfo extends ned {
     public int code;
     public String message;
     public int step;

@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.Align;
 import com.baidu.card.ThreadCardViewHolder;
@@ -10,27 +11,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.cu;
 import com.baidu.tieba.nu;
-import com.baidu.tieba.rs;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dr5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
+public class dr5 extends vq5<mz4, ThreadCardViewHolder<mz4>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FollowUserButton.a g;
-    public NEGFeedBackView.NEGFeedbackEventCallback h;
-    public im6<jz4> i;
+    public NEGFeedBackView.NEGFeedbackEventCallback g;
+    public mm6<mz4> h;
 
     /* loaded from: classes5.dex */
-    public class a extends im6<jz4> {
+    public class a extends mm6<mz4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dr5 b;
@@ -54,59 +52,23 @@ public class dr5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.im6
+        @Override // com.baidu.tieba.mm6
         /* renamed from: d */
-        public void a(View view2, jz4 jz4Var) {
+        public void a(View view2, mz4 mz4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, jz4Var) == null) {
-                this.b.x(view2, jz4Var);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, mz4Var) == null) {
+                this.b.x(view2, mz4Var);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements rs.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(dr5 dr5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dr5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.rs.b
-        public void a(cw4 cw4Var, View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, cw4Var, view2) == null) && cw4Var != null) {
-                if (view2.getId() == R.id.user_name) {
-                    cw4Var.objType = 3;
-                } else if (view2.getId() == R.id.user_avatar) {
-                    cw4Var.objType = 4;
-                } else {
-                    cw4Var.objType = 1;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements zi {
+    public class b implements zi {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dr5 a;
 
-        public c(dr5 dr5Var) {
+        public b(dr5 dr5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,14 +89,14 @@ public class dr5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
         @Override // com.baidu.tieba.zi
         public void b(View view2, pi piVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (piVar instanceof jz4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (piVar instanceof mz4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                jz4 jz4Var = (jz4) piVar;
-                jz4Var.objType = 1;
-                if (this.a.i != null) {
-                    this.a.i.a(threadCardViewHolder.getView(), jz4Var);
+                mz4 mz4Var = (mz4) piVar;
+                mz4Var.objType = 1;
+                if (this.a.h != null) {
+                    this.a.h.a(threadCardViewHolder.getView(), mz4Var);
                 }
-                ThreadCardUtils.jumpToPB((cw4) jz4Var, view2.getContext(), this.a.D(), false, ss.a((vi) viewGroup, view2, i));
+                ThreadCardUtils.jumpToPB((fw4) mz4Var, view2.getContext(), this.a.D(), false, ss.a((vi) viewGroup, view2, i));
                 threadCardViewHolder.a().q(new nu.a(1));
             }
         }
@@ -142,7 +104,7 @@ public class dr5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dr5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_USER_NORMAL);
+        super(tbPageContext, ThreadData.TYPE_FORUM_HEADER);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,7 +121,7 @@ public class dr5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
                 return;
             }
         }
-        this.i = new a(this);
+        this.h = new a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -170,16 +132,13 @@ public class dr5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.c.getPageActivity());
-            rs rsVar = new rs(this.c.getPageActivity());
-            rsVar.o(this.mPageId);
-            rsVar.x(new b(this));
-            rsVar.A(this.c);
-            bVar.o(rsVar);
+            bVar.l().j(BdUtilHelper.getDimens(this.c.getPageActivity(), R.dimen.tbds10));
+            bVar.o(new bt(this.c.getPageActivity()));
             cu k = bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.d);
             k.t(D());
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.mPageId);
-            setOnAdapterItemClickListener(new c(this));
+            setOnAdapterItemClickListener(new b(this));
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -188,21 +147,18 @@ public class dr5 extends rq5<jz4, ThreadCardViewHolder<jz4>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: Q */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jz4 jz4Var, ThreadCardViewHolder<jz4> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mz4 mz4Var, ThreadCardViewHolder<mz4> threadCardViewHolder) {
         InterceptResult invokeCommon;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jz4Var, threadCardViewHolder})) == null) {
-            if (jz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = jz4Var.t) != null) {
-                boolean z = true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mz4Var, threadCardViewHolder})) == null) {
+            if (mz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = mz4Var.t) != null) {
                 threadData.statFloor = getPositionByType(i) + 1;
                 threadCardViewHolder.a().s(i);
-                threadCardViewHolder.s(I(1), Align.ALIGN_RIGHT_TOP, this.h);
-                threadCardViewHolder.n((I(4) && jz4Var.showFollowBtn()) ? false : false, this.g);
-                threadCardViewHolder.x(I(8), Align.ALIGN_RIGHT_TOP);
-                threadCardViewHolder.e(jz4Var);
+                threadCardViewHolder.s(I(1), Align.ALIGN_RIGHT_TOP, this.g);
+                threadCardViewHolder.e(mz4Var);
                 threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().r(this.i);
+                threadCardViewHolder.a().r(this.h);
                 return threadCardViewHolder.getView();
             }
             return null;

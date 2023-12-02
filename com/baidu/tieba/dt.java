@@ -29,7 +29,7 @@ public class dt extends vs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadGodReplyLayout h;
-    public cw4 i;
+    public fw4 i;
     public StatisticItem j;
 
     /* loaded from: classes5.dex */
@@ -105,7 +105,7 @@ public class dt extends vs {
                     if (ThreadCardUtils.isHeadlinesCard(this.b.i.getThreadData().getTaskInfoData()) && HeadlinesPrefetchSwitch.isOn() && !UbsABTestHelper.isExistSid(ThreadCardUtils.KEY_TOUTIAO_PREFETCH_A) && StringUtils.isNotNull(this.b.i.getThreadData().getTaskInfoData().r())) {
                         TbLog defaultLog = DefaultLog.getInstance();
                         defaultLog.i("GodReplySegment", "头条卡，点击frs卡片神回复区域预取， url：" + this.b.i.getThreadData().getTaskInfoData().r());
-                        gj6.c(this.b.i.getThreadData().getTaskInfoData().r());
+                        kj6.c(this.b.i.getThreadData().getTaskInfoData().r());
                     }
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
@@ -144,7 +144,7 @@ public class dt extends vs {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                tl6.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                xl6.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -204,16 +204,16 @@ public class dt extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: A */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cw4Var) == null) {
-            this.i = cw4Var;
-            nwa topAgreePost = cw4Var.getThreadData().getTopAgreePost();
+        if (interceptable == null || interceptable.invokeL(1048576, this, fw4Var) == null) {
+            this.i = fw4Var;
+            mwa topAgreePost = fw4Var.getThreadData().getTopAgreePost();
             if (this.j != null && topAgreePost != null && topAgreePost.u() != null && topAgreePost.u().getUserId() != null) {
-                this.j.param("tid", cw4Var.getThreadData().tid).param("post_id", topAgreePost.U()).param("uid", TbadkCoreApplication.getCurrentAccount());
-                am6.b().a(this.j);
+                this.j.param("tid", fw4Var.getThreadData().tid).param("post_id", topAgreePost.U()).param("uid", TbadkCoreApplication.getCurrentAccount());
+                em6.b().a(this.j);
             }
-            this.h.setData(cw4Var.getThreadData());
+            this.h.setData(fw4Var.getThreadData());
         }
     }
 

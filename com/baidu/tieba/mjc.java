@@ -8,27 +8,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.transvod.player.common.AVframe;
-import com.yy.transvod.player.common.AudioSendStamp;
 import com.yy.transvod.player.log.TLog;
 import com.yy.transvod.player.mediacodec.FrameInfo;
 import com.yy.transvod.player.mediacodec.MediaInfo;
 import com.yy.transvod.player.mediacodec.MediaSample;
-import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import com.yy.transvod.player.mediacodec.NativeIttiam;
+import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public abstract class mjc extends hjc {
+public abstract class mjc extends gjc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NativeFfmpeg A;
+    public NativeIttiam A;
     public ByteBuffer B;
     public ByteBuffer C;
-    public TreeMap<Integer, Object> D;
-    public int E;
+    public int D;
+    public boolean E;
     public FrameInfo F;
-    public oic G;
+    public WeakReference<pic> G;
 
     public mjc() {
         Interceptable interceptable = $ic;
@@ -43,16 +40,16 @@ public abstract class mjc extends hjc {
                 return;
             }
         }
-        this.A = new NativeFfmpeg();
+        this.A = new NativeIttiam();
         this.B = null;
         this.C = null;
-        this.D = new TreeMap<>();
-        this.E = 0;
+        this.D = 0;
+        this.E = false;
         this.F = new FrameInfo();
-        this.G = new oic(200);
+        this.G = new WeakReference<>(null);
     }
 
-    @Override // com.baidu.tieba.hjc
+    @Override // com.baidu.tieba.gjc
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -70,32 +67,35 @@ public abstract class mjc extends hjc {
     public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TLog.g(this, "NativeFfmpegFilter.stopCodec enter.");
-            this.A.k();
+            TLog.g(this, "NativeIttiamFilter.stopCodec enter.");
+            this.A.l();
             this.B = null;
             this.C = null;
-            this.E = 0;
             this.F.a = 0L;
+            this.D = 0;
             this.v = 0L;
             G();
-            TLog.g(this, "NativeFfmpegFilter.stopCodec leave.");
+            TLog.g(this, "NativeIttiamFilter.stopCodec leave.");
         }
     }
 
-    @Override // com.baidu.tieba.hjc
+    @Override // com.baidu.tieba.gjc
     public int D(MediaSample mediaSample) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSample)) == null) {
-            K();
+            this.E = false;
             int J = J(mediaSample);
-            K();
+            if (J == 1 && this.E) {
+                this.E = false;
+                K();
+            }
             return J;
         }
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.hjc, com.baidu.tieba.qjc, com.baidu.tieba.yhc.a
+    @Override // com.baidu.tieba.gjc, com.baidu.tieba.pjc, com.baidu.tieba.xhc.a
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
@@ -112,11 +112,12 @@ public abstract class mjc extends hjc {
         AVframe aVframe;
         MediaInfo mediaInfo;
         ByteBuffer byteBuffer;
+        boolean z;
         byte[] bArr;
         byte[] bArr2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample)) == null) {
-            if (mediaSample == null || (aVframe = mediaSample.g) == null || (mediaInfo = mediaSample.i) == null || (byteBuffer = this.B) == null || mediaInfo.k == null || mediaInfo.a == 0) {
+            if (mediaSample == null || (aVframe = mediaSample.g) == null || (mediaInfo = mediaSample.i) == null || (byteBuffer = this.B) == null || this.C == null || mediaInfo.k == null) {
                 return -1;
             }
             int i = aVframe.e;
@@ -124,23 +125,28 @@ public abstract class mjc extends hjc {
             if (i > i2) {
                 long j = this.v + 1;
                 this.v = j;
-                if (j < 10 || j % 1000 == 0) {
-                    TLog.c(this, String.format("ffmepg::sample.avFrame.playTaskID: %d > mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
+                if (j >= 10 && j % 1000 != 0) {
+                    return 0;
                 }
+                TLog.c(this, String.format("Ittiam::sample.avFrame.playTaskID: %d > mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
                 return 0;
             } else if (i < i2) {
                 long j2 = this.v + 1;
                 this.v = j2;
                 if (j2 < 10 || j2 % 1000 == 0) {
-                    TLog.c(this, String.format("ffmpeg::sample.avFrame.playTaskID: %d < mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
+                    TLog.c(this, String.format("Ittiam::sample.avFrame.playTaskID: %d < mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
                 }
                 return -1;
             } else {
                 byteBuffer.clear();
-                boolean z = mediaSample.g.c;
+                this.C.clear();
+                FrameInfo frameInfo = this.F;
+                frameInfo.a = 0L;
+                frameInfo.b = 0L;
+                boolean z2 = mediaSample.g.c;
                 int capacity = mediaSample.i.k.capacity();
                 if (mediaSample.d && (bArr2 = mediaSample.g.q) != null) {
-                    capacity += bArr2.length + 7;
+                    capacity += bArr2.length + 4;
                 }
                 ByteBuffer byteBuffer2 = this.B;
                 if (byteBuffer2 == null || byteBuffer2.capacity() < capacity) {
@@ -150,19 +156,26 @@ public abstract class mjc extends hjc {
                     }
                     this.B = ByteBuffer.allocateDirect(i3);
                 }
-                if (this.B.capacity() >= capacity) {
-                    if (mediaSample.d && (bArr = mediaSample.g.q) != null) {
-                        djc.d(bArr, this.B);
-                    }
-                    this.B.put(mediaSample.i.k).flip();
-                    if (this.A.o(this.B, mediaSample.d, mediaSample.l, mediaSample.k) < 0) {
-                        TLog.c(this, "mCodec.send_packet() failed.");
-                        m(51);
-                        return -1;
-                    }
+                if (this.B.capacity() < capacity) {
+                    return -1;
                 }
-                this.G.b(mediaSample.t);
+                if (mediaSample.d && (bArr = mediaSample.g.q) != null) {
+                    this.B.putInt(bArr.length);
+                    this.B.put(mediaSample.g.q);
+                }
+                this.B.put(mediaSample.i.k).flip();
+                int k = this.A.k(this.B, this.C, mediaSample.d, mediaSample.l, this.F);
+                if (k != 0 && k != -2) {
+                    TLog.c(this, "ittiam decode error.maybe");
+                    return -1;
+                }
                 this.r.a(mediaSample);
+                if (k == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.E = z;
                 return 1;
             }
         }
@@ -173,60 +186,30 @@ public abstract class mjc extends hjc {
         InterceptResult invokeV;
         MediaInfo mediaInfo;
         AVframe aVframe;
-        AVframe aVframe2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ByteBuffer byteBuffer = this.C;
-            if (byteBuffer != null) {
-                byteBuffer.clear();
-                this.D.clear();
+            MediaSample c = this.r.c();
+            if (c != null && c.g != null && (mediaInfo = c.i) != null) {
+                mediaInfo.c(this.q);
+                c.i.k = this.C;
                 FrameInfo frameInfo = this.F;
-                frameInfo.a = 0L;
-                frameInfo.b = 0L;
-                if (this.A.n(this.C, this.D, frameInfo) > 0) {
-                    MediaSample c = this.r.c();
-                    if (c != null && c.g != null && (mediaInfo = c.i) != null) {
-                        mediaInfo.c(this.q);
-                        c.i.k = this.C;
-                        FrameInfo frameInfo2 = this.F;
-                        c.l = frameInfo2.a;
-                        E(c, frameInfo2.b);
-                        this.u++;
-                        c.I = NativeFfmpeg.l(this.D);
-                        ArrayList<Long> m = NativeFfmpeg.m(this.D);
-                        if (m != null && !m.isEmpty()) {
-                            c.J = new ArrayList<>();
-                            Iterator<Long> it = m.iterator();
-                            while (it.hasNext()) {
-                                c.J.add(new AudioSendStamp(this.G.a(), it.next().longValue()));
-                            }
-                        }
-                        n(c);
-                        if (!c.c) {
-                            qic qicVar = this.s.get();
-                            if (qicVar != null && (aVframe2 = c.g) != null) {
-                                qicVar.t((int) aVframe2.l);
-                            }
-                        } else {
-                            qic qicVar2 = this.s.get();
-                            if (qicVar2 != null && (aVframe = c.g) != null) {
-                                qicVar2.s((int) aVframe.l);
-                            }
-                        }
-                        this.D.clear();
-                        uic.c(c, 6);
-                        synchronized (this.k) {
-                            if (this.d != null) {
-                                this.d.f(c);
-                            }
-                        }
-                        return 1;
-                    }
-                    return -1;
+                c.l = frameInfo.a;
+                E(c, frameInfo.b);
+                this.u++;
+                tic.c(c, 6);
+                n(c);
+                pic picVar = this.G.get();
+                if (picVar != null && (aVframe = c.g) != null) {
+                    picVar.t((int) aVframe.l);
                 }
-                return 0;
+                synchronized (this.k) {
+                    if (this.d != null) {
+                        this.d.f(c);
+                    }
+                }
+                return 1;
             }
-            return 0;
+            return -1;
         }
         return invokeV.intValue;
     }

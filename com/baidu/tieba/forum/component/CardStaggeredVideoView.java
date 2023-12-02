@@ -22,30 +22,30 @@ import com.baidu.tbadk.core.util.TextViewCutUtilsKt;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a87;
+import com.baidu.tieba.ac7;
+import com.baidu.tieba.b57;
+import com.baidu.tieba.bg7;
+import com.baidu.tieba.ca7;
+import com.baidu.tieba.cg7;
+import com.baidu.tieba.db7;
+import com.baidu.tieba.e87;
 import com.baidu.tieba.feed.component.CardFrameView;
 import com.baidu.tieba.feed.widget.roundcorners.RoundFrameLayout;
 import com.baidu.tieba.forum.component.CardStaggeredVideoTagView;
 import com.baidu.tieba.forum.component.CardStaggeredVideoView;
-import com.baidu.tieba.gb7;
-import com.baidu.tieba.h67;
-import com.baidu.tieba.h87;
-import com.baidu.tieba.hb7;
-import com.baidu.tieba.i87;
-import com.baidu.tieba.j67;
-import com.baidu.tieba.k67;
-import com.baidu.tieba.kd7;
-import com.baidu.tieba.so7;
-import com.baidu.tieba.u47;
-import com.baidu.tieba.ua7;
-import com.baidu.tieba.v47;
-import com.baidu.tieba.wb7;
+import com.baidu.tieba.kb7;
+import com.baidu.tieba.l67;
+import com.baidu.tieba.l87;
+import com.baidu.tieba.lb7;
+import com.baidu.tieba.m87;
+import com.baidu.tieba.n67;
+import com.baidu.tieba.o67;
+import com.baidu.tieba.od7;
+import com.baidu.tieba.wo7;
 import com.baidu.tieba.x4;
-import com.baidu.tieba.x47;
-import com.baidu.tieba.xf7;
-import com.baidu.tieba.y97;
-import com.baidu.tieba.yf7;
-import com.baidu.tieba.za7;
+import com.baidu.tieba.y47;
+import com.baidu.tieba.ya7;
+import com.baidu.tieba.z47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,11 +63,11 @@ import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u00012\u00020\u00032\u00020\u0004B\u001b\b\u0007\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\b¢\u0006\u0002\u0010\tJ\u0010\u0010+\u001a\u00020,2\u0006\u0010-\u001a\u00020\u0002H\u0014J\u0018\u0010+\u001a\u00020,2\u0006\u0010-\u001a\u00020\u00022\u0006\u0010.\u001a\u00020\u001bH\u0002J\b\u0010/\u001a\u000200H\u0016J\u0010\u00101\u001a\u00020,2\u0006\u00102\u001a\u00020\u001bH\u0002J\b\u00103\u001a\u00020,H\u0016J\u0010\u00104\u001a\u00020,2\u0006\u0010-\u001a\u00020\u0002H\u0002J\u0010\u00105\u001a\u00020,2\u0006\u0010-\u001a\u00020\u0002H\u0002J\u0010\u00106\u001a\u00020,2\u0006\u0010-\u001a\u00020\u0002H\u0002J\u001a\u00107\u001a\u00020,2\u0006\u0010-\u001a\u00020\u00022\b\b\u0002\u0010.\u001a\u00020\u001bH\u0002J\u001a\u00108\u001a\u00020,2\u0006\u00109\u001a\u00020\u001b2\b\b\u0002\u0010:\u001a\u00020\u001bH\u0002J\u0010\u0010;\u001a\u00020,2\u0006\u0010-\u001a\u00020<H\u0002J\u0010\u0010=\u001a\u00020,2\u0006\u0010-\u001a\u00020<H\u0002R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0012\u001a\u00020\u00138BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u0014\u0010\u0015R\u0014\u0010\u0016\u001a\u00020\u00138BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u0017\u0010\u0015R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001e\u001a\u00020\u001fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010 \u001a\u0004\u0018\u00010!X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010#\u001a\u00020\u00138BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b$\u0010\u0015R\u0014\u0010%\u001a\u00020\u00138BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b&\u0010\u0015R\u000e\u0010'\u001a\u00020(X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020*X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006>"}, d2 = {"Lcom/baidu/tieba/forum/component/CardStaggeredVideoView;", "Lcom/baidu/tieba/feed/component/CardFrameView;", "Lcom/baidu/tieba/forum/component/uistate/CardStaggeredVideoUiState;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "Lcom/baidu/tieba/feed/list/IGetVideoHolder;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "commentContainer", "Landroid/widget/LinearLayout;", "commentIcon", "Landroid/widget/ImageView;", "commentText", "Landroid/widget/TextView;", "headMainView", "Lcom/baidu/tieba/forum/component/CardStaggeredVideoTagView;", "horizontalVideoHeight", "", "getHorizontalVideoHeight", "()I", "horizontalVideoWidth", "getHorizontalVideoWidth", "imageView", "Lcom/baidu/tbadk/core/view/RoundTbImageView;", "inSelectedMode", "", "manageBtn", "manageSelectBtn", "manageSelectMask", "Landroid/widget/FrameLayout;", Headers.REFRESH, "Lcom/baidu/tieba/forum/component/uistate/RefreshRunnable;", "textView", "verticalVideoHeight", "getVerticalVideoHeight", "verticalVideoWidth", "getVerticalVideoWidth", "videoHolder", "Lcom/baidu/tieba/forum/view/FrsStaggeredVideoContainerHolder;", "videoRootView", "Lcom/baidu/tieba/feed/widget/roundcorners/RoundFrameLayout;", "doUpdateState", "", "state", "updateUiOnly", "getVideoHolder", "", "handGreyMode", "isGreyMode", "onChangeSkin", "updateEditMode", "updateManage", "updateOtherUI", "updateRefresh", "updateSelectedMode", "isInSelectedMode", "canSelect", "updateVideoUI", "Lcom/baidu/tieba/feed/component/uistate/CardVideoUiState;", "videoClick", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes6.dex */
-public final class CardStaggeredVideoView extends CardFrameView<xf7> implements gb7, za7 {
+/* loaded from: classes5.dex */
+public final class CardStaggeredVideoView extends CardFrameView<bg7> implements kb7, db7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public so7 d;
+    public wo7 d;
     public final RoundFrameLayout e;
     public final TextView f;
     public final RoundTbImageView g;
@@ -79,7 +79,7 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
     public final FrameLayout m;
     public final ImageView n;
     public boolean o;
-    public yf7 p;
+    public cg7 p;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -110,19 +110,19 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements CardStaggeredVideoTagView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xf7 a;
+        public final /* synthetic */ bg7 a;
         public final /* synthetic */ CardStaggeredVideoView b;
 
-        public a(xf7 xf7Var, CardStaggeredVideoView cardStaggeredVideoView) {
+        public a(bg7 bg7Var, CardStaggeredVideoView cardStaggeredVideoView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xf7Var, cardStaggeredVideoView};
+                Object[] objArr = {bg7Var, cardStaggeredVideoView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -132,17 +132,17 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
                     return;
                 }
             }
-            this.a = xf7Var;
+            this.a = bg7Var;
             this.b = cardStaggeredVideoView;
         }
 
         @Override // com.baidu.tieba.forum.component.CardStaggeredVideoTagView.a
-        public void a(k67 textData, TextView view2) {
+        public void a(o67 textData, TextView view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, textData, view2) == null) {
                 Intrinsics.checkNotNullParameter(textData, "textData");
                 Intrinsics.checkNotNullParameter(view2, "view");
-                Function2<Context, h67, Unit> q = this.a.q();
+                Function2<Context, l67, Unit> q = this.a.q();
                 Context context = this.b.getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
                 q.invoke(context, textData);
@@ -150,12 +150,12 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         }
 
         @Override // com.baidu.tieba.forum.component.CardStaggeredVideoTagView.a
-        public void b(j67 iconData, ImageView view2) {
+        public void b(n67 iconData, ImageView view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconData, view2) == null) {
                 Intrinsics.checkNotNullParameter(iconData, "iconData");
                 Intrinsics.checkNotNullParameter(view2, "view");
-                Function2<Context, h67, Unit> q = this.a.q();
+                Function2<Context, l67, Unit> q = this.a.q();
                 Context context = this.b.getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
                 q.invoke(context, iconData);
@@ -163,8 +163,8 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b implements yf7 {
+    /* loaded from: classes5.dex */
+    public static final class b implements cg7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardStaggeredVideoView a;
@@ -187,15 +187,15 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
             this.a = cardStaggeredVideoView;
         }
 
-        @Override // com.baidu.tieba.yf7
-        public void a(v47 refreshUiState) {
+        @Override // com.baidu.tieba.cg7
+        public void a(z47 refreshUiState) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, refreshUiState) == null) {
                 Intrinsics.checkNotNullParameter(refreshUiState, "refreshUiState");
-                if (!kd7.a(this.a, refreshUiState, false)) {
+                if (!od7.a(this.a, refreshUiState, false)) {
                     return;
                 }
-                this.a.e((xf7) refreshUiState, true);
+                this.a.e((bg7) refreshUiState, true);
             }
         }
     }
@@ -240,11 +240,11 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         linearLayout.addView(this.e, new LinearLayout.LayoutParams(-1, -1));
         Context context2 = linearLayout.getContext();
         Intrinsics.checkNotNullExpressionValue(context2, "getContext()");
-        this.d = new so7(context2, this.e);
+        this.d = new wo7(context2, this.e);
         this.f.setLineSpacing(BdUtilHelper.getDimens(context, R.dimen.tbds10), 1.0f);
         this.f.setMaxLines(2);
         this.f.setEllipsize(TextUtils.TruncateAt.END);
-        this.f.setMovementMethod(y97.a);
+        this.f.setMovementMethod(ca7.a);
         this.f.setClickable(false);
         this.f.setLongClickable(false);
         View view2 = this.f;
@@ -265,7 +265,7 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         layoutParams3.setMargins(BdUtilHelper.getDimens(context, R.dimen.M_W_X004), 0, 0, 0);
         Unit unit3 = Unit.INSTANCE;
         relativeLayout.addView(roundTbImageView, layoutParams3);
-        this.g.setId(R.id.obfuscated_res_0x7f092927);
+        this.g.setId(R.id.obfuscated_res_0x7f09292a);
         LinearLayout linearLayout2 = this.i;
         RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams4.addRule(15, -1);
@@ -291,7 +291,7 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         CardStaggeredVideoTagView cardStaggeredVideoTagView = this.h;
         RelativeLayout.LayoutParams layoutParams7 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams7.addRule(0, R.id.obfuscated_res_0x7f0907a0);
-        layoutParams7.addRule(1, R.id.obfuscated_res_0x7f092927);
+        layoutParams7.addRule(1, R.id.obfuscated_res_0x7f09292a);
         layoutParams7.addRule(15, -1);
         layoutParams7.setMargins(BdUtilHelper.getDimens(context, R.dimen.M_W_X002), 0, 0, 0);
         Unit unit7 = Unit.INSTANCE;
@@ -320,28 +320,28 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void l(xf7 state, CardStaggeredVideoView this$0, View view2) {
+    public static final void l(bg7 state, CardStaggeredVideoView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Function2<Context, xf7, Unit> o = state.o();
+            Function2<Context, bg7, Unit> o = state.o();
             Context context = this$0.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
             o.invoke(context, state);
         }
     }
 
-    public static final void n(CardStaggeredVideoView this$0, xf7 state, View view2) {
+    public static final void n(CardStaggeredVideoView this$0, bg7 state, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, this$0, state, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(state, "$state");
-            ua7.c(this$0.getContext(), state.l().b());
+            ya7.c(this$0.getContext(), state.l().b());
         }
     }
 
-    public static final void o(CardStaggeredVideoView this$0, xf7 state, View view2) {
+    public static final void o(CardStaggeredVideoView this$0, bg7 state, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, null, this$0, state, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -350,19 +350,19 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         }
     }
 
-    public static final void p(xf7 state, CardStaggeredVideoView this$0, View view2) {
+    public static final void p(bg7 state, CardStaggeredVideoView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65549, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Function2<Context, xf7, Unit> n = state.n();
+            Function2<Context, bg7, Unit> n = state.n();
             Context context = this$0.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
             n.invoke(context, state);
         }
     }
 
-    public static final void u(CardStaggeredVideoView this$0, x47 state, View view2) {
+    public static final void u(CardStaggeredVideoView this$0, b57 state, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65551, null, this$0, state, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -407,7 +407,7 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.za7
+    @Override // com.baidu.tieba.db7
     public Object getVideoHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -417,12 +417,12 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         return invokeV.objValue;
     }
 
-    public static final void i(xf7 state, CardStaggeredVideoView this$0, View view2) {
+    public static final void i(bg7 state, CardStaggeredVideoView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Function2<Context, xf7, Unit> p = state.p();
+            Function2<Context, bg7, Unit> p = state.p();
             Context context = this$0.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
             p.invoke(context, state);
@@ -440,7 +440,7 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.feed.component.CardFrameView
     /* renamed from: d */
-    public void a(xf7 state) {
+    public void a(bg7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
@@ -459,35 +459,35 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         }
     }
 
-    public final void e(xf7 xf7Var, boolean z) {
+    public final void e(bg7 bg7Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, xf7Var, z) == null) {
-            q(xf7Var, z);
-            g(xf7Var.u());
-            t(xf7Var.t());
-            m(xf7Var);
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, bg7Var, z) == null) {
+            q(bg7Var, z);
+            g(bg7Var.u());
+            t(bg7Var.t());
+            m(bg7Var);
             f();
         }
     }
 
-    public final void q(xf7 xf7Var, boolean z) {
+    public final void q(bg7 bg7Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048585, this, xf7Var, z) == null) {
-            kd7.b(this, xf7Var, false, 2, null);
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, bg7Var, z) == null) {
+            od7.b(this, bg7Var, false, 2, null);
             if (!z) {
                 b bVar = new b(this);
                 this.p = bVar;
                 if (bVar != null) {
-                    xf7Var.y(new WeakReference<>(bVar));
+                    bg7Var.y(new WeakReference<>(bVar));
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.gb7
+    @Override // com.baidu.tieba.kb7
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || hb7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || lb7.a(this)) {
             return;
         }
         EMManager.from(this).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0201);
@@ -505,14 +505,14 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         this.n.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0809ea, WebPManager.ResourceStateType.NORMAL));
     }
 
-    public final void h(final xf7 xf7Var) {
+    public final void h(final bg7 bg7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xf7Var) == null) {
-            if (xf7Var.v()) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bg7Var) == null) {
+            if (bg7Var.v()) {
                 this.m.setVisibility(0);
                 this.l.setVisibility(8);
-                if (xf7Var.m()) {
-                    this.m.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.nf7
+                if (bg7Var.m()) {
+                    this.m.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rf7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -520,14 +520,14 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
                         public final void onClick(View view2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                CardStaggeredVideoView.i(xf7.this, this, view2);
+                                CardStaggeredVideoView.i(bg7.this, this, view2);
                             }
                         }
                     });
-                    s(this, xf7Var.w(), false, 2, null);
+                    s(this, bg7Var.w(), false, 2, null);
                     return;
                 }
-                this.m.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vf7
+                this.m.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zf7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -547,12 +547,12 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         }
     }
 
-    public final void t(final x47 x47Var) {
+    public final void t(final b57 b57Var) {
         int horizontalVideoWidth;
         int horizontalVideoHeight;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, x47Var) == null) {
-            h87 p = x47Var.p();
+        if (interceptable == null || interceptable.invokeL(1048587, this, b57Var) == null) {
+            l87 p = b57Var.p();
             ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
             if (p.d) {
                 horizontalVideoWidth = getVerticalVideoWidth();
@@ -567,11 +567,11 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
             }
             layoutParams.height = horizontalVideoHeight;
             this.e.setLayoutParams(layoutParams);
-            this.d.j(x47Var);
-            if (!x47Var.n().f()) {
+            this.d.j(b57Var);
+            if (!b57Var.n().f()) {
                 setClickable(false);
             } else {
-                this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lf7
+                this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pf7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -579,7 +579,7 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            CardStaggeredVideoView.u(CardStaggeredVideoView.this, x47Var, view2);
+                            CardStaggeredVideoView.u(CardStaggeredVideoView.this, b57Var, view2);
                         }
                     }
                 });
@@ -587,12 +587,12 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         }
     }
 
-    public final void k(final xf7 xf7Var) {
+    public final void k(final bg7 bg7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, xf7Var) == null) {
-            if (xf7Var.z()) {
-                h(xf7Var);
-                this.l.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rf7
+        if (interceptable == null || interceptable.invokeL(1048583, this, bg7Var) == null) {
+            if (bg7Var.z()) {
+                h(bg7Var);
+                this.l.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vf7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -600,7 +600,7 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            CardStaggeredVideoView.l(xf7.this, this, view2);
+                            CardStaggeredVideoView.l(bg7.this, this, view2);
                         }
                     }
                 });
@@ -613,17 +613,17 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         }
     }
 
-    public final void m(final xf7 xf7Var) {
+    public final void m(final bg7 bg7Var) {
         SpannableStringBuilder spannableStringBuilder;
         boolean z;
-        h67 h67Var;
-        k67 k67Var;
-        h67 h67Var2;
-        j67 j67Var;
+        l67 l67Var;
+        o67 o67Var;
+        l67 l67Var2;
+        n67 n67Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, xf7Var) == null) {
-            u47 s = xf7Var.s();
-            j67 j67Var2 = null;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bg7Var) == null) {
+            y47 s = bg7Var.s();
+            n67 n67Var2 = null;
             if (s != null) {
                 spannableStringBuilder = s.j();
             } else {
@@ -640,44 +640,44 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
                 this.f.setVisibility(0);
                 TextViewCutUtilsKt.cutAndSetTextByMaxLine$default(this.f, spannableStringBuilder, 2, null, 1, 4, null);
             }
-            this.g.startLoad(xf7Var.l().c());
-            if (xf7Var.l().a() <= 0) {
+            this.g.startLoad(bg7Var.l().c());
+            if (bg7Var.l().a() <= 0) {
                 this.k.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0495));
             } else {
-                this.k.setText(StringHelper.numFormatOverWan(xf7Var.l().a()));
+                this.k.setText(StringHelper.numFormatOverWan(bg7Var.l().a()));
             }
-            List<h67> d = xf7Var.l().d();
+            List<l67> d = bg7Var.l().d();
             if (d != null) {
-                h67Var = (h67) CollectionsKt___CollectionsKt.getOrNull(d, 0);
+                l67Var = (l67) CollectionsKt___CollectionsKt.getOrNull(d, 0);
             } else {
-                h67Var = null;
+                l67Var = null;
             }
-            if (h67Var instanceof k67) {
-                k67Var = (k67) h67Var;
+            if (l67Var instanceof o67) {
+                o67Var = (o67) l67Var;
             } else {
-                k67Var = null;
+                o67Var = null;
             }
-            if (k67Var == null) {
-                k67Var = null;
+            if (o67Var == null) {
+                o67Var = null;
             }
-            List<h67> d2 = xf7Var.l().d();
+            List<l67> d2 = bg7Var.l().d();
             if (d2 != null) {
-                h67Var2 = (h67) CollectionsKt___CollectionsKt.getOrNull(d2, 1);
+                l67Var2 = (l67) CollectionsKt___CollectionsKt.getOrNull(d2, 1);
             } else {
-                h67Var2 = null;
+                l67Var2 = null;
             }
-            if (h67Var2 instanceof j67) {
-                j67Var = (j67) h67Var2;
+            if (l67Var2 instanceof n67) {
+                n67Var = (n67) l67Var2;
             } else {
-                j67Var = null;
+                n67Var = null;
             }
-            if (j67Var != null) {
-                j67Var2 = j67Var;
+            if (n67Var != null) {
+                n67Var2 = n67Var;
             }
-            if (k67Var != null && j67Var2 != null) {
-                this.h.c(k67Var, j67Var2);
+            if (o67Var != null && n67Var2 != null) {
+                this.h.c(o67Var, n67Var2);
             }
-            this.g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kf7
+            this.g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.of7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -685,11 +685,11 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        CardStaggeredVideoView.n(CardStaggeredVideoView.this, xf7Var, view2);
+                        CardStaggeredVideoView.n(CardStaggeredVideoView.this, bg7Var, view2);
                     }
                 }
             });
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mf7
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qf7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -697,11 +697,11 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        CardStaggeredVideoView.o(CardStaggeredVideoView.this, xf7Var, view2);
+                        CardStaggeredVideoView.o(CardStaggeredVideoView.this, bg7Var, view2);
                     }
                 }
             });
-            this.i.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sf7
+            this.i.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.wf7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -709,12 +709,12 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        CardStaggeredVideoView.p(xf7.this, this, view2);
+                        CardStaggeredVideoView.p(bg7.this, this, view2);
                     }
                 }
             });
-            this.h.setOnTagClickListener(new a(xf7Var, this));
-            k(xf7Var);
+            this.h.setOnTagClickListener(new a(bg7Var, this));
+            k(bg7Var);
         }
     }
 
@@ -740,23 +740,23 @@ public final class CardStaggeredVideoView extends CardFrameView<xf7> implements 
         }
     }
 
-    public final void v(x47 x47Var) {
+    public final void v(b57 b57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, x47Var) == null) {
-            for (a87 a87Var : x47Var.o()) {
-                wb7.a.f(a87Var, x47Var.k() + 1);
-                x47Var.j().invoke(a87Var);
+        if (interceptable == null || interceptable.invokeL(1048588, this, b57Var) == null) {
+            for (e87 e87Var : b57Var.o()) {
+                ac7.a.f(e87Var, b57Var.k() + 1);
+                b57Var.j().invoke(e87Var);
             }
             Rect rect = new Rect();
             getGlobalVisibleRect(rect);
-            i87 n = x47Var.n();
-            String a2 = ua7.a(x47Var.n().c(), "isShowBackAnim", "1");
+            m87 n = b57Var.n();
+            String a2 = ya7.a(b57Var.n().c(), "isShowBackAnim", "1");
             Intrinsics.checkNotNullExpressionValue(a2, "appendParam(state.schema…a, \"isShowBackAnim\", \"1\")");
             n.j(a2);
-            Function3<Context, Rect, x47, Unit> m = x47Var.m();
+            Function3<Context, Rect, b57, Unit> m = b57Var.m();
             Context context = getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
-            m.invoke(context, rect, x47Var);
+            m.invoke(context, rect, b57Var);
         }
     }
 }

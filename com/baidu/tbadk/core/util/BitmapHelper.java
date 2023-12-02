@@ -1448,18 +1448,18 @@ public class BitmapHelper {
                         BitmapFactory.Options options = new BitmapFactory.Options();
                         int i2 = 1;
                         options.inJustDecodeBounds = true;
-                        InputStream GetStreamFromFile = FileHelper.GetStreamFromFile(str);
-                        BitmapFactory.decodeStream(GetStreamFromFile, null, options);
+                        InputStream streamFromExternalPrivateFile = FileHelper.getStreamFromExternalPrivateFile(str);
+                        BitmapFactory.decodeStream(streamFromExternalPrivateFile, null, options);
                         options.inPreferredConfig = TbConfig.BitmapConfig;
-                        sd.e(GetStreamFromFile);
+                        sd.e(streamFromExternalPrivateFile);
                         while (true) {
                             int i3 = i2 * 2;
                             if (options.outWidth / i3 <= i && options.outHeight / i3 <= i) {
                                 options.inJustDecodeBounds = false;
                                 options.inSampleSize = i2;
-                                InputStream GetStreamFromFile2 = FileHelper.GetStreamFromFile(str);
-                                decodeStream = BitmapFactory.decodeStream(GetStreamFromFile2, null, options);
-                                sd.e(GetStreamFromFile2);
+                                InputStream streamFromExternalPrivateFile2 = FileHelper.getStreamFromExternalPrivateFile(str);
+                                decodeStream = BitmapFactory.decodeStream(streamFromExternalPrivateFile2, null, options);
+                                sd.e(streamFromExternalPrivateFile2);
                             }
                             i2 = i3;
                         }

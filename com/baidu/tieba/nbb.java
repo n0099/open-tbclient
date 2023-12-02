@@ -2,36 +2,30 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FrsPage.MatchPlayerInfo;
-import tbclient.Post;
+import tbclient.QuizInfo;
+import tbclient.QuizOption;
 /* loaded from: classes7.dex */
 public final class nbb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public Long a;
     public String b;
-    public double c;
-    public long d;
-    public nwa e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
-    public long j;
-    public int k;
-    public long l;
-    public int m;
-    public String n;
-    public String o;
-    public int p;
-    public String q;
+    public String c;
+    public Long d;
+    public Long e;
+    public Long f;
+    public Long g;
+    public Long h;
+    public Long i;
+    public ArrayList<obb> j;
 
     public nbb() {
         Interceptable interceptable = $ic;
@@ -46,294 +40,144 @@ public final class nbb {
                 return;
             }
         }
-        this.n = "";
-        this.o = "";
+        this.j = new ArrayList<>();
     }
 
-    public final String a() {
+    public final Long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public final Long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.h;
         }
-        return (String) invokeV.objValue;
+        return (Long) invokeV.objValue;
     }
 
-    public final String b() {
+    public final Long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.n;
+            return this.f;
         }
-        return (String) invokeV.objValue;
+        return (Long) invokeV.objValue;
     }
 
-    public final String c() {
+    public final ArrayList<obb> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.o;
+            return this.j;
         }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final nwa d() {
+    public final Long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
+            return this.i;
         }
-        return (nwa) invokeV.objValue;
+        return (Long) invokeV.objValue;
     }
 
-    public final long e() {
+    public final Long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.j;
+            return this.g;
         }
-        return invokeV.longValue;
-    }
-
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
+        return (Long) invokeV.objValue;
     }
 
     public final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public final int h() {
+    public final Long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public final String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.m;
+            return this.c;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public final long i() {
+    public final Long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.l;
+            return this.e;
         }
-        return invokeV.longValue;
+        return (Long) invokeV.objValue;
     }
 
-    public final double j() {
-        InterceptResult invokeV;
+    public final void k(QuizInfo quizInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public final long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public final String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.p;
-        }
-        return invokeV.intValue;
-    }
-
-    public final String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void A(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.q = UtilHelper.urlAddParam(str, "tab_id=1");
-        }
-    }
-
-    public final void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.n = str;
-        }
-    }
-
-    public final void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.o = str;
-        }
-    }
-
-    public final void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.m = i;
-        }
-    }
-
-    public final void w(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.c = d;
-        }
-    }
-
-    public final void x(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public final void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public final void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
-            this.p = i;
-        }
-    }
-
-    public final void r(MatchPlayerInfo matchPlayerInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048594, this, matchPlayerInfo) != null) || matchPlayerInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, quizInfo) != null) || quizInfo == null) {
             return;
         }
-        this.a = matchPlayerInfo.name;
-        this.b = matchPlayerInfo.avatar;
-        Double d = matchPlayerInfo.score;
-        Intrinsics.checkNotNullExpressionValue(d, "matchPlayerInfo.score");
-        this.c = d.doubleValue();
-        Long l = matchPlayerInfo.score_cnt;
-        Intrinsics.checkNotNullExpressionValue(l, "matchPlayerInfo.score_cnt");
-        this.d = l.longValue();
-        Post post = matchPlayerInfo.hot_post;
-        if (post != null) {
-            nwa nwaVar = new nwa();
-            this.e = nwaVar;
-            Intrinsics.checkNotNull(nwaVar);
-            nwaVar.N0(post);
+        this.a = quizInfo.bonus_type;
+        this.b = quizInfo.title;
+        this.c = quizInfo.total_count_icon;
+        String str = quizInfo.total_count_text;
+        this.d = quizInfo.total_count;
+        this.e = quizInfo.total_user_count;
+        this.f = quizInfo.min_pour_count;
+        this.g = quizInfo.quiz_id;
+        this.h = quizInfo.browse_user_option;
+        this.i = quizInfo.product;
+        this.j.clear();
+        if (!ListUtils.isEmpty(quizInfo.options)) {
+            for (QuizOption quizOption : quizInfo.options) {
+                Intrinsics.checkNotNullExpressionValue(quizOption, "quizInfo.options");
+                obb obbVar = new obb();
+                obbVar.h(quizOption);
+                this.j.add(obbVar);
+            }
         }
-        this.f = matchPlayerInfo.sub_avatar;
-        this.g = matchPlayerInfo.sub_text;
-        Integer num = matchPlayerInfo.score_self;
-        Intrinsics.checkNotNullExpressionValue(num, "matchPlayerInfo.score_self");
-        this.h = num.intValue();
-        this.i = matchPlayerInfo.score_link;
-        Long l2 = matchPlayerInfo.match_id;
-        Intrinsics.checkNotNullExpressionValue(l2, "matchPlayerInfo.match_id");
-        this.j = l2.longValue();
-        Integer num2 = matchPlayerInfo.match_index;
-        Intrinsics.checkNotNullExpressionValue(num2, "matchPlayerInfo.match_index");
-        this.k = num2.intValue();
-        Long l3 = matchPlayerInfo.player_id;
-        Intrinsics.checkNotNullExpressionValue(l3, "matchPlayerInfo.player_id");
-        this.l = l3.longValue();
-        A(matchPlayerInfo.score_link);
+        Long l = quizInfo.type;
     }
 
-    public final void s(tbclient.Personalized.MatchPlayerInfo matchPlayerInfo) {
+    public final void l(Long l) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048595, this, matchPlayerInfo) != null) || matchPlayerInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048587, this, l) == null) {
+            this.h = l;
         }
-        this.a = matchPlayerInfo.name;
-        this.b = matchPlayerInfo.avatar;
-        Double d = matchPlayerInfo.score;
-        Intrinsics.checkNotNullExpressionValue(d, "matchPlayerInfo.score");
-        this.c = d.doubleValue();
-        Long l = matchPlayerInfo.score_cnt;
-        Intrinsics.checkNotNullExpressionValue(l, "matchPlayerInfo.score_cnt");
-        this.d = l.longValue();
-        Post post = matchPlayerInfo.hot_post;
-        if (post != null) {
-            nwa nwaVar = new nwa();
-            this.e = nwaVar;
-            Intrinsics.checkNotNull(nwaVar);
-            nwaVar.N0(post);
+    }
+
+    public final void m(Long l) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, l) == null) {
+            this.d = l;
         }
-        this.f = matchPlayerInfo.sub_avatar;
-        this.g = matchPlayerInfo.sub_text;
-        Integer num = matchPlayerInfo.score_self;
-        Intrinsics.checkNotNullExpressionValue(num, "matchPlayerInfo.score_self");
-        this.h = num.intValue();
-        this.i = matchPlayerInfo.score_link;
-        Long l2 = matchPlayerInfo.match_id;
-        Intrinsics.checkNotNullExpressionValue(l2, "matchPlayerInfo.match_id");
-        this.j = l2.longValue();
-        Integer num2 = matchPlayerInfo.match_index;
-        Intrinsics.checkNotNullExpressionValue(num2, "matchPlayerInfo.match_index");
-        this.k = num2.intValue();
-        Long l3 = matchPlayerInfo.player_id;
-        Intrinsics.checkNotNullExpressionValue(l3, "matchPlayerInfo.player_id");
-        this.l = l3.longValue();
-        A(matchPlayerInfo.score_link);
+    }
+
+    public final void n(Long l) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, l) == null) {
+            this.e = l;
+        }
     }
 }

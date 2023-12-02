@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.searchbox.live.imp.LiveUserSecurityDeviceInfoServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityDeviceInfoService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zj9 implements FollowStatusService {
+public final class zj9 extends fg1<LiveUserSecurityDeviceInfoService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,16 +26,15 @@ public class zj9 implements FollowStatusService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.FollowStatusService
-    public void saveFollowStatus(boolean z, String str, String str2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fg1
+    /* renamed from: a */
+    public LiveUserSecurityDeviceInfoService createService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
-            UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
-            updateAttentionData.isSucc = true;
-            updateAttentionData.toUid = str;
-            updateAttentionData.isAttention = z;
-            updateAttentionData.isFromLive = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(updateAttentionData));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new LiveUserSecurityDeviceInfoServiceImpl();
         }
+        return (LiveUserSecurityDeviceInfoService) invokeV.objValue;
     }
 }

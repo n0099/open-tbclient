@@ -29,7 +29,7 @@ public final class b extends Presenter {
     public final void aj() {
         super.aj();
         this.SD = (com.kwad.components.core.r.a.b) HU();
-        this.SA = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09139a);
+        this.SA = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09139b);
         this.SG = this.SD.Su.a(null);
         this.SD.Mm.add(new com.kwad.components.core.l.a.a() { // from class: com.kwad.components.core.r.b.b.1
             @Override // com.kwad.components.core.l.a.a

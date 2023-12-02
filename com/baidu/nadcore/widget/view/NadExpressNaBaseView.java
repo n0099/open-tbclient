@@ -10,21 +10,21 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.feed.AdFeedBaseView;
 import com.baidu.nadcore.widget.uitemplate.NadExpressBottomView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k81;
-import com.baidu.tieba.l81;
-import com.baidu.tieba.nn0;
-import com.baidu.tieba.t81;
-import com.baidu.tieba.u81;
+import com.baidu.tieba.m81;
+import com.baidu.tieba.n81;
+import com.baidu.tieba.on0;
+import com.baidu.tieba.x81;
+import com.baidu.tieba.y81;
 /* loaded from: classes3.dex */
 public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     @Nullable
     public TextView h;
     @Nullable
-    public t81 i;
+    public x81 i;
     @Nullable
     public NadExpressBottomView j;
 
-    public abstract void g(LayoutInflater layoutInflater, nn0 nn0Var);
+    public abstract void g(LayoutInflater layoutInflater, on0 on0Var);
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
     public View getView() {
@@ -46,8 +46,8 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     public void i(AdBaseModel adBaseModel) {
         int i;
         if (adBaseModel != null && this.h != null) {
-            nn0 nn0Var = adBaseModel.p;
-            if (nn0Var != null && !nn0Var.f) {
+            on0 on0Var = adBaseModel.p;
+            if (on0Var != null && !on0Var.f) {
                 return;
             }
             if (adBaseModel.b) {
@@ -90,20 +90,20 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewDownloadListener(k81 k81Var) {
-        super.setViewDownloadListener(k81Var);
-        t81 t81Var = this.i;
-        if (t81Var != null) {
-            t81Var.c(k81Var);
+    public void setViewDownloadListener(m81 m81Var) {
+        super.setViewDownloadListener(m81Var);
+        x81 x81Var = this.i;
+        if (x81Var != null) {
+            x81Var.c(m81Var);
         }
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewStatChangeListener(l81 l81Var) {
-        super.setViewStatChangeListener(l81Var);
-        t81 t81Var = this.i;
-        if (t81Var != null) {
-            t81Var.b(l81Var);
+    public void setViewStatChangeListener(n81 n81Var) {
+        super.setViewStatChangeListener(n81Var);
+        x81 x81Var = this.i;
+        if (x81Var != null) {
+            x81Var.b(n81Var);
         }
     }
 
@@ -122,23 +122,23 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public NadExpressNaBaseView(Context context, AttributeSet attributeSet, int i, @Nullable nn0 nn0Var) {
+    public NadExpressNaBaseView(Context context, AttributeSet attributeSet, int i, @Nullable on0 on0Var) {
         super(context, attributeSet, i);
-        g(LayoutInflater.from(context), nn0Var);
+        g(LayoutInflater.from(context), on0Var);
         f(context);
-        new u81(this);
+        new y81(this);
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
     public void b() {
         super.b();
-        t81 t81Var = this.i;
-        if (t81Var != null) {
-            t81Var.a();
+        x81 x81Var = this.i;
+        if (x81Var != null) {
+            x81Var.a();
         }
     }
 
-    public t81 getOperateBar() {
+    public x81 getOperateBar() {
         return this.i;
     }
 }

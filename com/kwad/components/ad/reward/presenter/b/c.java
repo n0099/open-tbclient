@@ -58,7 +58,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.b implement
             }
             this.tS.a(this.qn.mRootContainer, com.kwad.sdk.core.response.b.a.bf(dP));
             this.tS.b(r.R(adTemplate));
-            findViewById(R.id.obfuscated_res_0x7f091473).setVisibility(8);
+            findViewById(R.id.obfuscated_res_0x7f091474).setVisibility(8);
         }
         this.qn.oL.a(this);
     }

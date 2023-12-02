@@ -16,11 +16,11 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.hf0;
-import com.baidu.tieba.p11;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.r11;
+import com.baidu.tieba.w11;
 /* loaded from: classes3.dex */
 public class NadDragView extends RelativeLayout {
-    public static final int p = u11.c.c(hf0.b()) / 5;
+    public static final int p = w11.c.c(hf0.b()) / 5;
     public final Matrix a;
     public View b;
     public Bitmap c;
@@ -183,7 +183,7 @@ public class NadDragView extends RelativeLayout {
         int i = action & 255;
         if (i == 0) {
             if (this.c == null) {
-                this.c = p11.b(this.b);
+                this.c = r11.b(this.b);
             }
             if (this.d == null && this.c != null) {
                 int measuredWidth = getMeasuredWidth();
@@ -197,7 +197,7 @@ public class NadDragView extends RelativeLayout {
             if (this.e == null && (bitmap = this.c) != null) {
                 int height = bitmap.getHeight();
                 int width = bitmap.getWidth();
-                float b2 = u11.c.b(getContext());
+                float b2 = w11.c.b(getContext());
                 int i2 = (int) (height * b2);
                 int i3 = (int) (width * b2);
                 if (i3 > this.c.getWidth() && this.c.getWidth() != 0) {
@@ -208,8 +208,8 @@ public class NadDragView extends RelativeLayout {
                     i3 = (int) (i3 / ((i2 * 1.0f) / this.c.getHeight()));
                     i2 = this.c.getHeight();
                 }
-                int c = (u11.c.c(getContext()) - i2) / 2;
-                int e = (u11.c.e(getContext()) - i3) / 2;
+                int c = (w11.c.c(getContext()) - i2) / 2;
+                int e = (w11.c.e(getContext()) - i3) / 2;
                 this.e = new Rect(e, c, i3 + e, i2 + c);
                 this.f = new Rect(0, 0, this.c.getWidth(), this.c.getHeight());
             }

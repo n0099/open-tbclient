@@ -1,38 +1,34 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.os.Looper;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import android.text.format.Formatter;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.io.DocumentOpenUtil;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.sapi2.SapiWebView;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
-import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
-import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
-import com.baidu.searchbox.wordscommand.WordCommandManager;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.hr2;
+import com.baidu.tieba.k42;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.resource.bitmap.Downsampler;
-import com.fun.ad.sdk.FunAdSdk;
-import com.google.android.exoplayer2.util.ColorParser;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.webkit.sdk.WebView;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class dj3 {
+public class dj3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final Pattern b;
-    public static HashMap<String, Integer> c;
-    public static HashMap<String, Integer> d;
-    public static HashMap<String, String> e;
-    public static HashMap<String, String> f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,400 +44,393 @@ public final class dj3 {
                 return;
             }
         }
-        a = sm1.a;
-        b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-        c = new HashMap<>();
-        d = new HashMap<>();
-        e = new HashMap<>();
-        f = new HashMap<>();
-        a("application/andrew-inset", "ez", 5);
-        a("application/dsptype", "tsp", 5);
-        a("application/futuresplash", "spl", 5);
-        a("application/hta", "hta", 5);
-        a("application/mac-binhex40", "hqx", 5);
-        a("application/mac-compactpro", "cpt", 5);
-        a("application/mathematica", BaseContentUploader.NB, 5);
-        a("application/msaccess", "mdb", 5);
-        a("application/oda", "oda", 5);
-        a("application/ogg", "ogg", 1);
-        a(DocumentOpenUtil.PDF_TYPE, "pdf", 4);
-        a("application/pgp-keys", "key", 5);
-        a("application/pgp-signature", "pgp", 5);
-        a("application/pics-rules", "prf", 5);
-        a("application/rar", "rar", 8);
-        a("application/rdf+xml", "rdf", 5);
-        a("application/rss+xml", "rss", 5);
-        a("application/zip", "zip", 8);
-        a("application/vnd.android.package-archive", "apk", 3);
-        a("application/vnd.cinderella", "cdy", 5);
-        a("application/vnd.ms-pki.stl", "stl", 5);
-        a("application/vnd.oasis.opendocument.database", "odb", 5);
-        a("application/vnd.oasis.opendocument.formula", "odf", 5);
-        a("application/vnd.oasis.opendocument.graphics", "odg", 5);
-        a("application/vnd.oasis.opendocument.graphics-template", "otg", 5);
-        a("application/vnd.oasis.opendocument.image", "odi", 5);
-        a("application/vnd.oasis.opendocument.spreadsheet", "ods", 5);
-        a("application/vnd.oasis.opendocument.spreadsheet-template", "ots", 5);
-        a("application/vnd.oasis.opendocument.text", "odt", 5);
-        a("application/vnd.oasis.opendocument.text-master", "odm", 5);
-        a("application/vnd.oasis.opendocument.text-template", "ott", 5);
-        a("application/vnd.oasis.opendocument.text-web", "oth", 5);
-        a("application/vnd.google-earth.kml+xml", "kml", 5);
-        a("application/vnd.google-earth.kmz", "kmz", 5);
-        a(DocumentOpenUtil.WORD_TYPE, "doc", 4);
-        a(DocumentOpenUtil.WORD_TYPE, "dot", 4);
-        a(DocumentOpenUtil.DOCUMENT_TYPE, DocumentOpenUtil.DOCX, 4);
-        a("application/vnd.openxmlformats-officedocument.wordprocessingml.template", "dotx", 4);
-        a(DocumentOpenUtil.EXCEL_TYPE, "xls", 4);
-        a(DocumentOpenUtil.EXCEL_TYPE, "xlt", 4);
-        a(DocumentOpenUtil.SHEET_TYPE, DocumentOpenUtil.XLSX, 4);
-        a("application/vnd.openxmlformats-officedocument.spreadsheetml.template", "xltx", 4);
-        a(DocumentOpenUtil.PPT_TYPE, "ppt", 4);
-        a(DocumentOpenUtil.PPT_TYPE, "pot", 4);
-        a(DocumentOpenUtil.PPT_TYPE, "pps", 4);
-        a(DocumentOpenUtil.PRESENT_TYPE, DocumentOpenUtil.PPTX, 4);
-        a("application/vnd.openxmlformats-officedocument.presentationml.template", "potx", 4);
-        a("application/vnd.openxmlformats-officedocument.presentationml.slideshow", "ppsx", 4);
-        a("application/vnd.rim.cod", "cod", 5);
-        a("application/vnd.smaf", "mmf", 5);
-        a("application/vnd.stardivision.calc", "sdc", 5);
-        a("application/vnd.stardivision.draw", "sda", 5);
-        a("application/vnd.stardivision.impress", "sdd", 5);
-        a("application/vnd.stardivision.impress", "sdp", 5);
-        a("application/vnd.stardivision.math", "smf", 5);
-        a("application/vnd.stardivision.writer", "sdw", 5);
-        a("application/vnd.stardivision.writer", "vor", 5);
-        a("application/vnd.stardivision.writer-global", "sgl", 5);
-        a("application/vnd.sun.xml.calc", "sxc", 5);
-        a("application/vnd.sun.xml.calc.template", "stc", 5);
-        a("application/vnd.sun.xml.draw", "sxd", 5);
-        a("application/vnd.sun.xml.draw.template", "std", 5);
-        a("application/vnd.sun.xml.impress", "sxi", 5);
-        a("application/vnd.sun.xml.impress.template", "sti", 5);
-        a("application/vnd.sun.xml.math", "sxm", 5);
-        a("application/vnd.sun.xml.writer", "sxw", 5);
-        a("application/vnd.sun.xml.writer.global", "sxg", 5);
-        a("application/vnd.sun.xml.writer.template", "stw", 5);
-        a("application/vnd.visio", "vsd", 5);
-        a("application/x-abiword", "abw", 5);
-        a("application/x-apple-diskimage", "dmg", 5);
-        a("application/x-bcpio", "bcpio", 5);
-        a("application/x-bittorrent", "torrent", 5);
-        a("application/x-cdf", "cdf", 5);
-        a("application/x-cdlink", "vcd", 5);
-        a("application/x-chess-pgn", "pgn", 5);
-        a("application/x-cpio", "cpio", 5);
-        a("application/x-debian-package", "deb", 5);
-        a("application/x-debian-package", "udeb", 5);
-        a("application/x-director", "dcr", 5);
-        a("application/x-director", MapBundleKey.MapObjKey.OBJ_DIR, 5);
-        a("application/x-director", "dxr", 5);
-        a("application/x-dms", "dms", 5);
-        a("application/x-doom", "wad", 5);
-        a("application/x-dvi", "dvi", 5);
-        a("application/x-flac", "flac", 1);
-        a("application/x-font", "pfa", 5);
-        a("application/x-font", "pfb", 5);
-        a("application/x-font", "gsf", 5);
-        a("application/x-font", "pcf", 5);
-        a("application/x-font", "pcf.Z", 5);
-        a("application/x-freemind", FunAdSdk.PLATFORM_MM, 5);
-        a("application/x-futuresplash", "spl", 5);
-        a("application/x-gnumeric", "gnumeric", 5);
-        a("application/x-go-sgf", "sgf", 5);
-        a("application/x-graphing-calculator", "gcf", 5);
-        a("application/x-gtar", "gtar", 5);
-        a("application/x-gtar", "tgz", 5);
-        a("application/x-gtar", "taz", 5);
-        a("application/x-hdf", "hdf", 5);
-        a("application/x-ica", "ica", 5);
-        a("application/x-internet-signup", "ins", 5);
-        a("application/x-internet-signup", "isp", 5);
-        a("application/x-iphone", "iii", 5);
-        a("application/x-iso9660-image", "iso", 5);
-        a("application/x-jmol", "jmz", 5);
-        a("application/x-kchart", "chrt", 5);
-        a("application/x-killustrator", "kil", 5);
-        a("application/x-koan", "skp", 5);
-        a("application/x-koan", "skd", 5);
-        a("application/x-koan", "skt", 5);
-        a("application/x-koan", "skm", 5);
-        a("application/x-kpresenter", "kpr", 5);
-        a("application/x-kpresenter", "kpt", 5);
-        a("application/x-kspread", "ksp", 5);
-        a("application/x-kword", "kwd", 5);
-        a("application/x-kword", "kwt", 5);
-        a("application/x-latex", "latex", 5);
-        a("application/x-lha", "lha", 5);
-        a("application/x-lzh", "lzh", 5);
-        a("application/x-lzx", "lzx", 5);
-        a("application/x-maker", "frm", 5);
-        a("application/x-maker", "maker", 5);
-        a("application/x-maker", "frame", 5);
-        a("application/x-maker", "fb", 5);
-        a("application/x-maker", "book", 5);
-        a("application/x-maker", "fbdoc", 5);
-        a("application/x-mif", "mif", 5);
-        a("application/x-ms-wmd", "wmd", 5);
-        a("application/x-ms-wmz", "wmz", 5);
-        a("application/x-msi", "msi", 5);
-        a("application/x-ns-proxy-autoconfig", "pac", 5);
-        a("application/x-nwc", "nwc", 5);
-        a("application/x-object", "o", 5);
-        a("application/x-oz-application", "oza", 5);
-        a("application/x-pkcs12", "p12", 5);
-        a("application/x-pkcs12", "pfx", 5);
-        a("application/x-pkcs7-certreqresp", "p7r", 5);
-        a("application/x-pkcs7-crl", "crl", 5);
-        a("application/x-quicktimeplayer", "qtl", 5);
-        a("application/x-shar", "shar", 5);
-        a("application/x-shockwave-flash", "swf", 5);
-        a("application/x-stuffit", "sit", 5);
-        a("application/x-sv4cpio", "sv4cpio", 5);
-        a("application/x-sv4crc", "sv4crc", 5);
-        a("application/x-tar", "tar", 8);
-        a("application/x-texinfo", "texinfo", 5);
-        a("application/x-texinfo", "texi", 5);
-        a("application/x-troff", "t", 5);
-        a("application/x-troff", "roff", 5);
-        a("application/x-troff-man", "man", 5);
-        a("application/x-ustar", "ustar", 5);
-        a("application/x-wais-source", "src", 5);
-        a("application/x-wingz", "wz", 5);
-        a("application/x-webarchive", "webarchive", 5);
-        a("application/x-webarchive-xml", "webarchivexml", 5);
-        a("application/x-x509-ca-cert", "crt", 5);
-        a("application/x-x509-user-cert", "crt", 5);
-        a("application/x-xcf", "xcf", 5);
-        a("application/x-xfig", "fig", 5);
-        a("application/xhtml+xml", "xhtml", 5);
-        a("application/font-sfnt", "ttf", 5);
-        a(MimeTypes.AUDIO_AMR_NB, "3gpp", 1);
-        a("audio/amr", "amr", 1);
-        a("audio/basic", "snd", 1);
-        a("audio/midi", "mid", 1);
-        a("audio/midi", "midi", 1);
-        a("audio/midi", "kar", 1);
-        a("audio/midi", "xmf", 1);
-        a("audio/mobile-xmf", "mxmf", 1);
-        a(MimeTypes.AUDIO_MPEG, "mp3", 1);
-        a(MimeTypes.AUDIO_MPEG, "mpga", 1);
-        a(MimeTypes.AUDIO_MPEG, "mpega", 1);
-        a(MimeTypes.AUDIO_MPEG, "mp2", 1);
-        a(MimeTypes.AUDIO_MPEG, "m4a", 1);
-        a("audio/mpegurl", "m3u", 1);
-        a("audio/prs.sid", "sid", 1);
-        a("audio/x-aiff", "aif", 1);
-        a("audio/x-aiff", "aiff", 1);
-        a("audio/x-aiff", "aifc", 1);
-        a("audio/x-gsm", "gsm", 1);
-        a("audio/x-mpegurl", "m3u", 1);
-        a("audio/x-ms-wma", "wma", 1);
-        a("audio/x-ms-wax", "wax", 1);
-        a("audio/x-pn-realaudio", MultiRatePlayUrlHelper.ABBR_RATE_NAME, 1);
-        a("audio/x-pn-realaudio", com.kuaishou.weapon.p0.t.w, 1);
-        a("audio/x-pn-realaudio", "ram", 1);
-        a("audio/x-realaudio", MultiRatePlayUrlHelper.ABBR_RATE_NAME, 1);
-        a("audio/x-scpls", "pls", 1);
-        a("audio/x-sd2", "sd2", 1);
-        a("audio/x-wav", "wav", 1);
-        a("image/bmp", "bmp", 2);
-        a("image/gif", "gif", 2);
-        a("image/ico", "cur", 5);
-        a("image/ico", "ico", 2);
-        a("image/ief", "ief", 5);
-        a("image/jpeg", "jpeg", 2);
-        a("image/jpeg", "jpg", 2);
-        a("image/jpeg", "jpe", 2);
-        a("image/pcx", "pcx", 5);
-        a(WordCommandManager.IMAGE_PNG, "png", 2);
-        a("image/svg+xml", "svg", 5);
-        a("image/svg+xml", "svgz", 5);
-        a("image/tiff", "tiff", 5);
-        a("image/tiff", "tif", 5);
-        a("image/vnd.djvu", "djvu", 5);
-        a("image/vnd.djvu", "djv", 5);
-        a(Downsampler.WBMP_MIME_TYPE, "wbmp", 2);
-        a("image/x-cmu-raster", "ras", 5);
-        a("image/x-coreldraw", "cdr", 5);
-        a("image/x-coreldrawpattern", "pat", 5);
-        a("image/x-coreldrawtemplate", "cdt", 5);
-        a("image/x-corelphotopaint", "cpt", 5);
-        a("image/x-icon", "ico", 2);
-        a("image/x-jg", "art", 5);
-        a("image/x-jng", "jng", 5);
-        a("image/x-ms-bmp", "bmp", 2);
-        a("image/x-photoshop", "psd", 5);
-        a("image/x-portable-anymap", "pnm", 5);
-        a("image/x-portable-bitmap", "pbm", 5);
-        a("image/x-portable-graymap", "pgm", 5);
-        a("image/x-portable-pixmap", "ppm", 5);
-        a("image/x-rgb", ColorParser.RGB, 5);
-        a("image/x-xbitmap", "xbm", 5);
-        a("image/x-xpixmap", "xpm", 5);
-        a("image/x-xwindowdump", "xwd", 5);
-        a("model/iges", "igs", 5);
-        a("model/iges", "iges", 5);
-        a("model/mesh", "msh", 5);
-        a("model/mesh", "mesh", 5);
-        a("model/mesh", "silo", 5);
-        a("text/calendar", "ics", 5);
-        a("text/calendar", "icz", 5);
-        a("text/comma-separated-values", "csv", 5);
-        a("text/css", "css", 5);
-        a(SapiWebView.DATA_MIME_TYPE, "htm", 11);
-        a(SapiWebView.DATA_MIME_TYPE, "html", 11);
-        a("text/h323", "323", 5);
-        a("text/iuls", "uls", 5);
-        a("text/mathml", "mml", 5);
-        a(DownloadConstants.STORY_MIMETYPE, "txt", 6);
-        a("text/plain", "dat", 5);
-        a("text/plain", "txt", 4);
-        a("text/plain", "asc", 4);
-        a("text/plain", "text", 4);
-        a("text/plain", "diff", 4);
-        a("text/plain", "po", 4);
-        a("text/richtext", "rtx", 4);
-        a("text/rtf", "rtf", 4);
-        a("text/texmacs", "ts", 5);
-        a("text/text", "phps", 5);
-        a("text/tab-separated-values", "tsv", 5);
-        a("text/xml", "xml", 4);
-        a("text/x-bibtex", "bib", 5);
-        a("text/x-boo", "boo", 5);
-        a("text/x-c++hdr", "h++", 5);
-        a("text/x-c++hdr", "hpp", 5);
-        a("text/x-c++hdr", "hxx", 5);
-        a("text/x-c++hdr", "hh", 5);
-        a("text/x-c++src", "c++", 5);
-        a("text/x-c++src", "cpp", 5);
-        a("text/x-c++src", "cxx", 5);
-        a("text/x-chdr", "h", 5);
-        a("text/x-component", "htc", 5);
-        a("text/x-csh", "csh", 5);
-        a("text/x-csrc", "c", 5);
-        a("text/x-dsrc", "d", 5);
-        a("text/x-haskell", "hs", 5);
-        a("text/x-java", ExceptionHandlerImpl.EXCEPTION_TYPE_JAVA, 5);
-        a("text/x-literate-haskell", "lhs", 5);
-        a("text/x-moc", "moc", 5);
-        a("text/x-pascal", "p", 5);
-        a("text/x-pascal", "pas", 5);
-        a("text/x-pcs-gcd", "gcd", 5);
-        a("text/x-setext", "etx", 5);
-        a("text/x-tcl", "tcl", 5);
-        a("text/x-tex", "tex", 5);
-        a("text/x-tex", "ltx", 5);
-        a("text/x-tex", "sty", 5);
-        a("text/x-tex", "cls", 5);
-        a("text/x-vcalendar", "vcs", 5);
-        a("text/x-vcard", "vcf", 5);
-        a("video/mkv", "mkv", 0);
-        a(MimeTypes.VIDEO_H263, "3gpp", 0);
-        a(MimeTypes.VIDEO_H263, "3gp", 0);
-        a(MimeTypes.VIDEO_H263, "3g2", 0);
-        a("video/dl", "dl", 0);
-        a("video/dv", "dif", 0);
-        a("video/dv", "dv", 0);
-        a("video/fli", "fli", 0);
-        a("video/m4v", "m4v", 0);
-        a("video/mpeg", "mpeg", 0);
-        a("video/mpeg", "mpg", 0);
-        a("video/mpeg", "mpe", 0);
-        a("video/mp4", DownloadStatisticConstants.UBC_TYPE_MP4, 0);
-        a("video/mpeg", "vob", 0);
-        a("video/quicktime", "qt", 0);
-        a("video/quicktime", "mov", 0);
-        a("video/vnd.mpegurl", "mxu", 0);
-        a("video/x-la-asf", "lsf", 0);
-        a("video/x-la-asf", "lsx", 0);
-        a("video/x-mng", "mng", 0);
-        a("video/x-ms-asf", "asf", 0);
-        a("video/x-ms-asf", "asx", 0);
-        a("video/x-ms-wm", "wm", 0);
-        a("video/x-ms-wmv", "wmv", 0);
-        a("video/x-ms-wmx", "wmx", 0);
-        a("video/x-ms-wvx", "wvx", 0);
-        a("video/x-msvideo", "avi", 0);
-        a("video/x-sgi-movie", "movie", 0);
-        a("video/x-webex", "wrf", 0);
-        a("x-conference/x-cooltalk", "ice", 5);
-        a("x-epoc/x-sisx-app", "sisx", 5);
-        a("video/vnd.rn-realvideo", "rmvb", 0);
-        a("video/x-flv", "flv", 0);
-        a("audio/aac", "aac", 1);
-        a("application/vnd.rn-realmedia", com.kuaishou.weapon.p0.t.w, 0);
-        a("message/rfc822", "mht", 11);
-        Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        a = vm1.a;
     }
 
-    public static void a(String str, String str2, int i) {
+    public static String a(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, str, str2, i) == null) {
-            c.put(str2, Integer.valueOf(i));
-            d.put(str, Integer.valueOf(i));
-            e.put(str2, str);
-            if (!f.containsKey(str)) {
-                f.put(str, str2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (a) {
+                if (j23.p()) {
+                    return xi3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
+                }
+                return "";
+            } else if (z) {
+                return xi3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
+            } else {
+                return xi3.d(i, SchemeCollecter.CLASSIFY_SWAN_WEBVIEW);
             }
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
+    public static String b() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            SwanCoreVersion coreVersion = xr2.V().getCoreVersion();
+            String str2 = "";
+            if (coreVersion == null) {
+                str = "";
+            } else {
+                String str3 = coreVersion.swanCoreVersionName;
+                str2 = SwanCoreVersion.getTypeString(coreVersion.swanCoreType);
+                str = str3;
+            }
+            sb.append("swanjs: ");
+            sb.append(str2);
+            sb.append("/");
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        String y1;
+        String x1;
+        rs1 v3;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            k63 c0 = k63.c0();
+            String str2 = "";
+            if (context == null || c0 == null || c0.k() != 0) {
                 return "";
             }
-            return str.substring(lastIndexOf + 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Nullable
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return null;
+            StringBuilder sb = new StringBuilder();
+            hr2.a X = c0.X();
+            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), X.j1());
+            sb.append("size: ");
+            if (TextUtils.isEmpty(formatFileSize)) {
+                formatFileSize = "";
             }
-            return f.get(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && !TextUtils.isEmpty(str)) {
-                return e.get(str);
+            sb.append(formatFileSize);
+            sb.append("\n");
+            sb.append("version: ");
+            if (TextUtils.isEmpty(X.y1())) {
+                y1 = "";
+            } else {
+                y1 = X.y1();
             }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            try {
-                Matcher matcher = b.matcher(str);
-                if (matcher.find()) {
-                    return matcher.group(1);
+            sb.append(y1);
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("code: ");
+            if (TextUtils.isEmpty(X.x1())) {
+                x1 = "";
+            } else {
+                x1 = X.x1();
+            }
+            sb.append(x1);
+            sb.append("\n");
+            sb.append("is opt pkg: ");
+            sb.append(pw2.g().h(X.g0()));
+            sb.append("\n");
+            sb.append("swan native: ");
+            if (fq3.a() != null) {
+                str2 = fq3.a().b();
+            }
+            sb.append(str2);
+            sb.append("\n");
+            sb.append(b());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append(e(0));
+            sb.append("\n");
+            sb.append("is v8 master: ");
+            sb.append(ed2.V().s0());
+            sb.append("\n");
+            String a2 = a(0, ed2.V().s0());
+            sb.append("is native desc: ");
+            sb.append(!TextUtils.isEmpty(a2));
+            sb.append("\n");
+            boolean m = ah2.m();
+            sb.append("debugDynamicLibEnable: ");
+            sb.append(m);
+            sb.append('\n');
+            if (m) {
+                List<String> o = ah2.o();
+                sb.append("debugDynamicLibList: {");
+                if (!o.isEmpty()) {
+                    sb.append('\n');
+                    for (String str3 : o) {
+                        sb.append(str3);
+                        sb.append('\n');
+                    }
                 }
-                return null;
-            } catch (IllegalStateException e2) {
+                sb.append("}\n");
+            }
+            s52 J = xr2.V().J();
+            if (J != null && (v3 = J.v3()) != null) {
+                int O = v3.O();
+                sb.append("top fragment na-slave: ");
+                if (O == 1) {
+                    str = "NA";
+                } else {
+                    str = WebView.LOGTAG;
+                }
+                sb.append(str);
+                sb.append("\n");
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return "model: " + Build.MODEL + "\nandroid: " + Build.VERSION.RELEASE + StringUtil.ARRAY_ELEMENT_SEPARATOR + "api level: " + Build.VERSION.SDK_INT + "\ncuid: " + rp2.h0().i(rp2.c()) + "\n";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(int i) {
+        InterceptResult invokeI;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            String str2 = "";
+            if (i != 0) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            ExtensionCore U = ed2.V().U();
+            if (U == null) {
+                str = "";
+            } else {
+                String str3 = U.extensionCoreVersionName;
+                String typeString = SwanCoreVersion.getTypeString(U.extensionCoreType);
+                str = str3;
+                str2 = typeString;
+            }
+            sb.append("extensionjs: ");
+            sb.append(str2);
+            sb.append("/");
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static String h(Context context) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            dq3 a2 = fq3.a();
+            StringBuilder sb = new StringBuilder();
+            sb.append("name: ");
+            sb.append(rp2.n().a());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append("version: ");
+            if (a2 != null) {
+                str = a2.h();
+            } else {
+                str = "";
+            }
+            sb.append(str);
+            sb.append("\n");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void m(Activity activity) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65549, null, activity) != null) || activity == null) {
+            return;
+        }
+        try {
+            str = l(activity);
+        } catch (Exception e) {
+            if (!a) {
+                k32.l("SwanAppEnvironmentUtils", "getExtraInfo error", e);
+                str = "";
+            } else {
+                throw e;
+            }
+        }
+        k32.k("SwanAppEnvironmentUtils", "recordExtraInfoToLogSystem\n--------------------ExtraInfo list----------------------\n" + str + "--------------------ExtraInfo end-----------------------");
+        String k = rp2.g0().k();
+        k32.k("SwanAppEnvironmentUtils", "sid = " + k);
+        ka2.k();
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            SwanCoreVersion coreVersion = xr2.V().getCoreVersion();
+            sb.append("game-core version : ");
+            sb.append(pf3.i(coreVersion, 1));
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String g(Context context) {
+        InterceptResult invokeL;
+        String x1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            k63 c0 = k63.c0();
+            String str = "";
+            if (context == null || c0 == null || c0.k() != 1) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            hr2.a X = c0.X();
+            sb.append(f());
+            sb.append("\n");
+            sb.append("host version : ");
+            sb.append(ek3.u(AppRuntime.getAppContext(), AppRuntime.getAppContext().getPackageName()));
+            sb.append("\n");
+            sb.append("enable V8: ");
+            sb.append(ed2.V().s0());
+            sb.append("\n");
+            sb.append("aps version: ");
+            if (TextUtils.isEmpty(X.x1())) {
+                x1 = "";
+            } else {
+                x1 = X.x1();
+            }
+            sb.append(x1);
+            sb.append("\n");
+            String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), X.j1());
+            sb.append("app bundle size: ");
+            if (TextUtils.isEmpty(formatFileSize)) {
+                formatFileSize = "";
+            }
+            sb.append(formatFileSize);
+            sb.append("\n");
+            sb.append("app bundle version: ");
+            if (!TextUtils.isEmpty(X.y1())) {
+                str = X.y1();
+            }
+            sb.append(str);
+            sb.append("\n");
+            sb.append("app is opt pkg: ");
+            sb.append(pw2.g().h(X.g0()));
+            sb.append("\n");
+            String b = sp2.h().b();
+            if (!TextUtils.isEmpty(b)) {
+                sb.append("app sconsole version: ");
+                sb.append(b);
+                sb.append("\n");
+            }
+            sb.append("game engine version: ");
+            sb.append("1.3.6.1");
+            sb.append("\n");
+            sb.append("so version: ");
+            sb.append(ye3.a().getLong("swan_so_installed_version_code_zeus", 0L));
+            sb.append("\n");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void i(Context context, dl3<String> dl3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, context, dl3Var) == null) {
+            m62.e(dl3Var);
+        }
+    }
+
+    public static String j(@NonNull k63 k63Var) {
+        InterceptResult invokeL;
+        String str;
+        SwanAppConfigData.h hVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, k63Var)) == null) {
+            PMSAppInfo g0 = k63Var.X().g0();
+            if (g0 == null) {
+                return "no info";
+            }
+            StringBuilder sb = new StringBuilder();
+            boolean i = pw2.g().i(g0);
+            boolean k0 = ed2.V().k0();
+            boolean z = false;
+            SwanAppConfigData R = k63Var.R();
+            if (R != null && (hVar = R.t) != null) {
+                z = hVar.a;
+                str = hVar.b;
+            } else {
+                str = "";
+            }
+            sb.append("is server on: ");
+            sb.append(i);
+            sb.append("\n");
+            sb.append("app.json info: ");
+            sb.append("enabled/");
+            sb.append(z);
+            sb.append(", trigger/");
+            sb.append(str);
+            sb.append("\n");
+            sb.append("is hit: ");
+            sb.append(k0);
+            sb.append("\n");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (a) {
+                j = System.nanoTime();
+            } else {
+                j = 0;
+            }
+            k42.d g = k42.c().g();
+            if (a) {
+                Log.d("SwanAppEnvironmentUtils", "获取内存信息耗时: " + ((System.nanoTime() - j) / 1000000) + " ms");
+            }
+            return "设备总内存：" + g.c + " M，设备剩余内存：" + g.d + " M，小程序启动占用内存：" + g.a + " M，宿主APP占用内存：" + g.b + " M\n";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String l(Context context) {
+        InterceptResult invokeL;
+        long j;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            if (a) {
+                j = System.nanoTime();
+            } else {
+                j = 0;
+            }
+            k63 c0 = k63.c0();
+            if (c0 != null && context != null) {
+                String str = "=========================\n= " + c0.X().L() + "\n=========================\n===== 小程序信息 =====\n" + c(context) + "\n===== 设备信息 =====\n" + d(context) + "\n===== 宿主信息 =====\n" + h(context) + "\n===== 内存信息 =====\n" + k() + "\n===== onPrefetch信息 =====\n" + j(c0) + "\n";
                 if (a) {
-                    e2.printStackTrace();
-                    return null;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("获取启动时信息耗时：");
+                    sb.append((System.nanoTime() - j) / 1000000);
+                    sb.append(" ms 是否主线程：");
+                    if (Looper.getMainLooper() == Looper.myLooper()) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    Log.d("SwanAppEnvironmentUtils", sb.toString());
                 }
-                return null;
+                k32.k("SwanAppEnvironmentUtils", str);
+                return str;
             }
+            return "";
         }
         return (String) invokeL.objValue;
     }

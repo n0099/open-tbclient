@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.AbConfigService;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
+import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sj9 extends cg1<AbConfigService> {
+public class sj9 implements BrowserProxyService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,15 +27,17 @@ public class sj9 extends cg1<AbConfigService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cg1
-    /* renamed from: a */
-    public AbConfigService createService() throws ServiceNotFoundException {
+    @Override // com.baidu.searchbox.live.interfaces.service.BrowserProxyService
+    @NonNull
+    public IBrowserView buildLightBrowserViewInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new tj9();
+            if (mj6.e("https://live-tmp/")) {
+                return new tj9();
+            }
+            return new qj9();
         }
-        return (AbConfigService) invokeV.objValue;
+        return (IBrowserView) invokeV.objValue;
     }
 }

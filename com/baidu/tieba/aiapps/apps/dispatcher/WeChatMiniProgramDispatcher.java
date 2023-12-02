@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kma;
+import com.baidu.tieba.oma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class WeChatMiniProgramDispatcher implements kma {
+public class WeChatMiniProgramDispatcher implements oma {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PACKAGE_NAME_WECHAT = "com.tencent.mm";
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class WeChatMiniProgramDispatcher implements kma {
         }
     }
 
-    @Override // com.baidu.tieba.kma
+    @Override // com.baidu.tieba.oma
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

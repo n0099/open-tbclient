@@ -1,124 +1,120 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.telephony.PhoneStateListener;
-import android.telephony.TelephonyManager;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class g21 {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
+    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(int i);
-    }
-
-    public static boolean a(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public PhoneStateListener a;
-
-        /* loaded from: classes6.dex */
-        public class a extends PhoneStateListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public a(b bVar, a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.telephony.PhoneStateListener
-            public void onCallStateChanged(int i, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                    this.a.a(i);
-                }
-            }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947741923, "Lcom/baidu/tieba/g21;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947741923, "Lcom/baidu/tieba/g21;");
+                return;
             }
         }
+        a = TimeUnit.DAYS.toMillis(1L);
+        TimeUnit.HOURS.toMillis(1L);
+        b = TimeUnit.MINUTES.toMillis(1L);
+        TimeUnit.SECONDS.toMillis(1L);
+    }
 
-        @Nullable
-        public PhoneStateListener a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
+    public static int a(@NonNull String str, @NonNull String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, str, str2, i)) == null) {
+            String b2 = b(str, str2);
+            if (TextUtils.isEmpty(b2)) {
+                return i;
             }
-            return (PhoneStateListener) invokeV.objValue;
+            try {
+                return Integer.parseInt(b2);
+            } catch (NumberFormatException unused) {
+                return i;
+            }
         }
+        return invokeLLI.intValue;
+    }
 
-        public void b(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-                this.a = new a(this, aVar);
-            }
+    public static void e(@NonNull String str, @NonNull String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65541, null, str, str2, i) == null) {
+            f(str, str2, String.valueOf(i));
         }
     }
 
-    public static boolean b(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull b bVar) {
-        InterceptResult invokeLLL;
+    @Nullable
+    public static String b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, telephonyManager, bVar)) == null) {
-            telephonyManager.listen(bVar.a(), 32);
-            return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            String string = az0.a().b(str).getString(str2, null);
+            if (TextUtils.isEmpty(string) || (indexOf = string.indexOf("-")) == -1 || indexOf >= string.length() || !d(string.substring(0, indexOf), System.currentTimeMillis())) {
+                return null;
+            }
+            return string.substring(indexOf + 1);
         }
-        return invokeLLL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static boolean c(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull b bVar) {
-        InterceptResult invokeLLL;
+    public static boolean c(long j, long j2, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, telephonyManager, bVar)) == null) {
-            telephonyManager.listen(bVar.a(), 0);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) {
+            if (j - j2 > i * b) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static void f(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
+            SharedPreferences.Editor edit = az0.a().b(str).edit();
+            edit.putString(str2, System.currentTimeMillis() + "-" + str3);
+            edit.apply();
+        }
+    }
+
+    public static boolean d(@Nullable String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            long j2 = 0;
+            try {
+                j2 = Long.parseLong(str);
+            } catch (NumberFormatException unused) {
+            }
+            long j3 = a;
+            if (j2 / j3 != j / j3) {
+                return false;
+            }
             return true;
         }
-        return invokeLLL.booleanValue;
+        return invokeLJ.booleanValue;
     }
 }

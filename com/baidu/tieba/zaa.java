@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zaa extends ci<zm6, ThreadCardViewHolder<zm6>> implements a26 {
+public class zaa extends ci<dn6, ThreadCardViewHolder<dn6>> implements e26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
@@ -28,7 +27,7 @@ public class zaa extends ci<zm6, ThreadCardViewHolder<zm6>> implements a26 {
     public int d;
     public int e;
     public boolean f;
-    public im6<zm6> g;
+    public mm6<dn6> g;
 
     public void A(int i) {
         Interceptable interceptable = $ic;
@@ -37,7 +36,7 @@ public class zaa extends ci<zm6, ThreadCardViewHolder<zm6>> implements a26 {
     }
 
     /* loaded from: classes9.dex */
-    public class a extends im6<zm6> {
+    public class a extends mm6<dn6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,12 +57,12 @@ public class zaa extends ci<zm6, ThreadCardViewHolder<zm6>> implements a26 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.im6
+        @Override // com.baidu.tieba.mm6
         /* renamed from: d */
-        public void a(View view2, zm6 zm6Var) {
+        public void a(View view2, dn6 dn6Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, zm6Var) == null) && view2 != null && zm6Var != null && zm6Var.getThreadData() != null && view2.getId() == R.id.forum_name_text) {
-                aaa.a(view2, zm6Var, 7);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, dn6Var) == null) && view2 != null && dn6Var != null && dn6Var.getThreadData() != null && view2.getId() == R.id.forum_name_text) {
+                eaa.a(view2, dn6Var, 7);
             }
         }
     }
@@ -95,14 +94,14 @@ public class zaa extends ci<zm6, ThreadCardViewHolder<zm6>> implements a26 {
         @Override // com.baidu.tieba.zi
         public void b(View view2, pi piVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (piVar instanceof zm6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (piVar instanceof dn6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                zm6 zm6Var = (zm6) piVar;
-                zm6Var.f = 1;
+                dn6 dn6Var = (dn6) piVar;
+                dn6Var.f = 1;
                 if (this.a.g != null) {
-                    this.a.g.a(threadCardViewHolder.getView(), zm6Var);
+                    this.a.g.a(threadCardViewHolder.getView(), dn6Var);
                 }
-                ThreadCardUtils.jumpToPB((cw4) zm6Var, view2.getContext(), 4, false);
+                ThreadCardUtils.jumpToPB((fw4) dn6Var, view2.getContext(), 4, false);
                 threadCardViewHolder.a().q(new nu.a(1));
             }
         }
@@ -140,7 +139,7 @@ public class zaa extends ci<zm6, ThreadCardViewHolder<zm6>> implements a26 {
         }
     }
 
-    @Override // com.baidu.tieba.a26
+    @Override // com.baidu.tieba.e26
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -165,7 +164,7 @@ public class zaa extends ci<zm6, ThreadCardViewHolder<zm6>> implements a26 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: u */
-    public ThreadCardViewHolder<zm6> onCreateViewHolder(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<dn6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
@@ -181,30 +180,22 @@ public class zaa extends ci<zm6, ThreadCardViewHolder<zm6>> implements a26 {
             rsVar.u(false);
             rsVar.B(false);
             bVar.o(rsVar);
-            hu huVar = new hu(this.b.getPageActivity());
-            bVar.n(huVar);
-            bVar.l().i(BdUtilHelper.getDimens(this.mContext, R.dimen.tbds25));
-            huVar.z(2);
-            bVar.h(new gu(this.b.getPageActivity()));
-            mu muVar = new mu(this.b.getPageActivity());
-            muVar.C(this.b);
-            muVar.B(4);
-            bVar.h(muVar);
+            bVar.n(new mt(this.b.getPageActivity()));
             bVar.h(new zs(this.b.getPageActivity()));
             eu euVar = new eu(this.b.getPageActivity());
             euVar.b(32);
             euVar.D(false);
-            iw4 iw4Var = new iw4();
-            iw4Var.b = 3;
-            iw4Var.h = 3;
-            euVar.C(iw4Var);
+            lw4 lw4Var = new lw4();
+            lw4Var.b = 3;
+            lw4Var.h = 3;
+            euVar.C(lw4Var);
             euVar.E(8);
             euVar.J(6);
             euVar.F(4);
             bVar.m(euVar);
             cu i2 = bVar.i();
             i2.t(4);
-            ThreadCardViewHolder<zm6> threadCardViewHolder = new ThreadCardViewHolder<>(i2);
+            ThreadCardViewHolder<dn6> threadCardViewHolder = new ThreadCardViewHolder<>(i2);
             threadCardViewHolder.i(this.a);
             threadCardViewHolder.t(this.e);
             setOnAdapterItemClickListener(new b(this));
@@ -216,20 +207,22 @@ public class zaa extends ci<zm6, ThreadCardViewHolder<zm6>> implements a26 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: x */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zm6 zm6Var, ThreadCardViewHolder<zm6> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dn6 dn6Var, ThreadCardViewHolder<dn6> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zm6Var, threadCardViewHolder})) == null) {
-            if (zm6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && zm6Var.a != null) {
-                zm6Var.B(zm6Var.position + 1);
-                threadCardViewHolder.a().b(this.c);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dn6Var, threadCardViewHolder})) == null) {
+            if (dn6Var != null && threadCardViewHolder != null && threadCardViewHolder.a() != null) {
+                dn6Var.B(dn6Var.position + 1);
+                if (threadCardViewHolder.a() instanceof d26) {
+                    threadCardViewHolder.a().b(this.c);
+                }
                 if (!this.f) {
                     threadCardViewHolder.u();
                 }
-                threadCardViewHolder.e(zm6Var);
+                threadCardViewHolder.e(dn6Var);
+                threadCardViewHolder.h(this.g);
                 threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().r(this.g);
-                aaa.b(zm6Var);
+                eaa.b(dn6Var);
                 return threadCardViewHolder.getView();
             }
             return null;

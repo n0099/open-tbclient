@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ff5 extends re5 {
+public class ff5 extends ue5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean t;
-    public boolean u;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ff5(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_link), 31, i);
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_image), 10, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,46 +30,12 @@ public class ff5 extends re5 {
                 return;
             }
         }
-        this.t = true;
-        this.u = true;
-        this.d = R.drawable.icon_pure_post_link24;
+        this.d = R.drawable.icon_pure_post_image24;
+        this.e = R.drawable.icon_pure_post_image24_selection;
+        this.h = R.drawable.icon_post_image24_big;
         this.i = false;
         this.j = true;
         this.k = false;
-        this.p = new int[]{21};
-    }
-
-    @Override // com.baidu.tieba.re5
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.t;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.re5
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.u;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.t = z;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.u = z;
-        }
+        this.p = new int[]{14};
     }
 }

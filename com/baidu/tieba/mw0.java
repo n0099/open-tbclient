@@ -1,185 +1,163 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class mw0 implements nw0 {
+public final class mw0 extends iw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qv0 a;
-    public Context b;
-    public qw0 c;
+    public final ArrayList<hw0> a;
+    public final Boolean b;
+    public final String c;
+    public final String d;
+    public final String e;
 
-    @Override // com.baidu.tieba.kt0
-    public void a(@NonNull ks0 ks0Var) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ks0Var) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof mw0) {
+                    mw0 mw0Var = (mw0) obj;
+                    return Intrinsics.areEqual(this.a, mw0Var.a) && Intrinsics.areEqual(c(), mw0Var.c()) && Intrinsics.areEqual(d(), mw0Var.d()) && Intrinsics.areEqual(e(), mw0Var.e()) && Intrinsics.areEqual(b(), mw0Var.b());
+                }
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.kt0
-    public void d(@NonNull ks0 ks0Var) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ks0Var) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ArrayList<hw0> arrayList = this.a;
+            int hashCode = (arrayList != null ? arrayList.hashCode() : 0) * 31;
+            Boolean c = c();
+            int hashCode2 = (hashCode + (c != null ? c.hashCode() : 0)) * 31;
+            String d = d();
+            int hashCode3 = (hashCode2 + (d != null ? d.hashCode() : 0)) * 31;
+            String e = e();
+            int hashCode4 = (hashCode3 + (e != null ? e.hashCode() : 0)) * 31;
+            String b = b();
+            return hashCode4 + (b != null ? b.hashCode() : 0);
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.nw0
-    public void g(@NonNull ks0 ks0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ks0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.kt0
-    public int getExpectOrder() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 0;
+            return "Video(adaptationSetList=" + this.a + ", frmAlign=" + c() + ", pre=" + d() + ", suf=" + e() + ", codecs=" + b() + SmallTailInfo.EMOTION_SUFFIX;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kt0
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.kt0
-    public void h(@NonNull PlayerStatus playerStatus, @NonNull PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, playerStatus, playerStatus2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.kt0
-    public void j(@NonNull ks0 ks0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ks0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.kt0
-    public void k(@NonNull ks0 ks0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, ks0Var) == null) {
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.kt0
-    public void o(@NonNull ks0 ks0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, ks0Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.kt0
-    public void r(@NonNull ks0 ks0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, ks0Var) == null) {
-        }
-    }
-
-    public mw0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mw0(ArrayList<hw0> arrayList, Boolean bool, String str, String str2, String str3) {
+        super(bool, str, str2, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {arrayList, bool, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Boolean) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        l(null);
+        this.a = arrayList;
+        this.b = bool;
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
     }
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c = null;
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ mw0(ArrayList arrayList, Boolean bool, String str, String str2, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(arrayList, r2, r3, r4, r5);
+        String str4;
+        String str5;
+        String str6;
+        Boolean bool2 = (i & 2) != 0 ? null : bool;
+        if ((i & 4) != 0) {
+            str4 = "";
+        } else {
+            str4 = str;
+        }
+        if ((i & 8) != 0) {
+            str5 = "";
+        } else {
+            str5 = str2;
+        }
+        if ((i & 16) != 0) {
+            str6 = "";
+        } else {
+            str6 = str3;
         }
     }
 
-    public void f() {
-        qv0 qv0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (qv0Var = this.a) != null) {
-            qv0Var.e(this);
-            this.a = null;
-        }
-    }
-
-    @Nullable
-    public qp0 i() {
+    public final ArrayList<hw0> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            qw0 qw0Var = this.c;
-            if (qw0Var != null) {
-                return qw0Var.b();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (qp0) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public final void n() {
-        int[] subscribeEvent;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (subscribeEvent = getSubscribeEvent()) != null && subscribeEvent.length > 0) {
-            for (int i : subscribeEvent) {
-                this.a.c(i, this);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b(@NonNull qw0 qw0Var) {
+    public Boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qw0Var) == null) {
-            this.c = qw0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
+        return (Boolean) invokeV.objValue;
     }
 
-    public void c(@NonNull qv0 qv0Var) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qv0Var) == null) {
-            this.a = qv0Var;
-            n();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void l(@Nullable Context context) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
-            if (context == null) {
-                this.b = pp0.b();
-            } else {
-                this.b = context;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 }

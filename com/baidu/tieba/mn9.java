@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SetTail.ResData;
+import tbclient.AddTail.ResData;
 /* loaded from: classes7.dex */
 public class mn9 {
     public static /* synthetic */ Interceptable $ic;

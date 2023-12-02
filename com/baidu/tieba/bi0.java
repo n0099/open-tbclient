@@ -120,7 +120,7 @@ public class bi0 {
     public void c(String str, boolean z) {
         wg0 wg0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) != null) || (wg0Var = (wg0) ny0.b(ng0.b().a(), str)) == null) {
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) != null) || (wg0Var = (wg0) py0.b(ng0.b().a(), str)) == null) {
             return;
         }
         wg0Var.p.p = z;

@@ -1,103 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class n87 extends yq6 {
+public final class n87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final List<d87> b;
-    public final String c;
+    public final String a;
+    public final String b;
+    public final int c;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof n87) {
-                n87 n87Var = (n87) obj;
-                return Intrinsics.areEqual(this.a, n87Var.a) && Intrinsics.areEqual(this.b, n87Var.b) && Intrinsics.areEqual(this.c, n87Var.c);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            List<d87> list = this.b;
-            return ((hashCode + (list == null ? 0 : list.hashCode())) * 31) + this.c.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ShowThreadManageDialogEvent(context=" + this.a + ", manageList=" + this.b + ", tid=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public n87(Context context, List<d87> list, String tid) {
+    public n87(String from, String voiceId, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, tid};
+            Object[] objArr = {from, voiceId, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(tid, "tid");
-        this.a = context;
-        this.b = list;
-        this.c = tid;
+        Intrinsics.checkNotNullParameter(from, "from");
+        Intrinsics.checkNotNullParameter(voiceId, "voiceId");
+        this.a = from;
+        this.b = voiceId;
+        this.c = i;
     }
 
-    public final Context a() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return (Context) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final List<d87> b() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }

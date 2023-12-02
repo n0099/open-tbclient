@@ -13,29 +13,29 @@ import android.widget.TextView;
 import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.tieba.R;
-import com.baidu.tieba.op2;
-import com.baidu.tieba.r53;
-import com.baidu.tieba.s53;
-import com.baidu.tieba.vb3;
+import com.baidu.tieba.rp2;
+import com.baidu.tieba.u53;
+import com.baidu.tieba.v53;
+import com.baidu.tieba.yb3;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class CommonOverflowMenuView extends LinearLayout implements r53.g {
+public class CommonOverflowMenuView extends LinearLayout implements u53.g {
     public int a;
     public int b;
     public ColorStateList c;
     public List<ImageView> d;
     public List<TextView> e;
-    public HashMap<s53, ImageView> f;
+    public HashMap<v53, ImageView> f;
     public View g;
     public LinearLayout h;
     public SwanAppScrollView i;
     public Object j;
 
     /* loaded from: classes4.dex */
-    public class a implements vb3 {
+    public class a implements yb3 {
         public a() {
         }
     }
@@ -55,8 +55,8 @@ public class CommonOverflowMenuView extends LinearLayout implements r53.g {
     public final void a(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c5, (ViewGroup) this, true);
         this.g = inflate;
-        this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09180d);
-        this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f091810);
+        this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09180e);
+        this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f091811);
         setFocusable(true);
         setFocusableInTouchMode(true);
         b();
@@ -103,7 +103,7 @@ public class CommonOverflowMenuView extends LinearLayout implements r53.g {
         for (TextView textView : this.e) {
             textView.setTextColor(this.c);
         }
-        for (Map.Entry<s53, ImageView> entry : this.f.entrySet()) {
+        for (Map.Entry<v53, ImageView> entry : this.f.entrySet()) {
             entry.getValue().setImageDrawable(entry.getKey().b());
         }
     }
@@ -123,13 +123,13 @@ public class CommonOverflowMenuView extends LinearLayout implements r53.g {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        op2.M().f(this.j, new a());
+        rp2.M().f(this.j, new a());
         b();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        op2.M().g(this.j);
+        rp2.M().g(this.j);
     }
 }

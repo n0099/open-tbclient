@@ -1,30 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class ikb implements kkb {
+public class ikb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final mjb b;
+    public final EditorTools a;
+    public final Map<Integer, kkb> b;
 
-    public ikb(@NonNull TbPageContext<?> tbPageContext, @NonNull mjb mjbVar) {
+    public ikb(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, mjbVar};
+            Object[] objArr = {editorTools};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,93 +32,35 @@ public class ikb implements kkb {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = mjbVar;
+        this.b = new HashMap();
+        this.a = editorTools;
     }
 
-    @Override // com.baidu.tieba.fe5
-    public void U(ee5 ee5Var) {
+    public void b(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ee5Var) == null) {
-            int i = ee5Var.a;
-            if (i != 14 && i != 48) {
-                if (i == 60) {
-                    this.b.u();
-                    return;
-                } else if (i != 12 && i != 13 && i != 46 && i != 49) {
-                    if (i == 21) {
-                        this.b.i();
-                        iib.b(this.a.getPageActivity(), 5);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.getPageActivity(), 25049, "", true, null)));
-                        return;
-                    } else if (i == 24) {
-                        this.b.z(ee5Var);
-                        return;
-                    } else if (i == 3) {
-                        this.b.z(ee5Var);
-                        return;
-                    } else if (i == 16) {
-                        this.b.z(ee5Var);
-                        return;
-                    } else if (i == 43) {
-                        iib.b(this.a.getPageActivity(), 4);
-                        SharedPrefHelper.getInstance().putBoolean("hot_topic_has_click", true);
-                        this.b.C(new ee5(2, 26, null));
-                        this.b.p(true);
-                        this.b.m();
-                        return;
-                    } else if (i == 10) {
-                        this.b.z(ee5Var);
-                        return;
-                    } else if (i == 11) {
-                        this.b.z(ee5Var);
-                        return;
-                    } else if (i == 25) {
-                        this.b.z(ee5Var);
-                        return;
-                    } else if (i == 22) {
-                        this.b.z(ee5Var);
-                        return;
-                    } else if (i == 59) {
-                        this.b.z(ee5Var);
-                        return;
-                    } else if (i == 61) {
-                        this.b.z(ee5Var);
-                        return;
-                    } else if (i == 69) {
-                        this.b.v();
-                        return;
-                    } else if (i == 55) {
-                        Object obj = ee5Var.c;
-                        if (obj instanceof Boolean) {
-                            this.b.k(((Boolean) obj).booleanValue());
-                            return;
-                        }
-                        return;
-                    } else if (i == 66) {
-                        Object obj2 = ee5Var.c;
-                        if (obj2 instanceof Boolean) {
-                            this.b.y(((Boolean) obj2).booleanValue());
-                            return;
-                        }
-                        return;
-                    } else if (i == 74) {
-                        this.b.z(ee5Var);
-                        return;
-                    } else if (i == 77) {
-                        this.b.z(ee5Var);
-                        return;
-                    } else {
-                        return;
-                    }
-                } else {
-                    this.b.x(new int[]{10, 34});
-                    this.b.j();
-                    return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) {
+            for (int i : iArr) {
+                if (this.b.containsKey(Integer.valueOf(i))) {
+                    this.a.setToolEnabled(this.b.get(Integer.valueOf(i)).a(i), i);
                 }
             }
-            iib.b(this.a.getPageActivity(), 1);
-            this.b.r();
         }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (Map.Entry<Integer, kkb> entry : this.b.entrySet()) {
+                this.a.setToolEnabled(entry.getValue().a(entry.getKey().intValue()), entry.getKey().intValue());
+            }
+        }
+    }
+
+    public void c(int i, @NonNull kkb kkbVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, kkbVar) != null) || this.b.containsKey(Integer.valueOf(i))) {
+            return;
+        }
+        this.b.put(Integer.valueOf(i), kkbVar);
     }
 }

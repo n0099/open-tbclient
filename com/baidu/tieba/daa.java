@@ -1,106 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.km5;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class daa extends ci<oba, CardViewHolder<qca>> {
+public class daa implements km5, PersonPostModel.d, PersonPostModel.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public pb<PersonCommonForumItemView> b;
+    @NonNull
+    public PersonPostModel a;
+    @Nullable
+    public km5.a b;
 
-    /* loaded from: classes5.dex */
-    public class a implements qb<PersonCommonForumItemView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ daa a;
-
-        public PersonCommonForumItemView e(PersonCommonForumItemView personCommonForumItemView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
-        }
-
-        public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
-        }
-
-        public a(daa daaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {daaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = daaVar;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.qb
-        public /* bridge */ /* synthetic */ PersonCommonForumItemView a(PersonCommonForumItemView personCommonForumItemView) {
-            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
-            e(personCommonForumItemView2);
-            return personCommonForumItemView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.qb
-        public /* bridge */ /* synthetic */ PersonCommonForumItemView c(PersonCommonForumItemView personCommonForumItemView) {
-            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
-            h(personCommonForumItemView2);
-            return personCommonForumItemView2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qb
-        /* renamed from: f */
-        public void b(PersonCommonForumItemView personCommonForumItemView) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, personCommonForumItemView) == null) && personCommonForumItemView != null) {
-                personCommonForumItemView.removeAllViews();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qb
-        /* renamed from: g */
-        public PersonCommonForumItemView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return new PersonCommonForumItemView(this.a.mContext);
-            }
-            return (PersonCommonForumItemView) invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public daa(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), oba.b);
+    public daa(@NonNull TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,42 +35,56 @@ public class daa extends ci<oba, CardViewHolder<qca>> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new pb<>(new a(this), 12, 0);
-        this.a = tbPageContext;
+        this.a = new PersonPostModel(tbPageContext, tbPageContext.getUniqueId(), this, false, 1);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: u */
-    public CardViewHolder<qca> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
+    public void W0(PersonPostModel personPostModel, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            qca qcaVar = new qca(this.a);
-            qcaVar.C(this.b);
-            return new CardViewHolder<>(qcaVar);
+        if ((interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) && this.b != null) {
+            ArrayList arrayList = new ArrayList();
+            Iterator<pi> it = personPostModel.threadList.iterator();
+            while (it.hasNext()) {
+                pi next = it.next();
+                if (next instanceof CardPersonDynamicThreadData) {
+                    ThreadData threadData = ((CardPersonDynamicThreadData) next).getThreadData();
+                    if (!TextUtils.equals(threadData.getTid(), "0")) {
+                        arrayList.add(threadData);
+                    }
+                }
+            }
+            this.b.b(arrayList, personPostModel.getDataResMap());
+            this.b.a();
         }
-        return (CardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: x */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, oba obaVar, CardViewHolder<qca> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.km5
+    public void a(@Nullable km5.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obaVar, cardViewHolder})) == null) {
-            cardViewHolder.a().k(this.a, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.a().j(obaVar);
-            return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.km5
+    public void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, metaData, num, num2, num3, num4, l, num5}) == null) {
+            this.a.fetchPostByBeginThreadId(str, this, metaData, num, num2, num3, num4, l, num5);
+        }
+    }
+
+    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
+    public void i1(PersonPostModel personPostModel, boolean z) {
+        km5.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048579, this, personPostModel, z) == null) && (aVar = this.b) != null) {
+            aVar.a();
+        }
     }
 }

@@ -3,13 +3,13 @@ package com.baidu.tieba.immessagecenter.msgtab.obs;
 import androidx.core.app.NotificationManagerCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ctc;
-import com.baidu.tieba.eoc;
+import com.baidu.tieba.btc;
+import com.baidu.tieba.doc;
 import com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor;
-import com.baidu.tieba.m79;
-import com.baidu.tieba.ooc;
-import com.baidu.tieba.p69;
-import com.baidu.tieba.yoc;
+import com.baidu.tieba.noc;
+import com.baidu.tieba.q79;
+import com.baidu.tieba.t69;
+import com.baidu.tieba.xoc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0018\u0000 \u00162\u00020\u0001:\u0001\u0016B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u000e\u001a\u00020\u0005H\u0002J\u0018\u0010\u000f\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00050\u00110\u0010J\u0006\u0010\u0012\u001a\u00020\u0013J\b\u0010\u0014\u001a\u00020\u0013H\u0016J\b\u0010\u0015\u001a\u00020\u0013H\u0016R?\u0010\u0003\u001a&\u0012\f\u0012\n \u0006*\u0004\u0018\u00010\u00050\u0005 \u0006*\u0012\u0012\f\u0012\n \u0006*\u0004\u0018\u00010\u00050\u0005\u0018\u00010\u00040\u00048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\t\u0010\n\u001a\u0004\b\u0007\u0010\bR?\u0010\u000b\u001a&\u0012\f\u0012\n \u0006*\u0004\u0018\u00010\u00050\u0005 \u0006*\u0012\u0012\f\u0012\n \u0006*\u0004\u0018\u00010\u00050\u0005\u0018\u00010\u00040\u00048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\n\u001a\u0004\b\f\u0010\b¨\u0006\u0017"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/obs/NotificationChangedMonitor;", "Lcom/baidu/tieba/immessagecenter/msgtab/obs/DataChangedMonitor;", "()V", "mFrequencyControlSubject", "Lrx/subjects/BehaviorSubject;", "", "kotlin.jvm.PlatformType", "getMFrequencyControlSubject", "()Lrx/subjects/BehaviorSubject;", "mFrequencyControlSubject$delegate", "Lkotlin/Lazy;", "mSubject", "getMSubject", "mSubject$delegate", "isAllowShowGuide", "notificationChangedObs", "Lrx/Observable;", "Lkotlin/Pair;", "refreshStatus", "", "start", "stop", "Companion", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class NotificationChangedMonitor implements m79 {
+public final class NotificationChangedMonitor implements q79 {
     public static /* synthetic */ Interceptable $ic;
     public static final a c;
     public static final Lazy<NotificationChangedMonitor> d;
@@ -39,7 +39,7 @@ public final class NotificationChangedMonitor implements m79 {
         this();
     }
 
-    @Override // com.baidu.tieba.m79
+    @Override // com.baidu.tieba.q79
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -105,29 +105,29 @@ public final class NotificationChangedMonitor implements m79 {
         d = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) NotificationChangedMonitor$Companion$instance$2.INSTANCE);
     }
 
-    public final ctc<Boolean> c() {
+    public final btc<Boolean> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (ctc) this.b.getValue();
+            return (btc) this.b.getValue();
         }
-        return (ctc) invokeV.objValue;
+        return (btc) invokeV.objValue;
     }
 
-    public final ctc<Boolean> d() {
+    public final btc<Boolean> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (ctc) this.a.getValue();
+            return (btc) this.a.getValue();
         }
-        return (ctc) invokeV.objValue;
+        return (btc) invokeV.objValue;
     }
 
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return p69.d();
+            return t69.d();
         }
         return invokeV.booleanValue;
     }
@@ -146,7 +146,7 @@ public final class NotificationChangedMonitor implements m79 {
             }
         }
         this.a = LazyKt__LazyJVMKt.lazy(NotificationChangedMonitor$mSubject$2.INSTANCE);
-        this.b = LazyKt__LazyJVMKt.lazy(new Function0<ctc<Boolean>>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor$mFrequencyControlSubject$2
+        this.b = LazyKt__LazyJVMKt.lazy(new Function0<btc<Boolean>>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor$mFrequencyControlSubject$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ NotificationChangedMonitor this$0;
@@ -175,48 +175,48 @@ public final class NotificationChangedMonitor implements m79 {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final ctc<Boolean> invoke() {
+            public final btc<Boolean> invoke() {
                 InterceptResult invokeV;
                 boolean e;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                    return (ctc) invokeV.objValue;
+                    return (btc) invokeV.objValue;
                 }
                 e = this.this$0.e();
-                return ctc.R(Boolean.valueOf(e));
+                return btc.R(Boolean.valueOf(e));
             }
         });
     }
 
-    public final eoc<Pair<Boolean, Boolean>> f() {
+    public final doc<Pair<Boolean, Boolean>> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            eoc<Pair<Boolean, Boolean>> s = eoc.c(d().g(), c().g(), new yoc() { // from class: com.baidu.tieba.i79
+            doc<Pair<Boolean, Boolean>> s = doc.c(d().g(), c().g(), new xoc() { // from class: com.baidu.tieba.m79
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.yoc
+                @Override // com.baidu.tieba.xoc
                 public final Object a(Object obj, Object obj2) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? NotificationChangedMonitor.g((Boolean) obj, (Boolean) obj2) : invokeLL.objValue;
                 }
-            }).h(new yoc() { // from class: com.baidu.tieba.k79
+            }).h(new xoc() { // from class: com.baidu.tieba.o79
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.yoc
+                @Override // com.baidu.tieba.xoc
                 public final Object a(Object obj, Object obj2) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? NotificationChangedMonitor.h((Pair) obj, (Pair) obj2) : invokeLL.objValue;
                 }
-            }).s(ooc.b());
+            }).s(noc.b());
             Intrinsics.checkNotNullExpressionValue(s, "combineLatest(\n         …dSchedulers.mainThread())");
             return s;
         }
-        return (eoc) invokeV.objValue;
+        return (doc) invokeV.objValue;
     }
 
     public final void i() {

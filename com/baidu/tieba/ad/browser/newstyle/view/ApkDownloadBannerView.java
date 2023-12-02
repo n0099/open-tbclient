@@ -15,7 +15,7 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.w26;
+import com.baidu.tieba.a36;
 import com.baidu.tieba.wg0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ApkDownloadBannerView extends LinearLayout implements w26 {
+public class ApkDownloadBannerView extends LinearLayout implements a36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -36,7 +36,7 @@ public class ApkDownloadBannerView extends LinearLayout implements w26 {
     public int f;
     public boolean g;
 
-    @Override // com.baidu.tieba.w26
+    @Override // com.baidu.tieba.a36
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -61,15 +61,15 @@ public class ApkDownloadBannerView extends LinearLayout implements w26 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w26
+    @Override // com.baidu.tieba.a36
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.w26
-    public void setOnClickInterceptListener(w26.a aVar) {
+    @Override // com.baidu.tieba.a36
+    public void setOnClickInterceptListener(a36.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
         }
@@ -227,7 +227,7 @@ public class ApkDownloadBannerView extends LinearLayout implements w26 {
             this.c = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f0902c9);
             this.d = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f0902ca);
             this.b.setTextColor(Color.parseColor("#999999"));
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09099c);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09099d);
             this.e = textView;
             if (this.g) {
                 i = 0;

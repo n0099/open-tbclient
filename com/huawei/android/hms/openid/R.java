@@ -35,7 +35,7 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int enable_service_text = 0x7f090a61;
+        public static final int enable_service_text = 0x7f090a62;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -83,8 +83,8 @@ public final class R {
         public static final int hms_confirm = 0x7f0f09ff;
         public static final int hms_is_spoof = 0x7f0f0a00;
         public static final int hms_spoof_hints = 0x7f0f0a04;
-        public static final int push_cat_body = 0x7f0f11dc;
-        public static final int push_cat_head = 0x7f0f11dd;
+        public static final int push_cat_body = 0x7f0f11dd;
+        public static final int push_cat_head = 0x7f0f11de;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

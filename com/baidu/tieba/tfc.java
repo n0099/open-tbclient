@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.os.RemoteCallbackList;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bgc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,16 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.render.IRemoteListener;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.TypeCastException;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.TypeIntrinsics;
 /* loaded from: classes8.dex */
 public final class tfc {
     public static /* synthetic */ Interceptable $ic;
     public static tfc b;
     public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public RemoteCallbackList<IRemoteListener> a;
+    public final ConcurrentHashMap<String, cgc> a;
 
     /* loaded from: classes8.dex */
     public static final class a {
@@ -85,157 +84,47 @@ public final class tfc {
                 return;
             }
         }
-        this.a = new RemoteCallbackList<>();
+        this.a = new ConcurrentHashMap<>();
     }
 
-    public final synchronized void b(String str, String str2) {
-        boolean z;
-        RemoteCallbackList<IRemoteListener> remoteCallbackList;
+    public final void b(String str, cgc cgcVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this) {
-                if (!Intrinsics.areEqual(str, "")) {
-                    int i = 1;
-                    if (str2 != null && str2.length() != 0) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (!z) {
-                        try {
-                            int beginBroadcast = this.a.beginBroadcast();
-                            bgc.a aVar = bgc.b;
-                            aVar.a("listener size = " + beginBroadcast);
-                            if (1 <= beginBroadcast) {
-                                while (true) {
-                                    this.a.getBroadcastItem(i - 1).action(str, str2);
-                                    if (i == beginBroadcast) {
-                                        break;
-                                    }
-                                    i++;
-                                }
-                            }
-                            remoteCallbackList = this.a;
-                        } catch (Exception e) {
-                            bgc.a aVar2 = bgc.b;
-                            aVar2.c("(executeAction) ex: " + e.getMessage());
-                            e.printStackTrace();
-                            remoteCallbackList = this.a;
-                        }
-                        remoteCallbackList.finishBroadcast();
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, cgcVar) == null) && this.a.get(str) == null) {
+            this.a.put(str, cgcVar);
+        }
+    }
+
+    public final cgc c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a.get(str);
+        }
+        return (cgc) invokeL.objValue;
+    }
+
+    public final boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.a.get(str) != null) {
+                return true;
             }
+            return false;
         }
-    }
-
-    public final synchronized boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            synchronized (this) {
-                if (!Intrinsics.areEqual(str, "")) {
-                    if (str2 != null && str2.length() != 0) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (!z) {
-                        try {
-                            int beginBroadcast = this.a.beginBroadcast();
-                            if (1 <= beginBroadcast) {
-                                int i = 1;
-                                while (true) {
-                                    this.a.getBroadcastItem(i - 1).transData(str, str2);
-                                    if (i == beginBroadcast) {
-                                        break;
-                                    }
-                                    i++;
-                                }
-                            }
-                            this.a.finishBroadcast();
-                            return true;
-                        } catch (Exception e) {
-                            bgc.a aVar = bgc.b;
-                            aVar.c("(executeData) ex: " + e.getMessage());
-                            e.printStackTrace();
-                            this.a.finishBroadcast();
-                            return false;
-                        }
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final synchronized boolean f(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bitmap)) == null) {
-            synchronized (this) {
-                if (Intrinsics.areEqual(str, "")) {
-                    return false;
-                }
-                try {
-                    int beginBroadcast = this.a.beginBroadcast();
-                    bgc.a aVar = bgc.b;
-                    aVar.f("(sendBitmap) channelId: " + str + ", size = " + beginBroadcast);
-                    if (1 <= beginBroadcast) {
-                        int i = 1;
-                        while (true) {
-                            this.a.getBroadcastItem(i - 1).transBitmap(str, bitmap);
-                            if (i == beginBroadcast) {
-                                break;
-                            }
-                            i++;
-                        }
-                    }
-                    this.a.finishBroadcast();
-                    return true;
-                } catch (Exception e) {
-                    bgc.a aVar2 = bgc.b;
-                    aVar2.c("(sendBitmap) ex: " + e.getMessage());
-                    e.printStackTrace();
-                    this.a.finishBroadcast();
-                    return false;
-                }
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void d(IRemoteListener iRemoteListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iRemoteListener) == null) {
-            this.a.register(iRemoteListener);
-        }
+        return invokeL.booleanValue;
     }
 
     public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            b("reportCrash", str);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    public final boolean g(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, bitmap)) == null) {
-            return f(str, bitmap);
+        ConcurrentHashMap<String, cgc> concurrentHashMap = this.a;
+        if (concurrentHashMap != null) {
+            TypeIntrinsics.asMutableMap(concurrentHashMap).remove(str);
+            return;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            return c(str, str2);
-        }
-        return invokeLL.booleanValue;
+        throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.MutableMap<K, V>");
     }
 }

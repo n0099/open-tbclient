@@ -1,60 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedContentResource;
-import tbclient.TitleComponent;
+import tbclient.FeedRoomComponent;
 /* loaded from: classes7.dex */
 public final class m97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final x57 a(r57 businessInfo) {
-        InterceptResult invokeL;
+    public static final void a(FeedRoomComponent feedRoomComponent, List<rb7<?>> dataList, r67 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            String str = "";
-            if (Intrinsics.areEqual(businessInfo.a().get("update_read_status"), "1")) {
-                String str2 = businessInfo.a().get("thread_id");
-                if (str2 != null) {
-                    str = str2;
-                }
-                if (tl6.k(str)) {
-                    return new x57(2, str);
-                }
-                return new x57(1, str);
-            }
-            return new x57(0, "");
-        }
-        return (x57) invokeL.objValue;
-    }
-
-    public static final void b(TitleComponent titleComponent, List<nb7<?>> dataList, SpannableStringBuilder titleBuilder, n67 feedExtraData, boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{titleComponent, dataList, titleBuilder, feedExtraData, Boolean.valueOf(z)}) == null) {
-            Intrinsics.checkNotNullParameter(titleComponent, "<this>");
+        if (interceptable == null || interceptable.invokeLLL(65536, null, feedRoomComponent, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedRoomComponent, "<this>");
             Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            u47 u47Var = new u47(titleBuilder, z, a(feedExtraData.a()));
-            List<FeedContentResource> list = titleComponent.data;
-            if (list != null) {
-                l97.a(list, titleBuilder, feedExtraData, u47Var);
-            }
-            if (titleBuilder.length() > 0) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (z2) {
-                dataList.add(new ob7(u47Var, "title"));
-            }
+            in6 in6Var = new in6();
+            in6Var.p(feedRoomComponent.status);
+            in6Var.q(feedRoomComponent.top_label);
+            in6Var.l(feedRoomComponent.cover_url);
+            in6Var.s(feedRoomComponent.scheme);
+            in6Var.x(feedRoomComponent.voice);
+            in6Var.t(feedRoomComponent.bottom_labels);
+            dataList.add(new sb7(new t47(in6Var, s67.e(feedExtraData, "card_pei_wan_click", null, 2, null), s67.e(feedExtraData, "voice_pei_wan_click", null, 2, null), s67.e(feedExtraData, "card_pei_wan_show", null, 2, null), feedExtraData.a().a(), feedExtraData.c().a()), "pei_wan"));
         }
     }
 }

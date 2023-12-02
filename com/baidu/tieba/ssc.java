@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.coc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,24 +12,19 @@ public abstract class ssc {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Deprecated
-    public coc.f a(coc.f fVar) {
-        InterceptResult invokeL;
+    public void a(Throwable th) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) ? fVar : (coc.f) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+        }
     }
 
-    @Deprecated
-    public Throwable b(Throwable th) {
+    public String c(Object obj) throws InterruptedException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) ? th : (Throwable) invokeL.objValue;
-    }
-
-    @Deprecated
-    public coc.f c(coc cocVar, coc.f fVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cocVar, fVar)) == null) ? fVar : (coc.f) invokeLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 
     public ssc() {
@@ -45,5 +39,22 @@ public abstract class ssc {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public final String b(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            try {
+                return c(obj);
+            } catch (InterruptedException unused) {
+                Thread.currentThread().interrupt();
+                return obj.getClass().getName() + ".errorRendering";
+            } catch (Throwable th) {
+                poc.e(th);
+                return obj.getClass().getName() + ".errorRendering";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

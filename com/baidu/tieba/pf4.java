@@ -2,114 +2,149 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class pf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public long d;
+    public JSONObject e;
 
-    public static String a(String str) {
+    public pf4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = -1;
+    }
+
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static pf4 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String a = pm4.a(pm4.a(pm4.a(pm4.a(pm4.a(pm4.a(pm4.a(pm4.a(pm4.a(pm4.a(pm4.a(str, "cuid", sd4.b().g()), "uuid", sd4.b().e()), "ut", sd4.b().I()), "ua", pm4.b(sd4.b().h())), "host_app", sd4.b().c()), "host_app_ver", sd4.b().h()), "host_os", hm4.f()), "host_os_ver", hm4.g()), "network", hm4.e()), "sdk_ver", sd4.b().b()), "ut_score", String.valueOf(sd4.b().a()));
-            String q = sd4.b().q();
-            if (!TextUtils.isEmpty(q)) {
-                return pm4.a(a, "sid", q);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return a;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (map != null) {
-                for (String str2 : map.keySet()) {
-                    if (!TextUtils.isEmpty(map.get(str2))) {
-                        str = pm4.a(str, str2, map.get(str2));
-                    }
-                }
+            try {
+                return b(new JSONObject(str));
+            } catch (JSONException unused) {
+                return null;
             }
-            return str;
         }
-        return (String) invokeLL.objValue;
+        return (pf4) invokeL.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return h() + "/getopenbundleid";
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            this.e = jSONObject;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return h() + "/fetchpkglist";
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a = i;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return h() + "/getpkg";
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String f() {
-        InterceptResult invokeV;
+    public void k(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return h() + "/getplugin";
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.d = j;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String g() {
-        InterceptResult invokeV;
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return h() + "/updatecore";
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.c = str;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return sd4.b().E();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String i(String str) {
+    public static pf4 b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return a(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            pf4 pf4Var = new pf4();
+            pf4Var.i(jSONObject.optInt("errno", -1));
+            pf4Var.j(jSONObject.optString("errmsg"));
+            pf4Var.l(jSONObject.optString("tipmsg"));
+            pf4Var.k(jSONObject.optLong(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID));
+            pf4Var.h(jSONObject.optJSONObject("data"));
+            return pf4Var;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, map)) == null) {
-            return b(a(str), map);
-        }
-        return (String) invokeLL.objValue;
+        return (pf4) invokeL.objValue;
     }
 }

@@ -108,11 +108,11 @@ public class SVProgressDefaultView extends LinearLayout {
     private void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a33, (ViewGroup) this, true);
-            this.ivBigLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f091278);
-            this.ivSmallLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f09127a);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a34, (ViewGroup) this, true);
+            this.ivBigLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f091279);
+            this.ivSmallLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f09127b);
             this.circleProgressBar = (SVCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f09075f);
-            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f0927bd);
+            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f0927c0);
         }
     }
 

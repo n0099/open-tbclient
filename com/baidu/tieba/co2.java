@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class co2 extends bk2<so2> {
+public class co2 extends ek2<vo2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bk2
+    @Override // com.baidu.tieba.ek2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "seekTo" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRate" : (String) invokeV.objValue;
     }
 
     public co2() {
@@ -36,14 +36,26 @@ public class co2 extends bk2<so2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bk2
+    @Override // com.baidu.tieba.ek2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull so2 so2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull vo2 vo2Var) {
+        Object obj;
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, so2Var) == null) {
-            so2Var.seekTo(command.arg1);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, vo2Var) != null) || (obj = command.obj) == null) {
+            return;
+        }
+        if (obj instanceof Float) {
+            f = ((Float) obj).floatValue();
+        } else if (obj instanceof Double) {
+            f = ((Double) obj).floatValue();
+        } else {
+            f = Float.MIN_VALUE;
+        }
+        if (f != Float.MIN_VALUE) {
+            vo2Var.setSpeed(f);
             String str = command.what;
-            d(so2Var, str, "SeekTo: " + command.arg1, false);
+            d(vo2Var, str, "playbackRate: " + command.obj, false);
         }
     }
 }

@@ -1,320 +1,225 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.immessagecenter.mention.agree.message.AgreeMeHTTPResponseMessage;
-import com.baidu.tieba.immessagecenter.mention.agree.message.AgreeMeRequestMessage;
-import com.baidu.tieba.immessagecenter.mention.agree.message.AgreeMeSocketResponseMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.mvc.data.INetRequestData;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tbadk.util.NetMessageHelper;
+import com.baidu.tieba.immessagecenter.mention.FeedData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.util.ArrayList;
-import tbclient.AgreeList;
-import tbclient.AgreeMe.AgreeMeResIdl;
+import java.util.HashMap;
+import tbclient.ReplyMe.DataReq;
+import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes6.dex */
-public class g69 {
+public class g69 implements INetRequestData, bo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public BdUniqueId b;
-    public long c;
-    public c d;
-    public ArrayList<pi> e;
-    public boolean f;
-    public NetMessageListener g;
-    @Nullable
-    public BdAsyncTask<Void, Void, ArrayList<i69>> h;
+    public int a;
+    public int b;
+    public String c;
+    public long d;
+    public long e;
+    public int f;
+    public String g;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void onFailed(String str);
-
-        void q(ArrayList<pi> arrayList);
+    @Override // com.baidu.tieba.ao5
+    public String getCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "replyme_cache" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g69 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(g69 g69Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g69Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g69Var;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.hasError()) {
-                if (this.a.d != null) {
-                    this.a.d.onFailed(responsedMessage.getErrorString());
-                    return;
-                }
-                return;
-            }
-            boolean z = false;
-            if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) responsedMessage.getOrginalMessage().getExtra()).id == 0) {
-                z = true;
-            }
-            if (responsedMessage instanceof AgreeMeHTTPResponseMessage) {
-                AgreeMeHTTPResponseMessage agreeMeHTTPResponseMessage = (AgreeMeHTTPResponseMessage) responsedMessage;
-                this.a.j(agreeMeHTTPResponseMessage.datas, z);
-                this.a.f = agreeMeHTTPResponseMessage.hasMore;
-            } else if (responsedMessage instanceof AgreeMeSocketResponseMessage) {
-                AgreeMeSocketResponseMessage agreeMeSocketResponseMessage = (AgreeMeSocketResponseMessage) responsedMessage;
-                this.a.j(agreeMeSocketResponseMessage.datas, z);
-                this.a.f = agreeMeSocketResponseMessage.hasMore;
-            }
-        }
+    @Override // com.baidu.tieba.bo5
+    public String getCacheTableName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "tb_user_replyme" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Void, Void, ArrayList<i69>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g69 a;
-
-        public b(g69 g69Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g69Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g69Var;
+    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
+    public HashMap<String, String> getHttpHeader() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return null;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ArrayList<i69> arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-                super.onPostExecute(arrayList);
-                if (arrayList == null) {
-                    return;
-                }
-                this.a.i(arrayList);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ArrayList<i69> doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            byte[] bArr;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                ArrayList<i69> arrayList = new ArrayList<>();
-                b05.k();
-                da<byte[]> j = b05.j("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
-                if (j != null && (bArr = j.get("agree_me_cache_key")) != null) {
-                    try {
-                        boolean z = false;
-                        AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
-                        if (agreeMeResIdl.data != null) {
-                            g69 g69Var = this.a;
-                            if (agreeMeResIdl.data.has_more.intValue() == 1) {
-                                z = true;
-                            }
-                            g69Var.f = z;
-                            for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
-                                if (agreeList != null) {
-                                    i69 i69Var = new i69();
-                                    i69Var.D(agreeList);
-                                    arrayList.add(i69Var);
-                                }
-                            }
-                            return arrayList;
-                        }
-                        return arrayList;
-                    } catch (Exception unused) {
-                        return null;
-                    }
-                }
-                return arrayList;
-            }
-            return (ArrayList) invokeL.objValue;
-        }
+        return (HashMap) invokeV.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746015, "Lcom/baidu/tieba/g69;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947746015, "Lcom/baidu/tieba/g69;");
-                return;
-            }
+    @Override // com.baidu.tieba.bo5
+    public boolean isNeedUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return true;
         }
-        wva.h(309593, AgreeMeSocketResponseMessage.class, false, false);
-        wva.c(309593, CmdConfigHttp.AGREE_ME_HTTP_CMD, "c/u/feed/agreeme", AgreeMeHTTPResponseMessage.class, false, false, false, false);
+        return invokeV.booleanValue;
     }
 
-    public g69(TbPageContext tbPageContext, c cVar) {
+    @Override // com.baidu.tieba.bo5
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public g69() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.c = 0L;
-        this.g = new a(this, CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593);
-        if (tbPageContext != null) {
-            this.b = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.g);
-            this.d = cVar;
-        }
+        this.b = 1;
+        this.d = 0L;
+        this.e = 0L;
+        this.f = 0;
+        this.g = "";
     }
 
-    public final void j(ArrayList<i69> arrayList, boolean z) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, arrayList, z) == null) {
-            this.a = true;
-            if (ListUtils.isEmpty(this.e)) {
-                this.e = new ArrayList<>();
-            }
-            if (!z) {
-                this.e.addAll(arrayList);
-            } else {
-                this.e.clear();
-                this.e.addAll(0, arrayList);
-            }
-            ArrayList<pi> arrayList2 = this.e;
-            pi piVar = (pi) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
-            if (piVar instanceof i69) {
-                this.c = ((i69) piVar).h();
-            }
-            c cVar = this.d;
-            if (cVar != null) {
-                cVar.q(this.e);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
     }
 
-    public void d() {
-        BdAsyncTask<Void, Void, ArrayList<i69>> bdAsyncTask;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdAsyncTask = this.h) != null) {
-            bdAsyncTask.cancel();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f == 1) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f();
-            g();
-        }
-    }
-
-    public final void f() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h = new b(this).execute(new Void[0]);
+            this.b = 1;
+            this.a = 1;
+            this.c = null;
         }
     }
 
-    public final void g() {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
-            agreeMeRequestMessage.id = this.c;
-            agreeMeRequestMessage.setTag(this.b);
-            MessageManager.getInstance().sendMessage(agreeMeRequestMessage);
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.b++;
+            this.a = 4;
         }
     }
 
-    public void h() {
+    public void d(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            g();
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.g = str;
         }
     }
 
-    public void k() {
+    public void e(FeedData feedData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c = 0L;
-            g();
-        }
-    }
-
-    public final void i(ArrayList<i69> arrayList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, arrayList) != null) || this.a) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, feedData) != null) || feedData == null) {
             return;
         }
-        if (ListUtils.isEmpty(this.e)) {
-            this.e = new ArrayList<>();
-        } else {
-            this.e.clear();
+        this.c = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.f = i;
         }
-        this.e.addAll(arrayList);
-        ArrayList<pi> arrayList2 = this.e;
-        pi piVar = (pi) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
-        if (piVar instanceof i69) {
-            this.c = ((i69) piVar).h();
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.d = j;
         }
-        if (this.d != null && !ListUtils.isEmpty(this.e)) {
-            this.d.q(this.e);
+    }
+
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.e = j;
         }
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.ISocketProtobufRequestData
+    public Object encodeSocketRequestData(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.pn = Integer.valueOf(this.b);
+                builder.ids = this.c;
+                builder.is_first = Integer.valueOf(this.f);
+                builder.call_from = this.g;
+                builder.time = Long.valueOf(this.e);
+                builder.tid = Long.valueOf(this.d);
+                builder.q_type = Integer.valueOf(qv4.c().e());
+                builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
+                builder.scr_h = Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_w = Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp()));
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
+                }
+                ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
+                builder2.data = builder.build(false);
+                return builder2.build(false);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return invokeZ.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IHttpParamRequestData
+    public HashMap<String, Object> makeHttpParam() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
+            hashMap.put("pn", String.valueOf(this.b));
+            hashMap.put("time", String.valueOf(this.e));
+            hashMap.put("tid", String.valueOf(this.d));
+            hashMap.put("is_first", String.valueOf(this.f));
+            hashMap.put(IntentConfig.CALL_FROM, this.g);
+            hashMap.put("q_type", Integer.valueOf(qv4.c().e()));
+            hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
+            hashMap.put("scr_h", Integer.valueOf(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
+            hashMap.put("scr_w", Integer.valueOf(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
+            if (this.a == 4 && !TextUtils.isEmpty(this.c)) {
+                hashMap.put("ids", this.c);
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
     }
 }

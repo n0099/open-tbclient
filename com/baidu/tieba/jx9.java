@@ -1,134 +1,122 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class jx9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final jx9 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final kx9 a;
+    public final kx9 b;
+    public final kx9 c;
+    public final kx9 d;
+    public final kx9 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947898814, "Lcom/baidu/tieba/jx9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947898814, "Lcom/baidu/tieba/jx9;");
-                return;
+            if (obj instanceof jx9) {
+                jx9 jx9Var = (jx9) obj;
+                return Intrinsics.areEqual(this.a, jx9Var.a) && Intrinsics.areEqual(this.b, jx9Var.b) && Intrinsics.areEqual(this.c, jx9Var.c) && Intrinsics.areEqual(this.d, jx9Var.d) && Intrinsics.areEqual(this.e, jx9Var.e);
             }
+            return false;
         }
-        a = new jx9();
+        return invokeL.booleanValue;
     }
 
-    public jx9() {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "AigcFeedbackTypesState(selectPositive=" + this.a + ", selectingPositive=" + this.b + ", selectNegative=" + this.c + ", unselectPositive=" + this.d + ", unselectNegative=" + this.e + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public jx9(kx9 selectPositive, kx9 selectingPositive, kx9 selectNegative, kx9 unselectPositive, kx9 unselectNegative) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {selectPositive, selectingPositive, selectNegative, unselectPositive, unselectNegative};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(selectPositive, "selectPositive");
+        Intrinsics.checkNotNullParameter(selectingPositive, "selectingPositive");
+        Intrinsics.checkNotNullParameter(selectNegative, "selectNegative");
+        Intrinsics.checkNotNullParameter(unselectPositive, "unselectPositive");
+        Intrinsics.checkNotNullParameter(unselectNegative, "unselectNegative");
+        this.a = selectPositive;
+        this.b = selectingPositive;
+        this.c = selectNegative;
+        this.d = unselectPositive;
+        this.e = unselectNegative;
     }
 
-    @JvmStatic
-    public static final void b(String tid, String pid, boolean z, boolean z2) {
-        int i;
-        int i2;
+    public final kx9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tid, pid, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            Intrinsics.checkNotNullParameter(pid, "pid");
-            jx9 jx9Var = a;
-            if (z) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            if (z2) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            jx9Var.a(tid, pid, 2, i, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (kx9) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final void c(String tid, String pid, boolean z, boolean z2) {
-        int i;
-        int i2;
+    public final kx9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{tid, pid, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            Intrinsics.checkNotNullParameter(pid, "pid");
-            jx9 jx9Var = a;
-            if (z) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            if (z2) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            jx9Var.a(tid, pid, 1, i, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (kx9) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final void e(String tid, String pid, int i) {
+    public final kx9 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, tid, pid, i) == null) {
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            Intrinsics.checkNotNullParameter(pid, "pid");
-            a.d("c15453", tid, pid).param("obj_type", i).eventStat();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
+        return (kx9) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final void f(String tid, String pid, int i) {
+    public final kx9 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, tid, pid, i) == null) {
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            Intrinsics.checkNotNullParameter(pid, "pid");
-            a.d("c15452", tid, pid).param("obj_type", i).eventStat();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
+        return (kx9) invokeV.objValue;
     }
 
-    public final StatisticItem d(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public final kx9 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
-            StatisticItem param = new StatisticItem(str).param("tid", str2).param("post_id", str3);
-            Intrinsics.checkNotNullExpressionValue(param, "StatisticItem(key)\n     …atic.Params.POST_ID, pid)");
-            return param;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
-        return (StatisticItem) invokeLLL.objValue;
-    }
-
-    public final void a(String str, String str2, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            d("c15448", str, str2).param("obj_locate", i).param("obj_type", i2).param("obj_source", i3).eventStat();
-        }
+        return (kx9) invokeV.objValue;
     }
 }

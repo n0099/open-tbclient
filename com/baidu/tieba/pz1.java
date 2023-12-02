@@ -1,147 +1,171 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.text.TextPaint;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Stack;
+import java.io.File;
+import java.util.Calendar;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pz1 implements Cloneable {
+public class pz1 extends iz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Stack<pz1> a;
-    public Paint b;
-    public Paint c;
-    public Paint d;
-    public TextPaint e;
-    public Path f;
-    public boolean g;
-    public CanvasView h;
-    public y02 i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
 
-    public pz1(CanvasView canvasView) {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n12 a;
+        public final /* synthetic */ CanvasView b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ k63 e;
+        public final /* synthetic */ CallbackHandler f;
+
+        public a(pz1 pz1Var, n12 n12Var, CanvasView canvasView, String str, UnitedSchemeEntity unitedSchemeEntity, k63 k63Var, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pz1Var, n12Var, canvasView, str, unitedSchemeEntity, k63Var, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n12Var;
+            this.b = canvasView;
+            this.c = str;
+            this.d = unitedSchemeEntity;
+            this.e = k63Var;
+            this.f = callbackHandler;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean i2 = this.a.i(this.b, this.c);
+                HashMap<String, String> params = this.d.getParams();
+                if (params != null && !params.isEmpty()) {
+                    String str = params.get("params");
+                    String str2 = null;
+                    JSONObject jSONObject = new JSONObject();
+                    if (str != null) {
+                        try {
+                            str2 = new JSONObject(str).optString("cb");
+                            jSONObject.putOpt("tempFilePath", sd3.J(this.c, this.e.b));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (!TextUtils.isEmpty(str2)) {
+                        if (i2) {
+                            i = 0;
+                        } else {
+                            i = 1001;
+                        }
+                        this.f.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, i).toString());
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pz1(h73 h73Var) {
+        super(h73Var, "/swanAPI/canvas/toTempFilePath");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {canvasView};
+            Object[] objArr = {h73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((h73) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Stack<>();
-        this.b = new Paint();
-        this.c = new Paint();
-        this.d = new Paint();
-        this.e = new TextPaint();
-        this.f = new Path();
-        this.g = false;
-        this.j = -1;
-        this.k = 0;
-        this.l = 0;
-        this.m = -16777216;
-        this.h = canvasView;
-        d();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.h83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k63 k63Var) {
+        InterceptResult invokeLLLL;
+        String str;
+        s52 J;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.l;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, k63Var)) == null) {
+            n12 m = m(unitedSchemeEntity);
+            if (m == null) {
+                k32.c("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
+                unitedSchemeEntity.result = l(201);
+                return false;
+            }
+            String x = sd3.x(k63Var.b);
+            if (TextUtils.isEmpty(x)) {
+                k32.c("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
+                unitedSchemeEntity.result = l(201);
+                return false;
+            }
+            String str2 = x + File.separator + Calendar.getInstance().getTimeInMillis();
+            if (m.h()) {
+                str = str2 + ".jpg";
+            } else {
+                str = str2 + ".png";
+            }
+            String str3 = str;
+            if (TextUtils.isEmpty(m.c) && (J = xr2.V().J()) != null) {
+                m.c = J.A3();
+            }
+            if (!TextUtils.isEmpty(m.c) && !TextUtils.isEmpty(m.b)) {
+                CanvasView a2 = l22.a(m);
+                if (a2 == null) {
+                    k32.c("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
+                    unitedSchemeEntity.result = l(201);
+                    return false;
+                }
+                ej3.k(new a(this, m, a2, str3, unitedSchemeEntity, k63Var, callbackHandler), "tempFilePath");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
+            k32.c("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.c + " ; canvas id = " + m.b);
+            unitedSchemeEntity.result = l(201);
+            return false;
         }
-        return invokeV.intValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public void b(int i) {
+    public n12 m(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.l = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
+            String str = unitedSchemeEntity.getParams().get("params");
+            if (!TextUtils.isEmpty(str)) {
+                return new n12(str);
+            }
+            return null;
         }
-    }
-
-    public void c(Paint paint) {
-        y02 y02Var;
-        wz1 wz1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paint) != null) || paint == null) {
-            return;
-        }
-        if (this.h != null && (y02Var = this.i) != null && (wz1Var = y02Var.d) != null && !wz1Var.c()) {
-            y02 y02Var2 = this.i;
-            paint.setShadowLayer(y02Var2.c, y02Var2.a, y02Var2.b, y02Var2.d.a());
-        }
-        int i = this.j;
-        if (i >= 0 && i <= 255) {
-            paint.setAlpha(Math.min((paint.getAlpha() * this.j) >> 8, 255));
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.m = -16777216;
-            this.c.setStyle(Paint.Style.STROKE);
-            this.b.setColor(-16777216);
-            this.c.setColor(-16777216);
-            this.d.setColor(-16777216);
-            this.e.setColor(-16777216);
-            this.c.setStrokeWidth(yj3.g(1.0f));
-            this.c.setAntiAlias(true);
-            this.e.setAntiAlias(true);
-            this.d.setAntiAlias(true);
-            this.f.reset();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a.empty()) {
-            return;
-        }
-        pz1 pop = this.a.pop();
-        this.b = pop.b;
-        this.c = pop.c;
-        this.d = pop.d;
-        this.e = pop.e;
-        this.f = pop.f;
-        this.g = pop.g;
-        this.a = pop.a;
-        this.i = pop.i;
-        this.j = pop.j;
-        this.k = pop.k;
-        this.l = pop.l;
-        this.m = pop.m;
-    }
-
-    public void f() throws CloneNotSupportedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            pz1 pz1Var = (pz1) super.clone();
-            pz1Var.b = new Paint(this.b);
-            pz1Var.c = new Paint(this.c);
-            pz1Var.d = new Paint(this.d);
-            pz1Var.e = new TextPaint(this.e);
-            pz1Var.f = new Path(this.f);
-            pz1Var.k = this.k;
-            pz1Var.l = this.l;
-            pz1Var.m = this.m;
-            this.a.push(pz1Var);
-        }
+        return (n12) invokeL.objValue;
     }
 }

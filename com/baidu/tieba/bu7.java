@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.GodUserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bu7 {
+public class bu7 implements nl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public boolean c;
+    public MetaData a;
 
     public bu7() {
         Interceptable interceptable = $ic;
@@ -22,7 +22,13 @@ public class bu7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        MetaData metaData = new MetaData();
+        this.a = metaData;
+        if (metaData.getGodUserData() == null) {
+            this.a.setGodUserData(new GodUserData());
         }
     }
 }

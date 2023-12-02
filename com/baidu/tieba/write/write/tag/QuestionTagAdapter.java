@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class QuestionTagAdapter extends ci<QuestionTagListData.QuestionTag, QuestionTagHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class QuestionTagHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,8 +51,8 @@ public class QuestionTagAdapter extends ci<QuestionTagListData.QuestionTag, Ques
                     return;
                 }
             }
-            this.a = (TbClipImageView) view2.findViewById(R.id.obfuscated_res_0x7f091069);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924be);
+            this.a = (TbClipImageView) view2.findViewById(R.id.obfuscated_res_0x7f09106a);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c0);
             this.a.setDrawerType(1);
             this.a.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setDrawCorner(true);

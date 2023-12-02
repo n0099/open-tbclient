@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.poly.widget.SwitchButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qd1;
+import com.baidu.tieba.td1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,9 +32,9 @@ public class HostMarketView extends FrameLayout {
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(boolean z, PayChannelEntity payChannelEntity, qd1 qd1Var);
+        void a(boolean z, PayChannelEntity payChannelEntity, td1 td1Var);
 
-        void b(qd1.a aVar);
+        void b(td1.a aVar);
     }
 
     /* loaded from: classes3.dex */
@@ -72,7 +72,7 @@ public class HostMarketView extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements qd1 {
+    public class b implements td1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HostMarketView a;
@@ -95,8 +95,8 @@ public class HostMarketView extends FrameLayout {
             this.a = hostMarketView;
         }
 
-        @Override // com.baidu.tieba.qd1
-        public void a(qd1.a aVar) {
+        @Override // com.baidu.tieba.td1
+        public void a(td1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 this.a.e.b(aVar);
@@ -137,9 +137,9 @@ public class HostMarketView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0425, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092683);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f8);
-            SwitchButton switchButton = (SwitchButton) findViewById(R.id.obfuscated_res_0x7f092452);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092685);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923fa);
+            SwitchButton switchButton = (SwitchButton) findViewById(R.id.obfuscated_res_0x7f092454);
             this.c = switchButton;
             switchButton.setOnCheckedChangeListener(new a(this));
         }

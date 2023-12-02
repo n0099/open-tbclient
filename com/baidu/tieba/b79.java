@@ -1,66 +1,120 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.core.util.UtilHelper;
+import androidx.fragment.app.FragmentActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.push.PushGuideManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class b79 extends PopupWindow {
+public class b79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BaseFragment a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b79(View contentView, int i, int i2, boolean z) {
-        super(contentView, i, i2, z);
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b79 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(b79 b79Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b79Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b79Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            int[] iArr;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof int[]) && (iArr = (int[]) customResponsedMessage.getData()) != null && iArr.length == 2) {
+                int i = iArr[0];
+                int i2 = iArr[1];
+                if (this.a.a.getPageContext() != null) {
+                    this.a.d(i2);
+                }
+            }
+        }
+    }
+
+    public b79(BaseFragment baseFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {contentView, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {baseFragment};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Boolean) objArr2[3]).booleanValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(contentView, "contentView");
+        this.a = baseFragment;
     }
 
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2) {
-        Integer num;
-        Resources resources;
-        DisplayMetrics displayMetrics;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Rect rect = new Rect();
-                if (view2 != null) {
-                    view2.getGlobalVisibleRect(rect);
-                }
-                if (view2 != null && (resources = view2.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
-                    num = Integer.valueOf(displayMetrics.heightPixels - rect.bottom);
-                } else {
-                    num = null;
-                }
-                if (num != null) {
-                    setHeight(num.intValue() + UtilHelper.getStatusBarHeight());
-                }
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
+            return;
+        }
+        this.a.registerListener(new a(this, 2921700));
+    }
+
+    public final void d(int i) {
+        BaseFragment baseFragment;
+        cga j;
+        cga j2;
+        cga j3;
+        cga j4;
+        cga j5;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || (baseFragment = this.a) == null) {
+            return;
+        }
+        FragmentActivity fragmentActivity = baseFragment.getFragmentActivity();
+        TbPageContext<BaseFragmentActivity> pageContext = this.a.getPageContext();
+        if (fragmentActivity != null && pageContext != null) {
+            if (i == 3 && (j5 = PushGuideManager.j("reply_message_bar")) != null) {
+                j5.j(pageContext);
             }
-            super.showAsDropDown(view2);
+            if (i == 6 && (j4 = PushGuideManager.j("at_message_bar")) != null) {
+                j4.j(pageContext);
+            }
+            if (i == 7 && (j3 = PushGuideManager.j("agree_message_bar")) != null) {
+                j3.j(pageContext);
+            }
+            if (i == 8 && (j2 = PushGuideManager.j("fan_message_bar")) != null) {
+                j2.j(pageContext);
+            }
+            if (i == 2 && (j = PushGuideManager.j("im")) != null) {
+                j.j(pageContext);
+            }
         }
     }
 }

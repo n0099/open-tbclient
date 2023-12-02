@@ -258,12 +258,12 @@ public final class ae0 extends jh0 {
                                         } else {
                                             str5 = null;
                                         }
-                                        iArr[0] = q11.a(str5, R.color.nad_reward_full_tail_btn_color);
+                                        iArr[0] = s11.a(str5, R.color.nad_reward_full_tail_btn_color);
                                         hd0 hd0Var12 = this.g;
                                         if (hd0Var12 != null) {
                                             str12 = hd0Var12.e;
                                         }
-                                        iArr[1] = q11.a(str12, R.color.nad_reward_full_tail_btn_color);
+                                        iArr[1] = s11.a(str12, R.color.nad_reward_full_tail_btn_color);
                                         gradientDrawable.setColors(iArr);
                                         ph0<?> ph0Var2 = this.e.get();
                                         if (ph0Var2 != null) {

@@ -129,7 +129,7 @@ public class c extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.SA = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0914d9);
+        this.SA = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0914da);
     }
 
     @Override // com.kwad.components.core.webview.tachikoma.j

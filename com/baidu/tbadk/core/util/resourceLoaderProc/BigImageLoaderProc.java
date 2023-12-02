@@ -25,10 +25,10 @@ import com.baidu.tieba.k7;
 import com.baidu.tieba.ld;
 import com.baidu.tieba.nb;
 import com.baidu.tieba.o7;
-import com.baidu.tieba.pt5;
 import com.baidu.tieba.sb;
-import com.baidu.tieba.st5;
 import com.baidu.tieba.tb;
+import com.baidu.tieba.tt5;
+import com.baidu.tieba.wt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -216,7 +216,7 @@ public class BigImageLoaderProc implements tb<BdImage> {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && pt5.a(str)) {
+            if (str != null && tt5.a(str)) {
                 String[] split2 = str.split("/");
                 if (split2.length > 3) {
                     try {
@@ -243,7 +243,7 @@ public class BigImageLoaderProc implements tb<BdImage> {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str != null && pt5.a(str)) {
+            if (str != null && tt5.a(str)) {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
                 int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -380,8 +380,8 @@ public class BigImageLoaderProc implements tb<BdImage> {
             } else {
                 str3 = TbConfig.IMAGE_ADDRESS + ((str + "&imgtype=0") + "&qulity=" + TbImageHelper.getInstance().getUrlQuality());
             }
-            st5.e(booleanValue, str3, str);
-            Pair<Boolean, String> d = st5.d(str3);
+            wt5.e(booleanValue, str3, str);
+            Pair<Boolean, String> d = wt5.d(str3);
             if (((Boolean) d.first).booleanValue()) {
                 str4 = (String) d.second;
                 z = true;
@@ -412,7 +412,7 @@ public class BigImageLoaderProc implements tb<BdImage> {
             if (webClient.IsRequestSuccess() || webClient.responseCode == 302) {
                 bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                 if (z && bitmap == null) {
-                    st5.b(str4);
+                    wt5.b(str4);
                     downloadImageBytes = webClient.downloadImageBytes(str3, !booleanValue);
                     needCache = webClient.needCache();
                     if (downloadImageBytes != null && webClient.IsRequestSuccess()) {

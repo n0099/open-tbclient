@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.guide.Configuration;
 import com.baidu.adp.lib.guide.MaskView;
+import com.baidu.adp.lib.util.AndroidUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ua;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -374,24 +375,7 @@ public class ta implements View.OnKeyListener, View.OnClickListener, View.OnTouc
             ((ViewGroup) activity.findViewById(16908290)).getLocationInWindow(iArr);
             int i = iArr[1];
             if (this.d && i == 0) {
-                try {
-                    Class<?> cls = Class.forName("com.android.internal.R$dimen");
-                    i = activity.getResources().getDimensionPixelSize(Integer.parseInt(cls.getField("status_bar_height").get(cls.newInstance()).toString()));
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e2) {
-                    e2.printStackTrace();
-                } catch (IllegalArgumentException e3) {
-                    e3.printStackTrace();
-                } catch (InstantiationException e4) {
-                    e4.printStackTrace();
-                } catch (NoSuchFieldException e5) {
-                    e5.printStackTrace();
-                } catch (NumberFormatException e6) {
-                    e6.printStackTrace();
-                } catch (SecurityException e7) {
-                    e7.printStackTrace();
-                }
+                i = AndroidUtils.getStatusBarHeight(activity);
             }
             Configuration configuration = this.a;
             View view2 = configuration.mTargetView;

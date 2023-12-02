@@ -41,7 +41,7 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d083f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0840 : invokeV.intValue;
     }
 
     public PolyNoticeDialog() {
@@ -150,13 +150,13 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091db1);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091db0);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091dad);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091daf);
-            this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091dab);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dac);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dae);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091db3);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091db2);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091daf);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091db1);
+            this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091dad);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dae);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091db0);
             this.d.setOnClickListener(this);
             this.f.setOnClickListener(this);
             this.g.setOnClickListener(this);

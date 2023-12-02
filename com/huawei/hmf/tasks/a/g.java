@@ -1,7 +1,7 @@
 package com.huawei.hmf.tasks.a;
 
 import android.app.Fragment;
-import com.baidu.tieba.ecc;
+import com.baidu.tieba.dcc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import java.util.WeakHashMap;
 public final class g extends Fragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<WeakReference<ecc<?>>> a;
+    public final List<WeakReference<dcc<?>>> a;
 
     static {
         InterceptResult invokeClinit;
@@ -57,10 +57,10 @@ public final class g extends Fragment {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onStop();
             synchronized (this.a) {
-                for (WeakReference<ecc<?>> weakReference : this.a) {
-                    ecc<?> eccVar = weakReference.get();
-                    if (eccVar != null) {
-                        eccVar.cancel();
+                for (WeakReference<dcc<?>> weakReference : this.a) {
+                    dcc<?> dccVar = weakReference.get();
+                    if (dccVar != null) {
+                        dccVar.cancel();
                     }
                 }
                 this.a.clear();

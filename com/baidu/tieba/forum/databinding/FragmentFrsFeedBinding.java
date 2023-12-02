@@ -84,20 +84,20 @@ public final class FragmentFrsFeedBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090b34;
-            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b34);
+            int i = R.id.obfuscated_res_0x7f090b35;
+            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b35);
             if (frameLayout != null) {
-                i = R.id.obfuscated_res_0x7f090dc9;
-                FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090dc9);
+                i = R.id.obfuscated_res_0x7f090dca;
+                FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090dca);
                 if (frameLayout2 != null) {
-                    i = R.id.obfuscated_res_0x7f090e0d;
-                    FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e0d);
+                    i = R.id.obfuscated_res_0x7f090e0e;
+                    FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e0e);
                     if (frameLayout3 != null) {
-                        i = R.id.obfuscated_res_0x7f090e0e;
-                        NestedScrollView nestedScrollView = (NestedScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090e0e);
+                        i = R.id.obfuscated_res_0x7f090e0f;
+                        NestedScrollView nestedScrollView = (NestedScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090e0f);
                         if (nestedScrollView != null) {
-                            i = R.id.obfuscated_res_0x7f090f73;
-                            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f73);
+                            i = R.id.obfuscated_res_0x7f090f74;
+                            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f74);
                             if (linearLayout != null) {
                                 i = R.id.recycler_view;
                                 BdRecyclerView bdRecyclerView = (BdRecyclerView) view2.findViewById(R.id.recycler_view);
@@ -105,17 +105,17 @@ public final class FragmentFrsFeedBinding implements ViewBinding {
                                     i = R.id.refresh_layout;
                                     BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) view2.findViewById(R.id.refresh_layout);
                                     if (bdSwipeRefreshLayout != null) {
-                                        i = R.id.obfuscated_res_0x7f09233b;
-                                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09233b);
+                                        i = R.id.obfuscated_res_0x7f09233d;
+                                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09233d);
                                         if (relativeLayout != null) {
-                                            i = R.id.obfuscated_res_0x7f09233c;
-                                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233c);
+                                            i = R.id.obfuscated_res_0x7f09233e;
+                                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233e);
                                             if (textView != null) {
-                                                i = R.id.obfuscated_res_0x7f09233d;
-                                                FrsSortSwitchButton frsSortSwitchButton = (FrsSortSwitchButton) view2.findViewById(R.id.obfuscated_res_0x7f09233d);
+                                                i = R.id.obfuscated_res_0x7f09233f;
+                                                FrsSortSwitchButton frsSortSwitchButton = (FrsSortSwitchButton) view2.findViewById(R.id.obfuscated_res_0x7f09233f);
                                                 if (frsSortSwitchButton != null) {
-                                                    i = R.id.obfuscated_res_0x7f0923e8;
-                                                    ForumTabLayout forumTabLayout = (ForumTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923e8);
+                                                    i = R.id.obfuscated_res_0x7f0923ea;
+                                                    ForumTabLayout forumTabLayout = (ForumTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923ea);
                                                     if (forumTabLayout != null) {
                                                         return new FragmentFrsFeedBinding((RelativeLayout) view2, frameLayout, frameLayout2, frameLayout3, nestedScrollView, linearLayout, bdRecyclerView, bdSwipeRefreshLayout, relativeLayout, textView, frsSortSwitchButton, forumTabLayout);
                                                     }

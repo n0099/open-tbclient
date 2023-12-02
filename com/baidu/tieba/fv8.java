@@ -1,129 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.lib.socket.msg.TbAiIntroduceMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTextToSpeechMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.im.lib.socket.msg.TbReMsgInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.Triple;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.HashMap;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class fv8 extends zu8<TbTextMsg, TextMsg> {
+public final class fv8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947777697, "Lcom/baidu/tieba/fv8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947777697, "Lcom/baidu/tieba/fv8;");
-                return;
-            }
-        }
-        f = new a(null);
-    }
-
-    public /* synthetic */ fv8(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final Triple<Class<TbTextMsg>, Class<TextMsg>, fv8> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new Triple<>(TbTextMsg.class, TextMsg.class, new fv8(null));
-            }
-            return (Triple) invokeV.objValue;
-        }
-    }
 
     public fv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        j(1, TbTextMsg.class);
-        j(103, TbTextToSpeechMsg.class);
-        j(104, TbAiIntroduceMsg.class);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zu8
-    /* renamed from: n */
-    public TextMsg g(TbTextMsg tbMsg) {
+    public IChatRoomEnterListener.ReMsgInfo a(TbReMsgInfo tbInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
-            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            TextMsg textMsg = new TextMsg();
-            textMsg.setText(tbMsg.getText());
-            return textMsg;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbInfo)) == null) {
+            Intrinsics.checkNotNullParameter(tbInfo, "tbInfo");
+            IChatRoomEnterListener.ReMsgInfo reMsgInfo = new IChatRoomEnterListener.ReMsgInfo();
+            reMsgInfo.msgType = String.valueOf(tbInfo.getSdkMsgType());
+            reMsgInfo.bdUk = zv8.b(tbInfo.getUid());
+            reMsgInfo.nickName = tbInfo.getNickname();
+            reMsgInfo.msgId = String.valueOf(tbInfo.getMsgId());
+            reMsgInfo.msgKey = tbInfo.getMsgKey();
+            reMsgInfo.url = tbInfo.getUrl();
+            reMsgInfo.content = tbInfo.getContent();
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg_type", Integer.valueOf(tbInfo.getMsgType()));
+            reMsgInfo.ext = DataExt.toJson(hashMap);
+            return reMsgInfo;
         }
-        return (TextMsg) invokeL.objValue;
+        return (IChatRoomEnterListener.ReMsgInfo) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zu8
-    /* renamed from: o */
-    public TbTextMsg h(int i, TextMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
-        InterceptResult invokeILL;
+    public TbReMsgInfo b(IChatRoomEnterListener.ReMsgInfo sdkInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, sdkMsg, sdkMsgMap)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            Intrinsics.checkNotNullParameter(sdkMsgMap, "sdkMsgMap");
-            TbTextMsg tbTextMsg = (TbTextMsg) DataExt.toEntity(sdkMsgMap, l(i));
-            String str = sdkMsg.text;
-            Intrinsics.checkNotNullExpressionValue(str, "sdkMsg.text");
-            tbTextMsg.setText(str);
-            return tbTextMsg;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkInfo)) == null) {
+            Intrinsics.checkNotNullParameter(sdkInfo, "sdkInfo");
+            TbReMsgInfo tbReMsgInfo = new TbReMsgInfo();
+            String ext = sdkInfo.ext;
+            Intrinsics.checkNotNullExpressionValue(ext, "ext");
+            Long l = (Long) DataExt.toMap(ext).get("msg_type");
+            Intrinsics.checkNotNull(l);
+            tbReMsgInfo.setMsgType((int) l.longValue());
+            String msgType = sdkInfo.msgType;
+            Intrinsics.checkNotNullExpressionValue(msgType, "msgType");
+            tbReMsgInfo.setSdkMsgType(Integer.parseInt(msgType));
+            String bdUk = sdkInfo.bdUk;
+            Intrinsics.checkNotNullExpressionValue(bdUk, "bdUk");
+            tbReMsgInfo.setUid(zv8.a(bdUk));
+            String nickName = sdkInfo.nickName;
+            Intrinsics.checkNotNullExpressionValue(nickName, "nickName");
+            tbReMsgInfo.setNickname(nickName);
+            String msgId = sdkInfo.msgId;
+            Intrinsics.checkNotNullExpressionValue(msgId, "msgId");
+            tbReMsgInfo.setMsgId(Long.parseLong(msgId));
+            String msgKey = sdkInfo.msgKey;
+            Intrinsics.checkNotNullExpressionValue(msgKey, "msgKey");
+            tbReMsgInfo.setMsgKey(msgKey);
+            tbReMsgInfo.setUrl(sdkInfo.url);
+            String content = sdkInfo.content;
+            Intrinsics.checkNotNullExpressionValue(content, "content");
+            tbReMsgInfo.setContent(content);
+            return tbReMsgInfo;
         }
-        return (TbTextMsg) invokeILL.objValue;
+        return (TbReMsgInfo) invokeL.objValue;
     }
 }

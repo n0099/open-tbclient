@@ -1,49 +1,211 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.app.Application;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.runtime.InitException;
+import com.baidu.nps.runtime.resources.ResourcesHookUtil;
+import com.baidu.nps.utils.Constant;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.searchbox.download.lightdownload.LightFileUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
 /* loaded from: classes6.dex */
-public class ha1 extends Handler {
+public class ha1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public CountDownLatch b;
+    public BundleInfo a;
+    public ia1 b;
+    public ja1 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ha1(Context context, CountDownLatch countDownLatch) {
-        super(Looper.getMainLooper());
+    public ha1(BundleInfo bundleInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, countDownLatch};
+            Object[] objArr = {bundleInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = countDownLatch;
+        this.c = null;
+        if (a(bundleInfo)) {
+            this.a = bundleInfo;
+            return;
+        }
+        ca1.j().s(bundleInfo);
+        throw new InitException(22, "bad param bundleInfo:" + bundleInfo.toString());
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public static ha1 b(BundleInfo bundleInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            ia1.a().b(this.a);
-            this.b.countDown();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundleInfo)) == null) {
+            ha1 ha1Var = new ha1(bundleInfo);
+            ha1Var.e();
+            return ha1Var;
         }
+        return (ha1) invokeL.objValue;
+    }
+
+    public final boolean a(BundleInfo bundleInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundleInfo)) == null) {
+            if (bundleInfo == null || TextUtils.isEmpty(bundleInfo.getPackageName())) {
+                return false;
+            }
+            Application applicationContext = ContextHolder.getApplicationContext();
+            if (!qa1.d(applicationContext, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).exists()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public ClassLoader c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (ClassLoader) invokeV.objValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.b = ga1.d().b(this.a, ContextHolder.getApplicationContext());
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return super.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public synchronized Resources d(Resources resources) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resources)) == null) {
+            synchronized (this) {
+                if (Build.VERSION.SDK_INT < 21) {
+                    return this.c;
+                }
+                Application applicationContext = ContextHolder.getApplicationContext();
+                String absolutePath = qa1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
+                AssetManager assets = resources.getAssets();
+                if (ResourcesHookUtil.hookAssets(assets, absolutePath, this.a.getGroupName())) {
+                    if (this.c == null || this.c.getAssets().hashCode() != assets.hashCode()) {
+                        if (this.c != null) {
+                            if (Build.VERSION.SDK_INT >= 21) {
+                                ResourcesHookUtil.recoveryAssetsByGroup(assets, this.c.getAssets().hashCode(), this.a.getGroupName());
+                                this.c = new ja1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
+                            }
+                        } else {
+                            this.c = new ja1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
+                        }
+                    }
+                    return this.c;
+                }
+                throw new InitException(21, "resources hook error");
+            }
+        }
+        return (Resources) invokeL.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (f()) {
+                if (Build.VERSION.SDK_INT < 21) {
+                    if (!h()) {
+                        throw new InitException(20, "resources init error");
+                    }
+                    return;
+                } else if (g()) {
+                    return;
+                } else {
+                    throw new InitException(20, "resources init error");
+                }
+            }
+            throw new InitException(16, "class loader init error");
+        }
+    }
+
+    public final synchronized boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                try {
+                    Application applicationContext = ContextHolder.getApplicationContext();
+                    Resources a = r91.c().a();
+                    Resources b = r91.c().b();
+                    Resources[] d = r91.c().d();
+                    la1.a().b(applicationContext);
+                    String absolutePath = qa1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
+                    ResourcesHookUtil.hookResources(a, absolutePath, this.a.getGroupName());
+                    ResourcesHookUtil.hookResources(b, absolutePath, this.a.getGroupName());
+                    if (d != null) {
+                        for (Resources resources : d) {
+                            ResourcesHookUtil.hookResources(resources, absolutePath, this.a.getGroupName());
+                        }
+                    }
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final synchronized boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                Application applicationContext = ContextHolder.getApplicationContext();
+                String absolutePath = qa1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
+                String str = applicationContext.getApplicationInfo().sourceDir;
+                try {
+                    AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
+                    ResourcesHookUtil.hookAssets(assetManager, absolutePath, this.a.getGroupName());
+                    ResourcesHookUtil.hookAssets(assetManager, str, this.a.getGroupName());
+                    Resources a = r91.c().a();
+                    this.c = new ja1(assetManager, a.getDisplayMetrics(), a.getConfiguration(), a);
+                } catch (Exception e) {
+                    if (pa1.a()) {
+                        Log.e("Runtime", LightFileUtils.DIRCTORY_DOWNLOAD_RESOURCE, e);
+                        return false;
+                    }
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public final class prb {
     public static /* synthetic */ Interceptable $ic;
-    public static prb c;
-    public static SQLiteOpenHelper d;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicInteger a;
-    public SQLiteDatabase b;
+    public SQLiteDatabase a;
 
     public prb() {
         Interceptable interceptable = $ic;
@@ -31,51 +29,35 @@ public final class prb {
                 return;
             }
         }
-        this.a = new AtomicInteger();
+        this.a = orb.a().c();
     }
 
-    public static synchronized prb a() {
+    public final List<com.baidu.ubs.analytics.a.i> a() {
         InterceptResult invokeV;
-        prb prbVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (prb.class) {
-                if (c == null) {
-                    b(krb.i().g());
-                }
-                prbVar = c;
-            }
-            return prbVar;
-        }
-        return (prb) invokeV.objValue;
-    }
-
-    public final synchronized SQLiteDatabase c() {
-        InterceptResult invokeV;
-        SQLiteDatabase sQLiteDatabase;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a.incrementAndGet() == 1) {
-                    lsb.a("***************新建立了 一个数据库的实例****************");
-                    this.b = d.getWritableDatabase();
-                }
-                sQLiteDatabase = this.b;
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.i iVar = new com.baidu.ubs.analytics.a.i();
+                iVar.setUrl(rawQuery.getString(rawQuery.getColumnIndex("_url")));
+                iVar.setType(rawQuery.getString(rawQuery.getColumnIndex("_type")));
+                iVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
+                iVar.setParameters(rawQuery.getString(rawQuery.getColumnIndex("_parameters")));
+                iVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                iVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(iVar);
             }
-            return sQLiteDatabase;
+            rawQuery.close();
+            return arrayList;
         }
-        return (SQLiteDatabase) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public static synchronized void b(Context context) {
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            synchronized (prb.class) {
-                if (c == null) {
-                    c = new prb();
-                    d = new nrb(context);
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_netlog where _id <= " + i);
         }
     }
 }

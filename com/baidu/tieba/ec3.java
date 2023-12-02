@@ -1,345 +1,384 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.kz2;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.swan.apps.so.SoUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.concurrent.ConcurrentSkipListSet;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.zip.ZipFile;
 /* loaded from: classes5.dex */
 public class ec3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String b;
+    public static final boolean c;
+    public static final String[] d;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public float b;
-    public Set<String> c;
-    public List<Long> d;
-    public List<Integer> e;
-    public List<Float> f;
-    public List<Float> g;
-    public List<Float> h;
-    public List<Float> i;
-    public a j;
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "v8.engine" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public volatile long a;
-        public float b;
-        public float c;
-        public float d;
-        public float e;
-        public float f;
-        public int g;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        /* renamed from: com.baidu.tieba.ec3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public static class RunnableC0258a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-        public static long c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return kz2.a.a().a;
-            }
-            return invokeV.longValue;
-        }
-
-        public static float g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-                PMSAppInfo u = ee4.i().u(g63.K().getAppId());
-                if (u == null) {
-                    return 0.0f;
-                }
-                return ((float) u.pkgSize) / 1024.0f;
-            }
-            return invokeV.floatValue;
-        }
-
-        public static float a(List<Float> list, List<Long> list2, long j, boolean z) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, list2, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-                float f = 0.0f;
-                if (j == 0 || list == null || list.isEmpty() || list2 == null || list2.isEmpty() || list.size() != list2.size()) {
-                    return 0.0f;
-                }
-                h32.b("SwanAppStabilityData", "#calcFirstAndMaxMemDiff memList=" + list + " timeList=" + list2 + " fmp=" + j + " isBefore=" + z);
-                float f2 = Float.MIN_VALUE;
-                Float f3 = list.get(0);
-                if (f3 != null) {
-                    f = f3.floatValue();
-                }
-                for (int i = 0; i < list.size(); i++) {
-                    Long l = list2.get(i);
-                    Float f4 = list.get(i);
-                    if (l != null && f4 != null) {
-                        if (z) {
-                            if (l.longValue() <= j) {
-                                f2 = Math.max(f2, f4.floatValue());
-                            }
-                        } else if (l.longValue() >= j) {
-                            f2 = Math.max(f2, f4.floatValue());
-                        }
+            public RunnableC0258a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
                     }
                 }
-                return f2 - f;
             }
-            return invokeCommon.floatValue;
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ec3.a();
+                }
+            }
         }
 
-        public static float b(List<Integer> list) {
-            InterceptResult invokeL;
+        public static void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-                int i = 0;
-                float f = 0.0f;
-                for (Integer num : list) {
-                    if (num != null && num.intValue() > 0) {
-                        i++;
-                        f += num.intValue();
-                    }
-                }
-                if (i == 0) {
-                    return 0.0f;
-                }
-                return f / i;
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                ExecutorUtilsExt.postOnElastic(new RunnableC0258a(), "V8SoCleaner", 3);
             }
-            return invokeL.floatValue;
-        }
-
-        public static float e(List<Float> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
-                float f = 0.0f;
-                if (list == null || list.isEmpty()) {
-                    return 0.0f;
-                }
-                int i = 0;
-                for (Float f2 : list) {
-                    if (f2 != null) {
-                        i++;
-                        f += f2.floatValue();
-                    }
-                }
-                if (i == 0) {
-                    return -1.0f;
-                }
-                return f / i;
-            }
-            return invokeL.floatValue;
-        }
-
-        public static int h(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j)) == null) {
-                int i = 0;
-                for (x62 x62Var : y62.d().c()) {
-                    if (x62Var != null && x62Var.e() < j) {
-                        i++;
-                    }
-                }
-                return i;
-            }
-            return invokeJ.intValue;
-        }
-
-        public static long d() {
-            InterceptResult invokeV;
-            p52 o;
-            os1 v3;
-            zs1 K;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-                q52 W = ur2.V().W();
-                if (W == null || (o = W.o()) == null || (v3 = o.v3()) == null) {
-                    return 0L;
-                }
-                rs1 j = v3.j();
-                if (j == null) {
-                    K = v3.K();
-                } else {
-                    K = j.K();
-                }
-                if (K == null) {
-                    return 0L;
-                }
-                return K.c;
-            }
-            return invokeV.longValue;
-        }
-
-        public static float f(List<Float> list, List<Long> list2, long j) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{list, list2, Long.valueOf(j)})) == null) {
-                return a(list, list2, j, true);
-            }
-            return invokeCommon.floatValue;
-        }
-
-        public static float i(List<Float> list, List<Long> list2, long j) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{list, list2, Long.valueOf(j)})) == null) {
-                return a(list, list2, j, false);
-            }
-            return invokeCommon.floatValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "VerificationData{mFmp=" + this.a + ", mMainPkgSize=" + this.b + ", mIdleCpuAvg=" + this.c + ", mFpsAvg=" + this.d + ", mLaunchDiffMem=" + this.e + ", mRunningDiffMem=" + this.f + ", mLaunchRequestCount=" + this.g + '}';
-            }
-            return (String) invokeV.objValue;
         }
     }
 
-    public ec3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947729492, "Lcom/baidu/tieba/ec3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947729492, "Lcom/baidu/tieba/ec3;");
                 return;
             }
         }
-        this.a = 500;
-        this.b = 0.0f;
-        this.c = new ConcurrentSkipListSet();
-        this.d = new CopyOnWriteArrayList();
-        this.e = new CopyOnWriteArrayList();
-        this.f = new CopyOnWriteArrayList();
-        this.g = new CopyOnWriteArrayList();
-        this.h = new CopyOnWriteArrayList();
-        this.i = new CopyOnWriteArrayList();
-        this.j = new a();
+        a = vm1.a;
+        b = gp2.g() + "/v8_so/";
+        c = rp2.e0().b();
+        d = rp2.e0().a();
+        e = null;
     }
 
-    public void a(List<Float> list) {
+    public static void a() {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            a aVar = this.j;
-            Pair<Long, Long> b = b(10000);
-            long longValue = ((Long) b.first).longValue();
-            aVar.a = ((Long) b.second).longValue();
-            aVar.c = a.e(list);
-            aVar.b = a.g();
-            aVar.e = a.f(this.i, this.d, longValue);
-            aVar.f = a.i(this.i, this.d, longValue);
-            aVar.g = a.h(longValue);
-            aVar.d = a.b(this.e);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File file = new File(b);
+            if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+                String D = ek3.D();
+                for (File file2 : listFiles) {
+                    if (!TextUtils.equals(file2.getName(), D)) {
+                        nm4.L(file2);
+                    }
+                }
+            }
         }
     }
 
-    public final Pair<Long, Long> b(int i) {
-        InterceptResult invokeI;
-        long c;
-        long d;
+    @NonNull
+    public static ArrayList<String> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            long currentTimeMillis = i + System.currentTimeMillis();
-            do {
-                c = a.c();
-                d = a.d();
-                if (c > 0 && d > 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add("v8.engine");
+            arrayList.add("zeusv8");
+            if (c) {
+                arrayList.add("com.baidu.zeus");
+            }
+            String[] strArr = d;
+            if (strArr != null && strArr.length != 0) {
+                arrayList.addAll(Arrays.asList(strArr));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c) {
+                return e;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"BDSoLoader"})
+    public static boolean e(@Nullable String str, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, soLoader)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                System.loadLibrary(str);
+                return true;
+            } catch (Throwable th) {
+                soLoader.appendErrorLog("loadLibsSo: " + th.getMessage());
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @SuppressLint({"UnsafeDynamicallyLoadedCode", "BDSoLoader"})
+    public static boolean f(@Nullable String str, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, soLoader)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                System.load(str);
+                return true;
+            } catch (Throwable th) {
+                soLoader.appendErrorLog("loadSoByPath: " + th.getMessage());
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean l(@Nullable HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        boolean f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, hashMap, soLoader)) == null) {
+            String[] strArr = d;
+            boolean z = true;
+            if (strArr != null && strArr.length != 0) {
+                for (String str : strArr) {
+                    if (hashMap == null) {
+                        f = e(str, soLoader);
+                    } else {
+                        f = f(hashMap.get(str), soLoader);
+                    }
+                    if (!f) {
+                        z = false;
+                    }
+                }
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, soLoader)) == null) {
+            if (c) {
+                File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, "com.baidu.zeus");
+                if (findSoFilesInLibrary == null || findSoFilesInLibrary.length() == 0) {
+                    return false;
+                }
+                e = findSoFilesInLibrary.getAbsolutePath();
+                m("loadV8EngineSo: v8 dependentFile:" + e);
+            }
+            boolean l = l(null, soLoader);
+            boolean e2 = e("v8.engine", soLoader);
+            if (!l || !e2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static fc3 h(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, soLoader)) == null) {
+            if (g(context, soLoader)) {
+                m("loadV8EngineBySystemMethod:success.");
+                return fc3.e();
+            }
+            fc3 k = k(context, soLoader);
+            if (k.b()) {
+                m("loadV8EngineSoWithSystemPath:success.");
+                return k;
+            }
+            fc3 j = j(context, soLoader);
+            if (!j.b()) {
+                SoUtils.onEvent("26", soLoader.getErrorLog());
+            } else {
+                m("loadV8EngineSoWithCustomPath:success.");
+            }
+            return j;
+        }
+        return (fc3) invokeLL.objValue;
+    }
+
+    public static fc3 k(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        boolean z;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, soLoader)) == null) {
+            e = null;
+            HashMap hashMap = new HashMap();
+            Iterator<String> it = b().iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, next);
+                if (findSoFilesInLibrary != null && findSoFilesInLibrary.exists() && findSoFilesInLibrary.length() != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    str = findSoFilesInLibrary.getAbsolutePath();
+                } else {
+                    str = null;
+                }
+                hashMap.put(next, str);
+            }
+            return i(hashMap, soLoader);
+        }
+        return (fc3) invokeLL.objValue;
+    }
+
+    public static fc3 i(@NonNull HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, hashMap, soLoader)) == null) {
+            m("loadV8EngineSoByMap:" + hashMap);
+            String str = hashMap.get("com.baidu.zeus");
+            boolean z = false;
+            if (c && str == null) {
+                return fc3.d(false, false);
+            }
+            boolean f = f(hashMap.get("zeusv8"), soLoader);
+            boolean l = l(hashMap, soLoader);
+            boolean f2 = f(hashMap.get("v8.engine"), soLoader);
+            if (f2) {
+                e = str;
+            }
+            if (l && f2) {
+                z = true;
+            }
+            return fc3.d(f, z);
+        }
+        return (fc3) invokeLL.objValue;
+    }
+
+    public static fc3 j(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, soLoader)) == null) {
+            e = null;
+            HashMap hashMap = new HashMap();
+            String D = ek3.D();
+            File file = new File(b, D);
+            Iterator<String> it = b().iterator();
+            while (true) {
+                boolean z = true;
+                if (!it.hasNext()) {
                     break;
                 }
-                try {
-                    TimeUnit.MILLISECONDS.sleep(100L);
-                } catch (InterruptedException e) {
-                    h32.l("SwanAppStabilityData", "sleep 中断", e);
+                String next = it.next();
+                File file2 = new File(file, SoUtils.getFullName(next));
+                if ((!file2.exists() || file2.length() == 0) ? false : false) {
+                    str = file2.getAbsolutePath();
+                } else {
+                    str = null;
                 }
-            } while (currentTimeMillis > System.currentTimeMillis());
-            h32.i("SwanAppStabilityData", "fmpTimestamp=" + d + " fmp=" + c);
-            return Pair.create(Long.valueOf(d), Long.valueOf(c));
-        }
-        return (Pair) invokeI.objValue;
-    }
-
-    @NonNull
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return String.valueOf(JSONObject.wrap(d()));
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public Map<String, String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            TreeMap treeMap = new TreeMap();
-            try {
-                treeMap.put("obtainInterval", String.valueOf(this.a));
-                treeMap.put("totalMem", String.valueOf(this.b));
-                treeMap.put("prelinkUrlList", JSONObject.wrap(this.c).toString());
-                treeMap.put("timestampList", JSONObject.wrap(this.d).toString());
-                treeMap.put("fpsList", JSONObject.wrap(this.e).toString());
-                treeMap.put("cpuList", JSONObject.wrap(this.f).toString());
-                treeMap.put("deviceMemList", JSONObject.wrap(this.g).toString());
-                treeMap.put("hostMemList", JSONObject.wrap(this.h).toString());
-                treeMap.put("mnpMemList", JSONObject.wrap(this.i).toString());
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("fmp", String.valueOf(this.j.a));
-                jSONObject.put("mainPkgSize", String.valueOf(this.j.b));
-                jSONObject.put("idleCpuAvg", String.valueOf(this.j.c));
-                jSONObject.put("fpsAvg", String.valueOf(this.j.d));
-                jSONObject.put("launchMemDiff", String.valueOf(this.j.e));
-                jSONObject.put("runningMemDiff", String.valueOf(this.j.f));
-                jSONObject.put("launchRequestCount", String.valueOf(this.j.g));
-                treeMap.put("verificationData", jSONObject.toString());
-            } catch (Exception e) {
-                h32.l("SwanAppStabilityData", "#toMap 出错", e);
+                hashMap.put(next, str);
             }
-            return treeMap;
+            if (!hashMap.containsValue(null)) {
+                return i(hashMap, soLoader);
+            }
+            String str2 = "swan_v8so_unzip_times_" + D;
+            int i = ye3.a().getInt(str2, 0);
+            if (i >= 3) {
+                soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:reach max unzip times.");
+                return k(context, soLoader);
+            }
+            ye3.a().putInt(str2, i + 1);
+            String str3 = "lib" + File.separator + SoUtils.getCurrentCpuAbi();
+            ZipFile apkZipFile = soLoader.getApkZipFile(context);
+            try {
+                if (apkZipFile == null) {
+                    soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:zipFile is null.");
+                    return k(context, soLoader);
+                }
+                try {
+                    for (String str4 : hashMap.keySet()) {
+                        if (hashMap.get(str4) == null) {
+                            String fullName = SoUtils.getFullName(str4);
+                            File file3 = new File(file, fullName);
+                            if (soLoader.executeRelease(apkZipFile, fullName, str3, file3)) {
+                                hashMap.put(str4, file3.getAbsolutePath());
+                            }
+                        }
+                    }
+                } catch (Exception e2) {
+                    soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:" + e2.getMessage());
+                    if (a) {
+                        Log.e("V8InnerSoLoader", "loadV8EngineSoWithCustomPath:" + e2);
+                    }
+                }
+                return i(hashMap, soLoader);
+            } finally {
+                nm4.d(apkZipFile);
+            }
         }
-        return (Map) invokeV.objValue;
+        return (fc3) invokeLL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void m(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "SwanAppStabilityData{mObtainInterval=" + this.a + ", mTotalMem=" + this.b + ", mPrelinkUrlList=" + this.c + ", mTimestampList=" + this.d + ", mFpsList=" + this.e + ", mCpuList=" + this.f + ", mDeviceMemList=" + this.g + ", mHostMemList=" + this.h + ", mMnpMemList=" + this.i + ", mVerificationData=" + this.j + '}';
+        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && a) {
+            Log.d("V8InnerSoLoader", str);
         }
-        return (String) invokeV.objValue;
     }
 }

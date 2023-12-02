@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
-import com.baidu.tieba.fja;
+import com.baidu.tieba.jja;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
-import com.baidu.tieba.wx4;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -121,18 +121,18 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     threadData.parser_title();
                     threadData.isFromBrandForum = z;
                     if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                        wx4 wx4Var = new wx4();
-                        wx4Var.e(threadData.getLegoCard());
-                        this.threadList.add(wx4Var);
+                        zx4 zx4Var = new zx4();
+                        zx4Var.e(threadData.getLegoCard());
+                        this.threadList.add(zx4Var);
                     } else {
                         this.threadList.add(threadData);
-                        JSONObject b = fja.b(threadInfo);
+                        JSONObject b = jja.b(threadInfo);
                         if (b != null) {
                             arrayList.add(b);
                         }
                     }
                 }
-                fja.f().h("FRS", arrayList);
+                jja.f().h("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

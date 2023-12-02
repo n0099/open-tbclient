@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class e0b {
+public class e0b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final f0b a;
-    public final f0b b;
-    public final f0b c;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
 
     public e0b() {
         Interceptable interceptable = $ic;
@@ -24,38 +24,16 @@ public final class e0b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new f0b();
-        this.b = new f0b();
-        this.c = new f0b();
     }
 
-    public final f0b a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return "index:" + this.b + " tabName:" + this.a + " type:" + this.c + " tabCode:" + this.d;
         }
-        return (f0b) invokeV.objValue;
-    }
-
-    public final f0b b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (f0b) invokeV.objValue;
-    }
-
-    public final f0b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (f0b) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

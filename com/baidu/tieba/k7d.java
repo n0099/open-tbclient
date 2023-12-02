@@ -1,26 +1,26 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.RecGuide;
-/* loaded from: classes7.dex */
-public class k7d extends ltc {
+import tbclient.RecomTagInfo;
+/* loaded from: classes6.dex */
+public class k7d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecGuide recGuide) {
+    public static JSONObject b(@NonNull RecomTagInfo recomTagInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recGuide)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recomTagInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, ClearCacheUbcController.DOCUMENT, recGuide.document);
-            ltc.a(jSONObject, "url", recGuide.url);
-            ltc.a(jSONObject, pic.f, recGuide.pic);
+            ktc.a(jSONObject, "id", recomTagInfo.id);
+            ktc.a(jSONObject, "name", recomTagInfo.name);
+            ktc.a(jSONObject, "pic", recomTagInfo.pic);
+            ktc.a(jSONObject, "first_class", recomTagInfo.first_class);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

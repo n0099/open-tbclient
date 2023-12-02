@@ -1,109 +1,30 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.List;
+import android.content.SharedPreferences;
+import androidx.annotation.NonNull;
+import java.io.File;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class lm4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface lm4 extends SharedPreferences, SharedPreferences.Editor {
+    Set<String> a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947947670, "Lcom/baidu/tieba/lm4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947947670, "Lcom/baidu/tieba/lm4;");
-                return;
-            }
-        }
-        a = Arrays.asList("TAH-AN00", "TET-AN00");
-    }
+    boolean b();
 
-    public static int a(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            double b = b(activity) * 0.5199999809265137d;
-            if (b < 1148.0d) {
-                return 1148;
-            }
-            return (int) b;
-        }
-        return invokeL.intValue;
-    }
+    @Override // android.content.SharedPreferences
+    @Deprecated
+    Map<String, ?> getAll();
 
-    public static double b(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (!c(activity)) {
-                return 0.0d;
-            }
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            return displayMetrics.widthPixels;
-        }
-        return invokeL.doubleValue;
-    }
+    long getContentSize();
 
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    @NonNull
+    File getFile();
 
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String str = Build.MANUFACTURER;
-            String str2 = Build.MODEL;
-            if (TextUtils.equals("HUAWEI", str) && !TextUtils.isEmpty(str2)) {
-                for (String str3 : a) {
-                    if (str2.contains(str3)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    @Override // android.content.SharedPreferences
+    @Deprecated
+    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
 
-    public static boolean e(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            double d = displayMetrics.widthPixels;
-            double d2 = displayMetrics.heightPixels;
-            if (d == 0.0d || d2 == 0.0d || d2 / d >= 1.5d) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    @Override // android.content.SharedPreferences
+    @Deprecated
+    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
 }

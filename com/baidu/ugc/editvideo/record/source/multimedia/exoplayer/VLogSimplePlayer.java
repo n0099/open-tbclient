@@ -3,8 +3,8 @@ package com.baidu.ugc.editvideo.record.source.multimedia.exoplayer;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Surface;
-import com.baidu.tieba.stb;
-import com.baidu.tieba.ytb;
+import com.baidu.tieba.rtb;
+import com.baidu.tieba.xtb;
 import com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceTimerManager;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
 /* loaded from: classes9.dex */
@@ -18,7 +18,7 @@ public class VLogSimplePlayer {
     public static final int STATE_PREPARING = 1;
     public boolean isCompatSeekToPlayCompletion;
     public int[] mAudioChangeTypes;
-    public volatile ytb mAudioPlayer;
+    public volatile xtb mAudioPlayer;
     public int[] mEQParams;
     public volatile QMExoWrapperMediaPlayer mMediaPlayer;
     public volatile IMediaPlayer.OnCompletionListener mOnCompletionListener;
@@ -111,14 +111,14 @@ public class VLogSimplePlayer {
     public IMediaPlayer.OnSeekCompleteListener mSeekCompleteListener = new IMediaPlayer.OnSeekCompleteListener() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogSimplePlayer.11
         @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnSeekCompleteListener
         public void onSeekComplete(IMediaPlayer iMediaPlayer) {
-            ytb ytbVar;
-            ytb ytbVar2;
+            xtb xtbVar;
+            xtb xtbVar2;
             long currentPosition = iMediaPlayer.getCurrentPosition();
             long duration = iMediaPlayer.getDuration();
             if (currentPosition <= duration && currentPosition >= duration - 100 && !iMediaPlayer.isPlaying() && !VLogSimplePlayer.this.isCompatSeekToPlayCompletion) {
                 iMediaPlayer.seekTo(iMediaPlayer.getDuration() - 110);
-                if (VLogSimplePlayer.this.isAudioTypeChange() && (ytbVar2 = VLogSimplePlayer.this.mAudioPlayer) != null) {
-                    ytbVar2.B(iMediaPlayer.getCurrentPosition());
+                if (VLogSimplePlayer.this.isAudioTypeChange() && (xtbVar2 = VLogSimplePlayer.this.mAudioPlayer) != null) {
+                    xtbVar2.B(iMediaPlayer.getCurrentPosition());
                 }
                 VLogSimplePlayer.this.isCompatSeekToPlayCompletion = true;
                 return;
@@ -127,10 +127,10 @@ public class VLogSimplePlayer {
             VLogSimplePlayer.this.isCompatSeekToPlayCompletion = false;
             if (VLogSimplePlayer.this.mTargetState == 3 && VLogSimplePlayer.this.mCurrentState == 3) {
                 VLogSimplePlayer.this.mMediaPlayer.start();
-                if (!VLogSimplePlayer.this.isAudioTypeChange() || (ytbVar = VLogSimplePlayer.this.mAudioPlayer) == null) {
+                if (!VLogSimplePlayer.this.isAudioTypeChange() || (xtbVar = VLogSimplePlayer.this.mAudioPlayer) == null) {
                     return;
                 }
-                ytbVar.I();
+                xtbVar.I();
             }
         }
     };
@@ -176,7 +176,7 @@ public class VLogSimplePlayer {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isAudioTypeChange() {
-        return this.mAudioPlayer != null && stb.o(this.mAudioChangeTypes);
+        return this.mAudioPlayer != null && rtb.o(this.mAudioChangeTypes);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -237,9 +237,9 @@ public class VLogSimplePlayer {
             this.mMediaPlayer.release();
         }
         if (isAudioTypeChange()) {
-            ytb ytbVar = this.mAudioPlayer;
-            if (ytbVar != null) {
-                ytbVar.J();
+            xtb xtbVar = this.mAudioPlayer;
+            if (xtbVar != null) {
+                xtbVar.J();
             }
             this.mAudioPlayer = null;
         }
@@ -256,12 +256,12 @@ public class VLogSimplePlayer {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void resetInternal() {
-        ytb ytbVar;
+        xtb xtbVar;
         if (this.mMediaPlayer != null) {
             this.mMediaPlayer.reset();
         }
-        if (isAudioTypeChange() && (ytbVar = this.mAudioPlayer) != null) {
-            ytbVar.J();
+        if (isAudioTypeChange() && (xtbVar = this.mAudioPlayer) != null) {
+            xtbVar.J();
         }
         this.mCurrentState = 0;
         this.mTargetState = 0;
@@ -278,7 +278,7 @@ public class VLogSimplePlayer {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void seekToInternal(long j) {
-        ytb ytbVar;
+        xtb xtbVar;
         try {
             QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
             if (!isInPlaybackState() || qMExoWrapperMediaPlayer == null) {
@@ -288,11 +288,11 @@ public class VLogSimplePlayer {
                 qMExoWrapperMediaPlayer.pause();
                 this.mSeekWhenPrepared = 0L;
             }
-            if (!isAudioTypeChange() || (ytbVar = this.mAudioPlayer) == null) {
+            if (!isAudioTypeChange() || (xtbVar = this.mAudioPlayer) == null) {
                 return;
             }
-            ytbVar.B(j);
-            ytbVar.pause();
+            xtbVar.B(j);
+            xtbVar.pause();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -300,18 +300,18 @@ public class VLogSimplePlayer {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setAudioChangeTypeInternal(int[] iArr) {
-        if (this.mAudioPlayer != null || stb.o(iArr)) {
-            if (this.mMediaPlayer != null && (this.mAudioPlayer == null || !stb.o(this.mAudioPlayer.g()))) {
+        if (this.mAudioPlayer != null || rtb.o(iArr)) {
+            if (this.mMediaPlayer != null && (this.mAudioPlayer == null || !rtb.o(this.mAudioPlayer.g()))) {
                 this.mVolumeBackUp = this.mMediaPlayer.getVolume();
             }
             if (this.mAudioPlayer == null) {
                 try {
-                    this.mAudioPlayer = new ytb(this.mPath, iArr);
+                    this.mAudioPlayer = new xtb(this.mPath, iArr);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            if (!stb.o(iArr)) {
+            if (!rtb.o(iArr)) {
                 if (this.mAudioPlayer != null) {
                     this.mAudioPlayer.N(0.0f, 0.0f);
                 }
@@ -372,9 +372,9 @@ public class VLogSimplePlayer {
     public void setVolumeInternal() {
         this.mVolumeBackUp = this.mLeftVolume;
         if (isAudioTypeChange()) {
-            ytb ytbVar = this.mAudioPlayer;
-            if (ytbVar != null) {
-                ytbVar.N(this.mLeftVolume, this.mRightVolume);
+            xtb xtbVar = this.mAudioPlayer;
+            if (xtbVar != null) {
+                xtbVar.N(this.mLeftVolume, this.mRightVolume);
                 return;
             }
             return;
@@ -394,9 +394,9 @@ public class VLogSimplePlayer {
                     qMExoWrapperMediaPlayer.start();
                 }
                 if (isAudioTypeChange()) {
-                    ytb ytbVar = this.mAudioPlayer;
-                    ytbVar.B(qMExoWrapperMediaPlayer.getCurrentPosition());
-                    ytbVar.I();
+                    xtb xtbVar = this.mAudioPlayer;
+                    xtbVar.B(qMExoWrapperMediaPlayer.getCurrentPosition());
+                    xtbVar.I();
                 }
                 this.mCurrentState = 3;
             } catch (Exception e) {
@@ -460,7 +460,7 @@ public class VLogSimplePlayer {
     }
 
     public void setAudioChangeType(int[] iArr) {
-        if (!stb.o(this.mAudioChangeTypes) && stb.o(iArr)) {
+        if (!rtb.o(this.mAudioChangeTypes) && rtb.o(iArr)) {
             this.mAudioEffectPlayerNeedSeek = true;
         }
         this.mAudioChangeTypes = iArr;
@@ -468,7 +468,7 @@ public class VLogSimplePlayer {
     }
 
     public void setAudioChangeType(int[] iArr, double[] dArr, int[] iArr2) {
-        if (!stb.o(this.mAudioChangeTypes) && stb.o(iArr)) {
+        if (!rtb.o(this.mAudioChangeTypes) && rtb.o(iArr)) {
             this.mAudioEffectPlayerNeedSeek = true;
         }
         this.mAudioChangeTypes = iArr;
@@ -505,16 +505,16 @@ public class VLogSimplePlayer {
         schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogSimplePlayer.14
             @Override // java.lang.Runnable
             public void run() {
-                ytb ytbVar;
+                xtb xtbVar;
                 if (VLogSimplePlayer.this.mMediaPlayer == null) {
                     return;
                 }
                 VLogSimplePlayer.this.mSpeed = f;
                 VLogSimplePlayer.this.mMediaPlayer.setPlaybackSpeed(f);
-                if (!VLogSimplePlayer.this.isAudioTypeChange() || (ytbVar = VLogSimplePlayer.this.mAudioPlayer) == null) {
+                if (!VLogSimplePlayer.this.isAudioTypeChange() || (xtbVar = VLogSimplePlayer.this.mAudioPlayer) == null) {
                     return;
                 }
-                ytbVar.G(f);
+                xtbVar.G(f);
             }
         });
     }

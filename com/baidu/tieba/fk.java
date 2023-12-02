@@ -350,7 +350,7 @@ public class fk implements Runnable {
                                 return;
                             }
                         }
-                        nd.A(this.d);
+                        nd.B(this.d);
                         this.e.encoderInit();
                         if (this.c > 0) {
                             BdSoundGate.b().d(FeatureCodes.ADVANCE_BEAUTY, this.c);

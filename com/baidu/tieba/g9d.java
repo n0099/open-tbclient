@@ -4,28 +4,24 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONObject;
-import tbclient.TabPic;
-import tbclient.TabPicDesc;
+import tbclient.TagInfo;
 /* loaded from: classes6.dex */
-public class g9d extends ltc {
+public class g9d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TabPic tabPic) {
+    public static JSONObject b(@NonNull TagInfo tagInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tabPic)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tagInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            TabPicDesc tabPicDesc = tabPic.normal;
-            if (tabPicDesc != null) {
-                ltc.a(jSONObject, "normal", f9d.b(tabPicDesc));
-            }
-            TabPicDesc tabPicDesc2 = tabPic.dark;
-            if (tabPicDesc2 != null) {
-                ltc.a(jSONObject, "dark", f9d.b(tabPicDesc2));
-            }
+            ktc.a(jSONObject, "rank_type", tagInfo.rank_type);
+            ktc.a(jSONObject, "class_id", tagInfo.class_id);
+            ktc.a(jSONObject, "tab_id", tagInfo.tab_id);
+            ktc.a(jSONObject, PushConstants.SUB_TAGS_STATUS_NAME, tagInfo.tag_name);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

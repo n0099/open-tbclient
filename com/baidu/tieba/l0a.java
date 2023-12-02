@@ -1,175 +1,133 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
+import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import tbclient.AlaLiveInfo;
-import tbclient.DislikeInfo;
 /* loaded from: classes7.dex */
-public class l0a implements pi {
+public class l0a extends le5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId q;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
-    public String d;
-    public int e;
-    public long f;
-    public MetaData g;
-    public HashMap<String, MetaData> h;
-    public boolean i;
-    public String j;
-    public String k;
-    public boolean l;
-    public boolean m;
-    public boolean n;
-    public NegativeFeedBackData o;
-    public YyExtData p;
+    public VoiceData.VoiceModel b;
+    public PbEditorData.ThreadData c;
+    public BaseActivity<?> d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947890444, "Lcom/baidu/tieba/l0a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947890444, "Lcom/baidu/tieba/l0a;");
-                return;
-            }
-        }
-        q = BdUniqueId.gen();
-    }
-
-    public l0a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l0a(EditorTools editorTools) {
+        super(editorTools);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {editorTools};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((EditorTools) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = false;
-        this.m = false;
-        this.n = false;
     }
 
-    public void b() {
+    public void e(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = null;
-            this.b = 0;
-            this.c = null;
-            this.d = null;
-            this.e = 0;
-            this.f = 0L;
-            this.g = null;
-            this.h = null;
-            this.i = false;
-            this.j = null;
-            this.k = null;
-            this.n = false;
-            this.l = false;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, baseActivity) == null) && !StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && a() != null) {
+            a().K(new he5(2, 12, " "));
         }
     }
 
-    @Override // com.baidu.tieba.pi
-    public BdUniqueId getType() {
+    public BaseActivity<?> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return q;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (BaseActivity) invokeV.objValue;
     }
 
-    public boolean isValid() {
+    public VoiceData.VoiceModel c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.l;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (VoiceData.VoiceModel) invokeV.objValue;
     }
 
-    public void a(AlaLiveInfo alaLiveInfo) {
-        boolean z;
-        HashMap<String, MetaData> hashMap;
-        MetaData metaData;
+    public void f(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) && alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.live_status.intValue() == 1 && alaLiveInfo.pb_display_type.intValue() == 1) {
-            this.a = alaLiveInfo.user_info.user_name;
-            this.c = alaLiveInfo.description;
-            String str = alaLiveInfo.cover_wide;
-            this.d = str;
-            if (str == null || TextUtils.isEmpty(str)) {
-                this.d = alaLiveInfo.cover;
-            }
-            this.b = alaLiveInfo.audience_count.intValue();
-            this.e = alaLiveInfo.live_status.intValue();
-            this.f = alaLiveInfo.live_id.longValue();
-            if (alaLiveInfo.live_from.intValue() == 1) {
-                z = true;
+        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) && i2 == -1 && i == 23004) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010040));
+        }
+    }
+
+    public void g() {
+        PbEditorData.ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (threadData = this.c) != null && !StringUtils.isNull(threadData.getAuthorName()) && this.c.getAuthorId() > 0) {
+            String valueOf = String.valueOf(this.c.getAuthorId());
+            if (valueOf != null && !valueOf.equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.d.getActivity(), this.c.getAuthorId(), this.c.getAuthorName(), this.c.getAuthorNameShow(), GiftTabActivityConfig.FROM_PB, JavaTypesHelper.toLong(this.c.getThreadId(), 0L), JavaTypesHelper.toLong(this.c.getPostId(), 0L))));
             } else {
-                z = false;
+                BdUtilHelper.showToast(this.d.getActivity(), (int) R.string.can_not_send_gift_to_yourself);
             }
-            this.i = z;
-            this.j = alaLiveInfo.third_live_type;
-            this.k = alaLiveInfo.third_room_id;
-            YyExtData yyExtData = new YyExtData();
-            this.p = yyExtData;
-            yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
-            Long l = alaLiveInfo.user_info.user_id;
-            if (l != null && l.longValue() > 0 && (hashMap = this.h) != null && (metaData = hashMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
-                this.g = metaData;
-                metaData.setIsLike(metaData.hadConcerned());
-            }
-            List<DislikeInfo> list = alaLiveInfo.dislike_info;
-            if (ListUtils.getCount(list) > 0) {
-                SparseArray<String> sparseArray = new SparseArray<>();
-                SparseArray<String> sparseArray2 = new SparseArray<>();
-                for (DislikeInfo dislikeInfo : list) {
-                    if (dislikeInfo != null) {
-                        sparseArray.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.dislike_reason);
-                        sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
-                    }
+        }
+    }
+
+    public void h(BaseActivity<?> baseActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, baseActivity) == null) {
+            this.d = baseActivity;
+        }
+    }
+
+    public void j(VoiceData.VoiceModel voiceModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, voiceModel) == null) {
+            this.b = voiceModel;
+        }
+    }
+
+    public void i(PbEditorData.ThreadData threadData) {
+        String forumName;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) {
+            this.c = threadData;
+            if (a() != null && this.c != null) {
+                a().setFid(JavaTypesHelper.toLong(this.c.getForumId(), 0L));
+                EditorTools a = a();
+                String str = "";
+                if (StringUtils.isNull(this.c.getForumName())) {
+                    forumName = "";
+                } else {
+                    forumName = this.c.getForumName();
                 }
-                NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
-                this.o = negativeFeedBackData;
-                negativeFeedBackData.setFeedBackReasonMap(sparseArray);
-                this.o.feedBackExtraMap = sparseArray2;
-            } else {
-                this.o = null;
+                a.setFname(forumName);
+                EditorTools a2 = a();
+                if (!StringUtils.isNull(this.c.getThreadId())) {
+                    str = this.c.getThreadId();
+                }
+                a2.setTid(str);
+                a().K(new he5(70, -1, this.c.getForumId()));
             }
-            this.l = true;
-        }
-    }
-
-    public void c(HashMap<String, MetaData> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
-            this.h = hashMap;
         }
     }
 }

@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.lz4;
 import com.baidu.tieba.oz4;
-import com.baidu.tieba.xva;
+import com.baidu.tieba.rz4;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,8 +44,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TextView h;
     public View i;
     public TextView j;
-    public lz4 k;
-    public oz4 l;
+    public oz4 k;
+    public rz4 l;
     public ImageView m;
     public View n;
     public int o;
@@ -134,25 +134,25 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         h();
     }
 
-    public void f(xva xvaVar) {
+    public void f(wva wvaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, xvaVar) != null) || xvaVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, wvaVar) != null) || wvaVar == null) {
             return;
         }
-        lz4 c = xvaVar.c();
-        oz4 d = xvaVar.d();
+        oz4 c = wvaVar.c();
+        rz4 d = wvaVar.d();
         this.k = c;
         this.l = d;
-        if (xvaVar.e()) {
+        if (wvaVar.e()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
-        lz4 lz4Var = this.k;
-        if (lz4Var == null) {
+        oz4 oz4Var = this.k;
+        if (oz4Var == null) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
-        } else if (StringUtils.isNull(lz4Var.g())) {
+        } else if (StringUtils.isNull(oz4Var.g())) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
         } else {

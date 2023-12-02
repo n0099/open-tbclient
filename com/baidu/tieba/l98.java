@@ -1,112 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.callback.AccountToolsCallback;
+import com.baidu.sapi2.dto.AccountToolsDTO;
+import com.baidu.sapi2.result.SapiResult;
+import com.baidu.sapi2.utils.ToastUtil;
+import com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Esport;
-import tbclient.EsportRank;
-import tbclient.EsportStatic;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 /* loaded from: classes7.dex */
-public class l98 implements pi {
+public class l98 implements LoginModifyPwdServices {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<k98> b;
-    public String c;
-    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947897822, "Lcom/baidu/tieba/l98;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements AccountToolsCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Function1 a;
+
+        public a(l98 l98Var, Function1 function1) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l98Var, function1};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947897822, "Lcom/baidu/tieba/l98;");
-                return;
+            this.a = function1;
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiWebCallback
+        public void onFinish(SapiResult sapiResult) {
+            Function1 function1;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) && (function1 = this.a) != null) {
+                function1.invoke(sapiResult.getResultMsg());
             }
         }
-        e = BdUniqueId.gen();
     }
 
     public l98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices
+    public void openModifyPwd(@NonNull Context context, @Nullable Function1<? super String, Unit> function1) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<k98> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pi
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(Esport esport) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, esport) == null) && esport != null) {
-            this.a = esport.floor_no.intValue();
-            EsportStatic esportStatic = esport._static;
-            if (esportStatic != null) {
-                this.c = esportStatic.img;
-                this.d = esportStatic.url;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, function1) == null) {
+            AccountToolsDTO accountToolsDTO = new AccountToolsDTO();
+            accountToolsDTO.context = context;
+            accountToolsDTO.toolsType = 5;
+            if (!SapiAccountManager.getInstance().isLogin()) {
+                ToastUtil.show(R.string.obfuscated_res_0x7f0f1133 + "");
+                return;
             }
-            this.b = new ArrayList();
-            if (!StringUtils.isNull(this.c)) {
-                k98 k98Var = new k98();
-                k98Var.i(this.c);
-                k98Var.j(this.d);
-                this.b.add(k98Var);
-            }
-            if (!ListUtils.isEmpty(esport.billboard)) {
-                for (EsportRank esportRank : esport.billboard) {
-                    k98 k98Var2 = new k98();
-                    k98Var2.h(esportRank);
-                    this.b.add(k98Var2);
-                }
-            }
+            PassportSDK.getInstance().loadAccountTools(accountToolsDTO, new a(this, function1));
         }
     }
 }

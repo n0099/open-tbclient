@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cx4;
+import com.baidu.tieba.fx4;
 import com.baidu.tieba.tbadkcore.databinding.TbGroupChatLinkCardLayoutBinding;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -300,7 +300,7 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final void c(cx4 data) {
+    public final void c(fx4 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -336,19 +336,19 @@ public final class TbGroupChatCardLinkLayout extends RelativeLayout implements V
         }
     }
 
-    public final void d(cx4 cx4Var) {
+    public final void d(fx4 fx4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cx4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fx4Var) == null) {
             TbGroupChatLinkCardLayoutBinding tbGroupChatLinkCardLayoutBinding = this.b;
             if (tbGroupChatLinkCardLayoutBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 tbGroupChatLinkCardLayoutBinding = null;
             }
-            tbGroupChatLinkCardLayoutBinding.h.startLoad(cx4Var.e, 10, false);
-            tbGroupChatLinkCardLayoutBinding.i.setText(cx4Var.c);
+            tbGroupChatLinkCardLayoutBinding.h.startLoad(fx4Var.e, 10, false);
+            tbGroupChatLinkCardLayoutBinding.i.setText(fx4Var.c);
             tbGroupChatLinkCardLayoutBinding.g.setVisibility(8);
-            CardLinkInfoData mCardLinkInfoData = cx4Var.p;
+            CardLinkInfoData mCardLinkInfoData = fx4Var.p;
             if (mCardLinkInfoData != null) {
                 Intrinsics.checkNotNullExpressionValue(mCardLinkInfoData, "mCardLinkInfoData");
                 String str = mCardLinkInfoData.content1;

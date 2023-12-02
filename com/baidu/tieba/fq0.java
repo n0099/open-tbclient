@@ -1,153 +1,295 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.SimpleArrayMap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
-import com.baidu.searchbox.player.model.ClarityUrlList;
-import com.baidu.tieba.eq0;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.UniversalPlayer;
+import com.baidu.searchbox.player.constants.PlayerConstant;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.tieba.ws0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import kotlin.Pair;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-@JvmName(name = "CloudClarityConfig")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"KotlinPropertyAccess"})
 /* loaded from: classes6.dex */
-public final class fq0 {
+public abstract class fq0 extends sp0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
+    public static boolean G;
     public transient /* synthetic */ FieldHolder $fh;
+    public ts0 A;
+    public ws0 B;
+    public ss0 C;
+    public String D;
+    public boolean E;
+    public final SimpleArrayMap<Class<? extends Object>, Object> F;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947772644, "Lcom/baidu/tieba/fq0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947772644, "Lcom/baidu/tieba/fq0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947772644, "Lcom/baidu/tieba/fq0;");
+        }
+    }
+
+    @Override // com.baidu.tieba.sp0
+    public void E0(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+        }
+    }
+
+    public boolean K0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @NonNull
+    public abstract dr0 N0();
+
+    public boolean O0(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            return true;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements ws0.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public long c;
+        public final /* synthetic */ fq0 d;
+
+        public a(fq0 fq0Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fq0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947772644, "Lcom/baidu/tieba/fq0;");
+            this.d = fq0Var;
+            this.c = 0L;
+        }
+
+        @Override // com.baidu.tieba.ws0.a
+        public void onOrientationChanged(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && !fq0.R0()) {
+                fq0 fq0Var = this.d;
+                if (fq0Var.e == null || !fq0Var.K0() || this.d.P0() || ws0.f(rp0.b())) {
+                    return;
+                }
+                if (!this.d.Q0()) {
+                    this.a = false;
+                    if (ws0.d(i)) {
+                        this.b = true;
+                    }
+                    if (this.b && ws0.c(i) && this.d.e.getVisibility() == 0 && System.currentTimeMillis() - this.c > 1000) {
+                        this.c = System.currentTimeMillis();
+                        this.d.X0(0);
+                        this.b = false;
+                        return;
+                    }
+                    return;
+                }
+                this.b = false;
+                if (ws0.e(i)) {
+                    this.a = true;
+                    ex0.a(this.d.m(), true);
+                } else if (ws0.c(i)) {
+                    this.a = true;
+                    ex0.a(this.d.m(), false);
+                } else if (ws0.d(i) && this.a && System.currentTimeMillis() - this.c > 1000) {
+                    this.c = System.currentTimeMillis();
+                    this.d.Y0(0);
+                    this.a = false;
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fq0(@NonNull kt0 kt0Var, @Nullable Context context) {
+        super(kt0Var, context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kt0Var, context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((kt0) objArr2[0], (Context) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"sd", ClarityUrlList.ClarityUrl.KEY_HD, "sc", ClarityUrlList.ClarityUrl.KEY_1080P});
+        this.D = PlayerConstant.HALF_MODE;
+        this.F = new SimpleArrayMap<>();
+        bx0.c().b();
     }
 
-    public static final String e() {
+    public static boolean R0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String mobileNetClarity = qx0.c();
-            if (a.contains(mobileNetClarity)) {
-                Intrinsics.checkNotNullExpressionValue(mobileNetClarity, "mobileNetClarity");
-                return mobileNetClarity;
-            }
-            return "sd";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return G;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static final String f() {
-        InterceptResult invokeV;
+    public void L0() {
+        ws0 ws0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String wifiClarity = qx0.e();
-            if (a.contains(wifiClarity)) {
-                Intrinsics.checkNotNullExpressionValue(wifiClarity, "wifiClarity");
-                return wifiClarity;
-            }
-            return "sc";
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (ws0Var = this.B) == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        this.E = false;
+        ws0Var.disable();
     }
 
-    public static final boolean g() {
+    public void M0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.B.canDetectOrientation()) {
+            this.E = this.B.a();
+        }
+    }
+
+    public boolean P0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (TextUtils.equals("1", qx0.d())) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return TextUtils.equals(this.D, PlayerConstant.FLOATING_MODE);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean Q0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return TextUtils.equals(this.D, PlayerConstant.FULL_MODE);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean S0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ws0 ws0Var = this.B;
+            if (ws0Var != null && this.E) {
+                return ws0.e(ws0Var.b());
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static final Pair<Integer, Integer> a(com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList list) {
-        InterceptResult invokeL;
+    public void V0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            Intrinsics.checkNotNullParameter(list, "list");
-            String b = b(true);
-            int i = 0;
-            String b2 = b(false);
-            int size = list.size() - 1;
-            int i2 = 0;
-            for (ClarityUrlList.c entity : list) {
-                Intrinsics.checkNotNullExpressionValue(entity, "entity");
-                if (TextUtils.equals(entity.c(), b)) {
-                    i = i2;
-                } else if (TextUtils.equals(entity.c(), b2)) {
-                    size = i2;
-                }
-                i2++;
-            }
-            return new Pair<>(Integer.valueOf(size), Integer.valueOf(i));
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            U0(!G);
         }
-        return (Pair) invokeL.objValue;
     }
 
-    public static final String b(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.baidu.tieba.sp0
+    public void e0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.e0();
+            this.F.clear();
+        }
+    }
+
+    public void T0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
-                return f();
+                this.D = PlayerConstant.FULL_MODE;
+            } else {
+                this.D = PlayerConstant.HALF_MODE;
             }
-            return e();
         }
-        return (String) invokeZ.objValue;
     }
 
-    public static final eq0 c() {
-        InterceptResult invokeV;
+    public void U0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String a2 = qx0.a();
-            if (a2 != null) {
-                int hashCode = a2.hashCode();
-                if (hashCode != 49) {
-                    if (hashCode == 50 && a2.equals("2")) {
-                        return eq0.a.a;
-                    }
-                } else if (a2.equals("1")) {
-                    return eq0.b.a;
-                }
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            G = z;
+            if (!z) {
+                M0();
             }
-            return eq0.a.a;
         }
-        return (eq0) invokeV.objValue;
     }
 
-    public static final String d() {
-        InterceptResult invokeV;
+    public void X0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String condition = qx0.b();
-            for (String str : a) {
-                Intrinsics.checkNotNullExpressionValue(condition, "condition");
-                if (StringsKt__StringsKt.contains$default((CharSequence) condition, (CharSequence) str, false, 2, (Object) null)) {
-                    return condition;
-                }
-            }
-            return ClarityUrlList.ClarityUrl.KEY_1080P;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            W0();
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void W0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            if (O0(true)) {
+                nx0.d(m(), true);
+            }
+            lx0.b(UniversalPlayer.TAG, "player start switchToFull");
+            N0().t();
+            this.C.switchToFullStyle();
+            o0(cs0.x(LayerEvent.ACTION_SWITCH_FULL));
+            N0().z();
+        }
+    }
+
+    public void Y0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            if (O0(false)) {
+                nx0.d(m(), false);
+            }
+            N0().u();
+            lx0.b(UniversalPlayer.TAG, "player start switchToHalf");
+            this.C.switchToNormalStyle();
+            o0(cs0.x(LayerEvent.ACTION_SWITCH_HALF));
+            N0().A();
+        }
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.exa;
-import com.baidu.tieba.gxa;
-import com.baidu.tieba.ixa;
-import com.baidu.tieba.mj6;
-import com.baidu.tieba.ms4;
+import com.baidu.tieba.dxa;
+import com.baidu.tieba.fxa;
+import com.baidu.tieba.hxa;
+import com.baidu.tieba.ps4;
+import com.baidu.tieba.qj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,17 +20,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ClipperJsBridgePlugin_Proxy extends exa {
+public class ClipperJsBridgePlugin_Proxy extends dxa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ms4 mJsBridge;
+    public ps4 mJsBridge;
 
-    public ClipperJsBridgePlugin_Proxy(ms4 ms4Var) {
+    public ClipperJsBridgePlugin_Proxy(ps4 ps4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ms4Var};
+            Object[] objArr = {ps4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,59 +40,59 @@ public class ClipperJsBridgePlugin_Proxy extends exa {
                 return;
             }
         }
-        this.mJsBridge = ms4Var;
+        this.mJsBridge = ps4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.exa
-    public gxa dispatch(WebView webView, ixa ixaVar, gxa gxaVar) {
+    @Override // com.baidu.tieba.dxa
+    public fxa dispatch(WebView webView, hxa hxaVar, fxa fxaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ixaVar, gxaVar)) == null) {
-            if (gxaVar == null) {
-                gxaVar = new gxa();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, hxaVar, fxaVar)) == null) {
+            if (fxaVar == null) {
+                fxaVar = new fxa();
             }
-            String b = ixaVar.b();
-            JSONObject e = ixaVar.e();
+            String b = hxaVar.b();
+            JSONObject e = hxaVar.e();
             if (b.equals("clipper/getClipperInformation")) {
-                gxaVar.s(true);
-                gxa c = this.mJsBridge.c(webView);
+                fxaVar.s(true);
+                fxa c = this.mJsBridge.c(webView);
                 if (c != null) {
-                    gxaVar.y(c.f());
-                    gxaVar.u(c.b());
-                    gxaVar.o(c.a());
-                    gxaVar.x(c.e());
+                    fxaVar.y(c.f());
+                    fxaVar.u(c.b());
+                    fxaVar.o(c.a());
+                    fxaVar.x(c.e());
                 }
-                gxaVar.z(0);
+                fxaVar.z(0);
             } else if (b.equals("clipper/setClipperInformation")) {
-                gxaVar.s(true);
-                gxa d = this.mJsBridge.d(webView, e.optString("txt"));
+                fxaVar.s(true);
+                fxa d = this.mJsBridge.d(webView, e.optString("txt"));
                 if (d != null) {
-                    gxaVar.y(d.f());
-                    gxaVar.u(d.b());
-                    gxaVar.o(d.a());
-                    gxaVar.x(d.e());
+                    fxaVar.y(d.f());
+                    fxaVar.u(d.b());
+                    fxaVar.o(d.a());
+                    fxaVar.x(d.e());
                 }
-                gxaVar.z(0);
+                fxaVar.z(0);
             }
-            return gxaVar;
+            return fxaVar;
         }
-        return (gxa) invokeLLL.objValue;
+        return (fxa) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.exa
-    public mj6 getJsBridge() {
+    @Override // com.baidu.tieba.dxa
+    public qj6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (mj6) invokeV.objValue;
+        return (qj6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.exa
-    public List<gxa> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.dxa
+    public List<fxa> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

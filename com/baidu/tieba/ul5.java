@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,15 +9,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public interface ul5 {
     public static final a a = a.a;
 
-    boolean a(String str, String str2);
+    jr6 a();
 
-    void b();
+    String b();
 
-    String c(String str);
+    String c();
+
+    String d();
 
     /* loaded from: classes8.dex */
     public static final class a {
@@ -39,7 +43,7 @@ public interface ul5 {
                 }
             }
             a = new a();
-            b = new ServiceReference("aibot", "AibotChatHistoryListService");
+            b = new ServiceReference("module_home", "SpriteResourceService");
         }
 
         public a() {
@@ -56,13 +60,15 @@ public interface ul5 {
             }
         }
 
-        public final ServiceReference a() {
+        public final ul5 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
+                Object service = ServiceManager.getService(b);
+                Intrinsics.checkNotNullExpressionValue(service, "getService(SERVICE_REFERENCE)");
+                return (ul5) service;
             }
-            return (ServiceReference) invokeV.objValue;
+            return (ul5) invokeV.objValue;
         }
     }
 }

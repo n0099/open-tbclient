@@ -102,7 +102,7 @@ public class BottomMenuView extends LinearLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.bottom_menu_item, this);
             this.b = tbPageContext;
             this.c = (ImageView) findViewById(R.id.item_image);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091261);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091262);
         }
 
         private b getSubMenuGenerator() {
@@ -218,8 +218,8 @@ public class BottomMenuView extends LinearLayout {
             }
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d018d, this);
             setOrientation(1);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091261);
-            this.b = findViewById(R.id.obfuscated_res_0x7f090957);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091262);
+            this.b = findViewById(R.id.obfuscated_res_0x7f090958);
         }
 
         public SubBottomMenu getSubMenuData() {

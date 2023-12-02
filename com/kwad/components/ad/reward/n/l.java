@@ -43,7 +43,7 @@ public final class l extends s implements View.OnClickListener {
 
     public static Animator r(View view2) {
         Interpolator create = PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f);
-        ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704dd)).setDuration(250L);
+        ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704df)).setDuration(250L);
         duration.setInterpolator(create);
         return duration;
     }
@@ -54,13 +54,13 @@ public final class l extends s implements View.OnClickListener {
         Context context = this.sy.getContext();
         if (!ai.Kx()) {
             ViewGroup.LayoutParams layoutParams = this.sy.getLayoutParams();
-            layoutParams.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e5);
+            layoutParams.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e6);
             this.sy.setLayoutParams(layoutParams);
         }
     }
 
     public final void h(ViewGroup viewGroup) {
-        super.a(viewGroup, R.id.obfuscated_res_0x7f091457, R.id.obfuscated_res_0x7f091456);
+        super.a(viewGroup, R.id.obfuscated_res_0x7f091458, R.id.obfuscated_res_0x7f091457);
         initView();
     }
 
@@ -142,17 +142,17 @@ public final class l extends s implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        this.zl = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09144a);
-        this.zi = (ImageView) this.sy.findViewById(R.id.obfuscated_res_0x7f091453);
-        this.fq = (ImageView) this.sy.findViewById(R.id.obfuscated_res_0x7f091452);
-        this.zj = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091454);
-        this.lv = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f09144d);
-        this.zk = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f09144b);
-        this.zm = this.sy.findViewById(R.id.obfuscated_res_0x7f09144e);
-        this.zn.add((ImageView) this.sy.findViewById(R.id.obfuscated_res_0x7f09144f));
+        this.zl = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09144b);
+        this.zi = (ImageView) this.sy.findViewById(R.id.obfuscated_res_0x7f091454);
+        this.fq = (ImageView) this.sy.findViewById(R.id.obfuscated_res_0x7f091453);
+        this.zj = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091455);
+        this.lv = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f09144e);
+        this.zk = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f09144c);
+        this.zm = this.sy.findViewById(R.id.obfuscated_res_0x7f09144f);
         this.zn.add((ImageView) this.sy.findViewById(R.id.obfuscated_res_0x7f091450));
         this.zn.add((ImageView) this.sy.findViewById(R.id.obfuscated_res_0x7f091451));
-        this.zo = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f09144c);
+        this.zn.add((ImageView) this.sy.findViewById(R.id.obfuscated_res_0x7f091452));
+        this.zo = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f09144d);
         this.sy.setOnClickListener(this);
         this.zk.setOnClickListener(this);
     }

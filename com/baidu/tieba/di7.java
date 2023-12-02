@@ -1,58 +1,96 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Bundle;
+import androidx.fragment.app.FragmentActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class di7 {
+public final class di7 extends wh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FragmentActivity b;
+    public final CustomMessageListener c;
 
-    public static final boolean d(p87 p87Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, p87Var)) == null) {
-            if (p87Var.a() instanceof s57) {
-                return ((s57) p87Var.a()).q();
+    /* loaded from: classes5.dex */
+    public static final class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ di7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(di7 di7Var) {
+            super(2921476);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {di7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (p87Var.a() instanceof xf7) {
-                return ((xf7) p87Var.a()).w();
-            }
-            return false;
+            this.a = di7Var;
         }
-        return invokeL.booleanValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
+                this.a.q();
+            }
+        }
     }
 
-    public static final String f(p87 p87Var) {
-        InterceptResult invokeL;
+    public di7(FragmentActivity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, p87Var)) == null) {
-            if (p87Var.a() instanceof s57) {
-                return ((s57) p87Var.a()).m();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (p87Var.a() instanceof xf7) {
-                return ((xf7) p87Var.a()).r();
-            }
-            return null;
         }
-        return (String) invokeL.objValue;
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        this.b = activity;
+        this.c = new a(this);
     }
 
-    public static final boolean e(p87 p87Var, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.baidu.tieba.wh7
+    public void k(Bundle bundle, ActivityForumBinding binding) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, p87Var, z)) == null) {
-            if (p87Var.a() instanceof s57) {
-                ((s57) p87Var.a()).r(z);
-                return false;
-            } else if (p87Var.a() instanceof xf7) {
-                ((xf7) p87Var.a()).x(z);
-                return false;
-            } else {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, binding) == null) {
+            Intrinsics.checkNotNullParameter(binding, "binding");
+            super.k(bundle, binding);
+            o(this.c);
         }
-        return invokeLZ.booleanValue;
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            YunDialogManager.unMarkShowingDialogName("frsGuide");
+        }
     }
 }

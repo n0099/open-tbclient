@@ -2,27 +2,34 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class ob7<T> extends xa7<T> implements c77, ka7, PreLoadImageProvider {
+public class ob7 implements ib7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T c;
-    public final String d;
+    @Inject(force = false)
+    public tf1<ib7> a;
 
-    public ob7(@NonNull T t, @NonNull String str) {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            rf1 b = rf1.b();
+            this.a = b;
+            b.a(new jb7());
+        }
+    }
+
+    public ob7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,65 +39,30 @@ public final class ob7<T> extends xa7<T> implements c77, ka7, PreLoadImageProvid
                 return;
             }
         }
-        this.c = t;
-        this.d = str;
+        b();
     }
 
-    @Override // com.baidu.tieba.nb7
+    @Override // com.baidu.tieba.ib7
     @NonNull
-    public String a() {
+    public List<qb7<?, ?>> a() {
         InterceptResult invokeV;
+        List<ib7> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nb7
-    @NonNull
-    public T b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            T t = this.c;
-            if (t instanceof PreLoadImageProvider) {
-                return ((PreLoadImageProvider) t).getImages();
+            ArrayList arrayList = new ArrayList();
+            tf1<ib7> tf1Var = this.a;
+            if (tf1Var == null) {
+                list = null;
+            } else {
+                list = tf1Var.getList();
             }
-            return null;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ka7
-    public void d(@NonNull Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            T t = this.c;
-            if (t instanceof ka7) {
-                ((ka7) t).d(obj);
+            if (list != null) {
+                for (ib7 ib7Var : list) {
+                    arrayList.addAll(ib7Var.a());
+                }
             }
+            return arrayList;
         }
-    }
-
-    @Override // com.baidu.tieba.c77
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            T t = this.c;
-            if (t instanceof c77) {
-                ((c77) t).setPosition(i);
-            }
-        }
+        return (List) invokeV.objValue;
     }
 }

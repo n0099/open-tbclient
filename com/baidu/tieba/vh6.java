@@ -1,51 +1,27 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.webkit.ConsoleMessage;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.switchs.OfflinePkgAutoCleanSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class vh6 {
+public final class vh6 extends yk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Object> a;
+    public final boolean b;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final vh6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-346315705, "Lcom/baidu/tieba/vh6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-346315705, "Lcom/baidu/tieba/vh6$b;");
-                    return;
-                }
-            }
-            a = new vh6(null);
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public vh6() {
+        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,74 +29,104 @@ public class vh6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((WebChromeClient) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        this.b = OfflinePkgAutoCleanSwitch.isOn();
     }
 
-    public static vh6 b() {
-        InterceptResult invokeV;
+    public final String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = "file://" + pi6.n().m().getAbsolutePath();
+            if (str.startsWith(str2)) {
+                String[] split = str.substring(str2.length()).split("/");
+                if (!jk6.e(split)) {
+                    return split[0];
+                }
+                return null;
+            }
+            return null;
         }
-        return (vh6) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public /* synthetic */ vh6(a aVar) {
-        this();
-    }
-
-    public synchronized void a(String str) {
+    @Override // com.baidu.tieba.yk6, android.webkit.WebChromeClient
+    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this) {
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, new Object());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consoleMessage)) == null) {
+            if (this.b && consoleMessage != null && consoleMessage.messageLevel() == ConsoleMessage.MessageLevel.ERROR && TextUtils.equals(consoleMessage.message(), "Uncaught SyntaxError: Invalid or unexpected token")) {
+                String d = d(consoleMessage.sourceId());
+                if (!TextUtils.isEmpty(d)) {
+                    pi6.n().h(d);
                 }
             }
-        }
-    }
-
-    public synchronized boolean c(String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                containsKey = this.a.containsKey(str);
-            }
-            return containsKey;
+            return super.onConsoleMessage(consoleMessage);
         }
         return invokeL.booleanValue;
     }
 
-    public void e(String str) {
-        Object remove;
+    @Override // com.baidu.tieba.yk6, android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (remove = this.a.remove(str)) != null) {
-            try {
-                synchronized (remove) {
-                    remove.notifyAll();
-                }
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
+            if (yb.e(fj6.a(webView.getContext()))) {
+                return super.onJsAlert(webView, str, str2, jsResult);
             }
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public void d(String str, long j) {
-        Object obj;
+    @Override // com.baidu.tieba.yk6, android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) && (obj = this.a.get(str)) != null) {
-            try {
-                synchronized (obj) {
-                    obj.wait(j);
-                }
-            } catch (InterruptedException unused) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            if (yb.e(fj6.a(webView.getContext()))) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
+            return true;
         }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yk6, android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            if (yb.e(fj6.a(webView.getContext()))) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yk6, android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            dk6.c("JsBridge", "端能力开始执行：" + str2 + " view：" + webView + " url：" + str);
+            if (rj6.a().c(webView, str2, jsPromptResult)) {
+                return true;
+            }
+            if (super.onJsPrompt(webView, str, str2, str3, jsPromptResult)) {
+                dk6.c("JsBridge", "外部注册端能力执行成功 耗时:" + (System.currentTimeMillis() - currentTimeMillis) + " " + str2);
+                return true;
+            }
+            jsPromptResult.cancel();
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

@@ -51,7 +51,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.b implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091346);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091347);
         this.hl = textView;
         textView.setContentDescription("topBarCallLabel");
     }

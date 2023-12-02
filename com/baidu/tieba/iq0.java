@@ -1,104 +1,36 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import kotlin.jvm.JvmName;
+@JvmName(name = "InteractiveABConfig")
 /* loaded from: classes6.dex */
-public class iq0 {
+public final class iq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, dv0> a;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final iq0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-710361725, "Lcom/baidu/tieba/iq0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-710361725, "Lcom/baidu/tieba/iq0$b;");
-                    return;
-                }
-            }
-            a = new iq0(null);
-        }
-    }
-
-    public iq0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>(2);
-    }
-
-    public static iq0 a() {
+    public static final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (jq0.a() != 1) {
+                return true;
+            }
+            return false;
         }
-        return (iq0) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public /* synthetic */ iq0(a aVar) {
-        this();
-    }
-
-    @Nullable
-    public dv0 b(@Nullable String str) {
-        InterceptResult invokeL;
+    public static final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.a.get(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (jq0.a() != 0 && jq0.a() != 2) {
+                return false;
+            }
+            return true;
         }
-        return (dv0) invokeL.objValue;
-    }
-
-    @Nullable
-    public dv0 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.a.remove(str);
-        }
-        return (dv0) invokeL.objValue;
-    }
-
-    public void c(@Nullable String str, @Nullable dv0 dv0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dv0Var) == null) && dv0Var != null && !TextUtils.isEmpty(str)) {
-            this.a.put(str, dv0Var);
-        }
+        return invokeV.booleanValue;
     }
 }

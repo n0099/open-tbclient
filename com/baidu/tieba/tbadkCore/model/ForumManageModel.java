@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.module.pb.BarManageResultListener;
-import com.baidu.tieba.tx4;
+import com.baidu.tieba.wx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -317,7 +317,7 @@ public class ForumManageModel extends BdBaseModel {
         public String c;
         public String d;
         public int e;
-        public ArrayList<tx4> f;
+        public ArrayList<wx4> f;
         public String g;
         public int h;
         public String i;
@@ -390,9 +390,9 @@ public class ForumManageModel extends BdBaseModel {
                         try {
                             JSONArray optJSONArray = new JSONObject(postNetData).optJSONArray("cates");
                             for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                                tx4 tx4Var = new tx4();
-                                tx4Var.c(optJSONArray.optJSONObject(i4));
-                                this.f.add(tx4Var);
+                                wx4 wx4Var = new wx4();
+                                wx4Var.c(optJSONArray.optJSONObject(i4));
+                                this.f.add(wx4Var);
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
@@ -470,7 +470,7 @@ public class ForumManageModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public String b;
-        public ArrayList<tx4> c;
+        public ArrayList<wx4> c;
         public String d;
         public String e;
         public String f;

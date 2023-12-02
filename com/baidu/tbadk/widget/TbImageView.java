@@ -37,12 +37,12 @@ import com.baidu.tbadk.switchs.PicReqSwitch;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.px9;
-import com.baidu.tieba.qv5;
+import com.baidu.tieba.by9;
 import com.baidu.tieba.rb;
 import com.baidu.tieba.rf;
 import com.baidu.tieba.sf;
-import com.baidu.tieba.xx9;
+import com.baidu.tieba.tx9;
+import com.baidu.tieba.uv5;
 import com.baidu.tieba.z4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -55,7 +55,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class TbImageView extends BDImageView implements Runnable, View.OnClickListener, xx9 {
+public class TbImageView extends BDImageView implements Runnable, View.OnClickListener, by9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORNER_ALL = 15;
     public static final int CORNER_BOTTOM_LEFT = 4;
@@ -88,10 +88,10 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public TbRichTextView.x mDispatchTouchListener;
     public boolean mDrawCorner;
     public f mEvent;
-    public px9 mGestureDetector;
+    public tx9 mGestureDetector;
     public int mHeight;
     public boolean mInterceptOnClick;
-    public px9 mInternalGestureDetector;
+    public tx9 mInternalGestureDetector;
     public boolean mIsGif;
     public boolean mIsGifPic;
     public boolean mIsPageIdRegisterMessage;
@@ -111,7 +111,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public float mSmartCropCenterPointHeightRatio;
     public float mSmartCropCenterPointWidthRatio;
     public boolean mSupportNoImage;
-    public qv5 mTagDrawer;
+    public uv5 mTagDrawer;
     public String mTagStr;
     public int mType;
     public String mUrl;
@@ -274,12 +274,12 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     /* loaded from: classes5.dex */
-    public class c implements px9.a {
+    public class c implements tx9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbImageView a;
 
-        @Override // com.baidu.tieba.px9.a
+        @Override // com.baidu.tieba.tx9.a
         public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -307,7 +307,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             this.a = tbImageView;
         }
 
-        @Override // com.baidu.tieba.px9.a
+        @Override // com.baidu.tieba.tx9.a
         public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -331,7 +331,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             return invokeLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.px9.a
+        @Override // com.baidu.tieba.tx9.a
         public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -347,12 +347,12 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     /* loaded from: classes5.dex */
-    public class d implements px9.a {
+    public class d implements tx9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbImageView a;
 
-        @Override // com.baidu.tieba.px9.a
+        @Override // com.baidu.tieba.tx9.a
         public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -380,7 +380,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             this.a = tbImageView;
         }
 
-        @Override // com.baidu.tieba.px9.a
+        @Override // com.baidu.tieba.tx9.a
         public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -404,7 +404,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             return invokeLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.px9.a
+        @Override // com.baidu.tieba.tx9.a
         public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -657,10 +657,10 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     public void setTagPaddingDis(int i, int i2) {
-        qv5 qv5Var;
+        uv5 uv5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048634, this, i, i2) == null) && (qv5Var = this.mTagDrawer) != null) {
-            qv5Var.g(i, i2);
+        if ((interceptable == null || interceptable.invokeII(1048634, this, i, i2) == null) && (uv5Var = this.mTagDrawer) != null) {
+            uv5Var.g(i, i2);
         }
     }
 
@@ -848,7 +848,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048624, this, onClickListener) == null) {
             if (this.mInternalGestureDetector == null) {
-                this.mInternalGestureDetector = new px9(new c(this));
+                this.mInternalGestureDetector = new tx9(new c(this));
             }
             super.setOnTouchListener(this.mInternalGestureDetector);
             if (!isClickable()) {
@@ -917,10 +917,10 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     public void setTagColor(int i) {
-        qv5 qv5Var;
+        uv5 uv5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048633, this, i) == null) && (qv5Var = this.mTagDrawer) != null) {
-            qv5Var.h(i);
+        if ((interceptable == null || interceptable.invokeI(1048633, this, i) == null) && (uv5Var = this.mTagDrawer) != null) {
+            uv5Var.h(i);
         }
     }
 
@@ -932,21 +932,21 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     public void setTagTextSize(int i) {
-        qv5 qv5Var;
+        uv5 uv5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048636, this, i) == null) && (qv5Var = this.mTagDrawer) != null) {
-            qv5Var.i(i);
+        if ((interceptable == null || interceptable.invokeI(1048636, this, i) == null) && (uv5Var = this.mTagDrawer) != null) {
+            uv5Var.i(i);
         }
     }
 
-    public void setTbGestureDetector(px9 px9Var) {
+    public void setTbGestureDetector(tx9 tx9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, px9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048637, this, tx9Var) == null) {
             if (this.mInternalGestureDetector == null) {
-                this.mInternalGestureDetector = new px9(new d(this));
+                this.mInternalGestureDetector = new tx9(new d(this));
             }
             super.setOnTouchListener(this.mInternalGestureDetector);
-            this.mGestureDetector = px9Var;
+            this.mGestureDetector = tx9Var;
         }
     }
 
@@ -957,7 +957,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         }
     }
 
-    @Override // com.baidu.tieba.xx9
+    @Override // com.baidu.tieba.by9
     public void startLoad(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
@@ -1045,7 +1045,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         }
         this.mRequestMap = new HashMap<>();
         this.mLogMap = new HashMap<>();
-        this.mTagDrawer = new qv5(this);
+        this.mTagDrawer = new uv5(this);
         updateSkinType();
         this.mLoadingFrameIncrement = 30.0f;
         setConrers(0);
@@ -1179,9 +1179,9 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            qv5 qv5Var = this.mTagDrawer;
-            if (qv5Var != null) {
-                return (int) qv5Var.d(getContext().getString(R.string.icon_tag_gif));
+            uv5 uv5Var = this.mTagDrawer;
+            if (uv5Var != null) {
+                return (int) uv5Var.d(getContext().getString(R.string.icon_tag_gif));
             }
             return -1;
         }
@@ -1192,9 +1192,9 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            qv5 qv5Var = this.mTagDrawer;
-            if (qv5Var != null) {
-                return (int) qv5Var.e(getContext().getString(R.string.icon_tag_gif));
+            uv5 uv5Var = this.mTagDrawer;
+            if (uv5Var != null) {
+                return (int) uv5Var.e(getContext().getString(R.string.icon_tag_gif));
             }
             return -1;
         }
@@ -1697,7 +1697,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         }
     }
 
-    @Override // com.baidu.tieba.xx9
+    @Override // com.baidu.tieba.by9
     public void startLoad(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {

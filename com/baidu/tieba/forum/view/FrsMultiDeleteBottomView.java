@@ -184,7 +184,7 @@ public final class FrsMultiDeleteBottomView extends LinearLayout implements View
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.a = z;
             if (z) {
-                this.b.c.setText(R.string.obfuscated_res_0x7f0f1428);
+                this.b.c.setText(R.string.obfuscated_res_0x7f0f1429);
                 this.b.f.setText(R.string.shield_and_forbidden_one_day);
                 return;
             }
@@ -220,7 +220,7 @@ public final class FrsMultiDeleteBottomView extends LinearLayout implements View
             String string = getContext().getString(R.string.obfuscated_res_0x7f0f055b);
             Intrinsics.checkNotNullExpressionValue(string, "context.getString(R.string.delete)");
             if (this.a) {
-                string = getContext().getString(R.string.obfuscated_res_0x7f0f1428);
+                string = getContext().getString(R.string.obfuscated_res_0x7f0f1429);
                 Intrinsics.checkNotNullExpressionValue(string, "context.getString(R.string.shield)");
             }
             if (i > 0) {

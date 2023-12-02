@@ -2,35 +2,22 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.push.PushGuideManager;
-import com.baidu.tieba.push.PushSceneItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 @Service
 /* loaded from: classes8.dex */
-public final class v69 extends yfa {
+public final class v69 extends cga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yfa
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yfa
+    @Override // com.baidu.tieba.cga
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "message_tab" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "at_message_bar" : (String) invokeV.objValue;
     }
 
     public v69() {
@@ -47,16 +34,12 @@ public final class v69 extends yfa {
         }
     }
 
-    @Override // com.baidu.tieba.yfa
-    public boolean f() {
+    @Override // com.baidu.tieba.cga
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            PushSceneItem l = PushGuideManager.l(h());
-            if (l == null) {
-                return false;
-            }
-            return Intrinsics.areEqual(l.getStyle(), "3");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ia5.e().w();
         }
         return invokeV.booleanValue;
     }

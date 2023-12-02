@@ -1,73 +1,114 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes5.dex */
-public class b34 implements s34 {
+public class b34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.s34
-    public boolean a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z, @NonNull mj2 mj2Var) {
-        InterceptResult invokeCommon;
+    @Inject(force = false)
+    public static r34 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Boolean.valueOf(z), mj2Var})) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return q66.a();
         }
-        return invokeCommon.booleanValue;
+        return (r34) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s34
-    public void b(String str, String str2, String str3, String str4, String str5) {
+    @Inject(force = false)
+    public static w34 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new f34();
         }
+        return (w34) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s34
-    public void c(@NonNull String str) {
+    @Inject(force = false)
+    public static v34 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new e34();
         }
+        return (v34) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s34
-    public void d(@NonNull String str, @NonNull String str2) {
+    @Inject(force = false)
+    public static s34 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return lw3.a();
         }
+        return (s34) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s34
-    public void e(@NonNull String str) {
+    @Inject(force = false)
+    public static u34 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return qw3.a();
         }
+        return (u34) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s34
-    public void f(@NonNull String str) {
+    @Inject(force = false)
+    public static t34 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return nw3.a();
         }
+        return (t34) invokeV.objValue;
     }
 
-    public b34() {
+    @Inject(force = false)
+    public static x34 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return new g34();
         }
+        return (x34) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static y34 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new h34();
+        }
+        return (y34) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static z34 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return new i34();
+        }
+        return (z34) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static a44 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return new j34();
+        }
+        return (a44) invokeV.objValue;
     }
 }

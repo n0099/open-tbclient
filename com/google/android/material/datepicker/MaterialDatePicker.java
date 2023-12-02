@@ -221,9 +221,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
 
     public static int getPaddedPickerWidth(@NonNull Context context) {
         Resources resources = context.getResources();
-        int dimensionPixelOffset = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705d5);
+        int dimensionPixelOffset = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705d8);
         int i = Month.current().daysInWeek;
-        return (dimensionPixelOffset * 2) + (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705dc) * i) + ((i - 1) * resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705eb));
+        return (dimensionPixelOffset * 2) + (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705df) * i) + ((i - 1) * resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705ef));
     }
 
     private int getThemeResId(Context context) {
@@ -333,7 +333,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
 
     public static int getDialogPickerHeight(@NonNull Context context) {
         Resources resources = context.getResources();
-        return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705ef) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705f0) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705ed) + resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705dd) + (MonthAdapter.MAXIMUM_WEEKS * resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705d7)) + ((MonthAdapter.MAXIMUM_WEEKS - 1) * resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705ec)) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705d4);
+        return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705f2) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705f3) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705f1) + resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705e0) + (MonthAdapter.MAXIMUM_WEEKS * resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705db)) + ((MonthAdapter.MAXIMUM_WEEKS - 1) * resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705f0)) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705d7);
     }
 
     @NonNull
@@ -390,7 +390,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         this.pickerFragment = pickerFragment;
         updateHeader();
         FragmentTransaction beginTransaction = getChildFragmentManager().beginTransaction();
-        beginTransaction.replace(R.id.obfuscated_res_0x7f0918ee, this.pickerFragment);
+        beginTransaction.replace(R.id.obfuscated_res_0x7f0918ef, this.pickerFragment);
         beginTransaction.commitNow();
         this.pickerFragment.addOnSelectionChangedListener(new OnSelectionChangedListener<S>() { // from class: com.google.android.material.datepicker.MaterialDatePicker.3
             @Override // com.google.android.material.datepicker.OnSelectionChangedListener
@@ -415,7 +415,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
             window.setBackgroundDrawable(this.background);
         } else {
             window.setLayout(-2, -2);
-            int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705de);
+            int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705e1);
             Rect rect = new Rect(dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset);
             window.setBackgroundDrawable(new InsetDrawable((Drawable) this.background, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset));
             window.getDecorView().setOnTouchListener(new InsetDialogOnTouchListener(requireDialog(), rect));
@@ -450,18 +450,18 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         View inflate = layoutInflater.inflate(i, viewGroup);
         Context context = inflate.getContext();
         if (this.fullscreen) {
-            inflate.findViewById(R.id.obfuscated_res_0x7f0918ee).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
+            inflate.findViewById(R.id.obfuscated_res_0x7f0918ef).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
         } else {
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0918ef);
-            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0918ee);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0918f0);
+            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0918ef);
             findViewById.setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -1));
             findViewById2.setMinimumHeight(getDialogPickerHeight(requireContext()));
         }
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918fa);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918fb);
         this.headerSelectionText = textView;
         ViewCompat.setAccessibilityLiveRegion(textView, 1);
-        this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f0918fc);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091900);
+        this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f0918fd);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091901);
         CharSequence charSequence = this.titleText;
         if (charSequence != null) {
             textView2.setText(charSequence);

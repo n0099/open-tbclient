@@ -39,7 +39,7 @@ public final class d extends com.kwad.components.ad.draw.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f0914f5);
+        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f0914f6);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

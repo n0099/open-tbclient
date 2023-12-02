@@ -1,96 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.yy.gslbsdk.db.DelayTB;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ria {
-    public static /* synthetic */ Interceptable $ic;
+public final class ria {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 2131099672;
+    public static int b = 2131167587;
+    public static int c = 2131167797;
+    public static int d = 2131167910;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<a> b;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public long b;
-        public long c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948123967, "Lcom/baidu/tieba/ria;")) == null) {
+            return;
         }
-
-        public a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                this.a = jSONObject.optInt("style");
-                long optLong = jSONObject.optLong(DelayTB.DELAY);
-                this.b = optLong;
-                if (optLong < 0) {
-                    this.b = 0L;
-                }
-                this.c = jSONObject.optLong("duration");
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    public ria() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
         }
-    }
-
-    public static ria a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            ria riaVar = new ria();
-            riaVar.a = jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
-            JSONArray optJSONArray = jSONObject.optJSONArray(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-            riaVar.b = new ArrayList();
-            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
-                List<a> list = riaVar.b;
-                a aVar = new a();
-                aVar.a(optJSONArray.optJSONObject(i));
-                list.add(aVar);
-            }
-            return riaVar;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948123967, "Lcom/baidu/tieba/ria;");
         }
-        return (ria) invokeL.objValue;
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
+import com.baidu.searchbox.dns.IHttpDnsConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,15 +12,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes6.dex */
-public class hpa implements ILokiIdentityNeedContext {
+public class hpa implements IHttpDnsConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext
-    public String getAppName() {
+    @Override // com.baidu.searchbox.dns.IHttpDnsConfig
+    public String getAccountId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tieba" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "119799" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.dns.IHttpDnsConfig
+    public String getLabel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "tbprefetch" : (String) invokeV.objValue;
     }
 
     public hpa() {

@@ -22,14 +22,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qu5;
+import com.baidu.tieba.uu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public f d;
     public TextView.OnEditorActionListener e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface f {
         void a(int i);
 
@@ -58,7 +58,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         return invokeI.longValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class e extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         public ImageView b;
         public g c;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes8.dex */
         public class a implements View.OnFocusChangeListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 }
             }
             this.a = (EditText) view2.findViewById(R.id.vote_item);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091151);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091152);
             this.c = new g(writeVoteViewAdapter, this);
             this.a.setOnEditorActionListener(writeVoteViewAdapter.e);
         }
@@ -138,7 +138,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -175,7 +175,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,7 +244,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class d extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -270,13 +270,13 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092ab6);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092ab8);
-            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092ab7);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092ab9);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092abb);
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092aba);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class g implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -337,10 +337,10 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             String replace = obj.replace(" ", "");
             WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
             writeVoteItemData.setId(this.b + 1);
-            if (qu5.e(replace) > 28) {
-                this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f1915), 14));
+            if (uu5.e(replace) > 28) {
+                this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f1916), 14));
             }
-            String m = qu5.m(replace, 28);
+            String m = uu5.m(replace, 28);
             if (!m.equals(editable.toString())) {
                 this.a.a.setText(m);
                 this.a.a.setSelection(m.length());
@@ -435,7 +435,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             if (viewHolder instanceof e) {
                 e eVar = (e) viewHolder;
                 String text = this.b.get(i).getText();
-                eVar.a.setHint(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1910), Integer.valueOf(i + 1)));
+                eVar.a.setHint(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1911), Integer.valueOf(i + 1)));
                 eVar.a.setGravity(19);
                 if (i < this.b.size() - 1) {
                     eVar.a.setImeOptions(5);
@@ -461,7 +461,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 }
             } else if (viewHolder instanceof d) {
                 d dVar = (d) viewHolder;
-                dVar.a.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f18e5), Integer.valueOf(20 - this.b.size())));
+                dVar.a.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f18e6), Integer.valueOf(20 - this.b.size())));
                 dVar.c.setOnClickListener(new c(this));
             }
             p(viewHolder);
@@ -475,9 +475,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
             if (i == 1) {
-                return new e(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0a3a, viewGroup, false));
+                return new e(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0a3b, viewGroup, false));
             }
-            return new d(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0a37, viewGroup, false));
+            return new d(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0a38, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

@@ -1,37 +1,45 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
-import java.util.Objects;
-import tbclient.Loop.FestivalInfo;
-import tbclient.ThemeColorInfo;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class uc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    @SerializedName("main_fname")
     public String a;
-    @SerializedName("main_fid")
-    public long b;
-    @Nullable
-    @SerializedName("bless")
+    public String b;
     public String c;
-    @Nullable
-    @SerializedName("write_select_tips")
     public String d;
-    @Nullable
-    @SerializedName("comment_tips")
     public String e;
-    @Nullable
-    @SerializedName("tips_color")
-    public ThemeColorInfo f;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public int n;
+    public int o;
+    public boolean p;
+    public String q;
+    @NonNull
+    public List<uc5> r;
 
     public uc5() {
         Interceptable interceptable = $ic;
@@ -43,48 +51,261 @@ public class uc5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.r = new ArrayList();
     }
 
-    public void a(FestivalInfo festivalInfo) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, festivalInfo) != null) || festivalInfo == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        this.a = festivalInfo.main_fname;
-        this.b = festivalInfo.main_fid.longValue();
-        this.c = festivalInfo.bless;
-        this.d = festivalInfo.write_select_tips;
-        this.e = festivalInfo.comment_tips;
-        this.f = festivalInfo.tips_color;
+        return (String) invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || uc5.class != obj.getClass()) {
-                return false;
-            }
-            uc5 uc5Var = (uc5) obj;
-            if (Objects.equals(this.a, uc5Var.a) && this.b == uc5Var.b && Objects.equals(this.c, uc5Var.c) && Objects.equals(this.d, uc5Var.d) && Objects.equals(this.e, uc5Var.e)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.l;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.o;
+        }
+        return invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.n;
+        }
+        return invokeV.intValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.q;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (this.r.size() > 0) {
                 return true;
             }
             return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.p;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static HashMap<String, uc5> s(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            try {
+                Iterator<String> keys = jSONObject.keys();
+                HashMap<String, uc5> hashMap = new HashMap<>();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    JSONObject jSONObject2 = jSONObject.getJSONObject(next);
+                    uc5 uc5Var = new uc5();
+                    uc5Var.r(jSONObject2);
+                    hashMap.put(next, uc5Var);
+                }
+                return hashMap;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    @NonNull
+    public List<String> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (o()) {
+                for (uc5 uc5Var : this.r) {
+                    if (uc5Var != null) {
+                        arrayList.add(uc5Var.j());
+                    }
+                }
+            } else {
+                arrayList.add(j());
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Nullable
+    public uc5 n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            if (i >= 0 && i < this.r.size()) {
+                return this.r.get(i);
+            }
+            return null;
+        }
+        return (uc5) invokeI.objValue;
+    }
+
+    public boolean q(uc5 uc5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, uc5Var)) == null) {
+            if (uc5Var == null) {
+                return false;
+            }
+            if (this == uc5Var) {
+                return true;
+            }
+            if (!this.a.equals(uc5Var.a) || !this.b.equals(uc5Var.b) || !this.c.equals(uc5Var.c) || !this.d.equals(uc5Var.d) || !this.e.equals(uc5Var.e) || !this.f.equals(uc5Var.f) || !this.g.equals(uc5Var.g) || !this.h.equals(uc5Var.h) || !this.i.equals(uc5Var.i) || !this.j.equals(uc5Var.j) || !this.k.equals(uc5Var.k) || !this.l.equals(uc5Var.l) || !this.m.equals(uc5Var.m) || this.n != uc5Var.n || this.o != uc5Var.o || this.p != uc5Var.p || !this.q.equals(uc5Var.q)) {
+                return false;
+            }
+            return true;
+        }
         return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public void r(JSONObject jSONObject) {
+        boolean z;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Objects.hash(this.a, Long.valueOf(this.b), this.c, this.d, this.e);
+        if ((interceptable != null && interceptable.invokeL(1048593, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeV.intValue;
+        this.a = jSONObject.optString("color");
+        this.b = jSONObject.optString("color_night");
+        this.c = jSONObject.optString("color_dark");
+        this.d = jSONObject.optString(BigdayActivityConfig.IMG_URL);
+        this.e = jSONObject.optString("img_url_night");
+        this.f = jSONObject.optString("img_url_dark");
+        this.g = jSONObject.optString("card_color");
+        this.h = jSONObject.optString("card_color_night");
+        this.i = jSONObject.optString("card_color_dark");
+        this.j = jSONObject.optString("card_img_url");
+        this.k = jSONObject.optString("card_img_url_night");
+        this.l = jSONObject.optString("card_img_url_dark");
+        this.m = jSONObject.optString("card_jump_url");
+        this.n = jSONObject.optInt("card_show_height");
+        this.o = jSONObject.optInt("card_img_width");
+        if (jSONObject.optInt("is_black_title") != 2) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.p = z;
+        this.q = jSONObject.optString("h5_img_url");
+        this.r.clear();
+        JSONArray optJSONArray = jSONObject.optJSONArray("top_level_list");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                uc5 uc5Var = new uc5();
+                uc5Var.r(optJSONObject);
+                this.r.add(uc5Var);
+            }
+        }
     }
 }

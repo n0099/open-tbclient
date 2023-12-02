@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.mainentrance;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.q45;
+import com.baidu.tieba.t45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,7 +63,7 @@ public class MainEntrance {
     public static final int PRIORITY_VIDEO_CHANNEL = 5;
     public static final int PRIORITY_WRITE_THREAD = 4;
     public static int initMainTabType;
-    public static q45 sMainTabInst;
+    public static t45 sMainTabInst;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -99,11 +99,11 @@ public class MainEntrance {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            q45 q45Var = sMainTabInst;
-            if (q45Var == null) {
+            t45 t45Var = sMainTabInst;
+            if (t45Var == null) {
                 return -1;
             }
-            return q45Var.getCurrentTabType();
+            return t45Var.getCurrentTabType();
         }
         return invokeV.intValue;
     }
@@ -112,11 +112,11 @@ public class MainEntrance {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            q45 q45Var = sMainTabInst;
-            if (q45Var == null) {
+            t45 t45Var = sMainTabInst;
+            if (t45Var == null) {
                 return null;
             }
-            return q45Var.d();
+            return t45Var.d();
         }
         return (Class) invokeV.objValue;
     }
@@ -125,11 +125,11 @@ public class MainEntrance {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            q45 q45Var = sMainTabInst;
-            if (q45Var == null) {
+            t45 t45Var = sMainTabInst;
+            if (t45Var == null) {
                 return null;
             }
-            return q45Var.f();
+            return t45Var.f();
         }
         return (String) invokeV.objValue;
     }
@@ -147,45 +147,45 @@ public class MainEntrance {
     }
 
     public static void goToMainTab(Context context) {
-        q45 q45Var;
+        t45 t45Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, context) != null) || (q45Var = sMainTabInst) == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, null, context) != null) || (t45Var = sMainTabInst) == null) {
             return;
         }
-        q45Var.a(context);
+        t45Var.a(context);
     }
 
-    public static void setMainTabInst(q45 q45Var) {
+    public static void setMainTabInst(t45 t45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, q45Var) == null) {
-            sMainTabInst = q45Var;
+        if (interceptable == null || interceptable.invokeL(65545, null, t45Var) == null) {
+            sMainTabInst = t45Var;
         }
     }
 
     public static void goToMainTab(Context context, int i) {
-        q45 q45Var;
+        t45 t45Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65542, null, context, i) != null) || (q45Var = sMainTabInst) == null) {
+        if ((interceptable != null && interceptable.invokeLI(65542, null, context, i) != null) || (t45Var = sMainTabInst) == null) {
             return;
         }
-        q45Var.b(context, i);
+        t45Var.b(context, i);
     }
 
     public static void goToMainTab(Context context, int i, boolean z) {
-        q45 q45Var;
+        t45 t45Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (q45Var = sMainTabInst) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (t45Var = sMainTabInst) == null) {
             return;
         }
-        q45Var.c(context, i, z);
+        t45Var.c(context, i, z);
     }
 
     public static void goToMainTabRefresh(Context context, int i, boolean z) {
-        q45 q45Var;
+        t45 t45Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65544, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (q45Var = sMainTabInst) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65544, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (t45Var = sMainTabInst) == null) {
             return;
         }
-        q45Var.e(context, i, z);
+        t45Var.e(context, i, z);
     }
 }

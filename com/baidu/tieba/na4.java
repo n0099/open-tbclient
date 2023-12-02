@@ -1,27 +1,41 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.swan.hide.api.bypass.NativeHideApiBypass;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public class na4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ma4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ma4 a() {
-        InterceptResult invokeV;
-        ma4 ma4Var;
+    public static boolean a(Object obj, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (na4.class) {
-                if (a == null) {
-                    a = new ma4();
-                }
-                ma4Var = a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, str)) == null) {
+            if (obj != null && !TextUtils.isEmpty(str)) {
+                return true;
             }
-            return ma4Var;
+            return false;
         }
-        return (ma4) invokeV.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static Method b(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, obj, str, clsArr)) == null) {
+            if (!a(obj, str)) {
+                return null;
+            }
+            if (ma4.g()) {
+                return NativeHideApiBypass.getDeclaredMethod(obj, str, clsArr);
+            }
+            return (Method) Class.class.getMethod("getDeclaredMethod", String.class, Class[].class).invoke(obj, str, clsArr);
+        }
+        return (Method) invokeLLL.objValue;
     }
 }

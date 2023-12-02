@@ -36,14 +36,14 @@ public class cl0 extends re0 {
     public class a implements zk0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i71 a;
+        public final /* synthetic */ k71 a;
 
-        public a(cl0 cl0Var, i71 i71Var) {
+        public a(cl0 cl0Var, k71 k71Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cl0Var, i71Var};
+                Object[] objArr = {cl0Var, k71Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,7 +53,7 @@ public class cl0 extends re0 {
                     return;
                 }
             }
-            this.a = i71Var;
+            this.a = k71Var;
         }
     }
 
@@ -82,27 +82,27 @@ public class cl0 extends re0 {
                 c(ze0Var, ve0Var, 202, false);
                 return true;
             }
-            HashMap<String, String> e = e(str);
-            if (e != null && !e.isEmpty()) {
-                if (TextUtils.isEmpty(e.get("android_pid")) && ij0.b().a().a("reward_sdk_switch", 0) != 1) {
+            HashMap<String, String> f = f(str);
+            if (f != null && !f.isEmpty()) {
+                if (TextUtils.isEmpty(f.get("android_pid")) && ij0.b().a().a("reward_sdk_switch", 0) != 1) {
                     c(ze0Var, ve0Var, 202, false);
                     return true;
                 }
-                String str2 = e.get("android_pid");
-                e.remove("android_pid");
-                e.remove("ios_pid");
-                i71 i71Var = new i71(context);
-                i71Var.e(context.getString(R.string.nad_reward_video_lp_task_loading));
-                i71Var.c(false);
-                i71Var.d(false);
-                m11.b(i71Var);
-                el0 el0Var = new el0(e);
+                String str2 = f.get("android_pid");
+                f.remove("android_pid");
+                f.remove("ios_pid");
+                k71 k71Var = new k71(context);
+                k71Var.e(context.getString(R.string.nad_reward_video_lp_task_loading));
+                k71Var.c(false);
+                k71Var.d(false);
+                o11.b(k71Var);
+                el0 el0Var = new el0(f);
                 zk0 zk0Var = (zk0) ServiceManager.getService(zk0.a);
                 if (zk0Var != null && ij0.b().a().a("reward_sdk_switch", 0) == 1) {
-                    zk0Var.a(f(str), new a(this, i71Var));
+                    zk0Var.a(g(str), new a(this, k71Var));
                     return true;
                 }
-                el0Var.e(i71Var, str2);
+                el0Var.e(k71Var, str2);
                 c(ze0Var, ve0Var, 0, true);
                 return true;
             }
@@ -112,11 +112,34 @@ public class cl0 extends re0 {
         return invokeLLLL.booleanValue;
     }
 
+    public final void e(JSONObject jSONObject) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            try {
+                int i2 = 0;
+                int i3 = 1;
+                if (g21.a("nad_reward_sp", "key_is_new_session", 0) == 1) {
+                    i = g21.a("nad_reward_sp", "key_session_count", 0) + 1;
+                } else {
+                    int a2 = g21.a("nad_reward_sp", "key_session_count", 1);
+                    i3 = 1 + g21.a("nad_reward_sp", "key_in_session_count", 0);
+                    i2 = g21.a("nad_reward_sp", "key_reward_count", 0);
+                    i = a2;
+                }
+                jSONObject.put("session_id", i);
+                jSONObject.put("session_reward", i2);
+                jSONObject.put("session_refresh", i3);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
     @Nullable
-    public final HashMap<String, String> e(String str) {
+    public final HashMap<String, String> f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -137,11 +160,11 @@ public class cl0 extends re0 {
     }
 
     @Nullable
-    public final JSONObject f(@Nullable String str) {
+    public final JSONObject g(@Nullable String str) {
         InterceptResult invokeL;
-        rn0 a2;
+        tn0 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -149,15 +172,16 @@ public class cl0 extends re0 {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("ext_policy");
                 if (TextUtils.isEmpty(optString)) {
-                    a2 = rn0.e();
+                    a2 = tn0.f();
                 } else {
-                    a2 = rn0.a(new JSONObject(optString));
+                    a2 = tn0.a(new JSONObject(optString));
                 }
                 if (a2 != null) {
                     a2.c = "1";
-                    jSONObject.putOpt("ext_policy", rn0.f(a2).toString());
-                    jSONObject.putOpt(AdExtParam.KEY_NAD_CORE_VERSION, "5.12.0.110");
+                    jSONObject.putOpt("ext_policy", tn0.g(a2).toString());
+                    jSONObject.putOpt(AdExtParam.KEY_NAD_CORE_VERSION, "6.1.0.1");
                 }
+                e(jSONObject);
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;

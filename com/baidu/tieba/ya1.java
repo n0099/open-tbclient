@@ -1,23 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
 /* loaded from: classes9.dex */
-public final class ya1 {
+public class ya1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject
-    public static ib1 a() {
-        InterceptResult invokeV;
+    public static void a(boolean z, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return hb1.a();
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), str, objArr}) != null) || z) {
+            return;
         }
-        return (ib1) invokeV.objValue;
+        throw new IllegalArgumentException(String.format(str, objArr));
     }
 }

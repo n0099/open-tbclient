@@ -97,11 +97,11 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0313, this);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c95);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c96);
             this.a = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225);
             this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090c2c);
-            this.e = findViewById(R.id.obfuscated_res_0x7f090c96);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090c2d);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090c97);
         }
     }
 

@@ -1,32 +1,73 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.util.Pair;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.MyEmotionHorizontalAdater;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes9.dex */
-public class zr9 extends es9 {
+public class zr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TextView b;
-    public ImageView c;
+    public BdListView a;
+    public MyEmotionHorizontalAdater b;
+    public List<EmotionPackageData> c;
+    public final List<a> d;
+    public es9 e;
+    public xr9 f;
 
-    public zr9(View view2, String str) {
+    /* loaded from: classes9.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "id: " + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "firstVisibleItem: " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + "padX: " + this.c;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public zr9(TbPageContext<?> tbPageContext, BdListView bdListView, xr9 xr9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
+            Object[] objArr = {tbPageContext, bdListView, xr9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,56 +77,79 @@ public class zr9 extends es9 {
                 return;
             }
         }
-        this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a08);
-        this.b = textView;
-        textView.setText(str);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a09);
-        c();
+        this.a = bdListView;
+        es9 es9Var = new es9(tbPageContext);
+        this.e = es9Var;
+        es9Var.b(TbadkCoreApplication.getInst().getSkinType());
+        this.a.addHeaderView(this.e.a());
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        MyEmotionHorizontalAdater myEmotionHorizontalAdater = new MyEmotionHorizontalAdater(this.c, this.d, tbPageContext);
+        this.b = myEmotionHorizontalAdater;
+        this.f = xr9Var;
+        this.a.setAdapter((ListAdapter) myEmotionHorizontalAdater);
     }
 
-    public View a() {
-        InterceptResult invokeV;
+    public void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            TextView textView = this.b;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i);
-            }
-            ImageView imageView = this.c;
-            if (imageView != null) {
-                SkinManager.setImageResource(imageView, R.drawable.new_pic_emotion_02, i);
-            }
-            View view2 = this.a;
-            if (view2 != null) {
-                SkinManager.setBackgroundColor(view2, R.color.CAM_X0201, i);
-            }
+        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i < this.c.size() && i2 >= 0 && i2 < this.c.size()) {
+            List<EmotionPackageData> list = this.c;
+            list.add(i2, list.remove(i));
+            List<a> list2 = this.d;
+            list2.add(i2, list2.remove(i));
+            this.b.notifyDataSetChanged();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921312, new Pair(Integer.valueOf(i), Integer.valueOf(i2))));
         }
     }
 
-    public final void c() {
-        int i;
+    public void b() {
+        es9 es9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
-            if (equipmentHeight <= 0) {
-                i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds200);
-            } else {
-                i = (int) (equipmentHeight * 0.11d);
-            }
-            ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.topMargin = i;
-                this.c.setLayoutParams(marginLayoutParams);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != null && this.a != null && this.c != null && (es9Var = this.e) != null && this.f != null) {
+            es9Var.c();
+            this.f.b(0, this.b.b());
+            this.f.a(wr9.b().a());
+            this.b.notifyDataSetChanged();
+        }
+    }
+
+    public void c(List<EmotionPackageData> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && this.a != null && this.b != null) {
+            this.c.clear();
+            this.c.addAll(list);
+            d();
+            this.b.d();
+            this.e.d(Integer.valueOf(this.b.b()));
+            this.f.b(0, this.b.b());
+            this.f.a(wr9.b().a());
+            this.b.notifyDataSetChanged();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ArrayList arrayList = new ArrayList(this.d);
+            this.d.clear();
+            for (EmotionPackageData emotionPackageData : this.c) {
+                a aVar = null;
+                Iterator it = arrayList.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    a aVar2 = (a) it.next();
+                    if (aVar2 != null && aVar2.a == emotionPackageData.id) {
+                        aVar = aVar2;
+                        break;
+                    }
+                }
+                if (aVar == null) {
+                    aVar = new a();
+                    aVar.a = emotionPackageData.id;
+                }
+                this.d.add(aVar);
             }
         }
     }

@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CurrentPageTypeHelper;
-import com.baidu.tbadk.mutiprocess.currentpagetype.CurrentPageTypeEvent;
+import com.baidu.tbadk.mutiprocess.aiApply.AICapacityStatusUpdateEvent;
+import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class ym5 implements lm5<CurrentPageTypeEvent> {
+public final class ym5 implements om5<AICapacityStatusUpdateEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,16 +27,16 @@ public class ym5 implements lm5<CurrentPageTypeEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm5
+    @Override // com.baidu.tieba.om5
     /* renamed from: a */
-    public boolean onEvent(CurrentPageTypeEvent currentPageTypeEvent) {
+    public boolean onEvent(AICapacityStatusUpdateEvent aICapacityStatusUpdateEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, currentPageTypeEvent)) == null) {
-            if (currentPageTypeEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aICapacityStatusUpdateEvent)) == null) {
+            if (aICapacityStatusUpdateEvent == null) {
                 return false;
             }
-            CurrentPageTypeHelper.currentPageType = currentPageTypeEvent.currentPageType;
+            AICapacityApplyHelper.e.a().g(aICapacityStatusUpdateEvent.getAiCapacityPermission());
             return true;
         }
         return invokeL.booleanValue;

@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.activity.LegoListFragment;
+import android.app.Activity;
+import android.content.res.Resources;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,39 +11,42 @@ public class gg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static fg9 a(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
-            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof ve9)) {
-                return ((ve9) tbPageContext.getPageActivity()).P();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                return Integer.parseInt(Build.VERSION.SDK);
+            } catch (NumberFormatException unused) {
+                return 0;
             }
-            return null;
         }
-        return (fg9) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static LegoListFragment b(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
-            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof ve9)) {
-                return ((ve9) tbPageContext.getPageActivity()).Y();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a() >= 14) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (LegoListFragment) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static kg9 c(TbPageContext<?> tbPageContext) {
+    public static boolean c(Activity activity) {
         InterceptResult invokeL;
+        Resources resources;
+        int identifier;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
-            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof ve9)) {
-                return ((ve9) tbPageContext.getPageActivity()).V0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (b() && (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", "android")) > 0) {
+                return resources.getBoolean(identifier);
             }
-            return null;
+            return false;
         }
-        return (kg9) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

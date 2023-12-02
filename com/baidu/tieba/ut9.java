@@ -1,44 +1,157 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.annotation.SuppressLint;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseView;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.payment.PayVcodeActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.KeyFactory;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes8.dex */
-public class ut9 {
+public class ut9 extends BdBaseView<PayVcodeActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PayVcodeActivity a;
+    public ViewGroup b;
+    public View c;
+    public ViewGroup d;
+    public TextView e;
+    public TbWebView f;
+    public TextView g;
+    public ProgressBar h;
 
-    public static String a(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ut9(PayVcodeActivity payVcodeActivity) {
+        super(payVcodeActivity.getPageContext());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            try {
-                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(kd.d(b(str2))));
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, generatePublic);
-                return kd.j(cipher.doFinal(str.getBytes("GBK")));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payVcodeActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeLL.objValue;
+        this.a = payVcodeActivity;
+        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d07bc);
+        C(payVcodeActivity);
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public TbWebView A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
-            }
-            return str.replace("-----BEGIN PUBLIC KEY-----", "").replace("-----END PUBLIC KEY-----", "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return (String) invokeL.objValue;
+        return (TbWebView) invokeV.objValue;
+    }
+
+    public View g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public TextView x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public TextView y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public ViewGroup z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.d;
+        }
+        return (ViewGroup) invokeV.objValue;
+    }
+
+    public final void C(PayVcodeActivity payVcodeActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payVcodeActivity) == null) {
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091b81);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091b7b);
+            this.e = textView;
+            SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
+            this.f = (TbWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092986);
+            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092aff);
+            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091b7f);
+            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091b80);
+            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091b82);
+            this.f.setHorizontalScrollBarEnabled(false);
+            this.f.setScrollBarStyle(33554432);
+        }
+    }
+
+    public void D(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            TextView textView = this.g;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            textView.setVisibility(i);
+        }
+    }
+
+    public void E(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            ProgressBar progressBar = this.h;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            progressBar.setVisibility(i);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            jq5.a(this.a.getPageContext(), this.b);
+            SkinManager.setBgColor(this.g, i);
+            SkinManager.setBackgroundResource(this.e, R.drawable.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
+        }
     }
 }

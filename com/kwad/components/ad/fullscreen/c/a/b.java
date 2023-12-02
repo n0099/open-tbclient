@@ -62,7 +62,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.b implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.hl = (TextView) findViewById(R.id.obfuscated_res_0x7f091346);
+        this.hl = (TextView) findViewById(R.id.obfuscated_res_0x7f091347);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

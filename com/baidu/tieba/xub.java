@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.oub;
+import com.baidu.tieba.nub;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,51 +10,60 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes9.dex */
-public class xub extends uub {
+public class xub extends tub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.uub
+    @Override // com.baidu.tieba.tub
+    public Map<String, String> f(yub yubVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yubVar)) == null) {
+            return null;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.tub
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 206;
+            return 200;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.uub
-    public void j(zub zubVar) {
+    @Override // com.baidu.tieba.tub
+    public void j(yub yubVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zubVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, yubVar) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.uub
-    public void n(zub zubVar) {
+    @Override // com.baidu.tieba.tub
+    public void n(yub yubVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, zubVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, yubVar) == null) {
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xub(rub rubVar, zub zubVar, oub.a aVar) {
-        super(rubVar, zubVar, aVar);
+    public xub(qub qubVar, yub yubVar, nub.a aVar) {
+        super(qubVar, yubVar, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rubVar, zubVar, aVar};
+            Object[] objArr = {qubVar, yubVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((rub) objArr2[0], (zub) objArr2[1], (oub.a) objArr2[2]);
+                super((qub) objArr2[0], (yub) objArr2[1], (nub.a) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -62,33 +71,19 @@ public class xub extends uub {
         }
     }
 
-    @Override // com.baidu.tieba.uub
+    @Override // com.baidu.tieba.tub
     public RandomAccessFile e(File file, String str, long j) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
             RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
-            randomAccessFile.seek(j);
+            randomAccessFile.seek(0L);
             return randomAccessFile;
         }
         return (RandomAccessFile) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.uub
-    public Map<String, String> f(zub zubVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zubVar)) == null) {
-            HashMap hashMap = new HashMap();
-            long c = zubVar.c() + zubVar.b();
-            long a = zubVar.a();
-            hashMap.put("Range", "bytes=" + c + "-" + a);
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.uub
+    @Override // com.baidu.tieba.tub
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

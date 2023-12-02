@@ -1,52 +1,35 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.CommonDistance;
-import tbclient.FrsPage.CommonForum;
-import tbclient.FrsPage.PostInfo;
-import tbclient.FrsPage.RecomUserInfo;
-import tbclient.FrsPage.UserInfo;
+import tbclient.FrsPage.RecommendBook;
 /* loaded from: classes8.dex */
-public class u1d extends ltc {
+public class u1d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecomUserInfo recomUserInfo) {
+    public static JSONObject b(@NonNull RecommendBook recommendBook) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recomUserInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recommendBook)) == null) {
             JSONObject jSONObject = new JSONObject();
-            UserInfo userInfo = recomUserInfo.user_info;
-            if (userInfo != null) {
-                ltc.a(jSONObject, SourceConstant.SOURCE_USER_INFO, u2d.b(userInfo));
-            }
-            if (recomUserInfo.common_forum != null) {
+            ktc.a(jSONObject, "type", recommendBook.type);
+            ktc.a(jSONObject, "book_id", recommendBook.book_id);
+            ktc.a(jSONObject, "title", recommendBook.title);
+            ktc.a(jSONObject, "image", recommendBook.image);
+            if (recommendBook.desc != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (CommonForum commonForum : recomUserInfo.common_forum) {
-                    jSONArray.put(vzc.b(commonForum));
+                for (String str : recommendBook.desc) {
+                    jSONArray.put(str);
                 }
-                ltc.a(jSONObject, "common_forum", jSONArray);
+                ktc.a(jSONObject, "desc", jSONArray);
             }
-            if (recomUserInfo.post_info != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (PostInfo postInfo : recomUserInfo.post_info) {
-                    jSONArray2.put(k1d.b(postInfo));
-                }
-                ltc.a(jSONObject, "post_info", jSONArray2);
-            }
-            ltc.a(jSONObject, "pos_name", recomUserInfo.pos_name);
-            ltc.a(jSONObject, "message", recomUserInfo.message);
-            CommonDistance commonDistance = recomUserInfo.distanceinfo;
-            if (commonDistance != null) {
-                ltc.a(jSONObject, "distanceinfo", uzc.b(commonDistance));
-            }
+            ktc.a(jSONObject, "link_url", recommendBook.link_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

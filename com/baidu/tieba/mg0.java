@@ -108,11 +108,11 @@ public class mg0 {
     public void b(ve0 ve0Var, ze0 ze0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ve0Var, ze0Var) == null) {
-            String str = (String) ny0.b(ve0Var.d(), "params");
+            String str = (String) py0.b(ve0Var.d(), "params");
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            JSONObject c = my0.c(str);
+            JSONObject c = oy0.c(str);
             String optString = c.optString("type", "");
             String e = ve0Var.e();
             if (TextUtils.isEmpty(optString)) {
@@ -258,7 +258,7 @@ public class mg0 {
                             } else {
                                 uri = uri2.toString();
                             }
-                            jSONArray.put(my0.c(hi0.a(t, str, uri, optString5)));
+                            jSONArray.put(oy0.c(hi0.a(t, str, uri, optString5)));
                         }
                     }
                 }
@@ -267,7 +267,7 @@ public class mg0 {
                     return;
                 }
                 JSONObject jSONObject2 = new JSONObject();
-                my0.f(jSONObject2, "result", jSONArray);
+                oy0.f(jSONObject2, "result", jSONArray);
                 hashMap.put("data", jSONObject2.toString());
                 hi0.b(ze0Var, true, hashMap);
             } else if (!TextUtils.isEmpty(optString)) {
@@ -401,7 +401,7 @@ public class mg0 {
         String optString7 = jSONObject.optString("page", "");
         String optString8 = jSONObject.optString("packageName", "");
         String optString9 = jSONObject.optString("lp_url", "");
-        ny0.e(this.c, optString4, optString2);
+        py0.e(this.c, optString4, optString2);
         HashMap hashMap = new HashMap();
         hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, optString2);
         if (!TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
@@ -431,7 +431,7 @@ public class mg0 {
         String optString6 = jSONObject.optString("business", "");
         String optString7 = jSONObject.optString("page", "");
         String optString8 = jSONObject.optString("packageName", "");
-        ny0.g(this.c, optString4);
+        py0.g(this.c, optString4);
         HashMap hashMap = new HashMap();
         hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, optString2);
         if (!TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
@@ -522,7 +522,7 @@ public class mg0 {
         if (!TextUtils.isEmpty(optString2) && gi0.c(optString2)) {
             str = "0";
         }
-        my0.f(jSONObject2, "result", str);
+        oy0.f(jSONObject2, "result", str);
         hashMap.put("data", jSONObject2.toString());
         if (ze0Var != null) {
             ze0Var.a(true, hashMap);
@@ -556,7 +556,7 @@ public class mg0 {
                 xg0Var.b = str6;
                 xg0Var.a = str5;
                 if (!TextUtils.isEmpty(str4)) {
-                    JSONObject c = my0.c(str4);
+                    JSONObject c = oy0.c(str4);
                     a2.q.g = c.optInt("close_v_dl");
                     a2.q.c = c.optString("source");
                     a2.p.h = c.optString("app_name");

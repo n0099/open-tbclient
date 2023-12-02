@@ -1,130 +1,115 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dw2 {
+public class dw2 extends rw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.ou1
+    public String k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        return i != 3 ? 100 : 118;
-                    }
-                    return 112;
-                }
-                return 100;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "UpdateMenuStyleApi" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dw2(@NonNull mu1 mu1Var) {
+        super(mu1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mu1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((mu1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 82;
         }
-        return invokeI.intValue;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Bundle b = u23.b(ew2.class, null);
-            if (b == null) {
-                return 1;
-            }
-            return b.getInt("font_size_level", 1);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b() + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return wj3.f("3.200.101");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            SwanAppConfigData t = ur2.V().t();
-            if (t == null) {
-                return false;
-            }
-            return TextUtils.equals("none", t.e.q);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static NgWebView c(n52 n52Var) {
+    public final int z(String str) {
         InterceptResult invokeL;
-        HashMap<String, qs1> W;
-        qs1 qs1Var;
-        ps1 webView;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, n52Var)) == null) {
-            if (n52Var instanceof p52) {
-                os1 v3 = ((p52) n52Var).v3();
-                if (v3 != null && v3.j() != null) {
-                    return (NgWebView) v3.j().getWebView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -1866956286) {
+                if (hashCode == -838846263 && str.equals(StickerDataChangeType.UPDATE)) {
+                    c = 0;
                 }
-                if (v3 == null) {
-                    return null;
-                }
-                return (NgWebView) v3.getWebView();
-            } else if (!(n52Var instanceof u52) || (W = bd2.V().W()) == null || W.size() <= 0 || (qs1Var = W.get(zl3.c().h())) == null || !(qs1Var instanceof SwanWebModeWidget) || (webView = qs1Var.getWebView()) == null || !(webView instanceof NgWebView)) {
-                return null;
+                c = 65535;
             } else {
-                return (NgWebView) webView;
+                if (str.equals("webDegrade")) {
+                    c = 1;
+                }
+                c = 65535;
             }
+            if (c != 0) {
+                if (c != 1) {
+                    return 12;
+                }
+                return 20;
+            }
+            return 19;
         }
-        return (NgWebView) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static void g(int i, int i2) {
-        SwanAppActivity w;
-        q52 Y;
-        n52 m;
-        NgWebView c;
+    public ly1 y(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(65542, null, i, i2) != null) || (w = g63.K().w()) == null || (Y = w.Y()) == null || (m = Y.m()) == null || (c = c(m)) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            r("#changeMenuStyle", false);
+            Pair<ly1, JSONObject> t = t(str);
+            JSONObject jSONObject = (JSONObject) t.second;
+            if (((ly1) t.first).isSuccess() && jSONObject != null) {
+                String optString = jSONObject.optString("type");
+                if (TextUtils.isEmpty(optString)) {
+                    return new ly1(202);
+                }
+                int z = z(optString);
+                xr2 V = xr2.V();
+                if (V == null) {
+                    return new ly1(1001);
+                }
+                t52 W = V.W();
+                if (W == null) {
+                    return new ly1(1001);
+                }
+                q52 m = W.m();
+                if (m == null) {
+                    return new ly1(1001);
+                }
+                rc4 T1 = m.T1();
+                if (T1 == null) {
+                    if (m instanceof x52) {
+                        ((x52) m).q3(z);
+                        return ly1.f();
+                    }
+                    return new ly1(1001);
+                }
+                T1.e(z);
+                T1.x();
+                return ly1.f();
+            }
+            return new ly1(202);
         }
-        if (!f()) {
-            c.getSettings().setTextZoom(a(i));
-            cw2.a(Integer.valueOf(i + 1), String.valueOf(i2));
-        }
-        h(i);
-    }
-
-    public static void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("key_text_size", i);
-            x23.e().h(new z23(22, bundle));
-        }
+        return (ly1) invokeL.objValue;
     }
 }

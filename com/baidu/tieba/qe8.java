@@ -1,10 +1,17 @@
 package com.baidu.tieba;
 
-import java.util.List;
-import tbclient.HotThreadList.HotThreadListResIdl;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes7.dex */
 public interface qe8 {
-    List<pi> getDataList();
+    public static final BdUniqueId a;
+    public static final BdUniqueId b;
 
-    HotThreadListResIdl getResData();
+    static {
+        BdUniqueId.gen();
+        BdUniqueId.gen();
+        a = BdUniqueId.gen();
+        b = BdUniqueId.gen();
+        BdUniqueId.gen();
+        BdUniqueId.gen();
+    }
 }

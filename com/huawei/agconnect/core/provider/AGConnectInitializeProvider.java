@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fbc;
+import com.baidu.tieba.ebc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,7 +67,7 @@ public class AGConnectInitializeProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Log.i("AGConnectProvider", "AGConnectInitializeProvider#onCreate");
-            fbc.e(getContext());
+            ebc.e(getContext());
             return false;
         }
         return invokeV.booleanValue;

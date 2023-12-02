@@ -1,129 +1,139 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.searchbox.live.frame.PageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedContentResource;
+import org.json.JSONObject;
 import tbclient.FeedItem;
-import tbclient.FeedOriginComponent;
-import tbclient.FeedOriginPic;
-import tbclient.PicInfo;
-import tbclient.VideoField;
 /* loaded from: classes6.dex */
 public final class h97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x011c  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x011e  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final void a(FeedOriginComponent feedOriginComponent, List<nb7<?>> dataList, n67 feedExtraData) {
-        q47 q47Var;
-        x47 x47Var;
-        m47 m47Var;
-        i47 i47Var;
+    public static final m47 a(FeedItem item, String apkDetailStr, long j, String tid, String forumName, String pageFrom) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{item, apkDetailStr, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(apkDetailStr, "apkDetailStr");
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(forumName, "forumName");
+            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
+            JSONObject jSONObject = new JSONObject(apkDetailStr);
+            p57 p57Var = new p57();
+            p57Var.l = jSONObject.optString("appid");
+            p57Var.m = item.name;
+            p57Var.b = item.icon_url;
+            Double d = item.icon_ratio;
+            if (d != null) {
+                d.doubleValue();
+                p57Var.c = (float) item.icon_ratio.doubleValue();
+            }
+            p57Var.n = jSONObject.optString("apk_name");
+            p57Var.o = jSONObject.optString("version");
+            p57Var.p = jSONObject.optInt("version_code");
+            p57Var.q = jSONObject.optLong("size");
+            p57Var.r = item.button_link;
+            p57Var.e = 1;
+            Double d2 = item.score;
+            if (d2 != null) {
+                d2.doubleValue();
+                p57Var.f = (float) item.score.doubleValue();
+            }
+            p57Var.g = item.tags;
+            p57Var.s = jSONObject.optString("developer");
+            p57Var.t = jSONObject.optString("publisher");
+            p57Var.u = jSONObject.optString("authority_url");
+            p57Var.v = jSONObject.optString("privacy_url");
+            p57Var.w = jSONObject.optInt("pkg_source");
+            p57Var.h = item.button_name;
+            p57Var.a = j;
+            p57Var.k = forumName;
+            ma7 ma7Var = new ma7();
+            ma7Var.a = tid;
+            ma7Var.b = pageFrom;
+            return new m47(p57Var, ma7Var, false, 4, null);
+        }
+        return (m47) invokeCommon.objValue;
+    }
+
+    public static final q47 b(FeedItem item, long j, String tid, String forumName, String pageFrom) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{item, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            Intrinsics.checkNotNullParameter(forumName, "forumName");
+            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
+            o77 o77Var = new o77();
+            o77Var.a = j;
+            o77Var.b = item.icon_url;
+            Double d = item.icon_ratio;
+            if (d != null) {
+                d.doubleValue();
+                o77Var.c = (float) item.icon_ratio.doubleValue();
+            }
+            o77Var.d = item.name;
+            o77Var.e = 1;
+            Double d2 = item.score;
+            if (d2 != null) {
+                d2.doubleValue();
+                o77Var.f = (float) item.score.doubleValue();
+            }
+            o77Var.g = item.tags;
+            o77Var.h = item.button_name;
+            o77Var.i = item.button_link;
+            o77Var.k = forumName;
+            na7 na7Var = new na7();
+            na7Var.a = tid;
+            na7Var.b = pageFrom;
+            return new q47(o77Var, na7Var, false, 4, null);
+        }
+        return (q47) invokeCommon.objValue;
+    }
+
+    public static final void c(FeedItem feedItem, List<rb7<?>> dataList, r67 feedExtraData) {
         String str;
         String str2;
         String str3;
-        boolean z;
+        Map<String, String> a;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedOriginComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedOriginComponent, "<this>");
+        if (interceptable == null || interceptable.invokeLLL(65538, null, feedItem, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedItem, "<this>");
             Intrinsics.checkNotNullParameter(dataList, "dataList");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            List<FeedContentResource> _abstract = feedOriginComponent._abstract;
-            Intrinsics.checkNotNullExpressionValue(_abstract, "_abstract");
-            h47 a = a97.a(spannableStringBuilder, _abstract, new n67());
-            if (a.k()) {
-                FeedOriginPic feedOriginPic = feedOriginComponent.pic_info;
-                if (feedOriginPic != null && feedOriginPic.pics != null) {
-                    String str4 = feedOriginPic.schema;
-                    if (str4 == null) {
-                        str4 = "";
-                    } else {
-                        Intrinsics.checkNotNullExpressionValue(str4, "pic_info.schema ?: \"\"");
-                    }
-                    List<PicInfo> list = feedOriginComponent.pic_info.pics;
-                    Intrinsics.checkNotNullExpressionValue(list, "pic_info.pics");
-                    q47Var = j97.b(list, str4, new n67());
-                } else {
-                    q47Var = null;
-                }
-                if (feedOriginComponent.video != null) {
-                    i87 i87Var = new i87();
-                    String schema = feedOriginComponent.schema;
-                    Intrinsics.checkNotNullExpressionValue(schema, "schema");
-                    i87Var.j(schema);
-                    VideoField video = feedOriginComponent.video;
-                    Intrinsics.checkNotNullExpressionValue(video, "video");
-                    x47Var = o97.b(video, i87Var, new n67());
-                } else {
-                    x47Var = null;
-                }
-                FeedItem feedItem = feedOriginComponent.item;
-                if (feedItem != null) {
-                    HashMap<String, String> a2 = ra7.a.a(feedItem.business_info);
-                    String str5 = a2.get("apk_detail");
-                    String str6 = feedExtraData.a().a().get("origin_thread_id");
-                    if (str6 == null) {
-                        str3 = "";
-                    } else {
-                        str3 = str6;
-                    }
-                    long j = JavaTypesHelper.toLong(a2.get("item_id"), 0L);
-                    if (str5 == null) {
-                        String str7 = feedOriginComponent.item.name;
-                        if (str7 != null && str7.length() != 0) {
-                            z = false;
-                        } else {
-                            z = true;
-                        }
-                        if (!z) {
-                            FeedItem item = feedOriginComponent.item;
-                            Intrinsics.checkNotNullExpressionValue(item, "item");
-                            m47 b = d97.b(item, j, str3, "", "");
-                            b.a().j = R.color.CAM_X0205;
-                            b.d(false);
-                            m47Var = b;
-                            i47Var = null;
-                            a87 e = o67.e(feedExtraData, "origin_card_click", null, 2, null);
-                            str = feedOriginComponent.schema;
-                            if (str == null) {
-                                str2 = "";
-                            } else {
-                                str2 = str;
-                            }
-                            dataList.add(new ob7(new o47(a, q47Var, x47Var, m47Var, i47Var, str2, e, feedExtraData.a().a(), feedExtraData.c().a(), null, 512, null), "origin_card"));
-                        }
-                    } else {
-                        FeedItem item2 = feedOriginComponent.item;
-                        Intrinsics.checkNotNullExpressionValue(item2, "item");
-                        i47 a3 = d97.a(item2, str5, j, str3, "", "");
-                        a3.a().j = R.color.CAM_X0205;
-                        a3.d(false);
-                        i47Var = a3;
-                        m47Var = null;
-                        a87 e2 = o67.e(feedExtraData, "origin_card_click", null, 2, null);
-                        str = feedOriginComponent.schema;
-                        if (str == null) {
-                        }
-                        dataList.add(new ob7(new o47(a, q47Var, x47Var, m47Var, i47Var, str2, e2, feedExtraData.a().a(), feedExtraData.c().a(), null, 512, null), "origin_card"));
-                    }
-                }
-                m47Var = null;
-                i47Var = null;
-                a87 e22 = o67.e(feedExtraData, "origin_card_click", null, 2, null);
-                str = feedOriginComponent.schema;
-                if (str == null) {
-                }
-                dataList.add(new ob7(new o47(a, q47Var, x47Var, m47Var, i47Var, str2, e22, feedExtraData.a().a(), feedExtraData.c().a(), null, 512, null), "origin_card"));
+            HashMap<String, String> a2 = va7.a.a(feedItem.business_info);
+            String str5 = a2.get("apk_detail");
+            String str6 = feedExtraData.a().a().get("thread_id");
+            if (str6 == null) {
+                str = "";
+            } else {
+                str = str6;
+            }
+            long j = JavaTypesHelper.toLong(a2.get("item_id"), 0L);
+            String str7 = a2.get("forum_name");
+            if (str7 == null) {
+                str2 = "";
+            } else {
+                str2 = str7;
+            }
+            yb7 yb7Var = feedExtraData.e().get(PageInfo.KEY);
+            if (yb7Var == null || (a = yb7Var.a(new v57())) == null || (str4 = a.get("page_from")) == null) {
+                str3 = "";
+            } else {
+                str3 = str4;
+            }
+            if (str5 == null) {
+                dataList.add(new sb7(b(feedItem, j, str, str2, str3), "mount"));
+            } else {
+                dataList.add(new sb7(a(feedItem, str5, j, str, str2, str3), "mount_app"));
             }
         }
     }

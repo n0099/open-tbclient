@@ -1,37 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TimeHelper;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
 public class x49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TbBaseMsg a;
+    public final long b;
 
-    public static boolean a(long j) {
-        InterceptResult invokeJ;
+    public x49(@NonNull TbBaseMsg tbBaseMsg, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
-            if (j == 0) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbBaseMsg, Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            if (!TimeHelper.isSameDay(sharedPrefHelper.getLong("key_chat_room_last_timestamp@" + j + "_" + TbadkCoreApplication.getCurrentAccount(), 0L), System.currentTimeMillis())) {
-                return false;
-            }
-            return true;
         }
-        return invokeJ.booleanValue;
-    }
-
-    public static void b(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65537, null, j) == null) && j != 0) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            sharedPrefHelper.putLong("key_chat_room_last_timestamp@" + j + "_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
-        }
+        this.a = tbBaseMsg;
+        this.b = j;
     }
 }

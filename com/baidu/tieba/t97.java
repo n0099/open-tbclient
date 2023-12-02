@@ -1,36 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsJVMKt;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThreadRecommendInfo;
+import tbclient.Voice;
 /* loaded from: classes8.dex */
 public final class t97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(ThreadRecommendInfo threadRecommendInfo, List<nb7<? extends Object>> mutableList, n67 feedExtraData) {
+    public static final void a(Voice voice, List<rb7<? extends Object>> mutableList, r67 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, threadRecommendInfo, mutableList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
+        if (interceptable == null || interceptable.invokeLLL(65536, null, voice, mutableList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(voice, "<this>");
             Intrinsics.checkNotNullParameter(mutableList, "mutableList");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            mutableList.add(new ob7(new r47(b(threadRecommendInfo), feedExtraData.a().a(), feedExtraData.c().a(), null, 8, null), "recommend_info"));
+            String voice_md5 = voice.voice_md5;
+            Intrinsics.checkNotNullExpressionValue(voice_md5, "voice_md5");
+            mutableList.add(new sb7(new d57(new n87(CommonStatisticKey.FRS_VOICE_PLAY, voice_md5, voice.during_time.intValue() / 1000), CollectionsKt__CollectionsJVMKt.listOf(s67.e(feedExtraData, "voice_btn_click", null, 2, null))), "feed_voice"));
         }
-    }
-
-    public static final ThreadRecommendInfoData b(ThreadRecommendInfo threadRecommendInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadRecommendInfo)) == null) {
-            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
-            ThreadRecommendInfoData threadRecommendInfoData = new ThreadRecommendInfoData();
-            threadRecommendInfoData.parseProto(threadRecommendInfo);
-            return threadRecommendInfoData;
-        }
-        return (ThreadRecommendInfoData) invokeL.objValue;
     }
 }

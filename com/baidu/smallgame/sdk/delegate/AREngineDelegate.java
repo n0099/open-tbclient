@@ -6,10 +6,10 @@ import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.qj1;
-import com.baidu.tieba.sj1;
 import com.baidu.tieba.t90;
+import com.baidu.tieba.tj1;
 import com.baidu.tieba.v90;
+import com.baidu.tieba.vj1;
 import org.json.JSONArray;
 @NotProguard
 /* loaded from: classes4.dex */
@@ -34,7 +34,7 @@ public interface AREngineDelegate {
 
     int getRenderMode();
 
-    sj1 getStuckScreenHandler();
+    vj1 getStuckScreenHandler();
 
     void initDisplayMetrics();
 
@@ -70,7 +70,7 @@ public interface AREngineDelegate {
 
     void setGameRecordCallback(v90 v90Var);
 
-    void setOnStuckScreenListener(qj1 qj1Var);
+    void setOnStuckScreenListener(tj1 tj1Var);
 
     void setPermissionProxy(PermissionProxy permissionProxy);
 

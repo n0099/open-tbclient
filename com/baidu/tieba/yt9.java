@@ -1,44 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
 /* loaded from: classes9.dex */
 public class yt9 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                a = SharedPrefHelper.getInstance().getString("nick_name_activity_link", "");
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static SpannableStringBuilder b(Context context, String str) {
+    public static String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) str);
-            int length = spannableStringBuilder.length();
-            Drawable drawable = context.getResources().getDrawable(R.drawable.icon_nichenghuodong);
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            spannableStringBuilder.append((CharSequence) "tag");
-            spannableStringBuilder.setSpan(new t55(drawable), length, spannableStringBuilder.length(), 33);
-            return spannableStringBuilder;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            try {
+                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(kd.d(b(str2))));
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(1, generatePublic);
+                return kd.j(cipher.doFinal(str.getBytes("GBK")));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
         }
-        return (SpannableStringBuilder) invokeLL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
+            }
+            return str.replace("-----BEGIN PUBLIC KEY-----", "").replace("-----END PUBLIC KEY-----", "");
+        }
+        return (String) invokeL.objValue;
     }
 }

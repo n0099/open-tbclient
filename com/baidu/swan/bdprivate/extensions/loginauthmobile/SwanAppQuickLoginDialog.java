@@ -26,12 +26,12 @@ import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.go3;
-import com.baidu.tieba.ho3;
-import com.baidu.tieba.op2;
-import com.baidu.tieba.po3;
-import com.baidu.tieba.qo3;
-import com.baidu.tieba.z53;
+import com.baidu.tieba.c63;
+import com.baidu.tieba.jo3;
+import com.baidu.tieba.ko3;
+import com.baidu.tieba.rp2;
+import com.baidu.tieba.so3;
+import com.baidu.tieba.to3;
 /* loaded from: classes4.dex */
 public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog implements View.OnClickListener {
     public BdBaseImageView j;
@@ -68,21 +68,21 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             if (z) {
                 SwanAppQuickLoginDialog.this.n.setClickable(true);
-                SwanAppQuickLoginDialog.this.n.setBackgroundResource(R.drawable.obfuscated_res_0x7f081494);
+                SwanAppQuickLoginDialog.this.n.setBackgroundResource(R.drawable.obfuscated_res_0x7f081497);
                 return;
             }
             SwanAppQuickLoginDialog.this.n.setClickable(false);
-            z53.f(SwanAppQuickLoginDialog.this.b, R.string.obfuscated_res_0x7f0f15de).H(true);
-            SwanAppQuickLoginDialog.this.n.setBackgroundResource(R.drawable.obfuscated_res_0x7f0814da);
+            c63.f(SwanAppQuickLoginDialog.this.b, R.string.obfuscated_res_0x7f0f15df).H(true);
+            SwanAppQuickLoginDialog.this.n.setBackgroundResource(R.drawable.obfuscated_res_0x7f0814dd);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements po3 {
+    public class c implements so3 {
         public c() {
         }
 
-        @Override // com.baidu.tieba.po3
+        @Override // com.baidu.tieba.so3
         public void onResult(int i) {
             String str;
             SwanAppQuickLoginDialog.this.a.onLoginResult(i);
@@ -93,27 +93,27 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
                 str = "fail";
             }
             SwanAppQuickLoginDialog swanAppQuickLoginDialog = SwanAppQuickLoginDialog.this;
-            go3.a("click", "quickLogin", str, swanAppQuickLoginDialog.h, swanAppQuickLoginDialog.i);
+            jo3.a("click", "quickLogin", str, swanAppQuickLoginDialog.h, swanAppQuickLoginDialog.i);
         }
     }
 
     public final void U2() {
         if (!SwanAppNetworkUtils.i(this.b)) {
-            z53.f(this.b, R.string.obfuscated_res_0x7f0f1592).H(true);
+            c63.f(this.b, R.string.obfuscated_res_0x7f0f1593).H(true);
             return;
         }
         QuickLoginInfo quickLoginInfo = this.f;
         if (quickLoginInfo == null) {
             return;
         }
-        qo3.e(this.b, quickLoginInfo.loginMode, new c());
+        to3.e(this.b, quickLoginInfo.loginMode, new c());
     }
 
     public final void V2() {
-        String string = getContext().getString(R.string.obfuscated_res_0x7f0f15a4);
+        String string = getContext().getString(R.string.obfuscated_res_0x7f0f15a5);
         CheckBox checkBox = this.m;
         if (!TextUtils.isEmpty(this.e)) {
-            string = String.format(getString(R.string.obfuscated_res_0x7f0f1567), this.e);
+            string = String.format(getString(R.string.obfuscated_res_0x7f0f1568), this.e);
         }
         checkBox.setText(string);
     }
@@ -121,9 +121,9 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f092939) {
+        if (id == R.id.obfuscated_res_0x7f09293c) {
             T2();
-        } else if (id == R.id.obfuscated_res_0x7f092949) {
+        } else if (id == R.id.obfuscated_res_0x7f09294c) {
             U2();
         } else if (id == R.id.obfuscated_res_0x7f090776) {
             N2(true);
@@ -144,15 +144,15 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog
     public void J2(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
-        LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0954, viewGroup, false);
+        LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0955, viewGroup, false);
         this.d = linearLayout;
         this.j = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090776);
-        this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092683);
-        this.m = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f091d55);
-        this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092944);
-        this.n = (Button) this.d.findViewById(R.id.obfuscated_res_0x7f092949);
-        this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092939);
-        this.p = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092958);
+        this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092685);
+        this.m = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f091d57);
+        this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092947);
+        this.n = (Button) this.d.findViewById(R.id.obfuscated_res_0x7f09294c);
+        this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09293c);
+        this.p = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09295b);
         W2();
         V2();
         QuickLoginInfo quickLoginInfo = this.f;
@@ -171,7 +171,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         int i2;
         int i3;
         Resources resources = getContext().getResources();
-        this.j.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0814c7));
+        this.j.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0814ca));
         TextView textView = this.k;
         boolean z = this.c;
         int i4 = R.color.obfuscated_res_0x7f06044e;
@@ -204,17 +204,17 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
 
     public final void W2() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("");
-        spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f15c4));
+        spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f15c5));
         if (this.f != null) {
             int length = spannableStringBuilder.length();
             QuickLoginInfo quickLoginInfo = this.f;
             G2(spannableStringBuilder, length, quickLoginInfo.agreeText, quickLoginInfo.serviceAgreement);
-            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f15c1));
+            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f15c2));
         }
-        G2(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f15c3), op2.o().G());
-        spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f15c1));
-        G2(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f15c0), "https://passport.baidu.com/static/passpc-account/html/protocal.html");
+        G2(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f15c4), rp2.o().G());
         spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f15c2));
+        G2(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f15c1), "https://passport.baidu.com/static/passpc-account/html/protocal.html");
+        spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f15c3));
         this.p.setMovementMethod(LinkMovementMethod.getInstance());
         this.p.setText(spannableStringBuilder);
     }
@@ -227,12 +227,12 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             beginTransaction.addToBackStack(null);
             beginTransaction.commit();
             N2(false);
-            SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = (SwanAppPhoneLoginDialog) ho3.a(this.e, this.c, null, this.h, this.i);
+            SwanAppPhoneLoginDialog swanAppPhoneLoginDialog = (SwanAppPhoneLoginDialog) ko3.a(this.e, this.c, null, this.h, this.i);
             swanAppPhoneLoginDialog.M2(getActivity());
             swanAppPhoneLoginDialog.X2(true);
             swanAppPhoneLoginDialog.O2((SwanAppLoginAndGetMobileDialog.b) this.b);
             swanAppPhoneLoginDialog.show(fragmentManager, "swan_phone_login");
-            go3.a("show", "telLogin", null, this.h, this.i);
+            jo3.a("show", "telLogin", null, this.h, this.i);
         }
     }
 }

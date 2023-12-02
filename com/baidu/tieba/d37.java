@@ -3,77 +3,117 @@ package com.baidu.tieba;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.ad.compact.DelegateFunAdView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.feed.component.DelegateNativeAdView;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d37 implements mb7<DelegateFunAdView, u27> {
+public class d37 implements qb7<DelegateNativeAdView, AdvertAppInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final BdUniqueId b;
-    public final String c;
-    public final String d;
-    public final String e;
-    public final String f;
+    public final ICardInfo a;
+    public final String b;
+    public final int c;
+    public TbPageContext<?> d;
+    public String e;
 
-    public d37(@NonNull BdUniqueId bdUniqueId, String str, String str2, String str3, String str4) {
+    public d37(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId, str, str2, str3, str4};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = bdUniqueId;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.a = c37.b(bdUniqueId);
+        this.a = c37.a(i);
+        this.b = c37.d(i);
+        this.c = i2;
     }
 
-    @Override // com.baidu.tieba.mb7
+    public d37(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = c37.b(i, i2);
+        this.b = c37.e(i, i2);
+        this.c = i3;
+    }
+
+    @Override // com.baidu.tieba.qb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new DelegateFunAdView(viewGroup.getContext(), this.b);
+            DelegateNativeAdView delegateNativeAdView = new DelegateNativeAdView(viewGroup.getContext(), this.d, this.a, this.c, this.e);
+            jd7.i(delegateNativeAdView, Integer.valueOf(jd7.e() - du.r));
+            return delegateNativeAdView;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mb7
+    @Override // com.baidu.tieba.qb7
     /* renamed from: d */
-    public void b(@NonNull DelegateFunAdView delegateFunAdView, @NonNull u27 u27Var) {
+    public void b(@NonNull DelegateNativeAdView delegateNativeAdView, @NonNull AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, delegateFunAdView, u27Var) == null) {
-            delegateFunAdView.a(u27Var.c(), this.c, this.d, this.e, this.f, u27Var.a(), u27Var.b());
+        if (interceptable == null || interceptable.invokeLL(1048579, this, delegateNativeAdView, advertAppInfo) == null) {
+            delegateNativeAdView.a(advertAppInfo);
         }
     }
 
-    @Override // com.baidu.tieba.mb7
+    @Override // com.baidu.tieba.qb7
     @NonNull
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            return this.b;
         }
         return (String) invokeV.objValue;
+    }
+
+    public d37 e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.e = str;
+            return this;
+        }
+        return (d37) invokeL.objValue;
+    }
+
+    public d37 f(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tbPageContext)) == null) {
+            this.d = tbPageContext;
+            return this;
+        }
+        return (d37) invokeL.objValue;
     }
 }

@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.k7;
-import com.baidu.tieba.nv4;
 import com.baidu.tieba.o7;
+import com.baidu.tieba.qv4;
 import com.baidu.tieba.sb;
-import com.baidu.tieba.st5;
 import com.baidu.tieba.tb;
+import com.baidu.tieba.wt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,7 +93,7 @@ public class MemeLoaderProc2 implements tb<BdImage> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return nv4.c().g();
+            return qv4.c().g();
         }
         return invokeV.booleanValue;
     }
@@ -206,13 +206,13 @@ public class MemeLoaderProc2 implements tb<BdImage> {
                 i4 = i2;
             }
             if (!this.isShare) {
-                st5.e(this.isFromCDN, str, str);
-                Pair<Boolean, String> d = st5.d(str);
+                wt5.e(this.isFromCDN, str, str);
+                Pair<Boolean, String> d = wt5.d(str);
                 if (((Boolean) d.first).booleanValue()) {
                     str3 = (String) d.second;
                 }
             } else {
-                st5.g(MemeLoaderProc2.class.getSimpleName(), str);
+                wt5.g(MemeLoaderProc2.class.getSimpleName(), str);
             }
             String str4 = str3;
             WebClient webClient = new WebClient();

@@ -106,7 +106,7 @@ public class uw {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return woa.a();
+            return apa.a();
         }
         return (xw) invokeV.objValue;
     }
@@ -126,7 +126,7 @@ public class uw {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return yoa.a();
+            return cpa.a();
         }
         return (zw) invokeV.objValue;
     }

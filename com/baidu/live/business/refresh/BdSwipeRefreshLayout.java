@@ -401,7 +401,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
     public void setScene(String str) {
         if ("recommend".equals(str)) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707a3);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707a7);
         }
         this.f = this.z;
     }
@@ -439,13 +439,13 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         this.D = getResources().getDisplayMetrics().widthPixels;
         ViewCompat.setChildrenDrawingOrderEnabled(this, true);
         if ("baidu".equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707a3);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707a7);
         } else if (LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707a4);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707a8);
         } else if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707a5);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707a9);
         } else if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707a3);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707a7);
         }
         this.f = this.z;
         this.h = new NestedScrollingParentHelper(this);

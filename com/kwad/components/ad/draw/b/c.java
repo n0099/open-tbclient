@@ -197,12 +197,12 @@ public final class c extends com.kwad.components.ad.draw.a.a implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.co = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912f8);
-        this.cp = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fc);
-        this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fa);
-        this.mLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912fb);
-        this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f0912f9);
-        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0912f7);
+        this.co = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912f9);
+        this.cp = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fd);
+        this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fb);
+        this.mLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912fc);
+        this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fa);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0912f8);
         this.cs = drawDownloadProgressBar;
         drawDownloadProgressBar.setTextSize(16);
     }

@@ -1,73 +1,78 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.Cursor;
+import android.net.Uri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nm1 implements cm1 {
+public class nm1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public mm1 b;
 
-    public nm1() {
+    public nm1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
     }
 
-    @Override // com.baidu.tieba.cm1
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0040  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String a(int i, String str) {
+        InterceptResult invokeIL;
+        String str2;
+        Uri parse;
+        Cursor query;
+        StringBuilder sb;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            mm1 mm1Var = this.b;
-            return mm1Var.a(this.a, mm1Var.c);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            if (i != 0) {
+                if (i == 1) {
+                    sb = new StringBuilder();
+                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
+                } else if (i != 2) {
+                    parse = null;
+                    query = this.a.getContentResolver().query(parse, null, null, null, null);
+                    if (query != null) {
+                        r0 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
+                        query.close();
+                    }
+                    return r0;
+                } else {
+                    sb = new StringBuilder();
+                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
+                }
+                sb.append(str3);
+                sb.append(str);
+                str2 = sb.toString();
+            } else {
+                str2 = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
+            }
+            parse = Uri.parse(str2);
+            query = this.a.getContentResolver().query(parse, null, null, null, null);
+            if (query != null) {
+            }
+            return r0;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cm1
-    public void a(Context context, dm1 dm1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dm1Var) == null) {
-            this.a = context;
-            mm1 mm1Var = new mm1();
-            this.b = mm1Var;
-            mm1Var.c = null;
-            try {
-                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                mm1Var.b = cls;
-                mm1Var.a = cls.newInstance();
-            } catch (Throwable unused) {
-            }
-            try {
-                mm1Var.c = mm1Var.b.getMethod("getOAID", Context.class);
-            } catch (Throwable unused2) {
-            }
-            try {
-                mm1Var.b.getMethod("getVAID", Context.class);
-            } catch (Throwable unused3) {
-            }
-            try {
-                mm1Var.b.getMethod("getAAID", Context.class);
-            } catch (Throwable unused4) {
-            }
-            if (dm1Var != null) {
-                dm1Var.a();
-            }
-        }
+        return (String) invokeIL.objValue;
     }
 }

@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jk5;
-import com.baidu.tieba.uua;
+import com.baidu.tieba.mk5;
+import com.baidu.tieba.tua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class FragmentTabWidget extends LinearLayout {
     public String B;
     public HashMap<Integer, View> C;
     public int D;
-    public jk5 E;
+    public mk5 E;
     public final Rect a;
     public final Rect b;
     public final Rect c;
@@ -262,10 +262,10 @@ public class FragmentTabWidget extends LinearLayout {
         }
     }
 
-    public void setDynamicStyleData(jk5 jk5Var) {
+    public void setDynamicStyleData(mk5 mk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, jk5Var) == null) {
-            this.E = jk5Var;
+        if (interceptable == null || interceptable.invokeL(1048600, this, mk5Var) == null) {
+            this.E = mk5Var;
         }
     }
 
@@ -352,7 +352,7 @@ public class FragmentTabWidget extends LinearLayout {
             if (context instanceof Activity) {
                 int color = SkinManager.getColor(i);
                 String dynamicStyleNavBarColor = getDynamicStyleNavBarColor();
-                if (this.E != null && ((color = uua.f(dynamicStyleNavBarColor)) == 0 || color == Integer.MAX_VALUE)) {
+                if (this.E != null && ((color = tua.f(dynamicStyleNavBarColor)) == 0 || color == Integer.MAX_VALUE)) {
                     color = SkinManager.getColor(R.color.CAM_X0205);
                 }
                 UtilHelper.setNavigationBarBg((Activity) context, color);
@@ -508,7 +508,7 @@ public class FragmentTabWidget extends LinearLayout {
             this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
             this.l = BdUtilHelper.dip2px(getContext(), 1.0f);
             this.m = BdUtilHelper.dip2px(getContext(), 2.0f);
-            this.x = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070359);
+            this.x = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07035a);
             setWillNotDraw(false);
             this.e = R.color.common_color_10274;
         }

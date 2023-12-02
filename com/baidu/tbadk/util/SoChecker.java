@@ -7,10 +7,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.util.SoChecker;
+import com.baidu.tieba.ct5;
 import com.baidu.tieba.id;
 import com.baidu.tieba.ih;
 import com.baidu.tieba.xd;
-import com.baidu.tieba.ys5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -203,7 +203,7 @@ public final class SoChecker {
     public static final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            UiUtils.runOnBgThread(new Runnable() { // from class: com.baidu.tieba.qs5
+            UiUtils.runOnBgThread(new Runnable() { // from class: com.baidu.tieba.us5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -221,7 +221,7 @@ public final class SoChecker {
     public static final void c() {
         String a2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && (a2 = ys5.a(a(), "sochecker/soconfig.json")) != null) {
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && (a2 = ct5.a(a(), "sochecker/soconfig.json")) != null) {
             for (Entry entry : DataExt.toEntityList(a2, Entry.class)) {
                 a.put(entry.getName(), entry);
             }

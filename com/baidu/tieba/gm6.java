@@ -1,7 +1,27 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface gm6 {
-    void a(String str);
 
-    void q(int i);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.JvmName;
+@JvmName(name = "CardUtil")
+/* loaded from: classes6.dex */
+public final class gm6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static final void a(os<?> osVar, int i, int i2) {
+        qt qtVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65536, null, osVar, i, i2) == null) {
+            if (osVar instanceof qt) {
+                qtVar = (qt) osVar;
+            } else {
+                qtVar = null;
+            }
+            if (qtVar == null) {
+                return;
+            }
+            qtVar.f.k(i, i2);
+        }
+    }
 }

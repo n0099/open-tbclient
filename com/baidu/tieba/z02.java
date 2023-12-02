@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes9.dex */
-public class z02 extends oz1 {
+public class z02 extends rz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.oz1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-        }
-    }
+    public int a;
 
     public z02() {
         Interceptable interceptable = $ic;
@@ -29,18 +25,42 @@ public class z02 extends oz1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = 0;
+    }
+
+    @Override // com.baidu.tieba.rz1
+    public void a(sz1 sz1Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, sz1Var, canvas) == null) {
+            sz1Var.k = this.a;
         }
     }
 
-    @Override // com.baidu.tieba.oz1
-    public void a(pz1 pz1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.rz1
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, pz1Var, canvas) == null) {
-            int alpha = pz1Var.c.getAlpha();
-            pz1Var.c(pz1Var.c);
-            canvas.drawPath(pz1Var.f, pz1Var.c);
-            pz1Var.c.setAlpha(alpha);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    String optString = jSONArray.optString(0);
+                    if (TextUtils.equals(optString, "top")) {
+                        this.a = 1;
+                    } else if (TextUtils.equals(optString, NativeConstants.MIDDLE)) {
+                        this.a = 2;
+                    } else if (TextUtils.equals(optString, "bottom")) {
+                        this.a = 3;
+                    } else {
+                        this.a = 0;
+                    }
+                }
+            } catch (Exception e) {
+                if (vm1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

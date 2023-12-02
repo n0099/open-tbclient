@@ -1,139 +1,126 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tieba.nf4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Callback;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public class ip3 {
+public class ip3 implements yp1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
-        int i;
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (dp3.a) {
-                Log.d("BDTLS", "bdtls success");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947861149, "Lcom/baidu/tieba/ip3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            sp3 m = jp3.l().m();
-            if (m == null) {
-                if (dp3.a) {
-                    Log.d("BDTLS", "bdtls ubc data is null");
-                    return;
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947861149, "Lcom/baidu/tieba/ip3;");
                 return;
             }
-            try {
-                int i4 = -1;
-                if (m.d() != null) {
-                    i = m.d().intValue();
-                } else {
-                    i = -1;
-                }
-                if (m.f() != null) {
-                    i2 = m.f().intValue();
-                } else {
-                    i2 = -1;
-                }
-                if (m.e() != null) {
-                    i3 = m.e().intValue();
-                } else {
-                    i3 = -1;
-                }
-                if (m.g() != null) {
-                    i4 = m.g().intValue();
-                }
-                if (dp3.a) {
-                    Log.d("BDTLS", "bdtls ubc get data");
-                }
-                kd3 kd3Var = new kd3();
-                kd3Var.b = str;
-                kd3Var.a("dh_group_id", Integer.valueOf(i));
-                kd3Var.a("dh_secret", Integer.valueOf(i2));
-                kd3Var.a("dh_pub_c", Integer.valueOf(i3));
-                kd3Var.a("dh_pub_s", Integer.valueOf(i4));
-                if (dp3.a) {
-                    Log.d("BDTLS", "bdtls ubc create event");
-                }
-                ad3.d(kd3Var);
-            } catch (Exception e) {
-                if (dp3.a) {
-                    Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
-                    e.printStackTrace();
-                }
+        }
+        a = vm1.a;
+    }
+
+    public ip3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void b(sp3 sp3Var, Bdtls$Alert bdtls$Alert) {
-        String str;
-        int i;
-        int i2;
-        int i3;
-        String str2;
+    @Override // com.baidu.tieba.yp1
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, sp3Var, bdtls$Alert) == null) {
-            if (dp3.a) {
-                Log.d("BDTLS", "bdtls ubc");
-            }
-            if (sp3Var != null && bdtls$Alert != null) {
-                try {
-                    if (bdtls$Alert.getLevel() == 1) {
-                        str = "warning";
-                    } else {
-                        str = "fatal_error";
-                    }
-                    int i4 = -1;
-                    if (sp3Var.d() != null) {
-                        i = sp3Var.d().intValue();
-                    } else {
-                        i = -1;
-                    }
-                    if (sp3Var.f() != null) {
-                        i2 = sp3Var.f().intValue();
-                    } else {
-                        i2 = -1;
-                    }
-                    if (sp3Var.e() != null) {
-                        i3 = sp3Var.e().intValue();
-                    } else {
-                        i3 = -1;
-                    }
-                    if (sp3Var.g() != null) {
-                        i4 = sp3Var.g().intValue();
-                    }
-                    if (bdtls$Alert.getDescription() != null) {
-                        str2 = new String(bdtls$Alert.getDescription().toByteArray());
-                    } else {
-                        str2 = "";
-                    }
-                    if (dp3.a) {
-                        Log.d("BDTLS", "bdtls ubc get data");
-                    }
-                    kd3 kd3Var = new kd3();
-                    kd3Var.b = "alert";
-                    kd3Var.e = str;
-                    kd3Var.a("dh_group_id", Integer.valueOf(i));
-                    kd3Var.a("dh_secret", Integer.valueOf(i2));
-                    kd3Var.a("dh_pub_c", Integer.valueOf(i3));
-                    kd3Var.a("dh_pub_s", Integer.valueOf(i4));
-                    kd3Var.a("alert_msg", str2);
-                    if (dp3.a) {
-                        Log.d("BDTLS", "bdtls ubc create event");
-                    }
-                    ad3.d(kd3Var);
-                } catch (Exception e) {
-                    if (dp3.a) {
-                        Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
-                        e.printStackTrace();
-                    }
-                }
-            } else if (dp3.a) {
-                Log.d("BDTLS", "bdtls ubc data is null");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return jp3.b().d();
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yp1
+    public void d(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
+            jp3.b().c(bArr);
+        }
+    }
+
+    @Override // com.baidu.tieba.yp1
+    public boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return jp3.b().e(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yp1
+    public <T> void e(String str, String str2, ResponseCallback<T> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, responseCallback) == null) {
+            new zp3().q(str, str2, responseCallback);
+        }
+    }
+
+    @Override // com.baidu.tieba.yp1
+    public void f(String str, String str2, nf4.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, cVar) == null) {
+            new yp3().k(str, str2, cVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.yp1
+    public boolean i(@NonNull k63 k63Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, dl3<String> dl3Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{k63Var, jSONObject, str, str2, callback, dl3Var})) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            if (optJSONObject == null || !optJSONObject.optBoolean("enableBdtls", false)) {
+                return false;
+            }
+            String optString = optJSONObject.optString("serviceId");
+            if (TextUtils.isEmpty(optString)) {
+                if (a) {
+                    Log.d("BdtlsImpl", "onFailure: serviceId is invalid");
+                }
+                if (dl3Var != null) {
+                    dl3Var.a("serviceId is invalid");
+                    return true;
+                }
+                return true;
+            }
+            dd3.D(str, k63Var.Z().H(), null, str2);
+            new bq3(k63Var, jSONObject, str2, callback).o(optString);
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

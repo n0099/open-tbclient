@@ -1,151 +1,177 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tieba.bb7;
-import com.baidu.tieba.forum.statistic.ForumStatConstant$TabType;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
+import com.baidu.tieba.forum.databinding.ActivityForumBinding;
+import com.baidu.tieba.forum.secondfloor.AISecondFloorHybridBiz;
+import com.baidu.tieba.forum.secondfloor.AISecondFloorView;
+import com.baidu.tieba.forum.secondfloor.SecondFloorVisitHelper;
+import com.baidu.tieba.forum.viewmodel.ForumViewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class om7 implements bb7.c {
+public final class om7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BdUniqueId a;
-    public final Bundle b;
-    public final List<pb7> c;
-    public final ForumStatConstant$TabType d;
-    public final long e;
 
-    public om7(BdUniqueId pageId, Bundle bundle) {
+    public static final <T extends km7> List<jm7<T>> a(FragmentActivity activity, ActivityForumBinding binding, nm7<?> secondFloorController, T t) {
+        InterceptResult invokeLLLL;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pageId, bundle};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, activity, binding, secondFloorController, t)) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            Intrinsics.checkNotNullParameter(binding, "binding");
+            Intrinsics.checkNotNullParameter(secondFloorController, "secondFloorController");
+            if (t instanceof ni7) {
+                arrayList = new ArrayList();
+                arrayList.add(new AISecondFloorHybridBiz(activity, binding, secondFloorController));
+            } else {
+                arrayList = null;
             }
+            if (!(arrayList instanceof List)) {
+                return null;
+            }
+            return arrayList;
         }
-        Intrinsics.checkNotNullParameter(pageId, "pageId");
-        Intrinsics.checkNotNullParameter(bundle, "bundle");
-        this.a = pageId;
-        this.b = bundle;
-        this.c = new ArrayList();
-        this.d = pm7.a(this.b);
-        this.e = this.b.getLong("forum_id");
+        return (List) invokeLLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.bb7.c
-    public void a(nb7<?> data, mb7<?, ?> template, int i) {
-        xa7 xa7Var;
-        Map<String, String> emptyMap;
-        Map<String, String> emptyMap2;
+    public static final <T extends km7> nm7<T> b(FragmentActivity activity, ActivityForumBinding binding, in7 in7Var, T t) {
+        InterceptResult invokeLLLL;
+        nm7<T> nm7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, data, template, i) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(template, "template");
-            if (data instanceof xa7) {
-                xa7Var = (xa7) data;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, activity, binding, in7Var, t)) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            Intrinsics.checkNotNullParameter(binding, "binding");
+            if (t == null) {
+                return null;
+            }
+            if (t instanceof ni7) {
+                nm7Var = new nm7<>(activity, binding, in7Var);
             } else {
-                xa7Var = null;
+                nm7Var = null;
             }
-            if (xa7Var == null) {
-                return;
+            if (nm7Var == null) {
+                return null;
             }
-            j77 j77Var = xa7Var.a;
-            if (j77Var == null || (emptyMap = j77Var.a()) == null) {
-                emptyMap = MapsKt__MapsKt.emptyMap();
+            nm7Var.u(t);
+            return nm7Var;
+        }
+        return (nm7) invokeLLLL.objValue;
+    }
+
+    public static final void c(lm7<?> lm7Var) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, lm7Var) == null) {
+            ViewGroup viewGroup = null;
+            if (lm7Var instanceof View) {
+                view2 = (View) lm7Var;
+            } else {
+                view2 = null;
             }
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("get_position", String.valueOf(i + 1));
-            linkedHashMap.put(LegoListActivityConfig.PAGE_ID, this.a.toString());
-            r57 r57Var = xa7Var.b;
-            if (r57Var == null || (emptyMap2 = r57Var.a()) == null) {
-                emptyMap2 = MapsKt__MapsKt.emptyMap();
+            if (view2 != null) {
+                ViewParent parent = view2.getParent();
+                if (parent instanceof ViewGroup) {
+                    viewGroup = (ViewGroup) parent;
+                }
+                if (viewGroup != null) {
+                    viewGroup.removeView(view2);
+                }
             }
-            this.c.add(new pb7("card_show", emptyMap, linkedHashMap, emptyMap2));
-            xa7 xa7Var2 = (xa7) data;
-            if (xa7Var2.b() instanceof s57) {
-                T b = xa7Var2.b();
-                if (b != 0) {
-                    Iterator<nb7<? extends Object>> it = ((s57) b).c().iterator();
+        }
+    }
+
+    public static final km7 d(FragmentActivity activity) {
+        InterceptResult invokeL;
+        mi7 a;
+        li7 li7Var;
+        boolean z;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            ri7 value = ((ForumViewModel) new ViewModelProvider(activity).get(ForumViewModel.class)).c().getValue();
+            li7 li7Var2 = null;
+            if (value == null || (a = value.a()) == null) {
+                return null;
+            }
+            li7 c = SecondFloorVisitHelper.a.c(a, String.valueOf(value.e()));
+            if (c != null) {
+                List<li7> a2 = a.a();
+                if (a2 != null) {
+                    Iterator<T> it = a2.iterator();
                     while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        nb7<? extends Object> next = it.next();
-                        if (next instanceof k47) {
-                            k47 k47Var = (k47) next;
-                            c(k47Var.p().c(), linkedHashMap);
-                            c(k47Var.p().a(), linkedHashMap);
-                            break;
-                        } else if (next instanceof y47) {
-                            y47 y47Var = (y47) next;
-                            c(y47Var.p().d(), linkedHashMap);
-                            c(y47Var.p().b(), linkedHashMap);
+                        if (it.hasNext()) {
+                            obj = it.next();
+                            if (Intrinsics.areEqual(c.d(), ((li7) obj).d())) {
+                                break;
+                            }
+                        } else {
+                            obj = null;
                             break;
                         }
                     }
+                    li7Var = (li7) obj;
                 } else {
-                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.feed.data.CardData<*>");
+                    li7Var = null;
+                }
+                if (li7Var != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    li7Var2 = c;
                 }
             }
-            um7.a.e(emptyMap2, this.d, String.valueOf(this.e), i);
+            a.h(li7Var2);
+            return a.i();
         }
+        return (km7) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bb7.c
-    public void b(RecyclerView rv) {
+    public static final <T extends km7> lm7<T> e(ViewGroup parent, T t, List<? extends jm7<T>> list) {
+        InterceptResult invokeLLL;
+        AISecondFloorView aISecondFloorView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rv) == null) {
-            Intrinsics.checkNotNullParameter(rv, "rv");
-            e();
-        }
-    }
-
-    public final void c(List<? extends h67> list, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, map) == null) {
-            for (h67 h67Var : list) {
-                if (!h67Var.E().isEmpty()) {
-                    this.c.add(new pb7("head_tag_show", h67Var.E(), map, MapsKt__MapsKt.emptyMap()));
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, parent, t, list)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            AISecondFloorView aISecondFloorView2 = null;
+            if (t instanceof ni7) {
+                Context context = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+                aISecondFloorView = new AISecondFloorView(context, null, 0, 6, null);
+            } else {
+                aISecondFloorView = null;
             }
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e();
-            wb7.a.a(this.a.toString());
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (pb7 pb7Var : this.c) {
-                wb7.a.c(pb7Var);
+            if (aISecondFloorView == null) {
+                return null;
             }
-            this.c.clear();
+            boolean z = true;
+            if ((list == null || !(list.isEmpty() ^ true)) ? false : false) {
+                aISecondFloorView.d(list);
+            }
+            if (aISecondFloorView instanceof View) {
+                aISecondFloorView2 = aISecondFloorView;
+            }
+            if (aISecondFloorView2 != null) {
+                parent.addView(aISecondFloorView2, 0, new ViewGroup.LayoutParams(-1, -1));
+            }
+            Intrinsics.checkNotNull(t);
+            aISecondFloorView.e(t);
+            return aISecondFloorView;
         }
+        return (lm7) invokeLLL.objValue;
     }
 }

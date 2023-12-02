@@ -1,29 +1,17 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class u12 extends w12 {
+public class u12 extends z12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
     public String t;
-    public int u;
-    public boolean v;
-    public double w;
-    public int x;
-    public int y;
-    public String z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u12(String str, @NonNull String str2) {
@@ -45,59 +33,15 @@ public class u12 extends w12 {
             }
         }
         this.t = "";
-        this.v = false;
-        this.z = "";
-        this.A = "";
-        this.B = "";
-        this.C = "";
     }
 
-    private void i() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
-            try {
-                this.u = Color.parseColor(jSONObject.optString("color"));
-                this.v = true;
-            } catch (Exception unused) {
-                h32.o("Component-Model-TextView", "text color occurs exception");
-                this.v = false;
-            }
-            this.w = this.j.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 0.0d);
-            this.x = yj3.g((float) this.j.optDouble("lineHeight", 0.0d));
-            this.y = yj3.g((float) this.j.optDouble("lineSpace", 0.0d));
-            this.z = this.j.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
-            this.A = this.j.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
-            this.B = this.j.optString("whiteSpace");
-            this.C = this.j.optString("lineBreak");
-        }
-    }
-
-    @Override // com.baidu.tieba.w12, com.baidu.tieba.y12, com.baidu.tieba.gw2
+    @Override // com.baidu.tieba.z12, com.baidu.tieba.b22, com.baidu.tieba.jw2
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         super.a(jSONObject);
-        this.t = jSONObject.optString("text");
-        i();
-    }
-
-    @Override // com.baidu.tieba.w12, com.baidu.tieba.y12
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            super.g(jSONObject);
-            this.t = jSONObject.optString("text", this.t);
-            i();
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.t = str;
-        }
+        this.t = jSONObject.optString("src");
     }
 }

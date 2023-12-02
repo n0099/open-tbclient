@@ -21,8 +21,8 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nt9;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
+import com.baidu.tieba.rt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -256,13 +256,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             int i = this.u;
             if (i == 0) {
-                nt9.f().b(z, str);
+                rt9.f().b(z, str);
             } else if (i == 1) {
-                nt9.f().e(z);
+                rt9.f().e(z);
             } else if (i == 2) {
-                nt9.f().c(z);
+                rt9.f().c(z);
             } else {
-                nt9.f().a(null);
+                rt9.f().a(null);
             }
             finish();
         }

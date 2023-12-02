@@ -4,6 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes7.dex */
 public class lnc extends hnc {
@@ -12,7 +13,7 @@ public class lnc extends hnc {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lnc() {
-        super(Framedata.Opcode.PONG);
+        super(Framedata.Opcode.TEXT);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,24 +29,15 @@ public class lnc extends hnc {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lnc(knc kncVar) {
-        super(Framedata.Opcode.PONG);
+    @Override // com.baidu.tieba.hnc, com.baidu.tieba.inc
+    public void h() throws InvalidDataException {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {kncVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.h();
+            if (znc.b(a())) {
                 return;
             }
+            throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
-        j(kncVar.a());
     }
 }

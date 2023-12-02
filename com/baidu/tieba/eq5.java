@@ -1,31 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class eq5 extends l6 {
+public class eq5 extends q6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eq5(int i) {
-        super(i);
+    public eq5() {
+        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -35,22 +31,20 @@ public class eq5 extends l6 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.controller.MessageRule
-    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.n6
+    /* renamed from: i */
+    public SocketResponsedMessage g(SocketResponsedMessage socketResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, httpMessage, httpMessageTask)) == null) {
-            if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
-                TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
-                if (httpMessage.removeParam("reloin_key") == null && ReloginManager.g().h() && tbHttpMessageTask.isNeedLogin()) {
-                    httpMessage.addParam("reloin_key", "reloin_value");
-                    ReloginManager.g().l(httpMessage);
-                    return null;
-                }
-                return httpMessage;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage == null) {
+                return null;
             }
-            return httpMessage;
+            if (socketResponsedMessage.getError() == 2260104) {
+                ut5.a();
+            }
+            return socketResponsedMessage;
         }
-        return (HttpMessage) invokeLL.objValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

@@ -1,12 +1,14 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.qh2;
+import com.baidu.tieba.th2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,23 +17,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes8.dex */
-public class wh2<T extends qh2> extends sg2<T> {
+public abstract class wh2<T extends th2> extends vg2<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public CopyOnWriteArrayList<dl3<Exception>> b;
 
     /* loaded from: classes8.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
+        public final /* synthetic */ wh2 a;
 
-        public a() {
+        public a(wh2 wh2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,58 +47,57 @@ public class wh2<T extends qh2> extends sg2<T> {
                     return;
                 }
             }
-            this.a = 0;
+            this.a = wh2Var;
         }
 
-        public static a d() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return a(0, "");
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                k32.k("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
+                vh2 b = vh2.b(this.a.a);
+                qh2 qh2Var = new qh2();
+                qh2Var.a = b.a;
+                qh2Var.b = b.b;
+                qh2Var.c = this.a.a.a();
+                wh2 wh2Var = this.a;
+                wh2Var.l(wh2Var.g(qh2Var));
             }
-            return (a) invokeV.objValue;
         }
+    }
 
-        public boolean c() {
-            InterceptResult invokeV;
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dl3 a;
+        public final /* synthetic */ Exception b;
+
+        public b(wh2 wh2Var, dl3 dl3Var, Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a == 0) {
-                    return true;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wh2Var, dl3Var, exc};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return false;
             }
-            return invokeV.booleanValue;
+            this.a = dl3Var;
+            this.b = exc;
         }
 
-        public static a a(int i, String str) {
-            InterceptResult invokeIL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-                a aVar = new a();
-                aVar.a = i;
-                aVar.b = str;
-                return aVar;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(this.b);
             }
-            return (a) invokeIL.objValue;
-        }
-
-        public static a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return a(1, str);
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "RemoteExtensionCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.b + "'}";
-            }
-            return (String) invokeV.objValue;
         }
     }
 
@@ -109,57 +114,57 @@ public class wh2<T extends qh2> extends sg2<T> {
                 return;
             }
         }
-        b = sm1.a;
+        c = vm1.a;
     }
 
-    @Override // com.baidu.tieba.sg2
+    @Override // com.baidu.tieba.vg2
     public File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new File(super.a(), com.baidu.mobads.sdk.internal.cl.b);
+            return new File(super.a(), "preset");
         }
         return (File) invokeV.objValue;
     }
 
-    public void c() {
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            k("0");
-            j(0L);
+            o("0");
+            n(0L);
         }
     }
 
     @NonNull
-    public ExtensionCore f() {
+    public ExtensionCore h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ExtensionCore extensionCore = new ExtensionCore();
-            long g = g();
-            extensionCore.extensionCoreVersionCode = g;
-            extensionCore.extensionCoreVersionName = h();
-            extensionCore.extensionCorePath = b(g).getPath();
-            extensionCore.extensionCoreType = 1;
+            long i = i();
+            extensionCore.extensionCoreVersionCode = i;
+            extensionCore.extensionCoreVersionName = j();
+            extensionCore.extensionCorePath = b(i).getPath();
+            extensionCore.extensionCoreType = 0;
             return extensionCore;
         }
         return (ExtensionCore) invokeV.objValue;
     }
 
-    public long g() {
+    public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ve3.a().getLong(this.a.b(), 0L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ye3.a().getLong(this.a.b(), 0L);
         }
         return invokeV.longValue;
     }
 
-    public String h() {
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ve3.a().getString(this.a.e(), "0");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ye3.a().getString(this.a.e(), "");
         }
         return (String) invokeV.objValue;
     }
@@ -176,89 +181,137 @@ public class wh2<T extends qh2> extends sg2<T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((qh2) newInitContext.callArgs[0]);
+                super((th2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.b = new CopyOnWriteArrayList<>();
     }
 
-    public final void d(String str) {
+    @SuppressLint({"SwanNewThread"})
+    public void p(@Nullable dl3<Exception> dl3Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        km4.k(str);
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            ve3.a().putLong(this.a.b(), j);
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            ve3.a().putString(this.a.e(), str);
+        if (interceptable == null || interceptable.invokeL(1048587, this, dl3Var) == null) {
+            k32.k("ExtCore-PresetControl", "tryUpdateAsync: start");
+            if (!k()) {
+                k32.k("ExtCore-PresetControl", "tryUpdateAsync: isNeedUpdate = false");
+                m(dl3Var, null);
+                return;
+            }
+            if (this.b.isEmpty()) {
+                new Thread(new a(this), "updateExtensionCoreAsync").start();
+            }
+            if (dl3Var != null) {
+                this.b.add(dl3Var);
+            }
         }
     }
 
-    /* JADX WARN: Incorrect types in method signature: <T:Lcom/baidu/tieba/nh2;>(TT;)Ljava/lang/Exception; */
-    public Exception e(@NonNull nh2 nh2Var) {
+    public final void l(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, exc) == null) {
+            Iterator<dl3<Exception>> it = this.b.iterator();
+            while (it.hasNext()) {
+                m(it.next(), exc);
+            }
+            this.b.clear();
+        }
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            ye3.a().putLong(this.a.b(), j);
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            ye3.a().putString(this.a.e(), str);
+        }
+    }
+
+    public final void m(@Nullable dl3<Exception> dl3Var, Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dl3Var, exc) == null) && dl3Var != null) {
+            ek3.e0(new b(this, dl3Var, exc));
+        }
+    }
+
+    /* JADX WARN: Incorrect types in method signature: <T:Lcom/baidu/tieba/qh2;>(TT;)Ljava/lang/Exception; */
+    public Exception g(@NonNull qh2 qh2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, nh2Var)) == null) {
-            if (b) {
-                Log.d("ExtCore-RemoteControl", "doUpdate: remote");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qh2Var)) == null) {
+            if (c) {
+                Log.d("ExtCore-PresetControl", "doUpdate: preset");
             }
-            if (TextUtils.isEmpty(nh2Var.c)) {
-                if (b) {
-                    Log.e("ExtCore-RemoteControl", "doUpdate: remote with null coreFilePath");
+            if (TextUtils.isEmpty(qh2Var.c)) {
+                if (c) {
+                    Log.e("ExtCore-PresetControl", "doUpdate: preset with null coreFilePath");
                 }
-                return new Exception("ExtCore-RemoteControl doUpdate: failed by updateInfo.coreFilePath empty");
+                return new IllegalStateException("ExtCore-PresetControl doUpdate: failed by updateInfo.coreFilePath is empty");
             }
-            a i = i(nh2Var);
-            if (b) {
-                Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + i);
-            }
-            d(nh2Var.c);
-            if (i.c()) {
+            long j = qh2Var.b;
+            if (nm4.V(qh2Var.c, b(j).getPath())) {
+                bi2.b(a(), j);
+                n(j);
+                o(qh2Var.a);
+                bi2.i(this.a.c(), false);
                 return null;
             }
-            return new Exception("ExtCore-RemoteControl doUpdate: failed by " + i.toString());
+            Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + qh2Var.c);
+            if (c) {
+                Log.e("ExtCore-PresetControl", "doUpdate preset unzip failed: " + Log.getStackTraceString(exc));
+            }
+            return exc;
         }
         return (Exception) invokeL.objValue;
     }
 
-    public final a i(@NonNull nh2 nh2Var) {
-        InterceptResult invokeL;
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, nh2Var)) == null) {
-            if (b) {
-                Log.d("ExtCore-RemoteControl", "doRemoteUpdate start.");
-                Log.d("ExtCore-RemoteControl", "doRemoteUpdate version: " + nh2Var.a + " ,filePath: " + nh2Var.c + " ,sign:" + nh2Var.d);
-            }
-            long j = nh2Var.b;
-            if (j == 0) {
-                return a.b("invalid version code : " + nh2Var.a);
-            } else if (!uj3.a(new File(nh2Var.c), nh2Var.d)) {
-                return a.b("sign failed.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!h().isAvailable()) {
+                if (c) {
+                    Log.d("ExtCore-PresetControl", "isNeedUpdate: true, getCurExtensionCore not available.");
+                }
+                return true;
+            } else if (!bi2.h(this.a.c())) {
+                if (c) {
+                    Log.d("ExtCore-PresetControl", "isNeedUpdate: false");
+                }
+                return false;
             } else {
-                if (!km4.U(nh2Var.c, b(j).getPath())) {
-                    return a.b("unzip bundle failed.");
+                vh2 b2 = vh2.b(this.a);
+                long i = i();
+                long j = b2.b;
+                if (c) {
+                    Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + i + " newVer: " + j);
                 }
-                yh2.b(a(), g(), j);
-                j(j);
-                k(nh2Var.a);
-                if (b) {
-                    Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + j);
+                if (i < j) {
+                    return true;
                 }
-                return a.d();
+                return false;
             }
         }
-        return (a) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !k()) {
+            return;
+        }
+        vh2 b2 = vh2.b(this.a);
+        qh2 qh2Var = new qh2();
+        qh2Var.a = b2.a;
+        qh2Var.b = b2.b;
+        qh2Var.c = this.a.a();
+        l(g(qh2Var));
     }
 }

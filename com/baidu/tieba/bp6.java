@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.view.SingleLinkCardView;
-import com.baidu.tieba.f37;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+@Service
 /* loaded from: classes5.dex */
-public class bp6 implements f37.n {
+public class bp6 implements ib7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,53 +29,22 @@ public class bp6 implements f37.n {
         }
     }
 
-    @Override // com.baidu.tieba.f37.s
-    public void b(@NonNull ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof SingleLinkCardView)) {
-            ((SingleLinkCardView) viewGroup).d();
-        }
-    }
-
-    @Override // com.baidu.tieba.f37.n
+    @Override // com.baidu.tieba.ib7
     @NonNull
-    public ViewGroup create(Context context) {
-        InterceptResult invokeL;
+    public List<qb7<?, ?>> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new SingleLinkCardView(context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new jo6());
+            arrayList.add(new xo6());
+            arrayList.add(new lo6());
+            arrayList.add(new zo6());
+            arrayList.add(new yo6());
+            arrayList.add(new oo6());
+            arrayList.add(new cp6());
+            return arrayList;
         }
-        return (ViewGroup) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.f37.n
-    public void k(@NonNull ViewGroup viewGroup, @NonNull t47 t47Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, t47Var) == null) && (viewGroup instanceof SingleLinkCardView)) {
-            g77 d = t47Var.d();
-            if (d.i() == 6) {
-                PbGoodsData pbGoodsData = new PbGoodsData();
-                pbGoodsData.title = d.h();
-                pbGoodsData.picUrl = d.f();
-                pbGoodsData.price = d.c();
-                pbGoodsData.linkUrl = d.e();
-                pbGoodsData.sort = d.g();
-                pbGoodsData.linkFrom = d.d();
-                pbGoodsData.goodsUrlH5 = d.a();
-                ((SingleLinkCardView) viewGroup).a(pbGoodsData);
-                return;
-            }
-            PbLinkData pbLinkData = new PbLinkData();
-            pbLinkData.title = d.h();
-            pbLinkData.linkUrl = d.e();
-            pbLinkData.picUrl = d.f();
-            pbLinkData.linkFrom = d.d();
-            pbLinkData.extTxt = d.c();
-            pbLinkData.sort = d.g();
-            pbLinkData.urlType = d.i();
-            pbLinkData.content1 = d.a();
-            pbLinkData.content2 = d.b();
-            ((SingleLinkCardView) viewGroup).a(pbLinkData);
-        }
+        return (List) invokeV.objValue;
     }
 }

@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o36;
+import com.baidu.tieba.s36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -112,7 +112,7 @@ public class HeadPendantClickableView extends HeadPendantView {
                     str2 = "";
                 }
                 AlaInfoData alaInfo = this.a.o.getAuthor().getAlaInfo();
-                if (!o36.a(this.a.p, this.a.o)) {
+                if (!s36.a(this.a.p, this.a.o)) {
                     if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
                         TbPageContext tbPageContext = this.a.getTbPageContext();
                         YyExtData yyExtData = alaInfo.mYyExtData;

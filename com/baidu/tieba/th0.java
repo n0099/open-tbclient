@@ -190,7 +190,7 @@ public class th0 implements IAdDownloader {
             }
             build.enqueue(aVar);
             build.setTag("mark-task-started");
-            ny0.e(this.a, Integer.valueOf(build.getId()), build);
+            py0.e(this.a, Integer.valueOf(build.getId()), build);
             return build.getId();
         }
         return invokeLL.intValue;
@@ -200,7 +200,7 @@ public class th0 implements IAdDownloader {
     public void c(@NonNull wg0 wg0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wg0Var) == null) {
-            DownloadTask downloadTask = (DownloadTask) ny0.b(this.a, Integer.valueOf(wg0Var.b));
+            DownloadTask downloadTask = (DownloadTask) py0.b(this.a, Integer.valueOf(wg0Var.b));
             if (downloadTask != null && downloadTask.getTag() != null) {
                 downloadTask.cancel();
             }
@@ -211,7 +211,7 @@ public class th0 implements IAdDownloader {
     public void d(@NonNull wg0 wg0Var, @NonNull sh0 sh0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, wg0Var, sh0Var) == null) {
-            DownloadTask downloadTask = (DownloadTask) ny0.b(this.a, Integer.valueOf(wg0Var.b));
+            DownloadTask downloadTask = (DownloadTask) py0.b(this.a, Integer.valueOf(wg0Var.b));
             if (downloadTask != null && StatusUtil.getStatus(downloadTask) == StatusUtil.Status.IDLE) {
                 downloadTask.setTag("mark-task-started");
                 downloadTask.enqueue(new a(sh0Var));
@@ -234,7 +234,7 @@ public class th0 implements IAdDownloader {
                     str = "";
                 }
                 if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(wg0Var.g)) {
-                    str = v11.a("MD5", wg0Var.g.getBytes(), false);
+                    str = x11.a("MD5", wg0Var.g.getBytes(), false);
                 }
                 if (str.length() > 250) {
                     return str.substring(0, 250);

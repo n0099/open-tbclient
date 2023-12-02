@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.tieba.ad.browser.newstyle.TBAdWebView;
+import com.baidu.tieba.bja;
+import com.baidu.tieba.cja;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.baidu.tieba.recapp.view.WebViewContainer;
-import com.baidu.tieba.xia;
-import com.baidu.tieba.yia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public int K;
     public int L;
     public int M;
-    public xia N;
+    public bja N;
     public WebViewContainer.OnScrollChangedCallback O;
 
     /* loaded from: classes8.dex */
@@ -204,11 +204,11 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d072d, (ViewGroup) null, false);
-            this.E = (WebViewContainer) frameLayout.findViewById(R.id.obfuscated_res_0x7f092aef);
-            this.t = (TBAdWebView) frameLayout.findViewById(R.id.obfuscated_res_0x7f092af1);
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d072e, (ViewGroup) null, false);
+            this.E = (WebViewContainer) frameLayout.findViewById(R.id.obfuscated_res_0x7f092af2);
+            this.t = (TBAdWebView) frameLayout.findViewById(R.id.obfuscated_res_0x7f092af4);
             a1();
-            this.D = (DistributeVideoView) frameLayout.findViewById(R.id.obfuscated_res_0x7f092af0);
+            this.D = (DistributeVideoView) frameLayout.findViewById(R.id.obfuscated_res_0x7f092af3);
             if (!TextUtils.isEmpty(this.F) && !TextUtils.isEmpty(this.G)) {
                 VideoInfo.Builder builder = new VideoInfo.Builder();
                 builder.video_url = this.F;
@@ -217,7 +217,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 if (this.M == 14) {
                     Integer valueOf = Integer.valueOf(BdUtilHelper.getEquipmentWidth(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(yia.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(cja.c(valueOf.intValue()));
                 } else {
                     Integer valueOf2 = Integer.valueOf(BdUtilHelper.getEquipmentWidth(getActivity()));
                     builder.video_width = valueOf2;
@@ -236,9 +236,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 int intValue2 = build.video_height.intValue();
                 this.J = intValue2;
                 this.L = intValue2 / 2;
-                xia xiaVar = this.N;
-                if (xiaVar != null) {
-                    this.D.setVideoTailFrameData(xiaVar);
+                bja bjaVar = this.N;
+                if (bjaVar != null) {
+                    this.D.setVideoTailFrameData(bjaVar);
                 }
                 this.D.setPageContext(getPageContext());
                 this.D.setData(build, 2, getPageContext());
@@ -281,9 +281,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 this.M = intent.getIntExtra(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
                 String stringExtra = intent.getStringExtra(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
                 if (!TextUtils.isEmpty(stringExtra)) {
-                    xia xiaVar = new xia();
-                    this.N = xiaVar;
-                    xiaVar.c(stringExtra);
+                    bja bjaVar = new bja();
+                    this.N = bjaVar;
+                    bjaVar.c(stringExtra);
                 }
             } else if (bundle != null) {
                 this.F = bundle.getString("video_url");

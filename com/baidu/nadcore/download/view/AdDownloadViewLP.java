@@ -18,7 +18,7 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ph0;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.w11;
 import com.baidu.tieba.wg0;
 /* loaded from: classes3.dex */
 public class AdDownloadViewLP extends View implements ph0<AdDownloadViewLP> {
@@ -223,8 +223,8 @@ public class AdDownloadViewLP extends View implements ph0<AdDownloadViewLP> {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.width = (int) (u11.c.e(getContext()) * u11.c.h(R.dimen.nad_default_round_width_size));
-        layoutParams.height = (int) (u11.c.c(getContext()) * u11.c.h(R.dimen.nad_default_round_height_size));
+        layoutParams.width = (int) (w11.c.e(getContext()) * w11.c.i(R.dimen.nad_default_round_width_size));
+        layoutParams.height = (int) (w11.c.c(getContext()) * w11.c.i(R.dimen.nad_default_round_height_size));
         layoutParams.addRule(13, -1);
         viewGroup.addView(this, layoutParams);
         viewGroup.setVisibility(0);

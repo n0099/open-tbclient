@@ -1,65 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class nb6 extends BaseCardInfo {
+public class nb6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
+    public BdPageContext a;
+    public BdTypeListView b;
+    public final List<ci> c;
+    public mb6 d;
+    public jb6 e;
+    public hb6 f;
+    public ib6 g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947996743, "Lcom/baidu/tieba/nb6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947996743, "Lcom/baidu/tieba/nb6;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-        c = BdUniqueId.gen();
-    }
-
-    public nb6() {
+    public nb6(BdPageContext bdPageContext, BdTypeListView bdTypeListView, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdPageContext, bdTypeListView, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new ArrayList();
+        this.a = bdPageContext;
+        this.b = bdTypeListView;
+        a(z);
+    }
+
+    public final void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (z) {
+                jb6 jb6Var = new jb6((TbPageContext) this.a, cc6.c);
+                this.e = jb6Var;
+                this.c.add(jb6Var);
+            } else {
+                mb6 mb6Var = new mb6((TbPageContext) this.a, cc6.c);
+                this.d = mb6Var;
+                this.c.add(mb6Var);
+            }
+            this.f = new hb6((TbPageContext) this.a, pb6.a);
+            this.g = new ib6((TbPageContext) this.a, qb6.a);
+            this.c.add(this.f);
+            this.c.add(this.g);
+            this.b.addAdapters(this.c);
+        }
+    }
+
+    public void b(z76 z76Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z76Var) == null) {
+            mb6 mb6Var = this.d;
+            if (mb6Var != null) {
+                mb6Var.x(z76Var);
+            }
+            jb6 jb6Var = this.e;
+            if (jb6Var != null) {
+                jb6Var.x(z76Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void c(List<pi> list) {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ThreadData threadData = this.a;
-            if (threadData != null && threadData.getThreadAlaInfo() != null && this.a.getThreadAlaInfo().live_type == 1) {
-                return c;
-            }
-            return b;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeListView = this.b) != null) {
+            bdTypeListView.setData(list);
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

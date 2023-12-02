@@ -92,7 +92,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.b {
 
     private void ca() {
         if (com.kwad.sdk.core.response.b.a.cD(this.mAdInfo)) {
-            this.uy = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091441);
+            this.uy = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091442);
         }
         this.sq.aD(this.mAdTemplate);
         com.kwad.components.ad.reward.g gVar = this.qn;
@@ -104,20 +104,20 @@ public final class b extends com.kwad.components.ad.reward.presenter.b {
     }
 
     private void hS() {
-        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f092a68);
+        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f092a6b);
         if (viewStub != null) {
             this.ut = (ActionBarAppLandscape) viewStub.inflate();
         } else {
-            this.ut = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f0914fc);
+            this.ut = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f0914fd);
         }
     }
 
     private void hT() {
-        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f092a67);
+        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f092a6a);
         if (viewStub != null) {
             this.uu = (ActionBarAppPortrait) viewStub.inflate();
         } else {
-            this.uu = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f0914fd);
+            this.uu = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f0914fe);
         }
     }
 
@@ -146,8 +146,8 @@ public final class b extends com.kwad.components.ad.reward.presenter.b {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.sq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912f5);
-        this.uv = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f0914fe);
+        this.sq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912f6);
+        this.uv = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f0914ff);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -238,7 +238,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.b {
                     @Override // com.kwad.components.ad.reward.n.h
                     public final int hW() {
                         if (z2) {
-                            return R.id.obfuscated_res_0x7f09132e;
+                            return R.id.obfuscated_res_0x7f09132f;
                         }
                         return super.hW();
                     }
@@ -285,7 +285,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.b {
             RewardActionBarControl.a(aVar, this.uy, RewardActionBarControl.ShowActionBarResult.SHOW_NATIVE_JINNIU);
         } else {
             if (com.kwad.sdk.core.response.b.a.cJ(this.mAdInfo)) {
-                ViewGroup viewGroup2 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091473);
+                ViewGroup viewGroup2 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091474);
                 this.uA = viewGroup2;
                 if (viewGroup2 != null) {
                     if (!this.uC) {
@@ -296,11 +296,11 @@ public final class b extends com.kwad.components.ad.reward.presenter.b {
                 }
             }
             if (com.kwad.sdk.core.response.b.a.ca(this.mAdTemplate)) {
-                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091456);
+                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091457);
                 this.uz = viewGroup3;
                 if (viewGroup3 != null) {
                     Resources resources = viewGroup3.getResources();
-                    e(this.uz, (int) (resources.getDimension(R.dimen.obfuscated_res_0x7f0704e0) + resources.getDimension(R.dimen.obfuscated_res_0x7f0704e4)));
+                    e(this.uz, (int) (resources.getDimension(R.dimen.obfuscated_res_0x7f0704e1) + resources.getDimension(R.dimen.obfuscated_res_0x7f0704e5)));
                     RewardActionBarControl.a(aVar, this.uz, RewardActionBarControl.ShowActionBarResult.SHOW_NATIVE_LIVE_SUBSCRIBE);
                     return;
                 }

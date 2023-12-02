@@ -1,95 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.forum.data.ForumTabItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class rm7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948126509, "Lcom/baidu/tieba/rm7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948126509, "Lcom/baidu/tieba/rm7;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static final void a(ForumTabItem tabItem, long j, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{tabItem, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            Intrinsics.checkNotNullParameter(tabItem, "tabItem");
+            StatisticItem statisticItem = new StatisticItem("c13008");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            int tabId = tabItem.getTabId();
+            if (tabId != 1) {
+                if (tabId != 49) {
+                    if (tabId != 301) {
+                        if (tabId != 404) {
+                            if (tabId != 1120) {
+                                if (tabId != 89) {
+                                    if (tabId != 90) {
+                                        if (tabId != 503) {
+                                            if (tabId != 504) {
+                                                i2 = 10;
+                                            } else {
+                                                i2 = 11;
+                                            }
+                                        } else {
+                                            i2 = 6;
+                                        }
+                                    } else {
+                                        i2 = 9;
+                                    }
+                                } else {
+                                    i2 = 1;
+                                }
+                            }
+                        } else {
+                            i2 = 2;
+                        }
+                    } else {
+                        i2 = 7;
+                    }
                 }
+                i2 = 15;
+            } else if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
+                i2 = 4;
+            } else {
+                i2 = 5;
             }
-        }
-
-        public final void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 1).param("obj_source", "1"));
+            int tabType = tabItem.getTabType();
+            if (tabType != 1) {
+                if (tabType != 3) {
+                    if (tabType != 100) {
+                        if (tabType == 102) {
+                            i2 = 17;
+                        }
+                    } else {
+                        i2 = 16;
+                    }
+                } else {
+                    i2 = 13;
+                }
+            } else {
+                i2 = 12;
             }
-        }
-
-        public final void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 2).param("obj_source", "1"));
-            }
-        }
-
-        public final void a(String tid, String fid) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, tid, fid) == null) {
-                Intrinsics.checkNotNullParameter(tid, "tid");
-                Intrinsics.checkNotNullParameter(fid, "fid");
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_BAR_MANAGE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", fid).param("tid", tid));
-            }
-        }
-
-        public final void b(String tid, String fid, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tid, fid, i) == null) {
-                Intrinsics.checkNotNullParameter(tid, "tid");
-                Intrinsics.checkNotNullParameter(fid, "fid");
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MANAGE_ITEM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", fid).param("tid", tid).param("obj_type", i));
-            }
+            statisticItem.param("obj_locate", i);
+            statisticItem.param("obj_type", i2);
+            statisticItem.eventStat();
         }
     }
 }

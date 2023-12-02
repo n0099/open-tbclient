@@ -1,69 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.da;
+import android.view.View;
+import com.baidu.tieba.forum.widget.TbNestedScrollView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class mp7 {
+public final class mp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public da<byte[]> a;
 
-    public mp7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b();
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            b05.k();
-            this.a = b05.i("tb.bawu_team_info");
-        }
-    }
-
-    public byte[] a(String str) {
+    public static final boolean a(TbNestedScrollView tbNestedScrollView) {
         InterceptResult invokeL;
-        da.b<byte[]> bVar;
-        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            da<byte[]> daVar = this.a;
-            if (daVar != null && str != null) {
-                bVar = daVar.h(str);
-            } else {
-                bVar = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbNestedScrollView)) == null) {
+            Intrinsics.checkNotNullParameter(tbNestedScrollView, "<this>");
+            View nestedScrollChild = tbNestedScrollView.getNestedScrollChild();
+            if (nestedScrollChild == null) {
+                return true;
             }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
+            int nestedScrollAxes = tbNestedScrollView.getNestedScrollAxes();
+            if (nestedScrollAxes != 1) {
+                if (nestedScrollAxes != 2) {
+                    return true;
+                }
+                if (nestedScrollChild.getY() - tbNestedScrollView.getScrollY() >= 0.0f && (nestedScrollChild.getY() + nestedScrollChild.getHeight()) - tbNestedScrollView.getScrollY() <= tbNestedScrollView.getHeight()) {
+                    return true;
+                }
+            } else if (nestedScrollChild.getX() - tbNestedScrollView.getScrollX() >= 0.0f && (nestedScrollChild.getX() + nestedScrollChild.getWidth()) - tbNestedScrollView.getScrollX() <= tbNestedScrollView.getWidth()) {
+                return true;
             }
-            return bArr;
+            return false;
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public void c(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
-            b();
-            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
-        }
+        return invokeL.booleanValue;
     }
 }

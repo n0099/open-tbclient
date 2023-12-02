@@ -26,8 +26,8 @@ public class AppScoreView extends LinearLayout {
 
     private void initView() {
         LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04b2, this);
-        this.HR = (ImageView) findViewById(R.id.obfuscated_res_0x7f091496);
-        this.HS = (ImageView) findViewById(R.id.obfuscated_res_0x7f091495);
+        this.HR = (ImageView) findViewById(R.id.obfuscated_res_0x7f091497);
+        this.HS = (ImageView) findViewById(R.id.obfuscated_res_0x7f091496);
     }
 
     public void setScore(float f) {

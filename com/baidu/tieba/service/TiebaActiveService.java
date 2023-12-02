@@ -108,25 +108,13 @@ public class TiebaActiveService extends BdBaseService {
             this(tiebaActiveService);
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.mActiveTask = null;
-                NetWork netWork = this.a;
-                if (netWork != null) {
-                    netWork.cancelNetConnect();
-                }
-                super.cancel(true);
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
         public String doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 try {
                     NetWork netWork = new NetWork("http://114.113.149.3:8086/partnersService");
                     this.a = netWork;
@@ -171,6 +159,19 @@ public class TiebaActiveService extends BdBaseService {
                 this.b.stopSelf();
             }
         }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.b.mActiveTask = null;
+                NetWork netWork = this.a;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
+                }
+                super.cancel(true);
+            }
+        }
     }
 
     public TiebaActiveService() {
@@ -198,11 +199,11 @@ public class TiebaActiveService extends BdBaseService {
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             String str = null;
             try {
-                File GetFile = FileHelper.GetFile(TbConfig.CHANNEL_FILE);
-                if (GetFile == null) {
+                File externalPrivateFile = FileHelper.getExternalPrivateFile(TbConfig.CHANNEL_FILE);
+                if (externalPrivateFile == null) {
                     return null;
                 }
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(GetFile));
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(externalPrivateFile));
                 str = bufferedReader.readLine();
                 bufferedReader.close();
                 return str;
@@ -308,9 +309,9 @@ public class TiebaActiveService extends BdBaseService {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65546, this, str) == null) && str != null && str.length() > 0) {
             try {
-                File CreateFile = FileHelper.CreateFile(TbConfig.CHANNEL_FILE);
-                if (CreateFile != null) {
-                    FileWriter fileWriter = new FileWriter(CreateFile);
+                File createExternalFileIfNotFound = FileHelper.createExternalFileIfNotFound(TbConfig.CHANNEL_FILE);
+                if (createExternalFileIfNotFound != null) {
+                    FileWriter fileWriter = new FileWriter(createExternalFileIfNotFound);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();

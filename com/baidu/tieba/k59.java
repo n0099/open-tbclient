@@ -1,17 +1,25 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class k59 extends qx8 {
+import java.util.HashMap;
+/* loaded from: classes6.dex */
+public class k59 implements i59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Integer> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k59() {
-        super(bx8.a(), 2001149);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -19,12 +27,50 @@ public class k59 extends qx8 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((xw8) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+        HashMap<String, Integer> hashMap = new HashMap<>(3);
+        this.a = hashMap;
+        hashMap.put("#(滑稽)", Integer.valueOf(ImEmojiUtil.a));
+        this.a.put("#(香槟)", Integer.valueOf(ImEmojiUtil.b));
+        this.a.put("#(炸药)", Integer.valueOf(ImEmojiUtil.c));
+    }
+
+    @Override // com.baidu.tieba.i59
+    public boolean a(ChatMessage... chatMessageArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
+            return this.a.containsKey(c(chatMessageArr));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final String c(ChatMessage... chatMessageArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
+            if (chatMessageArr != null && chatMessageArr.length > 0 && chatMessageArr[0] != null) {
+                return chatMessageArr[0].getContent();
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.i59
+    public void b(ListView listView, ChatMessage... chatMessageArr) {
+        View childAt;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null || (childAt = listView.getChildAt(listView.getLastVisiblePosition() - listView.getFirstVisiblePosition())) == null) {
+            return;
+        }
+        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.tex_msgitem_text);
+        if (chatMessageArr != null && chatMessageArr.length > 1) {
+            ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, null);
         }
     }
 }

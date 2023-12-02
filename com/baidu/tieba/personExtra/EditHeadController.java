@@ -8,10 +8,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.f28;
 import com.baidu.tieba.frs.model.AiCreateForumBgLoopModel;
 import com.baidu.tieba.frs.model.AiCreateForumBgQueryIdModel;
-import com.baidu.tieba.g28;
+import com.baidu.tieba.j28;
+import com.baidu.tieba.k28;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -58,13 +58,13 @@ public final class EditHeadController {
 
         /* renamed from: com.baidu.tieba.personExtra.EditHeadController$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static final class C0449a extends BdResourceCallback<BdImage> {
+        public static final class C0439a extends BdResourceCallback<BdImage> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ EditHeadController a;
             public final /* synthetic */ String b;
 
-            public C0449a(EditHeadController editHeadController, String str) {
+            public C0439a(EditHeadController editHeadController, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,7 +98,7 @@ public final class EditHeadController {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdImage, key, i) == null) {
                     Intrinsics.checkNotNullParameter(key, "key");
-                    super.onLoaded((C0449a) bdImage, key, i);
+                    super.onLoaded((C0439a) bdImage, key, i);
                     TiebaPrepareImageService.StartService(this.a.a().A1(), TbImageHelper.getInstance().getPostImageSize(), this.b);
                     this.a.a().D1();
                 }
@@ -125,17 +125,17 @@ public final class EditHeadController {
         }
 
         @Override // com.baidu.tieba.frs.model.AiCreateForumBgLoopModel.a
-        public void a(f28 loopData) {
+        public void a(j28 loopData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, loopData) == null) {
                 Intrinsics.checkNotNullParameter(loopData, "loopData");
-                AiCreateForumBgLoopModel.a.C0310a.b(this, loopData);
+                AiCreateForumBgLoopModel.a.C0287a.b(this, loopData);
                 List<String> a = loopData.a();
                 if (!a.isEmpty()) {
                     String str = a.get(0);
                     TbLog defaultLog = DefaultLog.getInstance();
                     defaultLog.i("EditHeadController", "当前吧：" + this.a.a().v() + "ai生成吧背景返回的url" + str);
-                    BdResourceLoader.getInstance().loadResource(str, 10, new C0449a(this.a, str), null);
+                    BdResourceLoader.getInstance().loadResource(str, 10, new C0439a(this.a, str), null);
                     if (this.b) {
                         this.a.a().R1(1, 0);
                     }
@@ -147,7 +147,7 @@ public final class EditHeadController {
         public void onError() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                AiCreateForumBgLoopModel.a.C0310a.a(this);
+                AiCreateForumBgLoopModel.a.C0287a.a(this);
                 this.a.a().P1();
                 this.a.a().M1(true);
                 this.a.a().K1();
@@ -181,7 +181,7 @@ public final class EditHeadController {
         }
 
         @Override // com.baidu.tieba.frs.model.AiCreateForumBgQueryIdModel.a
-        public void a(g28 queryIdData) {
+        public void a(k28 queryIdData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, queryIdData) == null) {
                 Intrinsics.checkNotNullParameter(queryIdData, "queryIdData");

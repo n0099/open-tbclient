@@ -1,42 +1,90 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class v67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
 
-    public static final u67 a(Map<String, String> businessInfo) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            try {
-                String str = businessInfo.get("forum_id");
-                jd7.b(str, null, 1, null);
-                String str2 = businessInfo.get("forum_name");
-                jd7.b(str2, null, 1, null);
-                String str3 = businessInfo.get("thread_id");
-                jd7.b(str3, null, 1, null);
-                String str4 = businessInfo.get("mgr_user_id");
-                jd7.b(str4, null, 1, null);
-                String str5 = businessInfo.get("user_name");
-                if (str5 == null) {
-                    str5 = "";
-                }
-                String str6 = businessInfo.get("portrait");
-                jd7.b(str6, null, 1, null);
-                String str7 = businessInfo.get("user_name_show");
-                jd7.b(str7, null, 1, null);
-                return new u67(str, str2, str3, str4, str5, str6, str7);
-            } catch (Exception unused) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof v67) {
+                v67 v67Var = (v67) obj;
+                return Intrinsics.areEqual(this.a, v67Var.a) && Intrinsics.areEqual(this.b, v67Var.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.a;
+            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
+            String str2 = this.b;
+            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "FeedFeedbackUserData(userId=" + this.a + ", portrait=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public v67(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (u67) invokeL.objValue;
+        this.a = str;
+        this.b = str2;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -18,23 +18,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kt7;
-import com.baidu.tieba.ms7;
-import com.baidu.tieba.to5;
+import com.baidu.tieba.ot7;
+import com.baidu.tieba.qs7;
+import com.baidu.tieba.xo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class FrsAllThreadFragment extends BaseFragment implements kt7 {
+public class FrsAllThreadFragment extends BaseFragment implements ot7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public RecyclerView b;
     public String c;
 
-    @Override // com.baidu.tieba.kt7
+    @Override // com.baidu.tieba.ot7
     public void S0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -55,7 +55,7 @@ public class FrsAllThreadFragment extends BaseFragment implements kt7 {
         }
     }
 
-    @Override // com.baidu.tieba.kt7
+    @Override // com.baidu.tieba.ot7
     public void F() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class FrsAllThreadFragment extends BaseFragment implements kt7 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public to5 getTbPageExtra() {
+    public xo5 getTbPageExtra() {
         InterceptResult invokeV;
         Intent intent;
         Interceptable interceptable = $ic;
@@ -76,20 +76,20 @@ public class FrsAllThreadFragment extends BaseFragment implements kt7 {
             } else {
                 intent = baseFragmentActivity.getIntent();
             }
-            return new to5(getUniqueId(), "a006", this.mTbPageExtraPageTabName, intent);
+            return new xo5(getUniqueId(), "a006", this.mTbPageExtraPageTabName, intent);
         }
-        return (to5) invokeV.objValue;
+        return (xo5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kt7
+    @Override // com.baidu.tieba.ot7
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             F();
-            ms7 ms7Var = new ms7();
-            ms7Var.a = 1;
-            ms7Var.b = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, ms7Var));
+            qs7 qs7Var = new qs7();
+            qs7Var.a = 1;
+            qs7Var.b = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, qs7Var));
         }
     }
 
@@ -125,7 +125,7 @@ public class FrsAllThreadFragment extends BaseFragment implements kt7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             this.a = view2;
-            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090d87);
+            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090d88);
             H2();
         }
     }

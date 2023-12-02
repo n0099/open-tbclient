@@ -1,138 +1,165 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.widget.image.TbImage;
-import com.baidu.tieba.forum.databinding.ForumNavBarSecondFloorBinding;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class gk7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Long> a;
 
-    public static final ForumNavBarSecondFloorBinding a(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding, NavigationBar navigationBar, ii7 ii7Var, int i, View.OnClickListener onClickListener) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{forumNavBarSecondFloorBinding, navigationBar, ii7Var, Integer.valueOf(i), onClickListener})) == null) {
-            if (forumNavBarSecondFloorBinding == null) {
-                forumNavBarSecondFloorBinding = ForumNavBarSecondFloorBinding.c(LayoutInflater.from(navigationBar.getContext()), navigationBar.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_RIGHT), false);
-                Intrinsics.checkNotNullExpressionValue(forumNavBarSecondFloorBinding, "inflate(LayoutInflater.f…HORIZONTAL_RIGHT), false)");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947796886, "Lcom/baidu/tieba/gk7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (forumNavBarSecondFloorBinding.getRoot().getParent() != null) {
-                return forumNavBarSecondFloorBinding;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947796886, "Lcom/baidu/tieba/gk7;");
+                return;
             }
-            TbImage tbImage = forumNavBarSecondFloorBinding.b;
-            String c = ii7Var.c();
-            if (c == null) {
-                c = "";
-            }
-            tbImage.l(c);
-            forumNavBarSecondFloorBinding.c.setShadowEnabled(false);
-            forumNavBarSecondFloorBinding.c.refresh(0);
-            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, forumNavBarSecondFloorBinding.getRoot(), i, onClickListener);
-            return forumNavBarSecondFloorBinding;
         }
-        return (ForumNavBarSecondFloorBinding) invokeCommon.objValue;
+        b = new a(null);
     }
 
-    public static final ForumNavBarSecondFloorBinding b(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding, NavigationBar nav, ni7 forumData, View visibilityTarget, View.OnClickListener clickListener) {
-        InterceptResult invokeLLLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, forumNavBarSecondFloorBinding, nav, forumData, visibilityTarget, clickListener)) == null) {
-            Intrinsics.checkNotNullParameter(nav, "nav");
-            Intrinsics.checkNotNullParameter(forumData, "forumData");
-            Intrinsics.checkNotNullParameter(visibilityTarget, "visibilityTarget");
-            Intrinsics.checkNotNullParameter(clickListener, "clickListener");
-            ii7 a = forumData.a();
-            if (a != null && a.g()) {
-                if (visibilityTarget.getVisibility() == 0) {
-                    i = 1;
-                } else {
-                    i = 0;
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return a(forumNavBarSecondFloorBinding, nav, a, i, clickListener);
             }
-            c(forumNavBarSecondFloorBinding);
-            return forumNavBarSecondFloorBinding;
         }
-        return (ForumNavBarSecondFloorBinding) invokeLLLLL.objValue;
-    }
 
-    public static final void c(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding) {
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, forumNavBarSecondFloorBinding) != null) || forumNavBarSecondFloorBinding == null) {
-            return;
-        }
-        ViewParent parent = forumNavBarSecondFloorBinding.getRoot().getParent();
-        if (parent instanceof ViewGroup) {
-            viewGroup = (ViewGroup) parent;
-        } else {
-            viewGroup = null;
-        }
-        if (viewGroup != null) {
-            viewGroup.removeView(forumNavBarSecondFloorBinding.getRoot());
-        }
-    }
-
-    public static final void d(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding, Boolean bool) {
-        MessageRedDotView messageRedDotView;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, forumNavBarSecondFloorBinding, bool) != null) || bool == null) {
-            return;
-        }
-        if (forumNavBarSecondFloorBinding != null) {
-            messageRedDotView = forumNavBarSecondFloorBinding.c;
-        } else {
-            messageRedDotView = null;
-        }
-        if (messageRedDotView != null) {
-            if (bool.booleanValue()) {
-                i = 0;
-            } else {
-                i = 8;
+        @JvmStatic
+        public final gk7 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
             }
-            messageRedDotView.setVisibility(i);
+            return (gk7) invokeV.objValue;
         }
     }
 
-    public static final void e(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding, View target) {
-        FrameLayout root;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, forumNavBarSecondFloorBinding, target) == null) {
-            Intrinsics.checkNotNullParameter(target, "target");
-            if (target.getVisibility() == 0 && forumNavBarSecondFloorBinding != null && (root = forumNavBarSecondFloorBinding.getRoot()) != null) {
-                boolean z2 = true;
-                if (target.getAlpha() == 0.0f) {
-                    z = true;
-                } else {
-                    z = false;
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final gk7 b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-772952616, "Lcom/baidu/tieba/gk7$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                if (z) {
-                    root.setVisibility(0);
-                    if (root.getTag(R.id.obfuscated_res_0x7f0919af) != null) {
-                        z2 = false;
-                    }
-                    if (z2) {
-                        tm7.a(4);
-                        root.setTag(R.id.obfuscated_res_0x7f0919af, "1");
-                        return;
-                    }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-772952616, "Lcom/baidu/tieba/gk7$b;");
                     return;
                 }
-                root.setVisibility(8);
+            }
+            a = new b();
+            b = new gk7();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final gk7 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (gk7) invokeV.objValue;
+        }
+    }
+
+    public gk7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public final long a(String fid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fid)) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            Long l = this.a.get(fid);
+            if (l == null) {
+                l = -1L;
+            }
+            return l.longValue();
+        }
+        return invokeL.longValue;
+    }
+
+    public final void b(String fid, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fid, j) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            if (j < 0) {
+                return;
+            }
+            Long l = this.a.get(fid);
+            if (l == null) {
+                l = -1L;
+            }
+            if (l.longValue() < j) {
+                this.a.put(fid, Long.valueOf(j));
             }
         }
     }

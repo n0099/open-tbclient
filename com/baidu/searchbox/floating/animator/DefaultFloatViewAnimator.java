@@ -72,7 +72,7 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
             return null;
         }
         ValueAnimator duration = ValueAnimator.ofInt(initValue(view2, params, windowManager), params.x).setDuration(this.mDuration);
-        duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ri1
+        duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ui1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -97,7 +97,7 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
             return null;
         }
         ValueAnimator duration = ValueAnimator.ofInt(params.x, initValue(view2, params, windowManager)).setDuration(this.mDuration);
-        duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.qi1
+        duration.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ti1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

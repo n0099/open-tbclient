@@ -1,10 +1,19 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.live.frame.PageInfo;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.swan.apps.page.model.SwanAppPageInfo;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,47 +21,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ty2 {
+public class ty2 implements qr1, pr1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String h;
-    public static final MediaType i;
+    public static volatile ty2 b;
+    public static final String c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Map<String, String> b;
-    public Map<String, String> c;
-    public boolean d;
-    public JSONObject e;
-    public b f;
-    public ResponseCallback<JSONObject> g;
+    public dl3<SwanAppPageInfo> a;
 
     /* loaded from: classes8.dex */
-    public interface b {
-        void onFail(String str);
-
-        void onSuccess(JSONObject jSONObject);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends ResponseCallback<JSONObject> {
+    public class a implements fl3<String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ty2 a;
+        public final /* synthetic */ JSONObject a;
 
-        public a(ty2 ty2Var) {
+        public a(ty2 ty2Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ty2Var};
+                Object[] objArr = {ty2Var, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,55 +53,57 @@ public class ty2 {
                     return;
                 }
             }
-            this.a = ty2Var;
+            this.a = jSONObject;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fl3
+        /* renamed from: b */
+        public Boolean a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (this.a.f == null) {
-                    h32.i("PayCheckRequest", "PayCheckRequestCallback is empty and paycheck request failed : \n" + Log.getStackTraceString(exc));
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                return Boolean.valueOf(TextUtils.isEmpty(this.a.optString(str)));
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
+
+    /* JADX INFO: Add missing generic type declarations: [T] */
+    /* loaded from: classes8.dex */
+    public class b<T> implements fl3<String, T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Object a;
+
+        public b(ty2 ty2Var, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ty2Var, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                this.a.f.onFail(exc.getMessage());
             }
+            this.a = obj;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
+        @Override // com.baidu.tieba.fl3
+        /* renamed from: b */
+        public T a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                if (this.a.f == null) {
-                    h32.i("PayCheckRequest", "paycheck request success, but PayCheckRequestCallback is empty.");
-                } else if (jSONObject == null) {
-                    this.a.f.onFail("response is empty");
-                } else if (jSONObject.optInt("errno", -1) != 0) {
-                    String optString = jSONObject.optString("tipmsg", "");
-                    b bVar = this.a.f;
-                    if (TextUtils.isEmpty(optString)) {
-                        optString = "errno is non-zero";
-                    }
-                    bVar.onFail(optString);
-                } else {
-                    this.a.f.onSuccess(jSONObject.optJSONObject("data"));
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                return (T) this.a;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    return hj3.d(response.body().string());
-                }
-                return null;
-            }
-            return (JSONObject) invokeLI.objValue;
+            return (T) invokeL.objValue;
         }
     }
 
@@ -127,9 +120,9 @@ public class ty2 {
                 return;
             }
         }
-        boolean z = sm1.a;
-        h = String.format("%s/ma/pay_check", b32.b());
-        i = ox2.a;
+        boolean z = vm1.a;
+        c = rp2.n().a();
+        d = c + "_";
     }
 
     public ty2() {
@@ -137,99 +130,216 @@ public class ty2 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = h;
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = false;
-        this.e = new JSONObject();
-        this.g = new a(this);
-        e();
-        f();
-        g();
     }
 
-    public final void g() {
+    public static ty2 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            String P = g63.K().q().P();
-            try {
-                JSONObject jSONObject = this.e;
-                if (TextUtils.isEmpty(P)) {
-                    P = "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (ty2.class) {
+                    if (b == null) {
+                        b = new ty2();
+                    }
                 }
-                jSONObject.put("appkey", P);
-            } catch (JSONException e) {
-                h32.i("PayCheckRequest", "set post data 'appkey' failed: \n" + Log.getStackTraceString(e));
             }
+            return b;
+        }
+        return (ty2) invokeV.objValue;
+    }
+
+    public final hr2 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            k63 c0 = k63.c0();
+            if (c0 != null && c0.X() != null) {
+                return c0.X();
+            }
+            return null;
+        }
+        return (hr2) invokeV.objValue;
+    }
+
+    public final s52 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            t52 W = xr2.V().W();
+            if (W == null) {
+                return null;
+            }
+            return W.o();
+        }
+        return (s52) invokeV.objValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.a != null) {
+            this.a = null;
         }
     }
 
-    public void d(@NonNull b bVar) {
+    @Override // com.baidu.tieba.pr1
+    public void a(String str, lw2 lw2Var, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f = bVar;
-            c(this.g);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, lw2Var, context) == null) {
+            if (lw2Var != null && j63.K().E()) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", "history");
+                    jSONObject.put("url", lw2Var.i());
+                    jSONObject.put(IntentConstants.XSearch.XSEARCH_EXTRA_PAGEID, str);
+                    c(jSONObject, lw2Var);
+                    return;
+                } catch (JSONException e) {
+                    k32.o("SwanAppPageInfoHelper", "onFragmentOpened: ret by catch:" + e + " trace:\n" + Log.getStackTraceString(e));
+                    return;
+                }
+            }
+            k32.o("SwanAppPageInfoHelper", "onFragmentOpened: ret by pageParam is null or !hasAppOccupied");
         }
     }
 
-    public void b(String str, String str2) {
+    @Override // com.baidu.tieba.qr1
+    public void b(k63 k63Var, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || TextUtils.isEmpty(str) || str2 == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k63Var, jSONObject) == null) {
+            c(jSONObject, null);
         }
-        this.b.put(str, str2);
     }
 
-    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
+    public final void c(@NonNull JSONObject jSONObject, @Nullable lw2 lw2Var) {
+        String i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
-            if (!this.d) {
-                responseCallback.onFail(new InvalidParameterException("error: invalid url"));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, lw2Var) == null) {
+            String optString = jSONObject.optString("type");
+            if (!d(optString)) {
+                k32.o("SwanAppPageInfoHelper", "addPageHistory: ret by check type:" + optString);
                 return;
             }
-            this.a = zj3.b(this.a, this.c);
-            kd4 kd4Var = new kd4(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
-            kd4Var.c = this.b;
-            kd4Var.g = true;
-            h32.b("PayCheckRequest", "start paycheck request : " + this.e);
-            ld4.g().e(kd4Var);
+            s52 g = g();
+            if (g == null) {
+                k32.o("SwanAppPageInfoHelper", "addPageHistory: ret by null fragment");
+                return;
+            }
+            lw2 S1 = g.S1();
+            if (S1 == null) {
+                k32.o("SwanAppPageInfoHelper", "addPageHistory: ret by null param");
+                return;
+            }
+            if (lw2Var == null) {
+                lw2Var = S1;
+            }
+            try {
+                i = lw2Var.i();
+                str = "";
+                if (TextUtils.isEmpty(i)) {
+                    i = "";
+                }
+                l(jSONObject, "url", i);
+                String optString2 = jSONObject.optString("url");
+                if (!TextUtils.isEmpty(optString2)) {
+                    str = optString2;
+                }
+            } catch (JSONException e) {
+                k32.o("SwanAppPageInfoHelper", "addPageHistory: ret by catch:" + e + " trace:\n" + Log.getStackTraceString(e));
+            }
+            if (!str.startsWith(i)) {
+                k32.o("SwanAppPageInfoHelper", "addPageHistory: ret by isNotSamePage\n    fragmentUrl = " + i + "\n        dataUrl = " + str);
+                return;
+            }
+            if (optString.startsWith(d)) {
+                optString = optString.substring(d.length());
+            }
+            jSONObject.put("type", optString);
+            l(jSONObject, IntentConstants.XSearch.XSEARCH_EXTRA_PAGEID, g.b0);
+            l(jSONObject, "scheme", c + "://swan/" + j63.K().getAppId() + "/" + str);
+            hr2 f = f();
+            if (f != null) {
+                l(jSONObject, "appName", f.L());
+                l(jSONObject, GameAssistConstKt.KEY_ICONURL, f.R());
+                l(jSONObject, "appDesc", f.f1());
+            }
+            h(jSONObject);
         }
     }
 
-    public final void e() {
+    public final boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String i2 = pf4.i(h);
-            this.a = i2;
-            this.a = d32.b(i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && ("history".equals(str) || str.startsWith(d))) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void f() {
+    public void i(SwanAppPageInfo swanAppPageInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b("Referer", oj3.b());
+        if (interceptable == null || interceptable.invokeL(1048583, this, swanAppPageInfo) == null) {
+            k32.i("SwanAppPageInfoHelper", "notifyCallBackLocally: data = " + swanAppPageInfo);
+            dl3<SwanAppPageInfo> dl3Var = this.a;
+            if (dl3Var != null) {
+                dl3Var.a(swanAppPageInfo);
+            }
         }
     }
 
     public void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+            if (!SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+                i(new SwanAppPageInfo(jSONObject));
+                return;
+            }
+            m();
+            Bundle bundle = new Bundle();
+            bundle.putString(PageInfo.KEY, jSONObject.toString());
+            a33.e().h(new c33(24, bundle));
         }
-        try {
-            this.e.put("order_info", jSONObject);
-            this.d = true;
-        } catch (JSONException e) {
-            h32.i("PayCheckRequest", "set order info failed: \n" + Log.getStackTraceString(e));
+    }
+
+    public final <T> JSONObject j(JSONObject jSONObject, String str, fl3<String, T> fl3Var, fl3<String, Boolean> fl3Var2) throws JSONException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, str, fl3Var, fl3Var2)) == null) {
+            if (fl3Var2.a(str).booleanValue()) {
+                jSONObject.put(str, fl3Var.a(str));
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeLLLL.objValue;
+    }
+
+    public final <T> JSONObject k(JSONObject jSONObject, String str, T t, fl3<String, Boolean> fl3Var) throws JSONException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, jSONObject, str, t, fl3Var)) == null) {
+            j(jSONObject, str, new b(this, t), fl3Var);
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLLL.objValue;
+    }
+
+    public final JSONObject l(JSONObject jSONObject, String str, String str2) throws JSONException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, jSONObject, str, str2)) == null) {
+            k(jSONObject, str, str2, new a(this, jSONObject));
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
     }
 }

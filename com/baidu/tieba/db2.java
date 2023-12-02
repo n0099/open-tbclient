@@ -1,115 +1,147 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.sailor.BdSailorWebView;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.util.FileHelper;
+import android.util.Log;
+import android.util.Patterns;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class db2 {
+public final class db2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ PrefetchEvent b;
-
-        public a(String str, PrefetchEvent prefetchEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, prefetchEvent};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00b7  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00cd  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0115  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static za2 a(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String str2;
+        String str3;
+        InputStream inputStream;
+        int i;
+        HttpURLConnection httpURLConnection;
+        String scheme;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, map)) == null) {
+            String str4 = null;
+            if (TextUtils.isEmpty(str) || !Patterns.WEB_URL.matcher(str).matches()) {
+                return null;
+            }
+            String scheme2 = Uri.parse(str).getScheme();
+            int i2 = 200;
+            HttpURLConnection httpURLConnection2 = null;
+            while (true) {
+                try {
+                    httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                    try {
+                        httpURLConnection.setRequestMethod("GET");
+                        if (map != null) {
+                            for (Map.Entry<String, String> entry : map.entrySet()) {
+                                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                            }
+                        }
+                        httpURLConnection.setUseCaches(false);
+                        httpURLConnection.setDoInput(true);
+                        httpURLConnection.setConnectTimeout(pa2.a().e());
+                        httpURLConnection.setReadTimeout(pa2.a().h());
+                        String headerField = httpURLConnection.getHeaderField("Location");
+                        if (headerField == null) {
+                            scheme = null;
+                        } else {
+                            scheme = Uri.parse(headerField).getScheme();
+                        }
+                        if (headerField == null || (scheme != null && scheme.equals(scheme2))) {
+                            break;
+                        }
+                        scheme2 = scheme;
+                        httpURLConnection2 = httpURLConnection;
+                        str = headerField;
+                    } catch (Exception e) {
+                        e = e;
+                        httpURLConnection2 = httpURLConnection;
+                        str2 = null;
+                        if (ta2.a) {
+                            Log.e("HybridIntercept", Log.getStackTraceString(e));
+                        }
+                        str3 = str2;
+                        inputStream = null;
+                        i = i2;
+                        httpURLConnection = httpURLConnection2;
+                        HashMap hashMap = new HashMap();
+                        String str5 = "UTF-8";
+                        if (httpURLConnection != null) {
+                        }
+                        String str6 = str5;
+                        String str7 = str4;
+                        if (TextUtils.isEmpty(str3)) {
+                        }
+                        return new za2(i, str3, inputStream, hashMap, str6, str7);
+                    }
+                } catch (Exception e2) {
+                    e = e2;
                 }
             }
-            this.a = str;
-            this.b = prefetchEvent;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                db2.d(this.a);
-                db2.d(db2.e(this.a, this.b.pageUrl));
+            i2 = httpURLConnection.getResponseCode();
+            str3 = httpURLConnection.getResponseMessage();
+            try {
+                inputStream = httpURLConnection.getInputStream();
+                i = i2;
+            } catch (Exception e3) {
+                httpURLConnection2 = httpURLConnection;
+                str2 = str3;
+                e = e3;
+                if (ta2.a) {
+                }
+                str3 = str2;
+                inputStream = null;
+                i = i2;
+                httpURLConnection = httpURLConnection2;
+                HashMap hashMap2 = new HashMap();
+                String str52 = "UTF-8";
+                if (httpURLConnection != null) {
+                }
+                String str62 = str52;
+                String str72 = str4;
+                if (TextUtils.isEmpty(str3)) {
+                }
+                return new za2(i, str3, inputStream, hashMap2, str62, str72);
             }
-        }
-    }
-
-    public static void c(@NonNull PrefetchEvent prefetchEvent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, prefetchEvent) != null) || !i03.a()) {
-            return;
-        }
-        String str = prefetchEvent.appPath;
-        if (TextUtils.isEmpty(str) || !new File(str).exists()) {
-            return;
-        }
-        bj3.k(new a(str, prefetchEvent), "addFileResToMemoryCache");
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file = new File(str);
-        if (!file.exists()) {
-            return;
-        }
-        if (file.isDirectory()) {
-            String[] list = file.list();
-            if (list != null && list.length != 0) {
-                for (String str2 : list) {
-                    if (!TextUtils.isEmpty(str2)) {
-                        String str3 = str + File.separator + str2;
-                        File file2 = new File(str3);
-                        if (file2.exists() && file2.isFile() && (str3.endsWith(FileHelper.FILE_CACHE_CSS) || str3.endsWith(".js"))) {
-                            BdSailorWebView.addToWebCache("file://" + str3, true);
+            HashMap hashMap22 = new HashMap();
+            String str522 = "UTF-8";
+            if (httpURLConnection != null) {
+                if (httpURLConnection.getContentEncoding() != null) {
+                    str522 = httpURLConnection.getContentEncoding();
+                }
+                str4 = httpURLConnection.getContentType();
+                Map<String, List<String>> headerFields = httpURLConnection.getHeaderFields();
+                if (headerFields != null) {
+                    for (Map.Entry<String, List<String>> entry2 : headerFields.entrySet()) {
+                        List<String> value = entry2.getValue();
+                        if (!value.isEmpty()) {
+                            hashMap22.put(entry2.getKey(), value.get(0));
                         }
                     }
                 }
             }
-        } else if (file.isFile()) {
-            String absolutePath = file.getAbsolutePath();
-            if (TextUtils.isEmpty(absolutePath)) {
-                return;
+            String str622 = str522;
+            String str722 = str4;
+            if (TextUtils.isEmpty(str3)) {
+                str3 = DnsModel.MSG_OK;
             }
-            if (absolutePath.endsWith(FileHelper.FILE_CACHE_CSS) || absolutePath.endsWith(".js")) {
-                BdSailorWebView.addToWebCache("file://" + absolutePath, true);
-            }
+            return new za2(i, str3, inputStream, hashMap22, str622, str722);
         }
-    }
-
-    public static String e(@NonNull String str, String str2) {
-        InterceptResult invokeLL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            String f = zj3.f(str2);
-            if (TextUtils.isEmpty(f) || (lastIndexOf = f.lastIndexOf(File.separator)) <= 0) {
-                return null;
-            }
-            String substring = f.substring(0, lastIndexOf);
-            return str + File.separator + substring;
-        }
-        return (String) invokeLL.objValue;
+        return (za2) invokeLL.objValue;
     }
 }

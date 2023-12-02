@@ -6,9 +6,9 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k33;
-import com.baidu.tieba.op2;
-import com.baidu.tieba.sm1;
+import com.baidu.tieba.n33;
+import com.baidu.tieba.rp2;
+import com.baidu.tieba.vm1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -111,31 +111,31 @@ public class ReplyEditorParams implements Parcelable {
                 }
             }
         }
-        String c = k33.c(jSONObject, "sendText", "发表");
+        String c = n33.c(jSONObject, "sendText", "发表");
         if (c.length() > 2) {
             c = c.substring(0, 2);
         }
         String str = c;
         try {
-            i = SwanAppConfigData.t(k33.c(jSONObject, "sendTextColor", "#FFFFFF"));
+            i = SwanAppConfigData.t(n33.c(jSONObject, "sendTextColor", "#FFFFFF"));
         } catch (Exception e) {
-            if (sm1.a) {
+            if (vm1.a) {
                 e.printStackTrace();
             }
             i = -1;
         }
-        Application c2 = op2.c();
-        String c3 = k33.c(jSONObject, "sendBackgroundColor", "#3388FF");
+        Application c2 = rp2.c();
+        String c3 = n33.c(jSONObject, "sendBackgroundColor", "#3388FF");
         int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060b18);
         try {
             i2 = SwanAppConfigData.t(c3);
         } catch (Exception e2) {
-            if (sm1.a) {
+            if (vm1.a) {
                 e2.printStackTrace();
             }
             i2 = color;
         }
-        String d = k33.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f15b4)), 20, "...");
+        String d = n33.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f15b5)), 20, "...");
         String optString2 = jSONObject.optString("emojiPath");
         if (TextUtils.isEmpty(optString2)) {
             arrayList.remove("emoji");

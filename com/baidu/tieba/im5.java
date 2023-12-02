@@ -1,21 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragment;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
-public interface im5 {
-    void B(int i, int i2, Intent intent);
+public interface im5 extends pk5 {
+    public static final String a = "com.baidu.tieba.im5";
 
-    boolean E();
-
-    BaseFragment F();
-
-    void G(boolean z);
-
-    void setUniqueId(BdUniqueId bdUniqueId);
-
-    void setUserVisibleHint(boolean z);
-
-    long u();
+    @NonNull
+    hm5 b(@NonNull TbPageContext tbPageContext);
 }

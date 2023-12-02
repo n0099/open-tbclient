@@ -86,13 +86,13 @@ public class gu extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: x */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cw4Var) == null) {
-            if (cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().originalThreadData != null && cw4Var.getThreadData().originalThreadData.C != null) {
-                if (!cw4Var.getThreadData().originalThreadData.m && !cw4Var.getThreadData().shouldShowBlockedState()) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, fw4Var) == null) {
+            if (fw4Var != null && fw4Var.getThreadData() != null && fw4Var.getThreadData().originalThreadData != null && fw4Var.getThreadData().originalThreadData.C != null) {
+                if (!fw4Var.getThreadData().originalThreadData.m && !fw4Var.getThreadData().shouldShowBlockedState()) {
                     this.h.setVisibility(0);
-                    this.i.setData(cw4Var.getThreadData().originalThreadData.D, 13, cw4Var.getThreadData().originalThreadData.f);
+                    this.i.setData(fw4Var.getThreadData().originalThreadData.D, 13, fw4Var.getThreadData().originalThreadData.f);
                     return;
                 }
                 this.h.setVisibility(8);

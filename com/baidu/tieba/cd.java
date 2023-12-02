@@ -45,6 +45,19 @@ public class cd {
             this();
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public String doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+                b();
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+
         public final void b() {
             ArrayList<kc> c;
             Interceptable interceptable = $ic;
@@ -83,18 +96,6 @@ public class cd {
                     ic.a(arrayList, true);
                 }
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                b();
-                return null;
-            }
-            return (String) invokeL.objValue;
         }
     }
 

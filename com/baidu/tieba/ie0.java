@@ -37,21 +37,21 @@ public class ie0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hashMap)) == null) {
             ie0 ie0Var = new ie0();
             if (hashMap.get("cmd_map") instanceof String) {
-                JSONObject c = my0.c((String) hashMap.get("cmd_map"));
+                JSONObject c = oy0.c((String) hashMap.get("cmd_map"));
                 ie0Var.a = c;
-                ie0Var.b = my0.b(c);
+                ie0Var.b = oy0.b(c);
             }
             if (hashMap.get("area_cmd") instanceof String) {
-                ie0Var.c = my0.b(my0.c((String) hashMap.get("area_cmd")));
+                ie0Var.c = oy0.b(oy0.c((String) hashMap.get("area_cmd")));
             }
             if (hashMap.get("charge_map") instanceof String) {
-                my0.b(my0.c((String) hashMap.get("charge_map")));
+                oy0.b(oy0.c((String) hashMap.get("charge_map")));
             }
             if (hashMap.get("parallel_charge_urls") instanceof JSONObject) {
-                my0.b((JSONObject) hashMap.get("parallel_charge_urls"));
+                oy0.b((JSONObject) hashMap.get("parallel_charge_urls"));
             }
             if (hashMap.get("defer_charge_urls") instanceof JSONObject) {
-                my0.b((JSONObject) hashMap.get("defer_charge_urls"));
+                oy0.b((JSONObject) hashMap.get("defer_charge_urls"));
             }
             return ie0Var;
         }

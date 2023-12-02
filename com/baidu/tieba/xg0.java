@@ -76,7 +76,7 @@ public class xg0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             xg0 xg0Var = new xg0();
-            JSONObject c = my0.c(str);
+            JSONObject c = oy0.c(str);
             xg0Var.a = c.optString("page");
             xg0Var.b = c.optString("business");
             xg0Var.c = c.optString("source");

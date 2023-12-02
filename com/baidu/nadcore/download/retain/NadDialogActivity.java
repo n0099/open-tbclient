@@ -11,7 +11,7 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.connect.NetWorkUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz0;
+import com.baidu.tieba.dz0;
 import com.baidu.tieba.hf0;
 import com.baidu.tieba.vg0;
 /* loaded from: classes3.dex */
@@ -106,7 +106,7 @@ public abstract class NadDialogActivity extends BaseActivity {
         if (!NetWorkUtils.b(hf0.b())) {
             return;
         }
-        bz0.e(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
+        dz0.e(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity

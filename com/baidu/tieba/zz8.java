@@ -1,146 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.AccountData;
+import android.app.Activity;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class zz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static void a(final String str, final boolean z, int i, final int i2, final boolean z2) {
+        final boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
+            final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (i == 3) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.lz8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: com.baidu.tieba.zz8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public class C0553a extends ju5<Integer> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean a;
-
-            public C0553a(a aVar, boolean z) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Boolean.valueOf(z)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        zz8.b(currentActivity, z, z2, z3, str, i2);
                     }
                 }
-                this.a = z;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ju5
-            /* renamed from: a */
-            public Integer doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (!this.a) {
-                        ut8.a().b();
-                    }
-                    return 0;
-                }
-                return (Integer) invokeV.objValue;
-            }
-        }
-
-        /* loaded from: classes9.dex */
-        public class b implements ot5<Integer> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ot5
-            /* renamed from: a */
-            public void onReturnDataInUI(Integer num) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005018, null));
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
-                return;
-            }
-            boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
-            if (!isNull) {
-                da5.p0().o0(new ma5());
-                da5.p0().i0(0);
-                da5.p0().g0(0);
-                da5.p0().f0(0);
-                da5.p0().j0(0);
-                da5.p0().k0(0);
-                da5.p0().a();
-                nu5.a();
-                gu8.w().q();
-                fu8.w().q();
-            }
-            nu5.c(new C0553a(this, isNull), new b(this));
+            });
         }
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            MessageManager.getInstance().registerListener(2005016, new a(0));
+    public static /* synthetic */ void b(Activity activity, boolean z, boolean z2, boolean z3, String str, int i) {
+        if (activity != null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            if (z) {
+                if (z2 && !z3 && so4.d().b("share_thread")) {
+                    return;
+                }
+                spannableStringBuilder.append((CharSequence) str);
+            } else {
+                spannableStringBuilder.append((CharSequence) c(str, i));
+            }
+            BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
         }
+    }
+
+    @NonNull
+    public static String c(@Nullable String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str2 = TbadkCoreApplication.getInst().getResources().getString(R.string.share_failed);
+            } else {
+                str2 = str;
+            }
+            if (i == 2) {
+                return str2;
+            }
+            try {
+                JSONObject optJSONObject = new JSONArray(str).optJSONObject(0);
+                if (optJSONObject != null) {
+                    String optString = optJSONObject.optString("text");
+                    if (!TextUtils.isEmpty(optString)) {
+                        return optString;
+                    }
+                    return str2;
+                }
+                return str2;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return str2;
+            }
+        }
+        return (String) invokeLI.objValue;
     }
 }

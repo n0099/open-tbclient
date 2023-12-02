@@ -1,80 +1,129 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.bot.BotEntranceManager;
-import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.pb.account.forbid.ForbidTplData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.CallRobotEntrance;
-import tbclient.RobotEntrance;
-import tbclient.RobotSkill;
-import tbclient.RobotSkillInfo;
 /* loaded from: classes6.dex */
-public final class iu9 implements Runnable {
+public class iu9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WeakReference<PbFragment> a;
-    public final String b;
 
-    public iu9(String token, PbFragment pbFragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {token, pbFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(ForbidTplData forbidTplData);
+
+        void b(ForbidTplData forbidTplData);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a extends BdAsyncTask<String, Object, ForbidTplData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public b c;
+
+        public a(String str, String str2, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+            this.c = bVar;
+            setPriority(3);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ForbidTplData doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                NetWork netWork = new NetWork(iu9.a);
+                netWork.addPostData("forum_id", this.a);
+                netWork.addPostData("user_id", this.b);
+                String postNetData = netWork.postNetData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    try {
+                        return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
+                        ForbidTplData forbidTplData = new ForbidTplData();
+                        forbidTplData.error.errno = -1000;
+                        return forbidTplData;
+                    }
+                }
+                ForbidTplData forbidTplData2 = new ForbidTplData();
+                forbidTplData2.error.errno = netWork.getServerErrorCode();
+                forbidTplData2.error.errMsg = netWork.getErrorString();
+                return forbidTplData2;
+            }
+            return (ForbidTplData) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ForbidTplData forbidTplData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
+                super.onPostExecute(forbidTplData);
+                if (this.c != null) {
+                    ForbidTplData.ErrorInfo errorInfo = forbidTplData.error;
+                    if (errorInfo.errno == 0 && rd.isEmpty(errorInfo.errMsg)) {
+                        this.c.b(forbidTplData);
+                    } else {
+                        this.c.a(forbidTplData);
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947866140, "Lcom/baidu/tieba/iu9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947866140, "Lcom/baidu/tieba/iu9;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(token, "token");
-        Intrinsics.checkNotNullParameter(pbFragment, "pbFragment");
-        this.a = new WeakReference<>(pbFragment);
-        this.b = token;
+        a = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0067  */
-    @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        PbFragment pbFragment;
-        String str;
+    public static void b(String str, String str2, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pbFragment = this.a.get()) != null && pbFragment.i7() != null && pbFragment.l0() != null && pbFragment.i7().G0() != null && pbFragment.l0().s1() != null) {
-            RobotEntrance N = pbFragment.l0().s1().N();
-            if (N != null) {
-                List<RobotSkillInfo> list = N.robot_skill_info;
-                List<RobotSkill> list2 = N.bottom_bar_robot_skill;
-                if (list != null && list2 != null) {
-                    CallRobotEntrance c = BotEntranceManager.c.c().c(list, list2);
-                    Intrinsics.checkNotNull(c);
-                    str = c.style_conf.android_extra.bot_timeout_content;
-                    Intrinsics.checkNotNullExpressionValue(str, "robotEntrance!!.style_co…extra.bot_timeout_content");
-                    if (TextUtils.isEmpty(str)) {
-                        str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f080b);
-                        Intrinsics.checkNotNullExpressionValue(str, "getInst()\n              …bot_loading_timeout_text)");
-                    }
-                    g4a.d(this.b, str, "", 2);
-                    pbFragment.i7().G0().v();
-                }
-            }
-            str = "";
-            if (TextUtils.isEmpty(str)) {
-            }
-            g4a.d(this.b, str, "", 2);
-            pbFragment.i7().G0().v();
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, bVar) == null) {
+            new a(str, str2, bVar).execute(new String[0]);
         }
     }
 }

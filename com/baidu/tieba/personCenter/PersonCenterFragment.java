@@ -28,15 +28,15 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h8a;
-import com.baidu.tieba.ju5;
-import com.baidu.tieba.m8a;
+import com.baidu.tieba.dv5;
+import com.baidu.tieba.l8a;
 import com.baidu.tieba.nu5;
-import com.baidu.tieba.ot5;
+import com.baidu.tieba.q8a;
 import com.baidu.tieba.redtip.PersonRedTipManager;
-import com.baidu.tieba.u7a;
-import com.baidu.tieba.v05;
-import com.baidu.tieba.zu5;
+import com.baidu.tieba.ru5;
+import com.baidu.tieba.st5;
+import com.baidu.tieba.y05;
+import com.baidu.tieba.y7a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,15 +47,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class PersonCenterFragment extends LazyBaseFragment {
     public static /* synthetic */ Interceptable $ic;
-    public static final ju5 s;
-    public static final ot5 t;
+    public static final nu5 s;
+    public static final st5 t;
     public transient /* synthetic */ FieldHolder $fh;
     public long g;
     public boolean h;
     @Deprecated
     public boolean i;
     public boolean j;
-    public h8a k;
+    public l8a k;
     public long l;
     public String m;
     public boolean n;
@@ -192,7 +192,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
     }
 
     /* loaded from: classes7.dex */
-    public class d extends ju5<Boolean> {
+    public class d extends nu5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -212,7 +212,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.ju5
+        @Override // com.baidu.tieba.nu5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -221,9 +221,9 @@ public class PersonCenterFragment extends LazyBaseFragment {
                 netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
                 netWork.setNeedBdussForPost(true);
                 String postNetData = netWork.postNetData();
-                m8a m8aVar = new m8a();
-                m8aVar.c(postNetData);
-                if (m8aVar.b() == 0 && m8aVar.a() > 0) {
+                q8a q8aVar = new q8a();
+                q8aVar.c(postNetData);
+                if (q8aVar.b() == 0 && q8aVar.a() > 0) {
                     return Boolean.TRUE;
                 }
                 return Boolean.FALSE;
@@ -233,7 +233,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
     }
 
     /* loaded from: classes7.dex */
-    public class e implements ot5<Boolean> {
+    public class e implements st5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -252,7 +252,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ot5
+        @Override // com.baidu.tieba.st5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -333,9 +333,9 @@ public class PersonCenterFragment extends LazyBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            h8a h8aVar = this.k;
-            if (h8aVar != null) {
-                h8aVar.f();
+            l8a l8aVar = this.k;
+            if (l8aVar != null) {
+                l8aVar.f();
             }
             Looper.myQueue().removeIdleHandler(this.r);
         }
@@ -357,9 +357,9 @@ public class PersonCenterFragment extends LazyBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onResume();
-            h8a h8aVar = this.k;
-            if (h8aVar != null) {
-                h8aVar.h();
+            l8a l8aVar = this.k;
+            if (l8aVar != null) {
+                l8aVar.h();
             }
             if (!this.h && this.i) {
                 this.l = System.currentTimeMillis();
@@ -402,11 +402,11 @@ public class PersonCenterFragment extends LazyBaseFragment {
                 TiebaStatic.log(new StatisticItem("c12263").param(TiebaStatic.Params.OBJ_DURATION, String.valueOf((System.currentTimeMillis() - this.l) / 1000)).param("obj_type", 2));
                 this.l = 0L;
             }
-            h8a h8aVar = this.k;
-            if (h8aVar != null) {
-                h8aVar.g();
+            l8a l8aVar = this.k;
+            if (l8aVar != null) {
+                l8aVar.g();
             }
-            YunDialogManager.onHidden(v05.m);
+            YunDialogManager.onHidden(y05.m);
         }
     }
 
@@ -415,7 +415,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            u7a.d().h(System.currentTimeMillis() - u7a.d().a());
+            y7a.d().h(System.currentTimeMillis() - y7a.d().a());
         }
     }
 
@@ -424,9 +424,9 @@ public class PersonCenterFragment extends LazyBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
-            h8a h8aVar = this.k;
-            if (h8aVar != null) {
-                h8aVar.e(i);
+            l8a l8aVar = this.k;
+            if (l8aVar != null) {
+                l8aVar.e(i);
             }
         }
     }
@@ -435,7 +435,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            u7a.d().g(System.currentTimeMillis());
+            y7a.d().g(System.currentTimeMillis());
             super.onCreate(bundle);
         }
     }
@@ -458,9 +458,9 @@ public class PersonCenterFragment extends LazyBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
             R2(bundle);
-            h8a h8aVar = new h8a(view2, getPageContext(), getUniqueId());
-            this.k = h8aVar;
-            h8aVar.d();
+            l8a l8aVar = new l8a(view2, getPageContext(), getUniqueId());
+            this.k = l8aVar;
+            l8aVar.d();
             this.n = false;
             if (!TbadkCoreApplication.getInst().checkInterrupt()) {
                 this.k.j();
@@ -486,7 +486,7 @@ public class PersonCenterFragment extends LazyBaseFragment {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             long j = SharedPrefHelper.getInstance().getLong("key_feedback_tip", 0L);
             if (TbadkCoreApplication.isLogin() && System.currentTimeMillis() - j > ClearCacheUtils.DO_CLEAR_PERIOD) {
-                nu5.b(s, t);
+                ru5.b(s, t);
                 SharedPrefHelper.getInstance().putLong("key_feedback_tip", System.currentTimeMillis());
             }
         }
@@ -542,12 +542,12 @@ public class PersonCenterFragment extends LazyBaseFragment {
                 }
                 this.k.j();
                 SharedPrefHelper.getInstance().putBoolean("key_feedback_tip_tab_show", false);
-                zu5.b();
+                dv5.b();
                 if (getContext() != null) {
-                    YunDialogManager.onShow(getContext(), v05.m);
+                    YunDialogManager.onShow(getContext(), y05.m);
                 }
             } else {
-                YunDialogManager.onHidden(v05.m);
+                YunDialogManager.onHidden(y05.m);
             }
             if (isAdded()) {
                 PersonRedTipManager.getInstance().removeTabTip();

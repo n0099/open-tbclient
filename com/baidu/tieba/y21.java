@@ -1,88 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v21;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+@TargetApi(23)
 /* loaded from: classes9.dex */
 public class y21 {
     public static /* synthetic */ Interceptable $ic;
-    public static final y21 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Integer, v21.b> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948278161, "Lcom/baidu/tieba/y21;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948278161, "Lcom/baidu/tieba/y21;");
-                return;
-            }
-        }
-        b = new y21();
+    /* loaded from: classes9.dex */
+    public interface a {
+        void validateRequestPermissionsRequestCode(int i);
     }
 
-    public y21() {
+    public static void a(Activity activity, String[] strArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLI(65536, null, activity, strArr, i) == null) {
+            if (activity instanceof a) {
+                ((a) activity).validateRequestPermissionsRequestCode(i);
             }
-        }
-        this.a = new HashMap();
-    }
-
-    public static y21 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (y21) invokeV.objValue;
-    }
-
-    public void a(int i, v21.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bVar) == null) {
-            synchronized (y21.class) {
-                this.a.put(Integer.valueOf(i), bVar);
-            }
+            activity.requestPermissions(strArr, i);
         }
     }
 
-    public v21.b c(int i) {
-        InterceptResult invokeI;
+    public static boolean b(Activity activity, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return this.a.get(Integer.valueOf(i));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
+            return activity.shouldShowRequestPermissionRationale(str);
         }
-        return (v21.b) invokeI.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            synchronized (y21.class) {
-                this.a.remove(Integer.valueOf(i));
-            }
-        }
+        return invokeLL.booleanValue;
     }
 }

@@ -1,37 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.SimpleForum;
-import tbclient.ThemeColorInfo;
+import tbclient.RewardMaterial;
 /* loaded from: classes6.dex */
 public class fz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
+    public boolean c;
     public boolean d;
-    public boolean e;
-    public boolean f;
-    public int g;
-    public kx4 h;
-    public mx4 i;
-    public int j;
-    public int k;
-    public String l;
-    public String m;
-    public List<String> n;
-    public String o;
 
     public fz4() {
         Interceptable interceptable = $ic;
@@ -51,7 +35,7 @@ public class fz4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
@@ -60,205 +44,80 @@ public class fz4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public mx4 e() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return (mx4) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean f() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.d;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<String> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.n;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.m;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.o;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l(JSONObject jSONObject) {
+    public static fz4 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = String.valueOf(jSONObject.optLong("id", 0L));
-        this.b = jSONObject.optString("name");
-        this.c = jSONObject.optString("avatar");
-        boolean z2 = true;
-        if (jSONObject.optInt("is_liked", 0) == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.d = z;
-        if (jSONObject.optInt("is_liked", 0) == 2) {
-            z2 = false;
-        }
-        this.e = z2;
-        this.f = false;
-        this.g = jSONObject.optInt("level_id");
-        this.m = jSONObject.optString("recommend_tip");
-        JSONObject optJSONObject = jSONObject.optJSONObject("multi_forum_perm");
-        if (optJSONObject != null) {
-            kx4 kx4Var = new kx4();
-            this.h = kx4Var;
-            kx4Var.a(optJSONObject);
-        }
-        int optInt = jSONObject.optInt("memberNum", 0);
-        this.k = optInt;
-        if (optInt == 0) {
-            this.k = jSONObject.optInt("member_num", 0);
-        }
-        this.j = jSONObject.optInt("post_num", 0);
-        JSONArray optJSONArray = jSONObject.optJSONArray("pendants");
-        if (optJSONArray != null) {
-            this.n = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                this.n.add(optJSONArray.optString(i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
+            fz4 fz4Var = new fz4();
+            fz4Var.a = jSONObject.optString("icon");
+            fz4Var.b = jSONObject.optString("unlock_level");
+            boolean z2 = false;
+            if (jSONObject.optInt("is_matched") == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            fz4Var.c = z;
+            if (jSONObject.optInt("is_newest_matched_level") == 1) {
+                z2 = true;
+            }
+            fz4Var.d = z2;
+            return fz4Var;
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("show_info");
-        if (optJSONObject2 != null) {
-            mx4 mx4Var = new mx4();
-            this.i = mx4Var;
-            mx4Var.e(optJSONObject2);
-        }
-        this.o = jSONObject.optString("scheme");
+        return (fz4) invokeL.objValue;
     }
 
-    public void m(SimpleForum simpleForum) {
+    public static fz4 f(RewardMaterial rewardMaterial) {
+        InterceptResult invokeL;
         boolean z;
-        boolean z2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, simpleForum) != null) || simpleForum == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, rewardMaterial)) == null) {
+            if (rewardMaterial == null) {
+                return null;
+            }
+            fz4 fz4Var = new fz4();
+            fz4Var.a = rewardMaterial.icon;
+            fz4Var.b = rewardMaterial.unlock_level;
+            boolean z2 = false;
+            if (rewardMaterial.is_matched.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            fz4Var.c = z;
+            if (rewardMaterial.is_newest_matched_level.intValue() == 1) {
+                z2 = true;
+            }
+            fz4Var.d = z2;
+            return fz4Var;
         }
-        this.a = String.valueOf(simpleForum.id);
-        this.b = simpleForum.name;
-        this.c = simpleForum.avatar;
-        if (simpleForum.is_liked.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.d = z;
-        if (simpleForum.is_liked.intValue() != 2) {
-            z2 = true;
-        } else {
-            z2 = false;
-        }
-        this.e = z2;
-        this.f = false;
-        this.g = simpleForum.level_id.intValue();
-        this.m = simpleForum.recommend_tip;
-        if (simpleForum.multi_forum_perm != null) {
-            kx4 kx4Var = new kx4();
-            this.h = kx4Var;
-            kx4Var.b(simpleForum.multi_forum_perm);
-        }
-        simpleForum.is_brand_forum.intValue();
-        this.k = simpleForum.member_num.intValue();
-        this.j = simpleForum.post_num.intValue();
-        this.l = simpleForum.first_class;
-        ThemeColorInfo themeColorInfo = simpleForum.theme_color;
-        this.n = simpleForum.pendants;
-        this.o = simpleForum.scheme;
-        if (simpleForum.show_info != null) {
-            mx4 mx4Var = new mx4();
-            this.i = mx4Var;
-            mx4Var.f(simpleForum.show_info);
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f = z;
-        }
+        return (fz4) invokeL.objValue;
     }
 }

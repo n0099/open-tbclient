@@ -6,8 +6,8 @@ import com.baidu.pyramid.annotation.Service;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.fa5;
-import com.baidu.tieba.yfa;
+import com.baidu.tieba.cga;
+import com.baidu.tieba.ia5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,11 +19,11 @@ import kotlin.jvm.internal.Intrinsics;
 @Service
 @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\t\b\u0007\u0018\u00002\u00020\u0001:\u0001\u000eB\u0005¢\u0006\u0002\u0010\u0002J\b\u0010\u0003\u001a\u00020\u0004H\u0016J\b\u0010\u0005\u001a\u00020\u0006H\u0016J\b\u0010\u0007\u001a\u00020\u0006H\u0016J\b\u0010\b\u001a\u00020\u0006H\u0016J\b\u0010\t\u001a\u00020\u0006H\u0016J\b\u0010\n\u001a\u00020\u0006H\u0016J\b\u0010\u000b\u001a\u00020\u0006H\u0016J\b\u0010\f\u001a\u00020\u0006H\u0016J\b\u0010\r\u001a\u00020\u0006H\u0016¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/pb/pb/push/PbReplyPushGuide;", "Lcom/baidu/tieba/push/guide/BasePushGuide;", "()V", "areSettingSwitchEnabled", "", "provideForumIcon", "", "provideForumId", "provideForumName", "provideForumSlogan", "provideScene", "provideThreadAbstract", "provideThreadId", "provideThreadTitle", "Extra", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
-public final class PbReplyPushGuide extends yfa {
+public final class PbReplyPushGuide extends cga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yfa
+    @Override // com.baidu.tieba.cga
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -155,17 +155,17 @@ public final class PbReplyPushGuide extends yfa {
         }
     }
 
-    @Override // com.baidu.tieba.yfa
+    @Override // com.baidu.tieba.cga
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return fa5.e().B();
+            return ia5.e().B();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
     public String provideForumIcon() {
         InterceptResult invokeV;
         ForumData forumData;
@@ -188,7 +188,7 @@ public final class PbReplyPushGuide extends yfa {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
     public String provideForumId() {
         InterceptResult invokeV;
         ForumData forumData;
@@ -211,7 +211,7 @@ public final class PbReplyPushGuide extends yfa {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
     public String provideForumName() {
         InterceptResult invokeV;
         ForumData forumData;
@@ -234,7 +234,7 @@ public final class PbReplyPushGuide extends yfa {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
     public String provideForumSlogan() {
         InterceptResult invokeV;
         ForumData forumData;
@@ -257,7 +257,7 @@ public final class PbReplyPushGuide extends yfa {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
     public String provideThreadAbstract() {
         InterceptResult invokeV;
         WriteData writeData;
@@ -280,7 +280,7 @@ public final class PbReplyPushGuide extends yfa {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
     public String provideThreadId() {
         InterceptResult invokeV;
         WriteData writeData;
@@ -303,7 +303,7 @@ public final class PbReplyPushGuide extends yfa {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yfa, com.baidu.tieba.push.guide.DialogParamProvider
+    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
     public String provideThreadTitle() {
         InterceptResult invokeV;
         WriteData writeData;

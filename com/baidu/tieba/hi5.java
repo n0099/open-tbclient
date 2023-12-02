@@ -1,54 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class hi5 extends fi5 {
+public class hi5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947824693, "Lcom/baidu/tieba/hi5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static List<ii5> a(pi5 pi5Var) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pi5Var)) == null) {
+            if (pi5Var.c("\u0089PNG") && pi5Var.c("\r\n\u001a\n")) {
+                ArrayList arrayList = new ArrayList();
+                while (pi5Var.available() > 0) {
+                    arrayList.add(b(pi5Var));
+                }
+                return arrayList;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947824693, "Lcom/baidu/tieba/hi5;");
-                return;
-            }
+            throw new IOException("APNG Format error");
         }
-        c = fi5.a("fdAT");
+        return (List) invokeL.objValue;
     }
 
-    public hi5() {
+    public static ii5 b(pi5 pi5Var) throws IOException {
+        InterceptResult invokeL;
+        ii5 ii5Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pi5Var)) == null) {
+            int position = pi5Var.position();
+            int e = pi5Var.e();
+            int d = pi5Var.d();
+            if (d == ei5.d) {
+                ii5Var = new ei5();
+            } else if (d == ji5.k) {
+                ii5Var = new ji5();
+            } else if (d == ki5.c) {
+                ii5Var = new ki5();
+            } else if (d == li5.c) {
+                ii5Var = new li5();
+            } else if (d == mi5.c) {
+                ii5Var = new mi5();
+            } else if (d == ni5.f) {
+                ii5Var = new ni5();
+            } else {
+                ii5Var = new ii5();
             }
+            ii5Var.b = position;
+            ii5Var.a = e;
+            ii5Var.c(pi5Var);
+            pi5Var.e();
+            return ii5Var;
         }
-    }
-
-    @Override // com.baidu.tieba.fi5
-    public void b(mi5 mi5Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mi5Var) == null) {
-            mi5Var.e();
-        }
+        return (ii5) invokeL.objValue;
     }
 }

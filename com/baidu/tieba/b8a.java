@@ -13,10 +13,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b8a extends ci<x8a, CardViewHolder<h9a>> {
+public class b8a extends ci<x8a, CardViewHolder<q9a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
+    public mm6<x8a> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b8a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -43,19 +44,28 @@ public class b8a extends ci<x8a, CardViewHolder<h9a>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: t */
-    public CardViewHolder<h9a> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<q9a> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new h9a(this.a));
+            q9a q9aVar = new q9a(this.a);
+            q9aVar.l(this.b);
+            return new CardViewHolder<>(q9aVar);
         }
         return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void x(mm6<x8a> mm6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mm6Var) == null) {
+            this.b = mm6Var;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x8a x8aVar, CardViewHolder<h9a> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x8a x8aVar, CardViewHolder<q9a> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x8aVar, cardViewHolder})) == null) {

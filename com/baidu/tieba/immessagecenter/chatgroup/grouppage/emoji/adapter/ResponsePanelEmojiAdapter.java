@@ -10,10 +10,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ez8;
-import com.baidu.tieba.g49;
 import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.holder.ResponsePanelEmojiHolder;
+import com.baidu.tieba.iz8;
+import com.baidu.tieba.k49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final List<Reaction> a;
-    public g49 b;
+    public k49 b;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -93,10 +93,10 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
         notifyDataSetChanged();
     }
 
-    public void q(g49 g49Var) {
+    public void q(k49 k49Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, g49Var) == null) {
-            this.b = g49Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, k49Var) == null) {
+            this.b = k49Var;
         }
     }
 
@@ -131,7 +131,7 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
             View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d02a1, viewGroup, false);
-            int i2 = ez8.b;
+            int i2 = iz8.b;
             inflate.setPadding(i2, 0, i2, 0);
             return new ResponsePanelEmojiHolder(inflate);
         }

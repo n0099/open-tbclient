@@ -1,61 +1,151 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.ArrayMap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.multidelmenu.model.MultiDelPostNetModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes9.dex */
-public class xx5 {
+public class xx5 extends vx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public List<String> b;
-    public int c;
+    public Map<String, yx5> b;
+    public wx5 c;
     public String d;
+    public String e;
 
-    public xx5() {
+    /* loaded from: classes9.dex */
+    public class a extends w4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xx5 a;
+
+        public a(xx5 xx5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xx5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xx5Var;
+        }
+
+        @Override // com.baidu.tieba.w4
+        public void c(Object obj) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof ay5)) {
+                this.a.j((ay5) obj);
+            }
+        }
+    }
+
+    public xx5(wx5 wx5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wx5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = new ArrayMap();
+        this.c = wx5Var;
+    }
+
+    @Override // com.baidu.tieba.vx5
+    public wx5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (wx5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vx5
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.vx5
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MultiDelPostNetModel multiDelPostNetModel = new MultiDelPostNetModel();
+            zx5 zx5Var = new zx5();
+            for (yx5 yx5Var : this.b.values()) {
+                zx5Var.d(yx5Var.a());
+                zx5Var.e(yx5Var.c());
+                zx5Var.b(this.d);
+                zx5Var.c(this.e);
+                zx5Var.a(yx5Var.b());
+            }
+            multiDelPostNetModel.V(zx5Var);
+            multiDelPostNetModel.setLoadDataCallBack(new a(this));
+            multiDelPostNetModel.loadData();
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.vx5
+    public void f(yx5 yx5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, yx5Var) == null) && yx5Var != null && !TextUtils.isEmpty(yx5Var.b())) {
+            this.b.put(yx5Var.b(), yx5Var);
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("del_success");
-        if (optJSONArray != null) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                    this.a.add(optJSONArray.optString(i));
-                }
-            }
+    }
+
+    @Override // com.baidu.tieba.vx5
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d = str;
         }
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("del_fail");
-        if (optJSONArray2 != null) {
-            this.b = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
-                    this.b.add(optJSONArray2.optString(i2));
-                }
-            }
+    }
+
+    @Override // com.baidu.tieba.vx5
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
         }
-        this.c = jSONObject.optInt("ret_type");
-        this.d = jSONObject.optString("text");
+    }
+
+    @Override // com.baidu.tieba.vx5
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.b.remove(str);
+        }
+    }
+
+    public void j(ay5 ay5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, ay5Var) == null) && d() != null) {
+            d().h(ay5Var);
+        }
     }
 }

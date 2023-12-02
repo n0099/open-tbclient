@@ -165,7 +165,7 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
     }
 
     public final void av(String str) {
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f091303)).setText(str);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f091304)).setText(str);
     }
 
     @Override // android.view.View.OnClickListener
@@ -207,16 +207,16 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
 
     private void init() {
         com.kwad.sdk.m.l.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d04d4, this);
-        this.Tn = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091501);
-        this.To = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091343);
-        this.mS = (TextView) findViewById(R.id.obfuscated_res_0x7f091345);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091344);
+        this.Tn = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091502);
+        this.To = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091344);
+        this.mS = (TextView) findViewById(R.id.obfuscated_res_0x7f091346);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091345);
         this.mR = imageView;
         imageView.setOnClickListener(this);
-        this.Tr = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914fb);
-        this.Ts = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914f4);
-        this.nl = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091500);
-        this.Tt = (ImageView) findViewById(R.id.obfuscated_res_0x7f09150c);
+        this.Tr = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914fc);
+        this.Ts = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914f5);
+        this.nl = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091501);
+        this.Tt = (ImageView) findViewById(R.id.obfuscated_res_0x7f09150d);
         String url = com.kwad.sdk.core.response.b.a.br(this.mAdInfo).getUrl();
         if (!TextUtils.isEmpty(url)) {
             this.Tt.setImageDrawable(null);
@@ -232,13 +232,13 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
 
     public void ew() {
         if (com.kwad.sdk.core.response.b.a.aF(this.mAdInfo)) {
-            this.zR = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914e5);
-            this.zS = (TextView) findViewById(R.id.obfuscated_res_0x7f091308);
-            this.Tv = (TextView) findViewById(R.id.obfuscated_res_0x7f091303);
+            this.zR = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914e6);
+            this.zS = (TextView) findViewById(R.id.obfuscated_res_0x7f091309);
+            this.Tv = (TextView) findViewById(R.id.obfuscated_res_0x7f091304);
             KSImageLoader.loadAppIcon(this.zR, com.kwad.sdk.core.response.b.e.dU(this.mAdTemplate), this.mAdTemplate, 12);
             this.zS.setText(com.kwad.sdk.core.response.b.a.cc(this.mAdInfo));
             this.Tv.setText(com.kwad.sdk.core.response.b.a.aE(this.mAdInfo));
-            this.Tu = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914e4);
+            this.Tu = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914e5);
             this.zR.setOnClickListener(this);
             this.zS.setOnClickListener(this);
             this.Tv.setOnClickListener(this);
@@ -246,11 +246,11 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
             this.mApkDownloadHelper = cVar;
             cVar.b(this.Tz);
         } else {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091370);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091371);
             this.Tv = textView;
             textView.setText(com.kwad.sdk.core.response.b.a.aE(this.mAdInfo));
             this.Tv.setOnClickListener(this);
-            this.Tu = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914e6);
+            this.Tu = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914e7);
         }
         this.Tu.setOnClickListener(this);
         this.Tu.setVisibility(0);

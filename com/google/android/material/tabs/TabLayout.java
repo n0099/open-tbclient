@@ -1994,8 +1994,8 @@ public class TabLayout extends HorizontalScrollView {
             this.unboundedRipple = obtainStyledAttributes.getBoolean(29, false);
             obtainStyledAttributes.recycle();
             Resources resources = getResources();
-            this.tabTextMultiLineSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d5);
-            this.scrollableTabMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d3);
+            this.tabTextMultiLineSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d6);
+            this.scrollableTabMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d4);
             applyModeAndGravity();
         } catch (Throwable th) {
             obtainStyledAttributes2.recycle();

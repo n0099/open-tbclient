@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bf5;
-import com.baidu.tieba.ee5;
-import com.baidu.tieba.se5;
-import com.baidu.tieba.uua;
+import com.baidu.tieba.ef5;
+import com.baidu.tieba.he5;
+import com.baidu.tieba.tua;
+import com.baidu.tieba.ve5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class SendView extends TextView implements se5 {
+public class SendView extends TextView implements ve5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int f = 2;
     public static int g = 1;
@@ -78,7 +78,7 @@ public class SendView extends TextView implements se5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.j0(new ee5(8, -1, null));
+                this.a.j0(new he5(8, -1, null));
             }
         }
     }
@@ -104,7 +104,7 @@ public class SendView extends TextView implements se5 {
         this.c = new boolean[]{false, false, false, false, false};
         this.d = new int[]{0, 0};
         this.e = h;
-        setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07037f), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070359), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
+        setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070380), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07035a), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
         setGravity(17);
         setIncludeFontPadding(false);
         setEnabled(false);
@@ -114,13 +114,13 @@ public class SendView extends TextView implements se5 {
         setOnClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.fe5
-    public void U(ee5 ee5Var) {
+    @Override // com.baidu.tieba.ie5
+    public void U(he5 he5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, ee5Var) != null) || ee5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, he5Var) != null) || he5Var == null) {
             return;
         }
-        int i = ee5Var.a;
+        int i = he5Var.a;
         if (i != 4) {
             if (i != 39 && i != 28) {
                 if (i != 29) {
@@ -143,15 +143,15 @@ public class SendView extends TextView implements se5 {
                             this.c[2] = false;
                             break;
                         case 12:
-                            Object obj = ee5Var.c;
-                            if (!(obj instanceof bf5)) {
+                            Object obj = he5Var.c;
+                            if (!(obj instanceof ef5)) {
                                 return;
                             }
-                            bf5 bf5Var = (bf5) obj;
-                            WriteImagesInfo writeImagesInfo = bf5Var.a;
+                            ef5 ef5Var = (ef5) obj;
+                            WriteImagesInfo writeImagesInfo = ef5Var.a;
                             if (writeImagesInfo != null) {
                                 if (writeImagesInfo.getChosedFiles() != null) {
-                                    this.d[0] = bf5Var.a.getChosedFiles().size();
+                                    this.d[0] = ef5Var.a.getChosedFiles().size();
                                 } else {
                                     this.d[0] = 0;
                                 }
@@ -181,7 +181,7 @@ public class SendView extends TextView implements se5 {
                 this.c[3] = true;
             }
         } else {
-            Object obj2 = ee5Var.c;
+            Object obj2 = he5Var.c;
             if (obj2 != null && (!(obj2 instanceof String) || !StringUtils.isNull((String) obj2))) {
                 this.c[0] = true;
             } else {
@@ -211,16 +211,16 @@ public class SendView extends TextView implements se5 {
         }
     }
 
-    @Override // com.baidu.tieba.se5
+    @Override // com.baidu.tieba.ve5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             int color = SkinManager.getColor(i, (int) R.color.CAM_X0302);
-            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{uua.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), uua.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{tua.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), tua.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 
-    @Override // com.baidu.tieba.se5
+    @Override // com.baidu.tieba.ve5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -228,7 +228,7 @@ public class SendView extends TextView implements se5 {
         }
     }
 
-    @Override // com.baidu.tieba.se5
+    @Override // com.baidu.tieba.ve5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -238,7 +238,7 @@ public class SendView extends TextView implements se5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.se5
+    @Override // com.baidu.tieba.ve5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -246,7 +246,7 @@ public class SendView extends TextView implements se5 {
         }
     }
 
-    @Override // com.baidu.tieba.se5
+    @Override // com.baidu.tieba.ve5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -254,16 +254,16 @@ public class SendView extends TextView implements se5 {
         }
     }
 
-    @Override // com.baidu.tieba.se5
-    public void j0(ee5 ee5Var) {
+    @Override // com.baidu.tieba.ve5
+    public void j0(he5 he5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, ee5Var) == null) && (editorTools = this.a) != null) {
-            editorTools.K(ee5Var);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, he5Var) == null) && (editorTools = this.a) != null) {
+            editorTools.K(he5Var);
         }
     }
 
-    @Override // com.baidu.tieba.se5
+    @Override // com.baidu.tieba.ve5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
@@ -271,7 +271,7 @@ public class SendView extends TextView implements se5 {
         }
     }
 
-    @Override // com.baidu.tieba.se5
+    @Override // com.baidu.tieba.ve5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {

@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class ys6 extends ws6<Integer> {
+public final class ys6 extends vs6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ys6() {
-        super(1, false, 2, null);
+        super(4096);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,8 +22,7 @@ public final class ys6 extends ws6<Integer> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super(((Integer) objArr[0]).intValue(), ((Boolean) objArr[1]).booleanValue(), ((Integer) objArr[2]).intValue(), (DefaultConstructorMarker) objArr[3]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,16 +30,27 @@ public final class ys6 extends ws6<Integer> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ws6
-    /* renamed from: e */
-    public Integer c(bs6 data) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vs6
+    public boolean b(es6 item, hu6 timer, yr6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            return Integer.valueOf(data.j());
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            fs6 e = item.e();
+            if (e.i() == 0) {
+                return false;
+            }
+            if (this.b) {
+                if (e.i() != 1) {
+                    return false;
+                }
+            } else if (e.i() != 2) {
+                return false;
+            }
+            return true;
         }
-        return (Integer) invokeL.objValue;
+        return invokeLLL.booleanValue;
     }
 }

@@ -1,99 +1,20 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.tieba.gp2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class d23 extends c23 implements Cloneable {
+public class d23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final u63<d23> h;
-    public static final v63<d23> i;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String g;
-
-    /* loaded from: classes5.dex */
-    public static class a extends u63<d23> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.u63
-        /* renamed from: c */
-        public d23 b(@NonNull mp2 mp2Var) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mp2Var)) == null) {
-                d23 d23Var = new d23();
-                d23Var.g = mp2Var.g();
-                d23Var.b = mp2Var.g();
-                d23Var.c = mp2Var.readLong();
-                d23Var.a = mp2Var.g();
-                d23Var.d = mp2Var.readInt();
-                d23Var.e = mp2Var.g();
-                d23Var.f = mp2Var.g();
-                return d23Var;
-            }
-            return (d23) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends v63<d23> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.v63
-        /* renamed from: c */
-        public void b(@NonNull d23 d23Var, @NonNull np2 np2Var) throws Exception {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d23Var, np2Var) == null) {
-                np2Var.f(d23Var.g);
-                np2Var.f(d23Var.b);
-                np2Var.writeLong(d23Var.c);
-                np2Var.f(d23Var.a);
-                np2Var.writeInt(d23Var.d);
-                np2Var.f(d23Var.e);
-                np2Var.f(d23Var.f);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -108,77 +29,74 @@ public class d23 extends c23 implements Cloneable {
                 return;
             }
         }
-        h = new a();
-        i = new b();
+        a = vm1.a;
     }
 
-    public d23() {
+    public static void a() {
+        String[] list;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (list = gp2.q().list()) != null && list.length > 0) {
+            for (String str : list) {
+                if (!TextUtils.isEmpty(str)) {
+                    lf4 lf4Var = new lf4();
+                    lf4Var.g = str;
+                    lf4Var.i = -1L;
+                    he4.i().f(lf4Var);
+                }
+            }
+            gp2.e.d();
+        }
+    }
+
+    public static void b(String str) {
+        File s;
+        String[] list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && !TextUtils.isEmpty(str) && (s = gp2.s(str)) != null && (list = s.list()) != null && list.length > 1) {
+            List<lf4> q = r13.q(str);
+            for (String str2 : list) {
+                long j = -1;
+                try {
+                    j = Long.parseLong(str2);
+                } catch (NumberFormatException e) {
+                    if (a) {
+                        c23.b(Log.getStackTraceString(e));
+                    }
+                }
+                if (!c(j, q)) {
+                    nm4.L(gp2.t(str, str2));
+                    c23.b("delete plugin name = " + str + " ; version = " + str2);
+                }
+            }
+            lf4 lf4Var = null;
+            if (q != null) {
+                if (q.size() == 1) {
+                    lf4Var = q.get(0);
+                } else if (q.size() >= 2) {
+                    lf4Var = q.get(1);
+                }
+            }
+            if (lf4Var != null) {
+                he4.i().f(lf4Var);
             }
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static boolean c(long j, List<lf4> list) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && (this.c >= 0 || !TextUtils.isEmpty(this.b))) {
-                return true;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
+            if (j >= 0 && list != null && list.size() != 0) {
+                int min = Math.min(list.size(), 2);
+                for (int i = 0; i < min; i++) {
+                    lf4 lf4Var = list.get(i);
+                    if (lf4Var != null && (j == lf4Var.i || j == zj3.c(lf4Var.j))) {
+                        return true;
+                    }
+                }
             }
             return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return super.clone();
-        }
-        return invokeV.objValue;
-    }
-
-    public d23(JSONObject jSONObject, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        if (jSONObject == null) {
-            return;
-        }
-        this.b = jSONObject.optString("version");
-        this.c = jSONObject.optLong("version_code", -1L);
-        this.a = jSONObject.optString("provider");
-        this.e = jSONObject.optString("path");
-        this.f = jSONObject.optString("config");
-        this.d = i2;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "SwanPluginModel{pluginAlias='" + this.g + "', versionName='" + this.b + "', versionCode='" + this.c + "', libName='" + this.a + "', category=" + this.d + ", libPath='" + this.e + "', libConfig='" + this.f + "'}";
-        }
-        return (String) invokeV.objValue;
+        return invokeJL.booleanValue;
     }
 }

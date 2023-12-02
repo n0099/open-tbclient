@@ -1,88 +1,129 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class up3 {
+public final class up3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public Integer b;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static qp3 a(byte[] bArr) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public up3() {
+        this(null, null, 3, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            qp3 qp3Var = null;
-            if (bArr == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], (Integer) objArr[1], ((Integer) objArr[2]).intValue(), (DefaultConstructorMarker) objArr[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            byte b = wrap.get();
-            byte b2 = wrap.get();
-            if (b == -27 && b2 == -89) {
-                qp3Var = new qp3();
-                wrap.get();
-                wrap.get();
-                qp3Var.r(wrap.get());
-                qp3Var.p(wrap.get());
-                int i = wrap.getShort();
-                qp3Var.q(i);
-                int i2 = wrap.getInt();
-                qp3Var.k(i2);
-                qp3Var.l(wrap.getLong());
-                byte[] bArr2 = new byte[i];
-                wrap.get(bArr2, 0, i);
-                qp3Var.o(bArr2);
-                if (i2 > 0) {
-                    byte[] bArr3 = new byte[i2];
-                    wrap.get(bArr3, 0, i2);
-                    qp3Var.j(bArr3);
-                }
-            }
-            return qp3Var;
         }
-        return (qp3) invokeL.objValue;
     }
 
-    public static byte[] b(qp3 qp3Var) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, qp3Var)) == null) {
-            if (qp3Var == null) {
-                return null;
-            }
-            ByteBuffer allocate = ByteBuffer.allocate(qp3Var.h() + 20 + qp3Var.b());
-            allocate.put((byte) -27);
-            allocate.put((byte) -89);
-            if (qp3Var.e() != null && qp3Var.e().length == 2) {
-                allocate.put(qp3Var.e()[0]);
-                allocate.put(qp3Var.e()[1]);
-                allocate.put(qp3Var.i());
-                allocate.put(qp3Var.g());
-                if (qp3Var.f() != null && qp3Var.f().length != 0) {
-                    int length = qp3Var.f().length;
-                    allocate.put((byte) ((length >> 8) & 255));
-                    allocate.put((byte) (length & 255));
-                    if (qp3Var.a() != null && qp3Var.a().length != 0) {
-                        allocate.putInt(qp3Var.a().length);
-                    } else {
-                        allocate.putInt(0);
-                    }
-                    allocate.putLong(qp3Var.c());
-                    if (qp3Var.f() != null) {
-                        allocate.put(qp3Var.f());
-                    }
-                    if (qp3Var.a() != null) {
-                        allocate.put(qp3Var.a());
-                    }
-                    return allocate.array();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof up3) {
+                    up3 up3Var = (up3) obj;
+                    return Intrinsics.areEqual(this.a, up3Var.a) && Intrinsics.areEqual(this.b, up3Var.b);
                 }
+                return false;
             }
-            return null;
+            return true;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            Integer num = this.b;
+            return hashCode + (num != null ? num.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "ResponseParams(responseMessage=" + this.a + ", responseStatusCode=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public up3(String str, Integer num) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, num};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = num;
+    }
+
+    public /* synthetic */ up3(String str, Integer num, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? null : str, (i & 2) != 0 ? 0 : num);
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Integer b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public final void d(Integer num) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, num) == null) {
+            this.b = num;
+        }
     }
 }

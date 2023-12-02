@@ -14,25 +14,25 @@ public interface qf0 {
     public static final qf0 b = new a();
 
     @Nullable
-    vn0 a();
+    xn0 a();
 
     @Nullable
-    vn0 b();
+    xn0 b();
 
     @Nullable
-    vn0 c();
+    xn0 c();
 
     @Nullable
-    vn0 d();
+    xn0 d();
 
     @Nullable
-    vn0 e();
+    xn0 e();
 
     @Nullable
-    vn0 f();
+    xn0 f();
 
     @Nullable
-    vn0 g();
+    xn0 g();
 
     @Nullable
     boolean h();
@@ -43,73 +43,73 @@ public interface qf0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.qf0
-        public vn0 a() {
+        public xn0 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return null;
             }
-            return (vn0) invokeV.objValue;
+            return (xn0) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.qf0
-        public vn0 b() {
+        public xn0 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return null;
             }
-            return (vn0) invokeV.objValue;
+            return (xn0) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.qf0
-        public vn0 c() {
+        public xn0 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return null;
             }
-            return (vn0) invokeV.objValue;
+            return (xn0) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.qf0
-        public vn0 d() {
+        public xn0 d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return null;
             }
-            return (vn0) invokeV.objValue;
+            return (xn0) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.qf0
-        public vn0 e() {
+        public xn0 e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 return null;
             }
-            return (vn0) invokeV.objValue;
+            return (xn0) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.qf0
-        public vn0 f() {
+        public xn0 f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 return null;
             }
-            return (vn0) invokeV.objValue;
+            return (xn0) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.qf0
-        public vn0 g() {
+        public xn0 g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 return null;
             }
-            return (vn0) invokeV.objValue;
+            return (xn0) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.qf0

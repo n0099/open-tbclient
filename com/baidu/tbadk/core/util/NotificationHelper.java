@@ -19,8 +19,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.fa5;
+import com.baidu.tieba.ga5;
+import com.baidu.tieba.ia5;
 import com.baidu.tieba.ie;
 import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -264,7 +264,7 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             SwitchData switchData = new SwitchData();
-            if (!da5.O() && da5.U()) {
+            if (!ga5.O() && ga5.U()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                     AudioManager audioManager = (AudioManager) context.getSystemService("audio");
@@ -278,13 +278,13 @@ public class NotificationHelper {
                     } else {
                         z2 = false;
                     }
-                    if (fa5.e().C()) {
+                    if (ia5.e().C()) {
                         switchData.isSound = true;
                         if (z || z2) {
                             switchData.isSound = false;
                         }
                     }
-                    if (fa5.e().D()) {
+                    if (ia5.e().D()) {
                         switchData.isVibrate = true;
                         if (z) {
                             switchData.isVibrate = false;
@@ -296,7 +296,7 @@ public class NotificationHelper {
                     TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
                 }
             }
-            if (fa5.e().y()) {
+            if (ia5.e().y()) {
                 switchData.isLight = true;
             }
             return switchData;

@@ -18,8 +18,8 @@ import androidx.core.view.NestedScrollingChild3;
 import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rj6;
-import com.baidu.tieba.yj6;
+import com.baidu.tieba.ck6;
+import com.baidu.tieba.vj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,8 +43,8 @@ public class NestedScrollingWebView extends WebView implements NestedScrollingCh
     public int l;
     public int m;
     public long n;
-    public rj6 o;
-    public yj6 p;
+    public vj6 o;
+    public ck6 p;
     public boolean q;
     public Class<?> r;
 
@@ -481,17 +481,17 @@ public class NestedScrollingWebView extends WebView implements NestedScrollingCh
         }
     }
 
-    public void setOnDoubleClickListener(rj6 rj6Var) {
+    public void setOnDoubleClickListener(vj6 vj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, rj6Var) == null) {
-            this.o = rj6Var;
+        if (interceptable == null || interceptable.invokeL(1048611, this, vj6Var) == null) {
+            this.o = vj6Var;
         }
     }
 
-    public void setOnScrollChangeListener(yj6 yj6Var) {
+    public void setOnScrollChangeListener(ck6 ck6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, yj6Var) == null) {
-            this.p = yj6Var;
+        if (interceptable == null || interceptable.invokeL(1048612, this, ck6Var) == null) {
+            this.p = ck6Var;
         }
     }
 

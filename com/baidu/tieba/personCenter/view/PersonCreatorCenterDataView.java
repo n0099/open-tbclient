@@ -133,10 +133,10 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d080f, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0810, (ViewGroup) this, true);
             inflate.setOnClickListener(this);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09089f);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908a1);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908a0);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908a2);
         }
     }
 
@@ -152,13 +152,13 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             String str = (String) ((PersonCreatorCenterDataView) view2).b.getText();
-            if (getContext().getString(R.string.obfuscated_res_0x7f0f192b).equals(str)) {
+            if (getContext().getString(R.string.obfuscated_res_0x7f0f192c).equals(str)) {
                 d("3", "2", "2");
                 c(UrlUtils.appendParam(c, "tab_name", "agree"));
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f192a).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f192b).equals(str)) {
                 d("3", "2", "3");
                 c(UrlUtils.appendParam(c, "tab_name", "comment"));
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1929).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f192a).equals(str)) {
                 d("3", "2", "1");
                 c(UrlUtils.appendParam(c, "tab_name", "browse"));
             }

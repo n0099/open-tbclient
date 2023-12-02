@@ -7,19 +7,19 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tieba.gq8;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.p29;
-import com.baidu.tieba.q29;
-import com.baidu.tieba.r29;
-import com.baidu.tieba.s29;
+import com.baidu.tieba.kq8;
 import com.baidu.tieba.t29;
 import com.baidu.tieba.u29;
+import com.baidu.tieba.v29;
+import com.baidu.tieba.w29;
+import com.baidu.tieba.x29;
+import com.baidu.tieba.y29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,8 +30,8 @@ import java.util.Map;
 public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final s29 a;
-    public final r29 b;
+    public final w29 a;
+    public final v29 b;
     @NonNull
     public GroupChatFragment c;
 
@@ -51,8 +51,8 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
             }
         }
         this.c = groupChatFragment;
-        this.b = new t29(groupChatFragment.getPageContext());
-        this.a = new u29(groupChatFragment.getPageContext(), this);
+        this.b = new x29(groupChatFragment.getPageContext());
+        this.a = new y29(groupChatFragment.getPageContext(), this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -100,10 +100,10 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController
-    public void a(@NonNull q29 q29Var) {
+    public void a(@NonNull u29 u29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, q29Var) == null) {
-            this.a.a(q29Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, u29Var) == null) {
+            this.a.a(u29Var);
         }
     }
 
@@ -122,24 +122,24 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController
-    public void g(@NonNull gq8 gq8Var) {
+    public void g(@NonNull kq8 kq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, gq8Var) == null) {
-            this.a.g(gq8Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, kq8Var) == null) {
+            this.a.g(kq8Var);
         }
     }
 
-    public void n(@Nullable FastRequest.b<u29.e> bVar) {
+    public void n(@Nullable FastRequest.b<y29.e> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
             this.a.d(bVar);
         }
     }
 
-    public void q(@NonNull p29 p29Var) {
+    public void q(@NonNull t29 t29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, p29Var) == null) {
-            this.b.l(p29Var);
+        if (interceptable == null || interceptable.invokeL(1048590, this, t29Var) == null) {
+            this.b.l(t29Var);
         }
     }
 

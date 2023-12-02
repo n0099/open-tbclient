@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lm8;
+import com.baidu.tieba.pm8;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicToolItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,12 +27,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SelectTopicToolBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView.Adapter<d> a;
-    public final List<lm8> b;
+    public final List<pm8> b;
     public int c;
     public long d;
     public SelectTopicToolItem e;
@@ -40,12 +40,12 @@ public class SelectTopicToolBar extends LinearLayout {
     public e g;
     public final SelectTopicToolItem.b h;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface e {
         void onOpen();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements SelectTopicToolItem.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,25 +70,25 @@ public class SelectTopicToolBar extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.view.SelectTopicToolItem.b
-        public void a(@NonNull lm8 lm8Var) {
+        public void a(@NonNull pm8 pm8Var) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lm8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, pm8Var) == null) {
                 if (this.a.c == 1) {
                     z = true;
                 } else {
                     z = false;
                 }
-                lm8Var.k(z);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, lm8Var));
-                if (lm8Var.j() && this.a.c == 1) {
-                    TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "1").addParam("is_video_topic", "1").addParam("topic_id", lm8Var.d().longValue()));
+                pm8Var.k(z);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, pm8Var));
+                if (pm8Var.j() && this.a.c == 1) {
+                    TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "1").addParam("is_video_topic", "1").addParam("topic_id", pm8Var.d().longValue()));
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public class SelectTopicToolBar extends LinearLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class c extends RecyclerView.Adapter<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public class SelectTopicToolBar extends LinearLayout {
         public void onBindViewHolder(@NonNull d dVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, i) == null) {
-                dVar.a.c((lm8) this.a.b.get(i));
+                dVar.a.c((pm8) this.a.b.get(i));
             }
         }
 
@@ -195,15 +195,15 @@ public class SelectTopicToolBar extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
                 super.onViewAttachedToWindow(dVar);
                 int adapterPosition = dVar.getAdapterPosition();
-                lm8 lm8Var = (lm8) this.a.b.get(adapterPosition);
-                if (adapterPosition != 0 && lm8Var.j()) {
-                    TiebaStatic.log(new StatisticItem("c14417").addParam("is_video_topic", "1").addParam("topic_id", lm8Var.d().longValue()));
+                pm8 pm8Var = (pm8) this.a.b.get(adapterPosition);
+                if (adapterPosition != 0 && pm8Var.j()) {
+                    TiebaStatic.log(new StatisticItem("c14417").addParam("is_video_topic", "1").addParam("topic_id", pm8Var.d().longValue()));
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class d extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,14 +260,14 @@ public class SelectTopicToolBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             this.d = j;
             for (int i = 0; i < this.b.size(); i++) {
-                lm8 lm8Var = this.b.get(i);
-                if (lm8Var != null) {
-                    if (j == lm8Var.d().longValue()) {
+                pm8 pm8Var = this.b.get(i);
+                if (pm8Var != null) {
+                    if (j == pm8Var.d().longValue()) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    lm8Var.m(z);
+                    pm8Var.m(z);
                 }
             }
             RecyclerView.Adapter<d> adapter = this.a;
@@ -356,21 +356,21 @@ public class SelectTopicToolBar extends LinearLayout {
         }
     }
 
-    public void e(List<lm8> list) {
+    public void e(List<pm8> list) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.b.clear();
             this.b.addAll(list);
             for (int i = 0; i < this.b.size(); i++) {
-                lm8 lm8Var = this.b.get(i);
-                if (lm8Var != null) {
-                    if (this.d == lm8Var.d().longValue()) {
+                pm8 pm8Var = this.b.get(i);
+                if (pm8Var != null) {
+                    if (this.d == pm8Var.d().longValue()) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    lm8Var.m(z);
+                    pm8Var.m(z);
                 }
             }
             this.a.notifyDataSetChanged();

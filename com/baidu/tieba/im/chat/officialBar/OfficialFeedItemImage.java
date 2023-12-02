@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ew8;
-import com.baidu.tieba.mu8;
+import com.baidu.tieba.iw8;
+import com.baidu.tieba.qu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -103,16 +103,16 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0784, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091826);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09182d);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09182c);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091833);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0785, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091827);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09182e);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09182d);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091834);
             this.f = findViewById(R.id.black_mask);
             this.b.setConrers(15);
             this.b.setRadius(BdUtilHelper.getDimens(this.a, R.dimen.tbds21));
             this.g = findViewById(R.id.image_container);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0918ca);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0918cb);
             c();
         }
     }
@@ -146,13 +146,13 @@ public class OfficialFeedItemImage extends RelativeLayout {
         }
     }
 
-    public void setData(ew8.a aVar, int i, mu8 mu8Var) {
+    public void setData(iw8.a aVar, int i, qu8 qu8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, mu8Var) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, qu8Var) == null) {
             this.b.startLoad(aVar.c, 10, false);
             this.e.setText(aVar.a);
-            if (mu8Var != null) {
-                i = mu8Var.i();
+            if (qu8Var != null) {
+                i = qu8Var.i();
             }
             d(i);
         }

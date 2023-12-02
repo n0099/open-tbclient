@@ -147,7 +147,7 @@ public final class NaExtensionView extends LinearLayout {
                 textView2 = null;
             }
             textView2.setText(R.string.obfuscated_res_0x7f0f0c7e);
-            this.c = ResourcesCompat.getDrawable(getContext().getResources(), R.drawable.obfuscated_res_0x7f08115f, null);
+            this.c = ResourcesCompat.getDrawable(getContext().getResources(), R.drawable.obfuscated_res_0x7f081162, null);
         }
     }
 }

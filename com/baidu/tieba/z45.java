@@ -1,34 +1,80 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+@ModifyClass
 /* loaded from: classes9.dex */
-public abstract class z45<T> {
-    public static /* synthetic */ Interceptable $ic;
+public final class z45 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final z45 a;
+    public static volatile int b = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final y45<T> a;
 
-    public abstract void a(@NonNull T t);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948309998, "Lcom/baidu/tieba/z45;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948309998, "Lcom/baidu/tieba/z45;");
+                return;
+            }
+        }
+        a = new z45();
+    }
 
-    public z45(@NonNull y45<T> y45Var) {
+    public z45() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {y45Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = y45Var;
+    }
+
+    @JvmStatic
+    public static final synchronized boolean a() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (z45.class) {
+                z = false;
+                if (b != 1 && b != 0) {
+                    b = TbadkCoreApplication.getInst().getSharedPreferences("shared_pref_downgrade", 0).getInt("shared_pref_downgrade_key", 0);
+                }
+                if (b == 1) {
+                    z = true;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final synchronized void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            synchronized (z45.class) {
+                TbadkCoreApplication.getInst().getSharedPreferences("shared_pref_downgrade", 0).edit().putInt("shared_pref_downgrade_key", i).apply();
+            }
+        }
     }
 }

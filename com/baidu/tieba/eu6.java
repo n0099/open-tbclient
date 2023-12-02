@@ -3,22 +3,38 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class eu6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface eu6 {
+    int a();
 
-    public static final <T extends Comparable<? super T>> cu6<T> a(T initial, Function1<? super T, Unit> change) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, initial, change)) == null) {
-            Intrinsics.checkNotNullParameter(initial, "initial");
-            Intrinsics.checkNotNullParameter(change, "change");
-            return new cu6<>(initial, change);
+    float b();
+
+    int c();
+
+    float d();
+
+    float e();
+
+    int getHeight();
+
+    int getWidth();
+
+    void setHeight(int i);
+
+    void setWidth(int i);
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static float a(eu6 eu6Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, eu6Var)) == null) {
+                return 1 / (eu6Var.b() - 0.6f);
+            }
+            return invokeL.floatValue;
         }
-        return (cu6) invokeLL.objValue;
     }
 }

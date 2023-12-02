@@ -1,63 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class qt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    @NonNull
+    public static Fragment a(@NonNull FragmentManager fragmentManager, int i, @NonNull Fragment fragment) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, fragmentManager, i, fragment)) == null) {
+            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+            beginTransaction.add(i, fragment, fragment.getClass().getCanonicalName());
+            beginTransaction.commitAllowingStateLoss();
+            return fragment;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qt5.b();
-            }
-        }
+        return (Fragment) invokeLIL.objValue;
     }
 
-    public static void a() {
+    @NonNull
+    public static Fragment c(@NonNull FragmentManager fragmentManager, int i, @NonNull Fragment fragment) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            if (!BdUtilHelper.isMainThread()) {
-                SafeHandler.getInst().post(new a());
-            } else {
-                b();
-            }
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, fragmentManager, i, fragment)) == null) {
+            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+            beginTransaction.replace(i, fragment, fragment.getClass().getCanonicalName());
+            beginTransaction.commitAllowingStateLoss();
+            return fragment;
         }
+        return (Fragment) invokeLIL.objValue;
     }
 
-    public static void b() {
+    @Nullable
+    public static <T extends Fragment> T b(@NonNull FragmentManager fragmentManager, @NonNull Class<T> cls) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InitUserNameDialogActivityConfig(TbadkCoreApplication.getInst().getContext())));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, fragmentManager, cls)) == null) {
+            return (T) fragmentManager.findFragmentByTag(cls.getCanonicalName());
         }
+        return (T) invokeLL.objValue;
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +11,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetVipInfo.VipDailyList;
-import tbclient.GetVipInfo.VipThemeItem;
+import tbclient.GetVipInfo.VipBasicList;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes6.dex */
 public class gm9 implements pi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public dm9 a;
-    public List<hm9> b;
+    public hm9 a;
+    public List<VipSpecialItem> b;
+    public int c;
+    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -33,26 +36,34 @@ public class gm9 implements pi {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        e = BdUniqueId.gen();
+    }
+
+    public List<VipSpecialItem> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return e;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public gm9(VipDailyList vipDailyList) {
-        List<VipThemeItem> list;
+    public gm9(VipBasicList vipBasicList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipDailyList};
+            Object[] objArr = {vipBasicList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,17 +73,20 @@ public class gm9 implements pi {
                 return;
             }
         }
-        if (vipDailyList != null && (list = vipDailyList.item) != null && list.size() > 0) {
-            String str = vipDailyList.card_id;
-            dm9 dm9Var = new dm9();
-            this.a = dm9Var;
-            dm9Var.e(1);
-            this.a.d(vipDailyList.class_name);
-            this.a.f(vipDailyList.class_url_name);
-            this.a.g(vipDailyList.class_url);
+        this.c = 0;
+        this.d = "";
+        if (vipBasicList != null && vipBasicList.item.size() > 0) {
+            this.d = vipBasicList.card_id;
+            this.c = vipBasicList.card_type.intValue();
+            hm9 hm9Var = new hm9();
+            this.a = hm9Var;
+            hm9Var.e(5);
+            this.a.d(vipBasicList.class_name);
+            this.a.f(vipBasicList.class_url_name);
+            this.a.g(vipBasicList.class_url);
             this.b = new ArrayList();
-            for (VipThemeItem vipThemeItem : vipDailyList.item) {
-                this.b.add(new hm9(vipThemeItem));
+            for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
+                this.b.add(vipSpecialItem);
             }
         }
     }

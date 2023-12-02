@@ -108,7 +108,7 @@ public final class c extends com.kwad.sdk.core.download.a.a implements com.kwad.
 
     private void c(View view2, boolean z) {
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f091417 || id == R.id.obfuscated_res_0x7f091416 || id == R.id.obfuscated_res_0x7f091418) {
+        if (id == R.id.obfuscated_res_0x7f091418 || id == R.id.obfuscated_res_0x7f091417 || id == R.id.obfuscated_res_0x7f091419) {
             com.kwad.sdk.core.e.c.d("ApkInfoCardViewHelper", "onClick install");
             this.yj = true;
             a aVar = this.yi;
@@ -126,14 +126,14 @@ public final class c extends com.kwad.sdk.core.download.a.a implements com.kwad.
     }
 
     private void initView() {
-        this.ya = (Button) this.xY.findViewById(R.id.obfuscated_res_0x7f091416);
-        this.yb = (Button) this.xY.findViewById(R.id.obfuscated_res_0x7f091418);
-        this.xZ = this.xY.findViewById(R.id.obfuscated_res_0x7f091417);
-        this.yd = (ImageView) this.xY.findViewById(R.id.obfuscated_res_0x7f091415);
-        this.yc = (TextView) this.xY.findViewById(R.id.obfuscated_res_0x7f091419);
-        this.ye = (TextView) this.xY.findViewById(R.id.obfuscated_res_0x7f091413);
-        this.yg = (KSRatingBar) this.xY.findViewById(R.id.obfuscated_res_0x7f09141a);
-        this.yh = (KsAppTagsView) this.xY.findViewById(R.id.obfuscated_res_0x7f09141c);
+        this.ya = (Button) this.xY.findViewById(R.id.obfuscated_res_0x7f091417);
+        this.yb = (Button) this.xY.findViewById(R.id.obfuscated_res_0x7f091419);
+        this.xZ = this.xY.findViewById(R.id.obfuscated_res_0x7f091418);
+        this.yd = (ImageView) this.xY.findViewById(R.id.obfuscated_res_0x7f091416);
+        this.yc = (TextView) this.xY.findViewById(R.id.obfuscated_res_0x7f09141a);
+        this.ye = (TextView) this.xY.findViewById(R.id.obfuscated_res_0x7f091414);
+        this.yg = (KSRatingBar) this.xY.findViewById(R.id.obfuscated_res_0x7f09141b);
+        this.yh = (KsAppTagsView) this.xY.findViewById(R.id.obfuscated_res_0x7f09141d);
     }
 
     @Override // com.kwad.sdk.widget.c
@@ -186,7 +186,7 @@ public final class c extends com.kwad.sdk.core.download.a.a implements com.kwad.
         List<String> list = P.yo;
         if (z && list.size() == 0) {
             this.ye.setVisibility(8);
-            TextView textView = (TextView) this.xY.findViewById(R.id.obfuscated_res_0x7f091414);
+            TextView textView = (TextView) this.xY.findViewById(R.id.obfuscated_res_0x7f091415);
             this.yf = textView;
             textView.setVisibility(0);
             this.yf.setText(P.qa);

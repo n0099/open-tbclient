@@ -10,16 +10,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class vzb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public float b;
-    public long c;
+    public String a;
+    public boolean b;
+    public float c;
+    public float d;
 
-    public vzb(String str, long j, boolean z, float f) {
+    public vzb(String str, boolean z, float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), Boolean.valueOf(z), Float.valueOf(f)};
+            Object[] objArr = {str, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,43 +30,53 @@ public class vzb {
                 return;
             }
         }
-        this.c = j;
-        this.a = z;
-        this.b = f;
+        this.a = str;
+        this.b = z;
+        this.c = f;
+        this.d = f2;
     }
 
     public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.c;
         }
         return invokeV.floatValue;
     }
 
-    public boolean b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public long c() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return invokeV.longValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean d(boolean z, float f) {
+    public float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public boolean e(boolean z, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f)})) == null) {
-            if (z && Math.abs(this.b - f) < 0.001f) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (z && Math.abs(this.c - f) < 0.001f && Math.abs(this.d - f2) < 0.001f) {
                 return true;
             }
             return false;

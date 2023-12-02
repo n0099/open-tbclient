@@ -1,171 +1,145 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.BdCloseHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.FileHelper;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import org.json.JSONArray;
+import com.fun.ad.sdk.FunAdSdk;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class yo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public static String[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        File file = new File(str);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        FileHelper.deleteFileOrDir(new File(ap9.e + ap9.a + str));
-    }
-
-    public static void c(String str, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, jSONArray) == null) && !StringUtils.isNull(str) && jSONArray != null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             try {
-                JSONArray jSONArray2 = new JSONArray(str);
-                for (int i = 0; i < jSONArray2.length(); i++) {
-                    jSONArray.put(jSONArray2.optJSONObject(i));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+                NetWork netWork = new NetWork(TbConfig.PassConfig.GET_CERT_URL);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                JSONObject jSONObject = new JSONObject(new String(netWork.getNetData()));
+                return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (String[]) invokeV.objValue;
     }
 
-    public static JSONArray d(String str) {
-        InterceptResult invokeL;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            if (StringUtils.isNull(str)) {
-                return jSONArray;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (BdNetTypeUtil.isWifiNet()) {
+                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
             }
-            File file = new File(str);
-            if (!file.exists()) {
-                return jSONArray;
-            }
-            String e = e(file);
-            String[] split = e.split("\n");
-            if (split.length > 0) {
-                for (String str2 : split) {
-                    c(str2, jSONArray);
-                }
-            } else {
-                c(e, jSONArray);
-            }
-            FileHelper.deleteFile(file);
-            return jSONArray;
+            return UtilHelper.getGprsIpAddress();
         }
-        return (JSONArray) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String e(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            StringBuilder sb = new StringBuilder();
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    sb.append(new String(bArr, 0, read));
-                }
-                BdCloseHelper.close((InputStream) fileInputStream);
-            } catch (Exception e2) {
-                e = e2;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                BdCloseHelper.close((InputStream) fileInputStream2);
-                return sb.toString();
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                BdCloseHelper.close((InputStream) fileInputStream2);
-                throw th;
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean f(File file, String str) {
+    public static String c(ArrayList<BasicNameValuePair> arrayList, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, str)) == null) {
-            return g(file, str, true);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, str)) == null) {
+            ArrayList arrayList2 = new ArrayList();
+            HashMap hashMap = new HashMap();
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                arrayList2.add(arrayList.get(i).getName());
+                hashMap.put(arrayList.get(i).getName(), arrayList.get(i).getValue());
+            }
+            Collections.sort(arrayList2);
+            StringBuffer stringBuffer = new StringBuffer();
+            Iterator it = arrayList2.iterator();
+            while (it.hasNext()) {
+                String str2 = (String) it.next();
+                stringBuffer.append(str2);
+                stringBuffer.append("=");
+                try {
+                    String str3 = (String) hashMap.get(str2);
+                    if (!TextUtils.isEmpty(str3)) {
+                        stringBuffer.append(URLEncoder.encode(str3, "UTF-8"));
+                    }
+                } catch (UnsupportedEncodingException e) {
+                    BdLog.e(e.getMessage());
+                }
+                stringBuffer.append("&");
+            }
+            stringBuffer.append("sign_key=" + str);
+            return xd.c(stringBuffer.toString());
         }
-        return invokeLL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static boolean g(File file, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        FileOutputStream fileOutputStream;
+    public static AccountLoginCoreHelper.a d(AccountLoginCoreHelper.a aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, file, str, z)) == null) {
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    fileOutputStream = new FileOutputStream(file, z);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aVar)) == null) {
+            if (aVar == null) {
+                return null;
             }
             try {
-                fileOutputStream.write(str.getBytes());
-                fileOutputStream.flush();
-                BdCloseHelper.close((OutputStream) fileOutputStream);
-                return true;
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                BdCloseHelper.close((OutputStream) fileOutputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                BdCloseHelper.close((OutputStream) fileOutputStream2);
-                throw th;
+                String[] a = a();
+                if (a == null) {
+                    return null;
+                }
+                ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
+                arrayList.add(new BasicNameValuePair("crypttype", "1"));
+                arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
+                arrayList.add(new BasicNameValuePair("appid", "1"));
+                arrayList.add(new BasicNameValuePair(DnsModel.CLIENTIP_KEY, b()));
+                arrayList.add(new BasicNameValuePair("cert_id", a[0]));
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("bduss", aVar.a);
+                jSONObject.put("ptoken", aVar.b);
+                jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
+                jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
+                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new uv4().a(a[1], jSONObject.toString())));
+                arrayList.add(new BasicNameValuePair(FunAdSdk.PLATFORM_SIG, c(arrayList, TbConfig.PassConfig.ENC_KEY)));
+                NetWork netWork = new NetWork(TbConfig.PassConfig.LOGIN_BDUSS_URL);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                netWork.setPostData(arrayList);
+                netWork.getNetContext().getRequest().mRequestGzip = true;
+                netWork.getNetContext().getRequest().mIsBaiduServer = false;
+                String postNetData = netWork.postNetData();
+                if (!netWork.getNetContext().getResponse().isRequestSuccess() || rd.isEmpty(postNetData)) {
+                    return null;
+                }
+                JSONObject jSONObject2 = new JSONObject(postNetData);
+                if (!"0".equals(jSONObject2.optString("errno"))) {
+                    return null;
+                }
+                AccountLoginCoreHelper.a aVar2 = new AccountLoginCoreHelper.a();
+                aVar2.a = jSONObject2.optString("bduss");
+                aVar2.b = jSONObject2.optString("ptoken");
+                jSONObject2.optString("uname");
+                return aVar2;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
         }
-        return invokeLLZ.booleanValue;
+        return (AccountLoginCoreHelper.a) invokeL.objValue;
     }
 }

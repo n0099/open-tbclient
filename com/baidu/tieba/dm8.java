@@ -1,58 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.hottopic.data.RelateForumItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.Hottopic.RelateForum;
 /* loaded from: classes5.dex */
-public class dm8 {
+public class dm8 extends sm6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ci> a;
+    public List<pi> a;
 
-    public dm8(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        cs7 cs7Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947709466, "Lcom/baidu/tieba/dm8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947709466, "Lcom/baidu/tieba/dm8;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
+
+    public dm8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, cs7.class, tbPageContext);
-        if (runTask != null && (cs7Var = (cs7) runTask.getData()) != null) {
-            this.a.add(cs7Var);
-        }
-        this.a.add(new em8(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
-        this.a.add(new cm8(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
-        bdTypeRecyclerView.addAdapters(this.a);
+        this.a = null;
     }
 
-    public void a(TbPageTag tbPageTag) {
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, tbPageTag) != null) || ListUtils.isEmpty(this.a)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<pi> list = this.a;
+            if (list != null && list.size() != 0) {
+                return this.a.size();
+            }
+            return 0;
         }
-        for (ci ciVar : this.a) {
-            if (ciVar instanceof cs7) {
-                ((cs7) ciVar).F(tbPageTag);
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void parserProtobuf(List<RelateForum> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && list.size() != 0) {
+            this.showTopDivider = true;
+            this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.recommend_relative_forum);
+            this.a = new ArrayList();
+            for (RelateForum relateForum : list) {
+                if (!StringUtils.isNull(relateForum.forum_name)) {
+                    RelateForumItemData relateForumItemData = new RelateForumItemData();
+                    relateForumItemData.parserProtobuf(relateForum);
+                    this.a.add(relateForumItemData);
+                }
             }
         }
     }

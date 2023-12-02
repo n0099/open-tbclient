@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.idlehelp.IdleHandlerManager;
@@ -19,6 +18,7 @@ import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
+import com.baidu.tieba.nd;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import java.io.BufferedWriter;
@@ -357,7 +357,7 @@ public class SpeedStats {
                     try {
                         try {
                             try {
-                                File file = new File(Environment.getExternalStorageDirectory(), "cold_start.txt");
+                                File file = new File(nd.r(), "cold_start.txt");
                                 if (!file.exists()) {
                                     file.createNewFile();
                                 }

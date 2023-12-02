@@ -1,27 +1,31 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
+import tbclient.TabPic;
 import tbclient.TabPicDesc;
 /* loaded from: classes5.dex */
-public class f9d extends ltc {
+public class f9d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TabPicDesc tabPicDesc) {
+    public static JSONObject b(@NonNull TabPic tabPic) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tabPicDesc)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tabPic)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "selected_pic_url", tabPicDesc.selected_pic_url);
-            ltc.a(jSONObject, "unselected_pic_url", tabPicDesc.unselected_pic_url);
-            ltc.a(jSONObject, VrPlayerActivityConfig.PIC_HEIGHT, tabPicDesc.pic_height);
-            ltc.a(jSONObject, VrPlayerActivityConfig.PIC_WIDTH, tabPicDesc.pic_width);
+            TabPicDesc tabPicDesc = tabPic.normal;
+            if (tabPicDesc != null) {
+                ktc.a(jSONObject, "normal", e9d.b(tabPicDesc));
+            }
+            TabPicDesc tabPicDesc2 = tabPic.dark;
+            if (tabPicDesc2 != null) {
+                ktc.a(jSONObject, "dark", e9d.b(tabPicDesc2));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

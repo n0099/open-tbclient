@@ -127,8 +127,8 @@ public class t4 {
                 return null;
             }
             CSPDataComponent cSPDataComponent = new CSPDataComponent();
-            pf1<ICSPDataService> pf1Var = cSPDataComponent.cspServiceHolder;
-            if (pf1Var != null && pf1Var.get() != null) {
+            sf1<ICSPDataService> sf1Var = cSPDataComponent.cspServiceHolder;
+            if (sf1Var != null && sf1Var.get() != null) {
                 try {
                     config = cSPDataComponent.cspServiceHolder.get().config();
                 } catch (Exception e2) {

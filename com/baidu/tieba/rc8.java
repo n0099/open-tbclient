@@ -2,28 +2,32 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
+import com.baidu.tieba.homepage.concern.view.RecommendBarLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class rc8 extends os<gc8> {
+public class rc8 extends os<RecommendBarCardModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qc8 f;
+    public RecommendBarLayout f;
+    public int g;
+    public int h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rc8(TbPageContext<?> pageContext) {
-        super(pageContext.getPageActivity());
+    public rc8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,8 +38,8 @@ public final class rc8 extends os<gc8> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        this.f = new qc8(pageContext);
+        this.g = 3;
+        this.f = new RecommendBarLayout(tbPageContext, tbPageContext.getPageActivity(), bdUniqueId, b);
     }
 
     @Override // com.baidu.tieba.os
@@ -43,26 +47,39 @@ public final class rc8 extends os<gc8> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f.c();
+            return this.f;
         }
         return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.os
+    public void o(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
+            this.f.setPageId(bdUniqueId);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: r */
-    public void onBindDataToView(gc8 gc8Var) {
+    public void onBindDataToView(RecommendBarCardModel recommendBarCardModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gc8Var) == null) {
-            this.f.e(gc8Var);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, recommendBarCardModel) == null) && recommendBarCardModel != null && this.h != recommendBarCardModel.hashCode()) {
+            this.h = recommendBarCardModel.hashCode();
+            this.f.setData(recommendBarCardModel);
         }
     }
 
     @Override // com.baidu.tieba.jt
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.onChangeSkinType(tbPageContext, i);
+                p(this.f, 3);
+            }
+            this.g = i;
         }
     }
 }

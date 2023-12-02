@@ -77,20 +77,20 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
 
     private void B(Context context) {
         l.inflate(context, R.layout.obfuscated_res_0x7f0d04c4, this);
-        this.dC = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914f2);
-        this.dD = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091301);
-        this.dE = (ImageView) findViewById(R.id.obfuscated_res_0x7f091306);
-        this.dF = (TextView) findViewById(R.id.obfuscated_res_0x7f091308);
-        this.dG = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091309);
-        this.dH = (TextView) findViewById(R.id.obfuscated_res_0x7f091305);
-        this.dI = (TextView) findViewById(R.id.obfuscated_res_0x7f091300);
-        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091304);
+        this.dC = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914f3);
+        this.dD = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091302);
+        this.dE = (ImageView) findViewById(R.id.obfuscated_res_0x7f091307);
+        this.dF = (TextView) findViewById(R.id.obfuscated_res_0x7f091309);
+        this.dG = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09130a);
+        this.dH = (TextView) findViewById(R.id.obfuscated_res_0x7f091306);
+        this.dI = (TextView) findViewById(R.id.obfuscated_res_0x7f091301);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091305);
         this.dJ = drawDownloadProgressBar;
         drawDownloadProgressBar.setTextSize(15);
-        this.dK = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09136e);
-        this.dL = (TextView) findViewById(R.id.obfuscated_res_0x7f09136d);
-        this.dM = (TextView) findViewById(R.id.obfuscated_res_0x7f091371);
-        this.mLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09135c);
+        this.dK = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09136f);
+        this.dL = (TextView) findViewById(R.id.obfuscated_res_0x7f09136e);
+        this.dM = (TextView) findViewById(R.id.obfuscated_res_0x7f091372);
+        this.mLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09135d);
     }
 
     private KsAppDownloadListener getAppDownloadListener() {

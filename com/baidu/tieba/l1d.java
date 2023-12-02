@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.PostPrefix;
+import tbclient.FrsPage.PostTopic;
 /* loaded from: classes7.dex */
-public class l1d extends ltc {
+public class l1d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PostPrefix postPrefix) {
+    public static JSONObject b(@NonNull PostTopic postTopic) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, postPrefix)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, postTopic)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "mode", postPrefix.mode);
-            ltc.a(jSONObject, "text", postPrefix.text);
-            ltc.a(jSONObject, "type", postPrefix.type);
-            ltc.a(jSONObject, "time", postPrefix.time);
+            ktc.a(jSONObject, "title_topic", postTopic.title_topic);
+            ktc.a(jSONObject, "content_topic", postTopic.content_topic);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

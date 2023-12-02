@@ -1,60 +1,49 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.appsearchlib.Info;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.LiveFuseForumData;
-import tbclient.FrsPage.NovelExt;
-import tbclient.TagLabelInfo;
+import tbclient.FrsPage.LiveModuleList;
 /* loaded from: classes8.dex */
-public class w0d extends ltc {
+public class w0d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull LiveFuseForumData liveFuseForumData) {
+    public static JSONObject b(@NonNull LiveModuleList liveModuleList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, liveFuseForumData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, liveModuleList)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "online_users", liveFuseForumData.online_users);
-            if (liveFuseForumData.head_img != null) {
+            ktc.a(jSONObject, "id", liveModuleList.id);
+            ktc.a(jSONObject, "forum_id", liveModuleList.forum_id);
+            ktc.a(jSONObject, "module_type", liveModuleList.module_type);
+            if (liveModuleList.module_name != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (String str : liveFuseForumData.head_img) {
+                for (String str : liveModuleList.module_name) {
                     jSONArray.put(str);
                 }
-                ltc.a(jSONObject, "head_img", jSONArray);
+                ktc.a(jSONObject, Info.kBaiduModuleKey, jSONArray);
             }
-            if (liveFuseForumData.title != null) {
+            ktc.a(jSONObject, "module_desc", liveModuleList.module_desc);
+            ktc.a(jSONObject, "tag_text", liveModuleList.tag_text);
+            ktc.a(jSONObject, "tag_text_color", liveModuleList.tag_text_color);
+            ktc.a(jSONObject, "background_url", liveModuleList.background_url);
+            if (liveModuleList.head_list != null) {
                 JSONArray jSONArray2 = new JSONArray();
-                for (String str2 : liveFuseForumData.title) {
+                for (String str2 : liveModuleList.head_list) {
                     jSONArray2.put(str2);
                 }
-                ltc.a(jSONObject, "title", jSONArray2);
+                ktc.a(jSONObject, "head_list", jSONArray2);
             }
-            ltc.a(jSONObject, "schema", liveFuseForumData.schema);
-            ltc.a(jSONObject, "type", liveFuseForumData.type);
-            ltc.a(jSONObject, "yyext", liveFuseForumData.yyext);
-            ltc.a(jSONObject, "icon_url", liveFuseForumData.icon_url);
-            ltc.a(jSONObject, "bjimg_dark_big", liveFuseForumData.bjimg_dark_big);
-            ltc.a(jSONObject, "bjimg_light_big", liveFuseForumData.bjimg_light_big);
-            ltc.a(jSONObject, "bjimg_dark_small", liveFuseForumData.bjimg_dark_small);
-            ltc.a(jSONObject, "bjimg_light_small", liveFuseForumData.bjimg_light_small);
-            ltc.a(jSONObject, "head_img_style", liveFuseForumData.head_img_style);
-            if (liveFuseForumData.label_infos != null) {
-                JSONArray jSONArray3 = new JSONArray();
-                for (TagLabelInfo tagLabelInfo : liveFuseForumData.label_infos) {
-                    jSONArray3.put(i9d.b(tagLabelInfo));
-                }
-                ltc.a(jSONObject, "label_infos", jSONArray3);
-            }
-            NovelExt novelExt = liveFuseForumData.novel;
-            if (novelExt != null) {
-                ltc.a(jSONObject, "novel", g1d.b(novelExt));
-            }
+            ktc.a(jSONObject, "jump_type", liveModuleList.jump_type);
+            ktc.a(jSONObject, BigdayActivityConfig.JUMP_URL, liveModuleList.jump_url);
+            ktc.a(jSONObject, "module_sort", liveModuleList.module_sort);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

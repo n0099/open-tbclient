@@ -12,12 +12,12 @@ public final class uc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public final pf1<ed> a;
+    public final sf1<ed> a;
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            nf1 b = nf1.b();
+            qf1 b = qf1.b();
             this.a = b;
             b.a(new fd());
         }
@@ -43,9 +43,9 @@ public final class uc {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            pf1<ed> pf1Var = this.a;
-            if (pf1Var != null) {
-                return pf1Var.get();
+            sf1<ed> sf1Var = this.a;
+            if (sf1Var != null) {
+                return sf1Var.get();
             }
             return null;
         }

@@ -1230,23 +1230,6 @@ public final class MatroskaExtractor implements Extractor {
         resetSample();
     }
 
-    public void stringElement(int i, String str) throws ParserException {
-        if (i != 134) {
-            if (i != 17026) {
-                if (i == 2274716) {
-                    this.currentTrack.language = str;
-                    return;
-                }
-                return;
-            } else if (!DOC_TYPE_WEBM.equals(str) && !DOC_TYPE_MATROSKA.equals(str)) {
-                throw new ParserException("DocType " + str + " not supported");
-            } else {
-                return;
-            }
-        }
-        this.currentTrack.codecId = str;
-    }
-
     private void commitSubtitleSample(Track track, String str, int i, long j, byte[] bArr) {
         setSampleDuration(this.subtitleSample.data, this.blockDurationUs, str, i, j, bArr);
         TrackOutput trackOutput = track.output;
@@ -1405,6 +1388,23 @@ public final class MatroskaExtractor implements Extractor {
         ParsableByteArray parsableByteArray2 = this.scratch;
         extractorInput.readFully(parsableByteArray2.data, parsableByteArray2.limit(), i - this.scratch.limit());
         this.scratch.setLimit(i);
+    }
+
+    public void stringElement(int i, String str) throws ParserException {
+        if (i != 134) {
+            if (i != 17026) {
+                if (i == 2274716) {
+                    this.currentTrack.language = str;
+                    return;
+                }
+                return;
+            } else if (!DOC_TYPE_WEBM.equals(str) && !DOC_TYPE_MATROSKA.equals(str)) {
+                throw new ParserException("DocType " + str + " not supported");
+            } else {
+                return;
+            }
+        }
+        this.currentTrack.codecId = str;
     }
 
     private int readToOutput(ExtractorInput extractorInput, TrackOutput trackOutput, int i) throws IOException, InterruptedException {

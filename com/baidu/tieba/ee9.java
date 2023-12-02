@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.impersonal.data.BehaviorExt;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.impersonal.data.MsgGuideInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
 public final class ee9 {
     public static /* synthetic */ Interceptable $ic;
@@ -52,62 +46,17 @@ public final class ee9 {
         }
     }
 
-    @JvmStatic
-    public static final void a(String key, String uid, String str) {
+    public final MsgGuideInfo a(AbilityItem abilityItem) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, key, uid, str) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(uid, "uid");
-            StatisticItem.make(key).param("uid", uid).param("content", str).eventStat();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, abilityItem)) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            AbilityItem.StyleConf styleConf = abilityItem.getStyleConf();
+            if (styleConf != null) {
+                return new MsgGuideInfo(styleConf.getContent(), styleConf.getSubContent());
+            }
+            return null;
         }
-    }
-
-    @JvmStatic
-    public static final void b(String str, String objType, BehaviorExt behaviorExt) {
-        boolean z;
-        String str2;
-        String sceneFrom;
-        String sceneFrom2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, objType, behaviorExt) == null) {
-            Intrinsics.checkNotNullParameter(objType, "objType");
-            StatisticItem statisticItem = new StatisticItem("c15273");
-            statisticItem.param("uid", str);
-            statisticItem.param("obj_type", objType);
-            boolean z2 = true;
-            if (behaviorExt != null && (sceneFrom2 = behaviorExt.getSceneFrom()) != null && StringsKt__StringsJVMKt.startsWith$default(sceneFrom2, "catchphrase", false, 2, null)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                str2 = "1";
-            } else {
-                if ((behaviorExt == null || (sceneFrom = behaviorExt.getSceneFrom()) == null || !StringsKt__StringsJVMKt.startsWith$default(sceneFrom, "search_summary", false, 2, null)) ? false : false) {
-                    str2 = "2";
-                } else {
-                    str2 = "";
-                }
-            }
-            if (StringUtils.isNotNull(str2)) {
-                statisticItem.param("obj_source", str2);
-            }
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    @JvmStatic
-    public static final void c(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            StatisticItem param = new StatisticItem("c15227").param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (z) {
-                i = 2;
-            } else {
-                i = 1;
-            }
-            param.param("obj_type", i).eventStat();
-        }
+        return (MsgGuideInfo) invokeL.objValue;
     }
 }

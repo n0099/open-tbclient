@@ -73,7 +73,7 @@ public final class b extends Presenter {
     public final void aj() {
         super.aj();
         this.mAdTemplate = ((com.kwad.components.core.page.recycle.e) HU()).adTemplate;
-        KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f091511);
+        KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f091512);
         this.mAdWebView = ksAdWebView;
         this.mAdWebView.setClientConfig(ksAdWebView.getClientConfig().bv(true).eh(this.mAdTemplate));
         ax();

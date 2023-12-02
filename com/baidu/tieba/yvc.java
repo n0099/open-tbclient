@@ -5,25 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ChatroomMEMsgInfo;
+import tbclient.ChatroomSignInfo;
 /* loaded from: classes9.dex */
-public class yvc extends ltc {
+public class yvc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ChatroomMEMsgInfo chatroomMEMsgInfo) {
+    public static JSONObject b(@NonNull ChatroomSignInfo chatroomSignInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatroomMEMsgInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatroomSignInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "from_uid", chatroomMEMsgInfo.from_uid);
-            ltc.a(jSONObject, "from_name", chatroomMEMsgInfo.from_name);
-            ltc.a(jSONObject, "content", chatroomMEMsgInfo.content);
-            ltc.a(jSONObject, "msg_id", chatroomMEMsgInfo.msg_id);
-            ltc.a(jSONObject, "special_msg", chatroomMEMsgInfo.special_msg);
-            ltc.a(jSONObject, "special_msg_type", chatroomMEMsgInfo.special_msg_type);
-            ltc.a(jSONObject, "msg_time", chatroomMEMsgInfo.msg_time);
+            ktc.a(jSONObject, "chatroom_id", chatroomSignInfo.chatroom_id);
+            ktc.a(jSONObject, "jump_scheme", chatroomSignInfo.jump_scheme);
+            ktc.a(jSONObject, "guide_text", chatroomSignInfo.guide_text);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

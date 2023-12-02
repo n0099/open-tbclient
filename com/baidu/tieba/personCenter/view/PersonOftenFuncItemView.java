@@ -40,11 +40,11 @@ import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
-import com.baidu.tieba.d9a;
-import com.baidu.tieba.p8a;
+import com.baidu.tieba.h9a;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.t8a;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.x8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -56,7 +56,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView a;
     public TextView b;
-    public t8a c;
+    public x8a c;
     public boolean d;
 
     /* loaded from: classes7.dex */
@@ -139,10 +139,10 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0802, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0803, this);
             inflate.setOnClickListener(this);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091760);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091761);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091761);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091762);
         }
     }
 
@@ -190,11 +190,11 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
         b(context);
     }
 
-    public void a(t8a t8aVar) {
+    public void a(x8a x8aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t8aVar) == null) {
-            this.c = t8aVar;
-            this.b.setText(t8aVar.e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, x8aVar) == null) {
+            this.c = x8aVar;
+            this.b.setText(x8aVar.e);
             f();
         }
     }
@@ -208,12 +208,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     }
 
     public void d() {
-        t8a t8aVar;
+        x8a x8aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (t8aVar = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (x8aVar = this.c) == null) {
             return;
         }
-        int i = t8aVar.a;
+        int i = x8aVar.a;
         if (this.d) {
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
@@ -221,7 +221,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
             int height = getHeight();
             int equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst());
             int i3 = height + i2;
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f070420);
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f070421);
             int mainTabBottomBarHeight = equipmentHeight - TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
             if ((i2 > dimenPixelSize && i2 < mainTabBottomBarHeight) || (i3 > dimenPixelSize && i3 < mainTabBottomBarHeight)) {
                 if (i == 59) {
@@ -246,11 +246,11 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            t8a t8aVar = this.c;
-            if (t8aVar.b > 0) {
+            x8a x8aVar = this.c;
+            if (x8aVar.b > 0) {
                 this.a.setVisibility(0);
                 SkinManager.setImageResource(this.a, this.c.b);
-            } else if (t8aVar.m && !TextUtils.isEmpty(t8aVar.k)) {
+            } else if (x8aVar.m && !TextUtils.isEmpty(x8aVar.k)) {
                 this.a.setVisibility(0);
                 this.a.startLoad(this.c.k, 10, false);
             } else {
@@ -261,14 +261,14 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        t8a t8aVar;
+        x8a x8aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || (t8aVar = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || (x8aVar = this.c) == null) {
             return;
         }
-        if (t8aVar.m && t8aVar.l != 0) {
+        if (x8aVar.m && x8aVar.l != 0) {
             if (TbadkApplication.getInst().getCurrentActivity() instanceof TbPageContextSupport) {
-                d9a.a(this.c, ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
+                h9a.a(this.c, ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
                 return;
             }
             return;
@@ -302,12 +302,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
                                             HashMap hashMap = new HashMap();
                                             hashMap.put("uid", Long.valueOf(TbadkCoreApplication.getCurrentAccountId()));
                                             hashMap.put("entryType", "1");
-                                            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkCoreApplication.getInst().getApplicationContext(), "AuthenticationCenterPage", hashMap)));
+                                            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(getContext(), "AuthenticationCenterPage", hashMap)));
                                             return;
                                         case 54:
                                             String str2 = this.c.f;
                                             if (rd.isEmpty(str2)) {
-                                                str2 = p8a.w;
+                                                str2 = t8a.w;
                                             }
                                             BrowserHelper.startWebActivity(getContext(), str2);
                                             return;

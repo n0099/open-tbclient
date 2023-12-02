@@ -202,7 +202,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             }
             if (responseUpdateMaskInfoMessage.getError() != 0) {
                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e6f);
+                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e70);
                 } else {
                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                 }

@@ -31,7 +31,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.o95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -239,10 +239,35 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             this.b = str2;
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public String doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                try {
+                    NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/c/forum/create");
+                    this.c = netWork;
+                    netWork.getNetContext().getRequest().mIsNeedTbs = true;
+                    this.c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.a);
+                    this.c.addPostData("vcode", this.b);
+                    this.c.addPostData("vcode_md5", this.d.n);
+                    this.c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                    this.c.postNetData();
+                    return null;
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 super.cancel(true);
                 NetWork netWork = this.c;
                 if (netWork != null) {
@@ -260,30 +285,6 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                 super.onPreExecute();
                 this.d.h.setVisibility(0);
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                try {
-                    NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/c/forum/create");
-                    this.c = netWork;
-                    netWork.getNetContext().getRequest().mIsNeedTbs = true;
-                    this.c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.a);
-                    this.c.addPostData("vcode", this.b);
-                    this.c.addPostData("vcode_md5", this.d.n);
-                    this.c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
-                    this.c.postNetData();
-                    return null;
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    return null;
-                }
-            }
-            return (String) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -355,14 +356,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        l95 l95Var = new l95();
-                        l95Var.e(postNetData);
-                        if (l95Var.c() != null && l95Var.c().length() > 0) {
-                            this.c.n = l95Var.b();
+                        o95 o95Var = new o95();
+                        o95Var.e(postNetData);
+                        if (o95Var.c() != null && o95Var.c().length() > 0) {
+                            this.c.n = o95Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(l95Var.c());
+                            NetWork netWork2 = new NetWork(o95Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -520,38 +521,38 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.u.setTitleText(getPageContext().getString(R.string.create_bar));
             this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0907f7);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09257a);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092737)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090a97);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0911a2);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090856);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09257c);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092739)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090a98);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0911a3);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090857);
             this.e = relativeLayout;
             relativeLayout.setOnClickListener(this.l);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0911a3);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f0909cf);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0911a4);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f0909d0);
             this.c = editText;
             editText.addTextChangedListener(this.m);
-            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f0909de);
+            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f0909df);
             this.d = editText2;
             editText2.addTextChangedListener(this.m);
             if (this.t) {
-                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ec5));
+                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ec6));
                 this.c.setText(this.s);
             } else {
                 this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0339));
             }
-            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090856);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091100);
+            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090857);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091101);
             this.f = frameLayout;
             frameLayout.setOnClickListener(this.l);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910fb);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910fc);
             this.e.setEnabled(false);
-            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091e5a);
-            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091e65);
+            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091e5c);
+            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091e67);
             if (this.t) {
                 this.d.requestFocus();
             }
-            findViewById(R.id.obfuscated_res_0x7f0922de).setOnTouchListener(new c(this));
+            findViewById(R.id.obfuscated_res_0x7f0922e0).setOnTouchListener(new c(this));
         }
     }
 

@@ -183,7 +183,7 @@ public final class a extends Presenter implements j {
     public final void aj() {
         super.aj();
         this.SD = (com.kwad.components.core.r.a.b) HU();
-        this.SA = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09139a);
+        this.SA = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09139b);
         i iVar = new i(getContext(), 1000, 0);
         this.gj = iVar;
         iVar.a(this.SD.Sq);

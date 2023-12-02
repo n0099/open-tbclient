@@ -67,7 +67,7 @@ public class ToolsActivity extends Activity {
             Button button = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0907ea);
             Button button2 = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090574);
             this.a = (Spinner) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0900a2);
-            this.b = (Spinner) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09086b);
+            this.b = (Spinner) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09086c);
             this.c = (CheckBox) findViewById(com.baidu.tieba.R.id.isFullscreenCheckBox);
             this.d = new ArrayList(Arrays.asList(getResources().getStringArray(com.baidu.tieba.R.array.obfuscated_res_0x7f030019)));
             this.e = new ArrayList(Arrays.asList(getResources().getStringArray(com.baidu.tieba.R.array.obfuscated_res_0x7f030011)));
@@ -93,7 +93,7 @@ public class ToolsActivity extends Activity {
             }
             this.a.setOnItemSelectedListener(new a(this));
             this.b.setOnItemSelectedListener(new b(this));
-            button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sec
+            button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rec
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +105,7 @@ public class ToolsActivity extends Activity {
                     }
                 }
             });
-            button2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tec
+            button2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sec
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,7 +117,7 @@ public class ToolsActivity extends Activity {
                     }
                 }
             });
-            this.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uec
+            this.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tec
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

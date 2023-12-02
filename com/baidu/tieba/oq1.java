@@ -1,7 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.tieba.l52;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes7.dex */
 public interface oq1 {
-    void a(Context context, String str, String str2, ym1 ym1Var);
+    int a();
+
+    VideoPlayerFactory b();
+
+    int c();
+
+    void d(boolean z);
+
+    boolean e();
+
+    boolean f();
+
+    void g(int i);
+
+    void h(l52.c cVar);
 }

@@ -6,23 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.AdMixFloor;
-import tbclient.BannerList;
+import tbclient.FrsPage.PrivateForumShareinfo;
+import tbclient.PrivateForumInfo;
+import tbclient.PrivatePopInfo;
 /* loaded from: classes9.dex */
 public final class zi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BannerList a;
-    public int b;
-    public List<AdMixFloor> c;
+    public final PrivateForumInfo a;
+    public final Integer b;
 
-    public zi7() {
+    public zi7(PrivateForumShareinfo privateForumShareinfo, PrivatePopInfo privatePopInfo, PrivateForumInfo privateForumInfo, Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {privateForumShareinfo, privatePopInfo, privateForumInfo, num};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,59 +31,25 @@ public final class zi7 {
                 return;
             }
         }
-        BannerList build = new BannerList.Builder().build(true);
-        Intrinsics.checkNotNullExpressionValue(build, "Builder().build(true)");
-        this.a = build;
-        this.c = CollectionsKt__CollectionsKt.emptyList();
+        this.a = privateForumInfo;
+        this.b = num;
     }
 
-    public final List<AdMixFloor> a() {
+    public final PrivateForumInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.a;
         }
-        return (List) invokeV.objValue;
+        return (PrivateForumInfo) invokeV.objValue;
     }
 
-    public final int b() {
+    public final Integer b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return invokeV.intValue;
-    }
-
-    public final BannerList c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (BannerList) invokeV.objValue;
-    }
-
-    public final void d(List<AdMixFloor> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.c = list;
-        }
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void f(BannerList bannerList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bannerList) == null) {
-            Intrinsics.checkNotNullParameter(bannerList, "<set-?>");
-            this.a = bannerList;
-        }
+        return (Integer) invokeV.objValue;
     }
 }

@@ -1,28 +1,29 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.spswitch.utils.EmotionUbcHelper;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.SpriteMemeInfo;
+import tbclient.SpritePBGuide;
 /* loaded from: classes8.dex */
-public class s8d extends ltc {
+public class s8d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SpriteMemeInfo spriteMemeInfo) {
+    public static JSONObject b(@NonNull SpritePBGuide spritePBGuide) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, spriteMemeInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, spritePBGuide)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, EmotionUbcHelper.MEME_ID, spriteMemeInfo.meme_id);
-            ltc.a(jSONObject, "query", spriteMemeInfo.query);
-            ltc.a(jSONObject, "icon", spriteMemeInfo.icon);
-            ltc.a(jSONObject, "use_same_guide", spriteMemeInfo.use_same_guide);
-            ltc.a(jSONObject, "use_same_text", spriteMemeInfo.use_same_text);
+            ktc.a(jSONObject, GuildActivityConfig.GUIDE_TYPE, spritePBGuide.guide_type);
+            ktc.a(jSONObject, "guide_text", spritePBGuide.guide_text);
+            ktc.a(jSONObject, GameGuideConfigInfo.KEY_BUTTON_TEXT, spritePBGuide.button_text);
+            ktc.a(jSONObject, BigdayActivityConfig.JUMP_URL, spritePBGuide.jump_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

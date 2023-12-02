@@ -16,20 +16,20 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.agb;
-import com.baidu.tieba.bgb;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.common.JSONKt;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.ig6;
-import com.baidu.tieba.ihb;
-import com.baidu.tieba.nn6;
-import com.baidu.tieba.qhb;
-import com.baidu.tieba.tdb;
-import com.baidu.tieba.vgb;
+import com.baidu.tieba.hhb;
+import com.baidu.tieba.mg6;
+import com.baidu.tieba.phb;
+import com.baidu.tieba.rn6;
+import com.baidu.tieba.sdb;
+import com.baidu.tieba.ugb;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.UpdateWriteDataBiz;
+import com.baidu.tieba.zfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,18 +47,18 @@ public final class UpdateWriteDataBiz extends BizBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.dgb
-    public bgb[] b() {
+    @Override // com.baidu.tieba.cgb
+    public agb[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return null;
         }
-        return (bgb[]) invokeV.objValue;
+        return (agb[]) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UpdateWriteDataBiz(TbPageContext<?> pageContext, TbWebView webView, final WriteData writeData, vgb writePageState, final Function1<? super JSONObject, Unit> onAddDraftData) {
+    public UpdateWriteDataBiz(TbPageContext<?> pageContext, TbWebView webView, final WriteData writeData, ugb writePageState, final Function1<? super JSONObject, Unit> onAddDraftData) {
         super(pageContext, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -70,7 +70,7 @@ public final class UpdateWriteDataBiz extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (vgb) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (ugb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,33 +81,33 @@ public final class UpdateWriteDataBiz extends BizBase {
         Intrinsics.checkNotNullParameter(writeData, "writeData");
         Intrinsics.checkNotNullParameter(writePageState, "writePageState");
         Intrinsics.checkNotNullParameter(onAddDraftData, "onAddDraftData");
-        webView.I(WebViewActivityConfig.TAG_PAGE_DATA, new ig6() { // from class: com.baidu.tieba.chb
+        webView.I(WebViewActivityConfig.TAG_PAGE_DATA, new mg6() { // from class: com.baidu.tieba.bhb
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.ig6, java.util.concurrent.Callable
+            @Override // com.baidu.tieba.mg6, java.util.concurrent.Callable
             public final Object call() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? UpdateWriteDataBiz.r(UpdateWriteDataBiz.this) : invokeV.objValue;
             }
         });
-        webView.I("draftData", new ig6() { // from class: com.baidu.tieba.ahb
+        webView.I("draftData", new mg6() { // from class: com.baidu.tieba.zgb
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.ig6, java.util.concurrent.Callable
+            @Override // com.baidu.tieba.mg6, java.util.concurrent.Callable
             public final Object call() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? UpdateWriteDataBiz.s(WriteData.this, this, onAddDraftData) : invokeV.objValue;
             }
         });
-        webView.I("bubbleData", new ig6() { // from class: com.baidu.tieba.ygb
+        webView.I("bubbleData", new mg6() { // from class: com.baidu.tieba.xgb
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.ig6, java.util.concurrent.Callable
+            @Override // com.baidu.tieba.mg6, java.util.concurrent.Callable
             public final Object call() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -199,7 +199,7 @@ public final class UpdateWriteDataBiz extends BizBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject4 = new JSONObject();
-            b = ihb.b(k().getType());
+            b = hhb.b(k().getType());
             JSONKt.c(jSONObject4, "type", b);
             JSONKt.c(jSONObject4, "fid", k().getForumId());
             JSONKt.c(jSONObject4, TiebaStatic.Params.H5_FORUM_NAME, k().getForumName());
@@ -296,7 +296,7 @@ public final class UpdateWriteDataBiz extends BizBase {
                     sb.append((String) obj);
                 } else if (obj instanceof ImageFileInfo) {
                     sb.append("\n");
-                    sb.append(tdb.c + qhb.a.a((ImageFileInfo) obj, i) + tdb.a.d());
+                    sb.append(sdb.c + phb.a.a((ImageFileInfo) obj, i) + sdb.a.d());
                 }
                 i = i2;
             }
@@ -310,7 +310,7 @@ public final class UpdateWriteDataBiz extends BizBase {
     public final void E(String str) {
         JSONObject a;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || (a = nn6.a.a(str)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || (a = rn6.a.a(str)) == null) {
             return;
         }
         H(a);
@@ -325,7 +325,7 @@ public final class UpdateWriteDataBiz extends BizBase {
         }
         l().r(k().getForumId());
         l().g().d();
-        vgb.d(l(), 0, 1, null);
+        ugb.d(l(), 0, 1, null);
     }
 
     public final void H(JSONObject jSONObject) {
@@ -348,18 +348,18 @@ public final class UpdateWriteDataBiz extends BizBase {
         }
     }
 
-    @Override // com.baidu.tieba.dgb
+    @Override // com.baidu.tieba.cgb
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new WrapListener[]{h().invoke("writePage.updateWriteData", new UpdateWriteDataBiz$keyListeners$1(this))} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dgb
-    public agb[] f() {
+    @Override // com.baidu.tieba.cgb
+    public zfb[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new agb[]{n(55, new UpdateWriteDataBiz$editorActionHandlers$1(this)), n(66, new UpdateWriteDataBiz$editorActionHandlers$2(this)), n(3, new UpdateWriteDataBiz$editorActionHandlers$3(this)), n(74, new UpdateWriteDataBiz$editorActionHandlers$4(this))} : (agb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new zfb[]{n(55, new UpdateWriteDataBiz$editorActionHandlers$1(this)), n(66, new UpdateWriteDataBiz$editorActionHandlers$2(this)), n(3, new UpdateWriteDataBiz$editorActionHandlers$3(this)), n(74, new UpdateWriteDataBiz$editorActionHandlers$4(this))} : (zfb[]) invokeV.objValue;
     }
 
     public final JSONObject z() {

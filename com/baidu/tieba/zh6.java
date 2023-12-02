@@ -1,23 +1,47 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.xml.sax.Attributes;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes9.dex */
-public class zh6 extends yh6 {
+public class zh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, Object> a;
 
-    @Override // com.baidu.tieba.yh6
-    public void a(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final zh6 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-231799101, "Lcom/baidu/tieba/zh6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-231799101, "Lcom/baidu/tieba/zh6$b;");
+                    return;
+                }
+            }
+            a = new zh6(null);
         }
     }
 
@@ -31,28 +55,71 @@ public class zh6 extends yh6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentHashMap();
+    }
+
+    public static zh6 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (zh6) invokeV.objValue;
+    }
+
+    public /* synthetic */ zh6(a aVar) {
+        this();
+    }
+
+    public synchronized void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            synchronized (this) {
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, new Object());
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.yh6
-    public void b(boolean z, String str, Attributes attributes) {
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, attributes}) == null) {
-            String value = attributes.getValue("", NativeConstants.HREF);
-            if (TextUtils.equals(attributes.getValue("", "rel"), "stylesheet") && !TextUtils.isEmpty(value)) {
-                String str2 = "http";
-                if (!value.startsWith("http")) {
-                    StringBuilder sb = new StringBuilder();
-                    if (z) {
-                        str2 = "https";
-                    }
-                    sb.append(str2);
-                    sb.append(":");
-                    sb.append(value);
-                    value = sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                containsKey = this.a.containsKey(str);
+            }
+            return containsKey;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(String str) {
+        Object remove;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (remove = this.a.remove(str)) != null) {
+            try {
+                synchronized (remove) {
+                    remove.notifyAll();
                 }
-                ci6.g().b(value, value, new HashMap());
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public void d(String str, long j) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) && (obj = this.a.get(str)) != null) {
+            try {
+                synchronized (obj) {
+                    obj.wait(j);
+                }
+            } catch (InterruptedException unused) {
             }
         }
     }

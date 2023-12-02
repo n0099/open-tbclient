@@ -1,102 +1,102 @@
 package org.chromium.base;
 
-import com.baidu.tieba.dlc;
+import com.baidu.tieba.clc;
 /* loaded from: classes2.dex */
 public final class R {
 
     /* loaded from: classes2.dex */
-    public static final class anim extends dlc.a {
+    public static final class anim extends clc.a {
     }
 
     /* loaded from: classes2.dex */
-    public static final class animator extends dlc.b {
+    public static final class animator extends clc.b {
     }
 
     /* loaded from: classes2.dex */
-    public static final class array extends dlc.c {
+    public static final class array extends clc.c {
     }
 
     /* loaded from: classes2.dex */
-    public static final class attr extends dlc.d {
+    public static final class attr extends clc.d {
     }
 
     /* loaded from: classes2.dex */
-    public static final class bool extends dlc.e {
+    public static final class bool extends clc.e {
     }
 
     /* loaded from: classes2.dex */
-    public static final class color extends dlc.f {
+    public static final class color extends clc.f {
     }
 
     /* loaded from: classes2.dex */
-    public static final class dimen extends dlc.g {
+    public static final class dimen extends clc.g {
     }
 
     /* loaded from: classes2.dex */
-    public static final class drawable extends dlc.h {
+    public static final class drawable extends clc.h {
     }
 
     /* loaded from: classes2.dex */
-    public static final class font extends dlc.i {
+    public static final class font extends clc.i {
     }
 
     /* loaded from: classes2.dex */
-    public static final class fraction extends dlc.j {
+    public static final class fraction extends clc.j {
     }
 
     /* loaded from: classes2.dex */
-    public static final class id extends dlc.k {
+    public static final class id extends clc.k {
     }
 
     /* loaded from: classes2.dex */
-    public static final class integer extends dlc.l {
+    public static final class integer extends clc.l {
     }
 
     /* loaded from: classes2.dex */
-    public static final class interpolator extends dlc.m {
+    public static final class interpolator extends clc.m {
     }
 
     /* loaded from: classes2.dex */
-    public static final class layout extends dlc.n {
+    public static final class layout extends clc.n {
     }
 
     /* loaded from: classes2.dex */
-    public static final class menu extends dlc.o {
+    public static final class menu extends clc.o {
     }
 
     /* loaded from: classes2.dex */
-    public static final class mipmap extends dlc.p {
+    public static final class mipmap extends clc.p {
     }
 
     /* loaded from: classes2.dex */
-    public static final class plurals extends dlc.q {
+    public static final class plurals extends clc.q {
     }
 
     /* loaded from: classes2.dex */
-    public static final class raw extends dlc.r {
+    public static final class raw extends clc.r {
     }
 
     /* loaded from: classes2.dex */
-    public static final class string extends dlc.s {
+    public static final class string extends clc.s {
     }
 
     /* loaded from: classes2.dex */
-    public static final class style extends dlc.t {
+    public static final class style extends clc.t {
     }
 
     /* loaded from: classes2.dex */
-    public static final class styleable extends dlc.u {
+    public static final class styleable extends clc.u {
     }
 
     /* loaded from: classes2.dex */
-    public static final class transition extends dlc.v {
+    public static final class transition extends clc.v {
     }
 
     /* loaded from: classes2.dex */
-    public static final class xml extends dlc.w {
+    public static final class xml extends clc.w {
     }
 
     public static void onResourcesLoaded(int i) {
-        dlc.a(i);
+        clc.a(i);
     }
 }

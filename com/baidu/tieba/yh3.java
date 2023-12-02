@@ -1,40 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.s22;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class yh3 extends e83 {
+public class yh3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public View c;
+    public int d;
+    public xh3 e;
 
     /* loaded from: classes9.dex */
-    public class a implements s22.i {
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String a;
         public final /* synthetic */ yh3 b;
 
-        public a(yh3 yh3Var, CallbackHandler callbackHandler) {
+        public a(yh3 yh3Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yh3Var, callbackHandler};
+                Object[] objArr = {yh3Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,98 +41,77 @@ public class yh3 extends e83 {
                 }
             }
             this.b = yh3Var;
-            this.a = callbackHandler;
+            this.a = str;
         }
 
-        @Override // com.baidu.tieba.s22.i
-        public void a(String str, String str2, JSONObject jSONObject) {
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-                this.b.k(str, str2, this.a, 0, jSONObject);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.e != null) {
+                    this.b.e.c(this.a);
+                }
+                Rect rect = new Rect();
+                this.b.c.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.b.d != this.b.a) {
+                    if (this.b.d == height) {
+                        return;
+                    }
+                    if (this.b.d - height > this.b.b) {
+                        if (this.b.e != null) {
+                            this.b.e.b(this.a, this.b.d - height);
+                        }
+                        this.b.d = height;
+                        return;
+                    } else if (height - this.b.d > this.b.b) {
+                        if (this.b.e != null) {
+                            this.b.e.a(this.a, height - this.b.d);
+                        }
+                        this.b.d = height;
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                this.b.d = height;
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yh3(e73 e73Var) {
-        super(e73Var, "/swanAPI/openTextarea");
+    public yh3(String str, Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e73Var};
+            Object[] objArr = {str, activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 0;
+        this.b = 200;
+        View decorView = activity.getWindow().getDecorView();
+        this.c = decorView;
+        decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
     }
 
-    @Override // com.baidu.tieba.e83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h63 h63Var) {
-        InterceptResult invokeLLLL;
+    public final void h(xh3 xh3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h63Var)) == null) {
-            if (e83.b) {
-                Log.d("OpenTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            h32.i("OpenTextAreaAction", "OpenTextAreaAction paramsJson: " + optParamsAsJo);
-            t22 t22Var = new t22();
-            try {
-                t22Var.a(optParamsAsJo);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                h32.d("OpenTextAreaAction", "model parse exception:", e);
-            }
-            SwanAppActivity activity = ur2.V().getActivity();
-            if (activity == null) {
-                h32.c("OpenTextAreaAction", "activity is null when add textarea");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add textarea");
-                return false;
-            }
-            q52 W = ur2.V().W();
-            if (W == null) {
-                h32.c("OpenTextAreaAction", "fragmentManager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
-                return false;
-            }
-            p52 o = W.o();
-            if (o == null) {
-                h32.c("OpenTextAreaAction", "fragment is null when add input");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
-                return false;
-            }
-            z12 w = new s22(context, t22Var, activity, o, new a(this, callbackHandler)).w();
-            if (!w.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, w.b);
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, xh3Var) == null) {
+            this.e = xh3Var;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final void k(String str, String str2, CallbackHandler callbackHandler, int i, JSONObject jSONObject) {
+    public static void g(String str, Activity activity, xh3 xh3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, callbackHandler, Integer.valueOf(i), jSONObject}) == null) {
-            h32.i("OpenTextAreaAction", "sendAsyncCallback, arg0: " + i + ", arg1: " + jSONObject);
-            if (TextUtils.isEmpty(str2)) {
-                a32.a("OpenTextAreaAction", "sendAsyncCallback with a empty callback");
-            } else {
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            }
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, activity, xh3Var) == null) {
+            new yh3(str, activity).h(xh3Var);
         }
     }
 }

@@ -16,11 +16,11 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r53;
-import com.baidu.tieba.s53;
+import com.baidu.tieba.u53;
+import com.baidu.tieba.v53;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class SwanContextMenuView extends FrameLayout implements r53.g {
+public class SwanContextMenuView extends FrameLayout implements u53.g {
     public final Context a;
     public boolean b;
     public ListView c;
@@ -30,7 +30,7 @@ public class SwanContextMenuView extends FrameLayout implements r53.g {
     /* loaded from: classes4.dex */
     public class b extends BaseAdapter {
         public final Context a;
-        public List<s53> b;
+        public List<v53> b;
 
         @Override // android.widget.Adapter
         public long getItemId(int i) {
@@ -46,20 +46,20 @@ public class SwanContextMenuView extends FrameLayout implements r53.g {
             }
         }
 
-        public b(Context context, List<s53> list) {
+        public b(Context context, List<v53> list) {
             this.b = list;
             this.a = context;
         }
 
         public void a(int i) {
-            s53 s53Var = this.b.get(i);
-            s53.a d = s53Var.d();
+            v53 v53Var = this.b.get(i);
+            v53.a d = v53Var.d();
             if (d != null) {
-                d.a(s53Var);
+                d.a(v53Var);
             }
         }
 
-        public void c(List<s53> list) {
+        public void c(List<v53> list) {
             this.b = list;
             notifyDataSetChanged();
         }
@@ -71,13 +71,13 @@ public class SwanContextMenuView extends FrameLayout implements r53.g {
 
         public final void b(View view2, int i) {
             if (getCount() == 1) {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146c));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146f));
             } else if (i == 0) {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146d));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081470));
             } else if (i == getCount() - 1) {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146a));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146d));
             } else {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146b));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146e));
             }
         }
 
@@ -91,32 +91,32 @@ public class SwanContextMenuView extends FrameLayout implements r53.g {
         public View getView(int i, View view2, ViewGroup viewGroup) {
             a aVar;
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0950, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0951, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091234);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091264);
+                aVar.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091235);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091265);
                 b(view2, i);
                 view2.setTag(aVar);
             } else {
                 aVar = (a) view2.getTag();
             }
-            s53 s53Var = this.b.get(i);
-            aVar.b.setText(s53Var.e());
+            v53 v53Var = this.b.get(i);
+            aVar.b.setText(v53Var.e());
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.b.getLayoutParams();
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
-            if (s53Var.b() != null) {
+            if (v53Var.b() != null) {
                 aVar.a.setVisibility(0);
-                aVar.a.setImageDrawable(s53Var.b());
-                layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070809));
+                aVar.a.setImageDrawable(v53Var.b());
+                layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07080d));
             } else {
                 aVar.a.setVisibility(8);
-                layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070808));
+                layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07080c));
             }
             aVar.b.setLayoutParams(layoutParams);
             if (SwanContextMenuView.this.e) {
                 ((LinearLayout) view2).setGravity(17);
                 layoutParams.width = -2;
-                if (s53Var.b() != null) {
+                if (v53Var.b() != null) {
                     layoutParams2.setMarginStart(0);
                     aVar.a.setLayoutParams(layoutParams2);
                 } else {
@@ -146,7 +146,7 @@ public class SwanContextMenuView extends FrameLayout implements r53.g {
         b();
     }
 
-    public void c(List<s53> list) {
+    public void c(List<v53> list) {
         if (!this.b) {
             b bVar = this.d;
             if (bVar == null) {
@@ -180,7 +180,7 @@ public class SwanContextMenuView extends FrameLayout implements r53.g {
 
     public final void b() {
         setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081469));
+        setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08146c));
         ListView listView = new ListView(this.a);
         this.c = listView;
         listView.setCacheColorHint(0);

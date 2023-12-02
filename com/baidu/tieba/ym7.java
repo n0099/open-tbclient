@@ -1,152 +1,223 @@
 package com.baidu.tieba;
 
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
+import com.baidu.tbadk.core.util.TiePlusStatic;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
-import com.baidu.tieba.forum.viewmodel.ForumViewModel;
+import com.baidu.tieba.forum.statistic.ForumStatConstant$TabType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.util.Map;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes9.dex */
-public final class ym7 implements wm7 {
+public final class ym7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FragmentActivity a;
 
-    public ym7(FragmentActivity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948335046, "Lcom/baidu/tieba/ym7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948335046, "Lcom/baidu/tieba/ym7;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        this.a = activity;
+        a = new a(null);
     }
 
-    public final String f(NewsRemindMessage newsRemindMessage) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, newsRemindMessage)) == null) {
-            int chatCount = newsRemindMessage.getChatCount() + newsRemindMessage.getMsgCount() + newsRemindMessage.getNotificationCount();
-            if (!newsRemindMessage.hasChatRemind() && !newsRemindMessage.hasMsgRemind() && !newsRemindMessage.hasNotificationRemind()) {
-                z = false;
+    /* loaded from: classes9.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.baidu.tieba.ym7$a$a  reason: collision with other inner class name */
+        /* loaded from: classes9.dex */
+        public /* synthetic */ class C0544a {
+            public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-992315572, "Lcom/baidu/tieba/ym7$a$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(-992315572, "Lcom/baidu/tieba/ym7$a$a;");
+                        return;
+                    }
+                }
+                int[] iArr = new int[ForumStatConstant$TabType.values().length];
+                iArr[ForumStatConstant$TabType.TAB_TYPE_NEW.ordinal()] = 1;
+                iArr[ForumStatConstant$TabType.TAB_TYPE_GOOD.ordinal()] = 2;
+                iArr[ForumStatConstant$TabType.TAB_TYPE_GENERAL.ordinal()] = 3;
+                $EnumSwitchMapping$0 = iArr;
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final void a(String str, String str2, Map<String, String> map, ForumStatConstant$TabType forumStatConstant$TabType, String str3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, map, forumStatConstant$TabType, str3, Boolean.valueOf(z)}) == null) {
+                StatisticItem statisticItem = new StatisticItem(str);
+                statisticItem.addParam("obj_locate", d(forumStatConstant$TabType));
+                if (Intrinsics.areEqual(map.get("is_video_work"), "1")) {
+                    statisticItem.addParam("obj_type", 3);
+                } else if (Intrinsics.areEqual(map.get("thread_type"), PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK)) {
+                    statisticItem.addParam("obj_type", 2);
+                } else {
+                    statisticItem.addParam("obj_type", 1);
+                }
+                if (!z) {
+                    statisticItem.addParam(TiePlusStatic.Params.CLI_LOCATE, c(str2));
+                }
+                statisticItem.addParam("tid", map.get("thread_id"));
+                statisticItem.addParam(TiebaStatic.Params.FID_1, map.get("forum_id"));
+                statisticItem.addParam(TiebaStatic.Params.FID_2, str3);
+                statisticItem.addParam("order_id", map.get("tie_plus_order_id"));
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        public final void b(String id, Map<String, String> map, ForumStatConstant$TabType tabType, String dispatchForumId, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{id, map, tabType, dispatchForumId, Integer.valueOf(i)}) == null) {
+                Intrinsics.checkNotNullParameter(id, "id");
+                Intrinsics.checkNotNullParameter(map, "map");
+                Intrinsics.checkNotNullParameter(tabType, "tabType");
+                Intrinsics.checkNotNullParameter(dispatchForumId, "dispatchForumId");
+                if (Intrinsics.areEqual(map.get("is_tie_plus_ad_thread"), "1")) {
+                    a(CommonStatisticKey.KEY_HEATING_THREAD_CLICK, id, map, tabType, dispatchForumId, false);
+                    pq4.a(pq4.e, pq4.b, map.get("tie_plus_order_id"), map.get("tie_plus_token"), map.get("tie_plus_extra_param"), i + 1);
+                }
+                String str = map.get("source");
+                if (str == null) {
+                    str = "";
+                }
+                String str2 = str;
+                if (StringsKt__StringsJVMKt.startsWith$default(str2, "manual", false, 2, null)) {
+                    pq4.a(pq4.l, pq4.b, str2, map.get("tie_plus_token"), map.get("tie_plus_extra_param"), i + 1);
+                }
+                String str3 = map.get("tie_plus_monitor_click_url");
+                if (str3 != null) {
+                    ThirdStatisticHelper.sendReq(str3);
+                }
+            }
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:19:0x0032 A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:20:0x0034 A[ORIG_RETURN, RETURN] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final int c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                switch (str.hashCode()) {
+                    case -1929596901:
+                        if (str.equals("comment_button_click")) {
+                            return 1;
+                        }
+                        return 0;
+                    case -1791942236:
+                        if (str.equals("image_click")) {
+                            return 2;
+                        }
+                        break;
+                    case 76992922:
+                        if (str.equals("video_area_click")) {
+                            return 2;
+                        }
+                        break;
+                    case 1185358570:
+                        if (str.equals("card_click_other")) {
+                        }
+                        break;
+                }
             } else {
-                z = true;
-            }
-            if (chatCount > 0) {
-                return "1";
-            }
-            if (z) {
-                return "3";
-            }
-            return "2";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wm7
-    public void a(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            StatisticItem item = new StatisticItem(CommonStatisticKey.MESSAGE_ENTER_ICON_CLICK).param("obj_locate", 2);
-            Intrinsics.checkNotNullExpressionValue(item, "item");
-            e(item);
-            TiebaStatic.log(item);
-            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_TAB_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_param1", i);
-            if (i > 0) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            TiebaStatic.log(param.param("obj_type", i2).param("obj_source", 2));
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_NEW_MSG_TAB_CLICK);
-            NewsRemindMessage a = ((ba5) ServiceManager.getService(ba5.a)).a();
-            Intrinsics.checkNotNullExpressionValue(a, "api.newsRemindMessage");
-            statisticItem.addParam("obj_type", f(a));
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_locate", 2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    @Override // com.baidu.tieba.wm7
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            StatisticItem item = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 11);
-            Intrinsics.checkNotNullExpressionValue(item, "item");
-            e(item);
-            TiebaStatic.log(item);
-        }
-    }
-
-    @Override // com.baidu.tieba.wm7
-    public void c(String url, long j, String forumName, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{url, Long.valueOf(j), forumName, Integer.valueOf(i)}) == null) {
-            Intrinsics.checkNotNullParameter(url, "url");
-            Intrinsics.checkNotNullParameter(forumName, "forumName");
-            TiebaStatic.log(new StatisticItem("c13387").param("fid", j).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", i));
-            if (StringsKt__StringsKt.contains$default((CharSequence) url, (CharSequence) "/mo/q/forumtarget", false, 2, (Object) null)) {
-                TiebaStatic.log(new StatisticItem("c14683").param("fid", j).param("fname", forumName).param("uid", TbadkCoreApplication.getCurrentAccount()));
+                return invokeL.intValue;
             }
         }
-    }
 
-    @Override // com.baidu.tieba.wm7
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            StatisticItem item = new StatisticItem("c12402").param("uid", TbadkCoreApplication.getCurrentAccount());
-            Intrinsics.checkNotNullExpressionValue(item, "item");
-            e(item);
-            TiebaStatic.log(item);
+        public final int d(ForumStatConstant$TabType forumStatConstant$TabType) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, forumStatConstant$TabType)) == null) {
+                int i = C0544a.$EnumSwitchMapping$0[forumStatConstant$TabType.ordinal()];
+                if (i == 1) {
+                    return 3;
+                }
+                if (i != 2) {
+                    if (i != 3) {
+                        return 2;
+                    }
+                    return 4;
+                }
+                return 5;
+            }
+            return invokeL.intValue;
         }
-    }
 
-    public final void e(StatisticItem statisticItem) {
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, statisticItem) == null) {
-            ViewModel viewModel = new ViewModelProvider(this.a).get(ForumViewModel.class);
-            Intrinsics.checkNotNullExpressionValue(viewModel, "ViewModelProvider(activi…rumViewModel::class.java)");
-            ForumViewModel forumViewModel = (ForumViewModel) viewModel;
-            ni7 value = forumViewModel.c().getValue();
-            String str = null;
-            if (value != null) {
-                l = Long.valueOf(value.e());
-            } else {
-                l = null;
+        public final void e(Map<String, String> map, ForumStatConstant$TabType tabType, String dispatchForumId, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLI(1048580, this, map, tabType, dispatchForumId, i) == null) {
+                Intrinsics.checkNotNullParameter(map, "map");
+                Intrinsics.checkNotNullParameter(tabType, "tabType");
+                Intrinsics.checkNotNullParameter(dispatchForumId, "dispatchForumId");
+                if (Intrinsics.areEqual(map.get("is_tie_plus_ad_thread"), "1")) {
+                    a(CommonStatisticKey.KEY_HEATING_THREAD_EXPOSE, "", map, tabType, dispatchForumId, true);
+                    pq4.a(pq4.d, pq4.b, map.get("tie_plus_order_id"), map.get("tie_plus_token"), map.get("tie_plus_extra_param"), i + 1);
+                }
+                String str = map.get("source");
+                if (str == null) {
+                    str = "";
+                }
+                String str2 = str;
+                if (StringsKt__StringsJVMKt.startsWith$default(str2, "manual", false, 2, null)) {
+                    pq4.a(pq4.k, pq4.b, str2, map.get("tie_plus_token"), map.get("tie_plus_extra_param"), i + 1);
+                }
+                String str3 = map.get("tie_plus_monitor_show_url");
+                if (str3 != null) {
+                    ThirdStatisticHelper.sendReq(str3);
+                }
             }
-            StatisticItem param = statisticItem.param("fid", String.valueOf(l));
-            ni7 value2 = forumViewModel.c().getValue();
-            if (value2 != null) {
-                str = value2.f();
-            }
-            param.param("fname", str);
         }
     }
 }

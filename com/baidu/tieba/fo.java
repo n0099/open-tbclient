@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface fo {
     View getContentView();
 }

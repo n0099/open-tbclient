@@ -6,22 +6,22 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.op2;
-import com.baidu.tieba.q53;
-import com.baidu.tieba.vb3;
+import com.baidu.tieba.rp2;
+import com.baidu.tieba.t53;
+import com.baidu.tieba.yb3;
 /* loaded from: classes4.dex */
-public class BdShimmerView extends ShimmerFrameLayout implements q53<BdShimmerView> {
+public class BdShimmerView extends ShimmerFrameLayout implements t53<BdShimmerView> {
     public ImageView s;
     public int t;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.q53
+    @Override // com.baidu.tieba.t53
     public BdShimmerView getLoadingView() {
         return this;
     }
 
     /* loaded from: classes4.dex */
-    public class a implements vb3 {
+    public class a implements yb3 {
         public a() {
         }
     }
@@ -53,13 +53,13 @@ public class BdShimmerView extends ShimmerFrameLayout implements q53<BdShimmerVi
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        op2.M().f(this, new a());
+        rp2.M().f(this, new a());
     }
 
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        op2.M().g(this);
+        rp2.M().g(this);
     }
 
     public void setPageResources() {
@@ -78,7 +78,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements q53<BdShimmerVi
         }
         this.s.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014f));
         ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-        if (op2.M().a()) {
+        if (rp2.M().a()) {
             maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
         }
         setMaskShape(maskShape);

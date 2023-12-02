@@ -19,14 +19,14 @@ import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.nadcore.widget.SlidingPaneLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ak0;
-import com.baidu.tieba.l21;
-import com.baidu.tieba.m71;
+import com.baidu.tieba.n21;
 import com.baidu.tieba.o71;
+import com.baidu.tieba.q71;
 import com.baidu.tieba.qc0;
 import com.baidu.tieba.sc0;
-import com.baidu.tieba.u11;
-import com.baidu.tieba.w01;
+import com.baidu.tieba.w11;
 import com.baidu.tieba.wf0;
+import com.baidu.tieba.y01;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -101,8 +101,8 @@ public class BaseActivity extends FragmentActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements m71 {
-        @Override // com.baidu.tieba.m71
+    public class a implements o71 {
+        @Override // com.baidu.tieba.o71
         public void onTranslucent(boolean z) {
         }
 
@@ -129,7 +129,7 @@ public class BaseActivity extends FragmentActivity {
             }
             if (!BaseActivity.this.g && !BaseActivity.this.i && this.a) {
                 this.a = false;
-                o71.c(BaseActivity.this, null);
+                q71.c(BaseActivity.this, null);
             }
             BaseActivity.this.setPreDecorPosition(0.0f);
         }
@@ -166,7 +166,7 @@ public class BaseActivity extends FragmentActivity {
             }
             if (!BaseActivity.this.g && !BaseActivity.this.i && !this.a) {
                 this.a = true;
-                o71.d(BaseActivity.this, null);
+                q71.d(BaseActivity.this, null);
             }
             float f3 = this.b >> 2;
             BaseActivity.this.setPreDecorPosition((f * f3) - f3);
@@ -262,7 +262,7 @@ public class BaseActivity extends FragmentActivity {
     }
 
     public void setCurrentActivityNoTransparent() {
-        o71.c(this, new a());
+        q71.c(this, new a());
     }
 
     public final void startEnterActivityAnim() {
@@ -287,7 +287,7 @@ public class BaseActivity extends FragmentActivity {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public int checkSelfPermission(String str) {
-        if (u11.b.d()) {
+        if (w11.b.d()) {
             return super.checkSelfPermission(str);
         }
         return 0;
@@ -317,9 +317,9 @@ public class BaseActivity extends FragmentActivity {
     public void onMultiWindowModeChanged(boolean z) {
         super.onMultiWindowModeChanged(z);
         if (z && !s) {
-            w01.a().c(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
+            y01.a().c(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
             setHasMultiWindowShow(true);
-        } else if (!z && !u11.c()) {
+        } else if (!z && !w11.c()) {
             setHasMultiWindowShow(false);
         }
     }
@@ -356,7 +356,7 @@ public class BaseActivity extends FragmentActivity {
 
     @Override // android.app.Activity
     public boolean shouldShowRequestPermissionRationale(@NonNull String str) {
-        if (u11.b.d() && super.shouldShowRequestPermissionRationale(str)) {
+        if (w11.b.d() && super.shouldShowRequestPermissionRationale(str)) {
             return true;
         }
         return false;
@@ -406,7 +406,7 @@ public class BaseActivity extends FragmentActivity {
             if (this.h || !isTaskRoot()) {
                 z2 = z;
             }
-            int e = u11.c.e(this);
+            int e = w11.c.e(this);
             SlideHelper slideHelper = new SlideHelper();
             this.k = slideHelper;
             slideHelper.attachSlideView(this, findViewById(16908290));
@@ -448,9 +448,9 @@ public class BaseActivity extends FragmentActivity {
                 }
                 throw new RuntimeException("Class " + getClass() + " failed at preCreate");
             }
-            int d2 = l21.d(this);
+            int d2 = n21.d(this);
             super.onCreate(bundle);
-            l21.a(this, d2);
+            n21.a(this, d2);
             resetActivityAnim();
             try {
                 t1(bundle);

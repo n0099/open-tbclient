@@ -1,36 +1,31 @@
 package com.baidu.tieba;
 
+import android.graphics.Rect;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.open.SocialConstants;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final int c;
-    public final String d;
-    public final String e;
-    public final int f;
-    public final String g;
-    public final String h;
-    public final String i;
-    public boolean j;
-    public boolean k;
+    public String a;
+    public Rect b;
+    public String c;
+    public Rect d;
 
-    public wf9(JSONObject jSONObject) {
+    public wf9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,47 +35,78 @@ public class wf9 {
                 return;
             }
         }
-        this.j = false;
-        this.k = false;
-        this.a = jSONObject.optString("bIcon");
-        this.b = jSONObject.optString("bIconN");
-        this.c = jSONObject.optInt("bIconType");
-        this.d = jSONObject.optString("bSelIcon");
-        this.e = jSONObject.optString("bSelIconN");
-        this.f = jSONObject.optInt("bSelIconType");
-        this.g = jSONObject.optString("clickAction");
-        this.h = jSONObject.optString("preAction");
-        this.i = jSONObject.optString("statKey");
+        this.a = "";
+        this.b = new Rect(0, 0, 0, 0);
+        this.c = "";
+        this.d = new Rect(0, 0, 0, 0);
     }
 
-    public static int f(int i) {
-        InterceptResult invokeI;
+    public wf9(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            return qf9.a(i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeI.intValue;
+        this.a = jSONObject.optString("pic_url");
+        this.b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
     }
 
-    public void k(boolean z) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.j = z;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
+            if (optJSONArray == null) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
+                if (jSONObject == null) {
+                    return;
+                }
+                this.c = jSONObject.optString("pic_url");
+                this.d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
-    public void l(boolean z) {
+    public static wf9 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.k = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new wf9();
+            }
+            try {
+                return new wf9(new JSONObject(str));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return new wf9();
+            }
         }
+        return (wf9) invokeL.objValue;
     }
 
-    public boolean a() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (e() > 0) {
+            if (!TextUtils.isEmpty(this.c) && !this.d.isEmpty()) {
                 return true;
             }
             return false;
@@ -88,87 +114,37 @@ public class wf9 {
         return invokeV.booleanValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !this.b.isEmpty()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public String d() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.j) {
-                return this.d;
+            if (!c()) {
+                return "";
             }
-            return this.a;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("pic_url", this.a);
+                jSONObject.put("rect_left", this.b.left);
+                jSONObject.put("rect_top", this.b.top);
+                jSONObject.put("rect_right", this.b.right);
+                jSONObject.put("rect_bottom", this.b.bottom);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.j) {
-                i = this.f;
-            } else {
-                i = this.c;
-            }
-            return f(i);
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (TextUtils.isEmpty(this.a) && TextUtils.isEmpty(this.b) && TextUtils.isEmpty(this.d) && TextUtils.isEmpty(this.e) && TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.h) && TextUtils.isEmpty(this.i) && this.c == 0 && this.f == 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

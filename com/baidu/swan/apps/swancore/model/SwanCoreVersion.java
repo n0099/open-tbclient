@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mobads.sdk.internal.cl;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.wj3;
+import com.baidu.tieba.zj3;
 /* loaded from: classes4.dex */
 public class SwanCoreVersion extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanCoreVersion> CREATOR = new a();
@@ -29,7 +29,7 @@ public class SwanCoreVersion extends SwanAppIPCData {
     }
 
     public boolean isAvailable() {
-        return wj3.e(this.swanCorePath);
+        return zj3.e(this.swanCorePath);
     }
 
     /* loaded from: classes4.dex */

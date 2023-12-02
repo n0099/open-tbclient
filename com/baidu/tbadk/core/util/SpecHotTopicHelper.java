@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.s55;
+import com.baidu.tieba.v55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -123,10 +123,10 @@ public class SpecHotTopicHelper {
                                 bitmapDrawable = new BitmapDrawable(v2);
                                 bitmapDrawable.setBounds(0, 0, v2.getWidth(), v2.getHeight());
                             }
-                            s55 s55Var = new s55(bitmapDrawable);
-                            s55Var.b(BdUtilHelper.dip2px(TbadkCoreApplication.getInst(), threadData.threadTitleSpanOffset));
+                            v55 v55Var = new v55(bitmapDrawable);
+                            v55Var.b(BdUtilHelper.dip2px(TbadkCoreApplication.getInst(), threadData.threadTitleSpanOffset));
                             int i4 = i + i3;
-                            spannableString.setSpan(s55Var, i4, i4 + 1, 33);
+                            spannableString.setSpan(v55Var, i4, i4 + 1, 33);
                             i2++;
                         }
                     }

@@ -408,9 +408,9 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             this.c = new ArrayList<>();
             for (int i = 0; i < this.k; i++) {
                 RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d040e, (ViewGroup) null, false);
-                ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090f45);
+                ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090f46);
                 imageView.setVisibility(0);
-                ((GifView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f092a53)).setVisibility(8);
+                ((GifView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f092a56)).setVisibility(8);
                 imageView.setBackgroundResource(this.j[i]);
                 Bitmap f1 = f1(imageView, this.j[i]);
                 if (f1 == null) {
@@ -617,16 +617,16 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 try {
                     a1();
                     this.d = new f(this, null);
-                    BaseViewPager baseViewPager = (BaseViewPager) findViewById(R.id.obfuscated_res_0x7f090f49);
+                    BaseViewPager baseViewPager = (BaseViewPager) findViewById(R.id.obfuscated_res_0x7f090f4a);
                     this.e = baseViewPager;
                     baseViewPager.setAdapter(this.d);
-                    IndicatorView indicatorView = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f090f48);
+                    IndicatorView indicatorView = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f090f49);
                     this.f = indicatorView;
                     indicatorView.setCount(this.k);
                     h1(this.f, R.dimen.tbds46);
                     this.f.setSpacing(getResources().getDimensionPixelSize(R.dimen.tbds35));
-                    this.f.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081263));
-                    this.f.setDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081265));
+                    this.f.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081266));
+                    this.f.setDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081268));
                     this.f.setPosition(0.0f);
                     if (this.k <= 1) {
                         this.f.setVisibility(4);
@@ -636,19 +636,19 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     this.e.setOnScrollOutListener(this.p);
                     this.e.setOnFlipOutListener(this.p);
                     this.e.setOnPageChangeListener(this.r);
-                    this.g = findViewById(R.id.obfuscated_res_0x7f0923be);
+                    this.g = findViewById(R.id.obfuscated_res_0x7f0923c0);
                     TBSelector.makeDrawableSelector().setType(2).defaultDrawable(R.drawable.obfuscated_res_0x7f08043d).pressedDrawable(R.drawable.obfuscated_res_0x7f080427).into(this.g);
-                    this.m = findViewById(R.id.obfuscated_res_0x7f091af1);
-                    View findViewById = findViewById(R.id.obfuscated_res_0x7f091185);
+                    this.m = findViewById(R.id.obfuscated_res_0x7f091af3);
+                    View findViewById = findViewById(R.id.obfuscated_res_0x7f091186);
                     this.n = findViewById;
                     findViewById.setOnClickListener(this.t);
-                    View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0925af);
+                    View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0925b1);
                     this.o = findViewById2;
                     findViewById2.setOnClickListener(this.q);
                     this.m.setVisibility(8);
                     this.g.setVisibility(0);
                     if (this.k <= 1) {
-                        g1(R.dimen.obfuscated_res_0x7f070422);
+                        g1(R.dimen.obfuscated_res_0x7f070423);
                         this.g.setVisibility(0);
                         this.g.requestFocus();
                     } else {

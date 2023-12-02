@@ -8,36 +8,36 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.coreExtra.model.AttentionModel;
 import com.baidu.tbadk.data.VirtualImageCustomState;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a67;
-import com.baidu.tieba.a87;
-import com.baidu.tieba.b97;
-import com.baidu.tieba.ce7;
-import com.baidu.tieba.de7;
-import com.baidu.tieba.e97;
+import com.baidu.tieba.a77;
+import com.baidu.tieba.ac7;
+import com.baidu.tieba.c57;
+import com.baidu.tieba.c67;
+import com.baidu.tieba.d67;
+import com.baidu.tieba.d77;
+import com.baidu.tieba.e67;
+import com.baidu.tieba.e87;
+import com.baidu.tieba.f97;
 import com.baidu.tieba.feed.data.protobuf.FeedHeadExtensionKt;
-import com.baidu.tieba.h67;
-import com.baidu.tieba.i05;
-import com.baidu.tieba.i67;
-import com.baidu.tieba.j67;
-import com.baidu.tieba.k05;
-import com.baidu.tieba.k47;
-import com.baidu.tieba.k67;
-import com.baidu.tieba.m05;
+import com.baidu.tieba.ge7;
+import com.baidu.tieba.he7;
+import com.baidu.tieba.i97;
+import com.baidu.tieba.l05;
+import com.baidu.tieba.l67;
+import com.baidu.tieba.m67;
+import com.baidu.tieba.n05;
 import com.baidu.tieba.n67;
-import com.baidu.tieba.nb7;
+import com.baidu.tieba.o47;
 import com.baidu.tieba.o67;
-import com.baidu.tieba.p67;
-import com.baidu.tieba.r77;
+import com.baidu.tieba.p05;
+import com.baidu.tieba.r67;
+import com.baidu.tieba.rb7;
+import com.baidu.tieba.s67;
 import com.baidu.tieba.t67;
-import com.baidu.tieba.u57;
-import com.baidu.tieba.v57;
-import com.baidu.tieba.w67;
-import com.baidu.tieba.wb7;
-import com.baidu.tieba.y47;
+import com.baidu.tieba.v77;
+import com.baidu.tieba.x67;
 import com.baidu.tieba.y57;
 import com.baidu.tieba.yb;
 import com.baidu.tieba.z57;
-import com.baidu.tieba.z67;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,7 +69,7 @@ import tbclient.FeedKV;
 /* loaded from: classes5.dex */
 public final class FeedHeadExtensionKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function2<de7, TbPageContext<?>, Unit> a;
+    public static final Function2<he7, TbPageContext<?>, Unit> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -88,7 +88,7 @@ public final class FeedHeadExtensionKt {
         a = FeedHeadExtensionKt$HeadOnAttentionClick$1.INSTANCE;
     }
 
-    public static final void k(k05 dialog, TbPageContext pageContext) {
+    public static final void k(n05 dialog, TbPageContext pageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, dialog, pageContext) == null) {
             Intrinsics.checkNotNullParameter(dialog, "$dialog");
@@ -160,7 +160,7 @@ public final class FeedHeadExtensionKt {
         return (String) invokeL.objValue;
     }
 
-    public static final z57 n(FeedHeadFigure feedHeadFigure) {
+    public static final d67 n(FeedHeadFigure feedHeadFigure) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
@@ -176,9 +176,9 @@ public final class FeedHeadExtensionKt {
             String str = feedHeadFigure.corner_url;
             Intrinsics.checkNotNullExpressionValue(img_url, "img_url");
             Intrinsics.checkNotNullExpressionValue(bg_value, "bg_value");
-            return new z57(img_url, bg_value, i, str);
+            return new d67(img_url, bg_value, i, str);
         }
-        return (z57) invokeL.objValue;
+        return (d67) invokeL.objValue;
     }
 
     public static final String e(String str) {
@@ -206,14 +206,14 @@ public final class FeedHeadExtensionKt {
         return (VirtualImageCustomState) invokeL.objValue;
     }
 
-    public static final void f(de7 de7Var, TbPageContext<?> tbPageContext) {
+    public static final void f(he7 he7Var, TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, de7Var, tbPageContext) == null) {
-            new AttentionModel(tbPageContext).l(!de7Var.i().f(), de7Var.i().c(), de7Var.i().e(), false, de7Var.f(), tbPageContext.getUniqueId(), null, "0");
+        if (interceptable == null || interceptable.invokeLL(65542, null, he7Var, tbPageContext) == null) {
+            new AttentionModel(tbPageContext).l(!he7Var.i().f(), he7Var.i().c(), he7Var.i().e(), false, he7Var.f(), tbPageContext.getUniqueId(), null, "0");
         }
     }
 
-    public static final v57 m(FeedHeadImg feedHeadImg, boolean z) {
+    public static final z57 m(FeedHeadImg feedHeadImg, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65549, null, feedHeadImg, z)) == null) {
@@ -222,46 +222,46 @@ public final class FeedHeadExtensionKt {
             Intrinsics.checkNotNullExpressionValue(img_url, "img_url");
             Integer shape_type = feedHeadImg.shape_type;
             Intrinsics.checkNotNullExpressionValue(shape_type, "shape_type");
-            return new v57(img_url, shape_type.intValue(), feedHeadImg.schema, feedHeadImg.pendant_url, feedHeadImg.corner_url, z, feedHeadImg.masks);
+            return new z57(img_url, shape_type.intValue(), feedHeadImg.schema, feedHeadImg.pendant_url, feedHeadImg.corner_url, z, feedHeadImg.masks);
         }
-        return (v57) invokeLZ.objValue;
+        return (z57) invokeLZ.objValue;
     }
 
-    public static final void h(FeedHeadComponent feedHeadComponent, List<nb7<?>> mutableList, p67 p67Var, boolean z, n67 feedExtraData, boolean z2) {
-        de7 de7Var;
+    public static final void h(FeedHeadComponent feedHeadComponent, List<rb7<?>> mutableList, t67 t67Var, boolean z, r67 feedExtraData, boolean z2) {
+        he7 he7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{feedHeadComponent, mutableList, p67Var, Boolean.valueOf(z), feedExtraData, Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{feedHeadComponent, mutableList, t67Var, Boolean.valueOf(z), feedExtraData, Boolean.valueOf(z2)}) == null) {
             Intrinsics.checkNotNullParameter(feedHeadComponent, "<this>");
             Intrinsics.checkNotNullParameter(mutableList, "mutableList");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
             if (feedHeadComponent.image_data != null) {
-                ce7 ce7Var = null;
-                List listOf = CollectionsKt__CollectionsKt.listOf((Object[]) new a87[]{o67.e(feedExtraData, "head_click_selector1", null, 2, null), o67.e(feedExtraData, "head_click_selector2", null, 2, null), o67.e(feedExtraData, "head_click_selector3", null, 2, null), o67.e(feedExtraData, "head_click_selector4", null, 2, null), o67.e(feedExtraData, "head_click_selector5", null, 2, null), o67.e(feedExtraData, "head_click_selector6", null, 2, null)});
-                Map<String, String> f = o67.f(feedExtraData, "head_local_stat_info");
-                a87 e = o67.e(feedExtraData, "head_user_follow", null, 2, null);
-                a87 e2 = o67.e(feedExtraData, "head_user_unfollow", null, 2, null);
+                ge7 ge7Var = null;
+                List listOf = CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "head_click_selector1", null, 2, null), s67.e(feedExtraData, "head_click_selector2", null, 2, null), s67.e(feedExtraData, "head_click_selector3", null, 2, null), s67.e(feedExtraData, "head_click_selector4", null, 2, null), s67.e(feedExtraData, "head_click_selector5", null, 2, null), s67.e(feedExtraData, "head_click_selector6", null, 2, null)});
+                Map<String, String> f = s67.f(feedExtraData, "head_local_stat_info");
+                e87 e = s67.e(feedExtraData, "head_user_follow", null, 2, null);
+                e87 e2 = s67.e(feedExtraData, "head_user_unfollow", null, 2, null);
                 FeedHeadButton feedHeadButton = feedHeadComponent.button;
                 if (feedHeadButton != null) {
-                    de7Var = u(feedHeadButton, feedExtraData.b(), e, e2);
+                    he7Var = u(feedHeadButton, feedExtraData.b(), e, e2);
                 } else {
-                    de7Var = null;
+                    he7Var = null;
                 }
                 FeedHeadButton feedHeadButton2 = feedHeadComponent.button;
                 if (feedHeadButton2 != null) {
-                    ce7Var = t(feedHeadButton2, feedExtraData, feedExtraData.b());
+                    ge7Var = t(feedHeadButton2, feedExtraData, feedExtraData.b());
                 }
-                ce7 ce7Var2 = ce7Var;
+                ge7 ge7Var2 = ge7Var;
                 FeedHeadImg image_data = feedHeadComponent.image_data;
                 Intrinsics.checkNotNullExpressionValue(image_data, "image_data");
-                mutableList.add(new k47(new u57(m(image_data, z), p(feedHeadComponent.main_data, feedHeadComponent.schema, f), p(feedHeadComponent.extra_data, feedHeadComponent.schema, f)), p67Var, de7Var, ce7Var2, feedHeadComponent.schema, feedExtraData.a().a(), feedExtraData.c().a(), listOf, z2, null, null, null, 3584, null));
+                mutableList.add(new o47(new y57(m(image_data, z), p(feedHeadComponent.main_data, feedHeadComponent.schema, f), p(feedHeadComponent.extra_data, feedHeadComponent.schema, f)), t67Var, he7Var, ge7Var2, feedHeadComponent.schema, feedExtraData.a().a(), feedExtraData.c().a(), listOf, z2, null, null, null, 3584, null));
             }
         }
     }
 
-    public static final void i(FeedHeadFigureComponent feedHeadFigureComponent, List<nb7<?>> mutableList, a87 a87Var, a87 a87Var2, p67 p67Var, boolean z, Map<String, String> headLocalStatInfo, n67 feedExtraData) {
+    public static final void i(FeedHeadFigureComponent feedHeadFigureComponent, List<rb7<?>> mutableList, e87 e87Var, e87 e87Var2, t67 t67Var, boolean z, Map<String, String> headLocalStatInfo, r67 feedExtraData) {
         VirtualImageCustomState virtualImageCustomState;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{feedHeadFigureComponent, mutableList, a87Var, a87Var2, p67Var, Boolean.valueOf(z), headLocalStatInfo, feedExtraData}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{feedHeadFigureComponent, mutableList, e87Var, e87Var2, t67Var, Boolean.valueOf(z), headLocalStatInfo, feedExtraData}) == null) {
             Intrinsics.checkNotNullParameter(feedHeadFigureComponent, "<this>");
             Intrinsics.checkNotNullParameter(mutableList, "mutableList");
             Intrinsics.checkNotNullParameter(headLocalStatInfo, "headLocalStatInfo");
@@ -269,60 +269,60 @@ public final class FeedHeadExtensionKt {
             FeedHeadFigure image_data = feedHeadFigureComponent.image_data;
             if (image_data != null) {
                 Intrinsics.checkNotNullExpressionValue(image_data, "image_data");
-                z57 n = n(image_data);
-                List<h67> p = p(feedHeadFigureComponent.main_data, feedHeadFigureComponent.schema, headLocalStatInfo);
-                List<h67> p2 = p(feedHeadFigureComponent.extra_data, feedHeadFigureComponent.schema, headLocalStatInfo);
+                d67 n = n(image_data);
+                List<l67> p = p(feedHeadFigureComponent.main_data, feedHeadFigureComponent.schema, headLocalStatInfo);
+                List<l67> p2 = p(feedHeadFigureComponent.extra_data, feedHeadFigureComponent.schema, headLocalStatInfo);
                 CustomState customState = feedHeadFigureComponent.custom_state;
                 if (customState != null) {
                     virtualImageCustomState = v(customState);
                 } else {
                     virtualImageCustomState = null;
                 }
-                mutableList.add(new y47(new y57(n, p, p2, virtualImageCustomState, a87Var, a87Var2), p67Var, feedHeadFigureComponent.schema, d(feedHeadFigureComponent.business_info), feedExtraData.a().a(), feedExtraData.c().a(), z, null, null, null, 896, null));
+                mutableList.add(new c57(new c67(n, p, p2, virtualImageCustomState, e87Var, e87Var2), t67Var, feedHeadFigureComponent.schema, d(feedHeadFigureComponent.business_info), feedExtraData.a().a(), feedExtraData.c().a(), z, null, null, null, 896, null));
             }
         }
     }
 
-    public static final void j(final de7 de7Var, final TbPageContext<?> tbPageContext) {
+    public static final void j(final he7 he7Var, final TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, de7Var, tbPageContext) == null) {
-            m05 m05Var = new m05(tbPageContext.getPageActivity());
-            m05Var.u(tbPageContext.getString(R.string.confirm_unlike));
+        if (interceptable == null || interceptable.invokeLL(65546, null, he7Var, tbPageContext) == null) {
+            p05 p05Var = new p05(tbPageContext.getPageActivity());
+            p05Var.u(tbPageContext.getString(R.string.confirm_unlike));
             ArrayList arrayList = new ArrayList();
-            final k05 k05Var = new k05(tbPageContext, m05Var);
-            i05 i05Var = new i05(tbPageContext.getString(R.string.obfuscated_res_0x7f0f04d2), m05Var);
-            i05Var.n(new m05.e() { // from class: com.baidu.tieba.y87
+            final n05 n05Var = new n05(tbPageContext, p05Var);
+            l05 l05Var = new l05(tbPageContext.getString(R.string.obfuscated_res_0x7f0f04d2), p05Var);
+            l05Var.n(new p05.e() { // from class: com.baidu.tieba.c97
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m05.e
+                @Override // com.baidu.tieba.p05.e
                 public final void onClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        FeedHeadExtensionKt.l(de7.this, tbPageContext, k05Var);
+                        FeedHeadExtensionKt.l(he7.this, tbPageContext, n05Var);
                     }
                 }
             });
-            arrayList.add(i05Var);
-            m05Var.p(new m05.c() { // from class: com.baidu.tieba.x87
+            arrayList.add(l05Var);
+            p05Var.p(new p05.c() { // from class: com.baidu.tieba.b97
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m05.c
+                @Override // com.baidu.tieba.p05.c
                 public final void onClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        FeedHeadExtensionKt.k(k05.this, tbPageContext);
+                        FeedHeadExtensionKt.k(n05.this, tbPageContext);
                     }
                 }
             });
-            m05Var.m(arrayList);
-            k05Var.k(0.7f);
-            yb.i(k05Var, tbPageContext.getPageActivity());
+            p05Var.m(arrayList);
+            n05Var.k(0.7f);
+            yb.i(n05Var, tbPageContext.getPageActivity());
         }
     }
 
-    public static final void l(de7 state, TbPageContext pageContext, k05 dialog) {
+    public static final void l(he7 state, TbPageContext pageContext, n05 dialog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, null, state, pageContext, dialog) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
@@ -333,7 +333,7 @@ public final class FeedHeadExtensionKt {
         }
     }
 
-    public static final h67 o(FeedHeadSymbol feedHeadSymbol, String str, Map<String, String> headLocalStatInfo) {
+    public static final l67 o(FeedHeadSymbol feedHeadSymbol, String str, Map<String, String> headLocalStatInfo) {
         InterceptResult invokeLLL;
         FeedContentCustom feedContentCustom;
         FeedHeadText text;
@@ -346,9 +346,9 @@ public final class FeedHeadExtensionKt {
             if (list == null) {
                 list = new ArrayList();
             }
-            List<a87> c = e97.c(list);
-            for (a87 a87Var : c) {
-                Map<String, String> b = a87Var.b();
+            List<e87> c = i97.c(list);
+            for (e87 e87Var : c) {
+                Map<String, String> b = e87Var.b();
                 if (b instanceof HashMap) {
                     ((HashMap) b).putAll(headLocalStatInfo);
                 }
@@ -361,7 +361,7 @@ public final class FeedHeadExtensionKt {
                 if (!((str2 == null || str2.length() == 0) ? true : true)) {
                     str = feedHeadSymbol.schema;
                 }
-                return r(icon, str, c, e97.b(list));
+                return r(icon, str, c, i97.b(list));
             }
             Integer num2 = feedHeadSymbol.type;
             if (num2 != null && num2.intValue() == 1 && (text = feedHeadSymbol.text) != null) {
@@ -370,7 +370,7 @@ public final class FeedHeadExtensionKt {
                 if (!((str3 == null || str3.length() == 0) ? true : true)) {
                     str = feedHeadSymbol.schema;
                 }
-                return s(text, str, c, e97.b(list));
+                return s(text, str, c, i97.b(list));
             }
             Integer num3 = feedHeadSymbol.type;
             if (num3 == null || num3.intValue() != 3 || (feedContentCustom = feedHeadSymbol.custom) == null || !Intrinsics.areEqual(feedContentCustom.style, "forum_level")) {
@@ -378,14 +378,14 @@ public final class FeedHeadExtensionKt {
             }
             FeedContentCustom custom = feedHeadSymbol.custom;
             Intrinsics.checkNotNullExpressionValue(custom, "custom");
-            return q(custom, c, e97.b(list));
+            return q(custom, c, i97.b(list));
         }
-        return (h67) invokeLLL.objValue;
+        return (l67) invokeLLL.objValue;
     }
 
-    public static final List<h67> p(List<FeedHeadSymbol> list, String str, Map<String, String> headLocalStatInfo) {
+    public static final List<l67> p(List<FeedHeadSymbol> list, String str, Map<String, String> headLocalStatInfo) {
         InterceptResult invokeLLL;
-        h67 o;
+        l67 o;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65552, null, list, str, headLocalStatInfo)) == null) {
             Intrinsics.checkNotNullParameter(headLocalStatInfo, "headLocalStatInfo");
@@ -402,14 +402,14 @@ public final class FeedHeadExtensionKt {
         return (List) invokeLLL.objValue;
     }
 
-    public static final i67 q(FeedContentCustom feedContentCustom, List<a87> clickStatList, Map<String, String> logInfo) {
+    public static final m67 q(FeedContentCustom feedContentCustom, List<e87> clickStatList, Map<String, String> logInfo) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, null, feedContentCustom, clickStatList, logInfo)) == null) {
             Intrinsics.checkNotNullParameter(feedContentCustom, "<this>");
             Intrinsics.checkNotNullParameter(clickStatList, "clickStatList");
             Intrinsics.checkNotNullParameter(logInfo, "logInfo");
-            i67 e = i67.m.e(feedContentCustom.data);
+            m67 e = m67.m.e(feedContentCustom.data);
             if (e != null) {
                 e.j(clickStatList);
                 e.l(logInfo);
@@ -417,10 +417,10 @@ public final class FeedHeadExtensionKt {
             }
             return null;
         }
-        return (i67) invokeLLL.objValue;
+        return (m67) invokeLLL.objValue;
     }
 
-    public static final j67 r(FeedHeadIcon feedHeadIcon, String str, List<a87> clickStatList, Map<String, String> logInfo) {
+    public static final n67 r(FeedHeadIcon feedHeadIcon, String str, List<e87> clickStatList, Map<String, String> logInfo) {
         InterceptResult invokeLLLL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -445,15 +445,15 @@ public final class FeedHeadExtensionKt {
             } else {
                 z = false;
             }
-            return new j67(url, str, intValue, intValue2, intValue3, z, feedHeadIcon.degrade_url, feedHeadIcon.degrade_width, feedHeadIcon.degrade_height, feedHeadIcon.degrade_priority, clickStatList, logInfo);
+            return new n67(url, str, intValue, intValue2, intValue3, z, feedHeadIcon.degrade_url, feedHeadIcon.degrade_width, feedHeadIcon.degrade_height, feedHeadIcon.degrade_priority, clickStatList, logInfo);
         }
-        return (j67) invokeLLLL.objValue;
+        return (n67) invokeLLLL.objValue;
     }
 
-    public static final k67 s(FeedHeadText feedHeadText, String str, List<a87> clickStatList, Map<String, String> logInfo) {
+    public static final o67 s(FeedHeadText feedHeadText, String str, List<e87> clickStatList, Map<String, String> logInfo) {
         InterceptResult invokeLLLL;
         String str2;
-        a67 a67Var;
+        e67 e67Var;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65555, null, feedHeadText, str, clickStatList, logInfo)) == null) {
@@ -477,11 +477,11 @@ public final class FeedHeadExtensionKt {
             BaseTextColor color = feedHeadText.color;
             if (color != null) {
                 Intrinsics.checkNotNullExpressionValue(color, "color");
-                a67Var = b97.a(color);
+                e67Var = f97.a(color);
             } else {
-                a67Var = null;
+                e67Var = null;
             }
-            a67 a67Var2 = a67Var;
+            e67 e67Var2 = e67Var;
             Integer priority = feedHeadText.priority;
             Intrinsics.checkNotNullExpressionValue(priority, "priority");
             int intValue = priority.intValue();
@@ -497,12 +497,12 @@ public final class FeedHeadExtensionKt {
             String str4 = feedHeadText.suffix;
             Integer degrade_priority = feedHeadText.degrade_priority;
             Intrinsics.checkNotNullExpressionValue(degrade_priority, "degrade_priority");
-            return new k67(str3, a67Var2, str, intValue, z, intValue2, str4, degrade_priority.intValue(), clickStatList, logInfo);
+            return new o67(str3, e67Var2, str, intValue, z, intValue2, str4, degrade_priority.intValue(), clickStatList, logInfo);
         }
-        return (k67) invokeLLLL.objValue;
+        return (o67) invokeLLLL.objValue;
     }
 
-    public static final de7 u(FeedHeadButton feedHeadButton, boolean z, a87 followStatData, a87 unfollowStatData) {
+    public static final he7 u(FeedHeadButton feedHeadButton, boolean z, e87 followStatData, e87 unfollowStatData) {
         InterceptResult invokeCommon;
         String str;
         int i;
@@ -530,21 +530,21 @@ public final class FeedHeadExtensionKt {
                 if (num.intValue() == 1) {
                     List<FeedKV> list3 = feedHeadButton.business_info;
                     if (list3 != null) {
-                        str = e97.a(list3, "is_like");
+                        str = i97.a(list3, "is_like");
                     } else {
                         str = null;
                     }
                     boolean areEqual = Intrinsics.areEqual(str, "1");
                     List<FeedKV> list4 = feedHeadButton.business_info;
-                    if (list4 != null && (a4 = e97.a(list4, "like_status")) != null && (intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(a4)) != null) {
+                    if (list4 != null && (a4 = i97.a(list4, "like_status")) != null && (intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(a4)) != null) {
                         i = intOrNull.intValue();
                     } else {
                         i = 0;
                     }
                     if (z) {
                         List<FeedKV> list5 = feedHeadButton.business_info;
-                        String str6 = (list5 == null || (str6 = e97.a(list5, "user_id")) == null) ? "" : "";
-                        z67 a5 = t67.a.a("tb.feed_home_reco_user_state");
+                        String str6 = (list5 == null || (str6 = i97.a(list5, "user_id")) == null) ? "" : "";
+                        d77 a5 = x67.a.a("tb.feed_home_reco_user_state");
                         if (a5 != null) {
                             str4 = a5.getValue(str6, "is_like");
                         } else {
@@ -558,7 +558,7 @@ public final class FeedHeadExtensionKt {
                         if (!z3) {
                             areEqual = Intrinsics.areEqual(str4, "1");
                         }
-                        z67 a6 = t67.a.a("tb.feed_home_reco_user_state");
+                        d77 a6 = x67.a.a("tb.feed_home_reco_user_state");
                         if (a6 != null) {
                             str5 = a6.getValue(str6, "like_status");
                         }
@@ -569,18 +569,18 @@ public final class FeedHeadExtensionKt {
                             z2 = areEqual;
                             i2 = JavaTypesHelper.toInt(str5, 0);
                             list = feedHeadButton.business_info;
-                            if (list != null || (a3 = e97.a(list, "user_id")) == null) {
+                            if (list != null || (a3 = i97.a(list, "user_id")) == null) {
                                 str2 = "";
                             } else {
                                 str2 = a3;
                             }
                             list2 = feedHeadButton.business_info;
-                            if (list2 != null || (a2 = e97.a(list2, "portrait")) == null) {
+                            if (list2 != null || (a2 = i97.a(list2, "portrait")) == null) {
                                 str3 = "";
                             } else {
                                 str3 = a2;
                             }
-                            return new de7(new r77(z2, i2, str2, str3, followStatData, unfollowStatData), null, new FeedHeadExtensionKt$toPersonAttentionUiState$1(wb7.a), a, null, 16, null);
+                            return new he7(new v77(z2, i2, str2, str3, followStatData, unfollowStatData), null, new FeedHeadExtensionKt$toPersonAttentionUiState$1(ac7.a), a, null, 16, null);
                         }
                     }
                     z2 = areEqual;
@@ -593,15 +593,15 @@ public final class FeedHeadExtensionKt {
                     if (list2 != null) {
                     }
                     str3 = "";
-                    return new de7(new r77(z2, i2, str2, str3, followStatData, unfollowStatData), null, new FeedHeadExtensionKt$toPersonAttentionUiState$1(wb7.a), a, null, 16, null);
+                    return new he7(new v77(z2, i2, str2, str3, followStatData, unfollowStatData), null, new FeedHeadExtensionKt$toPersonAttentionUiState$1(ac7.a), a, null, 16, null);
                 }
             }
             return null;
         }
-        return (de7) invokeCommon.objValue;
+        return (he7) invokeCommon.objValue;
     }
 
-    public static final ce7 t(FeedHeadButton feedHeadButton, n67 feedExtraData, boolean z) {
+    public static final ge7 t(FeedHeadButton feedHeadButton, r67 feedExtraData, boolean z) {
         InterceptResult invokeLLZ;
         String str;
         String str2;
@@ -618,8 +618,8 @@ public final class FeedHeadExtensionKt {
             }
             if (z) {
                 List<FeedKV> list = feedHeadButton.business_info;
-                String str5 = (list == null || (str5 = e97.a(list, "forum_id")) == null) ? "" : "";
-                z67 a2 = t67.a.a("tb.feed_home_reco_user_state");
+                String str5 = (list == null || (str5 = i97.a(list, "forum_id")) == null) ? "" : "";
+                d77 a2 = x67.a.a("tb.feed_home_reco_user_state");
                 if (a2 != null) {
                     str3 = a2.getValue(str5, "is_like");
                 } else {
@@ -635,14 +635,14 @@ public final class FeedHeadExtensionKt {
                 }
             }
             List<FeedKV> list2 = feedHeadButton.business_info;
-            String str6 = (list2 == null || (str6 = e97.a(list2, "forum_name")) == null) ? "" : "";
+            String str6 = (list2 == null || (str6 = i97.a(list2, "forum_name")) == null) ? "" : "";
             List<FeedKV> list3 = feedHeadButton.business_info;
             if (list3 != null) {
-                str = e97.a(list3, "forum_id");
+                str = i97.a(list3, "forum_id");
             } else {
                 str = null;
             }
-            w67 w67Var = new w67(false, str6, JavaTypesHelper.toLong(str, 0L));
+            a77 a77Var = new a77(false, str6, JavaTypesHelper.toLong(str, 0L));
             String str7 = feedExtraData.a().a().get("thread_id");
             if (str7 == null) {
                 str2 = "";
@@ -651,10 +651,10 @@ public final class FeedHeadExtensionKt {
             }
             List<FeedKV> list4 = feedHeadButton.business_info;
             if (list4 != null) {
-                str4 = e97.a(list4, "forum_id");
+                str4 = i97.a(list4, "forum_id");
             }
-            return new ce7(w67Var, str2, JavaTypesHelper.toLong(str4, 0L), null, 8, null);
+            return new ge7(a77Var, str2, JavaTypesHelper.toLong(str4, 0L), null, 8, null);
         }
-        return (ce7) invokeLLZ.objValue;
+        return (ge7) invokeLLZ.objValue;
     }
 }

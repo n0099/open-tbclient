@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.mvc.data.IResponseData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b05;
+import com.baidu.tieba.bo5;
 import com.baidu.tieba.cb;
+import com.baidu.tieba.co5;
 import com.baidu.tieba.da;
-import com.baidu.tieba.xn5;
-import com.baidu.tieba.yn5;
+import com.baidu.tieba.e05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -152,26 +152,26 @@ public class MvcJsonHttpResponsedMessage<D extends IResponseData> extends MvcHtt
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
-                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof xn5)) {
-                    xn5 xn5Var = (xn5) mvcHttpMessage.getRequestData();
-                    String cacheKey = xn5Var.getCacheKey();
-                    String cacheTableName = xn5Var.getCacheTableName();
-                    if (xn5Var.isNeedUid()) {
+                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof bo5)) {
+                    bo5 bo5Var = (bo5) mvcHttpMessage.getRequestData();
+                    String cacheKey = bo5Var.getCacheKey();
+                    String cacheTableName = bo5Var.getCacheTableName();
+                    if (bo5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     } else {
                         str = null;
                     }
                     if (cacheKey != null && !TextUtils.isEmpty(cacheTableName) && bArr != null) {
-                        if (xn5Var.v()) {
-                            b05.k();
-                            da<byte[]> j = b05.j(cacheTableName, str);
+                        if (bo5Var.v()) {
+                            e05.k();
+                            da<byte[]> j = e05.j(cacheTableName, str);
                             if (j == null) {
                                 return;
                             }
                             j.g(cacheKey, bArr);
-                        } else if (mvcHttpMessage.getRequestData() instanceof yn5) {
-                            b05.k();
-                            da<String> n = b05.n(cacheTableName, str);
+                        } else if (mvcHttpMessage.getRequestData() instanceof co5) {
+                            e05.k();
+                            da<String> n = e05.n(cacheTableName, str);
                             if (n == null) {
                                 return;
                             }

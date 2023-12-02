@@ -1,10 +1,6 @@
 package com.baidu.tbadk.core.util;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,6 +45,13 @@ public class StorageFile {
         return (StorageFile) invokeV.objValue;
     }
 
+    public void clearBubbleCache() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            deleteBubbleCache(new File(FileHelper.EXTERNAL_STORAGE_PRIVATE_DIRECTORY + "/" + FileHelper.getPrefixByType(3)));
+        }
+    }
+
     private void deleteBubbleCache(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, file) == null) {
@@ -70,7 +73,7 @@ public class StorageFile {
     public String getDirectoryName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (str == null) {
                 return null;
             }
@@ -96,93 +99,5 @@ public class StorageFile {
                 }
             }
         }
-    }
-
-    public Bitmap getImage(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return FileHelper.getImage(getDirectoryName(str), str);
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public int getImageSize(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            return (int) FileHelper.checkImageFileSize(getDirectoryName(str), str);
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean isGif(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return FileHelper.isGif(getDirectoryName(str), str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void clearBubbleCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            deleteBubbleCache(new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + FileHelper.getPrefixByType(3)));
-        }
-    }
-
-    public void clearImageCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            deleteImageCache(new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/image"));
-            deleteImageCache(new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/images"));
-        }
-    }
-
-    public boolean copyFile(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            String str3 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/";
-            if (!FileHelper.CheckTempDir(str3)) {
-                FileHelper.makeRootDirectory(str3);
-            }
-            String str4 = str3 + getDirectoryName(str2);
-            if (!FileHelper.CheckTempDir(str4)) {
-                FileHelper.makeRootDirectory(str4);
-            }
-            String str5 = str4 + "/" + str2;
-            if (str.equals(str5)) {
-                return false;
-            }
-            return FileHelper.copyFileByRelativelyPath(str, str5, true);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void saveImage(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, bArr) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        FileHelper.saveFileByBytes(getDirectoryName(str), str, bArr);
-    }
-
-    public void saveNineImage(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, bArr) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        FileHelper.saveFileByBytes(FileHelper.getPrefixByType(3), str, bArr);
     }
 }

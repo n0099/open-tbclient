@@ -37,7 +37,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.b implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091502);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091503);
         this.hp = imageView;
         imageView.setOnClickListener(this);
     }

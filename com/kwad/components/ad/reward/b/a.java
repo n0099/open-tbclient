@@ -122,7 +122,7 @@ public final class a extends d implements View.OnClickListener {
         }
 
         public final CharSequence L(Context context) {
-            AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070499));
+            AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07049a));
             SpannableString spannableString = new SpannableString("¥" + ((Object) this.qX));
             spannableString.setSpan(absoluteSizeSpan, 0, 1, 17);
             return spannableString;
@@ -193,12 +193,12 @@ public final class a extends d implements View.OnClickListener {
     }
 
     private void d(ViewGroup viewGroup) {
-        this.qL = viewGroup.findViewById(R.id.obfuscated_res_0x7f09133f);
-        this.qM = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09133d);
-        this.hz = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091342);
-        this.qN = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091340);
-        this.lv = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091341);
-        Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f09133e);
+        this.qL = viewGroup.findViewById(R.id.obfuscated_res_0x7f091340);
+        this.qM = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09133e);
+        this.hz = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091343);
+        this.qN = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091341);
+        this.lv = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091342);
+        Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f09133f);
         this.qO = button;
         button.setOnClickListener(this);
     }

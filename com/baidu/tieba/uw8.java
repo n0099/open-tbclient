@@ -1,14 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
+import tbclient.Bigvip.BigvipResIdl;
+import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes8.dex */
-public class uw8 {
+public class uw8 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,29 +31,32 @@ public class uw8 {
         }
     }
 
-    public String a(String str) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
-        m85 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null) {
-                try {
-                    p75 p75Var = new p75(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
-                    String storeFile = FileHelper.getStoreFile(str, 1);
-                    p75Var.a("type", 2);
-                    n85 d = p75Var.d(storeFile);
-                    if (d != null && d.d() && (a = d.a()) != null) {
-                        String b = a.b();
-                        m75.b(str, b);
-                        return b;
-                    }
-                    return null;
-                } catch (Exception unused) {
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            UserInfoBigVip userInfoBigVip = null;
+            if (customMessage != null && (customMessage.getData() instanceof Long)) {
+                long longValue = ((Long) customMessage.getData()).longValue();
+                e05.k();
+                da<byte[]> i = e05.i("tb.im_recommend_detail");
+                if (i == null) {
+                    return new CustomResponsedMessage<>(2001306, null);
                 }
+                byte[] bArr = i.get(longValue + "");
+                if (bArr == null) {
+                    return new CustomResponsedMessage<>(2001306, null);
+                }
+                try {
+                    userInfoBigVip = ((BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class)).data.user_info;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+                return new CustomResponsedMessage<>(2001306, userInfoBigVip);
             }
-            return null;
+            return new CustomResponsedMessage<>(2001306, null);
         }
-        return (String) invokeL.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

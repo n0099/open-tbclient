@@ -1,35 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.PostByteRequest;
-import com.baidu.searchbox.http.request.PostStringRequest;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.nf4;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class td4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface td4 {
+    ug4 A();
 
-    public static void a(@NonNull Object obj, @Nullable Map<String, String> map) {
-        String remove;
-        int parseInt;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, obj, map) != null) || map == null || !map.containsKey("SWAN-TIMEOUT-SETTING") || (remove = map.remove("SWAN-TIMEOUT-SETTING")) == null || !TextUtils.isDigitsOnly(remove) || (parseInt = Integer.parseInt(remove)) <= 0) {
-            return;
-        }
-        if (obj instanceof PostStringRequest.PostStringRequestBuilder) {
-            PostStringRequest.PostStringRequestBuilder postStringRequestBuilder = (PostStringRequest.PostStringRequestBuilder) obj;
-            postStringRequestBuilder.readTimeout(parseInt);
-            postStringRequestBuilder.writeTimeout(parseInt);
-            postStringRequestBuilder.connectionTimeout(parseInt);
-        } else if (obj instanceof PostByteRequest.PostByteRequestBuilder) {
-            PostByteRequest.PostByteRequestBuilder postByteRequestBuilder = (PostByteRequest.PostByteRequestBuilder) obj;
-            postByteRequestBuilder.readTimeout(parseInt);
-            postByteRequestBuilder.writeTimeout(parseInt);
-            postByteRequestBuilder.connectionTimeout(parseInt);
-        }
-    }
+    int B();
+
+    void C();
+
+    void D(zh4 zh4Var);
+
+    String E();
+
+    int F(String str, int i);
+
+    void G(String str, String str2, Throwable th);
+
+    void H(ni4 ni4Var);
+
+    String I();
+
+    String J(int i);
+
+    void K(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z);
+
+    void L(String str, String str2, String str3, @Nullable Throwable th, boolean z);
+
+    tf4 M();
+
+    float a();
+
+    String b();
+
+    String c();
+
+    void d(byte[] bArr);
+
+    String e();
+
+    CookieManager f();
+
+    String g();
+
+    String h();
+
+    lm4 i();
+
+    long j(int i);
+
+    void k(JSONArray jSONArray, String str, String str2);
+
+    List<df4> l(String str, long j);
+
+    void m(String str, String str2, nf4.c cVar);
+
+    tf4 n();
+
+    boolean o(boolean z, @NonNull JSONArray jSONArray);
+
+    void p(String str, JSONObject jSONObject, jf4 jf4Var, List<kf4> list);
+
+    String q();
+
+    boolean r(@Nullable lf4 lf4Var);
+
+    void s(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
+
+    void t(cj4 cj4Var, sj4 sj4Var);
+
+    String u();
+
+    String v(int i);
+
+    long w(int i);
+
+    boolean x();
+
+    void y(String str, String str2);
+
+    void z(String str, String str2, String str3, boolean z);
 }

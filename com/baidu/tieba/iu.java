@@ -73,12 +73,12 @@ public class iu extends qs implements it<ThreadData>, jt {
         }
     }
 
-    public void autoAlignParent(cw4 cw4Var) {
+    public void autoAlignParent(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cw4Var) == null) {
-            if (cw4Var.isSupportTop()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fw4Var) == null) {
+            if (fw4Var.isSupportTop()) {
                 autoAlignParent(Align.ALIGN_RIGHT_TOP);
-            } else if (cw4Var.isSupportBottom()) {
+            } else if (fw4Var.isSupportBottom()) {
                 cu cuVar = this.threadCard;
                 if (cuVar != null) {
                     cuVar.p(this);

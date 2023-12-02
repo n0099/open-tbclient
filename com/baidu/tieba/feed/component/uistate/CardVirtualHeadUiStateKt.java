@@ -1,8 +1,8 @@
 package com.baidu.tieba.feed.component.uistate;
 
 import android.view.View;
-import com.baidu.tieba.h67;
-import com.baidu.tieba.y47;
+import com.baidu.tieba.c57;
+import com.baidu.tieba.l67;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,8 +15,8 @@ import kotlin.jvm.functions.Function3;
 /* loaded from: classes5.dex */
 public final class CardVirtualHeadUiStateKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function3<View, String, y47, Boolean> a;
-    public static final Function3<View, h67, y47, Unit> b;
+    public static final Function3<View, String, c57, Boolean> a;
+    public static final Function3<View, l67, c57, Unit> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

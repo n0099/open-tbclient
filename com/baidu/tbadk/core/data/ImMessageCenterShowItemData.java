@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.xx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public static final int recForumTitleType = 3;
     public static final long serialVersionUID = 3133087680118197014L;
     public transient /* synthetic */ FieldHolder $fh;
-    public ux4 atInfoData;
+    public xx4 atInfoData;
     public String avatar;
     public String cacheGroupMsgContent;
     public int dataType;
@@ -96,13 +96,13 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return (ImMessageCenterShowItemData) invokeV.objValue;
     }
 
-    public ux4 getAtInfoData() {
+    public xx4 getAtInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.atInfoData;
         }
-        return (ux4) invokeV.objValue;
+        return (xx4) invokeV.objValue;
     }
 
     public String getAvatar() {
@@ -457,10 +457,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setAtInfoData(ux4 ux4Var) {
+    public void setAtInfoData(xx4 xx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, ux4Var) == null) {
-            this.atInfoData = ux4Var;
+        if (interceptable == null || interceptable.invokeL(1048617, this, xx4Var) == null) {
+            this.atInfoData = xx4Var;
         }
     }
 

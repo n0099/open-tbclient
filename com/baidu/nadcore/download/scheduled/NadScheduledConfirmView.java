@@ -9,7 +9,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e71;
+import com.baidu.tieba.g71;
 import com.baidu.tieba.hf0;
 /* loaded from: classes3.dex */
 public class NadScheduledConfirmView extends LinearLayout {
@@ -52,7 +52,7 @@ public class NadScheduledConfirmView extends LinearLayout {
         this.e.setDividerDrawable(hf0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
         this.b.setTextSize(16.0f);
         this.b.setText(getResources().getString(R.string.nad_scheduled_dialog_pos_btn_text));
-        this.b.setTextColor(e71.a().getResources().getColor(R.color.nad_dialog_pos_text_color));
+        this.b.setTextColor(g71.a().getResources().getColor(R.color.nad_dialog_pos_text_color));
         this.b.setVisibility(0);
     }
 }

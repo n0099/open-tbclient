@@ -1,118 +1,40 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.ad.asyncpv.NadAsyncRequester;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class p26 implements NadAsyncRequester.b {
+public class p26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PlaceId a;
-    public String b;
-    public int c;
-    public boolean d;
-    public NadAsyncRequester e;
-    public long f;
-    public final WeakReference<IAdBaseAsyncController.a> g;
 
-    public void c(List<AdvertAppInfo> list) {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return b(str, null);
         }
+        return invokeL.booleanValue;
     }
 
-    public p26(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
+    public static boolean b(String str, @Nullable Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {placeId, str, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, context)) == null) {
+            return c(str, context, null);
         }
-        this.d = false;
-        this.f = 0L;
-        this.a = placeId;
-        this.b = str;
-        this.g = new WeakReference<>(aVar);
-        this.e = new NadAsyncRequester(this, this.a);
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ad.asyncpv.NadAsyncRequester.b
-    public final void a(boolean z, List<AdvertAppInfo> list) {
+    public static boolean c(String str, @Nullable Context context, @Nullable Map<String, Object> map) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
-            IAdBaseAsyncController.a aVar = this.g.get();
-            if (z && !zf9.e(list)) {
-                f(list);
-                c(list);
-                if (aVar != null) {
-                    aVar.b(list);
-                }
-            } else if (aVar != null) {
-                aVar.b(null);
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, context, map)) == null) {
+            return qe0.e(str, context, map, null);
         }
-    }
-
-    public void d(int i, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, map) != null) || System.currentTimeMillis() - this.f < this.c * xga.a) {
-            return;
-        }
-        this.e.i(map, i);
-        this.f = System.currentTimeMillis();
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.h();
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void f(List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            Iterator<AdvertAppInfo> it = list.iterator();
-            while (it.hasNext()) {
-                AdvertAppInfo next = it.next();
-                next.j = this.b;
-                if (uga.l(next) && this.d) {
-                    it.remove();
-                } else {
-                    int h = next.h();
-                    if (h != 0) {
-                        gja.h(next, 0, h);
-                        it.remove();
-                    }
-                }
-            }
-        }
+        return invokeLLL.booleanValue;
     }
 }

@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.uistate.CardLiveUiStateKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class p47 extends v47 {
+public final class p47 extends z47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final en6 g;
-    public final a87 h;
+    public final l77 g;
+    public final List<e87> h;
+    public final Function2<Context, p47, Unit> i;
 
     static {
         InterceptResult invokeClinit;
@@ -36,13 +42,13 @@ public final class p47 extends v47 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p47(en6 peiWanData, a87 a87Var, a87 a87Var2, a87 a87Var3, Map<String, String> businessInfo, Map<String, String> logInfo) {
+    public p47(l77 liveData, List<e87> clickStatDataList, Map<String, String> businessInfo, Map<String, String> logInfo, Function2<? super Context, ? super p47, Unit> onLiveClick) {
         super(businessInfo, logInfo, null, null, 12, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {peiWanData, a87Var, a87Var2, a87Var3, businessInfo, logInfo};
+            Object[] objArr = {liveData, clickStatDataList, businessInfo, logInfo, onLiveClick};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,28 +60,44 @@ public final class p47 extends v47 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(peiWanData, "peiWanData");
+        Intrinsics.checkNotNullParameter(liveData, "liveData");
+        Intrinsics.checkNotNullParameter(clickStatDataList, "clickStatDataList");
         Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
         Intrinsics.checkNotNullParameter(logInfo, "logInfo");
-        this.g = peiWanData;
-        this.h = a87Var3;
+        Intrinsics.checkNotNullParameter(onLiveClick, "onLiveClick");
+        this.g = liveData;
+        this.h = clickStatDataList;
+        this.i = onLiveClick;
     }
 
-    public final a87 l() {
+    public /* synthetic */ p47(l77 l77Var, List list, Map map, Map map2, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(l77Var, (i & 2) != 0 ? new ArrayList() : list, map, map2, (i & 16) != 0 ? CardLiveUiStateKt.a() : function2);
+    }
+
+    public final List<e87> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.h;
         }
-        return (a87) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final en6 m() {
+    public final l77 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.g;
         }
-        return (en6) invokeV.objValue;
+        return (l77) invokeV.objValue;
+    }
+
+    public final Function2<Context, p47, Unit> n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
+        }
+        return (Function2) invokeV.objValue;
     }
 }

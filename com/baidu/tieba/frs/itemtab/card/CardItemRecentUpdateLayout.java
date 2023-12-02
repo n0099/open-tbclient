@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i65;
 import com.baidu.tieba.jt;
+import com.baidu.tieba.l65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -117,7 +117,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements jt {
                 this.a.g.setText(R.string.obfuscated_res_0x7f0f0770);
                 this.a.f.setMaxLines(Integer.MAX_VALUE);
                 this.a.f.setText(this.a.h);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new i65(10)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new l65(10)));
             }
         }
     }
@@ -203,11 +203,11 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements jt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d6, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09124c);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09124d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091249);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09124b);
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09124a);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09124d);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09124e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09124a);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09124c);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09124b);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(context);
             this.f = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);

@@ -28,8 +28,8 @@ import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.base.core.uilist.ReplyContentView;
 import com.baidu.tieba.im.lib.socket.msg.TbNormalMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.emjio.view.EmojiReplyView;
-import com.baidu.tieba.nq8;
-import com.baidu.tieba.uy8;
+import com.baidu.tieba.rq8;
+import com.baidu.tieba.yy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,41 +101,41 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
                 }
             }
             this.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090342);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a51);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092928);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092936);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a53);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09292b);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092939);
             this.e = (ImageView) view2.findViewById(R.id.btn_msgitem_resend);
-            this.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091e5a);
+            this.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091e5c);
             this.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09054a);
             this.h = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090549);
             this.i = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090548);
             this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907f7);
-            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b10);
+            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b11);
             this.l = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090037);
-            this.m = (EmojiReplyView) view2.findViewById(R.id.obfuscated_res_0x7f0909f2);
-            this.n = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f090927);
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090926);
+            this.m = (EmojiReplyView) view2.findViewById(R.id.obfuscated_res_0x7f0909f3);
+            this.n = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f090928);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090927);
             this.o = tbImageView;
             tbImageView.setPlaceHolder(0);
-            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090925);
+            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090926);
             this.s = (TextView) view2.findViewById(R.id.kaogao_icon);
-            this.t = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e88);
-            AutoDegradeTagView autoDegradeTagView = (AutoDegradeTagView) view2.findViewById(R.id.obfuscated_res_0x7f09292e);
+            this.t = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e89);
+            AutoDegradeTagView autoDegradeTagView = (AutoDegradeTagView) view2.findViewById(R.id.obfuscated_res_0x7f092931);
             this.r = autoDegradeTagView;
             if (autoDegradeTagView.getLayoutParams() != null) {
                 this.r.getLayoutParams().height = BdUtilHelper.getDimens(view2.getContext(), R.dimen.tbds44);
             }
             this.r.setTagConfig(BdUtilHelper.getDimens(view2.getContext(), R.dimen.T_X08), BdUtilHelper.getDimens(view2.getContext(), R.dimen.tbds35), BdUtilHelper.getDimens(view2.getContext(), R.dimen.M_W_X002), R.color.CAM_X0105);
             if (z && view2.getContext() != null) {
-                ReplyContentView f = uy8.f(view2.getContext());
+                ReplyContentView f = yy8.f(view2.getContext());
                 this.q = f;
                 this.j.addView(f);
             }
             Context context = view2.getContext();
             if (context != null) {
-                this.l.addView(uy8.d(context));
+                this.l.addView(yy8.d(context));
             }
-            uy8.e(this.m);
+            yy8.e(this.m);
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
@@ -167,11 +167,11 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
-        public void d(@NonNull nq8 nq8Var) {
+        public void d(@NonNull rq8 rq8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nq8Var) == null) {
-                super.d(nq8Var);
-                nq8.d(this.e, nq8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rq8Var) == null) {
+                super.d(rq8Var);
+                rq8.d(this.e, rq8Var);
             }
         }
 
@@ -247,9 +247,9 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, selfHolder, childitemdata, i) == null) {
             if (i == 1) {
-                uy8.m(this.mContext, childitemdata, selfHolder, C(), B());
+                yy8.m(this.mContext, childitemdata, selfHolder, C(), B());
             } else if (i == 2) {
-                uy8.l(this.mContext, childitemdata, selfHolder, G(), C(), E());
+                yy8.l(this.mContext, childitemdata, selfHolder, G(), C(), E());
             }
         }
     }
@@ -260,18 +260,18 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
     public void W(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull SelfHolder selfHolder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), viewGroup, childitemdata, selfHolder, list, Integer.valueOf(i2)}) == null) {
-            uy8.w(selfHolder);
+            yy8.w(selfHolder);
             int e0 = e0(list);
             if (a0(e0)) {
                 Z(selfHolder, childitemdata, e0);
                 return;
             }
-            uy8.j(childitemdata, selfHolder);
-            uy8.i(childitemdata, selfHolder);
-            uy8.n(childitemdata, selfHolder);
-            uy8.k(this.mContext, childitemdata, selfHolder, C(), B());
-            uy8.m(this.mContext, childitemdata, selfHolder, C(), B());
-            uy8.h(G(), childitemdata, viewGroup);
+            yy8.j(childitemdata, selfHolder);
+            yy8.i(childitemdata, selfHolder);
+            yy8.n(childitemdata, selfHolder);
+            yy8.k(this.mContext, childitemdata, selfHolder, C(), B());
+            yy8.m(this.mContext, childitemdata, selfHolder, C(), B());
+            yy8.h(G(), childitemdata, viewGroup);
         }
     }
 

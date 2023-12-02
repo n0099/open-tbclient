@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.homepage.personalize.adapter.RecommendRecentForumListAdapter;
 import com.baidu.tieba.homepage.personalize.view.HomePageRecentForumItemLayout;
-import com.baidu.tieba.oh8;
 import com.baidu.tieba.rd;
+import com.baidu.tieba.sh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public List<oh8> b;
+    public List<sh8> b;
 
     /* loaded from: classes6.dex */
     public class RecentForumViewHolder extends RecyclerView.ViewHolder {
@@ -75,7 +75,7 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
         this.a = tbPageContext;
     }
 
-    public void setData(List<oh8> list) {
+    public void setData(List<sh8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             if (this.b == null) {
@@ -96,10 +96,10 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
         return invokeV.intValue;
     }
 
-    public /* synthetic */ void l(oh8 oh8Var, int i, View view2) {
-        if (oh8Var != null && !rd.isEmpty(oh8Var.g())) {
-            UrlManager.getInstance().dealOneLink(this.a, new String[]{oh8Var.g()});
-            p("c15376", i + 1, oh8Var.b(), oh8Var.d(), oh8Var.j());
+    public /* synthetic */ void l(sh8 sh8Var, int i, View view2) {
+        if (sh8Var != null && !rd.isEmpty(sh8Var.g())) {
+            UrlManager.getInstance().dealOneLink(this.a, new String[]{sh8Var.g()});
+            p("c15376", i + 1, sh8Var.b(), sh8Var.d(), sh8Var.j());
         }
     }
 
@@ -107,14 +107,14 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: n */
     public void onBindViewHolder(@NonNull RecentForumViewHolder recentForumViewHolder, final int i) {
-        final oh8 oh8Var;
+        final sh8 sh8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, recentForumViewHolder, i) != null) || ListUtils.isEmpty(this.b) || ListUtils.getCount(this.b) <= i || (oh8Var = this.b.get(i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, recentForumViewHolder, i) != null) || ListUtils.isEmpty(this.b) || ListUtils.getCount(this.b) <= i || (sh8Var = this.b.get(i)) == null) {
             return;
         }
-        oh8Var.o(i + 1);
-        recentForumViewHolder.a.setData(oh8Var);
-        recentForumViewHolder.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vf8
+        sh8Var.o(i + 1);
+        recentForumViewHolder.a.setData(sh8Var);
+        recentForumViewHolder.a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zf8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -122,7 +122,7 @@ public class RecommendRecentForumListAdapter extends RecyclerView.Adapter<Recent
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    RecommendRecentForumListAdapter.this.l(oh8Var, i, view2);
+                    RecommendRecentForumListAdapter.this.l(sh8Var, i, view2);
                 }
             }
         });

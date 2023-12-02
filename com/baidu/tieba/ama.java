@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,22 +11,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ama implements ub7, rb7 {
+public final class ama implements yb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.rb7
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ub7
+    @Override // com.baidu.tieba.yb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c10708" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_NAMEPLATE_OF_USER_LEVEL_STATIC : (String) invokeV.objValue;
     }
 
     public ama() {
@@ -44,35 +36,21 @@ public final class ama implements ub7, rb7 {
         }
     }
 
-    @Override // com.baidu.tieba.ub7
-    public Map<String, String> a(r57 businessInfo) {
+    @Override // com.baidu.tieba.yb7
+    public Map<String, String> a(v57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
             Map<String, String> a = businessInfo.a();
-            hashMap.putAll(pla.a.a(businessInfo));
-            String str = a.get("is_vertical_video");
+            hashMap.put("obj_type", "1");
+            hashMap.put("obj_locate", "2");
+            String str = a.get("growth_level");
             if (str == null) {
-                str = "0";
+                str = "";
             }
-            hashMap.put(TiebaStatic.Params.IS_VERTICAL, str);
-            String str2 = a.get("author_is_living");
-            if (str2 == null) {
-                str2 = "1";
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str2);
-            String str3 = a.get("live_type");
-            if (str3 == null) {
-                str3 = "5";
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM7, str3);
-            String hdid = TbadkCoreApplication.getInst().getHdid();
-            if (hdid == null) {
-                hdid = "";
-            }
-            hashMap.put("hdid", hdid);
+            hashMap.put("obj_source", str);
             return hashMap;
         }
         return (Map) invokeL.objValue;

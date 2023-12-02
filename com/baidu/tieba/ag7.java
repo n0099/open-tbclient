@@ -1,0 +1,160 @@
+package com.baidu.tieba;
+
+import android.content.Context;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.switchs.HeadlinesPrefetchSwitch;
+import com.baidu.tieba.forum.component.uistate.CardHeadlinesUiStateKt;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes5.dex */
+public final class ag7 extends z47 implements rb7<ag7>, f57 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final String g;
+    public final kz4 h;
+    public final String i;
+    public final Function2<Context, ag7, Unit> j;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947614296, "Lcom/baidu/tieba/ag7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947614296, "Lcom/baidu/tieba/ag7;");
+        }
+    }
+
+    @Override // com.baidu.tieba.rb7
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "head_lines" : (String) invokeV.objValue;
+    }
+
+    public ag7 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (ag7) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ag7(String tid, kz4 taskInfoData, String schema, Map<String, String> businessInfo, Map<String, String> logInfo, Function2<? super Context, ? super ag7, Unit> onRootClick) {
+        super(businessInfo, logInfo, null, null, 12, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {tid, taskInfoData, schema, businessInfo, logInfo, onRootClick};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Map) objArr2[0], (Map) objArr2[1], (Function2) objArr2[2], (Function1) objArr2[3], ((Integer) objArr2[4]).intValue(), (DefaultConstructorMarker) objArr2[5]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(tid, "tid");
+        Intrinsics.checkNotNullParameter(taskInfoData, "taskInfoData");
+        Intrinsics.checkNotNullParameter(schema, "schema");
+        Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+        Intrinsics.checkNotNullParameter(logInfo, "logInfo");
+        Intrinsics.checkNotNullParameter(onRootClick, "onRootClick");
+        this.g = tid;
+        this.h = taskInfoData;
+        this.i = schema;
+        this.j = onRootClick;
+    }
+
+    public /* synthetic */ ag7(String str, kz4 kz4Var, String str2, Map map, Map map2, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, kz4Var, str2, map, map2, (i & 32) != 0 ? CardHeadlinesUiStateKt.a : function2);
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.rb7
+    public /* bridge */ /* synthetic */ ag7 b() {
+        l();
+        return this;
+    }
+
+    public final Function2<Context, ag7, Unit> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    public final String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final kz4 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
+        }
+        return (kz4) invokeV.objValue;
+    }
+
+    public final String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.f57
+    public boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            if (this.h.j() == 4) {
+                String r = this.h.r();
+                if (HeadlinesPrefetchSwitch.isOn() && !UbsABTestHelper.isExistSid(ThreadCardUtils.KEY_TOUTIAO_PREFETCH_A) && StringUtils.isNotNull(r)) {
+                    TbLog defaultLog = DefaultLog.getInstance();
+                    defaultLog.i("CardHeadlinesUiState", "头条卡，点击frs卡片区域预取, url: " + r);
+                    kj6.c(r);
+                    return false;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+}

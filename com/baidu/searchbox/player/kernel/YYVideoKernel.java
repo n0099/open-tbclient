@@ -19,10 +19,10 @@ import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.player.util.YYUtil;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.searchbox.player.utils.DeviceUtil;
-import com.baidu.tieba.ahc;
+import com.baidu.tieba.thc;
 import com.baidu.tieba.uhc;
 import com.baidu.tieba.vhc;
-import com.baidu.tieba.whc;
+import com.baidu.tieba.zgc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
@@ -50,9 +50,9 @@ public final class YYVideoKernel extends AbsVideoKernel {
     public final long keepAliveSeconds;
     public final int maximumPoolSize;
     public final Lazy screenShotPoolExecutor$delegate;
-    public vhc yyKernel;
+    public uhc yyKernel;
     public static final Companion Companion = new Companion(null);
-    public static final uhc options = new uhc();
+    public static final thc options = new thc();
 
     private final int getYYDecodeMode(int i) {
         if (i != 0) {
@@ -133,37 +133,37 @@ public final class YYVideoKernel extends AbsVideoKernel {
         public Companion() {
         }
 
-        public final vhc createYYKernel() {
+        public final uhc createYYKernel() {
             YYVideoKernel.options.b = 1;
             YYVideoKernel.options.c = 1;
             YYVideoKernel.options.g = true;
             YYVideoKernel.options.m = true ^ DeviceUtil.is64BitABIs();
-            vhc.s(false);
-            return new vhc(BDPlayerConfig.getAppContext(), YYVideoKernel.options);
+            uhc.s(false);
+            return new uhc(BDPlayerConfig.getAppContext(), YYVideoKernel.options);
         }
 
         @JvmStatic
         public final void installLib() {
             if (!isLibReady()) {
-                vhc.k(BDPlayerConfig.getAppContext(), null);
+                uhc.k(BDPlayerConfig.getAppContext(), null);
             }
         }
 
         @JvmStatic
         public final boolean isLibReady() {
-            return vhc.l(BDPlayerConfig.getAppContext());
+            return uhc.l(BDPlayerConfig.getAppContext());
         }
     }
 
     private final void bindUniqueKey() {
         String playerKey = PlayerRuntime.toPlayerKey(getVideoUrlModel().getVid());
-        whc b = whc.b();
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        vhc b = vhc.b();
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        b.a(playerKey, vhcVar);
+        b.a(playerKey, uhcVar);
     }
 
     private final ThreadPoolExecutor getScreenShotPoolExecutor() {
@@ -176,7 +176,7 @@ public final class YYVideoKernel extends AbsVideoKernel {
     }
 
     private final void removeUniqueKey() {
-        whc.b().d(PlayerRuntime.toPlayerKey(getVideoUrlModel().getVid()));
+        vhc.b().d(PlayerRuntime.toPlayerKey(getVideoUrlModel().getVid()));
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
@@ -201,72 +201,72 @@ public final class YYVideoKernel extends AbsVideoKernel {
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public int getDuration() {
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        return (int) vhcVar.e();
+        return (int) uhcVar.e();
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public int getDurationMs() {
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        return (int) vhcVar.e();
+        return (int) uhcVar.e();
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public int getPosition() {
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        return ((int) vhcVar.c()) / 1000;
+        return ((int) uhcVar.c()) / 1000;
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public int getPositionMs() {
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        return (int) vhcVar.c();
+        return (int) uhcVar.c();
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public int getSyncPositionMs() {
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        return (int) vhcVar.c();
+        return (int) uhcVar.c();
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public int getVideoHeight() {
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        return vhcVar.i();
+        return uhcVar.i();
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public int getVideoWidth() {
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        return vhcVar.j();
+        return uhcVar.j();
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel, com.baidu.searchbox.player.pool.IPoolItem
@@ -278,70 +278,70 @@ public final class YYVideoKernel extends AbsVideoKernel {
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel, com.baidu.searchbox.player.pool.IPoolItem
     public void onRelease() {
         super.onRelease();
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        vhcVar.H();
+        uhcVar.H();
         setKernelCallBack(null);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void pause() {
         super.pause();
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        vhcVar.m();
+        uhcVar.m();
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void resume() {
         super.resume();
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        vhcVar.o();
+        uhcVar.o();
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void start() {
         super.start();
         bindUniqueKey();
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        vhcVar.G();
+        uhcVar.G();
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void stop() {
         removeUniqueKey();
         super.stop();
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        vhcVar.H();
+        uhcVar.H();
     }
 
     public final boolean tryReuseOrCreateYYKernel() {
-        vhc vhcVar;
-        vhc c = whc.b().c(PlayerRuntime.toPlayerKey(getVideoUrlModel().getVid()), false);
+        uhc uhcVar;
+        uhc c = vhc.b().c(PlayerRuntime.toPlayerKey(getVideoUrlModel().getVid()), false);
         if (c == null) {
-            vhcVar = Companion.createYYKernel();
+            uhcVar = Companion.createYYKernel();
         } else {
-            vhcVar = c;
+            uhcVar = c;
         }
-        this.yyKernel = vhcVar;
+        this.yyKernel = uhcVar;
         addPlayerViewToContainer();
         if (c == null) {
             return false;
@@ -385,12 +385,12 @@ public final class YYVideoKernel extends AbsVideoKernel {
             frameLayout = null;
         }
         frameLayout.removeAllViews();
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        Object g = vhcVar.g();
+        Object g = uhcVar.g();
         if (g instanceof View) {
             view2 = (View) g;
         } else {
@@ -418,24 +418,24 @@ public final class YYVideoKernel extends AbsVideoKernel {
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void mute(boolean z) {
-        vhc vhcVar = null;
+        uhc uhcVar = null;
         if (z) {
-            vhc vhcVar2 = this.yyKernel;
-            if (vhcVar2 == null) {
+            uhc uhcVar2 = this.yyKernel;
+            if (uhcVar2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
             } else {
-                vhcVar = vhcVar2;
+                uhcVar = uhcVar2;
             }
-            vhcVar.n();
+            uhcVar.n();
             return;
         }
-        vhc vhcVar3 = this.yyKernel;
-        if (vhcVar3 == null) {
+        uhc uhcVar3 = this.yyKernel;
+        if (uhcVar3 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
         } else {
-            vhcVar = vhcVar3;
+            uhcVar = uhcVar3;
         }
-        vhcVar.p();
+        uhcVar.p();
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
@@ -451,17 +451,17 @@ public final class YYVideoKernel extends AbsVideoKernel {
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void setLooping(boolean z) {
         int i;
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
         if (z) {
             i = -1;
         } else {
             i = 0;
         }
-        vhcVar.w(i);
+        uhcVar.w(i);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
@@ -480,12 +480,12 @@ public final class YYVideoKernel extends AbsVideoKernel {
         } else {
             i2 = 1;
         }
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        vhcVar.F(i2);
+        uhcVar.F(i2);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
@@ -511,12 +511,12 @@ public final class YYVideoKernel extends AbsVideoKernel {
                 i2 = 1;
                 break;
         }
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        vhcVar.v(i2);
+        uhcVar.v(i2);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel, com.baidu.searchbox.player.pool.IPoolItem
@@ -526,87 +526,87 @@ public final class YYVideoKernel extends AbsVideoKernel {
     }
 
     private final void setYYKernelCallback(YYKernelInfoConverter yYKernelInfoConverter) {
-        vhc vhcVar = this.yyKernel;
-        vhc vhcVar2 = null;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        uhc uhcVar2 = null;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        vhcVar.D(yYKernelInfoConverter);
-        vhc vhcVar3 = this.yyKernel;
-        if (vhcVar3 == null) {
+        uhcVar.D(yYKernelInfoConverter);
+        uhc uhcVar3 = this.yyKernel;
+        if (uhcVar3 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar3 = null;
+            uhcVar3 = null;
         }
-        vhcVar3.B(yYKernelInfoConverter);
-        vhc vhcVar4 = this.yyKernel;
-        if (vhcVar4 == null) {
+        uhcVar3.B(yYKernelInfoConverter);
+        uhc uhcVar4 = this.yyKernel;
+        if (uhcVar4 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar4 = null;
+            uhcVar4 = null;
         }
-        vhcVar4.z(yYKernelInfoConverter);
-        vhc vhcVar5 = this.yyKernel;
-        if (vhcVar5 == null) {
+        uhcVar4.z(yYKernelInfoConverter);
+        uhc uhcVar5 = this.yyKernel;
+        if (uhcVar5 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar5 = null;
+            uhcVar5 = null;
         }
-        vhcVar5.E(yYKernelInfoConverter);
-        vhc vhcVar6 = this.yyKernel;
-        if (vhcVar6 == null) {
+        uhcVar5.E(yYKernelInfoConverter);
+        uhc uhcVar6 = this.yyKernel;
+        if (uhcVar6 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar6 = null;
+            uhcVar6 = null;
         }
-        vhcVar6.D(yYKernelInfoConverter);
-        vhc vhcVar7 = this.yyKernel;
-        if (vhcVar7 == null) {
+        uhcVar6.D(yYKernelInfoConverter);
+        uhc uhcVar7 = this.yyKernel;
+        if (uhcVar7 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar7 = null;
+            uhcVar7 = null;
         }
-        vhcVar7.C(yYKernelInfoConverter);
-        vhc vhcVar8 = this.yyKernel;
-        if (vhcVar8 == null) {
+        uhcVar7.C(yYKernelInfoConverter);
+        uhc uhcVar8 = this.yyKernel;
+        if (uhcVar8 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar8 = null;
+            uhcVar8 = null;
         }
-        vhcVar8.y(yYKernelInfoConverter);
-        vhc vhcVar9 = this.yyKernel;
-        if (vhcVar9 == null) {
+        uhcVar8.y(yYKernelInfoConverter);
+        uhc uhcVar9 = this.yyKernel;
+        if (uhcVar9 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar9 = null;
+            uhcVar9 = null;
         }
-        vhcVar9.A(yYKernelInfoConverter);
-        vhc vhcVar10 = this.yyKernel;
-        if (vhcVar10 == null) {
+        uhcVar9.A(yYKernelInfoConverter);
+        uhc uhcVar10 = this.yyKernel;
+        if (uhcVar10 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
         } else {
-            vhcVar2 = vhcVar10;
+            uhcVar2 = uhcVar10;
         }
-        vhcVar2.x(Executors.newSingleThreadExecutor(), yYKernelInfoConverter);
+        uhcVar2.x(Executors.newSingleThreadExecutor(), yYKernelInfoConverter);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public void seekToMs(int i, int i2) {
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        vhcVar.r(i);
+        uhcVar.r(i);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
     public boolean takeSnapshotAsync(final OnSnapShotFrameListener onSnapShotFrameListener, float f) {
         if (onSnapShotFrameListener != null) {
-            vhc vhcVar = this.yyKernel;
-            if (vhcVar == null) {
+            uhc uhcVar = this.yyKernel;
+            if (uhcVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-                vhcVar = null;
+                uhcVar = null;
             }
-            vhcVar.q(getScreenShotPoolExecutor(), new vhc.d() { // from class: com.baidu.tieba.dj1
+            uhcVar.q(getScreenShotPoolExecutor(), new uhc.d() { // from class: com.baidu.tieba.gj1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.vhc.d
+                @Override // com.baidu.tieba.uhc.d
                 public final void a(Bitmap bitmap) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
@@ -665,8 +665,8 @@ public final class YYVideoKernel extends AbsVideoKernel {
             number4 = obj5;
         }
         int intValue4 = number4.intValue();
-        ahc ahcVar = new ahc(getVideoUrl(), intValue, i2, i, z);
-        ahcVar.n(intValue4);
+        zgc zgcVar = new zgc(getVideoUrl(), intValue, i2, i, z);
+        zgcVar.n(intValue4);
         Object obj6 = videoUrlModel.getExtBundle().get((Object) YYOption.ROOM_ID);
         String str = "";
         if (!(obj6 instanceof String)) {
@@ -677,13 +677,13 @@ public final class YYVideoKernel extends AbsVideoKernel {
         if (obj7 instanceof String) {
             str = obj7;
         }
-        ahcVar.g().b(str2, str);
-        vhc vhcVar = this.yyKernel;
-        if (vhcVar == null) {
+        zgcVar.g().b(str2, str);
+        uhc uhcVar = this.yyKernel;
+        if (uhcVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("yyKernel");
-            vhcVar = null;
+            uhcVar = null;
         }
-        vhcVar.u(ahcVar);
+        uhcVar.u(zgcVar);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel

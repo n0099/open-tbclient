@@ -135,11 +135,11 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0387, (ViewGroup) this, true);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090d35);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090d2a);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090d34);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090d36);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090d41);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090d36);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090d2b);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090d35);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090d37);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090d42);
             this.a.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);

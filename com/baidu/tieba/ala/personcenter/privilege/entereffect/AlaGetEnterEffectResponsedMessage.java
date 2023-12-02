@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.je6;
+import com.baidu.tieba.ne6;
 import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -77,9 +77,9 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        je6 je6Var = new je6();
-                        je6Var.a(optJSONObject2);
-                        this.mEffectList.add(je6Var);
+                        ne6 ne6Var = new ne6();
+                        ne6Var.a(optJSONObject2);
+                        this.mEffectList.add(ne6Var);
                         JSONArray optJSONArray2 = optJSONObject2.optJSONArray("effect_list");
                         if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                             for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {

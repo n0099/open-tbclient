@@ -1,28 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentDelegate;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class cv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<FragmentDelegate> a;
-    public Context b;
+    public int a;
+    public int b;
+    public int c;
 
-    public cv4(Context context) {
+    public cv4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,39 +26,34 @@ public class cv4 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = context;
+        this.a = 1500;
+        this.b = 3000;
+        this.c = 6000;
     }
 
-    public void a(FragmentDelegate fragmentDelegate) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, fragmentDelegate) == null) && fragmentDelegate != null && fragmentDelegate.getFragmentTabStructure() != null) {
-            Iterator<FragmentDelegate> it = this.a.iterator();
-            while (it.hasNext()) {
-                FragmentDelegate next = it.next();
-                if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().type == fragmentDelegate.getFragmentTabStructure().type) {
-                    return;
-                }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            jSONObject.optInt("wifiSlow", -1);
+            jSONObject.optInt("threeGSlow", -1);
+            jSONObject.optInt("twoGSlow", -1);
+            int optInt = jSONObject.optInt("wifiLog", -1);
+            if (optInt > 0) {
+                this.a = optInt;
             }
-            this.a.add(fragmentDelegate);
+            int optInt2 = jSONObject.optInt("threeGLog", -1);
+            if (optInt2 > 0) {
+                this.b = optInt2;
+            }
+            int optInt3 = jSONObject.optInt("twoGLog", -1);
+            if (optInt3 > 0) {
+                this.c = optInt3;
+            }
+            jSONObject.optInt("mobile_cdn_switch", 1);
+        } catch (Exception unused) {
         }
-    }
-
-    public Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public ArrayList<FragmentDelegate> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
     }
 }

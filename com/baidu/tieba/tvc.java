@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.MangaCategoryActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.CategoryInfo;
+import tbclient.ChatContent;
 /* loaded from: classes8.dex */
-public class tvc extends ltc {
+public class tvc extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull CategoryInfo categoryInfo) {
+    public static JSONObject b(@NonNull ChatContent chatContent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, categoryInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatContent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, MangaCategoryActivityConfig.CATEGORY_ID, categoryInfo.category_id);
-            ltc.a(jSONObject, MangaCategoryActivityConfig.CATEGORY_NAME, categoryInfo.category_name);
+            ktc.a(jSONObject, "scheme", chatContent.scheme);
+            ktc.a(jSONObject, "btn_text", chatContent.btn_text);
+            ktc.a(jSONObject, "bot_uk", chatContent.bot_uk);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

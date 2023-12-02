@@ -2,21 +2,22 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uw0;
+import com.baidu.tieba.ww0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class vw0<T extends uw0> extends tw0<T> {
+public abstract class vw0<T extends ww0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object c;
+    public final Object[] a;
+    public int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public abstract T b();
+
     public vw0(int i) {
-        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,37 +27,61 @@ public abstract class vw0<T extends uw0> extends tw0<T> {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
+        this.a = new Object[i <= 0 ? 2 : i];
     }
 
-    @Override // com.baidu.tieba.tw0
     @NonNull
     public T a() {
         InterceptResult invokeV;
-        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this.c) {
-                t = (T) super.a();
+            int i = this.b;
+            if (i <= 0) {
+                T b = b();
+                b.onInit();
+                return b;
             }
+            int i2 = i - 1;
+            Object[] objArr = this.a;
+            T t = (T) objArr[i2];
+            objArr[i2] = null;
+            this.b = i - 1;
+            t.onInit();
             return t;
         }
         return (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tw0
+    public final boolean c(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            for (int i = 0; i < this.b; i++) {
+                if (this.a[i] == t) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     public void d(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            synchronized (this.c) {
-                super.d(t);
-            }
+        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || c(t)) {
+            return;
         }
+        int i = this.b;
+        Object[] objArr = this.a;
+        if (i < objArr.length) {
+            objArr[i] = t;
+            this.b = i + 1;
+        }
+        t.onRelease();
     }
 }

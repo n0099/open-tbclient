@@ -1,60 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Application;
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.MtjConfig;
+import com.baidu.mobstat.StatService;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.c2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URI;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class na8 {
+public class na8 implements c2b.a {
     public static /* synthetic */ Interceptable $ic;
-    @JvmField
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947995844, "Lcom/baidu/tieba/na8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947995844, "Lcom/baidu/tieba/na8;");
+    public na8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "mo/q/hybrid-usergrow-search/searchGlobal?nonavigationbar=1&customfullscreen=1&user_skin_overlay=0&loadingSignal=1&page_key=a026";
+        String version = TbConfig.getVersion();
+        if (!TextUtils.isEmpty(version)) {
+            StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
+        }
+        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+        if (!TextUtils.isEmpty(lastCachedOid)) {
+            StatService.setOaid(TbadkCoreApplication.getInst(), lastCachedOid);
+        }
     }
 
-    public static final String a(String str) {
-        InterceptResult invokeL;
-        boolean z;
+    @Override // com.baidu.tieba.c2b.a
+    public void a(Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return "";
-            }
-            try {
-                String aSCIIString = new URI(null, null, str, null).toASCIIString();
-                Intrinsics.checkNotNullExpressionValue(aSCIIString, "URI(null, null, value, null).toASCIIString()");
-                return aSCIIString;
-            } catch (Exception e) {
-                BdLog.e(e);
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
+            StatService.enableAppList(application, false);
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.c2b.a
+    public void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
+            StatService.autoTrace(context);
+        }
+    }
+
+    @Override // com.baidu.tieba.c2b.a
+    public void c(Context context, WebView webView, WebChromeClient webChromeClient) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, webView, webChromeClient) == null) {
+            StatService.trackWebView(context, webView, webChromeClient);
+        }
+    }
+
+    @Override // com.baidu.tieba.c2b.a
+    public void d(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) {
+            StatService.setAppChannel(context, str, z);
+        }
     }
 }

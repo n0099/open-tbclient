@@ -1,21 +1,21 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.brc;
-import com.baidu.tieba.dpc;
+import com.baidu.tieba.arc;
+import com.baidu.tieba.cpc;
+import com.baidu.tieba.doc;
 import com.baidu.tieba.eoc;
 import com.baidu.tieba.foc;
-import com.baidu.tieba.goc;
+import com.baidu.tieba.joc;
+import com.baidu.tieba.jsc;
 import com.baidu.tieba.koc;
-import com.baidu.tieba.ksc;
-import com.baidu.tieba.loc;
-import com.baidu.tieba.wrc;
+import com.baidu.tieba.vrc;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
-public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements eoc.a<T>, foc<T>, loc {
+public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements doc.a<T>, eoc<T>, koc {
     public static final PublishProducer<?>[] EMPTY = new PublishProducer[0];
     public static final PublishProducer<?>[] TERMINATED = new PublishProducer[0];
     public static final long serialVersionUID = -3741892510772238743L;
@@ -24,40 +24,40 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     public Throwable error;
     public final a<T> parent;
     public final int prefetch;
-    public volatile goc producer;
+    public volatile foc producer;
     public final Queue<T> queue;
     public volatile PublishProducer<T>[] subscribers;
 
     /* loaded from: classes2.dex */
-    public static final class PublishProducer<T> extends AtomicLong implements goc, loc {
+    public static final class PublishProducer<T> extends AtomicLong implements foc, koc {
         public static final long serialVersionUID = 960704844171597367L;
-        public final koc<? super T> actual;
+        public final joc<? super T> actual;
         public final AtomicBoolean once = new AtomicBoolean();
         public final OnSubscribePublishMulticast<T> parent;
 
-        public PublishProducer(koc<? super T> kocVar, OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
-            this.actual = kocVar;
+        public PublishProducer(joc<? super T> jocVar, OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
+            this.actual = jocVar;
             this.parent = onSubscribePublishMulticast;
         }
 
-        @Override // com.baidu.tieba.loc
+        @Override // com.baidu.tieba.koc
         public boolean isUnsubscribed() {
             return this.once.get();
         }
 
-        @Override // com.baidu.tieba.loc
+        @Override // com.baidu.tieba.koc
         public void unsubscribe() {
             if (this.once.compareAndSet(false, true)) {
                 this.parent.remove(this);
             }
         }
 
-        @Override // com.baidu.tieba.goc
+        @Override // com.baidu.tieba.foc
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0) {
-                    dpc.b(this, j);
+                    cpc.b(this, j);
                     this.parent.drain();
                     return;
                 }
@@ -68,46 +68,46 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     /* loaded from: classes2.dex */
-    public static final class a<T> extends koc<T> {
+    public static final class a<T> extends joc<T> {
         public final OnSubscribePublishMulticast<T> e;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
             this.e = onSubscribePublishMulticast;
         }
 
-        @Override // com.baidu.tieba.koc
-        public void f(goc gocVar) {
-            this.e.setProducer(gocVar);
+        @Override // com.baidu.tieba.joc
+        public void f(foc focVar) {
+            this.e.setProducer(focVar);
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.eoc
         public void onError(Throwable th) {
             this.e.onError(th);
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.eoc
         public void onNext(T t) {
             this.e.onNext(t);
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.eoc
         public void onCompleted() {
             this.e.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.loc
+    @Override // com.baidu.tieba.koc
     public boolean isUnsubscribed() {
         return this.parent.isUnsubscribed();
     }
 
-    @Override // com.baidu.tieba.foc
+    @Override // com.baidu.tieba.eoc
     public void onCompleted() {
         this.done = true;
         drain();
     }
 
-    public koc<T> subscriber() {
+    public joc<T> subscriber() {
         return this.parent;
     }
 
@@ -124,7 +124,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         return publishProducerArr;
     }
 
-    @Override // com.baidu.tieba.loc
+    @Override // com.baidu.tieba.koc
     public void unsubscribe() {
         this.parent.unsubscribe();
     }
@@ -133,10 +133,10 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         if (i > 0) {
             this.prefetch = i;
             this.delayError = z;
-            if (ksc.b()) {
-                this.queue = new wrc(i);
+            if (jsc.b()) {
+                this.queue = new vrc(i);
             } else {
-                this.queue = new brc(i);
+                this.queue = new arc(i);
             }
             this.subscribers = (PublishProducer<T>[]) EMPTY;
             this.parent = new a<>(this);
@@ -163,10 +163,10 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
     }
 
-    public void call(koc<? super T> kocVar) {
-        PublishProducer<T> publishProducer = new PublishProducer<>(kocVar, this);
-        kocVar.b(publishProducer);
-        kocVar.f(publishProducer);
+    public void call(joc<? super T> jocVar) {
+        PublishProducer<T> publishProducer = new PublishProducer<>(jocVar, this);
+        jocVar.b(publishProducer);
+        jocVar.f(publishProducer);
         if (add(publishProducer)) {
             if (publishProducer.isUnsubscribed()) {
                 remove(publishProducer);
@@ -178,20 +178,20 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
         Throwable th = this.error;
         if (th != null) {
-            kocVar.onError(th);
+            jocVar.onError(th);
         } else {
-            kocVar.onCompleted();
+            jocVar.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.foc
+    @Override // com.baidu.tieba.eoc
     public void onError(Throwable th) {
         this.error = th;
         this.done = true;
         drain();
     }
 
-    @Override // com.baidu.tieba.foc
+    @Override // com.baidu.tieba.eoc
     public void onNext(T t) {
         if (!this.queue.offer(t)) {
             this.parent.unsubscribe();
@@ -201,14 +201,14 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         drain();
     }
 
-    public void setProducer(goc gocVar) {
-        this.producer = gocVar;
-        gocVar.request(this.prefetch);
+    public void setProducer(foc focVar) {
+        this.producer = focVar;
+        focVar.request(this.prefetch);
     }
 
-    @Override // com.baidu.tieba.soc
+    @Override // com.baidu.tieba.roc
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((koc) ((koc) obj));
+        call((joc) ((joc) obj));
     }
 
     public boolean checkTerminated(boolean z, boolean z2) {
@@ -302,12 +302,12 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                     return;
                 }
                 if (j2 != 0) {
-                    goc gocVar = this.producer;
-                    if (gocVar != null) {
-                        gocVar.request(j2);
+                    foc focVar = this.producer;
+                    if (focVar != null) {
+                        focVar.request(j2);
                     }
                     for (PublishProducer<T> publishProducer3 : publishProducerArr) {
-                        dpc.g(publishProducer3, j2);
+                        cpc.g(publishProducer3, j2);
                     }
                 }
             }

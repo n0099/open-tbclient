@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.kma;
+import com.baidu.tieba.oma;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class AuthenticationCenterDispatcher implements kma {
+public class AuthenticationCenterDispatcher implements oma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +32,7 @@ public class AuthenticationCenterDispatcher implements kma {
         }
     }
 
-    @Override // com.baidu.tieba.kma
+    @Override // com.baidu.tieba.oma
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
@@ -46,7 +46,7 @@ public class AuthenticationCenterDispatcher implements kma {
                 hashMap.put("uid", Long.valueOf(TbadkCoreApplication.getCurrentAccountId()));
                 hashMap.put("entryType", "1");
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkCoreApplication.getInst().getApplicationContext(), "AuthenticationCenterPage", hashMap)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(context, "AuthenticationCenterPage", hashMap)));
         }
     }
 }

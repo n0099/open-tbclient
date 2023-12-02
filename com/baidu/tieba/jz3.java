@@ -1,83 +1,73 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class jz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int realHeight;
-    @V8JavascriptField
-    public int realWidth;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void i(String str);
-    }
-
-    public jz3(@NonNull py1 py1Var) {
+    public static boolean a(View view2, qw2 qw2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {py1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, qw2Var)) == null) {
+            co1 X = xr2.V().X();
+            if (X != null && X.c(view2, qw2Var)) {
+                return true;
             }
+            return false;
         }
-        a(py1Var);
+        return invokeLL.booleanValue;
     }
 
-    public void b(a aVar) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (sm1.a) {
-                Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            co1 X = xr2.V().X();
+            if (X == null || !X.b() || X.h()) {
+                return false;
             }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.i(str);
-            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void a(@NonNull py1 py1Var) {
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, py1Var) == null) {
-            this.left = py1Var.s("left", this.left);
-            this.top = py1Var.s("top", this.top);
-            this.width = py1Var.s("width", this.width);
-            this.height = py1Var.s("height", this.height);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            co1 X = xr2.V().X();
+            if (X != null && X.d(view2)) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            co1 X = xr2.V().X();
+            if (X == null) {
+                return false;
+            }
+            if (X.h()) {
+                SwanAppActivity activity = xr2.V().getActivity();
+                if (activity != null) {
+                    activity.setRequestedOrientation(0);
+                }
+                X.g(false);
+            }
+            return X.removeView(view2);
+        }
+        return invokeL.booleanValue;
     }
 }

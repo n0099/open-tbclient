@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
+import android.content.res.Resources;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,26 +10,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class px5 {
+public final class px5 {
     public static /* synthetic */ Interceptable $ic;
-    public static px5 b;
+    public static final px5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public cy5 a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948077436, "Lcom/baidu/tieba/px5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948077436, "Lcom/baidu/tieba/px5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948077436, "Lcom/baidu/tieba/px5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948077436, "Lcom/baidu/tieba/px5;");
-        }
+        a = new px5();
     }
 
     public px5() {
@@ -46,70 +48,78 @@ public class px5 {
         }
     }
 
-    public static px5 b() {
-        InterceptResult invokeV;
+    public final int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                b = new px5();
-            }
-            return b;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            return resources.getIdentifier("icon_forum_level_full_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
         }
-        return (px5) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    public void a() {
-        cy5 cy5Var;
+    public final int d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cy5Var = this.a) != null && cy5Var.b() != null) {
-            this.a.b().dismiss();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            return resources.getIdentifier("icon_forum_level_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
         }
+        return invokeI.intValue;
     }
 
-    public boolean c(ux5 ux5Var) {
-        InterceptResult invokeL;
+    public final int b(int i, Boolean bool) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ux5Var)) == null) {
-            cy5 cy5Var = this.a;
-            if (cy5Var != null && cy5Var.b() != null) {
-                return this.a.b().c(ux5Var);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bool)) == null) {
+            if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
+                return a(i);
             }
-            return false;
+            return d(i);
         }
-        return invokeL.booleanValue;
+        return invokeIL.intValue;
     }
 
-    public void d(int i) {
-        cy5 cy5Var;
+    public final int c(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (cy5Var = this.a) != null && cy5Var.b() != null) {
-            this.a.b().b(i);
-        }
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            cy5 cy5Var = this.a;
-            if (cy5Var != null && cy5Var.b() != null) {
-                return this.a.b().a(str);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            boolean z4 = true;
+            if (1 <= i && i < 4) {
+                z = true;
+            } else {
+                z = false;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(TbPageContext tbPageContext, ViewGroup viewGroup, sx5 sx5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, viewGroup, sx5Var) == null) {
-            cy5 cy5Var = this.a;
-            if (cy5Var == null || !cy5Var.a) {
-                this.a = new dy5(tbPageContext, viewGroup, sx5Var);
+            if (z) {
+                return R.color.CAM_X0309;
             }
-            if (this.a.b() != null) {
-                this.a.b().show();
+            if (4 <= i && i < 10) {
+                z2 = true;
+            } else {
+                z2 = false;
             }
+            if (z2) {
+                return R.color.CAM_X0306;
+            }
+            if (10 <= i && i < 16) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            if (z3) {
+                return R.color.CAM_X0305;
+            }
+            if ((16 > i || i >= 19) ? false : false) {
+                return R.color.CAM_X0319;
+            }
+            if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                return 0;
+            }
+            throw new IllegalArgumentException("unsupported simple level " + i + ", check and replace!");
         }
+        return invokeI.intValue;
     }
 }

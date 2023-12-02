@@ -1,31 +1,17 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class if1 implements Cloneable {
+public class if1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Uri b;
-    public int c;
-    public String[] d;
-    public HashMap<String, String> e;
-    public boolean f;
-    public if1 g;
-    public boolean h;
-    public JSONObject i;
-    public String j;
 
     static {
         InterceptResult invokeClinit;
@@ -40,144 +26,45 @@ public class if1 implements Cloneable {
                 return;
             }
         }
-        String str = ef1.b() + "://";
+        mf1 e = mf1.e();
+        nf1 nf1Var = new nf1();
+        e.f("splash_ad", nf1Var);
+        e.g(nf1Var);
     }
 
-    public if1(Uri uri, String str) {
+    public static boolean a(Context context, String str, ff1 ff1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, ff1Var)) == null) {
+            if (of1.g(str)) {
+                return c(context, Uri.parse(str), ff1Var);
             }
+            return false;
         }
-        this.a = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
-        this.c = -1;
-        this.f = false;
-        this.h = false;
-        this.a = str;
-        this.b = uri;
-        this.d = lf1.c(uri);
-        this.e = lf1.b(uri.toString());
+        return invokeLLL.booleanValue;
     }
 
-    public if1(Uri uri, String str, String[] strArr, HashMap<String, String> hashMap) {
+    public static boolean c(Context context, Uri uri, ff1 ff1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri, str, strArr, hashMap};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, uri, ff1Var)) == null) {
+            return b(context, uri, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE, ff1Var);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean b(Context context, Uri uri, String str, ff1 ff1Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, uri, str, ff1Var)) == null) {
+            if (context == null) {
+                context = hf1.a();
             }
+            mf1 e = mf1.e();
+            lf1 lf1Var = new lf1(uri, str);
+            lf1Var.g(false);
+            return e.b(context, lf1Var, ff1Var);
         }
-        this.a = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
-        this.c = -1;
-        this.f = false;
-        this.h = false;
-        this.b = uri;
-        this.a = str;
-        this.d = strArr;
-        this.e = hashMap;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public if1 clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Uri uri = this.b;
-            if1 if1Var = new if1(uri, this.a, lf1.c(uri), (HashMap) this.e.clone());
-            if1Var.g = this;
-            if1Var.h = this.h;
-            if1Var.j = this.j;
-            return if1Var;
-        }
-        return (if1) invokeV.objValue;
-    }
-
-    public HashMap<String, String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        String path;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Uri uri = this.b;
-            if (uri != null) {
-                if (lf1.d(uri) && (path = this.b.getPath()) != null && path.length() > 1) {
-                    return this.b.getPath().substring(1);
-                }
-                return this.b.getHost() + this.b.getPath();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            if (this.d != null) {
-                if (z) {
-                    this.c++;
-                }
-                int i = this.c;
-                String[] strArr = this.d;
-                if (i < strArr.length) {
-                    return strArr[i];
-                }
-                return null;
-            }
-            return null;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void f(String str, String str2) {
-        Uri uri;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && (uri = this.b) != null && str != null && str2 != null) {
-            Uri parse = Uri.parse(uri.toString().replace(str, str2));
-            this.b = parse;
-            this.d = lf1.c(parse);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -10,16 +10,16 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a87;
-import com.baidu.tieba.f37;
+import com.baidu.tieba.ac7;
+import com.baidu.tieba.b57;
+import com.baidu.tieba.db7;
+import com.baidu.tieba.e87;
 import com.baidu.tieba.feed.component.CardVideoView;
 import com.baidu.tieba.feed.widget.roundcorners.RoundFrameLayout;
-import com.baidu.tieba.gb7;
-import com.baidu.tieba.h87;
-import com.baidu.tieba.hb7;
-import com.baidu.tieba.wb7;
-import com.baidu.tieba.x47;
-import com.baidu.tieba.za7;
+import com.baidu.tieba.j37;
+import com.baidu.tieba.kb7;
+import com.baidu.tieba.l87;
+import com.baidu.tieba.lb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,11 +33,11 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0004\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u00012\u00020\u00032\u00020\u0004B\u001b\b\u0007\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\b¢\u0006\u0002\u0010\tJ\u0010\u0010\u001b\u001a\u00020\u001c2\u0006\u0010\u001d\u001a\u00020\u0002H\u0014J\b\u0010\u001e\u001a\u00020\u001fH\u0016J\b\u0010 \u001a\u00020\u001cH\u0016J\u0006\u0010!\u001a\u00020\u001cJ\u000e\u0010\"\u001a\u00020\u001c2\u0006\u0010\u001d\u001a\u00020\u0002R\u0014\u0010\n\u001a\u00020\u000b8BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\f\u0010\rR\u0014\u0010\u000e\u001a\u00020\u000b8BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u000f\u0010\rR\u0014\u0010\u0010\u001a\u00020\u000b8BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u0011\u0010\rR\u0014\u0010\u0012\u001a\u00020\u000b8BX\u0082\u0004¢\u0006\u0006\u001a\u0004\b\u0013\u0010\rR\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u0016\u001a\n \u0018*\u0004\u0018\u00010\u00170\u0017X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006#"}, d2 = {"Lcom/baidu/tieba/feed/component/CardVideoView;", "Lcom/baidu/tieba/feed/component/CardFrameView;", "Lcom/baidu/tieba/feed/component/uistate/CardVideoUiState;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "Lcom/baidu/tieba/feed/list/IGetVideoHolder;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "horizontalVideoHeight", "", "getHorizontalVideoHeight", "()I", "horizontalVideoWidth", "getHorizontalVideoWidth", "verticalVideoHeight", "getVerticalVideoHeight", "verticalVideoWidth", "getVerticalVideoWidth", "videoHolder", "Lcom/baidu/tieba/feed/compat/Resolver$IVideoHolder;", "videoResolver", "Lcom/baidu/tieba/feed/compat/Resolver$IVideoContainer;", "kotlin.jvm.PlatformType", "videoRootView", "Lcom/baidu/tieba/feed/widget/roundcorners/RoundFrameLayout;", "doUpdateState", "", "state", "getVideoHolder", "", "onChangeSkin", "setTopRoundCorner", "updateStateDirectly", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardVideoView extends CardFrameView<x47> implements gb7, za7 {
+public final class CardVideoView extends CardFrameView<b57> implements kb7, db7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final f37.q d;
-    public f37.r e;
+    public final j37.q d;
+    public j37.r e;
     public final RoundFrameLayout f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -84,12 +84,12 @@ public final class CardVideoView extends CardFrameView<x47> implements gb7, za7 
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.d = f37.a().c();
+        this.d = j37.a().c();
         RoundFrameLayout roundFrameLayout = new RoundFrameLayout(context);
         this.f = roundFrameLayout;
         roundFrameLayout.setRadiusPx(BdUtilHelper.getDimens(context, R.dimen.tbds21));
         addView(this.f, new FrameLayout.LayoutParams(-1, -1));
-        f37.r b = this.d.b(getContext(), this.f);
+        j37.r b = this.d.b(getContext(), this.f);
         Intrinsics.checkNotNullExpressionValue(b, "videoResolver.create(getContext(), videoRootView)");
         this.e = b;
     }
@@ -98,18 +98,18 @@ public final class CardVideoView extends CardFrameView<x47> implements gb7, za7 
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void d(x47 state, CardVideoView this$0, View view2) {
+    public static final void d(b57 state, CardVideoView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            for (a87 a87Var : state.o()) {
-                wb7.a.f(a87Var, state.k() + 1);
-                state.j().invoke(a87Var);
+            for (e87 e87Var : state.o()) {
+                ac7.a.f(e87Var, state.k() + 1);
+                state.j().invoke(e87Var);
             }
             Rect rect = new Rect();
             this$0.getGlobalVisibleRect(rect);
-            Function3<Context, Rect, x47, Unit> m = state.m();
+            Function3<Context, Rect, b57, Unit> m = state.m();
             Context context = this$0.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
             m.invoke(context, rect, state);
@@ -152,16 +152,16 @@ public final class CardVideoView extends CardFrameView<x47> implements gb7, za7 
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.gb7
+    @Override // com.baidu.tieba.kb7
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || hb7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || lb7.a(this)) {
             return;
         }
         this.e.onChangeSkinType();
     }
 
-    @Override // com.baidu.tieba.za7
+    @Override // com.baidu.tieba.db7
     public Object getVideoHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -179,7 +179,7 @@ public final class CardVideoView extends CardFrameView<x47> implements gb7, za7 
         }
     }
 
-    public final void e(x47 state) {
+    public final void e(b57 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
@@ -190,13 +190,13 @@ public final class CardVideoView extends CardFrameView<x47> implements gb7, za7 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.feed.component.CardFrameView
     /* renamed from: c */
-    public void a(final x47 state) {
+    public void a(final b57 state) {
         int horizontalVideoWidth;
         int horizontalVideoHeight;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            h87 p = state.p();
+            l87 p = state.p();
             ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
             if (layoutParams != null) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
@@ -217,7 +217,7 @@ public final class CardVideoView extends CardFrameView<x47> implements gb7, za7 
                 if (!state.n().f()) {
                     setClickable(false);
                 } else {
-                    this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.q37
+                    this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.u37
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -225,7 +225,7 @@ public final class CardVideoView extends CardFrameView<x47> implements gb7, za7 
                         public final void onClick(View view2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                CardVideoView.d(x47.this, this, view2);
+                                CardVideoView.d(b57.this, this, view2);
                             }
                         }
                     });

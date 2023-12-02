@@ -1,65 +1,122 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.NewGodInfo;
-/* loaded from: classes9.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+/* loaded from: classes8.dex */
 public class wu5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public List<vm6> b;
 
-    public static String a(NewGodData newGodData) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newGodData)) == null) {
-            if (newGodData != null && newGodData.getType() == 2) {
-                z = true;
-            } else {
-                z = false;
+    /* loaded from: classes8.dex */
+    public class a implements Comparator<vm6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(wu5 wu5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wu5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return c(z);
         }
-        return (String) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(vm6 vm6Var, vm6 vm6Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, vm6Var, vm6Var2)) == null) {
+                return vm6Var.sort() - vm6Var2.sort();
+            }
+            return invokeLL.intValue;
+        }
     }
 
-    public static String b(NewGodInfo newGodInfo) {
-        InterceptResult invokeL;
-        boolean z;
+    public wu5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, newGodInfo)) == null) {
-            if (newGodInfo != null && newGodInfo.type.intValue() == 2) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return c(z);
         }
-        return (String) invokeL.objValue;
+        this.b = new LinkedList();
     }
 
-    public static String c(boolean z) {
-        InterceptResult invokeZ;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_video_god);
-            }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return (String) invokeZ.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void d(String str, String str2, String str3, Context context) {
+    public List<vm6> a(List<PbLinkData> list, List<PbGoodsData> list2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, context) == null) {
-            BrowserHelper.startWebActivity(context, null, grb.a(grb.a(grb.a(TbConfig.URL_FORUM_LEVEL_H5_PAGE, "portrait", str2), "forum_id", str), "obj_locate", str3), true, true, true);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
+            return b(list, list2, null);
         }
+        return (List) invokeLL.objValue;
+    }
+
+    public List<vm6> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                    PbLinkData pbLinkData = list.get(i);
+                    if (pbLinkData.urlType == 2 && !this.a) {
+                        this.a = true;
+                    }
+                    this.b.add(pbLinkData);
+                }
+            }
+            if (!ListUtils.isEmpty(list2)) {
+                this.a = true;
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    this.b.add(list2.get(i2));
+                }
+            }
+            if (!ListUtils.isEmpty(list3)) {
+                this.a = false;
+                for (int i3 = 0; i3 < list3.size(); i3++) {
+                    this.b.add(list3.get(i3));
+                }
+            }
+            Collections.sort(this.b, new a(this));
+            return this.b;
+        }
+        return (List) invokeLLL.objValue;
     }
 }

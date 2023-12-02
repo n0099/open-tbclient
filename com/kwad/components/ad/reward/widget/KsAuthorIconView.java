@@ -73,7 +73,7 @@ public class KsAuthorIconView extends FrameLayout implements br.a {
 
     private void a(e eVar, Drawable drawable) {
         if (drawable instanceof GradientDrawable) {
-            ((GradientDrawable) drawable).setStroke(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070505), eVar.tj());
+            ((GradientDrawable) drawable).setStroke(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070506), eVar.tj());
         }
     }
 
@@ -110,19 +110,19 @@ public class KsAuthorIconView extends FrameLayout implements br.a {
 
     private void P(@NonNull Context context) {
         l.inflate(context, R.layout.obfuscated_res_0x7f0d04b3, this);
-        this.AA = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091310);
-        this.zy = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f09130f);
-        this.AB = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091312);
-        this.AC = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f09130b);
-        this.AE = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f09130c);
-        this.AF = (TextView) findViewById(R.id.obfuscated_res_0x7f091365);
-        this.AH = findViewById(R.id.obfuscated_res_0x7f091366);
-        this.AG = findViewById(R.id.obfuscated_res_0x7f09130e);
-        this.AI = (ImageView) findViewById(R.id.obfuscated_res_0x7f09130d);
-        this.AK = findViewById(R.id.obfuscated_res_0x7f0913e2);
-        this.AJ = findViewById(R.id.obfuscated_res_0x7f0914de);
-        this.AM = findViewById(R.id.obfuscated_res_0x7f091311);
-        this.AL = findViewById(R.id.obfuscated_res_0x7f0914dd);
+        this.AA = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091311);
+        this.zy = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091310);
+        this.AB = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091313);
+        this.AC = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f09130c);
+        this.AE = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f09130d);
+        this.AF = (TextView) findViewById(R.id.obfuscated_res_0x7f091366);
+        this.AH = findViewById(R.id.obfuscated_res_0x7f091367);
+        this.AG = findViewById(R.id.obfuscated_res_0x7f09130f);
+        this.AI = (ImageView) findViewById(R.id.obfuscated_res_0x7f09130e);
+        this.AK = findViewById(R.id.obfuscated_res_0x7f0913e3);
+        this.AJ = findViewById(R.id.obfuscated_res_0x7f0914df);
+        this.AM = findViewById(R.id.obfuscated_res_0x7f091312);
+        this.AL = findViewById(R.id.obfuscated_res_0x7f0914de);
     }
 
     public final void b(AdTemplate adTemplate) {
@@ -153,7 +153,7 @@ public class KsAuthorIconView extends FrameLayout implements br.a {
 
     private Animator c(View view2, long j) {
         if (view2 != null && view2.getWidth() != 0 && view2.getHeight() != 0) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(view2.getWidth(), getResources().getDimension(R.dimen.obfuscated_res_0x7f070506));
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(view2.getWidth(), getResources().getDimension(R.dimen.obfuscated_res_0x7f070507));
             ofFloat.addUpdateListener(f(view2, false));
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f, 0.0f);
             Interpolator create = PathInterpolatorCompat.create(0.42f, 0.0f, 1.0f, 1.0f);

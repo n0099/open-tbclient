@@ -7,53 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Map;
 /* loaded from: classes9.dex */
 public class zc1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile Executor a;
-    public static final int b;
-    public static final int c;
-    public static final ThreadFactory d;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes9.dex */
-    public static class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger(1);
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                return new Thread(runnable, "cashier #" + this.a.getAndIncrement());
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -68,10 +31,9 @@ public class zc1 {
                 return;
             }
         }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        b = availableProcessors;
-        c = (availableProcessors * 2) + 1;
-        d = new a();
+        if (zb1.a() != 1) {
+            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
+        }
     }
 
     public zc1() {
@@ -88,32 +50,59 @@ public class zc1 {
         }
     }
 
-    public static void a(Runnable runnable) {
+    public void a(ub1 ub1Var, tb1 tb1Var, sb1 sb1Var) {
+        DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            b().execute(runnable);
-        }
-    }
-
-    public static synchronized Executor b() {
-        InterceptResult invokeV;
-        Executor executor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (zc1.class) {
-                if (a == null) {
-                    synchronized (zc1.class) {
-                        if (a == null) {
-                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d);
-                            threadPoolExecutor.allowCoreThreadTimeOut(true);
-                            a = threadPoolExecutor;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, ub1Var, tb1Var, sb1Var) == null) {
+            try {
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
+                for (Map.Entry<String, String> entry : ub1Var.c().entrySet()) {
+                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                }
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setUseCaches(false);
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.setReadTimeout(5000);
+                StringBuilder sb = new StringBuilder();
+                for (Map.Entry<String, String> entry2 : tb1Var.c().entrySet()) {
+                    String encode = URLEncoder.encode(entry2.getValue(), "utf-8");
+                    sb.append(entry2.getKey());
+                    sb.append("=");
+                    sb.append(encode);
+                    sb.append("&");
+                }
+                byte[] bytes = sb.toString().getBytes();
+                httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
+                httpURLConnection.connect();
+                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                try {
+                    dataOutputStream.write(bytes);
+                    dataOutputStream.flush();
+                    int responseCode = httpURLConnection.getResponseCode();
+                    if (sb1Var != null) {
+                        if (responseCode >= 200 && responseCode <= 299) {
+                            sb1Var.c(null);
+                        } else {
+                            sb1Var.a(null, 119501, null);
                         }
                     }
+                    id1.a(dataOutputStream);
+                } catch (Throwable unused) {
+                    if (sb1Var != null) {
+                        try {
+                            sb1Var.a(null, 119501, null);
+                        } catch (Throwable th) {
+                            id1.a(dataOutputStream);
+                            throw th;
+                        }
+                    }
+                    id1.a(dataOutputStream);
                 }
-                executor = a;
+            } catch (Throwable unused2) {
+                dataOutputStream = null;
             }
-            return executor;
         }
-        return (Executor) invokeV.objValue;
     }
 }

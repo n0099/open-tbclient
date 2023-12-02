@@ -143,12 +143,12 @@ public class lt extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: A */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cw4Var) == null) {
-            if (cw4Var != null && cw4Var.getThreadData() != null && cw4Var.getThreadData().getItem() != null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, fw4Var) == null) {
+            if (fw4Var != null && fw4Var.getThreadData() != null && fw4Var.getThreadData().getItem() != null) {
                 this.h.setVisibility(0);
-                this.h.setData(cw4Var.getThreadData().itemData, 13, cw4Var.getThreadData().tid);
+                this.h.setData(fw4Var.getThreadData().itemData, 13, fw4Var.getThreadData().tid);
                 return;
             }
             this.h.setVisibility(8);

@@ -1,235 +1,191 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.MemeDiyEnableSwitch;
-import com.baidu.tieba.faceshop.DiyEmotionData;
-import com.baidu.tieba.ve5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes5.dex */
-public class f17 extends ve5 {
+public class f17 {
     public static /* synthetic */ Interceptable $ic;
-    public static f17 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<ye5> a;
-    public final CustomMessageListener b;
 
-    @Override // com.baidu.tieba.ve5
-    public int c() {
-        InterceptResult invokeV;
+    public static List<String> a(String str, InputStream inputStream) throws Exception {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f17 a;
-
-        /* renamed from: com.baidu.tieba.f17$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0292a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0292a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, inputStream)) == null) {
+            ZipInputStream zipInputStream = null;
+            try {
+                ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(inputStream));
+                while (true) {
+                    try {
+                        ZipEntry nextEntry = zipInputStream2.getNextEntry();
+                        if (nextEntry == null) {
+                            break;
+                        } else if (!nextEntry.isDirectory()) {
+                            h(str, nextEntry.getName(), zipInputStream2);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        zipInputStream = zipInputStream2;
+                        sd.e(zipInputStream);
+                        throw th;
                     }
                 }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g();
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(f17 f17Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f17Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = f17Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.d();
-                lr6.a(new RunnableC0292a(this), "FaceShop", 1);
-            }
-        }
-    }
-
-    public f17() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.b);
-    }
-
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    return;
-                }
-                Iterator<ye5> it = this.a.iterator();
-                while (it.hasNext()) {
-                    ye5 next = it.next();
-                    if (next instanceof e17) {
-                        ((e17) next).y();
+                zipInputStream2.close();
+                sd.e(zipInputStream2);
+                byte[] e = e(str, "map.txt");
+                if (e != null) {
+                    String str2 = new String(e, "UTF-8");
+                    LinkedList linkedList = new LinkedList();
+                    for (String str3 : str2.split("\n")) {
+                        String trim = str3.trim();
+                        if (trim.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
+                            String[] split = trim.split("=");
+                            if (split.length == 2) {
+                                String trim2 = split[0].trim();
+                                String trim3 = split[1].trim();
+                                g(str, "s_" + trim3 + ".png", b(trim2, false));
+                                g(str, "d_" + trim3 + ".gif", b(trim2, true));
+                                linkedList.add(trim2);
+                            }
+                        }
                     }
+                    return linkedList;
                 }
+                throw new FileNotFoundException("map.txt file not exsit!");
+            } catch (Throwable th2) {
+                th = th2;
             }
+        } else {
+            return (List) invokeLL.objValue;
         }
     }
 
-    public static f17 e() {
-        InterceptResult invokeV;
+    public static String b(String str, boolean z) {
+        InterceptResult invokeLZ;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (f17.class) {
-                    if (c == null) {
-                        c = new f17();
-                    }
-                }
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
+            long hashCode = str.hashCode();
+            if (hashCode < 0) {
+                hashCode *= -1;
             }
-            return c;
-        }
-        return (f17) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ve5
-    public void b(ve5.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && MemeDiyEnableSwitch.isOn()) {
-            LinkedList<ye5> linkedList = this.a;
-            if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<ye5> it = this.a.iterator();
-                while (it.hasNext()) {
-                    ye5 next = it.next();
-                    if (aVar != null) {
-                        aVar.a(next);
-                    }
-                }
-                return;
-            }
-            this.a = new LinkedList<>();
-            e17 e17Var = new e17();
-            this.a.add(e17Var);
-            if (aVar != null) {
-                aVar.a(e17Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ve5
-    public void d() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            return;
-        }
-        List<DiyEmotionData> r = i17.o().r(TbadkCoreApplication.getCurrentAccount());
-        if (r != null && r.size() != 0) {
-            if (r != null && r.size() != 0) {
-                i = r.size() - 1;
+            StringBuilder sb = new StringBuilder();
+            if (z) {
+                str2 = "d_";
             } else {
-                i = 0;
+                str2 = "s_";
             }
-            StatisticItem statisticItem = new StatisticItem("c12224");
-            statisticItem.param("obj_param1", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-            return;
+            sb.append(str2);
+            sb.append(hashCode);
+            return sb.toString();
         }
-        DiyEmotionData diyEmotionData = new DiyEmotionData();
-        diyEmotionData.setPid("setting_icon");
-        diyEmotionData.setOrderId(301);
-        diyEmotionData.setSharpText("#(meme,diysetting)");
-        diyEmotionData.setUid(TbadkCoreApplication.getCurrentAccount());
-        i17.o().c(diyEmotionData);
+        return (String) invokeLZ.objValue;
     }
 
-    public boolean f(String str) {
-        InterceptResult invokeL;
+    public static String c(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList<ye5> linkedList = this.a;
-            if (linkedList == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            long hashCode = str.hashCode();
+            if (hashCode < 0) {
+                hashCode *= -1;
+            }
+            StringBuilder sb = new StringBuilder();
+            if (z) {
+                str2 = "s_";
+            } else {
+                str2 = "d_";
+            }
+            sb.append(str2);
+            sb.append(hashCode);
+            String sb2 = sb.toString();
+            if (z2 && !z) {
+                return sb2 + ".gif";
+            }
+            return sb2 + ".jpg";
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static boolean g(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            String str4 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/" + str + "/";
+            File file = new File(str4, str2);
+            if (!file.exists()) {
                 return false;
             }
-            Iterator<ye5> it = linkedList.iterator();
-            while (it.hasNext()) {
-                ye5 next = it.next();
-                if (next instanceof e17) {
-                    return ((e17) next).w(str);
+            File file2 = new File(str4, str3);
+            if (file2.exists()) {
+                if (file2.delete() && file.renameTo(file2)) {
+                    return true;
                 }
+                return FileHelper.copyFileByAbsolutelyPath(file.getAbsolutePath(), file2.getAbsolutePath());
+            } else if (file.renameTo(file2)) {
+                return true;
+            } else {
+                return FileHelper.copyFileByAbsolutelyPath(file.getAbsolutePath(), file2.getAbsolutePath());
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Bitmap f = f(str, "panel.png");
+            if (f == null) {
+                return false;
+            }
+            f.recycle();
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static byte[] e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return FileHelper.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static Bitmap f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            return FileHelper.getImage(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
+        }
+        return (Bitmap) invokeLL.objValue;
+    }
+
+    public static boolean h(String str, String str2, InputStream inputStream) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, inputStream)) == null) {
+            if (FileHelper.saveFileByStream(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2, inputStream) != null) {
+                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 }

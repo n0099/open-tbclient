@@ -222,7 +222,7 @@ public final class m extends com.kwad.components.ad.reward.presenter.b implement
     /* JADX INFO: Access modifiers changed from: private */
     public FrameLayout bW() {
         if (this.gV == null) {
-            this.gV = (FrameLayout) this.gS.findViewById(R.id.obfuscated_res_0x7f091475);
+            this.gV = (FrameLayout) this.gS.findViewById(R.id.obfuscated_res_0x7f091476);
         }
         return this.gV;
     }
@@ -278,7 +278,7 @@ public final class m extends com.kwad.components.ad.reward.presenter.b implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.gV = (FrameLayout) this.gS.findViewById(R.id.obfuscated_res_0x7f091475);
+        this.gV = (FrameLayout) this.gS.findViewById(R.id.obfuscated_res_0x7f091476);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

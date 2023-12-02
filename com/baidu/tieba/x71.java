@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.bubble.BubbleManager;
 import com.baidu.nadcore.widget.bubble.BubblePosition;
@@ -13,161 +11,114 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class x71 extends v71 {
+public abstract class x71<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b81 c;
+    public e81 a;
+    public a81 b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public x71() {
-        this(new b81());
+    public x71(a81 a81Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {a81Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this((b81) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = a81Var.f();
+        this.b = a81Var;
     }
 
-    public b81 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (b81) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x71(b81 b81Var) {
-        super(b81Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b81Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((y71) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = b81Var;
-    }
-
-    public x71 i(boolean z) {
+    public x71<T> a(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            super.a(z);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.b.d(z);
             return this;
         }
         return (x71) invokeZ.objValue;
     }
 
-    public x71 k(int i) {
+    public x71<T> c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            super.c(i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            this.b.n(i);
             return this;
         }
         return (x71) invokeI.objValue;
     }
 
-    public x71 n(BubblePosition bubblePosition) {
+    public x71<T> e(BubblePosition bubblePosition) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bubblePosition)) == null) {
-            super.e(bubblePosition);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bubblePosition)) == null) {
+            this.b.e().d = false;
+            this.b.e().e = bubblePosition;
             return this;
         }
         return (x71) invokeL.objValue;
     }
 
-    public x71 o(BubbleManager.b bVar) {
+    public x71<T> f(BubbleManager.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bVar)) == null) {
-            super.f(bVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
+            this.b.o(bVar);
             return this;
         }
         return (x71) invokeL.objValue;
     }
 
-    public x71 p(float f) {
+    public x71<T> g(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
-            super.g(f);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
+            this.b.e().q(f);
             return this;
         }
         return (x71) invokeF.objValue;
     }
 
-    public x71 q(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, charSequence)) == null) {
-            this.c.f().D(charSequence);
-            return this;
-        }
-        return (x71) invokeL.objValue;
-    }
-
-    public x71 j(View view2, ViewGroup viewGroup) {
+    public x71<T> b(View view2, ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, viewGroup)) == null) {
-            super.b(view2, viewGroup);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, viewGroup)) == null) {
+            this.a.s(view2, viewGroup);
             return this;
         }
         return (x71) invokeLL.objValue;
     }
 
-    public x71 l(int i, int i2) {
+    public x71<T> d(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
-            super.d(i, i2);
-            return this;
-        }
-        return (x71) invokeII.objValue;
-    }
-
-    public x71 m(int i, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
-            this.c.t(i, f);
-            return this;
-        }
-        return (x71) invokeCommon.objValue;
-    }
-
-    public x71 r(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
-            try {
-                this.c.f().E(i, i2);
-                return this;
-            } catch (Exception e) {
-                hg0.h("BubbleTextBuilder", "", e);
-                this.c.f().E(Color.parseColor("#CC000000"), Color.parseColor("#CC000000"));
-                return this;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            if (i != -1) {
+                try {
+                    this.a.w(i);
+                } catch (Exception e) {
+                    hg0.h("BubbleBuilder", "", e);
+                    this.a.w(-1);
+                    return this;
+                }
             }
+            if (i2 != -1) {
+                try {
+                    this.a.x(i2);
+                } catch (Exception e2) {
+                    hg0.h("BubbleBuilder", "", e2);
+                    this.a.x(-1);
+                }
+            }
+            return this;
         }
         return (x71) invokeII.objValue;
     }

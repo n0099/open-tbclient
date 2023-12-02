@@ -1,39 +1,202 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.m58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class n58 {
+public class n58 implements i58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s58 a;
-    public Intent b;
-    public int c;
-    public a d;
+    public BdListView a;
+    public m58.e b;
+    public Context c;
+    public List<fu7> d;
+    public m58 e;
+    public final BaseAdapter f;
+    public AdapterView.OnItemClickListener g;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void onStateChanged(int i);
+    @Override // com.baidu.tieba.i58
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
-    public abstract void c();
+    /* loaded from: classes7.dex */
+    public class a extends BaseAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n58 a;
 
-    public abstract void d();
+        @Override // android.widget.Adapter
+        public long getItemId(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
+        }
 
-    public n58(s58 s58Var, Intent intent) {
+        public a(n58 n58Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n58Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n58Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.widget.Adapter
+        /* renamed from: a */
+        public fu7 getItem(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (this.a.d == null) {
+                    return null;
+                }
+                return (fu7) this.a.d.get(i);
+            }
+            return (fu7) invokeI.objValue;
+        }
+
+        @Override // android.widget.Adapter
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.a.d == null) {
+                    return 0;
+                }
+                return this.a.d.size();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // android.widget.Adapter
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+                if (view2 == null) {
+                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d097f, (ViewGroup) null);
+                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275)));
+                    m58.f fVar = new m58.f();
+                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092475);
+                    fVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092472);
+                    fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f092474);
+                    fVar.d = view2.findViewById(R.id.obfuscated_res_0x7f092473);
+                    view2.setTag(fVar);
+                }
+                SkinManager.setBackgroundResource(view2, R.color.CAM_X0201);
+                m58.f fVar2 = (m58.f) view2.getTag();
+                fu7 item = getItem(i);
+                if (item == null) {
+                    return view2;
+                }
+                fVar2.a.setText(item.a);
+                if (item.c) {
+                    SkinManager.setViewTextColor(fVar2.a, R.color.CAM_X0302, 1);
+                    SkinManager.setImageResource(fVar2.b, R.drawable.chx_tips_list_ok);
+                    fVar2.b.setVisibility(0);
+                } else {
+                    SkinManager.setViewTextColor(fVar2.a, R.color.CAM_X0108, 1);
+                    fVar2.b.setVisibility(8);
+                }
+                if (i >= 0 && i == getCount() - 1) {
+                    fVar2.d.setVisibility(0);
+                    fVar2.c.setVisibility(8);
+                    SkinManager.setBackgroundColor(fVar2.d, R.color.CAM_X0204);
+                } else {
+                    fVar2.c.setVisibility(0);
+                    fVar2.d.setVisibility(8);
+                    SkinManager.setBackgroundColor(fVar2.c, R.color.CAM_X0204);
+                }
+                return view2;
+            }
+            return (View) invokeILL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n58 a;
+
+        public b(n58 n58Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n58Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n58Var;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (this.a.e != null) {
+                    this.a.e.c();
+                }
+                if (this.a.f != null && this.a.b != null) {
+                    for (fu7 fu7Var : this.a.d) {
+                        if (fu7Var != null) {
+                            fu7Var.c = false;
+                        }
+                    }
+                    fu7 fu7Var2 = (fu7) this.a.f.getItem(i);
+                    if (fu7Var2 != null) {
+                        fu7Var2.c = true;
+                        this.a.b.a(fu7Var2.b);
+                    }
+                }
+            }
+        }
+    }
+
+    public n58() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s58Var, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,30 +206,52 @@ public abstract class n58 {
                 return;
             }
         }
-        this.c = 0;
-        this.a = s58Var;
-        this.b = intent;
-        q58 c = p58.d().c(this.b.getStringExtra("info_forum_name_text"));
-        c.b();
-        c.a();
-        if (c.c()) {
-            ((RelativeLayout.LayoutParams) this.a.g.getLayoutParams()).topMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
-        }
+        this.f = new a(this);
+        this.g = new b(this);
     }
 
-    public int a() {
+    @Override // com.baidu.tieba.i58
+    public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return invokeV.intValue;
+        return (View) invokeV.objValue;
     }
 
-    public void b(a aVar) {
+    @Override // com.baidu.tieba.i58
+    public void setData(List<fu7> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.d = aVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.d = list;
+            this.f.notifyDataSetChanged();
+        }
+    }
+
+    @Override // com.baidu.tieba.i58
+    public void a(Context context, m58 m58Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, m58Var) == null) && context != null && m58Var != null) {
+            this.c = context;
+            this.e = m58Var;
+            this.b = m58Var.d();
+            g();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            BdListView bdListView = new BdListView(this.c);
+            this.a = bdListView;
+            bdListView.setAlwaysDrawnWithCacheEnabled(false);
+            this.a.setDivider(null);
+            this.a.setDividerHeight(0);
+            this.a.setSelector(17170445);
+            this.a.setCacheColorHint(this.c.getResources().getColor(17170445));
+            this.a.setOnItemClickListener(this.g);
+            this.a.setAdapter((ListAdapter) this.f);
         }
     }
 }

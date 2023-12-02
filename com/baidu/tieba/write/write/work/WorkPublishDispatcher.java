@@ -1,15 +1,15 @@
 package com.baidu.tieba.write.write.work;
 
 import android.content.Context;
-import com.baidu.tieba.kma;
+import com.baidu.tieba.oma;
 import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
-public class WorkPublishDispatcher implements kma {
+/* loaded from: classes8.dex */
+public class WorkPublishDispatcher implements oma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public class WorkPublishDispatcher implements kma {
         }
     }
 
-    @Override // com.baidu.tieba.kma
+    @Override // com.baidu.tieba.oma
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

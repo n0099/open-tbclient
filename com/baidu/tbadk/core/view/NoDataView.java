@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b65;
+import com.baidu.tieba.e65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -175,7 +175,7 @@ public class NoDataView extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             Drawable drawable = SkinManager.getDrawable(i);
             int dimens = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070207);
-            int dimens2 = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f07041c);
+            int dimens2 = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f07041d);
             drawable.setBounds(0, 0, dimens, dimens);
             this.f.setCompoundDrawablePadding(dimens2);
             this.f.setCompoundDrawables(drawable, null, null, null);
@@ -272,10 +272,10 @@ public class NoDataView extends LinearLayout {
             this.f = (TextView) this.b.findViewById(R.id.tv_subtitle);
             this.g = (TextView) this.b.findViewById(R.id.tv_title);
             this.h = (TBSpecificationBtn) this.b.findViewById(R.id.btn_func);
-            b65 b65Var = new b65();
-            b65Var.s(R.color.CAM_X0905, R.color.CAM_X0304);
+            e65 e65Var = new e65();
+            e65Var.s(R.color.CAM_X0905, R.color.CAM_X0304);
             this.h.setTextSize(R.dimen.T_X05);
-            this.h.setConfig(b65Var);
+            this.h.setConfig(e65Var);
             this.l = (LinearLayout) this.b.findViewById(R.id.two_button_layout);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
@@ -445,12 +445,12 @@ public class NoDataView extends LinearLayout {
             if (bVar2 != null && bVar != null) {
                 this.i = (TBSpecificationBtn) this.l.findViewById(R.id.btn_left);
                 this.j = (TBSpecificationBtn) this.l.findViewById(R.id.btn_right);
-                b65 b65Var = new b65();
-                b65Var.s(R.color.CAM_X0905, R.color.CAM_X0304);
+                e65 e65Var = new e65();
+                e65Var.s(R.color.CAM_X0905, R.color.CAM_X0304);
                 this.i.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.i.setConfig(b65Var);
+                this.i.setConfig(e65Var);
                 this.j.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.j.setConfig(b65Var);
+                this.j.setConfig(e65Var);
                 this.i.setOnClickListener(bVar.a);
                 this.i.setText(bVar.b);
                 this.j.setOnClickListener(bVar2.a);

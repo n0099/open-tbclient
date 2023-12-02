@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.lib.socket.msg.TbReMsgInfo;
+import com.baidu.tieba.im.lib.socket.msg.TbAtUserInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class bv8 {
@@ -30,59 +30,58 @@ public final class bv8 {
         }
     }
 
-    public IChatRoomEnterListener.ReMsgInfo a(TbReMsgInfo tbInfo) {
+    public IChatRoomEnterListener.AtUserInfo a(TbAtUserInfo tbInfo) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbInfo)) == null) {
             Intrinsics.checkNotNullParameter(tbInfo, "tbInfo");
-            IChatRoomEnterListener.ReMsgInfo reMsgInfo = new IChatRoomEnterListener.ReMsgInfo();
-            reMsgInfo.msgType = String.valueOf(tbInfo.getSdkMsgType());
-            reMsgInfo.bdUk = vv8.b(tbInfo.getUid());
-            reMsgInfo.nickName = tbInfo.getNickname();
-            reMsgInfo.msgId = String.valueOf(tbInfo.getMsgId());
-            reMsgInfo.msgKey = tbInfo.getMsgKey();
-            reMsgInfo.url = tbInfo.getUrl();
-            reMsgInfo.content = tbInfo.getContent();
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg_type", Integer.valueOf(tbInfo.getMsgType()));
-            reMsgInfo.ext = DataExt.toJson(hashMap);
-            return reMsgInfo;
+            IChatRoomEnterListener.AtUserInfo atUserInfo = new IChatRoomEnterListener.AtUserInfo();
+            if (tbInfo.getAtType() == TbAtUserInfo.AtType.ALL) {
+                str = "all";
+            } else {
+                str = "user";
+            }
+            atUserInfo.atType = str;
+            atUserInfo.atBdUk = zv8.b(tbInfo.getAtUid());
+            atUserInfo.atName = tbInfo.getAtName();
+            atUserInfo.atPortrait = tbInfo.getAtPortrait();
+            atUserInfo.atPosition = String.valueOf(tbInfo.getAtPosition());
+            return atUserInfo;
         }
-        return (IChatRoomEnterListener.ReMsgInfo) invokeL.objValue;
+        return (IChatRoomEnterListener.AtUserInfo) invokeL.objValue;
     }
 
-    public TbReMsgInfo b(IChatRoomEnterListener.ReMsgInfo sdkInfo) {
+    public TbAtUserInfo b(IChatRoomEnterListener.AtUserInfo sdkInfo) {
         InterceptResult invokeL;
+        TbAtUserInfo.AtType atType;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkInfo)) == null) {
             Intrinsics.checkNotNullParameter(sdkInfo, "sdkInfo");
-            TbReMsgInfo tbReMsgInfo = new TbReMsgInfo();
-            String ext = sdkInfo.ext;
-            Intrinsics.checkNotNullExpressionValue(ext, "ext");
-            Long l = (Long) DataExt.toMap(ext).get("msg_type");
-            Intrinsics.checkNotNull(l);
-            tbReMsgInfo.setMsgType((int) l.longValue());
-            String msgType = sdkInfo.msgType;
-            Intrinsics.checkNotNullExpressionValue(msgType, "msgType");
-            tbReMsgInfo.setSdkMsgType(Integer.parseInt(msgType));
-            String bdUk = sdkInfo.bdUk;
-            Intrinsics.checkNotNullExpressionValue(bdUk, "bdUk");
-            tbReMsgInfo.setUid(vv8.a(bdUk));
-            String nickName = sdkInfo.nickName;
-            Intrinsics.checkNotNullExpressionValue(nickName, "nickName");
-            tbReMsgInfo.setNickname(nickName);
-            String msgId = sdkInfo.msgId;
-            Intrinsics.checkNotNullExpressionValue(msgId, "msgId");
-            tbReMsgInfo.setMsgId(Long.parseLong(msgId));
-            String msgKey = sdkInfo.msgKey;
-            Intrinsics.checkNotNullExpressionValue(msgKey, "msgKey");
-            tbReMsgInfo.setMsgKey(msgKey);
-            tbReMsgInfo.setUrl(sdkInfo.url);
-            String content = sdkInfo.content;
-            Intrinsics.checkNotNullExpressionValue(content, "content");
-            tbReMsgInfo.setContent(content);
-            return tbReMsgInfo;
+            TbAtUserInfo tbAtUserInfo = new TbAtUserInfo();
+            if (TextUtils.equals(sdkInfo.atType, "all")) {
+                atType = TbAtUserInfo.AtType.ALL;
+            } else {
+                atType = TbAtUserInfo.AtType.USER;
+            }
+            tbAtUserInfo.setAtType(atType);
+            String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(sdkInfo.atBdUk);
+            Intrinsics.checkNotNullExpressionValue(bdUidFromBdUK, "getBdUidFromBdUK(sdkInfo.atBdUk)");
+            tbAtUserInfo.setAtUid(Long.parseLong(bdUidFromBdUK));
+            String str = sdkInfo.atBdUk;
+            Intrinsics.checkNotNullExpressionValue(str, "sdkInfo.atBdUk");
+            tbAtUserInfo.setAtUid(zv8.a(str));
+            String atName = sdkInfo.atName;
+            Intrinsics.checkNotNullExpressionValue(atName, "atName");
+            tbAtUserInfo.setAtName(atName);
+            String atPortrait = sdkInfo.atPortrait;
+            Intrinsics.checkNotNullExpressionValue(atPortrait, "atPortrait");
+            tbAtUserInfo.setAtPortrait(atPortrait);
+            String atPosition = sdkInfo.atPosition;
+            Intrinsics.checkNotNullExpressionValue(atPosition, "atPosition");
+            tbAtUserInfo.setAtPosition(Integer.parseInt(atPosition));
+            return tbAtUserInfo;
         }
-        return (TbReMsgInfo) invokeL.objValue;
+        return (TbAtUserInfo) invokeL.objValue;
     }
 }

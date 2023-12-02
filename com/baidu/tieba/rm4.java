@@ -1,104 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.google.zxing.client.result.ResultParser;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes8.dex */
-public class rm4<T> {
+public class rm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<um4<T>> a;
 
-    public rm4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList(6);
-    }
-
-    public void a(um4<T> um4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, um4Var) == null) && um4Var != null && !this.a.contains(um4Var)) {
-            this.a.add(um4Var);
-        }
-    }
-
-    public T b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<um4> arrayList = new ArrayList();
-            Iterator<um4<T>> it = this.a.iterator();
-            T t = null;
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                um4<T> next = it.next();
-                T t2 = next.get();
-                if (c(t2)) {
-                    t = t2;
-                    break;
-                }
-                arrayList.add(next);
-                t = t2;
-            }
-            if (arrayList.size() > 0) {
-                for (um4 um4Var : arrayList) {
-                    um4Var.put(t);
-                }
-            }
-            return t;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public final boolean c(T t) {
+    public static byte[] a(InputStream inputStream) {
         InterceptResult invokeL;
-        char[] charArray;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            if (t == null || !(t instanceof String)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
             }
-            String str = (String) t;
-            if (str.length() != 32) {
-                return false;
-            }
-            for (char c : str.toCharArray()) {
-                if ((c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
-                    return false;
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                try {
+                    i = inputStream.read(bArr, 0, 1024);
+                } catch (IOException unused) {
+                    i = 0;
+                }
+                if (i != -1) {
+                    byteArrayOutputStream.write(bArr, 0, i);
+                } else {
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    nm4.d(byteArrayOutputStream);
+                    return byteArray;
                 }
             }
-            return true;
+        } else {
+            return (byte[]) invokeL.objValue;
         }
-        return invokeL.booleanValue;
     }
 
-    public void d(T t) {
+    public static String c(InputStream inputStream) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || c(t)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            try {
+                byte[] a = a(inputStream);
+                if (a != null) {
+                    String str = new String(a);
+                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                        str = str.substring(1);
+                    }
+                    nm4.d(inputStream);
+                    return str;
+                }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                nm4.d(inputStream);
+                throw th;
+            }
+            nm4.d(inputStream);
+            return null;
         }
-        for (um4<T> um4Var : this.a) {
-            if (um4Var.a()) {
-                um4Var.put(t);
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            try {
+                return URLEncoder.encode(str, "utf-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
             }
         }
+        return (String) invokeL.objValue;
     }
 }

@@ -16,8 +16,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cc1;
-import com.baidu.tieba.tc1;
+import com.baidu.tieba.fc1;
+import com.baidu.tieba.wc1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                tc1.c++;
+                wc1.c++;
                 if (this.b.f != null) {
                     this.b.f.a(this.a);
                 }
@@ -239,18 +239,18 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0a20, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0a21, (ViewGroup) this, true);
             this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906f2);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906fc);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0906f1);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906fe);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916e9);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916eb);
-            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916ea);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092820);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092876);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0911c9);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc0);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916ea);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916ec);
+            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916eb);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092823);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092879);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ca);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc2);
             setOnClickListener(this);
         }
     }
@@ -336,13 +336,13 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             String icon = payChannelEntity.getIcon();
             int isSelected = payChannelEntity.getIsSelected();
             int enable = payChannelEntity.getEnable();
-            cc1.b().a(this.a, icon);
+            fc1.b().a(this.a, icon);
             this.b.setText(displayName);
             if (isSelected == 1) {
                 this.d.setImageResource(R.drawable.obfuscated_res_0x7f0804db);
                 this.m = true;
             } else {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f08159b);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f08159e);
                 this.m = false;
             }
             if (1 == enable) {

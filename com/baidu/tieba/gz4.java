@@ -1,18 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SeniorLottery;
 /* loaded from: classes6.dex */
 public class gz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public ey4 a;
+    public List<qw4> b;
+    public List<rw4> c;
+    public List<dy4> d;
 
     public gz4() {
         Interceptable interceptable = $ic;
@@ -24,59 +26,40 @@ public class gz4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(SeniorLottery seniorLottery) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, seniorLottery) != null) || seniorLottery == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        ey4 ey4Var = new ey4();
+        this.a = ey4Var;
+        ey4Var.a(seniorLottery.theme);
+        this.b = new ArrayList();
+        int size = seniorLottery.award_info.size();
+        for (int i = 0; i < size; i++) {
+            qw4 qw4Var = new qw4();
+            qw4Var.a(seniorLottery.award_info.get(i));
+            this.b.add(qw4Var);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        String str = seniorLottery.myaward;
+        this.c = new ArrayList();
+        int size2 = seniorLottery.luck_users.size();
+        for (int i2 = 0; i2 < size2; i2++) {
+            rw4 rw4Var = new rw4();
+            rw4Var.a(seniorLottery.luck_users.get(i2));
+            this.c.add(rw4Var);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
+        String str2 = seniorLottery.act_desc;
+        this.d = new ArrayList();
+        int size3 = seniorLottery.act_regular.size();
+        for (int i3 = 0; i3 < size3; i3++) {
+            dy4 dy4Var = new dy4();
+            dy4Var.a(seniorLottery.act_regular.get(i3));
+            this.d.add(dy4Var);
         }
     }
 }

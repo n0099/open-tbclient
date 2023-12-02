@@ -138,7 +138,7 @@ public class UnifyTextView extends TextView {
         super(context, attributeSet, i);
         Intrinsics.checkNotNullParameter(context, "context");
         this.TAG = "UnifyTextView";
-        this.DEFAULT_TOP_BOTTOM_PADDING = getDimensionPixelSize(context, com.baidu.tieba.R.dimen.obfuscated_res_0x7f0707ef);
+        this.DEFAULT_TOP_BOTTOM_PADDING = getDimensionPixelSize(context, com.baidu.tieba.R.dimen.obfuscated_res_0x7f0707f3);
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.android.common.base.spannable.R.styleable.spannable_etextview);
         Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "getContext().obtainStyle…able.spannable_etextview)");
         this.mTopPadding = obtainStyledAttributes.getDimensionPixelSize(1, this.DEFAULT_TOP_BOTTOM_PADDING);
@@ -150,7 +150,7 @@ public class UnifyTextView extends TextView {
         if (hasEmoji(charSequence)) {
             Context context = getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
-            this.mTopBuffer = Math.round(getDimensionPixelSize(context, com.baidu.tieba.R.dimen.obfuscated_res_0x7f0707f0) * 1.5f);
+            this.mTopBuffer = Math.round(getDimensionPixelSize(context, com.baidu.tieba.R.dimen.obfuscated_res_0x7f0707f4) * 1.5f);
             if (this.DEBUG) {
                 String str = this.TAG;
                 Log.d(str, "has emoji, mTopBuffer: " + this.mTopBuffer);
@@ -158,7 +158,7 @@ public class UnifyTextView extends TextView {
         } else {
             Context context2 = getContext();
             Intrinsics.checkNotNullExpressionValue(context2, "context");
-            this.mTopBuffer = getDimensionPixelSize(context2, com.baidu.tieba.R.dimen.obfuscated_res_0x7f0707f0);
+            this.mTopBuffer = getDimensionPixelSize(context2, com.baidu.tieba.R.dimen.obfuscated_res_0x7f0707f4);
             if (this.DEBUG) {
                 String str2 = this.TAG;
                 Log.d(str2, "has no emoji, mTopBuffer: " + this.mTopBuffer);
@@ -166,7 +166,7 @@ public class UnifyTextView extends TextView {
         }
         Context context3 = getContext();
         Intrinsics.checkNotNullExpressionValue(context3, "context");
-        this.mBottomBuffer = getDimensionPixelSize(context3, com.baidu.tieba.R.dimen.obfuscated_res_0x7f0707ee);
+        this.mBottomBuffer = getDimensionPixelSize(context3, com.baidu.tieba.R.dimen.obfuscated_res_0x7f0707f2);
     }
 
     public final void setTextWithUnifiedPadding(CharSequence charSequence, TextView.BufferType bufferType) {

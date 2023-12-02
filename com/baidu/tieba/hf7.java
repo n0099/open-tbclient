@@ -12,8 +12,8 @@ public final class hf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final String b;
-    public final int c;
+    public final ff7 b;
+    public final lf7 c;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -24,7 +24,7 @@ public final class hf7 {
             }
             if (obj instanceof hf7) {
                 hf7 hf7Var = (hf7) obj;
-                return Intrinsics.areEqual(this.a, hf7Var.a) && Intrinsics.areEqual(this.b, hf7Var.b) && this.c == hf7Var.c;
+                return Intrinsics.areEqual(this.a, hf7Var.a) && Intrinsics.areEqual(this.b, hf7Var.b) && Intrinsics.areEqual(this.c, hf7Var.c);
             }
             return false;
         }
@@ -34,64 +34,69 @@ public final class hf7 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int hashCode = ((this.a.hashCode() * 31) + this.b.hashCode()) * 31;
+            lf7 lf7Var = this.c;
+            return hashCode + (lf7Var == null ? 0 : lf7Var.hashCode());
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "BubbleStatData(fid=" + this.a + ", fname=" + this.b + ", type=" + this.c + ')';
+            return "BubbleData(content=" + this.a + ", config=" + this.b + ", stat=" + this.c + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public hf7(String fid, String fname, int i) {
+    public hf7(String content, ff7 config, lf7 lf7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fid, fname, Integer.valueOf(i)};
+            Object[] objArr = {content, config, lf7Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(fid, "fid");
-        Intrinsics.checkNotNullParameter(fname, "fname");
-        this.a = fid;
-        this.b = fname;
-        this.c = i;
+        Intrinsics.checkNotNullParameter(content, "content");
+        Intrinsics.checkNotNullParameter(config, "config");
+        this.a = content;
+        this.b = config;
+        this.c = lf7Var;
     }
 
-    public final String a() {
+    public final ff7 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (ff7) invokeV.objValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public final int c() {
+    public final lf7 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.c;
         }
-        return invokeV.intValue;
+        return (lf7) invokeV.objValue;
     }
 }

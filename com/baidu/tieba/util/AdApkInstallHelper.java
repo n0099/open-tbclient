@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eu4;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
 import com.baidu.tieba.filedownloader.logs.DownloaderLog;
 import com.baidu.tieba.filedownloader.utils.PermissionUtil;
 import com.baidu.tieba.gi0;
-import com.baidu.tieba.ksa;
+import com.baidu.tieba.hu4;
+import com.baidu.tieba.jsa;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.util.AdApkInstallHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -119,10 +119,10 @@ public final class AdApkInstallHelper {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
                     Intrinsics.checkNotNullParameter(params, "params");
-                    ksa k = new TbDownloadManager().m().k(this.a, this.b);
+                    jsa k = new TbDownloadManager().m().k(this.a, this.b);
                     ItemData itemData = new ItemData();
                     itemData.parseJson(k.c());
-                    eu4.b().a(this.c, String.valueOf(k.r()), itemData.mTitle, k.d(), itemData.mTbFileDownloaderType);
+                    hu4.b().a(this.c, String.valueOf(k.r()), itemData.mTitle, k.d(), itemData.mTbFileDownloaderType);
                     return 0L;
                 }
                 return (Long) invokeL.objValue;

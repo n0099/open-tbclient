@@ -1,108 +1,365 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProvider;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.forum.data.ForumTabItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.forum.data.SortItem;
 import com.baidu.tieba.forum.data.SubTabItem;
-import com.baidu.tieba.forum.viewmodel.ForumViewModel;
+import com.baidu.tieba.forum.databinding.FragmentFrsFeedBinding;
+import com.baidu.tieba.forum.view.FrsSortSwitchButton;
+import com.baidu.tieba.forum.widget.ForumTabLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.tabs.TabLayout;
+import java.util.ArrayList;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes8.dex */
-public final class wn7 {
+public final class wn7 implements TabLayout.OnTabSelectedListener, FrsSortSwitchButton.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Function1<? super TabLayout.Tab, Boolean> a;
+    public Function1<? super zs7, Boolean> b;
+    public Function1<? super TabLayout.Tab, Boolean> c;
+    public final FrameLayout d;
+    public final BdRecyclerView e;
+    public final LinearLayout f;
+    public final ForumTabLayout g;
+    public final RelativeLayout h;
+    public final TextView i;
+    public final FrsSortSwitchButton j;
+    public String k;
+    public ThemeColorInfo l;
 
-    public static final ql7 a(FragmentActivity activity, Bundle bundle, BdUniqueId bdUniqueId, vl7 resultCallback) {
-        InterceptResult invokeLLLL;
+    public wn7(FragmentFrsFeedBinding binding, Function1<? super TabLayout.Tab, Boolean> function1, Function1<? super zs7, Boolean> function12, Function1<? super TabLayout.Tab, Boolean> function13) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, activity, bundle, bdUniqueId, resultCallback)) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            Intrinsics.checkNotNullParameter(bundle, "bundle");
-            Intrinsics.checkNotNullParameter(bdUniqueId, "bdUniqueId");
-            Intrinsics.checkNotNullParameter(resultCallback, "resultCallback");
-            ql7 pl7Var = new pl7();
-            ForumTabItem forumTabItem = (ForumTabItem) bundle.getParcelable("forum_tab_info");
-            if (forumTabItem == null) {
-                return pl7Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {binding, function1, function12, function13};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            oi7 oi7Var = null;
-            if (bundle.getBoolean("forum_tab_current_list", false)) {
-                oi7Var = ((ForumViewModel) new ViewModelProvider(activity).get(ForumViewModel.class)).a().getValue();
-            }
-            int netType = forumTabItem.getNetType();
-            int i = -1;
-            if (netType != 1) {
-                if (netType != 2) {
-                    if (netType != 3) {
-                        do7.a("Unknown netType!!!");
-                    } else {
-                        pl7Var = new ol7(new yl7(activity, bdUniqueId, bundle), resultCallback);
-                    }
-                } else {
-                    pl7Var = new ol7(new zl7(activity, bdUniqueId, bundle), resultCallback);
-                }
-            } else {
-                i = SharedPrefHelper.getInstance().getInt("key_forum_last_sort_type", -1);
-                pl7Var = new ol7(new am7(activity, bdUniqueId, bundle), resultCallback);
-            }
-            pl7Var.c(new sl7(b(forumTabItem, i), oi7Var));
-            return pl7Var;
         }
-        return (ql7) invokeLLLL.objValue;
+        Intrinsics.checkNotNullParameter(binding, "binding");
+        this.a = function1;
+        this.b = function12;
+        this.c = function13;
+        FrameLayout frameLayout = binding.b;
+        Intrinsics.checkNotNullExpressionValue(frameLayout, "binding.fakeHeadLayout");
+        this.d = frameLayout;
+        BdRecyclerView bdRecyclerView = binding.g;
+        Intrinsics.checkNotNullExpressionValue(bdRecyclerView, "binding.recyclerView");
+        this.e = bdRecyclerView;
+        LinearLayout linearLayout = binding.f;
+        Intrinsics.checkNotNullExpressionValue(linearLayout, "binding.headLayout");
+        this.f = linearLayout;
+        ForumTabLayout forumTabLayout = binding.l;
+        Intrinsics.checkNotNullExpressionValue(forumTabLayout, "binding.subTabLayout");
+        this.g = forumTabLayout;
+        RelativeLayout relativeLayout = binding.i;
+        Intrinsics.checkNotNullExpressionValue(relativeLayout, "binding.sortLayout");
+        this.h = relativeLayout;
+        TextView textView = binding.j;
+        Intrinsics.checkNotNullExpressionValue(textView, "binding.sortName");
+        this.i = textView;
+        FrsSortSwitchButton frsSortSwitchButton = binding.k;
+        Intrinsics.checkNotNullExpressionValue(frsSortSwitchButton, "binding.sortSwitchBtn");
+        this.j = frsSortSwitchButton;
+        this.g.addOnTabSelectedListener((TabLayout.OnTabSelectedListener) this);
+        this.j.setOnSwitchChangeListener(this);
     }
 
-    public static final rl7 b(ForumTabItem forumTabItem, int i) {
-        InterceptResult invokeLI;
-        boolean z;
-        xl7 xl7Var;
-        boolean z2;
-        int size;
+    @Override // com.baidu.tieba.forum.view.FrsSortSwitchButton.d
+    public boolean a(zs7 currentData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, forumTabItem, i)) == null) {
-            List<SubTabItem> subTabList = forumTabItem.getSubTabList();
-            int i2 = 0;
-            if (subTabList != null && !subTabList.isEmpty()) {
-                z = false;
-            } else {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, currentData)) == null) {
+            Intrinsics.checkNotNullParameter(currentData, "currentData");
+            Function1<? super zs7, Boolean> function1 = this.b;
+            if (function1 != null) {
+                return function1.invoke(currentData).booleanValue();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void i(ThemeColorInfo themeColorInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, themeColorInfo) == null) {
+            this.l = themeColorInfo;
+        }
+    }
+
+    @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
+    public void onTabReselected(TabLayout.Tab tab) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, tab) == null) {
+            Intrinsics.checkNotNullParameter(tab, "tab");
+            Function1<? super TabLayout.Tab, Boolean> function1 = this.c;
+            if (function1 != null) {
+                function1.invoke(tab);
+            }
+        }
+    }
+
+    @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
+    public void onTabSelected(TabLayout.Tab tab) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, tab) == null) {
+            Intrinsics.checkNotNullParameter(tab, "tab");
+            Function1<? super TabLayout.Tab, Boolean> function1 = this.a;
+            boolean z = false;
+            if (function1 != null && !function1.invoke(tab).booleanValue()) {
                 z = true;
             }
-            wl7 wl7Var = null;
-            if (!z && forumTabItem.getSubTabList().size() > 1) {
-                xl7Var = new xl7(forumTabItem.getSubTabList(), 0);
-            } else {
-                xl7Var = null;
+            if (!z) {
+                g(tab);
             }
-            List<SortItem> sortItemList = forumTabItem.getSortItemList();
-            if (sortItemList != null && !sortItemList.isEmpty()) {
-                z2 = false;
-            } else {
-                z2 = true;
+        }
+    }
+
+    @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
+    public void onTabUnselected(TabLayout.Tab tab) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, tab) == null) {
+            Intrinsics.checkNotNullParameter(tab, "tab");
+            h(tab);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ThemeColorInfo themeColorInfo = this.l;
+            if (themeColorInfo != null) {
+                this.k = y5b.e(themeColorInfo);
             }
-            if (!z2 && forumTabItem.getSortItemList().size() > 1) {
-                if (i != -1 && (size = forumTabItem.getSortItemList().size()) >= 0) {
-                    int i3 = 0;
-                    while (true) {
-                        if (forumTabItem.getSortItemList().get(i3).getId() == i) {
-                            i2 = i3;
-                            break;
-                        } else if (i3 == size) {
-                            break;
+            d(this.g);
+            this.j.A();
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0108);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = null;
+            this.g.removeOnTabSelectedListener((TabLayout.BaseOnTabSelectedListener) null);
+            this.b = null;
+            this.j.setOnSwitchChangeListener(null);
+            this.c = null;
+        }
+    }
+
+    public final void d(TabLayout tabLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, tabLayout) == null) {
+            int tabCount = tabLayout.getTabCount();
+            for (int i = 0; i < tabCount; i++) {
+                TabLayout.Tab tabAt = tabLayout.getTabAt(i);
+                if (tabAt != null && (tabAt.getCustomView() instanceof TBSpecificationBtn)) {
+                    View customView = tabAt.getCustomView();
+                    if (customView != null) {
+                        TBSpecificationButtonConfig styleConfig = ((TBSpecificationBtn) customView).getStyleConfig();
+                        if (styleConfig != null) {
+                            f65 f65Var = (f65) styleConfig;
+                            if (!tabAt.isSelected()) {
+                                f65Var.s(SkinManager.getColor(R.color.CAM_X0108));
+                            } else if (rd.isEmpty(this.k)) {
+                                f65Var.s(SkinManager.getColor(R.color.CAM_X0105));
+                            } else {
+                                f65Var.s(tua.f(this.k));
+                            }
                         } else {
-                            i3++;
+                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonStyleC");
                         }
+                    } else {
+                        throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn");
                     }
                 }
-                wl7Var = new wl7(forumTabItem.getSortItemList(), i2);
             }
-            return new rl7(xl7Var, wl7Var);
         }
-        return (rl7) invokeLI.objValue;
+    }
+
+    public final void e(am7 am7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, am7Var) == null) {
+            if (am7Var != null && am7Var.b().size() >= 2) {
+                ArrayList arrayList = new ArrayList();
+                for (SortItem sortItem : am7Var.b()) {
+                    zs7 zs7Var = new zs7();
+                    zs7Var.b = sortItem.getId();
+                    zs7Var.a = sortItem.getName();
+                    arrayList.add(zs7Var);
+                }
+                this.h.setVisibility(0);
+                this.j.setData(arrayList, am7Var.a());
+                return;
+            }
+            this.h.setVisibility(8);
+        }
+    }
+
+    public final void g(TabLayout.Tab tab) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, tab) == null) && tab.getCustomView() != null) {
+            View customView = tab.getCustomView();
+            if (customView != null) {
+                TBSpecificationButtonConfig styleConfig = ((TBSpecificationBtn) customView).getStyleConfig();
+                if (styleConfig != null) {
+                    f65 f65Var = (f65) styleConfig;
+                    if (rd.isEmpty(this.k)) {
+                        f65Var.s(SkinManager.getColor(R.color.CAM_X0105));
+                        return;
+                    } else {
+                        f65Var.s(tua.f(this.k));
+                        return;
+                    }
+                }
+                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonStyleC");
+            }
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn");
+        }
+    }
+
+    public final void f(bm7 bm7Var) {
+        boolean z;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bm7Var) == null) {
+            if (bm7Var != null && bm7Var.b().size() >= 2) {
+                this.g.setVisibility(0);
+                this.g.removeAllTabs();
+                int i2 = 0;
+                for (Object obj : bm7Var.b()) {
+                    int i3 = i2 + 1;
+                    if (i2 < 0) {
+                        CollectionsKt__CollectionsKt.throwIndexOverflow();
+                    }
+                    SubTabItem subTabItem = (SubTabItem) obj;
+                    if (bm7Var.a() == i2) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    TabLayout.Tab newTab = this.g.newTab();
+                    Intrinsics.checkNotNullExpressionValue(newTab, "subTabLayout.newTab()");
+                    newTab.f1201view.setPadding(0, 0, 0, 0);
+                    TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(this.g.getContext());
+                    f65 f65Var = new f65();
+                    if (z) {
+                        i = R.color.CAM_X0105;
+                    } else {
+                        i = R.color.CAM_X0108;
+                    }
+                    f65Var.t(i);
+                    tBSpecificationBtn.setConfig(f65Var);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, BdUtilHelper.getDimens(this.g.getContext(), R.dimen.tbds75));
+                    layoutParams.setMargins(BdUtilHelper.getDimens(this.g.getContext(), R.dimen.M_W_X006) / 2, 0, BdUtilHelper.getDimens(this.g.getContext(), R.dimen.M_W_X006) / 2, 0);
+                    tBSpecificationBtn.setLayoutParams(layoutParams);
+                    newTab.setCustomView(tBSpecificationBtn);
+                    tBSpecificationBtn.setText(StringHelper.cutForumNameWithSuffix(subTabItem.getName(), 10, "..."));
+                    newTab.setTag(Integer.valueOf(subTabItem.getId()));
+                    this.g.addTab(newTab, z);
+                    i2 = i3;
+                }
+                return;
+            }
+            this.g.setVisibility(8);
+            this.g.removeAllTabs();
+        }
+    }
+
+    public final void h(TabLayout.Tab tab) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, tab) == null) && tab != null && tab.getCustomView() != null) {
+            View customView = tab.getCustomView();
+            if (customView != null) {
+                TBSpecificationButtonConfig styleConfig = ((TBSpecificationBtn) customView).getStyleConfig();
+                if (styleConfig != null) {
+                    ((f65) styleConfig).t(R.color.CAM_X0108);
+                    return;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonStyleC");
+            }
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn");
+        }
+    }
+
+    public final void j() {
+        ViewGroup viewGroup;
+        RecyclerView.LayoutManager layoutManager;
+        RecyclerView.LayoutParams generateLayoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.f.setVisibility(0);
+            ViewParent parent = this.f.getParent();
+            if (Intrinsics.areEqual(parent, this.d)) {
+                if (parent instanceof ViewGroup) {
+                    viewGroup = (ViewGroup) parent;
+                } else {
+                    viewGroup = null;
+                }
+                if (viewGroup != null) {
+                    viewGroup.removeView(this.f);
+                }
+                ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
+                if (layoutParams != null && (layoutManager = this.e.getLayoutManager()) != null && (generateLayoutParams = layoutManager.generateLayoutParams(layoutParams)) != null) {
+                    Intrinsics.checkNotNullExpressionValue(generateLayoutParams, "generateLayoutParams(oldLayoutParams)");
+                    this.f.setLayoutParams(generateLayoutParams);
+                }
+                this.e.addHeaderView(this.f);
+            }
+        }
+    }
+
+    public final void k() {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.f.setVisibility(0);
+            ViewParent parent = this.f.getParent();
+            if (!Intrinsics.areEqual(parent, this.d)) {
+                if (parent instanceof ViewGroup) {
+                    viewGroup = (ViewGroup) parent;
+                } else {
+                    viewGroup = null;
+                }
+                if (viewGroup != null) {
+                    viewGroup.removeView(this.f);
+                }
+                this.e.removeHeaderView(this.f);
+                ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
+                if (layoutParams != null) {
+                    this.f.setLayoutParams(new FrameLayout.LayoutParams(layoutParams));
+                }
+                this.d.addView(this.f);
+            }
+        }
     }
 }

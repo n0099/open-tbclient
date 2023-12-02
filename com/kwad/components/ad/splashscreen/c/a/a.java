@@ -14,9 +14,9 @@ public final class a extends com.kwad.components.ad.splashscreen.c.e {
     public ViewGroup Et;
 
     private void initView() {
-        this.Er = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e1);
-        this.Es = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914be);
-        this.Et = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914bc);
+        this.Er = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e2);
+        this.Es = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914bf);
+        this.Et = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914bd);
     }
 
     @Override // com.kwad.components.ad.splashscreen.c.e, com.kwad.sdk.mvp.Presenter

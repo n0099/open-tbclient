@@ -1,38 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.Intent;
+import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.t31;
-import com.baidu.tieba.t51;
+import com.baidu.tieba.v51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
-public final class i51 extends f51 {
+public final class i51 extends h51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ze0 a;
-    public final j51 b;
+    public boolean a;
+    public Handler b;
+    public final l51 c;
 
     /* loaded from: classes6.dex */
-    public static final class a implements ze0 {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i51 a;
+        public final /* synthetic */ v51.b b;
 
-        public a(i51 i51Var) {
+        public a(i51 i51Var, v51.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {i51Var};
+                Object[] objArr = {i51Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,22 +43,20 @@ public final class i51 extends f51 {
                 }
             }
             this.a = i51Var;
+            this.b = bVar;
         }
 
-        @Override // com.baidu.tieba.ze0
-        public final void a(boolean z, Map<String, String> map) {
-            AbsNadBrowserView m;
+        @Override // java.lang.Runnable
+        public final void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, map) == null) {
-                String p = ef0.p(map);
-                if (!TextUtils.isEmpty(p) && (m = this.a.b.m()) != null) {
-                    AbsNadBrowserView.C(m, p, null, 2, null);
-                }
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.q(this.b.a());
         }
     }
 
-    public i51(j51 container) {
+    public i51(l51 container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,70 +72,111 @@ public final class i51 extends f51 {
             }
         }
         Intrinsics.checkNotNullParameter(container, "container");
-        this.b = container;
-        this.a = new a(this);
+        this.c = container;
     }
 
-    @Override // com.baidu.tieba.f51
-    public boolean f(AbsNadBrowserView webView, String str) {
-        InterceptResult invokeLL;
+    public final void o(v51.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            String e = q21.e(str);
-            Intrinsics.checkNotNullExpressionValue(e, "UrlUtil.handleAbnormalUrlIfNeeded(url)");
-            if (!TextUtils.isEmpty(e) && (StringsKt__StringsJVMKt.startsWith$default(e, "http://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "https://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "ftp://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "sftp://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "ftps://", false, 2, null))) {
-                return false;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) && !this.a && bVar != null && bVar.d()) {
+            if (this.b == null) {
+                this.b = new Handler();
             }
-            if (str != null && this.b.a(str)) {
-                return true;
+            Handler handler = this.b;
+            if (handler != null) {
+                handler.postDelayed(new a(this, bVar), (long) (bVar.b() * 1000));
             }
-            o(webView, str);
-            if (this.b.l() != null) {
-                t51.d l = this.b.l();
-                Intrinsics.checkNotNull(l);
-                if (!l.a()) {
-                    return true;
-                }
-            }
-            if (!cf0.a(this.b.b(), str) || oe0.b(this.b.b(), str, false) || t31.b.a().a(this.b.b(), str, webView.getUrl(), this.a) || qe0.c(str, this.b.b())) {
-                return true;
-            }
-            if (f61.b() && ye0.b.a(this.b.b(), str, null, this.a)) {
-                return true;
-            }
-            AbsNadBrowserView m = this.b.m();
-            if (m != null) {
-                m.V();
-            }
-            return super.f(webView, str);
         }
-        return invokeLL.booleanValue;
     }
 
-    public final void o(AbsNadBrowserView absNadBrowserView, String str) {
-        String str2;
+    @Override // com.baidu.tieba.h51
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absNadBrowserView, str) == null) && str != null) {
-            String str3 = null;
-            if (StringsKt__StringsJVMKt.startsWith$default(str, "tel:", false, 2, null) && this.b.b() != null) {
-                t51.d l = this.b.l();
-                if (l != null) {
-                    str2 = l.f();
-                } else {
-                    str2 = null;
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    b91 b91Var = new b91();
-                    Activity b = this.b.b();
-                    Intrinsics.checkNotNull(b);
-                    t51.d l2 = this.b.l();
-                    if (l2 != null) {
-                        str3 = l2.f();
-                    }
-                    b91Var.p(b, str3, "tel");
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.b();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.h51
+    public void c() {
+        v51.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            v51.d l = this.c.l();
+            if (l != null) {
+                bVar = l.d();
+            } else {
+                bVar = null;
             }
+            o(bVar);
+            super.c();
+        }
+    }
+
+    @Override // com.baidu.tieba.h51
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Handler handler = this.b;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+            }
+            this.b = null;
+            this.a = false;
+            super.d();
+        }
+    }
+
+    @Override // com.baidu.tieba.h51
+    public void e(Intent intent) {
+        v51.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+            v51.d l = this.c.l();
+            if (l != null) {
+                bVar = l.d();
+            } else {
+                bVar = null;
+            }
+            o(bVar);
+            super.e(intent);
+        }
+    }
+
+    public final void p(v51.b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) && !this.a && bVar != null && bVar.e()) {
+            q(bVar.a());
+        }
+    }
+
+    public final void q(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        ez0.b(str);
+        this.a = true;
+    }
+
+    @Override // com.baidu.tieba.h51
+    public void g(AbsNadBrowserView webView, String str) {
+        v51.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            AbsNadBrowserView m = this.c.m();
+            if (m != null && !m.w() && !this.a) {
+                v51.d l = this.c.l();
+                if (l != null) {
+                    bVar = l.d();
+                } else {
+                    bVar = null;
+                }
+                p(bVar);
+            }
+            super.g(webView, str);
         }
     }
 }

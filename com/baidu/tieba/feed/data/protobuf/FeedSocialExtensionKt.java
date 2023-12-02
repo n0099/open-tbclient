@@ -1,15 +1,15 @@
 package com.baidu.tieba.feed.data.protobuf;
 
 import android.content.Context;
-import com.baidu.tieba.a87;
-import com.baidu.tieba.g57;
-import com.baidu.tieba.i87;
-import com.baidu.tieba.n67;
-import com.baidu.tieba.nb7;
-import com.baidu.tieba.o67;
-import com.baidu.tieba.ob7;
-import com.baidu.tieba.s97;
-import com.baidu.tieba.y77;
+import com.baidu.tieba.c87;
+import com.baidu.tieba.e87;
+import com.baidu.tieba.k57;
+import com.baidu.tieba.m87;
+import com.baidu.tieba.r67;
+import com.baidu.tieba.rb7;
+import com.baidu.tieba.s67;
+import com.baidu.tieba.sb7;
+import com.baidu.tieba.w97;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import tbclient.FeedSocialComponent;
 /* loaded from: classes5.dex */
 public final class FeedSocialExtensionKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function2<Context, y77, Boolean> a;
+    public static final Function2<Context, c87, Boolean> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,9 +49,9 @@ public final class FeedSocialExtensionKt {
         a = FeedSocialExtensionKt$onShowManageClickImpl$1.INSTANCE;
     }
 
-    public static final void a(FeedSocialComponent feedSocialComponent, List<nb7<?>> dataList, n67 feedExtraData, i87 videoSchemaData) {
+    public static final void a(FeedSocialComponent feedSocialComponent, List<rb7<?>> dataList, r67 feedExtraData, m87 videoSchemaData) {
         List list;
-        g57 g57Var;
+        k57 k57Var;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65537, null, feedSocialComponent, dataList, feedExtraData, videoSchemaData) == null) {
@@ -59,12 +59,12 @@ public final class FeedSocialExtensionKt {
             Intrinsics.checkNotNullParameter(dataList, "dataList");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
             Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            y77 y77Var = new y77();
+            c87 c87Var = new c87();
             Agree agree = feedSocialComponent.agree;
             if (agree != null) {
                 Integer num = agree.agree_type;
                 Intrinsics.checkNotNullExpressionValue(num, "agree.agree_type");
-                y77Var.e = num.intValue();
+                c87Var.e = num.intValue();
                 Integer num2 = feedSocialComponent.agree.has_agree;
                 Intrinsics.checkNotNullExpressionValue(num2, "agree.has_agree");
                 if (num2.intValue() > 0) {
@@ -72,52 +72,52 @@ public final class FeedSocialExtensionKt {
                 } else {
                     z = false;
                 }
-                y77Var.f = z;
-                y77Var.g = feedSocialComponent.agree.agree_num.longValue();
+                c87Var.f = z;
+                c87Var.g = feedSocialComponent.agree.agree_num.longValue();
                 Long l = feedSocialComponent.agree.diff_agree_num;
                 Intrinsics.checkNotNullExpressionValue(l, "agree.diff_agree_num");
-                y77Var.h = l.longValue();
+                c87Var.h = l.longValue();
                 Long l2 = feedSocialComponent.agree.disagree_num;
                 Intrinsics.checkNotNullExpressionValue(l2, "agree.disagree_num");
-                y77Var.i = l2.longValue();
+                c87Var.i = l2.longValue();
             }
-            y77Var.a = feedSocialComponent.share_num.intValue();
-            y77Var.b = feedSocialComponent.comment_num.intValue();
-            y77Var.c = String.valueOf(feedSocialComponent.tid);
+            c87Var.a = feedSocialComponent.share_num.intValue();
+            c87Var.b = feedSocialComponent.comment_num.intValue();
+            c87Var.c = String.valueOf(feedSocialComponent.tid);
             Long fid = feedSocialComponent.fid;
             Intrinsics.checkNotNullExpressionValue(fid, "fid");
-            y77Var.d = fid.longValue();
-            y77Var.l = feedExtraData.a();
-            videoSchemaData.h(y77Var.f);
-            videoSchemaData.g(y77Var.g);
-            String str = y77Var.l.a().get("user_id");
+            c87Var.d = fid.longValue();
+            c87Var.l = feedExtraData.a();
+            videoSchemaData.h(c87Var.f);
+            videoSchemaData.g(c87Var.g);
+            String str = c87Var.l.a().get("user_id");
             if (str == null) {
                 str = "";
             }
             videoSchemaData.k(str);
-            String str2 = y77Var.l.a().get("has_concerned_user");
+            String str2 = c87Var.l.a().get("has_concerned_user");
             if (str2 == null) {
                 str2 = "0";
             }
             videoSchemaData.i(str2);
-            y77Var.j = videoSchemaData;
-            y77Var.m = s97.b(feedSocialComponent.manage_list);
-            List listOf = CollectionsKt__CollectionsKt.listOf((Object[]) new a87[]{o67.e(feedExtraData, "comment_btn_click", null, 2, null), o67.e(feedExtraData, "comment_btn_click2", null, 2, null), o67.e(feedExtraData, "comment_btn_click3", null, 2, null), o67.e(feedExtraData, "bottom_comment_click_selector1", null, 2, null)});
-            List listOf2 = CollectionsKt__CollectionsJVMKt.listOf(o67.e(feedExtraData, "bottom_share_click_selector1", null, 2, null));
-            List listOf3 = CollectionsKt__CollectionsJVMKt.listOf(o67.e(feedExtraData, "bottom_agree_click_selector1", null, 2, null));
+            c87Var.j = videoSchemaData;
+            c87Var.m = w97.b(feedSocialComponent.manage_list);
+            List listOf = CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "comment_btn_click", null, 2, null), s67.e(feedExtraData, "comment_btn_click2", null, 2, null), s67.e(feedExtraData, "comment_btn_click3", null, 2, null), s67.e(feedExtraData, "bottom_comment_click_selector1", null, 2, null)});
+            List listOf2 = CollectionsKt__CollectionsJVMKt.listOf(s67.e(feedExtraData, "bottom_share_click_selector1", null, 2, null));
+            List listOf3 = CollectionsKt__CollectionsJVMKt.listOf(s67.e(feedExtraData, "bottom_agree_click_selector1", null, 2, null));
             Map<String, String> a2 = feedExtraData.a().a();
             Map<String, String> a3 = feedExtraData.c().a();
-            if (y77Var.a()) {
+            if (c87Var.a()) {
                 list = listOf2;
-                g57Var = new g57(y77Var, null, null, null, a2, a3, null, null, null, a, 462, null);
+                k57Var = new k57(c87Var, null, null, null, a2, a3, null, null, null, a, 462, null);
             } else {
                 list = listOf2;
-                g57Var = new g57(y77Var, null, null, null, a2, a3, null, null, null, null, 974, null);
+                k57Var = new k57(c87Var, null, null, null, a2, a3, null, null, null, null, 974, null);
             }
-            g57Var.t(CollectionsKt___CollectionsKt.plus((Collection) g57Var.l(), (Iterable) listOf));
-            g57Var.v(CollectionsKt___CollectionsKt.plus((Collection) g57Var.s(), (Iterable) list));
-            g57Var.u(CollectionsKt___CollectionsKt.plus((Collection) g57Var.r(), (Iterable) listOf3));
-            dataList.add(new ob7(g57Var, "social_bar"));
+            k57Var.t(CollectionsKt___CollectionsKt.plus((Collection) k57Var.l(), (Iterable) listOf));
+            k57Var.v(CollectionsKt___CollectionsKt.plus((Collection) k57Var.s(), (Iterable) list));
+            k57Var.u(CollectionsKt___CollectionsKt.plus((Collection) k57Var.r(), (Iterable) listOf3));
+            dataList.add(new sb7(k57Var, "social_bar"));
         }
     }
 }

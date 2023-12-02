@@ -15,7 +15,7 @@ public class CommonOverflowMenu extends BdMenu {
 
     public CommonOverflowMenu(View view2) {
         super(view2);
-        setPopupWindowWidth(view2.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07034f));
+        setPopupWindowWidth(view2.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070350));
     }
 
     @Override // com.baidu.android.ext.widget.menu.BdMenu

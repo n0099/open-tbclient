@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.mutiprocess.live.ImageViewLiveEvent;
-import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
+import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.mutiprocess.fps.ImageFpsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dn5 implements lm5<ImageViewLiveEvent> {
+public class dn5 implements om5<ImageFpsEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,16 +29,16 @@ public class dn5 implements lm5<ImageViewLiveEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm5
+    @Override // com.baidu.tieba.om5
     /* renamed from: a */
-    public boolean onEvent(ImageViewLiveEvent imageViewLiveEvent) {
+    public boolean onEvent(ImageFpsEvent imageFpsEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageViewLiveEvent)) == null) {
-            if (imageViewLiveEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFpsEvent)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
                 return false;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921752, new YyLiveRoomConfig(TbadkApplication.getInst().getContext(), imageViewLiveEvent.sid, imageViewLiveEvent.ssid, imageViewLiveEvent.templateId, imageViewLiveEvent.roomId, imageViewLiveEvent.streamInfo, imageViewLiveEvent.from)));
+            BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(ImageViewerConfig.KEY_FPS_IMAGE);
             return true;
         }
         return invokeL.booleanValue;

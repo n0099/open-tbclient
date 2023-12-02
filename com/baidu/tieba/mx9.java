@@ -1,11 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,22 +10,46 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class mx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public final pf1<im5> a;
+    public final long a;
+    public final long b;
 
-    public void f() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            nf1 b = nf1.b();
-            this.a = b;
-            b.a(new jm5());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof mx9) {
+                mx9 mx9Var = (mx9) obj;
+                return this.a == mx9Var.a && this.b == mx9Var.b;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public mx9() {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (c.a(this.a) * 31) + c.a(this.b) : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "FeedbackNumState(selectNum=" + this.a + ", unselectNum=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public mx9(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,90 +59,25 @@ public final class mx9 {
                 return;
             }
         }
-        f();
+        this.a = j;
+        this.b = j2;
     }
 
-    public final im5 a() {
+    public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            pf1<im5> pf1Var = this.a;
-            if (pf1Var != null) {
-                return pf1Var.get();
-            }
-            return null;
-        }
-        return (im5) invokeV.objValue;
-    }
-
-    public final BaseFragment b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            im5 a = a();
-            if (a != null) {
-                return a.F();
-            }
-            return null;
-        }
-        return (BaseFragment) invokeV.objValue;
-    }
-
-    public final long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            im5 a = a();
-            if (a != null) {
-                return a.u();
-            }
-            return 0L;
+            return this.a;
         }
         return invokeV.longValue;
     }
 
-    public final boolean e() {
+    public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            im5 a = a();
-            if (a != null && a.E()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void d(int i, int i2, Intent intent) {
-        im5 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) && (a = a()) != null) {
-            a.B(i, i2, intent);
-        }
-    }
-
-    public final void g(boolean z) {
-        im5 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (a = a()) != null) {
-            a.G(z);
-        }
-    }
-
-    public final void h(BdUniqueId bdUniqueId) {
-        im5 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) && (a = a()) != null) {
-            a.setUniqueId(bdUniqueId);
-        }
-    }
-
-    public final void i(boolean z) {
-        im5 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (a = a()) != null) {
-            a.setUserVisibleHint(z);
-        }
+        return invokeV.longValue;
     }
 }

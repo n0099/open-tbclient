@@ -1,272 +1,28 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.rtc.RTCConst;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
 import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class sb3<ResultDataT> extends eb3<ResultDataT> {
+public class sb3 extends vb3<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> g;
-    public String h;
-    public JSONObject i;
-    public boolean j;
-    public boolean k;
-    public String l;
+    public final Context m;
 
-    public abstract SwanInterfaceType A();
-
-    public int B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean G(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i == 600101 || i == 600102 || i == 600103 || i == 402 || i == 401 : invokeI.booleanValue;
-    }
-
-    public void J() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    public void L() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    public abstract HttpRequest x(sb3 sb3Var);
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sb3 a;
-
-        public a(sb3 sb3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sb3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sb3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (eb3.f) {
-                    Log.d("OAuthRequest", "OAuthRequest.onExec in thread pool");
-                }
-                this.a.E();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HttpRequest a;
-        public final /* synthetic */ sb3 b;
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        public b(sb3 sb3Var, HttpRequest httpRequest) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sb3Var, httpRequest};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = sb3Var;
-            this.a = httpRequest;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (this.b.F()) {
-                    this.b.O(this.a);
-                } else {
-                    this.b.I(this.a, exc);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.b.K(response);
-                return response;
-            }
-            return invokeLI.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HttpRequest a;
-        public final /* synthetic */ sb3 b;
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        public c(sb3 sb3Var, HttpRequest httpRequest) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sb3Var, httpRequest};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = sb3Var;
-            this.a = httpRequest;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                h32.i("OAuthRequest", "retryRequest fail: ");
-                this.b.I(this.a, exc);
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                h32.i("OAuthRequest", "retryRequest success: ");
-                this.b.K(response);
-                return response;
-            }
-            return invokeLI.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements um1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ sb3 b;
-
-        public d(sb3 sb3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sb3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = sb3Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.tieba.um1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 0) {
-                    this.b.q();
-                    this.b.a();
-                    return;
-                }
-                this.b.D(null, this.a);
-            }
-        }
-    }
-
-    public sb3() {
+    public sb3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -276,222 +32,59 @@ public abstract class sb3<ResultDataT> extends eb3<ResultDataT> {
                 return;
             }
         }
-        this.g = new HashMap();
+        this.m = context;
     }
 
-    public Map<String, String> C() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hb3
+    /* renamed from: Q */
+    public JSONObject n(JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            return ib3.c(jSONObject);
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vb3
+    public HttpRequest x(vb3 vb3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vb3Var)) == null) {
+            return rp2.o().g(this.m, vb3Var.C());
+        }
+        return (HttpRequest) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vb3
+    public SwanInterfaceType A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return SwanInterfaceType.SWAN_ID;
+        }
+        return (SwanInterfaceType) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hb3
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final void E() {
-        HttpRequest x;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (x = x(this)) == null) {
-            return;
-        }
-        x.executeAsync(new b(this, x));
-        md3.a(A());
-    }
-
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public h63 N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            h63 M = h63.M();
-            if (M == null) {
-                if (!eb3.f) {
-                    return g63.K().q();
-                }
-                throw new IllegalStateException("null SwanApp");
-            }
-            return M;
-        }
-        return (h63) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.eb3
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(this), "OAuthRequest-onExec", 2);
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.k = true;
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.j = true;
-        }
-    }
-
-    public final void P(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            N().N().f(ur2.V().getActivity(), null, new d(this, str));
-        }
-    }
-
-    @Override // com.baidu.tieba.eb3
-    public eb3<ResultDataT> r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.l = "loginApi";
-            } else {
-                this.l = str;
-            }
-            super.r(str);
-            return this;
-        }
-        return (eb3) invokeL.objValue;
-    }
-
-    public sb3<ResultDataT> w(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, str, str2)) == null) {
-            this.g.put(str, str2);
-            return this;
-        }
-        return (sb3) invokeLL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void D(Response response, String str) {
-        int optInt;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, response, str) == null) {
-            this.h = str;
-            try {
-                JSONObject jSONObject = new JSONObject(this.h);
-                this.i = jSONObject;
-                optInt = jSONObject.optInt("errno");
-            } catch (OAuthException e) {
-                H(e.mErrorCode, str, response);
-                e(e);
-            } catch (Exception e2) {
-                fb3.k(e2.toString(), Boolean.TRUE);
-                M(str, e2);
-                H(2103, str, response);
-                e(new OAuthException(10005));
-                ad3.r(10005, null);
-            }
-            if ((this.j && optInt == 402) || (this.k && optInt == 401)) {
-                this.j = false;
-                this.k = false;
-                if (SwanAppAllianceLoginHelper.d.f()) {
-                    SwanAppAllianceLoginHelper.d.b();
-                }
-                P(str);
-            } else if (G(optInt)) {
-                if (SwanAppAllianceLoginHelper.d.f()) {
-                    SwanAppAllianceLoginHelper.d.b();
-                    P(str);
-                } else if (!eb3.f) {
-                } else {
-                    throw new RuntimeException("is not AllianceLogin, error number");
-                }
-            } else {
-                if (response != null && optInt != 0) {
-                    H(optInt, str, response);
-                }
-                s(n(this.i));
-                J();
-                d();
-            }
-        }
-    }
-
-    public final void H(int i, String str, Response response) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048583, this, i, str, response) == null) {
-            md3.c(A(), i, str, response);
-        }
-    }
-
-    public void I(HttpRequest httpRequest, Exception exc) {
-        String httpUrl;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, httpRequest, exc) == null) {
-            fb3.k(exc.toString(), Boolean.FALSE);
-            if (httpRequest.getOkRequest() == null) {
-                httpUrl = null;
-            } else {
-                httpUrl = httpRequest.getOkRequest().url().toString();
-            }
-            md3.b(A(), 2101, httpUrl, null, exc.getMessage());
-            e(new OAuthException(10002));
-        }
-    }
-
-    public final void K(Response response) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, response) == null) {
-            if (!response.isSuccessful()) {
-                fb3.k("bad response", Boolean.TRUE);
-                H(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL4, null, null);
-                e(new OAuthException(10002));
-                return;
-            }
-            ResponseBody body = response.body();
-            if (body == null) {
-                fb3.k("empty response body", Boolean.TRUE);
-                H(2103, null, null);
-                e(new OAuthException(10001));
-                return;
-            }
-            try {
-                D(response, body.string());
-            } catch (IOException e) {
-                if (eb3.f) {
+            k63 M = k63.M();
+            if (M != null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("ma_id", M.P());
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                w("data", jSONObject.toString());
+                return true;
             }
+            return true;
         }
-    }
-
-    public final void M(String str, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, exc) == null) {
-            if (this.i == null) {
-                fb3.t("OAuthRequest", "ex: " + exc.toString() + " ,strResponse: " + str);
-                return;
-            }
-            fb3.t("OAuthRequest", "ex: " + exc.toString());
-        }
-    }
-
-    public void O(HttpRequest httpRequest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, httpRequest) == null) {
-            h32.i("OAuthRequest", "retryRequest: " + httpRequest.toString());
-            L();
-            httpRequest.executeAsync(new c(this, httpRequest));
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            kb3<ResultDataT> kb3Var = this.a;
-            return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), f(), Integer.valueOf(this.a.b()), this.h, this.i, kb3Var.a, kb3Var.a());
-        }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

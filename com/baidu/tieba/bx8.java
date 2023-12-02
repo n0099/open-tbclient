@@ -1,39 +1,45 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.da;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bx8 extends xw8 {
+public abstract class bx8 {
     public static /* synthetic */ Interceptable $ic;
-    public static bx8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, ChatSetting> memoryCachedSettings;
+
+    public abstract ChatSetting getSetting(String str, String str2);
+
+    public abstract da<String> getSettingCache();
+
+    public abstract void saveSetting(ChatSetting chatSetting);
+
+    public abstract void saveSettingAsync(ChatSetting chatSetting, st5<Void> st5Var);
 
     /* loaded from: classes5.dex */
-    public class a extends ju5<Void> {
+    public class a extends nu5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PersonalSettingItemData a;
+        public final /* synthetic */ String a;
         public final /* synthetic */ String b;
         public final /* synthetic */ bx8 c;
 
-        public a(bx8 bx8Var, PersonalSettingItemData personalSettingItemData, String str) {
+        public a(bx8 bx8Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bx8Var, personalSettingItemData, str};
+                Object[] objArr = {bx8Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,161 +50,109 @@ public class bx8 extends xw8 {
                 }
             }
             this.c = bx8Var;
-            this.a = personalSettingItemData;
-            this.b = str;
+            this.a = str;
+            this.b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ju5
-        /* renamed from: a */
-        public Void doInBackground() {
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.nu5
+        public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.c.getSettingCache().g(this.b, OrmObject.jsonStrWithObject(this.a));
-                return null;
+                ChatSetting setting = this.c.getSetting(this.a, this.b);
+                if (setting == null) {
+                    return Boolean.FALSE;
+                }
+                return Boolean.valueOf(setting.isAcceptNotify());
             }
-            return (Void) invokeV.objValue;
+            return (Boolean) invokeV.objValue;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947660455, "Lcom/baidu/tieba/bx8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947660455, "Lcom/baidu/tieba/bx8;");
-                return;
-            }
-        }
-        a = new bx8();
     }
 
     public bx8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.memoryCachedSettings = new HashMap<>();
     }
 
-    public static bx8 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (bx8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xw8
-    public da<String> getSettingCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b05.k();
-            return b05.l("tb.im_personal_chat_setting");
-        }
-        return (da) invokeV.objValue;
-    }
-
-    public void onAccountChangedInBackground() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onAccountChangedInBackground(PersonalSettingItemData.class);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xw8
-    /* renamed from: b */
-    public PersonalSettingItemData getSetting(String str, String str2) {
+    public boolean isAcceptNotify(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            PersonalSettingItemData personalSettingItemData = null;
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            ChatSetting setting = getSetting(str, str2);
+            if (setting == null) {
+                return false;
             }
-            String str3 = str + "@" + str2;
-            synchronized (this.memoryCachedSettings) {
-                ChatSetting chatSetting = this.memoryCachedSettings.get(str3);
-                if (chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
-                    personalSettingItemData = (PersonalSettingItemData) chatSetting;
-                }
-            }
-            if (personalSettingItemData == null) {
-                PersonalSettingItemData personalSettingItemData2 = new PersonalSettingItemData();
-                personalSettingItemData2.setMyUid(str);
-                personalSettingItemData2.setToUid(str2);
-                personalSettingItemData2.setAcceptNotify(true);
-                return personalSettingItemData2;
-            }
-            return personalSettingItemData;
+            return setting.isAcceptNotify();
         }
-        return (PersonalSettingItemData) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xw8
-    public void saveSetting(ChatSetting chatSetting) {
+    public void isAcceptNotifyAsync(String str, String str2, st5<Boolean> st5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
-            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
-            String myUid = personalSettingItemData.getMyUid();
-            String toUid = personalSettingItemData.getToUid();
-            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
-                da<String> settingCache = getSettingCache();
-                String str = myUid + "@" + toUid;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-                synchronized (this.memoryCachedSettings) {
-                    this.memoryCachedSettings.put(str, personalSettingItemData);
-                }
-                settingCache.g(str, jsonStrWithObject);
-            } else if (!TbConfig.getDebugSwitch()) {
-            } else {
-                throw new RuntimeException("key param is null");
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, st5Var) == null) {
+            ru5.c(new a(this, str, str2), st5Var);
         }
     }
 
-    @Override // com.baidu.tieba.xw8
-    public void saveSettingAsync(ChatSetting chatSetting, ot5<Void> ot5Var) {
+    public void saveAcceptNotify(String str, String str2, boolean z) {
+        ChatSetting setting;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, chatSetting, ot5Var) == null) && chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
-            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
-            String myUid = personalSettingItemData.getMyUid();
-            String toUid = personalSettingItemData.getToUid();
-            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
-                String str = myUid + "@" + toUid;
-                synchronized (this.memoryCachedSettings) {
-                    this.memoryCachedSettings.put(str, personalSettingItemData);
-                }
-                nu5.c(new a(this, personalSettingItemData, str), ot5Var);
-            } else if (!TbConfig.getDebugSwitch()) {
-            } else {
-                throw new RuntimeException("key param is null");
-            }
-        }
-    }
-
-    public void saveToUserInfo(String str, String str2, UserData userData) {
-        PersonalSettingItemData setting;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048582, this, str, str2, userData) != null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || userData == null || (setting = getSetting(str, str2)) == null) {
+        if ((interceptable != null && interceptable.invokeLLZ(1048581, this, str, str2, z) != null) || (setting = getSetting(str, str2)) == null) {
             return;
         }
-        setting.setToPortrait(userData.getPortrait());
-        setting.setToName(userData.getUserName());
+        setting.setAcceptNotify(z);
         saveSetting(setting);
+    }
+
+    public void onAccountChangedInBackground(Class<? extends ChatSetting> cls) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
+            synchronized (this.memoryCachedSettings) {
+                this.memoryCachedSettings.clear();
+            }
+            String str2 = "";
+            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+                str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
+            }
+            if (str2 != null && str2.length() != 0) {
+                String str3 = str2 + "@";
+                synchronized (this.memoryCachedSettings) {
+                    da<String> settingCache = getSettingCache();
+                    List<da.b<String>> b = wd.b(settingCache);
+                    if (b != null) {
+                        for (da.b<String> bVar : b) {
+                            String str4 = bVar.a;
+                            if (str4 != null && str4.startsWith(str3) && (str = settingCache.get(str4)) != null) {
+                                this.memoryCachedSettings.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void saveAcceptNotifyAsync(String str, String str2, boolean z, st5<Void> st5Var) {
+        ChatSetting setting;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Boolean.valueOf(z), st5Var}) != null) || (setting = getSetting(str, str2)) == null) {
+            return;
+        }
+        setting.setAcceptNotify(z);
+        saveSettingAsync(setting, st5Var);
     }
 }

@@ -1,7 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
-public interface w43<T> {
-    T getItem(int i);
 
-    int getItemsCount();
+import android.content.Context;
+import android.view.View;
+/* loaded from: classes8.dex */
+public interface w43<T extends View> {
+    T createRefreshableView(Context context);
 }

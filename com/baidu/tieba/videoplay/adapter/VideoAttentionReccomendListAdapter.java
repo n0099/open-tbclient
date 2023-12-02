@@ -68,13 +68,13 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09118e);
-            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d98);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d9a);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0925a9);
-            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b4);
-            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091178);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f091165);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09118f);
+            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d9a);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d9c);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ab);
+            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b6);
+            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091179);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f091166);
             this.b.setRadiusById(R.string.J_X05);
             this.b.setConrers(3);
             EMManager.from(this.h).setMaskBackGround(R.array.Mask_X003);
@@ -177,7 +177,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            this.c = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d09ff, viewGroup, false);
+            this.c = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0a00, viewGroup, false);
             return new ForumViewHolder(this.c);
         }
         return (ForumViewHolder) invokeLI.objValue;

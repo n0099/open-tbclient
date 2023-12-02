@@ -1,24 +1,30 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.ForumHeadIcon;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes6.dex */
-public class g0d extends ltc {
+public class g0d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ForumHeadIcon forumHeadIcon) {
+    public static JSONObject b(@NonNull ForumHeadlineImgInfo forumHeadlineImgInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumHeadIcon)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumHeadlineImgInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "grade", forumHeadIcon.grade);
-            ltc.a(jSONObject, "url", forumHeadIcon.url);
+            ktc.a(jSONObject, "thread_id", forumHeadlineImgInfo.thread_id);
+            ktc.a(jSONObject, "thread_user_name", forumHeadlineImgInfo.thread_user_name);
+            ktc.a(jSONObject, "img_user_name", forumHeadlineImgInfo.img_user_name);
+            ktc.a(jSONObject, BigdayActivityConfig.IMG_URL, forumHeadlineImgInfo.img_url);
+            ktc.a(jSONObject, "thread_user_id", forumHeadlineImgInfo.thread_user_id);
+            ktc.a(jSONObject, "img_user_id", forumHeadlineImgInfo.img_user_id);
+            ktc.a(jSONObject, "headline_url", forumHeadlineImgInfo.headline_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

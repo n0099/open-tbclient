@@ -1,102 +1,193 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.loading.LoadingView;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.chatdialog.GroupChatDialogFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f29 implements h29 {
+public class f29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public ImageView c;
-    public RecyclerView d;
-    public f29 e;
+    public k29 a;
+    public TbPageContext b;
+    public GroupChatDialogFragment c;
+    @Nullable
+    public s19 d;
+    public fk5 e;
+    public LoadingView f;
+    public NoDataView g;
+    public String h;
+    public final View.OnClickListener i;
 
-    public f29() {
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f29 a;
+
+        public a(f29 f29Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f29Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = f29Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                if (this.a.e != null) {
+                    this.a.e.dettachView(this.a.a.m());
+                    this.a.e = null;
+                }
+                if (this.a.d != null) {
+                    this.a.i();
+                    this.a.c.y2();
+                }
+            }
+        }
+    }
+
+    public f29(@NonNull GroupChatDialogFragment groupChatDialogFragment, @NonNull TbPageContext tbPageContext, @NonNull s19 s19Var, k29 k29Var, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {groupChatDialogFragment, tbPageContext, s19Var, k29Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = new a(this);
+        this.c = groupChatDialogFragment;
+        this.b = tbPageContext;
+        this.d = s19Var;
+        this.a = k29Var;
+        this.h = str;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            LoadingView loadingView = this.f;
+            if (loadingView != null) {
+                loadingView.onChangeSkinType(i);
+            }
+            fk5 fk5Var = this.e;
+            if (fk5Var != null) {
+                fk5Var.onChangeSkinType();
+            }
+            NoDataView noDataView = this.g;
+            if (noDataView != null) {
+                noDataView.f(this.b, i);
             }
         }
     }
 
-    @Override // com.baidu.tieba.h29
-    public RelativeLayout a() {
-        InterceptResult invokeV;
+    public void e() {
+        LoadingView loadingView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e.a;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (loadingView = this.f) != null) {
+            loadingView.dettachView(this.a.m());
         }
-        return (RelativeLayout) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h29
-    public RecyclerView c() {
-        InterceptResult invokeV;
+    public void f() {
+        fk5 fk5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e.d;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fk5Var = this.e) != null) {
+            fk5Var.dettachView(this.a.m());
+            this.e = null;
         }
-        return (RecyclerView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h29
-    public ImageView d() {
-        InterceptResult invokeV;
+    public void g() {
+        NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e.c;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (noDataView = this.g) != null) {
+            noDataView.setVisibility(8);
         }
-        return (ImageView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h29
-    public TextView e() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e.b;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.a.n() != null) {
+                this.a.n().setVisibility(8);
+            }
+            if (this.f == null) {
+                LoadingView loadingView = new LoadingView(fj6.b());
+                this.f = loadingView;
+                loadingView.onChangeSkinType();
+            }
+            this.f.attachView(this.a.m());
         }
-        return (TextView) invokeV.objValue;
     }
 
-    public static f29 f(@NonNull View view2) {
-        InterceptResult invokeL;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            f29 f29Var = new f29();
-            f29Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091997);
-            f29Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f16);
-            f29Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f30);
-            f29Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090f23);
-            f29Var.e = f29Var;
-            return f29Var;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.a.n() != null) {
+                this.a.n().setVisibility(8);
+            }
+            e();
+            if (this.e == null) {
+                this.e = new fk5(fj6.b(), this.i);
+            }
+            this.e.k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds300));
+            this.e.attachView(this.a.m(), true);
+            this.e.q();
+            this.e.onChangeSkinType();
+            this.e.e(R.color.transparent);
         }
-        return (f29) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.h29
-    public void b(int i, @NonNull y29 y29Var) {
+    public void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, y29Var) == null) && !y29Var.e()) {
-            EMManager.from(this.e.b).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            NoDataViewFactory.ImgType imgType = NoDataViewFactory.ImgType.WEBVIEW;
+            String string = fj6.b().getResources().getString(R.string.obfuscated_res_0x7f0f0987);
+            if (this.h.equals("message_tab")) {
+                imgType = NoDataViewFactory.ImgType.CREATE;
+                string = fj6.b().getResources().getString(R.string.obfuscated_res_0x7f0f0cff);
+            }
+            if (this.a.n() != null) {
+                this.a.n().setVisibility(8);
+            }
+            if (this.g == null) {
+                this.g = NoDataViewFactory.b(fj6.b(), this.a.r(), NoDataViewFactory.d.b(imgType, 400), NoDataViewFactory.e.d(null, string), null, true);
+            }
+            this.g.f(this.b, TbadkApplication.getInst().getSkinType());
+            this.g.setVisibility(0);
         }
     }
 }

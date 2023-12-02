@@ -1,11 +1,11 @@
 package com.yy.transvod.player.mediacodec;
 
 import android.media.MediaFormat;
-import com.baidu.tieba.pjc;
+import com.baidu.tieba.ojc;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
-public final class NativeIttiam extends pjc {
+public final class NativeIttiam extends ojc {
     public long c = 0;
 
     /* loaded from: classes2.dex */

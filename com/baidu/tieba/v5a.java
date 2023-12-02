@@ -1,47 +1,130 @@
 package com.baidu.tieba;
 
+import android.text.SpannableString;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes8.dex */
-public class v5a {
+public class v5a implements w5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SpannableString a;
+    public String b;
+    public TbPageContext<?> c;
 
-    public static final s5a a(TbPageContext<?> tbPageContext, ExcContent excContent) {
-        InterceptResult invokeLL;
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, excContent)) == null) {
-            if (excContent == null || (l = excContent.type) == null) {
-                return null;
-            }
-            if (l.longValue() == 2) {
-                return new q5a(excContent);
-            }
-            if (excContent.type.longValue() == 0) {
-                return new w5a(tbPageContext.getPageActivity(), excContent);
-            }
-            if (excContent.type.longValue() != 1) {
-                return null;
-            }
-            return new r5a(tbPageContext, excContent);
-        }
-        return (s5a) invokeLL.objValue;
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static final t5a b(ExcContent excContent) {
-        InterceptResult invokeL;
-        Long l;
+    @Override // com.baidu.tieba.w5a
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, excContent)) == null) {
-            if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
-                return null;
-            }
-            return new u5a(excContent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
         }
-        return (t5a) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.x5a
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends ClickableSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v5a a;
+
+        public b(v5a v5aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v5aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v5aVar;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                UrlManager.getInstance().dealOneLink(this.a.c, new String[]{this.a.b});
+            }
+        }
+
+        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        public void updateDrawState(TextPaint textPaint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                super.updateDrawState(textPaint);
+                textPaint.setUnderlineText(false);
+            }
+        }
+
+        public /* synthetic */ b(v5a v5aVar, a aVar) {
+            this(v5aVar);
+        }
+    }
+
+    public v5a(TbPageContext<?> tbPageContext, ExcContent excContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, excContent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (excContent == null || excContent.type.longValue() != 1 || StringUtils.isNull(excContent.text)) {
+            return;
+        }
+        this.c = tbPageContext;
+        this.a = new SpannableString(excContent.text);
+        this.a.setSpan(new b(this, null), 0, excContent.text.length(), 17);
+        this.b = excContent.link;
+    }
+
+    @Override // com.baidu.tieba.w5a
+    public CharSequence b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (CharSequence) invokeV.objValue;
     }
 }

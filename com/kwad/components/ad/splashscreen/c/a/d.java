@@ -121,20 +121,20 @@ public final class d extends com.kwad.components.ad.splashscreen.c.e implements 
     }
 
     private void initView() {
-        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0914c1);
+        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0914c2);
         if (viewStub != null) {
             this.EJ = (ViewGroup) viewStub.inflate();
         } else {
-            this.EJ = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914bd);
+            this.EJ = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914be);
         }
-        this.EK = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914bb);
-        this.EE = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912e9);
-        this.EF = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e6);
-        this.EG = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e5);
-        this.EL = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912eb);
-        this.EM = (TextView) findViewById(R.id.obfuscated_res_0x7f0912dd);
-        this.EN = (TextView) findViewById(R.id.obfuscated_res_0x7f0912dc);
-        this.EA = (CloseCountDownView) findViewById(R.id.obfuscated_res_0x7f0912e8);
+        this.EK = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914bc);
+        this.EE = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ea);
+        this.EF = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e7);
+        this.EG = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e6);
+        this.EL = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912ec);
+        this.EM = (TextView) findViewById(R.id.obfuscated_res_0x7f0912de);
+        this.EN = (TextView) findViewById(R.id.obfuscated_res_0x7f0912dd);
+        this.EA = (CloseCountDownView) findViewById(R.id.obfuscated_res_0x7f0912e9);
     }
 
     private void lw() {

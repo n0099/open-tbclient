@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import android.view.MotionEvent;
 /* loaded from: classes6.dex */
-public interface ht0 {
-    boolean onTouchEvent(MotionEvent motionEvent);
+public interface ht0 extends dt0 {
+    void e(Object obj);
 }

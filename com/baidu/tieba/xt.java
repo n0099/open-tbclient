@@ -21,7 +21,7 @@ public class xt extends vs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RichTextLayout h;
-    public cw4 i;
+    public fw4 i;
     public int j;
     public String k;
 
@@ -91,9 +91,9 @@ public class xt extends vs {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.f().booleanValue()) {
                     ThreadData threadData = this.a.i.getThreadData();
-                    tl6.a(threadData.getId());
-                    tl6.l(this.a.h.b, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    tl6.l(this.a.h.c, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    xl6.a(threadData.getId());
+                    xl6.l(this.a.h.b, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    xl6.l(this.a.h.c, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -184,12 +184,12 @@ public class xt extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: z */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cw4Var) == null) {
-            this.i = cw4Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fw4Var) == null) {
+            this.i = fw4Var;
             this.h.setTransmit(f().booleanValue());
-            this.h.onBindDataToView(cw4Var);
+            this.h.onBindDataToView(fw4Var);
             this.h.setJumpToPbListener(new a(this));
             this.h.setFrom(this.k);
         }

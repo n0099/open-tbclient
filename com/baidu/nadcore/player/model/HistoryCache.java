@@ -1,14 +1,14 @@
 package com.baidu.nadcore.player.model;
 
-import com.baidu.tieba.jx0;
-import com.baidu.tieba.yv0;
+import com.baidu.tieba.aw0;
+import com.baidu.tieba.lx0;
 import java.util.ArrayList;
 import java.util.Iterator;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u000b\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J#\u0010\n\u001a\u0004\u0018\u00010\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007¢\u0006\u0004\b\n\u0010\u000bJ+\u0010\r\u001a\u00020\u00042\u0006\u0010\f\u001a\u00020\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007H\u0002¢\u0006\u0004\b\r\u0010\u000eJ#\u0010\u000f\u001a\u0004\u0018\u00010\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007¢\u0006\u0004\b\u000f\u0010\u000b¨\u0006\u0012"}, d2 = {"Lcom/baidu/nadcore/player/model/HistoryCache;", "Ljava/util/ArrayList;", "Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;", "element", "", "add", "(Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;)Z", "", "id", "vid", "findCache", "(Ljava/lang/String;Ljava/lang/String;)Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;", "info", "isSameHistory", "(Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;Ljava/lang/String;Ljava/lang/String;)Z", "removeCache", "<init>", "()V", "nadcore-lib-widget"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class HistoryCache extends ArrayList<yv0> {
+public final class HistoryCache extends ArrayList<aw0> {
     public HistoryCache() {
         super(20);
     }
@@ -28,10 +28,10 @@ public final class HistoryCache extends ArrayList<yv0> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private final boolean isSameHistory(yv0 yv0Var, String str, String str2) {
+    private final boolean isSameHistory(aw0 aw0Var, String str, String str2) {
         boolean z;
         boolean z2;
-        String b = yv0Var.b();
+        String b = aw0Var.b();
         if (b != null) {
             if (b.length() > 0) {
                 z2 = true;
@@ -41,7 +41,7 @@ public final class HistoryCache extends ArrayList<yv0> {
             if (z2) {
             }
         }
-        String e = yv0Var.e();
+        String e = aw0Var.e();
         if (e == null) {
             return false;
         }
@@ -50,7 +50,7 @@ public final class HistoryCache extends ArrayList<yv0> {
         } else {
             z = false;
         }
-        if (!z || !Intrinsics.areEqual(yv0Var.e(), str2)) {
+        if (!z || !Intrinsics.areEqual(aw0Var.e(), str2)) {
             return false;
         }
         return true;
@@ -58,83 +58,83 @@ public final class HistoryCache extends ArrayList<yv0> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
-    public boolean add(yv0 element) {
+    public boolean add(aw0 element) {
         Intrinsics.checkNotNullParameter(element, "element");
         if (size() >= 50) {
-            jx0.a("remove item " + remove(0));
+            lx0.a("remove item " + remove(0));
         }
         removeCache(element.b(), element.e());
         return super.add((HistoryCache) element);
     }
 
-    public /* bridge */ boolean contains(yv0 yv0Var) {
-        return super.contains((Object) yv0Var);
+    public /* bridge */ boolean contains(aw0 aw0Var) {
+        return super.contains((Object) aw0Var);
     }
 
-    public /* bridge */ int indexOf(yv0 yv0Var) {
-        return super.indexOf((Object) yv0Var);
+    public /* bridge */ int indexOf(aw0 aw0Var) {
+        return super.indexOf((Object) aw0Var);
     }
 
-    public /* bridge */ int lastIndexOf(yv0 yv0Var) {
-        return super.lastIndexOf((Object) yv0Var);
+    public /* bridge */ int lastIndexOf(aw0 aw0Var) {
+        return super.lastIndexOf((Object) aw0Var);
     }
 
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.List
-    public final /* bridge */ yv0 remove(int i) {
+    public final /* bridge */ aw0 remove(int i) {
         return removeAt(i);
     }
 
-    public /* bridge */ yv0 removeAt(int i) {
-        return (yv0) super.remove(i);
+    public /* bridge */ aw0 removeAt(int i) {
+        return (aw0) super.remove(i);
     }
 
     @Override // java.util.ArrayList, java.util.AbstractCollection, java.util.Collection, java.util.List
     public final /* bridge */ boolean contains(Object obj) {
-        if (obj instanceof yv0) {
-            return contains((yv0) obj);
+        if (obj instanceof aw0) {
+            return contains((aw0) obj);
         }
         return false;
     }
 
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.List
     public final /* bridge */ int indexOf(Object obj) {
-        if (obj instanceof yv0) {
-            return indexOf((yv0) obj);
+        if (obj instanceof aw0) {
+            return indexOf((aw0) obj);
         }
         return -1;
     }
 
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.List
     public final /* bridge */ int lastIndexOf(Object obj) {
-        if (obj instanceof yv0) {
-            return lastIndexOf((yv0) obj);
+        if (obj instanceof aw0) {
+            return lastIndexOf((aw0) obj);
         }
         return -1;
     }
 
-    public /* bridge */ boolean remove(yv0 yv0Var) {
-        return super.remove((Object) yv0Var);
+    public /* bridge */ boolean remove(aw0 aw0Var) {
+        return super.remove((Object) aw0Var);
     }
 
-    public final yv0 findCache(String str, String str2) {
-        for (yv0 yv0Var : this) {
-            if (isSameHistory(yv0Var, str, str2)) {
-                return yv0Var;
+    public final aw0 findCache(String str, String str2) {
+        for (aw0 aw0Var : this) {
+            if (isSameHistory(aw0Var, str, str2)) {
+                return aw0Var;
             }
         }
         return null;
     }
 
-    public final yv0 removeCache(String str, String str2) {
-        Iterator<yv0> it = iterator();
+    public final aw0 removeCache(String str, String str2) {
+        Iterator<aw0> it = iterator();
         Intrinsics.checkNotNullExpressionValue(it, "iterator()");
         while (it.hasNext()) {
-            yv0 next = it.next();
+            aw0 next = it.next();
             Intrinsics.checkNotNullExpressionValue(next, "iterator.next()");
-            yv0 yv0Var = next;
-            if (isSameHistory(yv0Var, str, str2)) {
+            aw0 aw0Var = next;
+            if (isSameHistory(aw0Var, str, str2)) {
                 it.remove();
-                return yv0Var;
+                return aw0Var;
             }
         }
         return null;
@@ -142,8 +142,8 @@ public final class HistoryCache extends ArrayList<yv0> {
 
     @Override // java.util.ArrayList, java.util.AbstractCollection, java.util.Collection, java.util.List
     public final /* bridge */ boolean remove(Object obj) {
-        if (obj instanceof yv0) {
-            return remove((yv0) obj);
+        if (obj instanceof aw0) {
+            return remove((aw0) obj);
         }
         return false;
     }

@@ -5,15 +5,15 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.module.imaibot.AibotArgs;
-import com.baidu.tieba.kma;
-import com.baidu.tieba.vl5;
+import com.baidu.tieba.oma;
+import com.baidu.tieba.yl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class AiBotChatDispatcher implements kma {
+public class AiBotChatDispatcher implements oma {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AI_SINGLE_CAN_SLIDE_BACK = "canSlideBack";
     public static final String AI_SINGLE_CHAT_PAID = "paid";
@@ -47,7 +47,7 @@ public class AiBotChatDispatcher implements kma {
         }
     }
 
-    @Override // com.baidu.tieba.kma
+    @Override // com.baidu.tieba.oma
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         boolean z2;
@@ -87,7 +87,7 @@ public class AiBotChatDispatcher implements kma {
             if (optInt != 1) {
                 i = 2;
             }
-            vl5.a().a(context, optString, optString2, new AibotArgs(optString3, optString4, optString5, optString6, optString8, i, optString7, optInt2, Integer.valueOf(optInt3), Long.valueOf(optLong), optString9, optString10, z, z2));
+            yl5.a().a(context, optString, optString2, new AibotArgs(optString3, optString4, optString5, optString6, optString8, i, optString7, optInt2, Integer.valueOf(optInt3), Long.valueOf(optLong), optString9, optString10, z, z2));
         }
     }
 }

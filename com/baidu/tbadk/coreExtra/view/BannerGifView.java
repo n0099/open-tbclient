@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.vu4;
+import com.baidu.tieba.xu4;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,13 +33,13 @@ public class BannerGifView extends RelativeLayout {
     public String e;
     public String f;
     public boolean g;
-    public uu4 h;
-    public vu4 i;
-    public final vu4 j;
+    public xu4 h;
+    public yu4 i;
+    public final yu4 j;
     public final View.OnClickListener k;
 
     /* loaded from: classes5.dex */
-    public class a implements vu4 {
+    public class a implements yu4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerGifView a;
@@ -62,7 +62,7 @@ public class BannerGifView extends RelativeLayout {
             this.a = bannerGifView;
         }
 
-        @Override // com.baidu.tieba.vu4
+        @Override // com.baidu.tieba.yu4
         public boolean a(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -202,10 +202,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(uu4 uu4Var) {
+    public void setIWindowChangedListener(xu4 xu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, uu4Var) == null) {
-            this.h = uu4Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, xu4Var) == null) {
+            this.h = xu4Var;
         }
     }
 
@@ -217,10 +217,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setOnClickEventListener(vu4 vu4Var) {
+    public void setOnClickEventListener(yu4 yu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, vu4Var) == null) {
-            this.i = vu4Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, yu4Var) == null) {
+            this.i = yu4Var;
         }
     }
 

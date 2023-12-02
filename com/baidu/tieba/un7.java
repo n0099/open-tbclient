@@ -1,88 +1,156 @@
 package com.baidu.tieba;
 
-import androidx.fragment.app.Fragment;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.forum.data.ForumTabItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Reflection;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class un7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ForumTabItem a;
-    public final Fragment b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    /* loaded from: classes8.dex */
+    public static final class a extends er6<w95> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ul7 b;
+        public final /* synthetic */ Function0<Unit> c;
+        public final /* synthetic */ BdUniqueId d;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ul7 ul7Var, Function0<Unit> function0, BdUniqueId bdUniqueId, Class<w95> cls) {
+            super(cls);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ul7Var, function0, bdUniqueId, cls};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Class) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (obj instanceof un7) {
-                un7 un7Var = (un7) obj;
-                return Intrinsics.areEqual(this.a, un7Var.a) && Intrinsics.areEqual(this.b, un7Var.b);
+            this.b = ul7Var;
+            this.c = function0;
+            this.d = bdUniqueId;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.er6
+        public void onEvent(w95 event) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+                Intrinsics.checkNotNullParameter(event, "event");
+                if (Intrinsics.areEqual(event.b(), "frs_post")) {
+                    JSONObject jSONObject = (JSONObject) event.a();
+                    if (jSONObject != null) {
+                        str = jSONObject.optString("tid");
+                    } else {
+                        str = null;
+                    }
+                    if (str == null) {
+                        return;
+                    }
+                    if (this.b.m(str)) {
+                        this.c.invoke();
+                    }
+                    this.b.h((JSONObject) event.a(), this.d);
+                } else if (Intrinsics.areEqual(event.b(), "frs_fun_ad")) {
+                    this.c.invoke();
+                }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
-    }
+    /* loaded from: classes8.dex */
+    public static final class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ul7 a;
+        public final /* synthetic */ Function0<Unit> b;
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "FrsTabFragmentData(tabItem=" + this.a + ", fragment=" + this.b + ')';
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ul7 ul7Var, Function0<Unit> function0) {
+            super(2016331);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ul7Var, function0};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ul7Var;
+            this.b = function0;
         }
-        return (String) invokeV.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+                return;
+            }
+            Object data = customResponsedMessage.getData();
+            if (data instanceof String) {
+                str = (String) data;
+            } else {
+                str = null;
+            }
+            if (str != null && this.a.d(str)) {
+                this.b.invoke();
+            }
+        }
     }
 
-    public un7(ForumTabItem tabItem, Fragment fragment) {
+    public un7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tabItem, fragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(tabItem, "tabItem");
-        Intrinsics.checkNotNullParameter(fragment, "fragment");
-        this.a = tabItem;
-        this.b = fragment;
     }
 
-    public final Fragment a() {
-        InterceptResult invokeV;
+    public final void a(BdUniqueId busId, ul7 feedModel, Function0<Unit> deleteCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, busId, feedModel, deleteCallback) == null) {
+            Intrinsics.checkNotNullParameter(busId, "busId");
+            Intrinsics.checkNotNullParameter(feedModel, "feedModel");
+            Intrinsics.checkNotNullParameter(deleteCallback, "deleteCallback");
+            br6.b().b(new ar6(busId, Reflection.getOrCreateKotlinClass(sj7.class)), new a(feedModel, deleteCallback, busId, w95.class));
+            b bVar = new b(feedModel, deleteCallback);
+            bVar.setTag(busId);
+            MessageManager.getInstance().registerListener(bVar);
         }
-        return (Fragment) invokeV.objValue;
-    }
-
-    public final ForumTabItem b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ForumTabItem) invokeV.objValue;
     }
 }

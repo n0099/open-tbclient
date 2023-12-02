@@ -1,66 +1,160 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import android.webkit.URLUtil;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.CheckWebResProxySwitch;
+import com.baidu.tieba.browser.core.webview.flyweight.FlyWeightConfig;
+import com.baidu.tieba.browser.core.webview.flyweight.loader.ImageLoader;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 /* loaded from: classes7.dex */
-public class ki6 {
+public class ki6 implements mi6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ji6 a;
 
-    public static rga a(wi6 wi6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wi6Var)) == null) {
-            rga rgaVar = new rga();
-            if (wi6Var != null) {
-                rgaVar.b = wi6Var.c;
-                rgaVar.e = wi6Var.g;
-                rgaVar.f = wi6Var.i;
-                rgaVar.c = wi6Var.d;
-                if (!fk6.a(wi6Var.b)) {
-                    ArrayList<String> arrayList = new ArrayList<>();
-                    rgaVar.a = arrayList;
-                    arrayList.addAll(wi6Var.b);
-                }
-                if (!fk6.a(wi6Var.f)) {
-                    ArrayList<String> arrayList2 = new ArrayList<>();
-                    rgaVar.d = arrayList2;
-                    arrayList2.addAll(wi6Var.f);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ji6 a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return rgaVar;
         }
-        return (rga) invokeL.objValue;
+
+        public mi6 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new ki6(this);
+            }
+            return (mi6) invokeV.objValue;
+        }
+
+        public void c(ji6 ji6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ji6Var) == null) {
+                this.a = ji6Var;
+            }
+        }
     }
 
-    public static void b(ri6 ri6Var, String str) {
+    public ki6(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, ri6Var, str) == null) {
-            try {
-                if (ri6Var != null) {
-                    pga.n().z(str, ri6Var.b());
-                    pga.n().x();
-                    if (!fk6.b(ri6Var.a())) {
-                        HashMap<String, rga> hashMap = new HashMap<>();
-                        for (Map.Entry<String, wi6> entry : ri6Var.a().entrySet()) {
-                            hashMap.put(entry.getKey(), a(entry.getValue()));
-                        }
-                        qga.a().l(str, hashMap);
-                    }
-                    qga.a().h(true, str);
-                    return;
-                }
-                pga.n().h(str);
-                pga.n().x();
-                qga.a().f(str);
-            } catch (Exception e) {
-                BdLog.e(e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = aVar.a;
+    }
+
+    @Override // com.baidu.tieba.mi6
+    public WebResourceResponse a(String str, WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, webResourceRequest)) == null) {
+            if (webResourceRequest == null || !TextUtils.equals("GET", webResourceRequest.getMethod())) {
+                return null;
+            }
+            String uri = webResourceRequest.getUrl().toString();
+            if (!URLUtil.isNetworkUrl(uri)) {
+                return null;
+            }
+            if (CheckWebResProxySwitch.isOn() && !uri.contains("tieba-ares.cdn") && !uri.contains("bdstatic.com") && !uri.contains(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE) && !uri.contains("tieba.com") && !uri.contains("baidu-int.com")) {
+                TbLog hybridLog = HybridLog.getInstance();
+                hybridLog.i("Proxy", "非贴吧url，不代理网络请求：" + uri);
+                return null;
+            }
+            ji6 ji6Var = this.a;
+            if (ji6Var != null && !ji6Var.a(str)) {
+                return null;
+            }
+            return c(str, uri, webResourceRequest.getRequestHeaders());
+        }
+        return (WebResourceResponse) invokeLL.objValue;
+    }
+
+    public final WebResourceResponse b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            li6 li6Var = yh6.b().get(bi6.a(str));
+            if (li6Var != null) {
+                TbLog hybridLog = HybridLog.getInstance();
+                hybridLog.i("Proxy", "PreFetch命中缓存，返回数据：" + li6Var);
+                if (li6Var.b()) {
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_type", "prefetchLog").param("obj_source", "success").param("obj_name", str));
+                    yh6.b().remove(bi6.a(str));
+                }
+                if (li6Var.c()) {
+                    return li6Var.a();
+                }
+                yh6.b().remove(bi6.a(str));
+                return null;
+            }
+            return null;
+        }
+        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    public final WebResourceResponse c(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, map)) == null) {
+            if (zh6.b().c(str2)) {
+                long currentTimeMillis = System.currentTimeMillis();
+                zh6.b().d(str2, 5000L);
+                dk6.b("Proxy", "当前已有请求，等待一下，waitTime = " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+                return b(str2);
+            } else if (yh6.b().contains(bi6.a(str2))) {
+                return b(str2);
+            } else {
+                if (FlyWeightConfig.c(str2, map)) {
+                    String c = ok6.c(str2);
+                    if (yh6.b().contains(bi6.a(c))) {
+                        return b(c);
+                    }
+                    return gi6.g().b(str, str2, map);
+                } else if (FlyWeightConfig.a(str2)) {
+                    return ImageLoader.d(str, str2, map);
+                } else {
+                    return null;
+                }
+            }
+        }
+        return (WebResourceResponse) invokeLLL.objValue;
     }
 }

@@ -1,209 +1,130 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eoc;
-import com.baidu.tieba.hoc;
+import com.baidu.tieba.doc;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import rx.internal.util.UtilityFunctions;
 /* loaded from: classes7.dex */
-public final class opc<T> implements eoc.b<T, T> {
+public final class opc<T, U> implements doc.b<T, T>, xoc<U, U, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final TimeUnit b;
-    public final hoc c;
+    public final woc<? super T, ? extends U> a;
+    public final xoc<? super U, ? super U, Boolean> b;
 
     /* loaded from: classes7.dex */
-    public class a extends koc<T> {
+    public class a extends joc<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean e;
-        public final /* synthetic */ hoc.a f;
-        public final /* synthetic */ koc g;
+        public U e;
+        public boolean f;
+        public final /* synthetic */ joc g;
         public final /* synthetic */ opc h;
 
-        /* renamed from: com.baidu.tieba.opc$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0425a implements roc {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0425a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // com.baidu.tieba.roc
-            public void call() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.a;
-                    if (!aVar.e) {
-                        aVar.e = true;
-                        aVar.g.onCompleted();
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public class b implements roc {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Throwable a;
-            public final /* synthetic */ a b;
-
-            public b(a aVar, Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, th};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = th;
-            }
-
-            @Override // com.baidu.tieba.roc
-            public void call() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.b;
-                    if (!aVar.e) {
-                        aVar.e = true;
-                        aVar.g.onError(this.a);
-                        this.b.f.unsubscribe();
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public class c implements roc {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Object a;
-            public final /* synthetic */ a b;
-
-            public c(a aVar, Object obj) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, obj};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = obj;
-            }
-
-            /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tieba.koc */
-            /* JADX WARN: Multi-variable type inference failed */
-            @Override // com.baidu.tieba.roc
-            public void call() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.b;
-                    if (!aVar.e) {
-                        aVar.g.onNext(this.a);
-                    }
-                }
-            }
-        }
-
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(opc opcVar, koc kocVar, hoc.a aVar, koc kocVar2) {
-            super(kocVar);
+        public a(opc opcVar, joc jocVar, joc jocVar2) {
+            super(jocVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {opcVar, kocVar, aVar, kocVar2};
+                Object[] objArr = {opcVar, jocVar, jocVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((koc) newInitContext.callArgs[0]);
+                    super((joc) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.h = opcVar;
-            this.f = aVar;
-            this.g = kocVar2;
+            this.g = jocVar2;
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.eoc
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hoc.a aVar = this.f;
-                C0425a c0425a = new C0425a(this);
-                opc opcVar = this.h;
-                aVar.c(c0425a, opcVar.a, opcVar.b);
+                this.g.onCompleted();
             }
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.eoc
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.f.b(new b(this, th));
+                this.g.onError(th);
             }
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.eoc
         public void onNext(T t) {
+            Object obj;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                hoc.a aVar = this.f;
-                c cVar = new c(this, t);
-                opc opcVar = this.h;
-                aVar.c(cVar, opcVar.a, opcVar.b);
+                try {
+                    U call = this.h.a.call(t);
+                    U u = this.e;
+                    this.e = call;
+                    if (this.f) {
+                        try {
+                            if (!this.h.b.a(u, call).booleanValue()) {
+                                this.g.onNext(t);
+                                return;
+                            } else {
+                                e(1L);
+                                return;
+                            }
+                        } catch (Throwable th) {
+                            poc.g(th, this.g, obj);
+                            return;
+                        }
+                    }
+                    this.f = true;
+                    this.g.onNext(t);
+                } catch (Throwable th2) {
+                    poc.g(th2, this.g, t);
+                }
             }
         }
     }
 
-    public opc(long j, TimeUnit timeUnit, hoc hocVar) {
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final opc<?, ?> a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-537990999, "Lcom/baidu/tieba/opc$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-537990999, "Lcom/baidu/tieba/opc$b;");
+                    return;
+                }
+            }
+            a = new opc<>(UtilityFunctions.b());
+        }
+    }
+
+    public opc(woc<? super T, ? extends U> wocVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), timeUnit, hocVar};
+            Object[] objArr = {wocVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -213,22 +134,65 @@ public final class opc<T> implements eoc.b<T, T> {
                 return;
             }
         }
-        this.a = j;
-        this.b = timeUnit;
-        this.c = hocVar;
+        this.a = wocVar;
+        this.b = this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.woc
+    /* renamed from: c */
+    public joc<? super T> call(joc<? super T> jocVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jocVar)) == null) {
+            return new a(this, jocVar, jocVar);
+        }
+        return (joc) invokeL.objValue;
+    }
+
+    public opc(xoc<? super U, ? super U, Boolean> xocVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xocVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = UtilityFunctions.b();
+        this.b = xocVar;
+    }
+
+    public static <T> opc<T, T> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return (opc<T, T>) b.a;
+        }
+        return (opc) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.xoc
-    /* renamed from: a */
-    public koc<? super T> call(koc<? super T> kocVar) {
-        InterceptResult invokeL;
+    /* renamed from: b */
+    public Boolean a(U u, U u2) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kocVar)) == null) {
-            hoc.a createWorker = this.c.createWorker();
-            kocVar.b(createWorker);
-            return new a(this, kocVar, createWorker, kocVar);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u, u2)) == null) {
+            if (u != u2 && (u == null || !u.equals(u2))) {
+                z = false;
+            } else {
+                z = true;
+            }
+            return Boolean.valueOf(z);
         }
-        return (koc) invokeL.objValue;
+        return (Boolean) invokeLL.objValue;
     }
 }

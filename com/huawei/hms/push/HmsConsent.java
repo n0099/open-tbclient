@@ -2,8 +2,8 @@ package com.huawei.hms.push;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hcc;
 import com.baidu.tieba.icc;
-import com.baidu.tieba.jcc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,10 +59,10 @@ public class HmsConsent {
         return (HmsConsent) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r6v10. Raw type applied. Possible types: com.baidu.tieba.icc<TResult>, com.baidu.tieba.icc<java.lang.Void> */
-    public final icc<Void> a(boolean z) {
+    /* JADX DEBUG: Type inference failed for r6v10. Raw type applied. Possible types: com.baidu.tieba.hcc<TResult>, com.baidu.tieba.hcc<java.lang.Void> */
+    public final hcc<Void> a(boolean z) {
         InterceptResult invokeZ;
-        jcc jccVar;
+        icc iccVar;
         int externalCode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
@@ -76,38 +76,38 @@ public class HmsConsent {
                 }
                 throw ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.toApiException();
             } catch (ApiException e) {
-                jcc jccVar2 = new jcc();
-                jccVar2.c(e);
+                icc iccVar2 = new icc();
+                iccVar2.c(e);
                 externalCode = e.getStatusCode();
-                jccVar = jccVar2;
+                iccVar = iccVar2;
                 PushBiUtil.reportExit(this.b, PushNaming.PUSH_CONSENT, reportEntry, externalCode);
-                return jccVar.b();
+                return iccVar.b();
             } catch (Exception unused) {
-                jccVar = new jcc();
-                jccVar.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
+                iccVar = new icc();
+                iccVar.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
                 externalCode = ErrorEnum.ERROR_INTERNAL_ERROR.getExternalCode();
                 PushBiUtil.reportExit(this.b, PushNaming.PUSH_CONSENT, reportEntry, externalCode);
-                return jccVar.b();
+                return iccVar.b();
             }
         }
-        return (icc) invokeZ.objValue;
+        return (hcc) invokeZ.objValue;
     }
 
-    public icc<Void> consentOff() {
+    public hcc<Void> consentOff() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return a(false);
         }
-        return (icc) invokeV.objValue;
+        return (hcc) invokeV.objValue;
     }
 
-    public icc<Void> consentOn() {
+    public hcc<Void> consentOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return a(true);
         }
-        return (icc) invokeV.objValue;
+        return (hcc) invokeV.objValue;
     }
 }

@@ -1,134 +1,102 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.bh4;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tieba.tf4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class uf4 {
+public class uf4 extends rf4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final tf4.a a;
 
-    public static <T> void a(@NonNull mg4 mg4Var, @NonNull List<jg4<T>> list) {
+    public uf4(tf4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, mg4Var, list) == null) {
-            for (jg4<T> jg4Var : list) {
-                mg4Var.c(hg4.b().a(jg4Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = aVar;
+    }
+
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.baidu.tieba.tf4.a
+    public void onFail(Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, exc) == null) && a()) {
+            this.a.onFail(exc);
         }
     }
 
-    public static synchronized void d(dh4 dh4Var, ce4 ce4Var) {
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, dh4Var, ce4Var) == null) {
-            synchronized (uf4.class) {
-                jg4<if4> i = lg4.i(dh4Var.a, ce4Var);
-                mg4 mg4Var = new mg4(ce4Var);
-                mg4Var.c(hg4.b().a(i));
-                mg4Var.e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != null) {
+                return true;
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.tf4.a
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && a()) {
+            this.a.onStart();
         }
     }
 
-    public static synchronized void g(List<if4> list, ce4 ce4Var) {
+    @Override // com.baidu.tieba.tf4.a
+    public void b(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, list, ce4Var) == null) {
-            synchronized (uf4.class) {
-                List<jg4<if4>> e = lg4.e(list, ce4Var);
-                mg4 mg4Var = new mg4(ce4Var);
-                a(mg4Var, e);
-                mg4Var.e();
-            }
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
+            this.a.b(str, str2, jSONObject);
         }
     }
 
-    @NonNull
-    public static mg4 b(bh4 bh4Var, ce4 ce4Var) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: c */
+    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
+        InterceptResult invokeLIL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bh4Var, ce4Var)) == null) {
-            List<jg4<bh4.a>> f = lg4.f(bh4Var.a, ce4Var);
-            mg4 mg4Var = new mg4(ce4Var);
-            for (jg4<bh4.a> jg4Var : f) {
-                mg4Var.c(hg4.b().a(jg4Var));
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i, networkStatRecord)) == null) {
+            String str2 = "";
+            if (response == null || response.body() == null) {
+                str = "";
+            } else {
+                str2 = response.request().url().toString();
+                str = response.body().string();
             }
-            return mg4Var;
+            b(str2, str, networkStatRecord.toUBCJson());
+            return str;
         }
-        return (mg4) invokeLL.objValue;
+        return (String) invokeLIL.objValue;
     }
 
-    public static synchronized void e(eh4 eh4Var, ce4 ce4Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    public void onSuccess(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, eh4Var, ce4Var) == null) {
-            synchronized (uf4.class) {
-                List<jg4<hf4>> h = lg4.h(eh4Var.a, ce4Var);
-                mg4 mg4Var = new mg4(ce4Var);
-                for (jg4<hf4> jg4Var : h) {
-                    mg4Var.c(hg4.b().a(jg4Var));
-                }
-                mg4Var.e();
-            }
-        }
-    }
-
-    public static synchronized void c(ch4 ch4Var, ce4 ce4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, ch4Var, ce4Var) == null) {
-            synchronized (uf4.class) {
-                jg4<ef4> d = lg4.d(ch4Var.d, ce4Var);
-                jg4<gf4> g = lg4.g(ch4Var.a, ce4Var);
-                jg4<cf4> c = lg4.c(ch4Var.f, ce4Var);
-                List<jg4<hf4>> h = lg4.h(ch4Var.b, ce4Var);
-                List<jg4<if4>> e = lg4.e(ch4Var.c, ce4Var);
-                mg4 mg4Var = new mg4(ce4Var);
-                mg4Var.c(hg4.b().a(d));
-                mg4Var.c(hg4.b().a(g));
-                mg4Var.c(hg4.b().a(c));
-                a(mg4Var, h);
-                a(mg4Var, e);
-                mg4Var.e();
-            }
-        }
-    }
-
-    public static synchronized void f(zi4 zi4Var, ce4 ce4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, zi4Var, ce4Var) == null) {
-            synchronized (uf4.class) {
-                jg4<ef4> d = lg4.d(zi4Var.b, ce4Var);
-                jg4<ef4> d2 = lg4.d(zi4Var.a, ce4Var);
-                jg4<cf4> c = lg4.c(zi4Var.c, ce4Var);
-                mg4 mg4Var = new mg4(ce4Var);
-                if (d != null) {
-                    mg4Var.c(hg4.b().a(d));
-                }
-                if (d2 != null) {
-                    mg4Var.c(hg4.b().a(d2));
-                }
-                if (c != null) {
-                    mg4Var.c(hg4.b().a(c));
-                }
-                if (zi4Var.d != null) {
-                    for (jf4 jf4Var : zi4Var.d) {
-                        jg4<jf4> j = lg4.j(jf4Var, ce4Var);
-                        if (j != null) {
-                            mg4Var.c(hg4.b().a(j));
-                        }
-                    }
-                }
-                if (zi4Var.e != null) {
-                    for (if4 if4Var : zi4Var.e) {
-                        jg4<if4> i = lg4.i(if4Var, ce4Var);
-                        if (i != null) {
-                            mg4Var.c(hg4.b().a(i));
-                        }
-                    }
-                }
-                mg4Var.e();
-            }
+        if ((interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) && a()) {
+            this.a.onSuccess(str, i);
         }
     }
 }

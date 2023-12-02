@@ -5,27 +5,23 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
+import com.huawei.hms.framework.common.ExceptionCode;
 /* loaded from: classes5.dex */
-public class cr3 {
+public class cr3 implements vq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public Method b;
-    public Method c;
-    public Method d;
-    public Method e;
-    public String f;
+    public dr3 a;
+    public int b;
+    public boolean c;
 
-    public cr3(Class<?> cls) {
+    public cr3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,148 +31,111 @@ public class cr3 {
                 return;
             }
         }
-        if (cls == null) {
-            return;
+        this.b = -1;
+        c(context);
+    }
+
+    public final void e(int i) {
+        int a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            br3 f = ir3.f();
+            int i2 = f.a;
+            if (i2 < 1) {
+                i2 = 10;
+            }
+            if (f.a() <= 0) {
+                a = ExceptionCode.CRASH_EXCEPTION;
+            } else {
+                a = f.a();
+            }
+            int f2 = this.a.f(i2, a, i2, a);
+            this.b = f2;
+            if (f2 != -1) {
+                this.a.e(f2, i);
+            }
         }
-        try {
-            Object m = la4.m(cls);
-            this.a = m;
-            if (m != null) {
-                Method i3 = la4.i(cls, "hypnusSetAction", Integer.TYPE, Integer.TYPE);
-                this.b = i3;
-                if (i3 != null) {
-                    i3.setAccessible(true);
-                }
-                Method i4 = la4.i(cls, "hypnusSetSignatureAction", Integer.TYPE, Integer.TYPE, String.class);
-                this.c = i4;
-                if (i4 != null) {
-                    i4.setAccessible(true);
-                }
-                Method i5 = la4.i(cls, "isHypnusOK", new Class[0]);
-                this.e = i5;
-                if (i5 != null) {
-                    i5.setAccessible(true);
-                }
+    }
+
+    @Override // com.baidu.tieba.vq3
+    public void a() {
+        dr3 dr3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (dr3Var = this.a) != null && dr3Var.c()) {
+            this.c = false;
+            if (this.a.b()) {
+                g();
+            } else {
                 f();
             }
-        } catch (Throwable unused) {
         }
-    }
-
-    public static cr3 a(@NonNull Context context) {
-        Class<?> cls;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                cls = la4.b("com.oppo.hypnus.HypnusManager", true);
-            } catch (Throwable unused) {
-                cls = null;
-            }
-            return new cr3(cls);
-        }
-        return (cr3) invokeL.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str2 = this.f;
-            if (str2 != null) {
-                return str2;
-            }
-            Method method = this.d;
-            if (method != null) {
-                try {
-                    Object invoke = method.invoke(null, new Object[0]);
-                    if (invoke == null) {
-                        str = "308203633082024ba00302010202040875ec17300d06092a864886f70d01010b05003062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d301e170d3135303130373036343930325a170d3235303130343036343930325a3062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d30820122300d06092a864886f70d01010105000382010f003082010a0282010100a4677dd7cdd8d842b767d4a4";
-                    } else {
-                        str = (String) invoke;
-                    }
-                    this.f = str;
-                } catch (Throwable unused) {
-                    this.f = "308203633082024ba00302010202040875ec17300d06092a864886f70d01010b05003062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d301e170d3135303130373036343930325a170d3235303130343036343930325a3062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d30820122300d06092a864886f70d01010105000382010f003082010a0282010100a4677dd7cdd8d842b767d4a4";
-                }
-            }
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c != null && b() != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 
     public final void f() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            try {
-                Class<?> b = la4.b("com.oppo.hypnus.Hypnus", true);
-                if (b != null) {
-                    Method i = la4.i(b, "getLocalSignature", new Class[0]);
-                    this.d = i;
-                    if (i != null) {
-                        i.setAccessible(true);
-                    }
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (i = this.b) != -1) {
+            this.a.d(i);
+            this.a.j(this.b);
+        }
+    }
+
+    public final void g() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (i = this.b) != -1) {
+            this.a.d(i);
+            this.a.i(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.vq3
+    public void b(int i) {
+        dr3 dr3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (dr3Var = this.a) != null && dr3Var.c()) {
+            this.c = true;
+            if (this.a.b()) {
+                e(i);
+            } else {
+                d(i);
+            }
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = dr3.a(context);
+        }
+    }
+
+    public final void d(int i) {
+        int a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            int g = this.a.g();
+            this.b = g;
+            if (g != -1) {
+                br3 f = ir3.f();
+                int i2 = f.a;
+                if (i2 < 1) {
+                    i2 = 10;
                 }
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Object obj = this.a;
-            if (obj == null) {
-                return false;
-            }
-            Method method = this.e;
-            if (method == null) {
-                return true;
-            }
-            try {
-                Object invoke = method.invoke(obj, new Object[0]);
-                if (invoke != null) {
-                    return ((Boolean) invoke).booleanValue();
+                if (f.a() <= 0) {
+                    a = ExceptionCode.CRASH_EXCEPTION;
+                } else {
+                    a = f.a();
                 }
-            } catch (Throwable unused) {
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(int i, int i2) {
-        Object obj;
-        Method method;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && (obj = this.a) != null && (method = this.b) != null) {
-            try {
-                method.invoke(obj, Integer.valueOf(i), Integer.valueOf(i2));
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) && this.a != null && this.c != null && b() != null) {
-            try {
-                this.c.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), this.f);
-            } catch (Throwable unused) {
+                int i3 = i2;
+                this.a.h(this.b, 0, i3, -1, -1, -1);
+                this.a.h(this.b, 2, i3, i2, -1, -1);
+                int i4 = a;
+                this.a.h(this.b, 4, i4, -1, -1, -1);
+                this.a.h(this.b, 6, i4, a, -1, -1);
+                this.a.h(this.b, 15, i2, i2, i2, i2);
+                this.a.h(this.b, 17, a, a, a, a);
+                this.a.e(this.b, i);
             }
         }
     }

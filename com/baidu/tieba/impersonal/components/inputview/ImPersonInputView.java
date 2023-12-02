@@ -91,17 +91,17 @@ public class ImPersonInputView extends RelativeLayout {
             }
         }
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d044a, (ViewGroup) this, true);
-        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f0910ca);
-        EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f0909c2);
+        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f0910cb);
+        EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f0909c3);
         this.b = editText;
-        editText.setHint(getContext().getString(R.string.obfuscated_res_0x7f0f1486));
+        editText.setHint(getContext().getString(R.string.obfuscated_res_0x7f0f1487));
         this.b.setMaxLines(3);
         this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0108));
         this.b.setTextColor(getResources().getColor(R.color.CAM_X0105));
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092874);
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092877);
         this.c = findViewById;
         findViewById.setAlpha(0.5f);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092875);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092878);
         this.d = textView;
         textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f03ae));
         EMManager.from(this.c).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0920);

@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.w11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -244,7 +244,7 @@ public class ji0 {
             if (window != null) {
                 window.setGravity(80);
                 WindowManager.LayoutParams attributes = window.getAttributes();
-                attributes.width = u11.c.e(this.a);
+                attributes.width = w11.c.e(this.a);
                 window.setAttributes(attributes);
             }
             return this;
@@ -278,7 +278,7 @@ public class ji0 {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            m11.b(this.b);
+            o11.b(this.b);
         }
     }
 }

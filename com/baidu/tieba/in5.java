@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class in5 implements lm5<PrePageKeyEvent> {
+public class in5 implements om5<LiveStartClickDataEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,17 +28,17 @@ public class in5 implements lm5<PrePageKeyEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm5
+    @Override // com.baidu.tieba.om5
     /* renamed from: a */
-    public boolean onEvent(PrePageKeyEvent prePageKeyEvent) {
+    public boolean onEvent(LiveStartClickDataEvent liveStartClickDataEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, prePageKeyEvent)) == null) {
-            if (prePageKeyEvent != null && !TextUtils.isEmpty(prePageKeyEvent.prePageKey)) {
-                TbPageExtraHelper.setPrePageKey(prePageKeyEvent.prePageKey);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveStartClickDataEvent)) == null) {
+            if (liveStartClickDataEvent == null) {
+                return false;
             }
-            return false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921734, liveStartClickDataEvent.viewTag));
+            return true;
         }
         return invokeL.booleanValue;
     }

@@ -63,36 +63,36 @@ public final class R {
     /* loaded from: classes4.dex */
     public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int comment_input_dialog_emotion_landscape_margin = 0x7f07023c;
-        public static final int comment_input_dialog_emotion_margin = 0x7f07023d;
-        public static final int comment_input_dialog_emotion_size = 0x7f07023e;
-        public static final int comment_input_dialog_emotion_split_line_height = 0x7f07023f;
-        public static final int comment_input_dialog_emotion_split_line_width = 0x7f070240;
-        public static final int emotion_dynamic_item_size = 0x7f070435;
-        public static final int emotion_panel_del_btn_radius = 0x7f070436;
-        public static final int emotion_panel_del_btn_stroke = 0x7f070437;
-        public static final int emotion_tab_emo_text_height = 0x7f070438;
-        public static final int emotion_tab_emo_text_width = 0x7f070439;
-        public static final int emotion_tab_layout_height = 0x7f07043a;
-        public static final int emotion_tab_type_height = 0x7f07043b;
-        public static final int emotion_tab_type_margin_left = 0x7f07043c;
-        public static final int emotion_tab_type_padding_left = 0x7f07043d;
-        public static final int emotion_tab_type_padding_top = 0x7f07043e;
-        public static final int emotion_tab_type_radius = 0x7f07043f;
-        public static final int emotion_tab_type_width = 0x7f070440;
-        public static final int emotion_text_padding = 0x7f070441;
-        public static final int expression_all_title_padding_top = 0x7f07044b;
-        public static final int expression_bottom_padding_height = 0x7f07044c;
-        public static final int expression_common_title_padding_top = 0x7f07044d;
-        public static final int expression_cross_section_fixed_height = 0x7f07044e;
-        public static final int expression_left_right_margin = 0x7f07044f;
-        public static final int expression_row_height = 0x7f070450;
-        public static final int expression_title_size = 0x7f070451;
-        public static final int max_panel_height = 0x7f0705a0;
-        public static final int max_softinput_height = 0x7f0705a1;
-        public static final int min_panel_height = 0x7f0705a4;
-        public static final int min_softinput_height = 0x7f0705a6;
-        public static final int window_horizontal_padding = 0x7f070b70;
+        public static final int comment_input_dialog_emotion_landscape_margin = 0x7f07023d;
+        public static final int comment_input_dialog_emotion_margin = 0x7f07023e;
+        public static final int comment_input_dialog_emotion_size = 0x7f07023f;
+        public static final int comment_input_dialog_emotion_split_line_height = 0x7f070240;
+        public static final int comment_input_dialog_emotion_split_line_width = 0x7f070241;
+        public static final int emotion_dynamic_item_size = 0x7f070436;
+        public static final int emotion_panel_del_btn_radius = 0x7f070437;
+        public static final int emotion_panel_del_btn_stroke = 0x7f070438;
+        public static final int emotion_tab_emo_text_height = 0x7f070439;
+        public static final int emotion_tab_emo_text_width = 0x7f07043a;
+        public static final int emotion_tab_layout_height = 0x7f07043b;
+        public static final int emotion_tab_type_height = 0x7f07043c;
+        public static final int emotion_tab_type_margin_left = 0x7f07043d;
+        public static final int emotion_tab_type_padding_left = 0x7f07043e;
+        public static final int emotion_tab_type_padding_top = 0x7f07043f;
+        public static final int emotion_tab_type_radius = 0x7f070440;
+        public static final int emotion_tab_type_width = 0x7f070441;
+        public static final int emotion_text_padding = 0x7f070442;
+        public static final int expression_all_title_padding_top = 0x7f07044c;
+        public static final int expression_bottom_padding_height = 0x7f07044d;
+        public static final int expression_common_title_padding_top = 0x7f07044e;
+        public static final int expression_cross_section_fixed_height = 0x7f07044f;
+        public static final int expression_left_right_margin = 0x7f070450;
+        public static final int expression_row_height = 0x7f070451;
+        public static final int expression_title_size = 0x7f070452;
+        public static final int max_panel_height = 0x7f0705a3;
+        public static final int max_softinput_height = 0x7f0705a4;
+        public static final int min_panel_height = 0x7f0705a9;
+        public static final int min_softinput_height = 0x7f0705aa;
+        public static final int window_horizontal_padding = 0x7f070b74;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {
@@ -151,26 +151,26 @@ public final class R {
     /* loaded from: classes4.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int delete_btn = 0x7f0908c0;
-        public static final int edit_area = 0x7f0909c4;
-        public static final int emotion_content_root = 0x7f0909fc;
-        public static final int emotion_title = 0x7f090a3c;
-        public static final int emotion_type_divider = 0x7f090a3e;
+        public static final int delete_btn = 0x7f0908c1;
+        public static final int edit_area = 0x7f0909c5;
+        public static final int emotion_content_root = 0x7f0909fd;
+        public static final int emotion_title = 0x7f090a3d;
+        public static final int emotion_type_divider = 0x7f090a3f;
         public static final int emotion_type_layout = 0x7f09093d;
-        public static final int emotion_type_tab_layout = 0x7f090a3f;
-        public static final int emotion_vip_icon = 0x7f090a46;
-        public static final int icon = 0x7f09106a;
-        public static final int icon_list = 0x7f091078;
-        public static final int img_item = 0x7f091160;
-        public static final int item_img = 0x7f091236;
-        public static final int item_text = 0x7f091261;
-        public static final int item_text_img = 0x7f091262;
-        public static final int panel_root = 0x7f091b3e;
-        public static final int preview_content = 0x7f091e1b;
-        public static final int recycler_list = 0x7f091f7a;
-        public static final int send_btn = 0x7f092264;
-        public static final int text = 0x7f09257a;
-        public static final int triangle = 0x7f0927ae;
+        public static final int emotion_type_tab_layout = 0x7f090a40;
+        public static final int emotion_vip_icon = 0x7f090a47;
+        public static final int icon = 0x7f09106b;
+        public static final int icon_list = 0x7f091079;
+        public static final int img_item = 0x7f091161;
+        public static final int item_img = 0x7f091237;
+        public static final int item_text = 0x7f091262;
+        public static final int item_text_img = 0x7f091263;
+        public static final int panel_root = 0x7f091b40;
+        public static final int preview_content = 0x7f091e1d;
+        public static final int recycler_list = 0x7f091f7c;
+        public static final int send_btn = 0x7f092266;
+        public static final int text = 0x7f09257c;
+        public static final int triangle = 0x7f0927b1;
         public static final int vp_emotion_type = 0x7f091fad;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -230,7 +230,7 @@ public final class R {
         public static final int bdemotion_panel_net_error = 0x7f0f034c;
         public static final int bdemotion_panel_net_reload = 0x7f0f034d;
         public static final int bdemotion_panel_send = 0x7f0f034e;
-        public static final int often_zone_title_default = 0x7f0f0f22;
+        public static final int often_zone_title_default = 0x7f0f0f23;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

@@ -16,9 +16,9 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i11;
+import com.baidu.tieba.k11;
 import com.baidu.tieba.ph0;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.w11;
 import com.baidu.tieba.wg0;
 /* loaded from: classes3.dex */
 public class AdProgressButton extends View implements ph0<AdProgressButton> {
@@ -159,11 +159,11 @@ public class AdProgressButton extends View implements ph0<AdProgressButton> {
     }
 
     public final void e(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i11.nad_progress);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, k11.nad_progress);
         int color = getResources().getColor(R.color.nad_progress_download_button_text_color);
         int color2 = getResources().getColor(R.color.nad_progress_download_button_fg);
-        int a = u11.c.a(getContext(), 11.0f);
-        int a2 = u11.c.a(getContext(), 12.0f);
+        int a = w11.c.a(getContext(), 11.0f);
+        int a2 = w11.c.a(getContext(), 12.0f);
         this.j = 1;
         this.f = obtainStyledAttributes.getInteger(0, color2);
         this.b = obtainStyledAttributes.getColor(8, color);

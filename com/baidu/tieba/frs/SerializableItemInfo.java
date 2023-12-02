@@ -6,7 +6,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zf9;
+import com.baidu.tieba.dg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -172,7 +172,7 @@ public class SerializableItemInfo extends OrmObject implements Serializable {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                     if (optJSONObject2 != null) {
-                        zf9.a(arrayList, optJSONObject2.optString("tag"));
+                        dg9.a(arrayList, optJSONObject2.optString("tag"));
                     }
                 }
             }

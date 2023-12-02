@@ -1,31 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
+import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
-public class zx8 extends bq8 {
+public class zx8 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.yp8
-    public boolean a(int i, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
+    public int a;
+    public ju8 b;
 
     public zx8() {
         Interceptable interceptable = $ic;
@@ -37,40 +32,55 @@ public class zx8 extends bq8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 2001154;
+        this.b = ju8.w();
     }
 
-    @Override // com.baidu.tieba.bq8
-    public List<xp8> j(@NonNull List list) {
+    public final LoadHistoryResponsedMessage a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
+            loadHistoryResponsedMessage.setError(-18);
+            return loadHistoryResponsedMessage;
+        }
+        return (LoadHistoryResponsedMessage) invokeI.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                Object obj = list.get(i);
-                if (obj instanceof TbBaseMsg) {
-                    TbBaseMsg tbBaseMsg = (TbBaseMsg) obj;
-                    List<AbilityItem> quickOperate = tbBaseMsg.getQuickOperate();
-                    if (ListUtils.isEmpty(quickOperate)) {
-                        break;
-                    }
-                    for (int i2 = 0; i2 < ListUtils.getCount(quickOperate); i2++) {
-                        AbilityItem abilityItem = (AbilityItem) ListUtils.getItem(quickOperate, i2);
-                        if (abilityItem != null && abilityItem.getStyleConf() != null && abilityItem.getStyleConf().shouldShow()) {
-                            jy8 jy8Var = new jy8();
-                            jy8Var.f(abilityItem);
-                            jy8Var.g(tbBaseMsg);
-                            if (tbBaseMsg != null) {
-                                jy8Var.h(tbBaseMsg.getUserId());
-                            }
-                            arrayList.add(jy8Var);
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
+            if (this.b == null) {
+                return a(this.a);
             }
-            return arrayList;
+            List<nu8> x = ju8.x();
+            if (x != null && x.size() > 0) {
+                HashMap hashMap = new HashMap(x.size());
+                for (nu8 nu8Var : x) {
+                    hashMap.put(nu8Var.b(), nu8Var);
+                }
+                LinkedList<ChatMessage> l = this.b.l(hashMap, 80);
+                if (l == null) {
+                    return a(this.a);
+                }
+                OfficialFeedHeadResponsedMessage.a aVar = new OfficialFeedHeadResponsedMessage.a();
+                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.a);
+                aVar.b = l;
+                aVar.a = x;
+                try {
+                    officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return officialFeedHeadResponsedMessage;
+            }
+            return a(this.a);
         }
-        return (List) invokeL.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

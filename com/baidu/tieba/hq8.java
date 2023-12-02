@@ -1,82 +1,110 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsJVMKt;
-import kotlin.collections.SetsKt__SetsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class hq8 {
+public class hq8 extends gq8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public gq8 a;
+    public boolean e;
 
-    public abstract void b(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Object obj);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947832474, "Lcom/baidu/tieba/hq8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947832474, "Lcom/baidu/tieba/hq8;");
+                return;
+            }
+        }
+        f = BdUniqueId.gen().getId();
+    }
 
-    public boolean c() {
+    @Override // com.baidu.tieba.gq8, com.baidu.tieba.bq8
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
+            return this.e;
         }
         return invokeV.booleanValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    public hq8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hq8(BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
+        super(itemsDTO);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {itemsDTO};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BotsDTO.BotListDTO.SkillDTO.ItemsDTO) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.e = false;
     }
 
-    public Set<String> e() {
+    public boolean p() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String d = d();
-            if (d.length() == 0) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = this.c;
+            if (optsDTO == null || optsDTO.getExt() == null) {
+                return false;
             }
-            if (z) {
-                return SetsKt__SetsKt.emptySet();
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = this.c.getExt();
+            if (StringUtils.isNull(ext.getPicPath()) || StringUtils.isNull(ext.getPicSize())) {
+                return false;
             }
-            return SetsKt__SetsJVMKt.setOf(d);
+            return true;
         }
-        return (Set) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void a(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem) {
+    public void r(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseItem) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            gq8 gq8Var = this.a;
-            if (gq8Var != null) {
-                gq8Var.b(abilityItem, baseItem);
-            }
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void s(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.c != null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = new BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext();
+            ext.setPicPath(str);
+            ext.setPicSize(str2);
+            this.c.setExt(ext);
         }
     }
 }

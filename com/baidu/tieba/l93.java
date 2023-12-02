@@ -12,18 +12,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class l93 extends e83 {
+public class l93 extends h83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l93(e73 e73Var) {
-        super(e73Var, "/swanAPI/showNavigationBarLoading");
+    public l93(h73 h73Var) {
+        super(h73Var, "/swanAPI/hideNavigationBarLoading");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e73Var};
+            Object[] objArr = {h73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,35 +37,28 @@ public class l93 extends e83 {
         }
     }
 
-    @Override // com.baidu.tieba.e83
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h63 h63Var) {
+    @Override // com.baidu.tieba.h83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k63 k63Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h63Var)) == null) {
-            if (e83.b) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, k63Var)) == null) {
+            if (h83.b) {
                 Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            if (h63Var != null && h63Var.o0()) {
-                if (e83.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                return false;
-            }
-            q52 W = ur2.V().W();
+            t52 W = xr2.V().W();
             if (W == null) {
-                h32.c("navigationLoading", "manager is null");
+                k32.c("navigationLoading", "manager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            n52 m = W.m();
+            q52 m = W.m();
             if (m == null) {
-                h32.c("navigationLoading", "swanAppFragment is null");
+                k32.c("navigationLoading", "swanAppFragment is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!m.U2()) {
+            } else if (!m.Y1()) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                h32.c("navigationLoading", "show navigation loading progressbar fail");
+                k32.c("navigationLoading", "hide navigation loading progressbar fail");
                 return false;
             } else {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

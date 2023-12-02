@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface k0b {
-    l0b N();
+    void a();
 }

@@ -142,7 +142,7 @@ public class ShareThreadAdapter extends BaseStyleNormalAdapter<ShareThreadSysIte
             ChatShareCard chatShareCard = new ChatShareCard(context);
             chatShareCard.V = 1;
             chatShareCard.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds666), -1));
-            chatShareCard.setId(R.id.obfuscated_res_0x7f090f22);
+            chatShareCard.setId(R.id.obfuscated_res_0x7f090f23);
             chatShareCard.setChatRoomId(this.m);
             chatShareCard.setFid(this.n);
             chatShareCard.setFname(this.o);

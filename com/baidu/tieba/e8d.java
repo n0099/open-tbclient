@@ -1,48 +1,45 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ComponentFactory;
-import tbclient.FeedFeedback;
+import tbclient.FeedContentText;
 import tbclient.FeedKV;
-import tbclient.SidewayLayout;
+import tbclient.SidewayRecomComponent;
 /* loaded from: classes5.dex */
-public class e8d extends ltc {
+public class e8d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull SidewayLayout sidewayLayout) {
+    public static JSONObject b(@NonNull SidewayRecomComponent sidewayRecomComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sidewayLayout)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sidewayRecomComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (sidewayLayout.components != null) {
+            ktc.a(jSONObject, "type", sidewayRecomComponent.type);
+            FeedContentText feedContentText = sidewayRecomComponent.title;
+            if (feedContentText != null) {
+                ktc.a(jSONObject, "title", exc.b(feedContentText));
+            }
+            FeedContentText feedContentText2 = sidewayRecomComponent.desc;
+            if (feedContentText2 != null) {
+                ktc.a(jSONObject, "desc", exc.b(feedContentText2));
+            }
+            ktc.a(jSONObject, BigdayActivityConfig.IMG_URL, sidewayRecomComponent.img_url);
+            ktc.a(jSONObject, "corner_url", sidewayRecomComponent.corner_url);
+            if (sidewayRecomComponent.business_info != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (ComponentFactory componentFactory : sidewayLayout.components) {
-                    jSONArray.put(cwc.b(componentFactory));
+                for (FeedKV feedKV : sidewayRecomComponent.business_info) {
+                    jSONArray.put(rxc.b(feedKV));
                 }
-                ltc.a(jSONObject, "components", jSONArray);
+                ktc.a(jSONObject, "business_info", jSONArray);
             }
-            ComponentFactory componentFactory2 = sidewayLayout.title;
-            if (componentFactory2 != null) {
-                ltc.a(jSONObject, "title", cwc.b(componentFactory2));
-            }
-            FeedFeedback feedFeedback = sidewayLayout.feedback;
-            if (feedFeedback != null) {
-                ltc.a(jSONObject, "feedback", hxc.b(feedFeedback));
-            }
-            if (sidewayLayout.business_info != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (FeedKV feedKV : sidewayLayout.business_info) {
-                    jSONArray2.put(sxc.b(feedKV));
-                }
-                ltc.a(jSONObject, "business_info", jSONArray2);
-            }
+            ktc.a(jSONObject, "schema", sidewayRecomComponent.schema);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

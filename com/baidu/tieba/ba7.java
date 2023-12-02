@@ -1,19 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
+import android.text.TextPaint;
 import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
-public final class ba7 implements w97 {
+public class ba7 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View widget) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, widget) == null) {
+            Intrinsics.checkNotNullParameter(widget, "widget");
+        }
+    }
 
     public ba7() {
         Interceptable interceptable = $ic;
@@ -29,29 +37,25 @@ public final class ba7 implements w97 {
         }
     }
 
-    @Override // com.baidu.tieba.w97
-    public SpannableString b(Context context, x77 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
-        a67 b;
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            c87 g = richTextData.g();
-            SpannableString spannableString = new SpannableString(g.c());
-            if (g.b() != null) {
-                if ((clickableSpan instanceof x97) && (b = g.b()) != null) {
-                    ((x97) clickableSpan).a(ed7.a.a(b));
-                }
-                int length = g.c().length();
-                if (StringsKt__StringsJVMKt.endsWith$default(g.c(), " ", false, 2, null)) {
-                    length = g.c().length() - 1;
-                }
-                spannableString.setSpan(clickableSpan, 0, length, 33);
-            }
-            return spannableString;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
         }
-        return (SpannableString) invokeLLL.objValue;
+    }
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint ds) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ds) == null) {
+            Intrinsics.checkNotNullParameter(ds, "ds");
+            int i = this.a;
+            if (i == 0) {
+                ds.setColor(ds.linkColor);
+            } else {
+                ds.setColor(i);
+            }
+            ds.setUnderlineText(false);
+        }
     }
 }

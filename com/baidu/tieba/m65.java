@@ -1,260 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+@JvmName(name = "ItemTabLogUtil")
 /* loaded from: classes7.dex */
-public class m65 {
+public final class m65 {
     public static /* synthetic */ Interceptable $ic;
-    public static m65 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, DownloadData> a;
-    public final HashMap<String, DownloadData> b;
-    public final HashMap<String, String> c;
 
-    /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m65 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(m65 m65Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m65Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m65Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001118 && (customResponsedMessage instanceof DownloadMessage)) {
-                List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
-                if (ListUtils.isEmpty(data)) {
-                    return;
-                }
-                for (DownloadData downloadData : data) {
-                    if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {
-                        String str = ((ItemDownloadExtraData) downloadData.getExtra()).pkgName;
-                        int status = downloadData.getStatus();
-                        if (status != 0) {
-                            if (status != 2) {
-                                if (status == 4 && this.a.a.containsKey(str)) {
-                                    this.a.a.remove(str);
-                                    l65.a(downloadData, 400);
-                                    return;
-                                }
-                                return;
-                            }
-                            l65.a(downloadData, 600);
-                            return;
-                        } else if (this.a.a.containsKey(str)) {
-                            this.a.b.put(str, (DownloadData) this.a.a.get(str));
-                            this.a.a.remove(str);
-                            l65.a(downloadData, 700);
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                }
+    public static final int a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
+            if (i != 1) {
+                return i != 2 ? -1 : 2;
+            } else if (i2 != 1) {
+                return i2 != 2 ? -1 : 3;
+            } else {
+                return 4;
             }
         }
+        return invokeII.intValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m65 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(m65 m65Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m65Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m65Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                Object data = customResponsedMessage.getData();
-                if (data instanceof Intent) {
-                    Intent intent = (Intent) data;
-                    String g = uj5.g(intent);
-                    if (!PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) && !"android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
-                        if (!PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
-                            return;
-                        }
-                        this.a.l(g);
-                    } else if (this.a.b.containsKey(g)) {
-                        l65.a((DownloadData) this.a.b.get(g), 900);
-                        this.a.b.remove(g);
-                    }
-                }
-            }
-        }
-    }
-
-    public m65() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        h();
-        i();
-    }
-
-    public void d(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.a.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
-        }
-    }
-
-    public final void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.c.remove(str);
-            SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
-            edit.remove(str);
-            edit.commit();
-        }
-    }
-
-    public static m65 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d == null) {
-                d = new m65();
-            }
-            return d;
-        }
-        return (m65) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a aVar = new a(this, 2001118);
-            aVar.setPriority(-1);
-            MessageManager.getInstance().registerListener(aVar);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b bVar = new b(this, 2002504);
-            bVar.setPriority(-1);
-            MessageManager.getInstance().registerListener(bVar);
-        }
-    }
-
-    public void e(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.b.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
-        }
-    }
-
-    public String g(String str) {
+    public static final int b(String name) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.c.containsKey(str)) {
-                return this.c.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, name)) == null) {
+            Intrinsics.checkNotNullParameter(name, "name");
+            if (Intrinsics.areEqual(ItemCardHelper.a, name)) {
+                return 1;
             }
-            String string = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).getString(str, "");
-            this.c.put(str, string);
-            return string;
+            if (Intrinsics.areEqual(ItemCardHelper.b, name)) {
+                return 2;
+            }
+            return 9;
         }
-        return (String) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public void j(DownloadData downloadData) {
+    public static final void c(l65 itemLogData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.a.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+        if (interceptable == null || interceptable.invokeL(65538, null, itemLogData) == null) {
+            Intrinsics.checkNotNullParameter(itemLogData, "itemLogData");
+            StatisticItem statisticItem = new StatisticItem();
+            boolean z = false;
+            switch (itemLogData.j()) {
+                case 1:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_ALBUM_CLICK).param("obj_name", itemLogData.c()).param("obj_locate", itemLogData.d()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b()).param("uid", itemLogData.k());
+                    break;
+                case 2:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_TAG_CLICK).param("obj_name", itemLogData.c()).param("obj_locate", itemLogData.d()).param("fid", itemLogData.b());
+                    break;
+                case 3:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_RECOMMEND_CLICK).param("obj_name", itemLogData.c()).param("obj_locate", itemLogData.d()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b());
+                    break;
+                case 4:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_COMMENT_CLICK).param("obj_name", itemLogData.c()).param("obj_locate", itemLogData.d()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b());
+                    break;
+                case 5:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_SHOW).param("obj_name", itemLogData.c()).param("obj_source", itemLogData.g()).param("obj_locate", itemLogData.b()).param("obj_type", itemLogData.a());
+                    break;
+                case 6:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_RANKING).param("obj_name", itemLogData.c()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b());
+                    break;
+                case 7:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ORDER_DOWNLOAD_EXPORT).param("obj_name", itemLogData.c()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b()).param("uid", itemLogData.k()).param(TiebaStatic.Params.OBJ_PARAM2, itemLogData.a());
+                    break;
+                case 8:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ORDER_DOWNLOAD_CLICK).param("obj_name", itemLogData.c()).param("obj_type", itemLogData.h()).param("fid", itemLogData.b()).param("uid", itemLogData.k()).param("obj_source", itemLogData.g()).param("obj_param1", itemLogData.a());
+                    String e = itemLogData.e();
+                    if (!((e == null || e.length() == 0) ? true : true)) {
+                        statisticItem.param("obj_locate", itemLogData.e());
+                        break;
+                    }
+                    break;
+                case 9:
+                    statisticItem.key(CommonStatisticKey.KEY_ITEM_RECENT_UPDATE_SHOW).param("fid", itemLogData.b());
+                    break;
+                case 10:
+                    statisticItem.key(CommonStatisticKey.KEY_ITEM_RECENT_UPDATE_CLICK).param("fid", itemLogData.b());
+                    break;
+                case 11:
+                    statisticItem.key(CommonStatisticKey.KEY_ITEM_HOT_VIDEO_SHOW).param("fid", itemLogData.b()).param("obj_locate", itemLogData.d());
+                    break;
+                case 12:
+                    statisticItem.key(CommonStatisticKey.KEY_ITEM_HOT_VIDEO_CLICK).param("fid", itemLogData.b()).param("obj_locate", itemLogData.d());
+                    String i = itemLogData.i();
+                    if (!((i == null || i.length() == 0) ? true : true)) {
+                        statisticItem.param("post_id", itemLogData.i());
+                        break;
+                    }
+                    break;
+                case 13:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_SHOW).param("fid", itemLogData.b()).param("obj_id", itemLogData.c()).param("uid", itemLogData.k());
+                    break;
+                case 14:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_CLICK).param("fid", itemLogData.b()).param("obj_id", itemLogData.c()).param("uid", itemLogData.k());
+                    break;
+                case 15:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_SHOW).param("obj_id", itemLogData.c()).param("fid", itemLogData.b()).param("obj_locate", itemLogData.d()).param("uid", itemLogData.k());
+                    break;
+                case 16:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_CLICK).param("obj_id", itemLogData.c()).param("fid", itemLogData.b()).param("obj_name", itemLogData.f()).param("obj_type", itemLogData.h());
+                    break;
+                case 17:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_SHOW).param("fid", itemLogData.b()).param("uid", itemLogData.k()).param("obj_id", itemLogData.c());
+                    break;
+                case 18:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_CLICK).param("fid", itemLogData.b()).param("uid", itemLogData.k()).param("obj_id", itemLogData.c());
+                    break;
+                case 19:
+                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_IMG_CLICK).param("fid", itemLogData.b()).param("uid", itemLogData.k()).param("obj_id", itemLogData.c());
+                    break;
+            }
+            TiebaStatic.log(statisticItem);
         }
-    }
-
-    public void k(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.b.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
-        }
-    }
-
-    public void m(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) != null) || StringHelper.equals(this.c.get(str), str2)) {
-            return;
-        }
-        this.c.put(str, str2);
-        SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
-        edit.putString(str, str2);
-        edit.commit();
     }
 }

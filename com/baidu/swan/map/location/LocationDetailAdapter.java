@@ -6,32 +6,32 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tb4;
-import com.baidu.tieba.ub4;
+import com.baidu.tieba.wb4;
+import com.baidu.tieba.xb4;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public Context a;
     public RecyclerView b;
-    public List<ub4> c;
-    public tb4 d;
+    public List<xb4> c;
+    public wb4 d;
     public boolean e;
     public String f;
 
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, tb4 tb4Var) {
-        this(context, recyclerView, tb4Var, true);
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, wb4 wb4Var) {
+        this(context, recyclerView, wb4Var, true);
     }
 
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, tb4 tb4Var, boolean z) {
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, wb4 wb4Var, boolean z) {
         this.b = recyclerView;
         this.a = context;
-        this.d = tb4Var;
+        this.d = wb4Var;
         this.e = z;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        List<ub4> list = this.c;
+        List<xb4> list = this.c;
         if (list == null) {
             return 0;
         }
@@ -51,8 +51,8 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     public void o() {
-        for (ub4 ub4Var : this.c) {
-            ub4Var.b = false;
+        for (xb4 xb4Var : this.c) {
+            xb4Var.b = false;
         }
     }
 
@@ -64,7 +64,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return 101;
     }
 
-    public void setData(List<ub4> list) {
+    public void setData(List<xb4> list) {
         p(list, null);
     }
 
@@ -85,7 +85,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return new LocationFooterViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d008d, viewGroup, false));
     }
 
-    public void p(List<ub4> list, String str) {
+    public void p(List<xb4> list, String str) {
         if (list != null) {
             this.c = list;
             this.f = str;

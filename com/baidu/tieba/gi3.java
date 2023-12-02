@@ -1,33 +1,14 @@
 package com.baidu.tieba;
-
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public final class gi3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                a = hi3.d();
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return String.format("%s %s", str, a());
-        }
-        return (String) invokeL.objValue;
-    }
+public interface gi3 {
+    public static final fi3<Long> b = new fi3<>("index_cost_recent_launch_total");
+    public static final fi3<Long> c = new fi3<>("index_cost_recent_download");
+    public static final fi3<Long> d = new fi3<>("index_cost_recent_page_switch");
+    public static final fi3<Long> e = new fi3<>("index_cost_recent_page_rendered_initial");
+    public static final fi3<Long> f = new fi3<>("index_cost_current_page_rendered");
+    public static final fi3<Long> g = new fi3<>("index_cost_startup_page_first_rendered");
+    public static final fi3<Long> h = new fi3<>("index_storage_size");
+    public static final fi3<Long> i = new fi3<>("index_cost_on_screen");
+    public static final fi3<String> j = new fi3<>("index_start_up_api_info");
+    public static final fi3<String> k = new fi3<>("index_prelink_info");
 }

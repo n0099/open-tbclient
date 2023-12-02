@@ -16,11 +16,11 @@ public class ChannelInitHelper {
     public static String getFromByFile() {
         String str = null;
         try {
-            File GetFile = FileHelper.GetFile(TbConfig.FROM_FILE);
-            if (GetFile == null) {
+            File externalPrivateFile = FileHelper.getExternalPrivateFile(TbConfig.FROM_FILE);
+            if (externalPrivateFile == null) {
                 return null;
             }
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(GetFile));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(externalPrivateFile));
             str = bufferedReader.readLine();
             bufferedReader.close();
             return str;
@@ -102,9 +102,9 @@ public class ChannelInitHelper {
     public static void saveFromToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File CreateFile = FileHelper.CreateFile(TbConfig.FROM_FILE);
-                if (CreateFile != null) {
-                    FileWriter fileWriter = new FileWriter(CreateFile);
+                File createExternalFile = FileHelper.createExternalFile(TbConfig.FROM_FILE);
+                if (createExternalFile != null) {
+                    FileWriter fileWriter = new FileWriter(createExternalFile);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();

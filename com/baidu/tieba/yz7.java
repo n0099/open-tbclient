@@ -1,88 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.mainTab.FragmentDelegate;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.FragmentTabStructure;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.gametabs.NewSpecialFrsWebFragment;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.FrsSpriteNewUserGuide;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tieba.core.widget.SpriteBottomTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.ThemeColorInfo;
+import tbclient.ThemeElement;
 /* loaded from: classes9.dex */
-public class yz7 extends FragmentDelegate {
+public final class yz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public boolean isAvailable() {
-        InterceptResult invokeV;
+    public static final void a(SpriteBottomTipView.a aVar, FrsSpriteNewUserGuide.BubbleText bubbleText) {
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        ThemeColorInfo themeColorInfo;
+        ThemeElement themeElement;
+        ThemeColorInfo themeColorInfo2;
+        ThemeElement themeElement2;
+        FrsSpriteNewUserGuide.ButtonInfo buttonInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeLL(65536, null, aVar, bubbleText) == null) {
+            Intrinsics.checkNotNullParameter(aVar, "<this>");
+            ThemeColorInfo themeColorInfo3 = null;
+            if (bubbleText != null) {
+                str = bubbleText.title;
+            } else {
+                str = null;
+            }
+            if (StringUtils.isNull(str)) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0896);
+            }
+            aVar.t(str);
+            if (bubbleText != null) {
+                str2 = bubbleText.text;
+            } else {
+                str2 = null;
+            }
+            aVar.g(str2);
+            if (bubbleText != null && (buttonInfo = bubbleText.buttonInfo) != null) {
+                str3 = buttonInfo.text;
+            } else {
+                str3 = null;
+            }
+            aVar.e(str3);
+            if (bubbleText != null && (themeColorInfo2 = bubbleText.bgUrlTheme) != null && (themeElement2 = themeColorInfo2.day) != null) {
+                str4 = themeElement2.pattern_image;
+            } else {
+                str4 = null;
+            }
+            aVar.c(str4);
+            if (bubbleText != null && (themeColorInfo = bubbleText.bgUrlTheme) != null && (themeElement = themeColorInfo.dark) != null) {
+                str5 = themeElement.pattern_image;
+            } else {
+                str5 = null;
+            }
+            aVar.b(str5);
+            if (bubbleText != null) {
+                themeColorInfo3 = bubbleText.textColor;
+            }
+            b(aVar, themeColorInfo3);
         }
-        return invokeV.booleanValue;
     }
 
-    public yz7(int i, String str) {
+    public static final void b(SpriteBottomTipView.a aVar, ThemeColorInfo themeColorInfo) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, aVar, themeColorInfo) == null) && themeColorInfo != null) {
+            ThemeElement themeElement = themeColorInfo.day;
+            String str2 = null;
+            if (themeElement != null) {
+                str = themeElement.font_color;
+            } else {
+                str = null;
+            }
+            int f = tua.f(str);
+            if (!tua.e(f)) {
+                aVar.u(Integer.valueOf(f));
+                aVar.h(Integer.valueOf(f));
+            }
+            ThemeElement themeElement2 = themeColorInfo.dark;
+            if (themeElement2 != null) {
+                str2 = themeElement2.font_color;
+            }
+            int f2 = tua.f(str2);
+            if (!tua.e(f2)) {
+                aVar.w(Integer.valueOf(f2));
+                aVar.j(Integer.valueOf(f2));
             }
         }
-        FragmentTabStructure fragmentTabStructure = this.mFragement;
-        fragmentTabStructure.type = i;
-        NewSpecialFrsWebFragment newSpecialFrsWebFragment = (NewSpecialFrsWebFragment) fragmentTabStructure.frag;
-        newSpecialFrsWebFragment.v3(i);
-        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
-            if (str.contains("&ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            } else if (str.contains("?ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            }
-        }
-        newSpecialFrsWebFragment.O2(str);
     }
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public FragmentTabStructure createFragmentTabStructure() {
-        InterceptResult invokeV;
+    public static final void c(SpriteBottomTipView.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-            fragmentTabStructure.frag = new NewSpecialFrsWebFragment();
-            fragmentTabStructure.type = 101;
-            fragmentTabStructure.showIconType = FragmentTabStructure.SHOWTEXT;
-            return fragmentTabStructure;
+        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
+            Intrinsics.checkNotNullParameter(aVar, "<this>");
+            e65 e65Var = new e65();
+            e65Var.s(R.color.CAM_X0601, R.color.CAM_X0920);
+            e65Var.k(UtilHelper.getDimenPixelSize(R.dimen.tbds10), UtilHelper.getDimenPixelSize(R.dimen.tbds10));
+            e65Var.p(0);
+            e65Var.n(0);
+            e65Var.h(UtilHelper.getDimenPixelSize(R.dimen.tbds42));
+            e65Var.f(1);
+            e65Var.j(0, R.drawable.ic_icon_mybar_pure_list_arrow16_right, TBSpecificationButtonConfig.IconType.WEBP);
+            aVar.d(e65Var);
+            aVar.f(R.dimen.T_X07);
         }
-        return (FragmentTabStructure) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.mainTab.FragmentDelegate
-    public TbFragmentTabIndicator getTabIndicator(Context context) {
-        InterceptResult invokeL;
+    public static final void d(SpriteBottomTipView.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.mIndicator = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.mIndicator;
+        if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
+            Intrinsics.checkNotNullParameter(aVar, "<this>");
+            aVar.x(R.dimen.T_X05);
+            aVar.k(R.dimen.T_X07);
+            aVar.v(R.color.CAM_X0610);
+            aVar.i(R.color.CAM_X0610);
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 }

@@ -1,118 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ci3<ValueT> {
+public class ci3 extends h83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public ValueT b;
-    public a<ValueT> c;
 
-    /* loaded from: classes5.dex */
-    public interface a<ValueT> {
-        ValueT update() throws IllegalStateException;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r6v1, resolved type: com.baidu.tieba.ei3 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public ci3(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ci3(h73 h73Var) {
+        super(h73Var, "/swanAPI/updateTextarea");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {h73Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        ei3.a().h(this);
     }
 
-    public boolean c(a<ValueT> aVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.h83
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, k63 k63Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-            if (aVar == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, k63Var)) == null) {
+            if (h83.b) {
+                Log.d("UpdateTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            try {
-                if (!d(aVar.update())) {
-                    return false;
-                }
-                return true;
-            } catch (IllegalStateException e) {
-                h32.o("Tracer", "index update IllegalStateException " + e.getMessage());
+            k32.i("UpdateTextAreaAction", "UpdateTextAreaAction updateParams: " + optParamsAsJo);
+            String optString = optParamsAsJo.optString("slaveId");
+            String optString2 = optParamsAsJo.optString("componentId");
+            v22 v22Var = (v22) x22.b(optString, optString2);
+            if (v22Var == null) {
+                String str = "can't find textarea component:#" + optString2;
+                k32.c("UpdateTextAreaAction", str);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
                 return false;
             }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public CharSequence a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ValueT valuet = this.b;
-            if (valuet == null) {
-                return "";
+            w22 w22Var = (w22) v22Var.l();
+            w22Var.g(optParamsAsJo);
+            c22 G = v22Var.G(w22Var);
+            if (!G.a()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, G.b);
+                return false;
             }
-            return valuet.toString();
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c(this.c);
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.baidu.tieba.ei3 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public boolean d(ValueT valuet) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, valuet)) == null) {
-            this.b = valuet;
-            ei3.a().e(this);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            v22Var.W0(optString2);
             return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public ci3<ValueT> e(a<ValueT> aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            this.c = aVar;
-            b();
-            return this;
-        }
-        return (ci3) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.a, a());
-        }
-        return (String) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

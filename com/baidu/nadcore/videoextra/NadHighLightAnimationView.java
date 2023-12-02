@@ -24,6 +24,11 @@ public class NadHighLightAnimationView extends FrameLayout {
         addView(this.a, layoutParams);
     }
 
+    public void setMaxLines(int i) {
+        this.a.setMaxLines(i);
+        this.b.setMaxLines(i);
+    }
+
     public void setTextGravity(int i) {
         this.a.setGravity(i);
         this.b.setGravity(i);

@@ -1,21 +1,11 @@
 package com.baidu.tieba;
+
+import android.graphics.SurfaceTexture;
 /* loaded from: classes5.dex */
 public interface ckc {
-    void a();
+    void c();
 
-    boolean available();
+    void d(SurfaceTexture surfaceTexture);
 
-    boolean b(int i, boolean z);
-
-    int c();
-
-    void d(boolean z);
-
-    boolean e(Object obj);
-
-    int f();
-
-    void release();
-
-    boolean swapBuffer();
+    Object getWindow();
 }

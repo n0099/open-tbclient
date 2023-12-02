@@ -1,49 +1,35 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.collection.ArraySet;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hf2 implements gf2 {
+public class hf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
 
-    public hf2() {
+    @SuppressLint({"SwitchIntDef"})
+    public static sf2 a(@NonNull qf2 qf2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new String[]{op2.c().getDatabasePath("ai_apps.db").getAbsolutePath(), op2.c().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
-    }
-
-    @Override // com.baidu.tieba.gf2
-    public ArraySet<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String K = km4.K(str);
-                if (!TextUtils.isEmpty(K)) {
-                    arraySet.add(K);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, qf2Var)) == null) {
+            int i = qf2Var.a;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return new rf2(qf2Var);
+                        }
+                        return new vf2(qf2Var);
+                    }
+                    return new tf2(qf2Var);
                 }
+                return new wf2(qf2Var);
             }
-            h32.k("SwanDatabaseCollector", "recovery renameAllFiles:" + arraySet.toString());
-            return arraySet;
+            return new uf2(qf2Var);
         }
-        return (ArraySet) invokeV.objValue;
+        return (sf2) invokeL.objValue;
     }
 }

@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nx4;
-import com.baidu.tieba.sha;
+import com.baidu.tieba.qx4;
+import com.baidu.tieba.wha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class BannerView extends RelativeLayout {
     public float i;
     public String j;
     public boolean k;
-    public nx4 l;
+    public qx4 l;
     public String m;
     public b n;
     public View.OnClickListener o;
@@ -166,11 +166,11 @@ public class BannerView extends RelativeLayout {
         h(context);
     }
 
-    public void setBannerData(nx4 nx4Var) {
+    public void setBannerData(qx4 qx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nx4Var) == null) {
-            this.l = nx4Var;
-            sha.f(nx4Var.g, this.f, nx4Var.h, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, qx4Var) == null) {
+            this.l = qx4Var;
+            wha.f(qx4Var.g, this.f, qx4Var.h, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 

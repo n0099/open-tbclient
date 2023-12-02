@@ -5,21 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
+import tbclient.ItemThemeColor;
 import tbclient.ItemThemeColorElement;
 /* loaded from: classes6.dex */
-public class j4d extends ltc {
+public class j4d extends ktc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ItemThemeColorElement itemThemeColorElement) {
+    public static JSONObject b(@NonNull ItemThemeColor itemThemeColor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemThemeColorElement)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemThemeColor)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ltc.a(jSONObject, "top_color", itemThemeColorElement.top_color);
-            ltc.a(jSONObject, "bottom_color", itemThemeColorElement.bottom_color);
-            ltc.a(jSONObject, "edit_button_color", itemThemeColorElement.edit_button_color);
+            ItemThemeColorElement itemThemeColorElement = itemThemeColor.day;
+            if (itemThemeColorElement != null) {
+                ktc.a(jSONObject, "day", i4d.b(itemThemeColorElement));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

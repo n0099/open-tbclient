@@ -79,8 +79,8 @@ public final class g extends com.kwad.components.ad.interstitial.e.b {
     }
 
     private void dw() {
-        View findViewById = this.jK.jL.findViewById(R.id.obfuscated_res_0x7f0912e0);
-        View findViewById2 = this.jK.jL.findViewById(R.id.obfuscated_res_0x7f0914ad);
+        View findViewById = this.jK.jL.findViewById(R.id.obfuscated_res_0x7f0912e1);
+        View findViewById2 = this.jK.jL.findViewById(R.id.obfuscated_res_0x7f0914ae);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
         layoutParams.weight = 2.68f;
         findViewById.setLayoutParams(layoutParams);
@@ -184,10 +184,10 @@ public final class g extends com.kwad.components.ad.interstitial.e.b {
         AdTemplate adTemplate = cVar.mAdTemplate;
         this.mAdTemplate = adTemplate;
         this.mAdInfo = com.kwad.sdk.core.response.b.e.dP(adTemplate);
-        this.kP.kS = (ImageView) this.jK.jL.findViewById(R.id.obfuscated_res_0x7f091306);
-        this.kP.kT = (TextView) this.jK.jL.findViewById(R.id.obfuscated_res_0x7f09130a);
-        this.kP.kU = (TextView) this.jK.jL.findViewById(R.id.obfuscated_res_0x7f091302);
-        this.kP.kV = (KsPriceView) this.jK.jL.findViewById(R.id.obfuscated_res_0x7f09140a);
+        this.kP.kS = (ImageView) this.jK.jL.findViewById(R.id.obfuscated_res_0x7f091307);
+        this.kP.kT = (TextView) this.jK.jL.findViewById(R.id.obfuscated_res_0x7f09130b);
+        this.kP.kU = (TextView) this.jK.jL.findViewById(R.id.obfuscated_res_0x7f091303);
+        this.kP.kV = (KsPriceView) this.jK.jL.findViewById(R.id.obfuscated_res_0x7f09140b);
         d(this.mAdInfo);
         a(this.kP, this.kQ, this.mAdInfo, this.mAdTemplate);
     }

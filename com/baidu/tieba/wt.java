@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class wt extends vs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,13 +68,13 @@ public class wt extends vs {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: z */
-    public void onBindDataToView(cw4 cw4Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cw4Var) == null) {
-            if (cw4Var != null) {
-                this.i = cw4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048583, this, fw4Var) == null) {
+            if (fw4Var != null) {
+                this.i = fw4Var.getThreadData();
             }
-            this.h.setData(cw4Var);
+            this.h.setData(fw4Var);
         }
     }
 

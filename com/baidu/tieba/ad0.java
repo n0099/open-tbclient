@@ -46,11 +46,11 @@ public class ad0 extends re0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ve0Var, map, ze0Var)) == null) {
             super.b(context, ve0Var, map, ze0Var);
-            String str = (String) ny0.b(ve0Var.d(), "params");
+            String str = (String) py0.b(ve0Var.d(), "params");
             if (TextUtils.isEmpty(str)) {
                 return true;
             }
-            JSONObject c = my0.c(str);
+            JSONObject c = oy0.c(str);
             String optString = c.optString("packageName");
             String optString2 = c.optString("deeplinkUrl");
             if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {

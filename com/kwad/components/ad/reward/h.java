@@ -292,9 +292,9 @@ public final class h extends com.kwad.components.core.proxy.g {
 
     public static View a(final DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, c cVar, final a aVar) {
         View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0524, viewGroup, false);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914d8)).setText(cVar.getTitle());
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09132c);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09133c);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914d9)).setText(cVar.getTitle());
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09132d);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09133d);
         textView.setText(cVar.fZ());
         textView2.setText(cVar.ga());
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.h.3
@@ -330,9 +330,9 @@ public final class h extends com.kwad.components.core.proxy.g {
 
     private View a(final h hVar, LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, c cVar, final a aVar) {
         View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0525, viewGroup, false);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091422)).setText(e(inflate.getContext(), cVar.qc));
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091420);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09141f);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091423)).setText(e(inflate.getContext(), cVar.qc));
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091421);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091420);
         textView.setText(cVar.fZ());
         textView2.setText(cVar.ga());
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.h.5
@@ -367,11 +367,11 @@ public final class h extends com.kwad.components.core.proxy.g {
         if (aVar instanceof com.kwad.components.ad.reward.l.b.a) {
             com.kwad.components.ad.reward.l.b.a.a((com.kwad.components.ad.reward.l.b.a) aVar, inflate.getContext(), adTemplate);
         }
-        ((RewardTaskStepView) inflate.findViewById(R.id.obfuscated_res_0x7f09147e)).a(aVar.jo(), cVar.pY);
-        KSImageLoader.loadAppIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09147d), cVar.gd(), adTemplate, 12);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09147b);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09147c);
-        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09147f);
+        ((RewardTaskStepView) inflate.findViewById(R.id.obfuscated_res_0x7f09147f)).a(aVar.jo(), cVar.pY);
+        KSImageLoader.loadAppIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09147e), cVar.gd(), adTemplate, 12);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09147c);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09147d);
+        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091480);
         StringBuilder sb = new StringBuilder();
         sb.append(aVar.jp());
         String sb2 = sb.toString();
@@ -505,9 +505,9 @@ public final class h extends com.kwad.components.core.proxy.g {
 
     public static View c(final DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, c cVar, AdTemplate adTemplate, final a aVar) {
         View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0506, viewGroup, false);
-        KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091460), cVar.pZ, adTemplate);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09145f)).setText(cVar.getTitle());
-        inflate.findViewById(R.id.obfuscated_res_0x7f09145c).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.h.9
+        KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091461), cVar.pZ, adTemplate);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091460)).setText(cVar.getTitle());
+        inflate.findViewById(R.id.obfuscated_res_0x7f09145d).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.h.9
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 dialogFragment.dismiss();
@@ -517,7 +517,7 @@ public final class h extends com.kwad.components.core.proxy.g {
                 }
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f09145e).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.h.10
+        inflate.findViewById(R.id.obfuscated_res_0x7f09145f).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.h.10
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 a aVar2 = a.this;
@@ -526,7 +526,7 @@ public final class h extends com.kwad.components.core.proxy.g {
                 }
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f09145d).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.h.2
+        inflate.findViewById(R.id.obfuscated_res_0x7f09145e).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.h.2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 dialogFragment.dismiss();

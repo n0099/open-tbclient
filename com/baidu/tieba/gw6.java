@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.easteregg.data.EasterEggAdData;
+import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 @Service
 /* loaded from: classes6.dex */
-public final class gw6 implements b25 {
+public final class gw6 implements wa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.b25
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_EASTER_EGG_STRATEGY" : (String) invokeV.objValue;
-    }
+    public final fw6 a;
 
     public gw6() {
         Interceptable interceptable = $ic;
@@ -30,17 +27,32 @@ public final class gw6 implements b25 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+        Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
+        this.a = new fw6(inst);
     }
 
-    @Override // com.baidu.tieba.b25
-    public z15 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wa5
+    public void parseJson(JSONObject json) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new fw6();
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            try {
+                JSONObject optJSONObject2 = json.optJSONObject("floating_icon");
+                if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("easter_egg")) != null) {
+                    EasterEggAdDataHolder.b.a().c(EasterEggAdData.Companion.b(optJSONObject));
+                    fw6 fw6Var = this.a;
+                    String jSONObject = optJSONObject.toString();
+                    Intrinsics.checkNotNullExpressionValue(jSONObject, "easterEggJsonObject.toString()");
+                    fw6Var.c(jSONObject);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        return (z15) invokeV.objValue;
     }
 }

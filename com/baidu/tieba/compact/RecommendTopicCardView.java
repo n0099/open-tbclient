@@ -10,10 +10,10 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gb7;
-import com.baidu.tieba.gc8;
-import com.baidu.tieba.qc8;
-import com.baidu.tieba.qr6;
+import com.baidu.tieba.kb7;
+import com.baidu.tieba.kc8;
+import com.baidu.tieba.uc8;
+import com.baidu.tieba.ur6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,10 +25,10 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\n\u001a\u00020\u000bH\u0016J\u000e\u0010\f\u001a\u00020\u000b2\u0006\u0010\r\u001a\u00020\u000eR\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/compact/RecommendTopicCardView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "topicCardLayout", "Lcom/baidu/tieba/homepage/concern/view/RecommendTopicCardLayout;", "onChangeSkin", "", StickerDataChangeType.UPDATE, "data", "Lcom/baidu/tieba/homepage/concern/data/RecommendTopicCardData;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class RecommendTopicCardView extends FrameLayout implements gb7 {
+public final class RecommendTopicCardView extends FrameLayout implements kb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qc8 a;
+    public uc8 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -81,11 +81,11 @@ public final class RecommendTopicCardView extends FrameLayout implements gb7 {
         } else {
             tbPageContext = null;
         }
-        tbPageContext = context instanceof qr6 ? ((qr6) context).getPageContext() : tbPageContext;
+        tbPageContext = context instanceof ur6 ? ((ur6) context).getPageContext() : tbPageContext;
         if (tbPageContext != null) {
-            qc8 qc8Var = new qc8(tbPageContext);
-            this.a = qc8Var;
-            if (qc8Var != null && (c = qc8Var.c()) != null) {
+            uc8 uc8Var = new uc8(tbPageContext);
+            this.a = uc8Var;
+            if (uc8Var != null && (c = uc8Var.c()) != null) {
                 addView(c, new FrameLayout.LayoutParams(-1, -2));
             }
         }
@@ -96,26 +96,26 @@ public final class RecommendTopicCardView extends FrameLayout implements gb7 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public final void a(gc8 data) {
+    public final void a(kc8 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            qc8 qc8Var = this.a;
-            if (qc8Var != null) {
-                qc8Var.e(data);
+            uc8 uc8Var = this.a;
+            if (uc8Var != null) {
+                uc8Var.e(data);
             }
             f();
         }
     }
 
-    @Override // com.baidu.tieba.gb7
+    @Override // com.baidu.tieba.kb7
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             EMManager.from(this).setCorner(R.string.J_X06).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0206);
-            qc8 qc8Var = this.a;
-            if (qc8Var != null) {
-                qc8Var.onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
+            uc8 uc8Var = this.a;
+            if (uc8Var != null) {
+                uc8Var.onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

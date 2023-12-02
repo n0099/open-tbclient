@@ -39,9 +39,9 @@ public final class g extends s implements View.OnClickListener {
     }
 
     public final void f(ViewGroup viewGroup) {
-        super.a(viewGroup, R.id.obfuscated_res_0x7f091329, R.id.obfuscated_res_0x7f091327);
+        super.a(viewGroup, R.id.obfuscated_res_0x7f09132a, R.id.obfuscated_res_0x7f091328);
         if (this.hz == null) {
-            this.hz = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091328);
+            this.hz = (TextView) this.sy.findViewById(R.id.obfuscated_res_0x7f091329);
         }
         this.sy.setOnClickListener(this);
     }
@@ -58,7 +58,7 @@ public final class g extends s implements View.OnClickListener {
         if (view2 == null) {
             return null;
         }
-        int dimensionPixelSize = view2.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704d5);
+        int dimensionPixelSize = view2.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704d6);
         Interpolator create = PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f);
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, -dimensionPixelSize).setDuration(500L);

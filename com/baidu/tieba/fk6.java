@@ -1,74 +1,74 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.browser.exception.TbWebViewException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.Map;
-import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class fk6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ik6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <E> boolean a(Collection<E> collection) {
-        InterceptResult invokeL;
+    public static void c(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, collection)) == null) {
-            if (collection != null && !collection.isEmpty()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(65539, null, th) == null) {
         }
-        return invokeL.booleanValue;
     }
 
-    public static <K, V> boolean b(Map<K, V> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947767064, "Lcom/baidu/tieba/fk6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947767064, "Lcom/baidu/tieba/fk6;");
+                return;
+            }
         }
-        return invokeL.booleanValue;
+        a = new ik6() { // from class: com.baidu.tieba.ek6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.ik6
+            public final void a(Throwable th) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, th) == null) {
+                    fk6.b(th);
+                }
+            }
+        };
     }
 
-    public static boolean c(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public static void a(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
-            if (jSONArray != null && jSONArray.length() != 0) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(65537, null, th) == null) {
+            throw new RuntimeException(th);
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                return false;
-            }
-            return true;
+    public static /* synthetic */ void b(Throwable th) {
+        if (!gj6.a()) {
+            c(th);
+        } else {
+            a(th);
+            throw null;
         }
-        return invokeL.booleanValue;
     }
 
-    public static <E> boolean e(E[] eArr) {
-        InterceptResult invokeL;
+    public static void d(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eArr)) == null) {
-            if (eArr != null && eArr.length != 0) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
+            if (!(th instanceof TbWebViewException)) {
+                th = new TbWebViewException(th);
             }
-            return true;
+            a.a(th);
         }
-        return invokeL.booleanValue;
     }
 }

@@ -1,41 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class gr4 {
+public class gr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(boolean z, boolean z2, String str, @Nullable String str2);
-    }
-
-    public abstract void a();
-
-    public abstract void d();
-
-    public abstract boolean e();
-
-    public abstract MarkData f();
-
-    public abstract String g();
-
-    public abstract void h(boolean z);
-
-    public abstract void i(MarkData markData);
-
-    public abstract void j(a aVar);
+    public String a;
+    public int b;
 
     public gr4() {
         Interceptable interceptable = $ic;
@@ -51,29 +27,47 @@ public abstract class gr4 {
         }
     }
 
-    public static gr4 b(BaseActivity baseActivity) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, gr4.class, baseActivity);
-            if (runTask != null && runTask.getData() != null) {
-                return (gr4) runTask.getData();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (gr4) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static gr4 c(BaseFragmentActivity baseFragmentActivity) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, gr4.class, baseFragmentActivity);
-            if (runTask != null && runTask.getData() != null) {
-                return (gr4) runTask.getData();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (gr4) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public gr4(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = i;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+        }
     }
 }

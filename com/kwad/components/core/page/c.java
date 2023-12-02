@@ -88,7 +88,7 @@ public final class c extends com.kwad.components.core.l.c<com.kwad.components.co
 
     @Override // com.kwad.components.core.l.c
     public final void kp() {
-        this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091512);
+        this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091513);
     }
 
     public final void pc() {

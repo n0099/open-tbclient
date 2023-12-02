@@ -1,23 +1,31 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNewMessage;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class z49 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile z49 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public z49() {
@@ -34,101 +42,164 @@ public class z49 {
         }
     }
 
-    public static z49 a() {
-        InterceptResult invokeV;
+    public static void a(@NonNull ChatRoomInfo chatRoomInfo, @NonNull ChatMsg chatMsg) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (z49.class) {
-                    if (a == null) {
-                        a = new z49();
-                    }
-                }
-            }
-            return a;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, chatRoomInfo, chatMsg) != null) || TextUtils.isEmpty(chatMsg.getMsgContent())) {
+            return;
         }
-        return (z49) invokeV.objValue;
-    }
-
-    public void b(long j, String str, String str2, String str3, String str4, long j2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, str2, str3, str4, Long.valueOf(j2)}) == null) && j != 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-            wt8.j().r(TbadkCoreApplication.getCurrentAccount(), str, str2, str3, str4, j, 0L, j2, true);
-        }
-    }
-
-    public void c(@Nullable List<ChatRoomInfo> list, @Nullable List<ChatRoomInfo> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
-            HashMap hashMap = new HashMap();
-            HashMap hashMap2 = new HashMap();
-            if (list == null) {
-                list = new ArrayList<>();
+        try {
+            JSONObject jSONObject = new JSONObject(chatMsg.getMsgContent());
+            int optInt = jSONObject.optInt(TableDefine.MessageColumns.COLUME_SERVICE_TYPE);
+            JSONObject optJSONObject = jSONObject.optJSONObject("service_info");
+            if (optJSONObject == null) {
+                return;
             }
-            if (list2 == null) {
-                list2 = new ArrayList<>();
-            }
-            for (ChatRoomInfo chatRoomInfo : list) {
-                if (chatRoomInfo != null) {
-                    hashMap.put(Long.valueOf(chatRoomInfo.getRoomId()), chatRoomInfo);
-                }
-            }
-            for (ChatRoomInfo chatRoomInfo2 : list2) {
-                if (chatRoomInfo2 != null) {
-                    hashMap2.put(Long.valueOf(chatRoomInfo2.getRoomId()), chatRoomInfo2);
-                }
-            }
-            if (ny0.c(hashMap)) {
-                if (ny0.c(hashMap2)) {
-                    return;
-                }
-                for (ChatRoomInfo chatRoomInfo3 : list2) {
-                    if (chatRoomInfo3 != null) {
-                        b(chatRoomInfo3.getRoomId(), chatRoomInfo3.getName(), chatRoomInfo3.getAvatar(), chatRoomInfo3.getForumId(), chatRoomInfo3.getForumName(), chatRoomInfo3.getTimestamp());
-                    }
-                }
-            } else if (ny0.c(hashMap2)) {
-                if (ny0.c(hashMap)) {
-                    return;
-                }
-                for (ChatRoomInfo chatRoomInfo4 : list) {
-                    if (chatRoomInfo4 != null) {
-                        d(chatRoomInfo4.getRoomId(), chatRoomInfo4.getName(), chatRoomInfo4.getAvatar(), false);
-                    }
-                }
+            String str2 = "";
+            if (!optJSONObject.has("msg_from_baidu_uk")) {
+                str = "";
             } else {
-                if (!ny0.c(hashMap2) && hashMap2.entrySet() != null && hashMap2.entrySet().iterator() != null) {
-                    for (Map.Entry entry : hashMap2.entrySet()) {
-                        if (entry != null && entry.getValue() != null) {
-                            if (hashMap.containsKey(entry.getKey())) {
-                                if (!((ChatRoomInfo) hashMap.get(entry.getKey())).isSubscribe()) {
-                                    d(((ChatRoomInfo) entry.getValue()).getRoomId(), ((ChatRoomInfo) entry.getValue()).getName(), ((ChatRoomInfo) entry.getValue()).getAvatar(), true);
-                                }
-                            } else {
-                                b(((ChatRoomInfo) entry.getValue()).getRoomId(), ((ChatRoomInfo) entry.getValue()).getName(), ((ChatRoomInfo) entry.getValue()).getAvatar(), ((ChatRoomInfo) entry.getValue()).getForumId(), ((ChatRoomInfo) entry.getValue()).getForumName(), ((ChatRoomInfo) entry.getValue()).getTimestamp());
-                            }
-                        }
-                    }
+                str = BIMManager.getBdUidFromBdUK(optJSONObject.optString("msg_from_baidu_uk"));
+            }
+            if (str.equals(TbadkCoreApplication.getCurrentAccount()) && optJSONObject.has("react_type") && optJSONObject.optInt("react_type") == 1) {
+                ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
+                if (newMessage == null) {
+                    newMessage = new ChatNewMessage();
+                    chatRoomInfo.setNewMessage(newMessage);
                 }
-                if (!ny0.c(hashMap) && hashMap.entrySet() != null && hashMap.entrySet().iterator() != null) {
-                    for (Map.Entry entry2 : hashMap.entrySet()) {
-                        if (entry2 != null && entry2.getValue() != null) {
-                            if (!hashMap2.containsKey(entry2.getKey())) {
-                                d(((ChatRoomInfo) entry2.getValue()).getRoomId(), ((ChatRoomInfo) entry2.getValue()).getName(), ((ChatRoomInfo) entry2.getValue()).getAvatar(), false);
-                            } else if (((ChatRoomInfo) hashMap2.get(entry2.getKey())).getIsShow() == 0 && TextUtils.isEmpty(((ChatRoomInfo) hashMap2.get(entry2.getKey())).getName())) {
-                                d(((ChatRoomInfo) entry2.getValue()).getRoomId(), ((ChatRoomInfo) entry2.getValue()).getName(), ((ChatRoomInfo) entry2.getValue()).getAvatar(), false);
-                            }
-                        }
-                    }
+                if (optInt != 20000 || ChatNewMessage.getSpecialMsgPriority(newMessage.getSpecialType()) > ChatNewMessage.getSpecialMsgPriority(ChatNewMessage.TYPE_EMOJI_MSG)) {
+                    return;
                 }
+                newMessage.setSpecialType(ChatNewMessage.TYPE_EMOJI_MSG);
+                newMessage.setSpecialMsg(ChatNewMessage.TYPE_EMOJI_MSG_CONTENT);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("is_visible", 1);
+                jSONObject2.put("is_countable", 0);
+                if (!StringUtils.isNull(newMessage.getFromName())) {
+                    str2 = newMessage.getFromName() + ": ";
+                }
+                jSONObject2.put("show_content", str2 + newMessage.getContent());
+                optJSONObject.put("msg_conf", jSONObject2);
+                chatMsg.setMsgContent(jSONObject.toString());
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void b(@NonNull ChatRoomInfo chatRoomInfo, @NonNull ChatMsg chatMsg) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, chatRoomInfo, chatMsg) != null) || TextUtils.isEmpty(chatMsg.getMsgContent())) {
+            return;
+        }
+        try {
+            int optInt = new JSONObject(chatMsg.getMsgContent()).optInt(TableDefine.MessageColumns.COLUME_SERVICE_TYPE);
+            ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
+            if (newMessage == null) {
+                newMessage = new ChatNewMessage();
+                chatRoomInfo.setNewMessage(newMessage);
+            }
+            if (optInt != 7001) {
+                if (optInt != 7022 || ChatNewMessage.getSpecialMsgPriority(newMessage.getSpecialType()) > ChatNewMessage.getSpecialMsgPriority("activity")) {
+                    return;
+                }
+                newMessage.setSpecialType("activity");
+                newMessage.setSpecialMsg(ChatNewMessage.TYPE_ACTIVITY_MSG_CONTENT);
+            } else if (ChatNewMessage.getSpecialMsgPriority(newMessage.getSpecialType()) > ChatNewMessage.getSpecialMsgPriority("notice")) {
+            } else {
+                newMessage.setSpecialType("notice");
+                newMessage.setSpecialMsg(ChatNewMessage.TYPE_NOTICE_MSG_CONTENT);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void c(@NonNull ChatRoomInfo chatRoomInfo, @NonNull ChatMsg chatMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, chatRoomInfo, chatMsg) == null) {
+            int notifyCmd = chatMsg.getNotifyCmd();
+            if (notifyCmd == 110) {
+                a(chatRoomInfo, chatMsg);
+            } else if (notifyCmd == 109) {
+                b(chatRoomInfo, chatMsg);
             }
         }
     }
 
-    public final void d(long j, String str, String str2, boolean z) {
+    @Nullable
+    public TbBaseMsg f(long j, @NonNull ChatMsg chatMsg) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, str2, Boolean.valueOf(z)}) == null) && j != 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            wt8.j().x(TbadkCoreApplication.getCurrentAccount(), j, str, str2, z);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, chatMsg)) == null) {
+            if (TextUtils.isEmpty(chatMsg.getChatRoomContentExt())) {
+                return null;
+            }
+            return d(chatMsg);
         }
+        return (TbBaseMsg) invokeJL.objValue;
+    }
+
+    public static long h(@NonNull ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, chatMsg)) == null) {
+            long millis = TimeUnit.MICROSECONDS.toMillis(chatMsg.getMsgId());
+            if (millis == 0) {
+                return System.currentTimeMillis();
+            }
+            return millis;
+        }
+        return invokeL.longValue;
+    }
+
+    public final TbBaseMsg d(@NonNull ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMsg)) == null) {
+            uv8<?, ?> a = cv8.c.a(chatMsg.getClass());
+            if (a == null) {
+                return null;
+            }
+            return (TbBaseMsg) aw8.b(a, mv8.a, chatMsg);
+        }
+        return (TbBaseMsg) invokeL.objValue;
+    }
+
+    public boolean e(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        TbSysMsg g;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatMsg)) == null) {
+            if (chatMsg == null || (g = g(chatMsg)) == null || g.getMsgConf() == null || !g.getMsgConf().isVisible()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Nullable
+    public TbSysMsg g(@NonNull ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, chatMsg)) == null) {
+            if (TextUtils.isEmpty(chatMsg.getMsgContent())) {
+                return null;
+            }
+            try {
+                TbSysMsg tbSysMsg = (TbSysMsg) d(chatMsg);
+                if (tbSysMsg != null && tbSysMsg.getMsgConf() != null) {
+                    if (tbSysMsg.getMsgConf().isVisible()) {
+                        return tbSysMsg;
+                    }
+                }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
+            }
+        }
+        return (TbSysMsg) invokeL.objValue;
     }
 }

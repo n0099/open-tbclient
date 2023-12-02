@@ -12,12 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
 public class xba extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+    public int a;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +30,7 @@ public class xba extends BaseCardInfo {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public xba() {
@@ -45,8 +43,11 @@ public class xba extends BaseCardInfo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
@@ -54,7 +55,7 @@ public class xba extends BaseCardInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return e;
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
     }

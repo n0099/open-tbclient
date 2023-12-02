@@ -85,7 +85,7 @@ public class zf0 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            vn0 a2 = this.a.a();
+            xn0 a2 = this.a.a();
             if (z) {
                 if (a2 != null && !TextUtils.isEmpty(a2.a)) {
                     return a2.a;
@@ -107,7 +107,7 @@ public class zf0 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            vn0 e = this.a.e();
+            xn0 e = this.a.e();
             if (z) {
                 if (e != null && !TextUtils.isEmpty(e.a)) {
                     return e.a;
@@ -129,7 +129,7 @@ public class zf0 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            vn0 f = this.a.f();
+            xn0 f = this.a.f();
             if (z) {
                 if (f != null && !TextUtils.isEmpty(f.a)) {
                     return f.a;
@@ -151,7 +151,7 @@ public class zf0 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            vn0 d = this.a.d();
+            xn0 d = this.a.d();
             if (z) {
                 if (d != null && !TextUtils.isEmpty(d.a)) {
                     return d.a;
@@ -173,7 +173,7 @@ public class zf0 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            vn0 c = this.a.c();
+            xn0 c = this.a.c();
             if (z) {
                 if (c != null && !TextUtils.isEmpty(c.a)) {
                     return c.a;
@@ -195,7 +195,7 @@ public class zf0 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            vn0 b2 = this.a.b();
+            xn0 b2 = this.a.b();
             if (z) {
                 if (b2 != null && !TextUtils.isEmpty(b2.a)) {
                     return b2.a;
@@ -217,7 +217,7 @@ public class zf0 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            vn0 g = this.a.g();
+            xn0 g = this.a.g();
             if (z) {
                 if (g != null && !TextUtils.isEmpty(g.a)) {
                     return g.a;
